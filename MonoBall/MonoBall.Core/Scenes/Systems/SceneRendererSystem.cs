@@ -19,7 +19,11 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly SceneManagerSystem _sceneManagerSystem;
         private SpriteBatch? _spriteBatch;
         private MapRendererSystem? _mapRendererSystem;
-        private NpcRendererSystem? _npcRendererSystem;
+        private SpriteRendererSystem? _spriteRendererSystem;
+
+        // Cached query descriptions to avoid allocations in hot paths
+        private readonly QueryDescription _cameraQuery =
+            new QueryDescription().WithAll<CameraComponent>();
 
         /// <summary>
         /// Initializes a new instance of the SceneRendererSystem.
@@ -60,13 +64,14 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
-        /// Sets the NpcRendererSystem reference for GameScene rendering.
+        /// Sets the SpriteRendererSystem reference for GameScene rendering.
         /// </summary>
-        /// <param name="npcRendererSystem">The NpcRendererSystem instance.</param>
-        public void SetNpcRendererSystem(NpcRendererSystem npcRendererSystem)
+        /// <param name="spriteRendererSystem">The SpriteRendererSystem instance.</param>
+        public void SetSpriteRendererSystem(SpriteRendererSystem spriteRendererSystem)
         {
-            _npcRendererSystem =
-                npcRendererSystem ?? throw new ArgumentNullException(nameof(npcRendererSystem));
+            _spriteRendererSystem =
+                spriteRendererSystem
+                ?? throw new ArgumentNullException(nameof(spriteRendererSystem));
         }
 
         /// <summary>
@@ -134,9 +139,8 @@ namespace MonoBall.Core.Scenes.Systems
                         // Capture the camera entity ID to avoid ref parameter issues in lambda
                         int cameraEntityId = scene.CameraEntityId.Value;
                         bool foundCamera = false;
-                        var cameraQuery = new QueryDescription().WithAll<CameraComponent>();
                         World.Query(
-                            in cameraQuery,
+                            in _cameraQuery,
                             (Entity entity, ref CameraComponent cam) =>
                             {
                                 if (entity.Id == cameraEntityId)
@@ -191,9 +195,8 @@ namespace MonoBall.Core.Scenes.Systems
         {
             CameraComponent? activeCamera = null;
 
-            var cameraQuery = new QueryDescription().WithAll<CameraComponent>();
             World.Query(
-                in cameraQuery,
+                in _cameraQuery,
                 (Entity entity, ref CameraComponent camera) =>
                 {
                     if (camera.IsActive)
@@ -281,12 +284,12 @@ namespace MonoBall.Core.Scenes.Systems
                 // The viewport management is handled inside MapRendererSystem.
                 _mapRendererSystem.Render(gameTime);
 
-                // Render NPCs (after maps, so NPCs appear on top)
-                if (_npcRendererSystem != null)
+                // Render sprites (NPCs and Players) (after maps, so sprites appear on top)
+                if (_spriteRendererSystem != null)
                 {
-                    // Note: NpcRendererSystem.Render() internally queries for the active camera
+                    // Note: SpriteRendererSystem.Render() internally queries for the active camera
                     // and applies the transform, sets viewport, etc. Similar to MapRendererSystem.
-                    _npcRendererSystem.Render(gameTime);
+                    _spriteRendererSystem.Render(gameTime);
                 }
             }
             finally

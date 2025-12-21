@@ -3,19 +3,14 @@ using Arch.Core;
 namespace MonoBall.Core.ECS.Events
 {
     /// <summary>
-    /// Event fired when an NPC's animation changes.
+    /// Event fired when a sprite's animation changes (works for both NPCs and Players).
     /// </summary>
-    public struct NpcAnimationChangedEvent
+    public struct SpriteAnimationChangedEvent
     {
         /// <summary>
-        /// The entity reference for the NPC.
+        /// The entity reference for the sprite.
         /// </summary>
-        public Entity NpcEntity { get; set; }
-
-        /// <summary>
-        /// The NPC definition ID.
-        /// </summary>
-        public string NpcId { get; set; }
+        public Entity Entity { get; set; }
 
         /// <summary>
         /// The name of the previous animation.

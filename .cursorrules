@@ -322,6 +322,78 @@ MonoBall.Core/
 - **Render systems separately**: Call render methods from `Game.Draw()`, not through Group
 - **Initialize systems** after dependencies are ready (in `LoadContent()` or after services are registered)
 
+### System Disposal and IDisposable
+
+#### When to Implement IDisposable
+- **Implement `IDisposable`** only when a system has managed resources that need cleanup (e.g., event subscriptions, cached collections that track entities)
+- **Do NOT implement `IDisposable`** if the system has no resources to dispose (most simple systems don't need it)
+- **Event subscriptions require disposal**: If a system subscribes to events, it MUST implement `IDisposable` and unsubscribe in `Dispose()`
+
+#### Dispose Pattern for Systems
+- **Use standard dispose pattern** with protected `Dispose(bool disposing)` method
+- **Use `new` keyword** on public `Dispose()` method if `BaseSystem` has a `Dispose()` method (avoids hiding warnings)
+- **Do NOT call `GC.SuppressFinalize(this)`** unless you have a finalizer (which systems typically don't need)
+- **Always check `_disposed` flag** to prevent multiple disposals
+- **Only dispose managed resources** in the `disposing` parameter check
+
+#### Dispose Pattern Template
+```csharp
+public class MySystem : BaseSystem<World, float>, IDisposable
+{
+    private bool _disposed = false;
+
+    public MySystem(World world) : base(world)
+    {
+        // Subscribe to events if needed
+        EventBus.Subscribe<SomeEvent>(OnSomeEvent);
+    }
+
+    // ... system logic ...
+
+    /// <summary>
+    /// Disposes the system and unsubscribes from events.
+    /// </summary>
+    /// <remarks>
+    /// Implements IDisposable to properly clean up event subscriptions.
+    /// Uses standard dispose pattern without finalizer since only managed resources are disposed.
+    /// Uses 'new' keyword because BaseSystem may have a Dispose() method with different signature.
+    /// </remarks>
+    public new void Dispose()
+    {
+        Dispose(true);
+    }
+
+    /// <summary>
+    /// Disposes the system and unsubscribes from events.
+    /// </summary>
+    /// <param name="disposing">Whether managed resources should be disposed.</param>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                // Unsubscribe from events
+                EventBus.Unsubscribe<SomeEvent>(OnSomeEvent);
+                // Clear any cached collections tracking entities
+                // Dispose any other managed resources
+            }
+            _disposed = true;
+        }
+    }
+}
+```
+
+#### Common Mistakes to Avoid
+- ❌ **Don't call `GC.SuppressFinalize(this)`** without a finalizer - it's unnecessary
+- ❌ **Don't use `override` keyword** for `Dispose()` - use `new` if `BaseSystem` has `Dispose()`
+- ❌ **Don't forget to unsubscribe** from events - causes memory leaks
+- ❌ **Don't dispose multiple times** - always check `_disposed` flag
+- ❌ **Don't implement `IDisposable` unnecessarily** - only if you have resources to dispose
+- ✅ **Do unsubscribe from all events** subscribed in constructor
+- ✅ **Do clear entity-tracking dictionaries** in Dispose to prevent memory leaks
+- ✅ **Do use `new` keyword** when `BaseSystem` has a `Dispose()` method to avoid compiler warnings
+
 ### Entity Management
 - **Create entities** with `World.Create()` and pass initial components
 - **Destroy entities** with `World.Destroy()` when no longer needed
@@ -426,7 +498,7 @@ systems.AfterUpdate(in deltaTime);
 
 ### Event Publishing
 - **Publish events** from systems or services after state changes
-- **Use EventBus.Publish()** or equivalent method to broadcast events
+- **Use EventBus.Send()** to broadcast events (takes ref parameter for struct events)
 - **Fire events at appropriate times**: After state changes are complete and valid
 - **Don't fire events** for internal operations that shouldn't be observable
 - **Log important events** for debugging (use Serilog)
@@ -474,13 +546,13 @@ var loadedEvent = new MapLoadedEvent
     MapId = mapId,
     MapEntity = mapEntity
 };
-EventBus.Publish(loadedEvent);
+EventBus.Send(ref loadedEvent);
 Log.Information("Map loaded: {MapId}", mapId);
 ```
 
 ### Example: Subscribing to Events
 ```csharp
-public class MapTransitionSystem : BaseSystem<World, float>
+public class MapTransitionSystem : BaseSystem<World, float>, IDisposable
 {
     public MapTransitionSystem(World world) : base(world)
     {
@@ -492,14 +564,24 @@ public class MapTransitionSystem : BaseSystem<World, float>
         // Handle map transition logic
     }
     
-    protected override void Dispose(bool disposing)
+    public new void Dispose()
     {
-        if (disposing)
-        {
-            EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
-        }
-        base.Dispose(disposing);
+        Dispose(true);
     }
+    
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
+            }
+            _disposed = true;
+        }
+    }
+    
+    private bool _disposed = false;
 }
 ```
 

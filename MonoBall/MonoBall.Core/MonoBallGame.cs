@@ -175,6 +175,10 @@ namespace MonoBall.Core
                     camera.Viewport.Height
                 );
 
+                // Initialize player system (creates player entity at camera position)
+                systemManager.PlayerSystem.InitializePlayer();
+                Log.Information("MonoBallGame.LoadContent: Player system initialized");
+
                 // Load the initial map
                 Log.Information(
                     "MonoBallGame.LoadContent: Loading initial map: base:map:hoenn/littleroot_town"

@@ -36,8 +36,10 @@ namespace MonoBall.Core.ECS
         private CameraViewportSystem _cameraViewportSystem = null!; // Initialized in Initialize()
         private MapRendererSystem _mapRendererSystem = null!; // Initialized in Initialize()
         private AnimatedTileSystem _animatedTileSystem = null!; // Initialized in Initialize()
-        private NpcAnimationSystem _npcAnimationSystem = null!; // Initialized in Initialize()
-        private NpcRendererSystem _npcRendererSystem = null!; // Initialized in Initialize()
+        private SpriteAnimationSystem _spriteAnimationSystem = null!; // Initialized in Initialize()
+        private SpriteRendererSystem _spriteRendererSystem = null!; // Initialized in Initialize()
+        private SpriteSheetSystem _spriteSheetSystem = null!; // Initialized in Initialize()
+        private PlayerSystem _playerSystem = null!; // Initialized in Initialize()
         private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
         private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
@@ -158,6 +160,24 @@ namespace MonoBall.Core.ECS
         }
 
         /// <summary>
+        /// Gets the player system.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
+        public PlayerSystem PlayerSystem
+        {
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new InvalidOperationException(
+                        "Systems are not initialized. Call Initialize() first."
+                    );
+                }
+                return _playerSystem;
+            }
+        }
+
+        /// <summary>
         /// Initializes all ECS systems. Should be called from LoadContent().
         /// </summary>
         /// <param name="spriteBatch">The sprite batch for rendering.</param>
@@ -206,17 +226,24 @@ namespace MonoBall.Core.ECS
                 _cameraService
             );
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
-            _npcRendererSystem = new NpcRendererSystem(
+            _spriteRendererSystem = new SpriteRendererSystem(
                 _world,
                 _graphicsDevice,
                 _spriteLoader,
                 _cameraService
             );
-            _npcRendererSystem.SetSpriteBatch(_spriteBatch);
+            _spriteRendererSystem.SetSpriteBatch(_spriteBatch);
 
             // Create animation systems
             _animatedTileSystem = new AnimatedTileSystem(_world, _tilesetLoader);
-            _npcAnimationSystem = new NpcAnimationSystem(_world, _spriteLoader);
+            _spriteAnimationSystem = new SpriteAnimationSystem(_world, _spriteLoader);
+
+            // Create sprite sheet system (handles sprite sheet switching for entities with SpriteSheetComponent)
+            // Must be initialized before systems that might publish SpriteSheetChangeRequestEvent
+            _spriteSheetSystem = new SpriteSheetSystem(_world, _spriteLoader);
+
+            // Create player system
+            _playerSystem = new PlayerSystem(_world, _cameraService, _spriteLoader);
 
             // Create scene systems
             _sceneManagerSystem = new SceneManagerSystem(_world);
@@ -228,9 +255,10 @@ namespace MonoBall.Core.ECS
             );
             _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
-            _sceneRendererSystem.SetNpcRendererSystem(_npcRendererSystem);
+            _sceneRendererSystem.SetSpriteRendererSystem(_spriteRendererSystem);
 
             // Group update systems (including scene systems)
+            // SpriteSheetSystem is added early to ensure it's initialized before systems that might publish SpriteSheetChangeRequestEvent
             _updateSystems = new Group<float>(
                 "UpdateSystems",
                 _mapLoaderSystem,
@@ -238,7 +266,9 @@ namespace MonoBall.Core.ECS
                 _cameraSystem,
                 _cameraViewportSystem,
                 _animatedTileSystem,
-                _npcAnimationSystem,
+                _spriteAnimationSystem,
+                _spriteSheetSystem,
+                _playerSystem,
                 _sceneManagerSystem,
                 _sceneInputSystem
             );
@@ -307,8 +337,10 @@ namespace MonoBall.Core.ECS
             _cameraViewportSystem = null!;
             _mapRendererSystem = null!;
             _animatedTileSystem = null!;
-            _npcAnimationSystem = null!;
-            _npcRendererSystem = null!;
+            _spriteAnimationSystem = null!;
+            _spriteRendererSystem = null!;
+            _spriteSheetSystem = null!;
+            _playerSystem = null!;
             _sceneManagerSystem = null!;
             _sceneInputSystem = null!;
             _sceneRendererSystem = null!;

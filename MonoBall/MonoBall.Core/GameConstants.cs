@@ -46,5 +46,15 @@ namespace MonoBall.Core
         /// Default camera rotation in radians (0 = no rotation).
         /// </summary>
         public const float DefaultCameraRotation = 0.0f;
+
+        /// <summary>
+        /// Default player sprite sheet ID.
+        /// </summary>
+        public const string DefaultPlayerSpriteSheetId = "base:sprite:players/may/normal";
+
+        /// <summary>
+        /// Default player initial animation name.
+        /// </summary>
+        public const string DefaultPlayerInitialAnimation = "face_south";
     }
 }

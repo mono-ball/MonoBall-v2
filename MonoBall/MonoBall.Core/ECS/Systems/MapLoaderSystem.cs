@@ -8,6 +8,7 @@ using MonoBall.Core;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Maps.Utilities;
 using MonoBall.Core.Mods;
@@ -673,95 +674,147 @@ namespace MonoBall.Core.ECS.Systems
 
             foreach (var npcDef in mapDefinition.Npcs)
             {
-                // Validate sprite definition exists
-                if (!_spriteLoader.ValidateSpriteDefinition(npcDef.SpriteId))
+                try
                 {
-                    Log.Warning(
-                        "MapLoaderSystem.CreateNpcs: Sprite definition not found for NPC {NpcId} (spriteId: {SpriteId}), skipping",
+                    var npcEntity = CreateNpcEntity(npcDef, mapDefinition, mapTilePosition);
+
+                    // Track NPC entity for unloading
+                    _mapNpcEntities[mapDefinition.Id].Add(npcEntity);
+                    npcsCreated++;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(
+                        ex,
+                        "MapLoaderSystem.CreateNpcs: Failed to create NPC {NpcId} for map {MapId}",
                         npcDef.NpcId,
-                        npcDef.SpriteId
+                        mapDefinition.Id
                     );
-                    continue;
+                    // Continue with next NPC
                 }
-
-                // Map direction to animation name
-                string animationName = MapDirectionToAnimation(npcDef.Direction);
-
-                // Validate animation exists
-                if (!_spriteLoader.ValidateAnimation(npcDef.SpriteId, animationName))
-                {
-                    Log.Warning(
-                        "MapLoaderSystem.CreateNpcs: Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
-                        animationName,
-                        npcDef.SpriteId,
-                        npcDef.NpcId
-                    );
-                    animationName = "face_south";
-                }
-
-                // Get sprite definition and animation to determine initial flip state
-                var spriteDefinition = _spriteLoader.GetSpriteDefinition(npcDef.SpriteId);
-                var animation = spriteDefinition?.Animations?.FirstOrDefault(a =>
-                    a.Name == animationName
-                );
-                bool flipHorizontal = animation?.FlipHorizontal ?? false;
-
-                // NPC coordinates in JSON are already in pixel coordinates (not tile coordinates)
-                // Add map pixel position offset to get world pixel position
-                Vector2 mapPixelPosition = new Vector2(
-                    mapTilePosition.X * mapDefinition.TileWidth,
-                    mapTilePosition.Y * mapDefinition.TileHeight
-                );
-                Vector2 npcPixelPosition = new Vector2(
-                    mapPixelPosition.X + npcDef.X,
-                    mapPixelPosition.Y + npcDef.Y
-                );
-
-                // Create NPC entity
-                var npcEntity = World.Create(
-                    new Components.NpcComponent
-                    {
-                        NpcId = npcDef.NpcId,
-                        Name = npcDef.Name,
-                        SpriteId = npcDef.SpriteId,
-                        MapId = mapDefinition.Id,
-                        Elevation = npcDef.Elevation,
-                        VisibilityFlag = npcDef.VisibilityFlag,
-                    },
-                    new Components.SpriteAnimationComponent
-                    {
-                        CurrentAnimationName = animationName,
-                        CurrentFrameIndex = 0,
-                        ElapsedTime = 0.0f,
-                        FlipHorizontal = flipHorizontal,
-                    },
-                    new Components.PositionComponent { Position = npcPixelPosition },
-                    new Components.RenderableComponent
-                    {
-                        IsVisible = true,
-                        RenderOrder = npcDef.Elevation,
-                        Opacity = 1.0f,
-                    }
-                );
-
-                // Preload sprite texture
-                _spriteLoader.GetSpriteTexture(npcDef.SpriteId);
-
-                // Fire NpcLoadedEvent
-                var loadedEvent = new Events.NpcLoadedEvent
-                {
-                    NpcEntity = npcEntity,
-                    NpcId = npcDef.NpcId,
-                    MapId = mapDefinition.Id,
-                };
-                EventBus.Send(ref loadedEvent);
-
-                // Track NPC entity for unloading
-                _mapNpcEntities[mapDefinition.Id].Add(npcEntity);
-                npcsCreated++;
             }
 
             return npcsCreated;
+        }
+
+        /// <summary>
+        /// Creates an NPC entity with all required components.
+        /// Validates inputs and throws exceptions if invalid.
+        /// </summary>
+        /// <param name="npcDef">The NPC definition.</param>
+        /// <param name="mapDefinition">The map definition.</param>
+        /// <param name="mapTilePosition">The map position in tile coordinates.</param>
+        /// <returns>The created NPC entity.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if npcDef or mapDefinition is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if sprite definition or animation is invalid.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if sprite loader is not available.</exception>
+        private Entity CreateNpcEntity(
+            NpcDefinition npcDef,
+            MapDefinition mapDefinition,
+            Vector2 mapTilePosition
+        )
+        {
+            if (npcDef == null)
+            {
+                throw new ArgumentNullException(nameof(npcDef));
+            }
+
+            if (mapDefinition == null)
+            {
+                throw new ArgumentNullException(nameof(mapDefinition));
+            }
+
+            if (_spriteLoader == null)
+            {
+                throw new InvalidOperationException(
+                    "SpriteLoader is required to create NPCs. Ensure SpriteLoader is provided in MapLoaderSystem constructor."
+                );
+            }
+
+            // Validate sprite definition exists (strict validation - throw on invalid)
+            SpriteValidationHelper.ValidateSpriteDefinition(
+                _spriteLoader,
+                npcDef.SpriteId,
+                "NPC",
+                npcDef.NpcId,
+                throwOnInvalid: true
+            );
+
+            // Map direction to animation name
+            string animationName = MapDirectionToAnimation(npcDef.Direction);
+
+            // Validate animation exists
+            // Note: NPCs use forgiving validation (logs warning, defaults to face_south) for resilience
+            // This differs from Player creation which uses strict validation (throws on invalid)
+            if (!_spriteLoader.ValidateAnimation(npcDef.SpriteId, animationName))
+            {
+                Log.Warning(
+                    "MapLoaderSystem.CreateNpcEntity: Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
+                    animationName,
+                    npcDef.SpriteId,
+                    npcDef.NpcId
+                );
+                animationName = "face_south";
+            }
+
+            // Get sprite definition and animation to determine initial flip state
+            var spriteDefinition = _spriteLoader.GetSpriteDefinition(npcDef.SpriteId);
+            var animation = spriteDefinition?.Animations?.FirstOrDefault(a =>
+                a.Name == animationName
+            );
+            bool flipHorizontal = animation?.FlipHorizontal ?? false;
+
+            // NPC coordinates in JSON are already in pixel coordinates (not tile coordinates)
+            // Add map pixel position offset to get world pixel position
+            Vector2 mapPixelPosition = new Vector2(
+                mapTilePosition.X * mapDefinition.TileWidth,
+                mapTilePosition.Y * mapDefinition.TileHeight
+            );
+            Vector2 npcPixelPosition = new Vector2(
+                mapPixelPosition.X + npcDef.X,
+                mapPixelPosition.Y + npcDef.Y
+            );
+
+            // Create NPC entity with all required components
+            var npcEntity = World.Create(
+                new Components.NpcComponent
+                {
+                    NpcId = npcDef.NpcId,
+                    Name = npcDef.Name,
+                    SpriteId = npcDef.SpriteId,
+                    MapId = mapDefinition.Id,
+                    Elevation = npcDef.Elevation,
+                    VisibilityFlag = npcDef.VisibilityFlag,
+                },
+                new Components.SpriteAnimationComponent
+                {
+                    CurrentAnimationName = animationName,
+                    CurrentFrameIndex = 0,
+                    ElapsedTime = 0.0f,
+                    FlipHorizontal = flipHorizontal,
+                },
+                new Components.PositionComponent { Position = npcPixelPosition },
+                new Components.RenderableComponent
+                {
+                    IsVisible = true,
+                    RenderOrder = npcDef.Elevation,
+                    Opacity = 1.0f,
+                }
+            );
+
+            // Preload sprite texture
+            _spriteLoader.GetSpriteTexture(npcDef.SpriteId);
+
+            // Fire NpcLoadedEvent
+            var loadedEvent = new Events.NpcLoadedEvent
+            {
+                NpcEntity = npcEntity,
+                NpcId = npcDef.NpcId,
+                MapId = mapDefinition.Id,
+            };
+            EventBus.Send(ref loadedEvent);
+
+            return npcEntity;
         }
     }
 }
