@@ -154,17 +154,30 @@ namespace MonoBall.Core.ECS.Systems
                     string directionStr = kvp.Key.ToLowerInvariant();
                     var connection = kvp.Value;
 
+                    // Get target map definition to calculate correct position
+                    var targetMapDefinition = _registry.GetById<MapDefinition>(connection.MapId);
+                    if (targetMapDefinition == null)
+                    {
+                        Log.Warning(
+                            "MapLoaderSystem.LoadMap: Target map definition not found for connection: {MapId}",
+                            connection.MapId
+                        );
+                        continue;
+                    }
+
+                    // Calculate connected map position based on direction and offset
+                    Vector2 connectedMapPosition = CalculateConnectedMapPosition(
+                        mapTilePosition,
+                        mapDefinition.Width,
+                        mapDefinition.Height,
+                        targetMapDefinition.Width,
+                        targetMapDefinition.Height,
+                        directionStr,
+                        connection.Offset
+                    );
+
                     if (!_loadedMaps.Contains(connection.MapId))
                     {
-                        // Calculate connected map position based on direction and offset
-                        Vector2 connectedMapPosition = CalculateConnectedMapPosition(
-                            mapTilePosition,
-                            mapDefinition.Width,
-                            mapDefinition.Height,
-                            directionStr,
-                            connection.Offset
-                        );
-
                         Log.Debug(
                             "MapLoaderSystem.LoadMap: Loading connected map {ConnectedMapId} at tile position ({TileX}, {TileY}) via {Direction} connection",
                             connection.MapId,
@@ -174,6 +187,31 @@ namespace MonoBall.Core.ECS.Systems
                         );
 
                         LoadMap(connection.MapId, connectedMapPosition);
+                    }
+                    else
+                    {
+                        // Map is already loaded - verify position matches expected position
+                        if (_mapPositions.TryGetValue(connection.MapId, out var existingPosition))
+                        {
+                            // Allow small floating point differences
+                            float tolerance = 0.01f;
+                            if (
+                                Math.Abs(existingPosition.X - connectedMapPosition.X) > tolerance
+                                || Math.Abs(existingPosition.Y - connectedMapPosition.Y) > tolerance
+                            )
+                            {
+                                Log.Warning(
+                                    "MapLoaderSystem.LoadMap: Position conflict for map {MapId}. Existing: ({ExistingX}, {ExistingY}), Expected: ({ExpectedX}, {ExpectedY}) via {Direction} connection from {SourceMapId}",
+                                    connection.MapId,
+                                    existingPosition.X,
+                                    existingPosition.Y,
+                                    connectedMapPosition.X,
+                                    connectedMapPosition.Y,
+                                    directionStr,
+                                    mapId
+                                );
+                            }
+                        }
                     }
                 }
             }
@@ -311,6 +349,8 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="sourceMapPosition">The source map's tile position.</param>
         /// <param name="sourceMapWidth">The source map's width in tiles.</param>
         /// <param name="sourceMapHeight">The source map's height in tiles.</param>
+        /// <param name="targetMapWidth">The target map's width in tiles.</param>
+        /// <param name="targetMapHeight">The target map's height in tiles.</param>
         /// <param name="direction">The connection direction (north, south, east, west).</param>
         /// <param name="offset">The offset in tiles.</param>
         /// <returns>The calculated tile position for the connected map.</returns>
@@ -318,26 +358,36 @@ namespace MonoBall.Core.ECS.Systems
             Vector2 sourceMapPosition,
             int sourceMapWidth,
             int sourceMapHeight,
+            int targetMapWidth,
+            int targetMapHeight,
             string direction,
             int offset
         )
         {
             return direction.ToLowerInvariant() switch
             {
+                // North: Target map's south edge aligns with source map's north edge
+                // Target map position = source position - target map height
                 "north" => new Vector2(
                     sourceMapPosition.X + offset,
-                    sourceMapPosition.Y - sourceMapHeight
+                    sourceMapPosition.Y - targetMapHeight
                 ),
+                // South: Target map's north edge aligns with source map's south edge
+                // Target map position = source position + source map height
                 "south" => new Vector2(
                     sourceMapPosition.X + offset,
                     sourceMapPosition.Y + sourceMapHeight
                 ),
+                // East: Target map's west edge aligns with source map's east edge
+                // Target map position = source position + source map width
                 "east" => new Vector2(
                     sourceMapPosition.X + sourceMapWidth,
                     sourceMapPosition.Y + offset
                 ),
+                // West: Target map's east edge aligns with source map's west edge
+                // Target map position = source position - target map width
                 "west" => new Vector2(
-                    sourceMapPosition.X - sourceMapWidth,
+                    sourceMapPosition.X - targetMapWidth,
                     sourceMapPosition.Y + offset
                 ),
                 _ => sourceMapPosition, // Default to same position if direction is invalid

@@ -55,6 +55,10 @@ namespace MonoBall.Core
 
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
+            // Set default window resolution
+            graphicsDeviceManager.PreferredBackBufferWidth = 1280;
+            graphicsDeviceManager.PreferredBackBufferHeight = 800;
+
             // Share GraphicsDeviceManager as a service.
             Services.AddService(typeof(GraphicsDeviceManager), graphicsDeviceManager);
 
