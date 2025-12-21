@@ -10,6 +10,8 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Localization;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Scenes;
+using MonoBall.Core.Scenes.Components;
 using Serilog;
 
 namespace MonoBall.Core
@@ -179,6 +181,26 @@ namespace MonoBall.Core
                 );
                 systemManager.MapLoaderSystem.LoadMap("base:map:hoenn/littleroot_town");
                 Log.Information("MonoBallGame.LoadContent: Initial map loaded");
+
+                // Create initial GameScene entity
+                var gameSceneComponent = new SceneComponent
+                {
+                    SceneId = "game:main",
+                    Priority = 50,
+                    CameraMode = SceneCameraMode.GameCamera,
+                    CameraEntityId = null,
+                    BlocksUpdate = false,
+                    BlocksDraw = false,
+                    BlocksInput = false,
+                    IsActive = true,
+                    IsPaused = false,
+                };
+
+                systemManager.SceneManagerSystem.CreateScene(
+                    gameSceneComponent,
+                    new GameSceneComponent()
+                );
+                Log.Information("MonoBallGame.LoadContent: Created initial GameScene");
             }
             else
             {
@@ -207,6 +229,19 @@ namespace MonoBall.Core
 
             // Update ECS systems (CameraViewportSystem handles window resize)
             systemManager?.Update(gameTime);
+
+            // Process input for scenes
+            if (systemManager != null)
+            {
+                var keyboardState = Keyboard.GetState();
+                var mouseState = Mouse.GetState();
+                var gamePadState = GamePad.GetState(PlayerIndex.One);
+                systemManager.SceneInputSystem.ProcessInput(
+                    keyboardState,
+                    mouseState,
+                    gamePadState
+                );
+            }
 
             base.Update(gameTime);
         }

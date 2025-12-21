@@ -10,6 +10,7 @@ using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Scenes.Systems;
 using Serilog;
 
 namespace MonoBall.Core.ECS
@@ -31,6 +32,9 @@ namespace MonoBall.Core.ECS
         private CameraSystem _cameraSystem = null!; // Initialized in Initialize()
         private CameraViewportSystem _cameraViewportSystem = null!; // Initialized in Initialize()
         private MapRendererSystem _mapRendererSystem = null!; // Initialized in Initialize()
+        private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
+        private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
+        private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -112,6 +116,42 @@ namespace MonoBall.Core.ECS
         }
 
         /// <summary>
+        /// Gets the scene manager system.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
+        public SceneManagerSystem SceneManagerSystem
+        {
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new InvalidOperationException(
+                        "Systems are not initialized. Call Initialize() first."
+                    );
+                }
+                return _sceneManagerSystem;
+            }
+        }
+
+        /// <summary>
+        /// Gets the scene input system.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
+        public SceneInputSystem SceneInputSystem
+        {
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new InvalidOperationException(
+                        "Systems are not initialized. Call Initialize() first."
+                    );
+                }
+                return _sceneInputSystem;
+            }
+        }
+
+        /// <summary>
         /// Initializes all ECS systems. Should be called from LoadContent().
         /// </summary>
         /// <param name="spriteBatch">The sprite batch for rendering.</param>
@@ -147,13 +187,26 @@ namespace MonoBall.Core.ECS
             _mapRendererSystem = new MapRendererSystem(_world, _graphicsDevice, _tilesetLoader);
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
 
-            // Group update systems
+            // Create scene systems
+            _sceneManagerSystem = new SceneManagerSystem(_world);
+            _sceneInputSystem = new SceneInputSystem(_world, _sceneManagerSystem);
+            _sceneRendererSystem = new SceneRendererSystem(
+                _world,
+                _graphicsDevice,
+                _sceneManagerSystem
+            );
+            _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
+            _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
+
+            // Group update systems (including scene systems)
             _updateSystems = new Group<float>(
                 "UpdateSystems",
                 _mapLoaderSystem,
                 _mapConnectionSystem,
                 _cameraSystem,
-                _cameraViewportSystem
+                _cameraViewportSystem,
+                _sceneManagerSystem,
+                _sceneInputSystem
             );
 
             _updateSystems.Initialize();
@@ -190,7 +243,8 @@ namespace MonoBall.Core.ECS
                 return;
             }
 
-            _mapRendererSystem.Render(gameTime);
+            // Render scenes (which will call MapRendererSystem for GameScene)
+            _sceneRendererSystem.Render(gameTime);
         }
 
         /// <summary>
@@ -208,6 +262,7 @@ namespace MonoBall.Core.ECS
             if (_isInitialized)
             {
                 _updateSystems.Dispose();
+                _sceneManagerSystem?.Cleanup();
             }
 
             // Reset to null after disposal (systems are no longer valid)
@@ -217,6 +272,9 @@ namespace MonoBall.Core.ECS
             _cameraSystem = null!;
             _cameraViewportSystem = null!;
             _mapRendererSystem = null!;
+            _sceneManagerSystem = null!;
+            _sceneInputSystem = null!;
+            _sceneRendererSystem = null!;
 
             _isDisposed = true;
         }
