@@ -1,0 +1,175 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_pike_room_wild_mons",
+  "name": "BattleFrontier_BattlePikeRoomWildMons",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 9,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_pike",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/battle_frontier_battle_pike_room_wild_mons",
+    "bottomLayer": [
+      45,
+      45,
+      45,
+      45
+    ],
+    "topLayer": [
+      30,
+      30,
+      30,
+      30
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_pike_room_wild_mons/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAACwAAAAsAAAAAAAAAAAAAAAAAAAALAAAACwAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAAAAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAAAAAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAAAAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAsAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAAAAAALAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_pike_room_wild_mons/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAANAAAAFQAAABYAAAAXAAAAGQAAABoAAAAbAAAAFwAAABwAAAAVAAAAHQAAAB8AAAAgAAAAIQAAACIAAAAjAAAAIAAAAB8AAAAfAAAAJAAAACYAAAAfAAAAJwAAACgAAAApAAAAHwAAACYAAAAmAAAAKwAAACsAAAArAAAAJgAAACYAAAAmAAAAKwAAACsAAAArAAAAHQAAAB8AAAAfAAAAJgAAACYAAAAmAAAAHwAAAB8AAAAfAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAAmAAAAHQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAmAAAAJAAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAJAAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACYAAAArAAAAAQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAACYAAAAfAAAAKwAAACYAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAHQAAACYAAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACYAAAArAAAAAQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAACYAAAAfAAAAKwAAACsAAAAmAAAAIQAAACIAAAAjAAAAJgAAACsAAAArAAAAHQAAAB8AAAAgAAAAJwAAACgAAAApAAAAIAAAAB8AAAAfAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_pike_room_wild_mons/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAMAAAAEAAAABQAAAAIAAAADAAAABAAAAAUAAAACAAAABgAAAAcAAAAIAAAACQAAAAoAAAALAAAACAAAAAwAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHgAAAB4AAAAAAAAAHgAAAB4AAAAeAAAAAAAAAB4AAAAeAAAAJQAAACUAAAAlAAAAHgAAAB4AAAAeAAAAJQAAACUAAAAlAAAAAAAAAAAAAAAAAAAAHgAAAB4AAAAeAAAAAAAAAAAAAAAAAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAHgAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAAB4AAAAlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAAJQAAAB4AAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAAB4AAAAlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAAJQAAACUAAAAeAAAAHgAAAB4AAAAeAAAAHgAAACUAAAAlAAAAAAAAAAAAAAAYAAAAHgAAAB4AAAAeAAAAGAAAAAAAAAAAAAAAHgAAAB4AAAAAAAAAHgAAAB4AAAAeAAAAAAAAAB4AAAAeAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_pike_room_wild_mons"
+    }
+  ],
+  "warps": [],
+  "triggers": [
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_1_0",
+      "name": "Trigger: VAR_TEMP_1 == 0",
+      "x": 64,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_1",
+      "value": 0,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_Exit.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 48,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_2",
+      "value": 0,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 64,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_2",
+      "value": 0,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 80,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_2",
+      "value": 0,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 48,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_3",
+      "value": 1,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 64,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_3",
+      "value": 1,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 80,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_3",
+      "value": 1,
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack.csx",
+      "elevation": 3
+    }
+  ],
+  "interactions": [],
+  "npcs": []
+}

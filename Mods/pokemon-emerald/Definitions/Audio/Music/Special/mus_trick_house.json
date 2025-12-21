@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_trick_house",
+  "name": "Trick House",
+  "audioPath": "Audio/Music/Special/mus_trick_house.ogg",
+  "volume": 0.551,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 77823,
+  "loopLengthSamples": 1867762,
+  "loopStartSec": 1.765,
+  "loopEndSec": 44.118
+}

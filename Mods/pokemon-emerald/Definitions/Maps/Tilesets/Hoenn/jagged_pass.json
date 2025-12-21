@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/jagged_pass",
+  "name": "Jagged Pass",
+  "texturePath": "Graphics/Tilesets/Hoenn/jagged_pass.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 87,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 96,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

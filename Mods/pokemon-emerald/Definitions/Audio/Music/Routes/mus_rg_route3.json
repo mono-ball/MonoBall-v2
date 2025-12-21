@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/routes/mus_rg_route3",
+  "name": "RG Route3",
+  "audioPath": "Audio/Music/Routes/mus_rg_route3.ogg",
+  "volume": 0.654,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 224056,
+  "loopLengthSamples": 1365674,
+  "loopStartSec": 5.081,
+  "loopEndSec": 36.048
+}

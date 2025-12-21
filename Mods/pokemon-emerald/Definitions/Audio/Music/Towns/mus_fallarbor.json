@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_fallarbor",
+  "name": "Fallarbor",
+  "audioPath": "Audio/Music/Towns/mus_fallarbor.ogg",
+  "volume": 0.787,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 2359943,
+  "loopStartSec": 0.0,
+  "loopEndSec": 53.513
+}

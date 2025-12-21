@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_littleroot_test",
+  "name": "Littleroot Test",
+  "audioPath": "Audio/Music/Towns/mus_littleroot_test.ogg",
+  "volume": 0.78,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 1616998,
+  "loopStartSec": 0.0,
+  "loopEndSec": 36.667
+}

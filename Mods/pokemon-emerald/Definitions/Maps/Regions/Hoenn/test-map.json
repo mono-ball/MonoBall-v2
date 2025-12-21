@@ -1,0 +1,62 @@
+{
+  "id": "base:map:hoenn/test_map",
+  "name": "Test Map",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_NONE",
+  "width": 20,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": null,
+  "weatherId": null,
+  "battleSceneId": null,
+  "mapSectionId": null,
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": {
+    "north": {
+      "mapId": null,
+      "offset": 0
+    },
+    "south": {
+      "mapId": null,
+      "offset": 0
+    },
+    "east": {
+      "mapId": null,
+      "offset": 0
+    },
+    "west": {
+      "mapId": null,
+      "offset": 0
+    }
+  },
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": null,
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "layers": [],
+  "tilesetRefs": [],
+  "warps": [],
+  "triggers": [],
+  "interactions": [],
+  "npcs": []
+}

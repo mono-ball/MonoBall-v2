@@ -1,0 +1,17 @@
+{
+  "id": "base:region:hoenn",
+  "name": "Hoenn",
+  "displayName": "Hoenn",
+  "description": "The Hoenn region",
+  "regionMapTextureId": "base:texture:region/map/hoenn",
+  "startingMapId": "base:map:hoenn/littleroot_town",
+  "startingX": 5,
+  "startingY": 8,
+  "startingDirection": "down",
+  "defaultFlyMapId": "base:map:hoenn/littleroot_town",
+  "defaultFlyX": 5,
+  "defaultFlyY": 8,
+  "regionalDexId": "base:pokedex:hoenn/regional",
+  "sortOrder": 3,
+  "isPlayable": true
+}

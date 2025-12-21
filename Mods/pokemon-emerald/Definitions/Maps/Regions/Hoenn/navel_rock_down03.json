@@ -1,0 +1,115 @@
+{
+  "id": "base:map:hoenn/navel_rock_down03",
+  "name": "NavelRock_Down03",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_UNDERGROUND",
+  "width": 9,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_rg_sevii_cave",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/navel_rock",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/navel_rock_down03",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/navel_rock_down03/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/navel_rock_down03/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAAEAAAABAAAAAQAAAAEAAAABAAAAAUAAAABAAAAAQAAAAYAAAADAAAABwAAAAQAAAAEAAAABQAAAAgAAAABAAAAAQAAAAYAAAAGAAAACgAAAAkAAAAJAAAACAAAAAgAAAABAAAAAQAAAAYAAAAGAAAACQAAAAkAAAAJAAAACAAAAAgAAAABAAAAAQAAAAYAAAAGAAAACQAAAAkAAAALAAAACAAAAAgAAAABAAAAAQAAAAYAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAABAAAAAQAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAABAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/navel_rock_down03/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAMAAAADAAAAAwAAAAMAAAADAAAAAIAAAACAAAAAgAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAACAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/navel_rock_down03"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/navel_rock_down03/warp_to_navel_rock_down02",
+      "name": "Warp to navel_rock_down02",
+      "x": 48,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/navel_rock_down02",
+      "targetX": 3,
+      "targetY": 3,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/navel_rock_down03/warp_to_navel_rock_down04",
+      "name": "Warp to navel_rock_down04",
+      "x": 80,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/navel_rock_down04",
+      "targetX": 5,
+      "targetY": 5,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": []
+}

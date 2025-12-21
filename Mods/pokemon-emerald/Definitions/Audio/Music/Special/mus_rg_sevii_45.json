@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_sevii_45",
+  "name": "RG Sevii 45",
+  "audioPath": "Audio/Music/Special/mus_rg_sevii_45.ogg",
+  "volume": 0.661,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 187425,
+  "loopLengthSamples": 2116800,
+  "loopStartSec": 4.25,
+  "loopEndSec": 52.25
+}

@@ -1,0 +1,239 @@
+{
+  "id": "base:map:hoenn/route119_weather_institute_1f",
+  "name": "Route119_WeatherInstitute_1F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 20,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_rustboro",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/route_119",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/route119_weather_institute_1f",
+    "bottomLayer": [
+      68,
+      68,
+      68,
+      68
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/route119_weather_institute_1f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAASAAAAEAAAABIAAAAAAAAADgAAAA4AAAAAAAAAFgAAABgAAAAZAAAAAAAAABwAAAAcAAAAHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABIAAAAQAAAAEgAAAAAAAAAfAAAAHwAAAAAAAAAfAAAAHwAAAB8AAAAfAAAAHAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsAAAArAAAAAAAAAAAAAAAAAAAAKwAAACsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAAAAAAArAAAAAAAAAAAAAAArAAAANgAAADgAAAArAAAAAAAAACsAAAA2AAAAOAAAACsAAAAAAAAAAAAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAAAAAAAcAAAAPQAAAAAAAAAAAAAAAAAAABwAAAA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAAAAAAAAAAAAAAArAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/route119_weather_institute_1f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAADAAAABAAAAAEAAAABAAAAAQAAAAQAAAABAAAAAQAAAAEAAAABAAAAAQAAAAYAAAAHAAAAAQAAAAgAAAAKAAAADAAAAAEAAAAOAAAADgAAAA8AAAAEAAAADgAAAA4AAAAOAAAABAAAABEAAAATAAAAEQAAABMAAAAOAAAAFAAAABUAAAAOAAAAFwAAAAIAAAAaAAAADgAAAB0AAAAeAAAAIAAAAAQAAAAhAAAAHwAAAB8AAAAEAAAAIgAAACMAAAAiAAAAIwAAACEAAAAkAAAAJQAAAB8AAAAmAAAAAgAAACcAAAAoAAAAKQAAACoAAAArAAAALAAAAC4AAAArAAAAKwAAACwAAAAhAAAAHwAAAB8AAAAfAAAALwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAAuAAAAKwAAACsAAAAwAAAALgAAACsAAAArAAAAMAAAAC4AAAArAAAAKwAAADIAAAAzAAAAKwAAACsAAAArAAAAMgAAADMAAAArAAAAKwAAAC4AAAArAAAAKwAAADQAAAAuAAAAKwAAACsAAAA0AAAALgAAACsAAAA1AAAANwAAADkAAAA6AAAAKwAAADUAAAA3AAAAOQAAADoAAAArAAAALgAAACsAAAArAAAAOwAAAC8AAAArAAAAKwAAADsAAAAvAAAAKwAAACsAAAA8AAAAPgAAACsAAAArAAAAKwAAADwAAAA+AAAAKwAAACsAAAAuAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAAAEAAAABAAAAAQAAADAAAAArAAAAKwAAACsAAAAwAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAADgAAAA4AAAAOAAAANAAAACsAAAArAAAAKwAAADQAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAhAAAAHwAAAB8AAAA7AAAAKwAAACsAAAArAAAAOwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAC4AAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAALgAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAAoAAAAQgAAAEMAAAAoAAAAKwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACsAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/route119_weather_institute_1f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAAAAAAABQAAAAIAAAACAAAAAgAAAAUAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAgAAAAkAAAALAAAADQAAAAIAAAACAAAAAgAAAAIAAAAFAAAAAgAAAAIAAAACAAAABQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAGwAAAAAAAAAAAAAAAAAAAAUAAAACAAAAAgAAAAIAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAALQAAAAIAAAACAAAAAgAAAC0AAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAxAAAAAgAAAAIAAAACAAAAMQAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAABsAAAACAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAgAAABsAAAA/AAAAQAAAAD8AAABBAAAAAgAAAAIAAAACAAAAQQAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAQAAAAAIAAAACAAAAAgAAADEAAAACAAAAAgAAAAIAAAAxAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAGwAAAAIAAAACAAAAGwAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA=",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/route119_weather_institute_1f"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/route119_weather_institute_1f/warp_to_route119",
+      "name": "Warp to route119",
+      "x": 144,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route119",
+      "targetX": 6,
+      "targetY": 32,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/route119_weather_institute_1f/warp_to_route119",
+      "name": "Warp to route119",
+      "x": 160,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route119",
+      "targetX": 6,
+      "targetY": 32,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/route119_weather_institute_1f/warp_to_route119_weather_institute_2f",
+      "name": "Warp to route119_weather_institute_2f",
+      "x": 272,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route119_weather_institute_2f",
+      "targetX": 17,
+      "targetY": 1,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "interactionId": "base:interaction:hoenn/route119_weather_institute_1f/sign_route119_weatherinstitute_1f_eventscript_bed",
+      "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
+      "x": 16,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/route119_weather_institute_1f/sign_route119_weatherinstitute_1f_eventscript_bed",
+      "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
+      "x": 16,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/route119_weather_institute_1f/sign_route119_weatherinstitute_1f_eventscript_bed",
+      "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
+      "x": 0,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/route119_weather_institute_1f/sign_route119_weatherinstitute_1f_eventscript_bed",
+      "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
+      "x": 0,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/route119_weather_institute_1f/npc_8",
+      "name": "NPC_8",
+      "x": 240,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_grunt1",
+      "visibilityFlag": "base:flag:visibility/route_119_team_aqua",
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route119_weather_institute_1f/npc_9",
+      "name": "NPC_9",
+      "x": 160,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/team_aqua/aqua_member_f",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_grunt4",
+      "visibilityFlag": "base:flag:visibility/route_119_team_aqua",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route119_weather_institute_1f/npc_10",
+      "name": "NPC_10",
+      "x": 80,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/man_4",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_institute_worker2",
+      "visibilityFlag": "base:flag:visibility/weather_institute_1f_workers",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route119_weather_institute_1f/npc_11",
+      "name": "NPC_11",
+      "x": 32,
+      "y": 176,
+      "spriteId": "base:sprite:npcs/generic/man_4",
+      "behaviorId": "base:behavior:movement/look_around",
+      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_institute_worker1",
+      "visibilityFlag": "base:flag:visibility/weather_institute_1f_workers",
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route119_weather_institute_1f/localid_weather_institute_little_boy",
+      "name": "LOCALID_WEATHER_INSTITUTE_LITTLE_BOY",
+      "x": 224,
+      "y": 176,
+      "spriteId": "base:sprite:npcs/generic/ninja_boy",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_little_boy",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

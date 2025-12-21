@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_rg_fuchsia",
+  "name": "RG Fuchsia",
+  "audioPath": "Audio/Music/Towns/mus_rg_fuchsia.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 88200,
+  "loopLengthSamples": 1411200,
+  "loopStartSec": 2.0,
+  "loopEndSec": 34.0
+}

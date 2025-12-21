@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/routes/mus_cycling",
+  "name": "Cycling",
+  "audioPath": "Audio/Music/Routes/mus_cycling.ogg",
+  "volume": 0.654,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 76695,
+  "loopLengthSamples": 2147475,
+  "loopStartSec": 1.739,
+  "loopEndSec": 50.435
+}

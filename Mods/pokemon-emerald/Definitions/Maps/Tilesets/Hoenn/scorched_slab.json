@@ -1,0 +1,171 @@
+{
+  "id": "base:tileset:hoenn/scorched_slab",
+  "name": "Scorched Slab",
+  "texturePath": "Graphics/Tilesets/Hoenn/scorched_slab.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 112,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 112,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 17,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 28,
+          "durationMs": 266
+        },
+        {
+          "tileId": 29,
+          "durationMs": 266
+        },
+        {
+          "tileId": 30,
+          "durationMs": 266
+        },
+        {
+          "tileId": 31,
+          "durationMs": 266
+        },
+        {
+          "tileId": 32,
+          "durationMs": 266
+        },
+        {
+          "tileId": 33,
+          "durationMs": 266
+        },
+        {
+          "tileId": 34,
+          "durationMs": 266
+        },
+        {
+          "tileId": 35,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 10,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 52,
+          "durationMs": 266
+        },
+        {
+          "tileId": 53,
+          "durationMs": 266
+        },
+        {
+          "tileId": 54,
+          "durationMs": 266
+        },
+        {
+          "tileId": 55,
+          "durationMs": 266
+        },
+        {
+          "tileId": 56,
+          "durationMs": 266
+        },
+        {
+          "tileId": 57,
+          "durationMs": 266
+        },
+        {
+          "tileId": 58,
+          "durationMs": 266
+        },
+        {
+          "tileId": 59,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 12,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 60,
+          "durationMs": 266
+        },
+        {
+          "tileId": 61,
+          "durationMs": 266
+        },
+        {
+          "tileId": 62,
+          "durationMs": 266
+        },
+        {
+          "tileId": 63,
+          "durationMs": 266
+        },
+        {
+          "tileId": 64,
+          "durationMs": 266
+        },
+        {
+          "tileId": 65,
+          "durationMs": 266
+        },
+        {
+          "tileId": 66,
+          "durationMs": 266
+        },
+        {
+          "tileId": 67,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 14,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 68,
+          "durationMs": 266
+        },
+        {
+          "tileId": 69,
+          "durationMs": 266
+        },
+        {
+          "tileId": 70,
+          "durationMs": 266
+        },
+        {
+          "tileId": 71,
+          "durationMs": 266
+        },
+        {
+          "tileId": 72,
+          "durationMs": 266
+        },
+        {
+          "tileId": 73,
+          "durationMs": 266
+        },
+        {
+          "tileId": 74,
+          "durationMs": 266
+        },
+        {
+          "tileId": 75,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

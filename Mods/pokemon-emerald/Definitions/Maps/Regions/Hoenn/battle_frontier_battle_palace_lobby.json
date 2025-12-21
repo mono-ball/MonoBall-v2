@@ -1,0 +1,243 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_palace_lobby",
+  "name": "BattleFrontier_BattlePalaceLobby",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 25,
+  "height": 12,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_palace",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/battle_frontier_battle_palace_lobby",
+    "bottomLayer": [
+      18,
+      18,
+      18,
+      18
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_palace_lobby/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 25,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAADAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAAAAABYAAAAWAAAAFgAAAAMAAAAdAAAAEgAAACAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAACQAAAAkAAAAAAAAAAAAAAAAAAAAJwAAACQAAAAiAAAAIwAAACMAAAAAAAAAJwAAACQAAAAkAAAAJAAAACQAAAAAAAAAAAAAAAAAAAAnAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAADYAAAAAAAAAMgAAADQAAAA2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAANgAAAAAAAAAyAAAANAAAADYAAAAAAAAAAAAAAAAAAAAAAAAAJAAAACQAAAA6AAAAAAAAAD0AAAAkAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAJAAAAD8AAAAAAAAAQQAAACQAAAAkAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_palace_lobby/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 25,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAQAAAADAAAAAwAAAAQAAAADAAAAAwAAAAMAAAAEAAAAAwAAAAMAAAADAAAAAwAAAAQAAAADAAAAAwAAAAMAAAADAAAABAAAAAMAAAADAAAAAwAAAAQAAAADAAAAAwAAAAQAAAAEAAAAAwAAAAMAAAAEAAAAAwAAAAMAAAADAAAABAAAAAMAAAADAAAAAwAAAAMAAAAEAAAABwAAAAkAAAAKAAAAAwAAAAQAAAADAAAAAwAAAAMAAAAEAAAAAwAAAAMAAAAEAAAABAAAAAMAAAADAAAABAAAAAwAAAANAAAADgAAAAQAAAADAAAAAwAAAAMAAAADAAAABAAAABAAAAASAAAAFAAAAAMAAAAEAAAADAAAAA0AAAAOAAAABAAAAAMAAAADAAAABAAAAAQAAAAWAAAAFgAAAAQAAAAXAAAAGAAAABkAAAAEAAAAFgAAABoAAAAbAAAAHAAAAAQAAAAeAAAAHwAAACEAAAAWAAAABAAAABcAAAAYAAAAGQAAAAQAAAAWAAAAFgAAAAQAAAAiAAAAIwAAACUAAAAmAAAAIwAAACMAAAAjAAAAKAAAACkAAAAqAAAAKwAAACwAAAAjAAAALQAAAC4AAAAvAAAAJQAAACYAAAAjAAAAIwAAACMAAAAoAAAAKQAAACIAAAAjAAAAMAAAADEAAAAyAAAANQAAADcAAAAwAAAAJQAAADUAAAA3AAAAMAAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADIAAAA1AAAANwAAADAAAAAlAAAANQAAADcAAAAwAAAAMQAAADAAAAAxAAAAOAAAADkAAAA7AAAAPAAAAD4AAAA5AAAAOwAAADAAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAA4AAAAOQAAADsAAABAAAAAPgAAADkAAAA7AAAAMAAAADEAAAAwAAAAMQAAAEIAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAQgAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMAAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADAAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAwAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAABDAAAARAAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_palace_lobby/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 25,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAFAAAABgAAAAAAAAAFAAAAAgAAAAYAAAAAAAAABQAAAAIAAAACAAAABgAAAAAAAAAFAAAAAgAAAAIAAAAGAAAAAAAAAAUAAAACAAAABgAAAAAAAAAFAAAABgAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAACAAAAAkAAAALAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAACAAAADwAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAABEAAAATAAAAFQAAAAIAAAAAAAAAAgAAAAIAAAAPAAAAAAAAAAIAAAACAAAAAAAAAAAAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAzAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAADMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_palace_lobby"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_palace_lobby/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 192,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 45,
+      "targetY": 56,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_palace_lobby/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 208,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 45,
+      "targetY": 56,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_palace_lobby/warp_to_battle_frontier_battle_palace_corridor",
+      "name": "Warp to battle_frontier_battle_palace_corridor",
+      "x": 80,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_battle_palace_corridor",
+      "targetX": 8,
+      "targetY": 13,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_palace_lobby/sign_battlefrontier_battlepalacelobby_eventscript_showsinglesresults",
+      "name": "Sign: BattleFrontier_BattlePalaceLobby_EventScript_ShowSinglesResults",
+      "x": 32,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattlePalaceLobby_EventScript_ShowSinglesResults.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_palace_lobby/sign_battlefrontier_battlepalacelobby_eventscript_showdoublesresults",
+      "name": "Sign: BattleFrontier_BattlePalaceLobby_EventScript_ShowDoublesResults",
+      "x": 256,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattlePalaceLobby_EventScript_ShowDoublesResults.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_palace_lobby/sign_battlefrontier_battlepalacelobby_eventscript_rulesboard",
+      "name": "Sign: BattleFrontier_BattlePalaceLobby_EventScript_RulesBoard",
+      "x": 160,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattlePalaceLobby_EventScript_RulesBoard.csx",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_lobby/localid_palace_attendant_singles",
+      "name": "LOCALID_PALACE_ATTENDANT_SINGLES",
+      "x": 80,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_palace_lobby_event_script_singles_attendant",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_lobby/npc_8",
+      "name": "NPC_8",
+      "x": 176,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/black_belt",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_palace_lobby_event_script_black_belt",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_lobby/npc_9",
+      "name": "NPC_9",
+      "x": 384,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/maniac",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_palace_lobby_event_script_maniac",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_lobby/npc_10",
+      "name": "NPC_10",
+      "x": 288,
+      "y": 160,
+      "spriteId": "base:sprite:npcs/generic/man_3",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_palace_lobby_event_script_man",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_lobby/npc_11",
+      "name": "NPC_11",
+      "x": 32,
+      "y": 160,
+      "spriteId": "base:sprite:npcs/generic/beauty",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_palace_lobby_event_script_beauty",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_lobby/localid_palace_attendant_doubles",
+      "name": "LOCALID_PALACE_ATTENDANT_DOUBLES",
+      "x": 304,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_palace_lobby_event_script_doubles_attendant",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    }
+  ]
+}

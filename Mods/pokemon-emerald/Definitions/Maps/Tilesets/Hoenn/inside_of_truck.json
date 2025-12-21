@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/inside_of_truck",
+  "name": "Inside Of Truck",
+  "texturePath": "Graphics/Tilesets/Hoenn/inside_of_truck.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 27,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

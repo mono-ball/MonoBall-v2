@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_poke_center",
+  "name": "Poke Center",
+  "audioPath": "Audio/Music/Special/mus_poke_center.ogg",
+  "volume": 0.724,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 101769,
+  "loopLengthSamples": 1628307,
+  "loopStartSec": 2.308,
+  "loopEndSec": 39.231
+}

@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/ss_tidal_lower_deck",
+  "name": "Ss Tidal Lower Deck",
+  "texturePath": "Graphics/Tilesets/Hoenn/ss_tidal_lower_deck.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 29,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

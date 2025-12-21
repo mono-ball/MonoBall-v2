@@ -1,0 +1,144 @@
+{
+  "id": "base:map:hoenn/rustboro_city_cutters_house",
+  "name": "RustboroCity_CuttersHouse",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_rustboro",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/rustboro_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/rustboro_city_cutters_house",
+    "bottomLayer": [
+      49,
+      49,
+      49,
+      49
+    ],
+    "topLayer": [
+      6,
+      6,
+      6,
+      6
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/rustboro_city_cutters_house/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAJAAAACQAAAAkAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAJAAAACQAAABIAAAASAAAAEgAAABIAAAAAAAAAAAAAAAAAAAAAAAAAEgAAABIAAAASAAAAAAAAABoAAAAaAAAAGgAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgAAAB8AAAAfAAAAGgAAAAAAAAAAAAAAAAAAABoAAAAjAAAAGgAAAAAAAAAaAAAAHwAAAB8AAAAaAAAAAAAAAAAAAAAaAAAAIwAAABIAAAAaAAAAAAAAABoAAAAqAAAAKgAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/rustboro_city_cutters_house/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAMAAAAEAAAABQAAAAEAAAABAAAABwAAAAEAAAAIAAAAAQAAAAEAAAAKAAAACwAAAAwAAAANAAAACQAAAAkAAAAOAAAACQAAAA8AAAAQAAAAEQAAABMAAAAUAAAAFQAAABYAAAASAAAAEgAAABIAAAASAAAAFwAAABgAAAAZAAAAEgAAABsAAAAcAAAAHAAAAB0AAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAASAAAAHgAAACAAAAAgAAAAIQAAABoAAAAaAAAAGgAAACIAAAAkAAAAJQAAABIAAAAeAAAAIAAAACAAAAAhAAAAGgAAABoAAAAmAAAAJwAAACgAAAAlAAAAEgAAACkAAAArAAAAKwAAACwAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAASAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAAC4AAAAuAAAAGgAAABoAAAAaAAAALwAAADAAAAAaAAAAGgAAABoAAAAaAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/rustboro_city_cutters_house/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAAAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAtAAAALQAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/rustboro_city_cutters_house"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/rustboro_city_cutters_house/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 80,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 9,
+      "targetY": 38,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/rustboro_city_cutters_house/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 96,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 9,
+      "targetY": 38,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_cutters_house/npc_3",
+      "name": "NPC_3",
+      "x": 112,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/pokefan_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/rustboro_city_cutters_house_event_script_cutter",
+      "visibilityFlag": null,
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_cutters_house/npc_4",
+      "name": "NPC_4",
+      "x": 144,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/lass",
+      "behaviorId": "base:behavior:movement/wander_horizontal",
+      "interactionScript": "base:behavior:interaction/rustboro_city_cutters_house_event_script_lass",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

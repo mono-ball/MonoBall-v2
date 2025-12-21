@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_encounter_magma",
+  "name": "Encounter Magma",
+  "audioPath": "Audio/Music/Battle/mus_encounter_magma.ogg",
+  "volume": 0.567,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 8939,
+  "loopLengthSamples": 929674,
+  "loopStartSec": 0.203,
+  "loopEndSec": 21.284
+}

@@ -1,0 +1,139 @@
+{
+  "id": "base:map:hoenn/ever_grande_city_hall3",
+  "name": "EverGrandeCity_Hall3",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/battle/mus_victory_road",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/ever_grande_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/ever_grande_city_hall3",
+    "bottomLayer": [
+      29,
+      29,
+      29,
+      29
+    ],
+    "topLayer": [
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_hall3/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAcAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADgAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_hall3/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAABAAAAAIAAAAEAAAABgAAAAgAAAAJAAAAAgAAAAQAAAACAAAABAAAAAoAAAALAAAACgAAAAsAAAANAAAAAwAAABAAAAAKAAAACwAAAAoAAAALAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABMAAAATAAAAEwAAABQAAAAVAAAAFgAAABYAAAAXAAAAEwAAABMAAAATAAAAGAAAABgAAAAYAAAAGQAAABoAAAAbAAAAGwAAABwAAAAYAAAAGAAAABgAAAAOAAAADgAAAA4AAAAZAAAAGgAAABsAAAAbAAAAHAAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAABkAAAAaAAAAGwAAABsAAAAcAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAGQAAABoAAAAbAAAAGwAAABwAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAZAAAAGgAAABsAAAAbAAAAHAAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAABkAAAAaAAAAGwAAABsAAAAcAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAGQAAABoAAAAbAAAAGwAAABwAAAAOAAAADgAAAA4AAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_hall3/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAADAAAAAwAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA=",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/ever_grande_city_hall3"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_hall3/warp_to_ever_grande_city_glacias_room",
+      "name": "Warp to ever_grande_city_glacias_room",
+      "x": 80,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_glacias_room",
+      "targetX": 6,
+      "targetY": 2,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_hall3/warp_to_ever_grande_city_drakes_room",
+      "name": "Warp to ever_grande_city_drakes_room",
+      "x": 80,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_drakes_room",
+      "targetX": 6,
+      "targetY": 13,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_hall3/warp_to_ever_grande_city_glacias_room",
+      "name": "Warp to ever_grande_city_glacias_room",
+      "x": 64,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_glacias_room",
+      "targetX": 6,
+      "targetY": 2,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_hall3/warp_to_ever_grande_city_glacias_room",
+      "name": "Warp to ever_grande_city_glacias_room",
+      "x": 96,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_glacias_room",
+      "targetX": 6,
+      "targetY": 2,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": []
+}

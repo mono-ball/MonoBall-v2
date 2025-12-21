@@ -1,0 +1,122 @@
+{
+  "id": "base:tileset:hoenn/ever_grande_city_sidneys_room",
+  "name": "Ever Grande City Sidneys Room",
+  "texturePath": "Graphics/Tilesets/Hoenn/ever_grande_city_sidneys_room.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 112,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 112,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 11,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 76,
+          "durationMs": 133
+        },
+        {
+          "tileId": 77,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 3,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 80,
+          "durationMs": 133
+        },
+        {
+          "tileId": 81,
+          "durationMs": 133
+        },
+        {
+          "tileId": 82,
+          "durationMs": 133
+        },
+        {
+          "tileId": 83,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 5,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 84,
+          "durationMs": 133
+        },
+        {
+          "tileId": 85,
+          "durationMs": 133
+        },
+        {
+          "tileId": 86,
+          "durationMs": 133
+        },
+        {
+          "tileId": 87,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 70,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 96,
+          "durationMs": 133
+        },
+        {
+          "tileId": 97,
+          "durationMs": 133
+        },
+        {
+          "tileId": 98,
+          "durationMs": 133
+        },
+        {
+          "tileId": 99,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 71,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 100,
+          "durationMs": 133
+        },
+        {
+          "tileId": 101,
+          "durationMs": 133
+        },
+        {
+          "tileId": 102,
+          "durationMs": 133
+        },
+        {
+          "tileId": 103,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

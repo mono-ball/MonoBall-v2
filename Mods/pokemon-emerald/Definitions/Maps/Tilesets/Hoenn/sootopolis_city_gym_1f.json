@@ -1,0 +1,129 @@
+{
+  "id": "base:tileset:hoenn/sootopolis_city_gym_1f",
+  "name": "Sootopolis City Gym 1F",
+  "texturePath": "Graphics/Tilesets/Hoenn/sootopolis_city_gym_1f.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 112,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 112,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 4,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 70,
+          "durationMs": 133
+        },
+        {
+          "tileId": 71,
+          "durationMs": 133
+        },
+        {
+          "tileId": 72,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 5,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 76,
+          "durationMs": 133
+        },
+        {
+          "tileId": 77,
+          "durationMs": 133
+        },
+        {
+          "tileId": 78,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 13,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 82,
+          "durationMs": 133
+        },
+        {
+          "tileId": 83,
+          "durationMs": 133
+        },
+        {
+          "tileId": 84,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 14,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 88,
+          "durationMs": 133
+        },
+        {
+          "tileId": 89,
+          "durationMs": 133
+        },
+        {
+          "tileId": 90,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 22,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 94,
+          "durationMs": 133
+        },
+        {
+          "tileId": 95,
+          "durationMs": 133
+        },
+        {
+          "tileId": 96,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 23,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 100,
+          "durationMs": 133
+        },
+        {
+          "tileId": 101,
+          "durationMs": 133
+        },
+        {
+          "tileId": 102,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:sfx/battle/se_rotating_gate",
+  "name": "Rotating Gate",
+  "audioPath": "Audio/SFX/Battle/se_rotating_gate.ogg",
+  "volume": 0.709,
+  "loop": false,
+  "fadeIn": 0.0,
+  "fadeOut": 0.0
+}

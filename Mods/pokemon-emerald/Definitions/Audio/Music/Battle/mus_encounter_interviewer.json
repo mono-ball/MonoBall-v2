@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_encounter_interviewer",
+  "name": "Encounter Interviewer",
+  "audioPath": "Audio/Music/Battle/mus_encounter_interviewer.ogg",
+  "volume": 0.488,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 153728,
+  "loopLengthSamples": 298140,
+  "loopStartSec": 3.486,
+  "loopEndSec": 10.246
+}

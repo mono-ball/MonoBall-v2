@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:music/special/mus_awaken_legend",
+  "name": "Awaken Legend",
+  "audioPath": "Audio/Music/Special/mus_awaken_legend.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5
+}

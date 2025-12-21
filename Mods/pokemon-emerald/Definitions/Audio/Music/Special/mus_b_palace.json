@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_b_palace",
+  "name": "Battle Palace",
+  "audioPath": "Audio/Music/Special/mus_b_palace.ogg",
+  "volume": 0.827,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 1936265,
+  "loopLengthSamples": 1984500,
+  "loopStartSec": 43.906,
+  "loopEndSec": 88.906
+}

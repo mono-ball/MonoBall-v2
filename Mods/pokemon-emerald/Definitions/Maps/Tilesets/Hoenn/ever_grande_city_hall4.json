@@ -1,0 +1,76 @@
+{
+  "id": "base:tileset:hoenn/ever_grande_city_hall4",
+  "name": "Ever Grande City Hall4",
+  "texturePath": "Graphics/Tilesets/Hoenn/ever_grande_city_hall4.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 48,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 10,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 30,
+          "durationMs": 133
+        },
+        {
+          "tileId": 31,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 1,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 36,
+          "durationMs": 133
+        },
+        {
+          "tileId": 37,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 3,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 40,
+          "durationMs": 133
+        },
+        {
+          "tileId": 41,
+          "durationMs": 133
+        },
+        {
+          "tileId": 42,
+          "durationMs": 133
+        },
+        {
+          "tileId": 43,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "base:tileset:hoenn/magma_hideout_3f_2r",
+  "name": "Magma Hideout 3F 2R",
+  "texturePath": "Graphics/Tilesets/Hoenn/magma_hideout_3f_2r.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 80,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 21,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 59,
+          "durationMs": 266
+        },
+        {
+          "tileId": 60,
+          "durationMs": 266
+        },
+        {
+          "tileId": 61,
+          "durationMs": 266
+        },
+        {
+          "tileId": 62,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

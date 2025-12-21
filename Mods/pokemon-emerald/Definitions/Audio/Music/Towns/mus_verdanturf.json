@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_verdanturf",
+  "name": "Verdanturf",
+  "audioPath": "Audio/Music/Towns/mus_verdanturf.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 23624,
+  "loopLengthSamples": 2015997,
+  "loopStartSec": 0.536,
+  "loopEndSec": 46.25
+}

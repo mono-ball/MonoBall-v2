@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/safari_zone_rest_house",
+  "name": "Safari Zone Rest House",
+  "texturePath": "Graphics/Tilesets/Hoenn/safari_zone_rest_house.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 18,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_berry_pick",
+  "name": "RG Berry Pick",
+  "audioPath": "Audio/Music/Special/mus_rg_berry_pick.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 17878,
+  "loopLengthSamples": 1859349,
+  "loopStartSec": 0.405,
+  "loopEndSec": 42.568
+}

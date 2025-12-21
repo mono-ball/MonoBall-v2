@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/verdanturf_town_wandas_house",
+  "name": "Verdanturf Town Wandas House",
+  "texturePath": "Graphics/Tilesets/Hoenn/verdanturf_town_wandas_house.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 70,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

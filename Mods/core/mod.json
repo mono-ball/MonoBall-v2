@@ -1,0 +1,31 @@
+{
+  "id": "base:monoball-core",
+  "name": "MonBall Core Content",
+  "author": "MonBall Team",
+  "version": "1.0.0",
+  "description": "Base game content for MonBall - Pokemon-style game framework",
+  "priority": 0,
+  "contentFolders": {
+    "Root": "",
+    "Graphics": "Graphics",
+    "Audio": "Audio",
+    "Scripts": "Scripts",
+    "Fonts": "Fonts",
+    "Tiled": "Tiled",
+    "Tilesets": "Tilesets",
+    "TileBehaviorDefinitions": "Definitions/TileBehaviors",
+    "BehaviorDefinitions": "Definitions/Behaviors",
+    "SpriteDefinitions": "Definitions/Sprites",
+    "FontDefinitions": "Definitions/Fonts",
+    "MapDefinitions": "Definitions/Maps/Regions",
+    "AudioDefinitions": "Definitions/Audio",
+    "PopupBackgroundDefinitions": "Definitions/Maps/Popups/Backgrounds",
+    "PopupOutlineDefinitions": "Definitions/Maps/Popups/Outlines",
+    "PopupThemeDefinitions": "Definitions/Maps/Popups/Themes",
+    "MapSectionDefinitions": "Definitions/Maps/Sections",
+    "TextWindowDefinitions": "Definitions/TextWindow"
+  },
+  "scripts": [],
+  "patches": [],
+  "dependencies": []
+}

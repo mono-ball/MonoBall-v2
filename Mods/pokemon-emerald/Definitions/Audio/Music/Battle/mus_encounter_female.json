@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_encounter_female",
+  "name": "Encounter Female",
+  "audioPath": "Audio/Music/Battle/mus_encounter_female.ogg",
+  "volume": 0.567,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 117599,
+  "loopLengthSamples": 470399,
+  "loopStartSec": 2.667,
+  "loopEndSec": 13.333
+}

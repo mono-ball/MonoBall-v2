@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/contest_hall",
+  "name": "Contest Hall",
+  "texturePath": "Graphics/Tilesets/Hoenn/contest_hall.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 44,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

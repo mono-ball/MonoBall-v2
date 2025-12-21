@@ -1,0 +1,194 @@
+{
+  "id": "base:tileset:hoenn/mauville_city",
+  "name": "Mauville City",
+  "texturePath": "Graphics/Tilesets/Hoenn/mauville_city.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 224,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 224,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 3,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 177,
+          "durationMs": 266
+        },
+        {
+          "tileId": 178,
+          "durationMs": 266
+        },
+        {
+          "tileId": 177,
+          "durationMs": 266
+        },
+        {
+          "tileId": 179,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 168,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 180,
+          "durationMs": 266
+        },
+        {
+          "tileId": 181,
+          "durationMs": 266
+        },
+        {
+          "tileId": 182,
+          "durationMs": 266
+        },
+        {
+          "tileId": 183,
+          "durationMs": 266
+        },
+        {
+          "tileId": 184,
+          "durationMs": 266
+        },
+        {
+          "tileId": 185,
+          "durationMs": 266
+        },
+        {
+          "tileId": 186,
+          "durationMs": 266
+        },
+        {
+          "tileId": 187,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 170,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 188,
+          "durationMs": 266
+        },
+        {
+          "tileId": 189,
+          "durationMs": 266
+        },
+        {
+          "tileId": 190,
+          "durationMs": 266
+        },
+        {
+          "tileId": 191,
+          "durationMs": 266
+        },
+        {
+          "tileId": 192,
+          "durationMs": 266
+        },
+        {
+          "tileId": 193,
+          "durationMs": 266
+        },
+        {
+          "tileId": 194,
+          "durationMs": 266
+        },
+        {
+          "tileId": 195,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 174,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 196,
+          "durationMs": 266
+        },
+        {
+          "tileId": 197,
+          "durationMs": 266
+        },
+        {
+          "tileId": 198,
+          "durationMs": 266
+        },
+        {
+          "tileId": 199,
+          "durationMs": 266
+        },
+        {
+          "tileId": 200,
+          "durationMs": 266
+        },
+        {
+          "tileId": 201,
+          "durationMs": 266
+        },
+        {
+          "tileId": 202,
+          "durationMs": 266
+        },
+        {
+          "tileId": 203,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 176,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 204,
+          "durationMs": 266
+        },
+        {
+          "tileId": 205,
+          "durationMs": 266
+        },
+        {
+          "tileId": 206,
+          "durationMs": 266
+        },
+        {
+          "tileId": 207,
+          "durationMs": 266
+        },
+        {
+          "tileId": 208,
+          "durationMs": 266
+        },
+        {
+          "tileId": 209,
+          "durationMs": 266
+        },
+        {
+          "tileId": 210,
+          "durationMs": 266
+        },
+        {
+          "tileId": 211,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

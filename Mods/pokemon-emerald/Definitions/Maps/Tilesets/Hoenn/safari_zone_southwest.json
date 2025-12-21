@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/safari_zone_southwest",
+  "name": "Safari Zone Southwest",
+  "texturePath": "Graphics/Tilesets/Hoenn/safari_zone_southwest.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 97,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 112,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

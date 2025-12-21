@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_poke_mart",
+  "name": "Poke Mart",
+  "audioPath": "Audio/Music/Special/mus_poke_mart.ogg",
+  "volume": 0.669,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 246139,
+  "loopLengthSamples": 1722975,
+  "loopStartSec": 5.581,
+  "loopEndSec": 44.651
+}

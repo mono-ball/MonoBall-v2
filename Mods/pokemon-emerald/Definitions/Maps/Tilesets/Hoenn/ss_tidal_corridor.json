@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/ss_tidal_corridor",
+  "name": "Ss Tidal Corridor",
+  "texturePath": "Graphics/Tilesets/Hoenn/ss_tidal_corridor.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 44,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

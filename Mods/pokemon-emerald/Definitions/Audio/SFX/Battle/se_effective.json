@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:sfx/battle/se_effective",
+  "name": "Effective",
+  "audioPath": "Audio/SFX/Battle/se_effective.ogg",
+  "volume": 0.866,
+  "loop": false,
+  "fadeIn": 0.0,
+  "fadeOut": 0.0
+}

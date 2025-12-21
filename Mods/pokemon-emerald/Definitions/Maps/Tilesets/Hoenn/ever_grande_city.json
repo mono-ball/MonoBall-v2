@@ -1,0 +1,630 @@
+{
+  "id": "base:tileset:hoenn/ever_grande_city",
+  "name": "Ever Grande City",
+  "texturePath": "Graphics/Tilesets/Hoenn/ever_grande_city.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 432,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 432,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 179,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 187,
+          "durationMs": 266
+        },
+        {
+          "tileId": 188,
+          "durationMs": 266
+        },
+        {
+          "tileId": 189,
+          "durationMs": 266
+        },
+        {
+          "tileId": 190,
+          "durationMs": 266
+        },
+        {
+          "tileId": 191,
+          "durationMs": 266
+        },
+        {
+          "tileId": 192,
+          "durationMs": 266
+        },
+        {
+          "tileId": 193,
+          "durationMs": 266
+        },
+        {
+          "tileId": 194,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 181,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 195,
+          "durationMs": 266
+        },
+        {
+          "tileId": 196,
+          "durationMs": 266
+        },
+        {
+          "tileId": 197,
+          "durationMs": 266
+        },
+        {
+          "tileId": 198,
+          "durationMs": 266
+        },
+        {
+          "tileId": 199,
+          "durationMs": 266
+        },
+        {
+          "tileId": 200,
+          "durationMs": 266
+        },
+        {
+          "tileId": 201,
+          "durationMs": 266
+        },
+        {
+          "tileId": 202,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 183,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 203,
+          "durationMs": 266
+        },
+        {
+          "tileId": 204,
+          "durationMs": 266
+        },
+        {
+          "tileId": 205,
+          "durationMs": 266
+        },
+        {
+          "tileId": 206,
+          "durationMs": 266
+        },
+        {
+          "tileId": 207,
+          "durationMs": 266
+        },
+        {
+          "tileId": 208,
+          "durationMs": 266
+        },
+        {
+          "tileId": 209,
+          "durationMs": 266
+        },
+        {
+          "tileId": 210,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 185,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 211,
+          "durationMs": 266
+        },
+        {
+          "tileId": 212,
+          "durationMs": 266
+        },
+        {
+          "tileId": 213,
+          "durationMs": 266
+        },
+        {
+          "tileId": 214,
+          "durationMs": 266
+        },
+        {
+          "tileId": 215,
+          "durationMs": 266
+        },
+        {
+          "tileId": 216,
+          "durationMs": 266
+        },
+        {
+          "tileId": 217,
+          "durationMs": 266
+        },
+        {
+          "tileId": 218,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 160,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 219,
+          "durationMs": 266
+        },
+        {
+          "tileId": 220,
+          "durationMs": 266
+        },
+        {
+          "tileId": 221,
+          "durationMs": 266
+        },
+        {
+          "tileId": 222,
+          "durationMs": 266
+        },
+        {
+          "tileId": 223,
+          "durationMs": 266
+        },
+        {
+          "tileId": 224,
+          "durationMs": 266
+        },
+        {
+          "tileId": 225,
+          "durationMs": 266
+        },
+        {
+          "tileId": 226,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 161,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 259,
+          "durationMs": 266
+        },
+        {
+          "tileId": 260,
+          "durationMs": 266
+        },
+        {
+          "tileId": 261,
+          "durationMs": 266
+        },
+        {
+          "tileId": 262,
+          "durationMs": 266
+        },
+        {
+          "tileId": 263,
+          "durationMs": 266
+        },
+        {
+          "tileId": 264,
+          "durationMs": 266
+        },
+        {
+          "tileId": 265,
+          "durationMs": 266
+        },
+        {
+          "tileId": 266,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 163,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 267,
+          "durationMs": 266
+        },
+        {
+          "tileId": 268,
+          "durationMs": 266
+        },
+        {
+          "tileId": 269,
+          "durationMs": 266
+        },
+        {
+          "tileId": 270,
+          "durationMs": 266
+        },
+        {
+          "tileId": 271,
+          "durationMs": 266
+        },
+        {
+          "tileId": 272,
+          "durationMs": 266
+        },
+        {
+          "tileId": 273,
+          "durationMs": 266
+        },
+        {
+          "tileId": 274,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 167,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 275,
+          "durationMs": 266
+        },
+        {
+          "tileId": 276,
+          "durationMs": 266
+        },
+        {
+          "tileId": 277,
+          "durationMs": 266
+        },
+        {
+          "tileId": 278,
+          "durationMs": 266
+        },
+        {
+          "tileId": 279,
+          "durationMs": 266
+        },
+        {
+          "tileId": 280,
+          "durationMs": 266
+        },
+        {
+          "tileId": 281,
+          "durationMs": 266
+        },
+        {
+          "tileId": 282,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 169,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 283,
+          "durationMs": 266
+        },
+        {
+          "tileId": 284,
+          "durationMs": 266
+        },
+        {
+          "tileId": 285,
+          "durationMs": 266
+        },
+        {
+          "tileId": 286,
+          "durationMs": 266
+        },
+        {
+          "tileId": 287,
+          "durationMs": 266
+        },
+        {
+          "tileId": 288,
+          "durationMs": 266
+        },
+        {
+          "tileId": 289,
+          "durationMs": 266
+        },
+        {
+          "tileId": 290,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 171,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 291,
+          "durationMs": 266
+        },
+        {
+          "tileId": 292,
+          "durationMs": 266
+        },
+        {
+          "tileId": 293,
+          "durationMs": 266
+        },
+        {
+          "tileId": 294,
+          "durationMs": 266
+        },
+        {
+          "tileId": 295,
+          "durationMs": 266
+        },
+        {
+          "tileId": 296,
+          "durationMs": 266
+        },
+        {
+          "tileId": 297,
+          "durationMs": 266
+        },
+        {
+          "tileId": 298,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 173,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 299,
+          "durationMs": 266
+        },
+        {
+          "tileId": 300,
+          "durationMs": 266
+        },
+        {
+          "tileId": 301,
+          "durationMs": 266
+        },
+        {
+          "tileId": 302,
+          "durationMs": 266
+        },
+        {
+          "tileId": 303,
+          "durationMs": 266
+        },
+        {
+          "tileId": 304,
+          "durationMs": 266
+        },
+        {
+          "tileId": 305,
+          "durationMs": 266
+        },
+        {
+          "tileId": 306,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 165,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 363,
+          "durationMs": 266
+        },
+        {
+          "tileId": 364,
+          "durationMs": 266
+        },
+        {
+          "tileId": 365,
+          "durationMs": 266
+        },
+        {
+          "tileId": 366,
+          "durationMs": 266
+        },
+        {
+          "tileId": 367,
+          "durationMs": 266
+        },
+        {
+          "tileId": 368,
+          "durationMs": 266
+        },
+        {
+          "tileId": 369,
+          "durationMs": 266
+        },
+        {
+          "tileId": 370,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 175,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 371,
+          "durationMs": 266
+        },
+        {
+          "tileId": 372,
+          "durationMs": 266
+        },
+        {
+          "tileId": 373,
+          "durationMs": 266
+        },
+        {
+          "tileId": 374,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 176,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 383,
+          "durationMs": 266
+        },
+        {
+          "tileId": 384,
+          "durationMs": 266
+        },
+        {
+          "tileId": 385,
+          "durationMs": 266
+        },
+        {
+          "tileId": 386,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 178,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 387,
+          "durationMs": 266
+        },
+        {
+          "tileId": 388,
+          "durationMs": 266
+        },
+        {
+          "tileId": 389,
+          "durationMs": 266
+        },
+        {
+          "tileId": 390,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 71,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 391,
+          "durationMs": 133
+        },
+        {
+          "tileId": 392,
+          "durationMs": 133
+        },
+        {
+          "tileId": 393,
+          "durationMs": 133
+        },
+        {
+          "tileId": 394,
+          "durationMs": 133
+        },
+        {
+          "tileId": 395,
+          "durationMs": 133
+        },
+        {
+          "tileId": 396,
+          "durationMs": 133
+        },
+        {
+          "tileId": 397,
+          "durationMs": 133
+        },
+        {
+          "tileId": 398,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 128,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 407,
+          "durationMs": 133
+        },
+        {
+          "tileId": 408,
+          "durationMs": 133
+        },
+        {
+          "tileId": 409,
+          "durationMs": 133
+        },
+        {
+          "tileId": 410,
+          "durationMs": 133
+        },
+        {
+          "tileId": 411,
+          "durationMs": 133
+        },
+        {
+          "tileId": 412,
+          "durationMs": 133
+        },
+        {
+          "tileId": 413,
+          "durationMs": 133
+        },
+        {
+          "tileId": 414,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

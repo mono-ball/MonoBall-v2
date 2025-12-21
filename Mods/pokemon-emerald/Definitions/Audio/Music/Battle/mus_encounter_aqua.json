@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_encounter_aqua",
+  "name": "Encounter Aqua",
+  "audioPath": "Audio/Music/Battle/mus_encounter_aqua.ogg",
+  "volume": 0.677,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 160649,
+  "loopLengthSamples": 1209598,
+  "loopStartSec": 3.643,
+  "loopEndSec": 31.071
+}

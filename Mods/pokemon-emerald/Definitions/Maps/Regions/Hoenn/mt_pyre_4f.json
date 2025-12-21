@@ -1,0 +1,192 @@
+{
+  "id": "base:map:hoenn/mt_pyre_4f",
+  "name": "MtPyre_4F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 13,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_mt_pyre",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/mt_pyre",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/mt_pyre_4f",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/mt_pyre_4f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADQAAAAAAAAAAAAAAAAAAABEAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAASAAAAEwAAABMAAAATAAAAAAAAABMAAAATAAAADQAAAA0AAAANAAAADQAAAA0AAAANAAAAFwAAABMAAAAYAAAAAAAAAAAAAAAAAAAAGAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAACwAAAAAAAAAAAAAAAAAAAAMAAAANAAAAAAAAAAAAAAAAAAAADQAAAA0AAAANAAAADQAAABEAAAAAAAAAAAAAAAAAAAAMAAAAEwAAABMAAAAAAAAAEwAAABMAAAATAAAAEwAAABMAAAATAAAAAAAAAAAAAAAAAAAAEwAAABMAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAGAAAABMAAAAAAAAAAAAAABgAAAAAAAAAAAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/mt_pyre_4f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAIAAAACAAAABQAAAAcAAAAJAAAAAgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAAAgAAAA4AAAAPAAAAEAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAFAAAABQAAAAVAAAAEwAAABYAAAAUAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAABQAAAAUAAAAGQAAABkAAAAZAAAAFAAAAAIAAAAFAAAABwAAAAkAAAACAAAAAgAAAAIAAAACAAAAAgAAABoAAAAbAAAAGwAAAAIAAAACAAAAHAAAAB0AAAAeAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAaAAAAGwAAABsAAAACAAAAFAAAABUAAAATAAAAFgAAABQAAAAUAAAAFAAAABQAAAAUAAAAEwAAABMAAAATAAAAFAAAABQAAAAZAAAAGQAAABkAAAAUAAAAFAAAABQAAAAUAAAAFAAAABkAAAAZAAAAGQAAABkAAAATAAAAGQAAABkAAAAZAAAAGQAAABkAAAAZAAAAGQAAABkAAAAZAAAAGQAAABkAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAGQAAABkAAAAZAAAAFAAAABQAAAAZAAAAGQAAAB8AAAAZAAAAGQAAABQAAAAUAAAAFAAAACAAAAAZAAAAGQAAABkAAAAUAAAAGQAAABkAAAAZAAAAGQAAABkAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABkAAAAgAAAAGQAAABkAAAAZAAAAGQAAABkAAAAZAAAAGQAAABkAAAAZAAAAGQAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/mt_pyre_4f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAABgAAAAgAAAAKAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAGAAAACAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAACAAAAAgAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/mt_pyre_4f"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/mt_pyre_4f/warp_to_mt_pyre_5f",
+      "name": "Warp to mt_pyre_5f",
+      "x": 160,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mt_pyre_5f",
+      "targetX": 10,
+      "targetY": 5,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/mt_pyre_4f/warp_to_mt_pyre_3f",
+      "name": "Warp to mt_pyre_3f",
+      "x": 32,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mt_pyre_3f",
+      "targetX": 2,
+      "targetY": 1,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/mt_pyre_4f/warp_to_mt_pyre_5f",
+      "name": "Warp to mt_pyre_5f",
+      "x": 192,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mt_pyre_5f",
+      "targetX": 12,
+      "targetY": 10,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/mt_pyre_4f/warp_to_mt_pyre_5f",
+      "name": "Warp to mt_pyre_5f",
+      "x": 192,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mt_pyre_5f",
+      "targetX": 12,
+      "targetY": 12,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/mt_pyre_4f/warp_to_mt_pyre_3f",
+      "name": "Warp to mt_pyre_3f",
+      "x": 144,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mt_pyre_3f",
+      "targetX": 9,
+      "targetY": 10,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/mt_pyre_4f/warp_to_mt_pyre_3f",
+      "name": "Warp to mt_pyre_3f",
+      "x": 32,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mt_pyre_3f",
+      "targetX": 1,
+      "targetY": 12,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/mt_pyre_4f/npc_7",
+      "name": "NPC_7",
+      "x": 176,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/hex_maniac",
+      "behaviorId": "base:behavior:movement/rotate_clockwise",
+      "interactionScript": "base:behavior:interaction/mt_pyre_4f_event_script_tasha",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/mt_pyre_4f/npc_8",
+      "name": "NPC_8",
+      "x": 48,
+      "y": 176,
+      "spriteId": "base:sprite:npcs/generic/item_ball",
+      "behaviorId": "base:behavior:movement/look_around",
+      "interactionScript": "base:behavior:interaction/mt_pyre_4f_event_script_item_sea_incense",
+      "visibilityFlag": "base:flag:item/mt_pyre_4f_sea_incense",
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

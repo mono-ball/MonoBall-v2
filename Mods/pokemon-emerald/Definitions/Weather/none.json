@@ -1,0 +1,14 @@
+{
+  "id": "base:weather:outdoor/none",
+  "name": "None",
+  "description": "None weather condition",
+  "category": "outdoor",
+  "intensity": 0.0,
+  "affectsBattle": false,
+  "ambientSoundId": null,
+  "effectScriptId": null,
+  "screenTint": null,
+  "screenTintOpacity": 0.0,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

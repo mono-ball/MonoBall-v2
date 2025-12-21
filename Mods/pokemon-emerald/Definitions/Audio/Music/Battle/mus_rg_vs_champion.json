@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_rg_vs_champion",
+  "name": "RG VS Champion",
+  "audioPath": "Audio/Music/Battle/mus_rg_vs_champion.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 615348,
+  "loopLengthSamples": 2645998,
+  "loopStartSec": 13.953,
+  "loopEndSec": 73.953
+}

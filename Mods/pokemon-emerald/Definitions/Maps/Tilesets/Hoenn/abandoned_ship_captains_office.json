@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/abandoned_ship_captains_office",
+  "name": "Abandoned Ship Captains Office",
+  "texturePath": "Graphics/Tilesets/Hoenn/abandoned_ship_captains_office.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 31,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

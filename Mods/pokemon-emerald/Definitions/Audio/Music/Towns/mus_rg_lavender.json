@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_rg_lavender",
+  "name": "RG Lavender",
+  "audioPath": "Audio/Music/Towns/mus_rg_lavender.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 330750,
+  "loopLengthSamples": 3307500,
+  "loopStartSec": 7.5,
+  "loopEndSec": 82.5
+}

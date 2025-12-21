@@ -1,0 +1,34 @@
+version: "1.0"
+
+# Qodana configuration for MonoBall .NET project
+# Using Qodana .NET linter (jetbrains/qodana-dotnet) for C# code analysis
+
+# Bootstrap command to restore NuGet packages before analysis
+bootstrap: |
+  dotnet restore
+
+# Exclude directories from analysis
+# Qodana .NET will automatically analyze .cs files, so we only need to exclude
+# build outputs, generated code, and non-source content directories
+exclude:
+  - name: "Build outputs and generated code"
+    paths:
+      - "**/bin/**"
+      - "**/obj/**"
+      - "**/packages/**"
+  - name: "Generated designer files"
+    paths:
+      - "**/*.Designer.cs"
+  - name: "Content assets and mod definitions"
+    paths:
+      - "Mods/**"
+      - "**/Content/**"
+  - name: "IDE and tooling cache files"
+    paths:
+      - ".idea/**"
+      - ".vs/**"
+      - "**/_ReSharper.Caches/**"
+
+# Additional options
+includeAbsent: false
+failThreshold: 0

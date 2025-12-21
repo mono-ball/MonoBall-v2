@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_rg_pewter",
+  "name": "RG Pewter",
+  "audioPath": "Audio/Music/Towns/mus_rg_pewter.ogg",
+  "volume": 0.661,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 20999,
+  "loopLengthSamples": 2687997,
+  "loopStartSec": 0.476,
+  "loopEndSec": 61.429
+}

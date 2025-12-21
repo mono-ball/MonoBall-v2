@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_sevii_cave",
+  "name": "RG Sevii Cave",
+  "audioPath": "Audio/Music/Special/mus_rg_sevii_cave.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 3908859,
+  "loopStartSec": 0.0,
+  "loopEndSec": 88.636
+}

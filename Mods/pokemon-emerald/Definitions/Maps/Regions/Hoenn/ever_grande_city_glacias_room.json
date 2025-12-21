@@ -1,0 +1,130 @@
+{
+  "id": "base:map:hoenn/ever_grande_city_glacias_room",
+  "name": "EverGrandeCity_GlaciasRoom",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 13,
+  "height": 14,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/battle/mus_victory_road",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/glacia",
+  "mapSectionId": "base:mapsec:hoenn/ever_grande_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/ever_grande_city_glacias_room",
+    "bottomLayer": [
+      73,
+      73,
+      73,
+      73
+    ],
+    "topLayer": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_glacias_room/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 14,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAGAAAABAAAAAYAAAAEAAAABwAAAAcAAAAHAAAABgAAAAQAAAAGAAAABAAAAAYAAAALAAAADQAAAAsAAAANAAAACwAAAA4AAAAQAAAAEgAAAA0AAAALAAAADQAAAAsAAAANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAABQAAAAUAAAAdAAAAHQAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAAB0AAAAdAAAAJgAAACcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAdAAAAJgAAAC8AAAAwAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAHQAAAC8AAAAvAAAAMAAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAAB0AAAAvAAAAOQAAADAAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAdAAAALwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARwAAAEcAAABHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_glacias_room/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 14,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAIAAAABAAAAAgAAAAEAAAADAAAAAwAAAAMAAAACAAAAAQAAAAIAAAABAAAAAgAAAAUAAAAFAAAABQAAAAUAAAAFAAAACAAAAAkAAAAKAAAABQAAAAUAAAAFAAAABQAAAAUAAAAMAAAADAAAAAwAAAAMAAAADAAAAA8AAAARAAAAEwAAAAwAAAAMAAAADAAAAAwAAAAMAAAAFAAAABQAAAAUAAAAFAAAABQAAAAFAAAABQAAAAUAAAAUAAAAFAAAABQAAAAUAAAAFAAAABUAAAAWAAAABQAAAAUAAAAYAAAAGQAAABkAAAAZAAAAGgAAAAUAAAAFAAAAGwAAABwAAAAeAAAAHwAAAAUAAAAFAAAAIAAAACEAAAAiAAAAIwAAACQAAAAFAAAABQAAACUAAAAeAAAABQAAACgAAAAFAAAABQAAACkAAAAqAAAAKwAAACwAAAAtAAAABQAAAAUAAAAuAAAABQAAAAUAAAAoAAAABQAAAAUAAAAgAAAAMQAAADIAAAAzAAAAJAAAAAUAAAAFAAAALgAAAAUAAAAFAAAANAAAAAUAAAAFAAAAIAAAADUAAAA2AAAANwAAACQAAAAFAAAABQAAADgAAAAFAAAAOgAAADsAAAAFAAAABQAAADwAAAA9AAAAPQAAAD0AAAA+AAAABQAAAAUAAAA/AAAAQAAAABQAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAACAAAAAQAAAAIAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAACAAAAAQAAAAIAAAABAAAABgAAAAQAAAAGAAAABAAAAEIAAAAFAAAABQAAAAUAAABDAAAABgAAAAQAAAAGAAAABAAAAEQAAABFAAAARAAAAEUAAABGAAAABQAAAAUAAAAFAAAASAAAAEQAAABFAAAARAAAAEUAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_glacias_room/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 14,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAIAAAABAAAAAgAAAAEAAAADAAAAAwAAAAMAAAACAAAAAQAAAAIAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAABBAAAAQQAAAEEAAABBAAAAQQAAAEEAAABBAAAAQQAAAEEAAABBAAAAQQAAAEEAAAACAAAAAQAAAAIAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAACAAAAAQAAAAIAAAABAAAABQAAAAUAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAA=",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/ever_grande_city_glacias_room"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_glacias_room/warp_to_ever_grande_city_hall2",
+      "name": "Warp to ever_grande_city_hall2",
+      "x": 96,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_hall2",
+      "targetX": 5,
+      "targetY": 2,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_glacias_room/warp_to_ever_grande_city_hall3",
+      "name": "Warp to ever_grande_city_hall3",
+      "x": 96,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_hall3",
+      "targetX": 5,
+      "targetY": 12,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_glacias_room/npc_3",
+      "name": "NPC_3",
+      "x": 96,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/elite_four/glacia",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/ever_grande_city_glacias_room_event_script_glacia",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "base:tileset:hoenn/terra_cave_end",
+  "name": "Terra Cave End",
+  "texturePath": "Graphics/Tilesets/Hoenn/terra_cave_end.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 144,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 144,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 32,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 43,
+          "durationMs": 133
+        },
+        {
+          "tileId": 44,
+          "durationMs": 133
+        },
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 46,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 34,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 52,
+          "durationMs": 133
+        },
+        {
+          "tileId": 53,
+          "durationMs": 133
+        },
+        {
+          "tileId": 54,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 30,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 123,
+          "durationMs": 133
+        },
+        {
+          "tileId": 124,
+          "durationMs": 133
+        },
+        {
+          "tileId": 125,
+          "durationMs": 133
+        },
+        {
+          "tileId": 126,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

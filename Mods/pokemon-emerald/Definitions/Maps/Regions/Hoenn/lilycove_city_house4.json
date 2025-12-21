@@ -1,0 +1,144 @@
+{
+  "id": "base:map:hoenn/lilycove_city_house4",
+  "name": "LilycoveCity_House4",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 10,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_lilycove",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/lilycove_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/lilycove_city_house4",
+    "bottomLayer": [
+      39,
+      39,
+      39,
+      39
+    ],
+    "topLayer": [
+      6,
+      6,
+      6,
+      6
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/lilycove_city_house4/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAADwAAAA8AAAAPAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAPAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAWAAAAGwAAABsAAAAbAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAFgAAABsAAAAbAAAAGwAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAAJgAAAAAAAAAAAAAAAAAAAAAAAAAWAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/lilycove_city_house4/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAMAAAAEAAAABQAAAAEAAAAHAAAAAQAAAAEAAAABAAAAAQAAAAkAAAAKAAAACwAAAAwAAAAIAAAADQAAAAgAAAAIAAAACAAAAAgAAAAQAAAAEQAAABIAAAATAAAADwAAAA8AAAAPAAAADwAAABQAAAAUAAAAFQAAABcAAAAYAAAAGAAAABgAAAAYAAAAGAAAABkAAAAWAAAAFgAAABUAAAAaAAAAHAAAAB0AAAAeAAAAGwAAABsAAAAfAAAAFgAAABYAAAAVAAAAGgAAACAAAAAhAAAAHgAAABsAAAAbAAAAHwAAABYAAAAWAAAAFQAAACIAAAAjAAAAIwAAACMAAAAjAAAAIwAAACQAAAAWAAAAFgAAABUAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAVAAAAFgAAABYAAAAGAAAABgAAABYAAAAWAAAAFgAAABYAAAAUAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/lilycove_city_house4/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAA4AAAAGAAAABgAAAAYAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAAAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/lilycove_city_house4"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/lilycove_city_house4/warp_to_lilycove_city",
+      "name": "Warp to lilycove_city",
+      "x": 48,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lilycove_city",
+      "targetX": 12,
+      "targetY": 14,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/lilycove_city_house4/warp_to_lilycove_city",
+      "name": "Warp to lilycove_city",
+      "x": 64,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lilycove_city",
+      "targetX": 12,
+      "targetY": 14,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/lilycove_city_house4/npc_3",
+      "name": "NPC_3",
+      "x": 16,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/man_4",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/lilycove_city_house4_event_script_man1",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/lilycove_city_house4/npc_4",
+      "name": "NPC_4",
+      "x": 112,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/man_1",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/lilycove_city_house4_event_script_man2",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

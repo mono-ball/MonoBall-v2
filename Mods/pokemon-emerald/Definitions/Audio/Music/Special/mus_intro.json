@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:music/special/mus_intro",
+  "name": "Intro",
+  "audioPath": "Audio/Music/Special/mus_intro.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5
+}

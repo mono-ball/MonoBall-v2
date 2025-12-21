@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/mossdeep_city_stevens_house",
+  "name": "Mossdeep City Stevens House",
+  "texturePath": "Graphics/Tilesets/Hoenn/mossdeep_city_stevens_house.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 33,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

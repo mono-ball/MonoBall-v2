@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:sfx/battle/se_use_item",
+  "name": "Use Item",
+  "audioPath": "Audio/SFX/Battle/se_use_item.ogg",
+  "volume": 0.787,
+  "loop": false,
+  "fadeIn": 0.0,
+  "fadeOut": 0.0
+}

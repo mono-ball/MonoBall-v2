@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_rg_encounter_rocket",
+  "name": "RG Encounter Rocket",
+  "audioPath": "Audio/Music/Battle/mus_rg_encounter_rocket.ogg",
+  "volume": 0.756,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 90616,
+  "loopLengthSamples": 289971,
+  "loopStartSec": 2.055,
+  "loopEndSec": 8.63
+}

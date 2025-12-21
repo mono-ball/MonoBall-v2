@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/mauville_city_house1",
+  "name": "Mauville City House1",
+  "texturePath": "Graphics/Tilesets/Hoenn/mauville_city_house1.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 39,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

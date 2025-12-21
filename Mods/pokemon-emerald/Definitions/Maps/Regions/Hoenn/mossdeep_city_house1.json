@@ -1,0 +1,144 @@
+{
+  "id": "base:map:hoenn/mossdeep_city_house1",
+  "name": "MossdeepCity_House1",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_rustboro",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/mossdeep_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/mossdeep_city_house1",
+    "bottomLayer": [
+      39,
+      39,
+      39,
+      39
+    ],
+    "topLayer": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/mossdeep_city_house1/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAACAAAAAsAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAABIAAAASAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAASAAAAEgAAABIAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGwAAABsAAAAeAAAAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbAAAAHgAAABIAAAAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAlAAAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGwAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/mossdeep_city_house1/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAMAAAAEAAAAAQAAAAEAAAAGAAAAAQAAAAEAAAABAAAAAQAAAAcAAAAJAAAACgAAAAwAAAAIAAAACAAAAA0AAAAIAAAADgAAAA8AAAAQAAAAEQAAABMAAAAUAAAAFQAAABIAAAASAAAAEgAAABIAAAAWAAAAFwAAABgAAAAZAAAAGgAAABsAAAAbAAAAGwAAABsAAAAbAAAAGwAAABsAAAAbAAAAGwAAABsAAAAaAAAAGwAAABsAAAAbAAAAHAAAAB0AAAAfAAAAIAAAABsAAAAbAAAAGwAAABoAAAAbAAAAGwAAABsAAAAcAAAAIQAAACIAAAAgAAAAGwAAABsAAAAbAAAAGgAAABsAAAAbAAAAGwAAABsAAAAbAAAAGwAAABsAAAAbAAAAGwAAABsAAAAkAAAAGwAAABsAAAAFAAAABQAAABsAAAAbAAAAGwAAABsAAAAbAAAAJAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/mossdeep_city_house1/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAFAAAAIwAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAACMAAAAAAAAABQAAAAUAAAAAAAAAAAAAAAUAAAAFAAAABQAAAAUAAAAFAAAAAAAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/mossdeep_city_house1"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/mossdeep_city_house1/warp_to_mossdeep_city",
+      "name": "Warp to mossdeep_city",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mossdeep_city",
+      "targetX": 28,
+      "targetY": 9,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/mossdeep_city_house1/warp_to_mossdeep_city",
+      "name": "Warp to mossdeep_city",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mossdeep_city",
+      "targetX": 28,
+      "targetY": 9,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/mossdeep_city_house1/npc_3",
+      "name": "NPC_3",
+      "x": 48,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/black_belt",
+      "behaviorId": "base:behavior:movement/wander_vertical",
+      "interactionScript": "base:behavior:interaction/mossdeep_city_house1_event_script_black_belt",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/mossdeep_city_house1/npc_4",
+      "name": "NPC_4",
+      "x": 112,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/woman_2",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/mossdeep_city_house1_event_script_woman",
+      "visibilityFlag": null,
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

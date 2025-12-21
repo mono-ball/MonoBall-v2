@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/battle_frontier_battle_pyramid_top",
+  "name": "Battle Frontier Battle Pyramid Top",
+  "texturePath": "Graphics/Tilesets/Hoenn/battle_frontier_battle_pyramid_top.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 52,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

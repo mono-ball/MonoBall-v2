@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/altering_cave",
+  "name": "Altering Cave",
+  "texturePath": "Graphics/Tilesets/Hoenn/altering_cave.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 28,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

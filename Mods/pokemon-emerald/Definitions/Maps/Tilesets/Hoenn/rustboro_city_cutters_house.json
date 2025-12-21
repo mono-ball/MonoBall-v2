@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/rustboro_city_cutters_house",
+  "name": "Rustboro City Cutters House",
+  "texturePath": "Graphics/Tilesets/Hoenn/rustboro_city_cutters_house.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 49,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

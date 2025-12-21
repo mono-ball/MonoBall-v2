@@ -1,0 +1,14 @@
+{
+  "id": "base:weather:outdoor/volcanic_ash",
+  "name": "Volcanic Ash",
+  "description": "Volcanic Ash weather condition",
+  "category": "outdoor",
+  "intensity": 1.0,
+  "affectsBattle": false,
+  "ambientSoundId": null,
+  "effectScriptId": "base:script:weather/ash",
+  "screenTint": "#808080",
+  "screenTintOpacity": 0.3,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

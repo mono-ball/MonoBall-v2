@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <PublishReadyToRun>false</PublishReadyToRun>
+        <TieredCompilation>false</TieredCompilation>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationIcon>../MonoBall.Core/Content/Icon.ico</ApplicationIcon>
+        <AssemblyName>MonoBall</AssemblyName>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <MonoGameContentReference Include="..\MonoBall.Core\Content\MonoBall.mgcb">
+            <Link>Content\MonoBall.mgcb</Link>
+        </MonoGameContentReference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MonoBall.Core\MonoBall.Core.csproj"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*"/>
+        <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.*"/>
+        <PackageReference Include="CSharpier.MSBuild" Version="0.30.0" />
+    </ItemGroup>
+    <Target Name="RestoreDotnetTools" BeforeTargets="CollectPackageReferences">
+        <Message Text="Restoring dotnet tools (this might take a while depending on your internet speed and should only happen upon building your project for the first time, or after upgrading MonoGame, or clearing your nuget cache)" Importance="High"/>
+        <Exec Command="dotnet tool restore"/>
+    </Target>
+    
+    <!-- 
+    Copy Mods directory to output directory after build.
+    The Mods folder is located at the solution root (../../Mods relative to this project).
+    This ensures mods are available when running the game from the output directory.
+    Deletes the old Mods directory first to prevent stale files from causing issues.
+    -->
+    <Target Name="CopyMods" AfterTargets="Build">
+        <PropertyGroup>
+            <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
+            <ModsDestinationPath>$(OutputPath)Mods</ModsDestinationPath>
+        </PropertyGroup>
+        
+        <!-- Delete old Mods directory if it exists -->
+        <Message Text="Cleaning old Mods directory..." Importance="High"/>
+        <RemoveDir Condition="Exists('$(ModsDestinationPath)')" Directories="$(ModsDestinationPath)" />
+        
+        <!-- Copy Mods directory -->
+        <ItemGroup>
+            <ModsFiles Include="$(ModsSourcePath)\**\*.*" />
+        </ItemGroup>
+        <Message Text="Copying Mods directory from $(ModsSourcePath) to $(ModsDestinationPath)..." Importance="High"/>
+        <Copy SourceFiles="@(ModsFiles)" 
+              DestinationFiles="@(ModsFiles->'$(ModsDestinationPath)\%(RecursiveDir)%(Filename)%(Extension)')" 
+              SkipUnchangedFiles="false" />
+    </Target>
+    
+    <!-- 
+    Copy Mods directory to publish directory when publishing the application.
+    This ensures mods are included in published builds.
+    Deletes the old Mods directory first to prevent stale files from causing issues.
+    -->
+    <Target Name="CopyModsToPublish" AfterTargets="Publish">
+        <PropertyGroup>
+            <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
+            <ModsDestinationPath>$(PublishDir)Mods</ModsDestinationPath>
+        </PropertyGroup>
+        
+        <!-- Delete old Mods directory if it exists -->
+        <Message Text="Cleaning old Mods directory in publish output..." Importance="High"/>
+        <RemoveDir Condition="Exists('$(ModsDestinationPath)')" Directories="$(ModsDestinationPath)" />
+        
+        <!-- Copy Mods directory -->
+        <ItemGroup>
+            <ModsFiles Include="$(ModsSourcePath)\**\*.*" />
+        </ItemGroup>
+        <Message Text="Copying Mods directory from $(ModsSourcePath) to $(ModsDestinationPath)..." Importance="High"/>
+        <Copy SourceFiles="@(ModsFiles)" 
+              DestinationFiles="@(ModsFiles->'$(ModsDestinationPath)\%(RecursiveDir)%(Filename)%(Extension)')" 
+              SkipUnchangedFiles="false" />
+    </Target>
+</Project>

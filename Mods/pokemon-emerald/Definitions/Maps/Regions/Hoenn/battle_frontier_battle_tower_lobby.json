@@ -1,0 +1,305 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_tower_lobby",
+  "name": "BattleFrontier_BattleTowerLobby",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 25,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_tower",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/battle_frontier_battle_tower_lobby",
+    "bottomLayer": [
+      62,
+      62,
+      62,
+      62
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_tower_lobby/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 25,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAHAAAABwAAAAcAAAALAAAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAABQAAAASAAAAFAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAIwAAABQAAAAAAAAAFAAAACcAAAAUAAAAAAAAABQAAAAnAAAAFAAAAAAAAAAUAAAAJwAAABQAAAAAAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAEgAAABIAAAAAAAAAEgAAABIAAAASAAAAAAAAABIAAAASAAAAEgAAAAAAAAASAAAAEgAAABIAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAGgAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_tower_lobby/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 25,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAIAAAACAAAAAgAAAAEAAAADAAAABAAAAAUAAAABAAAAAwAAAAQAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAABAAAAAUAAAABAAAAAQAAAAYAAAABAAAAAQAAAAcAAAAIAAAACQAAAAoAAAAMAAAADQAAAA4AAAAPAAAADAAAAA0AAAAOAAAADwAAAAwAAAANAAAADgAAAA8AAAAMAAAADQAAAA4AAAAPAAAADAAAAAcAAAAQAAAABwAAAAcAAAARAAAAEwAAABUAAAAWAAAAFwAAABEAAAASAAAAEgAAABcAAAARAAAAEgAAABIAAAAXAAAAEQAAABIAAAASAAAAFwAAABEAAAASAAAAEgAAABcAAAARAAAAGAAAABIAAAASAAAAGQAAABoAAAAbAAAAGgAAABcAAAAZAAAAGgAAABoAAAAXAAAAGQAAABoAAAAaAAAAFwAAABkAAAAaAAAAGgAAABcAAAAZAAAAGgAAABoAAAAXAAAAGQAAABsAAAAaAAAAGgAAABkAAAAaAAAAGwAAABoAAAAdAAAAGQAAABoAAAAaAAAAHQAAABkAAAAaAAAAGgAAAB0AAAAZAAAAGgAAABoAAAAdAAAAGQAAABoAAAAaAAAAIAAAABkAAAAbAAAAGgAAACIAAAAZAAAAGgAAABsAAAAaAAAAJAAAACUAAAAaAAAAJgAAACgAAAAlAAAAGgAAACYAAAAoAAAAJQAAABoAAAAmAAAAKAAAACUAAAAaAAAAJgAAACkAAAAZAAAAGwAAABoAAAAqAAAAGQAAABoAAAAbAAAAGgAAACsAAAAsAAAALQAAAC4AAAASAAAALwAAADAAAAAxAAAAEgAAADIAAAAzAAAANAAAABIAAAA1AAAANgAAADcAAAASAAAAOAAAABsAAAAaAAAAOQAAABkAAAAaAAAAGwAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAbAAAAGgAAABoAAAAZAAAAGgAAABoAAAAbAAAAGwAAABsAAAAbAAAAGwAAABsAAAAbAAAAGwAAABoAAAAaAAAAGgAAABoAAAAbAAAAGwAAABsAAAAbAAAAGwAAABsAAAAbAAAAGgAAABoAAAAaAAAAOwAAADsAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAPAAAAD0AAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAA7AAAAOwAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_tower_lobby/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 25,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAHgAAAAIAAAAfAAAAAAAAAB4AAAACAAAAHwAAAAAAAAAeAAAAAgAAAB8AAAAAAAAAHgAAAAIAAAAfAAAAAAAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA6AAAAOgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAADoAAAA6AAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_tower_lobby"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_tower_lobby/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 192,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 16,
+      "targetY": 14,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_tower_lobby/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 208,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 16,
+      "targetY": 14,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_tower_lobby/warp_to_battle_frontier_battle_tower_battle_room",
+      "name": "Warp to battle_frontier_battle_tower_battle_room",
+      "x": 96,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_battle_tower_battle_room",
+      "targetX": 5,
+      "targetY": 8,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_tower_lobby/sign_battlefrontier_battletowerlobby_eventscript_showsinglesresults",
+      "name": "Sign: BattleFrontier_BattleTowerLobby_EventScript_ShowSinglesResults",
+      "x": 64,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattleTowerLobby_EventScript_ShowSinglesResults.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_tower_lobby/sign_battlefrontier_battletowerlobby_eventscript_showdoublesresults",
+      "name": "Sign: BattleFrontier_BattleTowerLobby_EventScript_ShowDoublesResults",
+      "x": 128,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattleTowerLobby_EventScript_ShowDoublesResults.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_tower_lobby/sign_battlefrontier_battletowerlobby_eventscript_showmultisresults",
+      "name": "Sign: BattleFrontier_BattleTowerLobby_EventScript_ShowMultisResults",
+      "x": 192,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattleTowerLobby_EventScript_ShowMultisResults.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_tower_lobby/sign_battlefrontier_battletowerlobby_eventscript_showlinkmultisresults",
+      "name": "Sign: BattleFrontier_BattleTowerLobby_EventScript_ShowLinkMultisResults",
+      "x": 256,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattleTowerLobby_EventScript_ShowLinkMultisResults.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/battle_frontier_battle_tower_lobby/sign_battlefrontier_battletowerlobby_eventscript_rulesboard",
+      "name": "Sign: BattleFrontier_BattleTowerLobby_EventScript_RulesBoard",
+      "x": 32,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattleTowerLobby_EventScript_RulesBoard.csx",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/localid_tower_attendant_singles",
+      "name": "LOCALID_TOWER_ATTENDANT_SINGLES",
+      "x": 96,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/teala",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_singles_attendant",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/npc_10",
+      "name": "NPC_10",
+      "x": 368,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/man_4",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_feelings_man",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/npc_11",
+      "name": "NPC_11",
+      "x": 272,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/woman_5",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_woman",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/npc_12",
+      "name": "NPC_12",
+      "x": 240,
+      "y": 144,
+      "spriteId": "base:sprite:npcs/generic/boy_1",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_boy",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/localid_tower_lobby_reporter",
+      "name": "LOCALID_TOWER_LOBBY_REPORTER",
+      "x": 176,
+      "y": 144,
+      "spriteId": "base:sprite:npcs/generic/reporter_f",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_reporter",
+      "visibilityFlag": "base:flag:visibility/battle_tower_reporter",
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/localid_apprentice",
+      "name": "LOCALID_APPRENTICE",
+      "x": 16,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/var_0",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_apprentice",
+      "visibilityFlag": "base:flag:visibility/apprentice",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/localid_tower_attendant_doubles",
+      "name": "LOCALID_TOWER_ATTENDANT_DOUBLES",
+      "x": 160,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/teala",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_doubles_attendant",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/localid_tower_attendant_multis",
+      "name": "LOCALID_TOWER_ATTENDANT_MULTIS",
+      "x": 224,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/teala",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_multis_attendant",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_tower_lobby/localid_tower_attendant_link_multis",
+      "name": "LOCALID_TOWER_ATTENDANT_LINK_MULTIS",
+      "x": 288,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/teala",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_battle_tower_lobby_event_script_link_multis_attendant",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

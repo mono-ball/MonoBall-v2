@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/cave_of_origin_b1f",
+  "name": "Cave Of Origin B1F",
+  "texturePath": "Graphics/Tilesets/Hoenn/cave_of_origin_b1f.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 23,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

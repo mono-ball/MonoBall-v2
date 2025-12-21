@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/fortree_city_gym",
+  "name": "Fortree City Gym",
+  "texturePath": "Graphics/Tilesets/Hoenn/fortree_city_gym.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 55,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

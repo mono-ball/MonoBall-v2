@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:sfx/battle/se_exit",
+  "name": "Exit",
+  "audioPath": "Audio/SFX/Battle/se_exit.ogg",
+  "volume": 0.945,
+  "loop": false,
+  "fadeIn": 0.0,
+  "fadeOut": 0.0
+}

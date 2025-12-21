@@ -1,0 +1,210 @@
+{
+  "id": "base:tileset:hoenn/abandoned_ship_deck",
+  "name": "Abandoned Ship Deck",
+  "texturePath": "Graphics/Tilesets/Hoenn/abandoned_ship_deck.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 96,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 96,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 43,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 48,
+          "durationMs": 266
+        },
+        {
+          "tileId": 49,
+          "durationMs": 266
+        },
+        {
+          "tileId": 50,
+          "durationMs": 266
+        },
+        {
+          "tileId": 51,
+          "durationMs": 266
+        },
+        {
+          "tileId": 52,
+          "durationMs": 266
+        },
+        {
+          "tileId": 53,
+          "durationMs": 266
+        },
+        {
+          "tileId": 54,
+          "durationMs": 266
+        },
+        {
+          "tileId": 55,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 44,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 64,
+          "durationMs": 266
+        },
+        {
+          "tileId": 65,
+          "durationMs": 266
+        },
+        {
+          "tileId": 66,
+          "durationMs": 266
+        },
+        {
+          "tileId": 67,
+          "durationMs": 266
+        },
+        {
+          "tileId": 68,
+          "durationMs": 266
+        },
+        {
+          "tileId": 69,
+          "durationMs": 266
+        },
+        {
+          "tileId": 70,
+          "durationMs": 266
+        },
+        {
+          "tileId": 71,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 46,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 72,
+          "durationMs": 266
+        },
+        {
+          "tileId": 73,
+          "durationMs": 266
+        },
+        {
+          "tileId": 74,
+          "durationMs": 266
+        },
+        {
+          "tileId": 75,
+          "durationMs": 266
+        },
+        {
+          "tileId": 76,
+          "durationMs": 266
+        },
+        {
+          "tileId": 77,
+          "durationMs": 266
+        },
+        {
+          "tileId": 78,
+          "durationMs": 266
+        },
+        {
+          "tileId": 79,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 45,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 80,
+          "durationMs": 266
+        },
+        {
+          "tileId": 81,
+          "durationMs": 266
+        },
+        {
+          "tileId": 82,
+          "durationMs": 266
+        },
+        {
+          "tileId": 83,
+          "durationMs": 266
+        },
+        {
+          "tileId": 84,
+          "durationMs": 266
+        },
+        {
+          "tileId": 85,
+          "durationMs": 266
+        },
+        {
+          "tileId": 86,
+          "durationMs": 266
+        },
+        {
+          "tileId": 87,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 47,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 88,
+          "durationMs": 266
+        },
+        {
+          "tileId": 89,
+          "durationMs": 266
+        },
+        {
+          "tileId": 90,
+          "durationMs": 266
+        },
+        {
+          "tileId": 91,
+          "durationMs": 266
+        },
+        {
+          "tileId": 92,
+          "durationMs": 266
+        },
+        {
+          "tileId": 93,
+          "durationMs": 266
+        },
+        {
+          "tileId": 94,
+          "durationMs": 266
+        },
+        {
+          "tileId": 95,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

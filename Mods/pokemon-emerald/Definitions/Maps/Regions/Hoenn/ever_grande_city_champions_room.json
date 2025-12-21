@@ -1,0 +1,158 @@
+{
+  "id": "base:map:hoenn/ever_grande_city_champions_room",
+  "name": "EverGrandeCity_ChampionsRoom",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 13,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/battle/mus_victory_road",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/ever_grande_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/ever_grande_city_champions_room",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_champions_room/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAEAAAABAAAAAAAAAAEAAAABAAAAAgAAAAoAAAAKAAAACgAAAAwAAAAKAAAACgAAAAoAAAACAAAAAQAAAAEAAAABAAAAAgAAABAAAAARAAAAEQAAABIAAAAUAAAAFgAAABEAAAARAAAAGAAAAAIAAAABAAAAAgAAABAAAAAZAAAAGgAAABoAAAAbAAAAAAAAAB0AAAAaAAAAGgAAAB4AAAAYAAAAAgAAABAAAAAZAAAAHwAAACAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAmAAAAHgAAABgAAAAZAAAAHwAAACcAAAAoAAAAAgAAAAIAAAACAAAAAgAAAAIAAAArAAAALQAAACYAAAAeAAAAHwAAACcAAAAhAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAtAAAAJgAAACcAAAAwAAAAIQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAMQAAAC0AAAAwAAAAMgAAADMAAAA0AAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAADgAAAAxAAAAMgAAADoAAAA7AAAAPQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAABBAAAAOAAAAEMAAABDAAAAAgAAAEUAAABHAAAASQAAAEoAAABLAAAARwAAAAIAAAACAAAAQwAAAEMAAABPAAAAQwAAAFEAAAACAAAAAgAAAFQAAABVAAAAVgAAAAIAAAACAAAAWAAAAEMAAABZAAAAAAAAAE8AAABRAAAAWwAAAAIAAABUAAAAVQAAAFYAAAACAAAAWwAAAFgAAABZAAAAAAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_champions_room/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAMAAAAEAAAABQAAAAUAAAAFAAAABgAAAAUAAAAFAAAABQAAAAcAAAAIAAAAAQAAAAMAAAAEAAAACQAAAAoAAAAKAAAACwAAAA0AAAAOAAAACgAAAAoAAAAPAAAABwAAAAgAAAAEAAAACQAAABAAAAARAAAAEQAAABMAAAAVAAAAFwAAABEAAAARAAAAGAAAAA8AAAAHAAAACQAAABAAAAAZAAAAGgAAABoAAAACAAAAHAAAAAIAAAAaAAAAGgAAAB4AAAAYAAAADwAAABAAAAAZAAAAHwAAACEAAAAiAAAAIwAAACQAAAAkAAAAIgAAACUAAAAmAAAAHgAAABgAAAAZAAAAHwAAACEAAAApAAAAKgAAACoAAAAqAAAAKgAAACoAAAAsAAAAJQAAACYAAAAeAAAAHwAAACcAAAAuAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAAC8AAAAtAAAAJgAAACcAAAAwAAAALgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAvAAAAMQAAAC0AAAAwAAAAMgAAADMAAAA1AAAAKgAAACoAAAAqAAAAKgAAACoAAAA2AAAANwAAADgAAAAxAAAAOQAAADoAAAA8AAAAPQAAAD4AAAA+AAAAPgAAAD4AAAA+AAAAPwAAAEAAAABBAAAAQgAAAEQAAAA5AAAAOwAAAEYAAABIAAAAAgAAAAIAAAACAAAASAAAAEwAAABNAAAAQgAAAE4AAABQAAAARAAAADkAAABSAAAAUwAAAAIAAAACAAAAAgAAAFMAAABXAAAAQgAAAE4AAABaAAAAAQAAAFAAAABEAAAAOQAAAFMAAAACAAAAAgAAAAIAAABTAAAAQgAAAE4AAABaAAAAAQAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_champions_room/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/ever_grande_city_champions_room"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_champions_room/warp_to_ever_grande_city_hall4",
+      "name": "Warp to ever_grande_city_hall4",
+      "x": 96,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_hall4",
+      "targetX": 5,
+      "targetY": 2,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_champions_room/warp_to_ever_grande_city_hall_of_fame",
+      "name": "Warp to ever_grande_city_hall_of_fame",
+      "x": 96,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_hall_of_fame",
+      "targetX": 7,
+      "targetY": 11,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_champions_room/localid_champions_room_wallace",
+      "name": "LOCALID_CHAMPIONS_ROOM_WALLACE",
+      "x": 96,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/wallace",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_champions_room/localid_champions_room_rival",
+      "name": "LOCALID_CHAMPIONS_ROOM_RIVAL",
+      "x": 96,
+      "y": 192,
+      "spriteId": "base:sprite:npcs/generic/var_0",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": "base:flag:visibility/champions_room_rival",
+      "direction": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_champions_room/localid_champions_room_birch",
+      "name": "LOCALID_CHAMPIONS_ROOM_BIRCH",
+      "x": 96,
+      "y": 192,
+      "spriteId": "base:sprite:npcs/generic/prof_birch",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": "base:flag:visibility/champions_room_birch",
+      "direction": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": "base:map:hoenn/mossdeep_city_game_corner_1f",
+  "name": "MossdeepCity_GameCorner_1F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 12,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_rustboro",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/mossdeep_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/mossdeep_city_game_corner_1f",
+    "bottomLayer": [
+      50,
+      50,
+      50,
+      50
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/mossdeep_city_game_corner_1f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 12,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAoAAAAKAAAADgAAAA8AAAAAAAAAEAAAABEAAAAKAAAACgAAAAAAAAAKAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAB8AAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAACoAAAAWAAAAFgAAAAAAAAAAAAAAAAAAABYAAAAWAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/mossdeep_city_game_corner_1f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 12,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAwAAAAQAAAAFAAAABwAAAAgAAAABAAAAAQAAAAEAAAABAAAACwAAAAwAAAANAAAAAgAAAAIAAAAFAAAAAgAAAAIAAAASAAAAAgAAABMAAAACAAAAFAAAABUAAAAXAAAAGAAAABgAAAAbAAAAHAAAABwAAAAeAAAAFQAAACAAAAAUAAAAIQAAABYAAAAiAAAAIwAAACQAAAAlAAAAJgAAACMAAAAnAAAAFgAAABYAAAAWAAAAIQAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAIQAAABYAAAAoAAAAKgAAABYAAAAWAAAAFgAAACgAAAAqAAAAFgAAABYAAAAWAAAAIQAAAAIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAAgAAABYAAAAWAAAAIQAAAAIAAAAuAAAALwAAABYAAAAWAAAAFgAAAC4AAAAvAAAAAgAAABYAAAAWAAAAIQAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAIQAAABYAAAAWAAAAFgAAABYAAAACAAAAAgAAABYAAAAWAAAAFgAAABYAAAAWAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/mossdeep_city_game_corner_1f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 12,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAAGAAAAAgAAAAIAAAACAAAAAgAAAAkAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAGQAAABoAAAAAAAAAHQAAABkAAAAAAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAApAAAAKwAAAAIAAAACAAAAAgAAACkAAAArAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAsAAAALQAAAAIAAAACAAAAAgAAACwAAAAtAAAAAAAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/mossdeep_city_game_corner_1f"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city",
+      "name": "Warp to mossdeep_city",
+      "x": 80,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mossdeep_city",
+      "targetX": 36,
+      "targetY": 24,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city",
+      "name": "Warp to mossdeep_city",
+      "x": 96,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mossdeep_city",
+      "targetX": 36,
+      "targetY": 24,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city_game_corner_b1f",
+      "name": "Warp to mossdeep_city_game_corner_b1f",
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mossdeep_city_game_corner_b1f",
+      "targetX": 3,
+      "targetY": 1,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "interactionId": "base:interaction:hoenn/mossdeep_city_game_corner_1f/sign_rs_mysteryeventshouse_eventscript_door",
+      "name": "Sign: RS_MysteryEventsHouse_EventScript_Door",
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/RS_MysteryEventsHouse_EventScript_Door.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/mossdeep_city_game_corner_1f/sign_mossdeepcity_gamecorner_1f_eventscript_dodrioberrypickingrecords",
+      "name": "Sign: MossdeepCity_GameCorner_1F_EventScript_DodrioBerryPickingRecords",
+      "x": 0,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_GameCorner_1F_EventScript_DodrioBerryPickingRecords.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/mossdeep_city_game_corner_1f/sign_mossdeepcity_gamecorner_1f_eventscript_pokemonjumprecords",
+      "name": "Sign: MossdeepCity_GameCorner_1F_EventScript_PokemonJumpRecords",
+      "x": 16,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_GameCorner_1F_EventScript_PokemonJumpRecords.csx",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/mossdeep_city_game_corner_1f/npc_7",
+      "name": "NPC_7",
+      "x": 96,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/mossdeep_city_game_corner_1f_event_script_old_man",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/mossdeep_city_game_corner_1f/npc_8",
+      "name": "NPC_8",
+      "x": 64,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/man_4",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/mossdeep_city_game_corner_1f_event_script_info_man",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    }
+  ]
+}

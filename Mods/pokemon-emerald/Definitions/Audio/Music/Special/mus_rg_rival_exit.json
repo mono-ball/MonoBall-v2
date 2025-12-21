@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_rival_exit",
+  "name": "RG Rival Exit",
+  "audioPath": "Audio/Music/Special/mus_rg_rival_exit.ogg",
+  "volume": 0.622,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 62999,
+  "loopLengthSamples": 755998,
+  "loopStartSec": 1.429,
+  "loopEndSec": 18.571
+}

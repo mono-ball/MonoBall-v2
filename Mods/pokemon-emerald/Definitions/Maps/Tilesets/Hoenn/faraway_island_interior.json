@@ -1,0 +1,38 @@
+{
+  "id": "base:tileset:hoenn/faraway_island_interior",
+  "name": "Faraway Island Interior",
+  "texturePath": "Graphics/Tilesets/Hoenn/faraway_island_interior.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 32,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 10,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 23,
+          "durationMs": 266
+        },
+        {
+          "tileId": 24,
+          "durationMs": 266
+        },
+        {
+          "tileId": 23,
+          "durationMs": 266
+        },
+        {
+          "tileId": 25,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "id": "base:tileset:hoenn/birth_island_exterior",
+  "name": "Birth Island Exterior",
+  "texturePath": "Graphics/Tilesets/Hoenn/birth_island_exterior.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 480,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 480,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 85,
+          "durationMs": 266
+        },
+        {
+          "tileId": 86,
+          "durationMs": 266
+        },
+        {
+          "tileId": 87,
+          "durationMs": 266
+        },
+        {
+          "tileId": 88,
+          "durationMs": 266
+        },
+        {
+          "tileId": 89,
+          "durationMs": 266
+        },
+        {
+          "tileId": 90,
+          "durationMs": 266
+        },
+        {
+          "tileId": 91,
+          "durationMs": 266
+        },
+        {
+          "tileId": 92,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 38,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 141,
+          "durationMs": 266
+        },
+        {
+          "tileId": 142,
+          "durationMs": 266
+        },
+        {
+          "tileId": 143,
+          "durationMs": 266
+        },
+        {
+          "tileId": 144,
+          "durationMs": 266
+        },
+        {
+          "tileId": 145,
+          "durationMs": 266
+        },
+        {
+          "tileId": 146,
+          "durationMs": 266
+        },
+        {
+          "tileId": 147,
+          "durationMs": 266
+        },
+        {
+          "tileId": 148,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 42,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 149,
+          "durationMs": 266
+        },
+        {
+          "tileId": 150,
+          "durationMs": 266
+        },
+        {
+          "tileId": 151,
+          "durationMs": 266
+        },
+        {
+          "tileId": 152,
+          "durationMs": 266
+        },
+        {
+          "tileId": 153,
+          "durationMs": 266
+        },
+        {
+          "tileId": 154,
+          "durationMs": 266
+        },
+        {
+          "tileId": 155,
+          "durationMs": 266
+        },
+        {
+          "tileId": 156,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 48,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 157,
+          "durationMs": 266
+        },
+        {
+          "tileId": 158,
+          "durationMs": 266
+        },
+        {
+          "tileId": 159,
+          "durationMs": 266
+        },
+        {
+          "tileId": 160,
+          "durationMs": 266
+        },
+        {
+          "tileId": 161,
+          "durationMs": 266
+        },
+        {
+          "tileId": 162,
+          "durationMs": 266
+        },
+        {
+          "tileId": 163,
+          "durationMs": 266
+        },
+        {
+          "tileId": 164,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 50,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 165,
+          "durationMs": 266
+        },
+        {
+          "tileId": 166,
+          "durationMs": 266
+        },
+        {
+          "tileId": 167,
+          "durationMs": 266
+        },
+        {
+          "tileId": 168,
+          "durationMs": 266
+        },
+        {
+          "tileId": 169,
+          "durationMs": 266
+        },
+        {
+          "tileId": 170,
+          "durationMs": 266
+        },
+        {
+          "tileId": 171,
+          "durationMs": 266
+        },
+        {
+          "tileId": 172,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 55,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 197,
+          "durationMs": 266
+        },
+        {
+          "tileId": 198,
+          "durationMs": 266
+        },
+        {
+          "tileId": 199,
+          "durationMs": 266
+        },
+        {
+          "tileId": 200,
+          "durationMs": 266
+        },
+        {
+          "tileId": 201,
+          "durationMs": 266
+        },
+        {
+          "tileId": 202,
+          "durationMs": 266
+        },
+        {
+          "tileId": 203,
+          "durationMs": 266
+        },
+        {
+          "tileId": 204,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

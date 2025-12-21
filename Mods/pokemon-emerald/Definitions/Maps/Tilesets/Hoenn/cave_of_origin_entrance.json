@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/cave_of_origin_entrance",
+  "name": "Cave Of Origin Entrance",
+  "texturePath": "Graphics/Tilesets/Hoenn/cave_of_origin_entrance.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 24,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

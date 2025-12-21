@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_encounter_champion",
+  "name": "Encounter Champion",
+  "audioPath": "Audio/Music/Battle/mus_encounter_champion.ogg",
+  "volume": 0.598,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 149070,
+  "loopLengthSamples": 1192562,
+  "loopStartSec": 3.38,
+  "loopEndSec": 30.423
+}

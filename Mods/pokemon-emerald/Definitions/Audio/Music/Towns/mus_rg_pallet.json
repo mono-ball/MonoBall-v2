@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_rg_pallet",
+  "name": "RG Pallet",
+  "audioPath": "Audio/Music/Towns/mus_rg_pallet.ogg",
+  "volume": 0.787,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 1924363,
+  "loopStartSec": 0.0,
+  "loopEndSec": 43.636
+}

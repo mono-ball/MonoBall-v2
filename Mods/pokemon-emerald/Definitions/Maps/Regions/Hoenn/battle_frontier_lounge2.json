@@ -1,0 +1,186 @@
+{
+  "id": "base:map:hoenn/battle_frontier_lounge2",
+  "name": "BattleFrontier_Lounge2",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 13,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_tower_rs",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/battle_frontier_lounge2",
+    "bottomLayer": [
+      27,
+      27,
+      27,
+      27
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_lounge2/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAACAAAAAoAAAAIAAAACgAAAAgAAAALAAAACAAAAAoAAAAIAAAACgAAAAgAAAAAAAAADQAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAsAAAAAAAAAFgAAAAAAAAAWAAAAAAAAAA8AAAAAAAAAFgAAAAAAAAAWAAAAAAAAAAsAAAALAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAALAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAWAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_lounge2/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAIAAAABAAAAAgAAAAIAAAABAAAAAwAAAAIAAAABAAAAAQAAAAEAAAABAAAAAQAAAAQAAAAFAAAABQAAAAUAAAAFAAAABQAAAAYAAAAFAAAABQAAAAUAAAAFAAAABQAAAAQAAAAHAAAACQAAAAkAAAAJAAAACQAAAAkAAAAMAAAACQAAAAkAAAAJAAAACQAAAAkAAAAKAAAADgAAAA8AAAARAAAADwAAABIAAAAPAAAAEwAAAA8AAAATAAAADwAAABIAAAAPAAAAFAAAABUAAAATAAAAEQAAABMAAAASAAAAEwAAAAkAAAATAAAAEQAAABMAAAASAAAAEwAAABcAAAAYAAAADwAAABMAAAAPAAAAEwAAAA8AAAATAAAADwAAABEAAAAPAAAAEgAAAA8AAAAZAAAAGgAAABMAAAAPAAAAEwAAAA8AAAATAAAACQAAABMAAAARAAAAEwAAABIAAAATAAAADwAAABsAAAAdAAAAHgAAAA8AAAATAAAADwAAABMAAAAPAAAAEwAAAA8AAAATAAAADwAAABsAAAA=",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_lounge2/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 13,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAABQAAAAIAAAACAAAAAgAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAFAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA=",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_lounge2"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_lounge2/warp_to_battle_frontier_outside_west",
+      "name": "Warp to battle_frontier_outside_west",
+      "x": 16,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_west",
+      "targetX": 45,
+      "targetY": 44,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_lounge2/warp_to_battle_frontier_outside_west",
+      "name": "Warp to battle_frontier_outside_west",
+      "x": 32,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_west",
+      "targetX": 45,
+      "targetY": 44,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_lounge2/npc_3",
+      "name": "NPC_3",
+      "x": 128,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/maniac",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_lounge2_event_script_frontier_maniac",
+      "visibilityFlag": null,
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_lounge2/npc_4",
+      "name": "NPC_4",
+      "x": 160,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/maniac",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_lounge2_event_script_maniac1",
+      "visibilityFlag": null,
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_lounge2/npc_5",
+      "name": "NPC_5",
+      "x": 160,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/maniac",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_lounge2_event_script_maniac2",
+      "visibilityFlag": null,
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_lounge2/npc_6",
+      "name": "NPC_6",
+      "x": 64,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/running_triathlete_f",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/battle_frontier_lounge2_event_script_triathlete_f",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 2,
+      "elevation": 0
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_lounge2/npc_7",
+      "name": "NPC_7",
+      "x": 160,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/maniac",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/battle_frontier_lounge2_event_script_maniac3",
+      "visibilityFlag": null,
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    }
+  ]
+}

@@ -1,0 +1,1497 @@
+{
+  "id": "base:tileset:hoenn/route133",
+  "name": "Route133",
+  "texturePath": "Graphics/Tilesets/Hoenn/route133.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 640,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 640,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 4,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 59,
+          "durationMs": 266
+        },
+        {
+          "tileId": 60,
+          "durationMs": 266
+        },
+        {
+          "tileId": 61,
+          "durationMs": 266
+        },
+        {
+          "tileId": 62,
+          "durationMs": 266
+        },
+        {
+          "tileId": 63,
+          "durationMs": 266
+        },
+        {
+          "tileId": 64,
+          "durationMs": 266
+        },
+        {
+          "tileId": 65,
+          "durationMs": 266
+        },
+        {
+          "tileId": 66,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 6,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 67,
+          "durationMs": 266
+        },
+        {
+          "tileId": 68,
+          "durationMs": 266
+        },
+        {
+          "tileId": 69,
+          "durationMs": 266
+        },
+        {
+          "tileId": 70,
+          "durationMs": 266
+        },
+        {
+          "tileId": 71,
+          "durationMs": 266
+        },
+        {
+          "tileId": 72,
+          "durationMs": 266
+        },
+        {
+          "tileId": 73,
+          "durationMs": 266
+        },
+        {
+          "tileId": 74,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 10,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 75,
+          "durationMs": 266
+        },
+        {
+          "tileId": 76,
+          "durationMs": 266
+        },
+        {
+          "tileId": 77,
+          "durationMs": 266
+        },
+        {
+          "tileId": 78,
+          "durationMs": 266
+        },
+        {
+          "tileId": 79,
+          "durationMs": 266
+        },
+        {
+          "tileId": 80,
+          "durationMs": 266
+        },
+        {
+          "tileId": 81,
+          "durationMs": 266
+        },
+        {
+          "tileId": 82,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 12,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 83,
+          "durationMs": 266
+        },
+        {
+          "tileId": 84,
+          "durationMs": 266
+        },
+        {
+          "tileId": 85,
+          "durationMs": 266
+        },
+        {
+          "tileId": 86,
+          "durationMs": 266
+        },
+        {
+          "tileId": 87,
+          "durationMs": 266
+        },
+        {
+          "tileId": 88,
+          "durationMs": 266
+        },
+        {
+          "tileId": 89,
+          "durationMs": 266
+        },
+        {
+          "tileId": 90,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 14,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 91,
+          "durationMs": 266
+        },
+        {
+          "tileId": 92,
+          "durationMs": 266
+        },
+        {
+          "tileId": 93,
+          "durationMs": 266
+        },
+        {
+          "tileId": 94,
+          "durationMs": 266
+        },
+        {
+          "tileId": 95,
+          "durationMs": 266
+        },
+        {
+          "tileId": 96,
+          "durationMs": 266
+        },
+        {
+          "tileId": 97,
+          "durationMs": 266
+        },
+        {
+          "tileId": 98,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 17,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 99,
+          "durationMs": 266
+        },
+        {
+          "tileId": 100,
+          "durationMs": 266
+        },
+        {
+          "tileId": 101,
+          "durationMs": 266
+        },
+        {
+          "tileId": 102,
+          "durationMs": 266
+        },
+        {
+          "tileId": 103,
+          "durationMs": 266
+        },
+        {
+          "tileId": 104,
+          "durationMs": 266
+        },
+        {
+          "tileId": 105,
+          "durationMs": 266
+        },
+        {
+          "tileId": 106,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 20,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 115,
+          "durationMs": 266
+        },
+        {
+          "tileId": 116,
+          "durationMs": 266
+        },
+        {
+          "tileId": 117,
+          "durationMs": 266
+        },
+        {
+          "tileId": 118,
+          "durationMs": 266
+        },
+        {
+          "tileId": 119,
+          "durationMs": 266
+        },
+        {
+          "tileId": 120,
+          "durationMs": 266
+        },
+        {
+          "tileId": 121,
+          "durationMs": 266
+        },
+        {
+          "tileId": 122,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 21,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 123,
+          "durationMs": 266
+        },
+        {
+          "tileId": 124,
+          "durationMs": 266
+        },
+        {
+          "tileId": 125,
+          "durationMs": 266
+        },
+        {
+          "tileId": 126,
+          "durationMs": 266
+        },
+        {
+          "tileId": 127,
+          "durationMs": 266
+        },
+        {
+          "tileId": 128,
+          "durationMs": 266
+        },
+        {
+          "tileId": 129,
+          "durationMs": 266
+        },
+        {
+          "tileId": 130,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 22,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 139,
+          "durationMs": 266
+        },
+        {
+          "tileId": 140,
+          "durationMs": 266
+        },
+        {
+          "tileId": 141,
+          "durationMs": 266
+        },
+        {
+          "tileId": 142,
+          "durationMs": 266
+        },
+        {
+          "tileId": 143,
+          "durationMs": 266
+        },
+        {
+          "tileId": 144,
+          "durationMs": 266
+        },
+        {
+          "tileId": 145,
+          "durationMs": 266
+        },
+        {
+          "tileId": 146,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 23,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 155,
+          "durationMs": 266
+        },
+        {
+          "tileId": 156,
+          "durationMs": 266
+        },
+        {
+          "tileId": 157,
+          "durationMs": 266
+        },
+        {
+          "tileId": 158,
+          "durationMs": 266
+        },
+        {
+          "tileId": 159,
+          "durationMs": 266
+        },
+        {
+          "tileId": 160,
+          "durationMs": 266
+        },
+        {
+          "tileId": 161,
+          "durationMs": 266
+        },
+        {
+          "tileId": 162,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 25,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 163,
+          "durationMs": 266
+        },
+        {
+          "tileId": 164,
+          "durationMs": 266
+        },
+        {
+          "tileId": 165,
+          "durationMs": 266
+        },
+        {
+          "tileId": 166,
+          "durationMs": 266
+        },
+        {
+          "tileId": 167,
+          "durationMs": 266
+        },
+        {
+          "tileId": 168,
+          "durationMs": 266
+        },
+        {
+          "tileId": 169,
+          "durationMs": 266
+        },
+        {
+          "tileId": 170,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 26,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 171,
+          "durationMs": 266
+        },
+        {
+          "tileId": 172,
+          "durationMs": 266
+        },
+        {
+          "tileId": 173,
+          "durationMs": 266
+        },
+        {
+          "tileId": 174,
+          "durationMs": 266
+        },
+        {
+          "tileId": 175,
+          "durationMs": 266
+        },
+        {
+          "tileId": 176,
+          "durationMs": 266
+        },
+        {
+          "tileId": 177,
+          "durationMs": 266
+        },
+        {
+          "tileId": 178,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 28,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 211,
+          "durationMs": 266
+        },
+        {
+          "tileId": 212,
+          "durationMs": 266
+        },
+        {
+          "tileId": 213,
+          "durationMs": 266
+        },
+        {
+          "tileId": 214,
+          "durationMs": 266
+        },
+        {
+          "tileId": 215,
+          "durationMs": 266
+        },
+        {
+          "tileId": 216,
+          "durationMs": 266
+        },
+        {
+          "tileId": 217,
+          "durationMs": 266
+        },
+        {
+          "tileId": 218,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 31,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 227,
+          "durationMs": 266
+        },
+        {
+          "tileId": 228,
+          "durationMs": 266
+        },
+        {
+          "tileId": 229,
+          "durationMs": 266
+        },
+        {
+          "tileId": 230,
+          "durationMs": 266
+        },
+        {
+          "tileId": 231,
+          "durationMs": 266
+        },
+        {
+          "tileId": 232,
+          "durationMs": 266
+        },
+        {
+          "tileId": 233,
+          "durationMs": 266
+        },
+        {
+          "tileId": 234,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 32,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 243,
+          "durationMs": 266
+        },
+        {
+          "tileId": 244,
+          "durationMs": 266
+        },
+        {
+          "tileId": 245,
+          "durationMs": 266
+        },
+        {
+          "tileId": 246,
+          "durationMs": 266
+        },
+        {
+          "tileId": 247,
+          "durationMs": 266
+        },
+        {
+          "tileId": 248,
+          "durationMs": 266
+        },
+        {
+          "tileId": 249,
+          "durationMs": 266
+        },
+        {
+          "tileId": 250,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 40,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 275,
+          "durationMs": 266
+        },
+        {
+          "tileId": 276,
+          "durationMs": 266
+        },
+        {
+          "tileId": 277,
+          "durationMs": 266
+        },
+        {
+          "tileId": 278,
+          "durationMs": 266
+        },
+        {
+          "tileId": 279,
+          "durationMs": 266
+        },
+        {
+          "tileId": 280,
+          "durationMs": 266
+        },
+        {
+          "tileId": 281,
+          "durationMs": 266
+        },
+        {
+          "tileId": 282,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 45,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 291,
+          "durationMs": 266
+        },
+        {
+          "tileId": 292,
+          "durationMs": 266
+        },
+        {
+          "tileId": 293,
+          "durationMs": 266
+        },
+        {
+          "tileId": 294,
+          "durationMs": 266
+        },
+        {
+          "tileId": 295,
+          "durationMs": 266
+        },
+        {
+          "tileId": 296,
+          "durationMs": 266
+        },
+        {
+          "tileId": 297,
+          "durationMs": 266
+        },
+        {
+          "tileId": 298,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 46,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 299,
+          "durationMs": 266
+        },
+        {
+          "tileId": 300,
+          "durationMs": 266
+        },
+        {
+          "tileId": 301,
+          "durationMs": 266
+        },
+        {
+          "tileId": 302,
+          "durationMs": 266
+        },
+        {
+          "tileId": 303,
+          "durationMs": 266
+        },
+        {
+          "tileId": 304,
+          "durationMs": 266
+        },
+        {
+          "tileId": 305,
+          "durationMs": 266
+        },
+        {
+          "tileId": 306,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 47,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 315,
+          "durationMs": 266
+        },
+        {
+          "tileId": 316,
+          "durationMs": 266
+        },
+        {
+          "tileId": 317,
+          "durationMs": 266
+        },
+        {
+          "tileId": 318,
+          "durationMs": 266
+        },
+        {
+          "tileId": 319,
+          "durationMs": 266
+        },
+        {
+          "tileId": 320,
+          "durationMs": 266
+        },
+        {
+          "tileId": 321,
+          "durationMs": 266
+        },
+        {
+          "tileId": 322,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 48,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 323,
+          "durationMs": 266
+        },
+        {
+          "tileId": 324,
+          "durationMs": 266
+        },
+        {
+          "tileId": 325,
+          "durationMs": 266
+        },
+        {
+          "tileId": 326,
+          "durationMs": 266
+        },
+        {
+          "tileId": 327,
+          "durationMs": 266
+        },
+        {
+          "tileId": 328,
+          "durationMs": 266
+        },
+        {
+          "tileId": 329,
+          "durationMs": 266
+        },
+        {
+          "tileId": 330,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 49,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 331,
+          "durationMs": 266
+        },
+        {
+          "tileId": 332,
+          "durationMs": 266
+        },
+        {
+          "tileId": 333,
+          "durationMs": 266
+        },
+        {
+          "tileId": 334,
+          "durationMs": 266
+        },
+        {
+          "tileId": 335,
+          "durationMs": 266
+        },
+        {
+          "tileId": 336,
+          "durationMs": 266
+        },
+        {
+          "tileId": 337,
+          "durationMs": 266
+        },
+        {
+          "tileId": 338,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 50,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 347,
+          "durationMs": 266
+        },
+        {
+          "tileId": 348,
+          "durationMs": 266
+        },
+        {
+          "tileId": 349,
+          "durationMs": 266
+        },
+        {
+          "tileId": 350,
+          "durationMs": 266
+        },
+        {
+          "tileId": 351,
+          "durationMs": 266
+        },
+        {
+          "tileId": 352,
+          "durationMs": 266
+        },
+        {
+          "tileId": 353,
+          "durationMs": 266
+        },
+        {
+          "tileId": 354,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 51,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 355,
+          "durationMs": 266
+        },
+        {
+          "tileId": 356,
+          "durationMs": 266
+        },
+        {
+          "tileId": 357,
+          "durationMs": 266
+        },
+        {
+          "tileId": 358,
+          "durationMs": 266
+        },
+        {
+          "tileId": 359,
+          "durationMs": 266
+        },
+        {
+          "tileId": 360,
+          "durationMs": 266
+        },
+        {
+          "tileId": 361,
+          "durationMs": 266
+        },
+        {
+          "tileId": 362,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 52,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 363,
+          "durationMs": 266
+        },
+        {
+          "tileId": 364,
+          "durationMs": 266
+        },
+        {
+          "tileId": 365,
+          "durationMs": 266
+        },
+        {
+          "tileId": 366,
+          "durationMs": 266
+        },
+        {
+          "tileId": 367,
+          "durationMs": 266
+        },
+        {
+          "tileId": 368,
+          "durationMs": 266
+        },
+        {
+          "tileId": 369,
+          "durationMs": 266
+        },
+        {
+          "tileId": 370,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 53,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 371,
+          "durationMs": 266
+        },
+        {
+          "tileId": 372,
+          "durationMs": 266
+        },
+        {
+          "tileId": 373,
+          "durationMs": 266
+        },
+        {
+          "tileId": 374,
+          "durationMs": 266
+        },
+        {
+          "tileId": 375,
+          "durationMs": 266
+        },
+        {
+          "tileId": 376,
+          "durationMs": 266
+        },
+        {
+          "tileId": 377,
+          "durationMs": 266
+        },
+        {
+          "tileId": 378,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 54,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 387,
+          "durationMs": 266
+        },
+        {
+          "tileId": 388,
+          "durationMs": 266
+        },
+        {
+          "tileId": 389,
+          "durationMs": 266
+        },
+        {
+          "tileId": 390,
+          "durationMs": 266
+        },
+        {
+          "tileId": 391,
+          "durationMs": 266
+        },
+        {
+          "tileId": 392,
+          "durationMs": 266
+        },
+        {
+          "tileId": 393,
+          "durationMs": 266
+        },
+        {
+          "tileId": 394,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 16,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 419,
+          "durationMs": 266
+        },
+        {
+          "tileId": 420,
+          "durationMs": 266
+        },
+        {
+          "tileId": 421,
+          "durationMs": 266
+        },
+        {
+          "tileId": 422,
+          "durationMs": 266
+        },
+        {
+          "tileId": 423,
+          "durationMs": 266
+        },
+        {
+          "tileId": 424,
+          "durationMs": 266
+        },
+        {
+          "tileId": 425,
+          "durationMs": 266
+        },
+        {
+          "tileId": 426,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 24,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 427,
+          "durationMs": 266
+        },
+        {
+          "tileId": 428,
+          "durationMs": 266
+        },
+        {
+          "tileId": 429,
+          "durationMs": 266
+        },
+        {
+          "tileId": 430,
+          "durationMs": 266
+        },
+        {
+          "tileId": 431,
+          "durationMs": 266
+        },
+        {
+          "tileId": 432,
+          "durationMs": 266
+        },
+        {
+          "tileId": 433,
+          "durationMs": 266
+        },
+        {
+          "tileId": 434,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 18,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 443,
+          "durationMs": 266
+        },
+        {
+          "tileId": 444,
+          "durationMs": 266
+        },
+        {
+          "tileId": 445,
+          "durationMs": 266
+        },
+        {
+          "tileId": 446,
+          "durationMs": 266
+        },
+        {
+          "tileId": 447,
+          "durationMs": 266
+        },
+        {
+          "tileId": 448,
+          "durationMs": 266
+        },
+        {
+          "tileId": 449,
+          "durationMs": 266
+        },
+        {
+          "tileId": 450,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 30,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 459,
+          "durationMs": 266
+        },
+        {
+          "tileId": 460,
+          "durationMs": 266
+        },
+        {
+          "tileId": 461,
+          "durationMs": 266
+        },
+        {
+          "tileId": 462,
+          "durationMs": 266
+        },
+        {
+          "tileId": 463,
+          "durationMs": 266
+        },
+        {
+          "tileId": 464,
+          "durationMs": 266
+        },
+        {
+          "tileId": 465,
+          "durationMs": 266
+        },
+        {
+          "tileId": 466,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 55,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 467,
+          "durationMs": 266
+        },
+        {
+          "tileId": 468,
+          "durationMs": 266
+        },
+        {
+          "tileId": 469,
+          "durationMs": 266
+        },
+        {
+          "tileId": 470,
+          "durationMs": 266
+        },
+        {
+          "tileId": 471,
+          "durationMs": 266
+        },
+        {
+          "tileId": 472,
+          "durationMs": 266
+        },
+        {
+          "tileId": 473,
+          "durationMs": 266
+        },
+        {
+          "tileId": 474,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 29,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 483,
+          "durationMs": 266
+        },
+        {
+          "tileId": 484,
+          "durationMs": 266
+        },
+        {
+          "tileId": 485,
+          "durationMs": 266
+        },
+        {
+          "tileId": 486,
+          "durationMs": 266
+        },
+        {
+          "tileId": 487,
+          "durationMs": 266
+        },
+        {
+          "tileId": 488,
+          "durationMs": 266
+        },
+        {
+          "tileId": 489,
+          "durationMs": 266
+        },
+        {
+          "tileId": 490,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 56,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 491,
+          "durationMs": 266
+        },
+        {
+          "tileId": 492,
+          "durationMs": 266
+        },
+        {
+          "tileId": 493,
+          "durationMs": 266
+        },
+        {
+          "tileId": 494,
+          "durationMs": 266
+        },
+        {
+          "tileId": 495,
+          "durationMs": 266
+        },
+        {
+          "tileId": 496,
+          "durationMs": 266
+        },
+        {
+          "tileId": 497,
+          "durationMs": 266
+        },
+        {
+          "tileId": 498,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 0,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 499,
+          "durationMs": 266
+        },
+        {
+          "tileId": 500,
+          "durationMs": 266
+        },
+        {
+          "tileId": 501,
+          "durationMs": 266
+        },
+        {
+          "tileId": 502,
+          "durationMs": 266
+        },
+        {
+          "tileId": 503,
+          "durationMs": 266
+        },
+        {
+          "tileId": 504,
+          "durationMs": 266
+        },
+        {
+          "tileId": 505,
+          "durationMs": 266
+        },
+        {
+          "tileId": 506,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 41,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 539,
+          "durationMs": 266
+        },
+        {
+          "tileId": 540,
+          "durationMs": 266
+        },
+        {
+          "tileId": 541,
+          "durationMs": 266
+        },
+        {
+          "tileId": 542,
+          "durationMs": 266
+        },
+        {
+          "tileId": 543,
+          "durationMs": 266
+        },
+        {
+          "tileId": 544,
+          "durationMs": 266
+        },
+        {
+          "tileId": 545,
+          "durationMs": 266
+        },
+        {
+          "tileId": 546,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 57,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 579,
+          "durationMs": 266
+        },
+        {
+          "tileId": 580,
+          "durationMs": 266
+        },
+        {
+          "tileId": 581,
+          "durationMs": 266
+        },
+        {
+          "tileId": 582,
+          "durationMs": 266
+        },
+        {
+          "tileId": 583,
+          "durationMs": 266
+        },
+        {
+          "tileId": 584,
+          "durationMs": 266
+        },
+        {
+          "tileId": 585,
+          "durationMs": 266
+        },
+        {
+          "tileId": 586,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 19,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 587,
+          "durationMs": 133
+        },
+        {
+          "tileId": 588,
+          "durationMs": 133
+        },
+        {
+          "tileId": 589,
+          "durationMs": 133
+        },
+        {
+          "tileId": 590,
+          "durationMs": 133
+        },
+        {
+          "tileId": 591,
+          "durationMs": 133
+        },
+        {
+          "tileId": 592,
+          "durationMs": 133
+        },
+        {
+          "tileId": 593,
+          "durationMs": 133
+        },
+        {
+          "tileId": 594,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 15,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 603,
+          "durationMs": 133
+        },
+        {
+          "tileId": 604,
+          "durationMs": 133
+        },
+        {
+          "tileId": 605,
+          "durationMs": 133
+        },
+        {
+          "tileId": 606,
+          "durationMs": 133
+        },
+        {
+          "tileId": 607,
+          "durationMs": 133
+        },
+        {
+          "tileId": 608,
+          "durationMs": 133
+        },
+        {
+          "tileId": 609,
+          "durationMs": 133
+        },
+        {
+          "tileId": 610,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

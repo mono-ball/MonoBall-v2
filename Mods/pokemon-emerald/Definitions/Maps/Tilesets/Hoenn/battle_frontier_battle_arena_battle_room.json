@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/battle_frontier_battle_arena_battle_room",
+  "name": "Battle Frontier Battle Arena Battle Room",
+  "texturePath": "Graphics/Tilesets/Hoenn/battle_frontier_battle_arena_battle_room.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 53,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

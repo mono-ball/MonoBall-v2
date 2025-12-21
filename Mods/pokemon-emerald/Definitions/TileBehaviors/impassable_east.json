@@ -1,0 +1,7 @@
+{
+  "id": "base:tile_behavior:terrain/impassable_east",
+  "name": "Impassable East",
+  "description": "Blocks movement from east",
+  "behaviorScript": "TileBehaviors/impassable_east.csx",
+  "flags": "BlocksMovement"
+}

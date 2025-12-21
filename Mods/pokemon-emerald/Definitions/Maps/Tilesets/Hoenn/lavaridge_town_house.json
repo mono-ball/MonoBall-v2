@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/lavaridge_town_house",
+  "name": "Lavaridge Town House",
+  "texturePath": "Graphics/Tilesets/Hoenn/lavaridge_town_house.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 48,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

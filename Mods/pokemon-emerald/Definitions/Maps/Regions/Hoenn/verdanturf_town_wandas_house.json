@@ -1,0 +1,186 @@
+{
+  "id": "base:map:hoenn/verdanturf_town_wandas_house",
+  "name": "VerdanturfTown_WandasHouse",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 17,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_verdanturf",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/verdanturf_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/verdanturf_town_wandas_house",
+    "bottomLayer": [
+      70,
+      70,
+      70,
+      70
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/verdanturf_town_wandas_house/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 17,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAACQAAAAAAAAAAAAAAAAAAAAAAAAALAAAACwAAAAsAAAALAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAsAAAAJAAAACwAAAAsAAAALAAAAAAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAAAkAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAJAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAADMAAAAzAAAAMwAAAAkAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAMwAAADMAAAAzAAAAMwAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAkAAAAJAAAACQAAAAkAAAAJAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/verdanturf_town_wandas_house/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 17,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAADAAAABAAAAAUAAAABAAAAAQAAAAYAAAABAAAAAQAAAAcAAAAIAAAACgAAAAEAAAABAAAAAQAAAAYAAAAMAAAADQAAAA4AAAAPAAAAEAAAAAsAAAALAAAAEQAAAAsAAAALAAAAEgAAABMAAAAUAAAAFQAAABYAAAAXAAAAEQAAABkAAAAaAAAAGwAAABwAAAAdAAAAGAAAABgAAAAYAAAAGAAAABgAAAAeAAAAHwAAABQAAAAgAAAAIQAAACMAAAAlAAAAJwAAACgAAAApAAAAKQAAACkAAAApAAAAKgAAAAkAAAAJAAAACQAAAAkAAAArAAAAFAAAACcAAAAsAAAALgAAADAAAAAnAAAAMgAAADQAAAA1AAAANgAAADMAAAA3AAAACQAAAAkAAAAJAAAACQAAAAkAAAA4AAAAJwAAAAkAAAAJAAAACQAAACcAAAAyAAAANAAAADkAAAA6AAAAKwAAADcAAAAJAAAACQAAAAkAAAAJAAAACQAAADwAAAAnAAAACQAAAAkAAAArAAAAJwAAAD4AAAA/AAAAPwAAAD8AAAA/AAAAQAAAAAkAAAAJAAAACQAAAAkAAAAJAAAAQQAAAEIAAAAJAAAACQAAAAkAAABDAAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAAAgAAAAIAAAAJAAAACQAAAAkAAAAJAAAACQAAAAkAAAAJAAAAQwAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/verdanturf_town_wandas_house/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 17,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAIgAAACQAAAAmAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAAtAAAALwAAADEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAAAAAAAPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAD0AAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/verdanturf_town_wandas_house"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/verdanturf_town_wandas_house/warp_to_verdanturf_town",
+      "name": "Warp to verdanturf_town",
+      "x": 112,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town",
+      "targetX": 10,
+      "targetY": 14,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/verdanturf_town_wandas_house/warp_to_verdanturf_town",
+      "name": "Warp to verdanturf_town",
+      "x": 128,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town",
+      "targetX": 10,
+      "targetY": 14,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/verdanturf_town_wandas_house/npc_3",
+      "name": "NPC_3",
+      "x": 224,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/wally",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/verdanturf_town_wandas_house_event_script_wally",
+      "visibilityFlag": "base:flag:visibility/verdanturf_town_wandas_house_wally",
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/verdanturf_town_wandas_house/npc_4",
+      "name": "NPC_4",
+      "x": 80,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/black_belt",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/verdanturf_town_wandas_house_event_script_wandas_boyfriend",
+      "visibilityFlag": "base:flag:visibility/verdanturf_town_wandas_house_wandas_boyfriend",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/verdanturf_town_wandas_house/npc_5",
+      "name": "NPC_5",
+      "x": 112,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/pokefan_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/verdanturf_town_wandas_house_event_script_wallys_uncle",
+      "visibilityFlag": "base:flag:visibility/verdanturf_town_wandas_house_wallys_uncle",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/verdanturf_town_wandas_house/npc_6",
+      "name": "NPC_6",
+      "x": 32,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/pokefan_f",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/verdanturf_town_wandas_house_event_script_wallys_aunt",
+      "visibilityFlag": null,
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/verdanturf_town_wandas_house/npc_7",
+      "name": "NPC_7",
+      "x": 80,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/woman_2",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/verdanturf_town_wandas_house_event_script_wanda",
+      "visibilityFlag": "base:flag:visibility/verdanturf_town_wandas_house_wanda",
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

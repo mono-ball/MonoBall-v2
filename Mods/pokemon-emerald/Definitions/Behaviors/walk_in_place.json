@@ -1,0 +1,12 @@
+{
+  "id": "base:behavior:movement/walk_in_place",
+  "name": "Walk In Place Behavior",
+  "description": "NPC walks in place without moving, playing walk animation",
+  "behaviorScript": "Behaviors/walk_in_place_behavior.csx",
+  "defaultSpeed": 2.0,
+  "pauseAtWaypoint": 0.0,
+  "allowInteractionWhileMoving": false,
+  "parameters": {
+    "direction": "down"
+  }
+}

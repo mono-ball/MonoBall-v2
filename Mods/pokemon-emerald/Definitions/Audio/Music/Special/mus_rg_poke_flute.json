@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:music/special/mus_rg_poke_flute",
+  "name": "RG Poke Flute",
+  "audioPath": "Audio/Music/Special/mus_rg_poke_flute.ogg",
+  "volume": 0.378,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5
+}

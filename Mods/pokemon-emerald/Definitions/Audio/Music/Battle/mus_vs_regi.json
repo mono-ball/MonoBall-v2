@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_vs_regi",
+  "name": "VS Regi",
+  "audioPath": "Audio/Music/Battle/mus_vs_regi.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 1323000,
+  "loopLengthSamples": 1323000,
+  "loopStartSec": 30.0,
+  "loopEndSec": 60.0
+}

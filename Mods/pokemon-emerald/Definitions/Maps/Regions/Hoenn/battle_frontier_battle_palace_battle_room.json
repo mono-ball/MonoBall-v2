@@ -1,0 +1,186 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_palace_battle_room",
+  "name": "BattleFrontier_BattlePalaceBattleRoom",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 15,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_palace",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/battle_frontier_battle_palace_battle_room",
+    "bottomLayer": [
+      12,
+      12,
+      12,
+      12
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_palace_battle_room/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAPwAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAABBAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAPwAAABQAAAAUAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_palace_battle_room/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAMAAAACAAAAAQAAAAMAAAACAAAAAQAAAAMAAAACAAAAAQAAAAMAAAACAAAABQAAAAYAAAAHAAAACAAAAAkAAAACAAAACAAAAAkAAAACAAAACAAAAAkAAAACAAAACAAAAAkAAAACAAAACwAAAAwAAAANAAAADgAAAA8AAAAQAAAADgAAAA8AAAAQAAAADgAAAA8AAAAQAAAADgAAAA8AAAAQAAAAEQAAABIAAAATAAAAFQAAABUAAAAVAAAAFwAAABgAAAAZAAAAGQAAABoAAAAbAAAAGwAAABwAAAAeAAAAFwAAAB8AAAAfAAAAHwAAAB8AAAAhAAAAIwAAACQAAAAlAAAAJgAAACcAAAAoAAAAKQAAACoAAAArAAAAIwAAAB8AAAAfAAAAHwAAAB8AAAAhAAAAIwAAACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAArAAAAIwAAAB8AAAAfAAAAHwAAAB8AAAArAAAAIwAAADMAAAA0AAAANQAAADYAAAA3AAAAOAAAADkAAAArAAAAIwAAAB8AAAAfAAAAHwAAAB8AAAArAAAAIwAAADoAAAA7AAAAOwAAADwAAAA9AAAAPQAAAD4AAAArAAAAIwAAAB8AAAAfAAAAHwAAAB8AAAArAAAAQAAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAABCAAAAIwAAAB8AAAAfAAAAHwAAAB8AAAArAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAQAAAABUAAAAVAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_palace_battle_room/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAAEAAAAAgAAAAIAAAAEAAAAAgAAAAIAAAAEAAAAAgAAAAIAAAAEAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAKAAAAAgAAAAIAAAAKAAAAAgAAAAIAAAAKAAAAAgAAAAIAAAAKAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_palace_battle_room"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_palace_battle_room/warp_to_battle_frontier_battle_palace_corridor",
+      "name": "Warp to battle_frontier_battle_palace_corridor",
+      "x": 0,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_battle_palace_corridor",
+      "targetX": 6,
+      "targetY": 3,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/battle_frontier_battle_palace_battle_room/warp_to_battle_frontier_battle_palace_corridor",
+      "name": "Warp to battle_frontier_battle_palace_corridor",
+      "x": 16,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_battle_palace_corridor",
+      "targetX": 6,
+      "targetY": 3,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_battle_player",
+      "name": "LOCALID_PALACE_BATTLE_PLAYER",
+      "x": 16,
+      "y": 144,
+      "spriteId": "base:sprite:npcs/generic/var_1",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_battle_opponent",
+      "name": "LOCALID_PALACE_BATTLE_OPPONENT",
+      "x": 208,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/var_0",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_battle_attendant",
+      "name": "LOCALID_PALACE_BATTLE_ATTENDANT",
+      "x": 16,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_dusclops",
+      "name": "LOCALID_PALACE_DUSCLOPS",
+      "x": 208,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/dusclops",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_azurill",
+      "name": "LOCALID_PALACE_AZURILL",
+      "x": 208,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/azurill",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

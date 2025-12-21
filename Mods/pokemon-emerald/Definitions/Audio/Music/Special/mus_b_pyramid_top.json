@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_b_pyramid_top",
+  "name": "Battle Pyramid Top",
+  "audioPath": "Audio/Music/Special/mus_b_pyramid_top.ogg",
+  "volume": 0.606,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 470399,
+  "loopStartSec": 0.0,
+  "loopEndSec": 10.667
+}

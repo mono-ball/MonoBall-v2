@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_rg_viridian_forest",
+  "name": "RG Viridian Forest",
+  "audioPath": "Audio/Music/Towns/mus_rg_viridian_forest.ogg",
+  "volume": 0.709,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 10335,
+  "loopLengthSamples": 4630500,
+  "loopStartSec": 0.234,
+  "loopEndSec": 105.234
+}

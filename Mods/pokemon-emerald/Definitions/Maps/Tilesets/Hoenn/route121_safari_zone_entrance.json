@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/route121_safari_zone_entrance",
+  "name": "Route121 Safari Zone Entrance",
+  "texturePath": "Graphics/Tilesets/Hoenn/route121_safari_zone_entrance.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 40,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

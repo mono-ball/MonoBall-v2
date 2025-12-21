@@ -1,0 +1,38 @@
+{
+  "id": "base:tileset:hoenn/verdanturf_town_battle_tent_battle_room",
+  "name": "Verdanturf Town Battle Tent Battle Room",
+  "texturePath": "Graphics/Tilesets/Hoenn/verdanturf_town_battle_tent_battle_room.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 64,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 11,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 48,
+          "durationMs": 266
+        },
+        {
+          "tileId": 49,
+          "durationMs": 266
+        },
+        {
+          "tileId": 48,
+          "durationMs": 266
+        },
+        {
+          "tileId": 50,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

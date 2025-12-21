@@ -1,0 +1,14 @@
+{
+  "id": "base:weather:outdoor/sunny",
+  "name": "Sunny",
+  "description": "Sunny weather condition",
+  "category": "outdoor",
+  "intensity": 1.0,
+  "affectsBattle": true,
+  "ambientSoundId": null,
+  "effectScriptId": null,
+  "screenTint": "#FFD700",
+  "screenTintOpacity": 0.1,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

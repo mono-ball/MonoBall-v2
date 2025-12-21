@@ -1,0 +1,16 @@
+{
+  "id": "base:behavior:movement/look_two_ways",
+  "name": "Look Two Ways Behavior",
+  "description": "NPC alternates between two facing directions",
+  "behaviorScript": "Behaviors/look_around_behavior.csx",
+  "defaultSpeed": 0.0,
+  "pauseAtWaypoint": 0.0,
+  "allowInteractionWhileMoving": false,
+  "parameters": {
+    "lookInterval": 2.0,
+    "directions": [
+      "down",
+      "left"
+    ]
+  }
+}

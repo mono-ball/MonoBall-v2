@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_vs_elite_four",
+  "name": "VS Elite Four",
+  "audioPath": "Audio/Music/Battle/mus_vs_elite_four.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 494577,
+  "loopLengthSamples": 2225600,
+  "loopStartSec": 11.215,
+  "loopEndSec": 61.682
+}

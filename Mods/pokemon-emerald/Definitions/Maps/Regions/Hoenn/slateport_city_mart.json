@@ -1,0 +1,158 @@
+{
+  "id": "base:map:hoenn/slateport_city_mart",
+  "name": "SlateportCity_Mart",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_poke_mart",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/slateport_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/slateport_city_mart",
+    "bottomLayer": [
+      55,
+      55,
+      55,
+      55
+    ],
+    "topLayer": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/slateport_city_mart/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAABkAAAAbAAAAGwAAABsAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAfAAAAHwAAAB8AAAAAAAAAAAAAAAAAAAAhAAAAIQAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8AAAAfAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwAAAB8AAAAAAAAAAAAAAB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/slateport_city_mart/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAQAAAADAAAABgAAAAYAAAAGAAAAAwAAAAMAAAADAAAAAwAAAAkAAAALAAAADQAAAA4AAAAPAAAADwAAAA8AAAARAAAAEgAAABEAAAASAAAAEwAAABQAAAAVAAAAFwAAABgAAAAVAAAAFQAAABoAAAAcAAAAGgAAABwAAAAdAAAAHwAAACEAAAAjAAAAJAAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACYAAAAnAAAAKAAAACkAAAAkAAAAIQAAACEAAAAqAAAAKwAAACwAAAAhAAAAKgAAAB8AAAAVAAAAFQAAAC0AAAAhAAAAIQAAAC4AAAAvAAAAJAAAACEAAAAuAAAAHwAAACEAAAAhAAAAIQAAACEAAAAhAAAAMAAAADEAAAAkAAAAIQAAADAAAAAfAAAAIQAAACEAAAAzAAAANAAAACEAAAA1AAAAFQAAAC0AAAAhAAAANQAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/slateport_city_mart/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAAAAAAFAAAABQAAAAUAAAAFAAAABwAAAAgAAAAHAAAACAAAAAoAAAAFAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAFAAAAAAAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAIAAAACIAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAABQAAAAUAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAAAAAAAAAAAAFAAAABQAAAAAAAAAyAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAANgAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/slateport_city_mart"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/slateport_city_mart/warp_to_slateport_city",
+      "name": "Warp to slateport_city",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/slateport_city",
+      "targetX": 13,
+      "targetY": 26,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/slateport_city_mart/warp_to_slateport_city",
+      "name": "Warp to slateport_city",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/slateport_city",
+      "targetX": 13,
+      "targetY": 26,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/slateport_city_mart/localid_slateport_mart_clerk",
+      "name": "LOCALID_SLATEPORT_MART_CLERK",
+      "x": 16,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/slateport_city_mart_event_script_clerk",
+      "visibilityFlag": null,
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/slateport_city_mart/npc_4",
+      "name": "NPC_4",
+      "x": 64,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/black_belt",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/slateport_city_mart_event_script_black_belt",
+      "visibilityFlag": null,
+      "direction": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/slateport_city_mart/npc_5",
+      "name": "NPC_5",
+      "x": 80,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/man_3",
+      "behaviorId": "base:behavior:movement/look_around",
+      "interactionScript": "base:behavior:interaction/slateport_city_mart_event_script_man",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

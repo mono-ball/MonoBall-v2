@@ -1,0 +1,38 @@
+{
+  "id": "base:tileset:hoenn/mt_pyre_exterior",
+  "name": "Mt Pyre Exterior",
+  "texturePath": "Graphics/Tilesets/Hoenn/mt_pyre_exterior.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 64,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 41,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 46,
+          "durationMs": 266
+        },
+        {
+          "tileId": 47,
+          "durationMs": 266
+        },
+        {
+          "tileId": 46,
+          "durationMs": 266
+        },
+        {
+          "tileId": 48,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

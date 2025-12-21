@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:music/battle/mus_intro_battle",
+  "name": "Intro Battle",
+  "audioPath": "Audio/Music/Battle/mus_intro_battle.ogg",
+  "volume": 0.693,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5
+}

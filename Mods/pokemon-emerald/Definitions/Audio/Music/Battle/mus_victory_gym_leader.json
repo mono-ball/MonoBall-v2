@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_victory_gym_leader",
+  "name": "Victory Gym Leader",
+  "audioPath": "Audio/Music/Battle/mus_victory_gym_leader.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 275624,
+  "loopLengthSamples": 1840693,
+  "loopStartSec": 6.25,
+  "loopEndSec": 47.989
+}

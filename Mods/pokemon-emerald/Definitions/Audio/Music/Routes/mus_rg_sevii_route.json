@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/routes/mus_rg_sevii_route",
+  "name": "RG Sevii Route",
+  "audioPath": "Audio/Music/Routes/mus_rg_sevii_route.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 192048,
+  "loopLengthSamples": 1451029,
+  "loopStartSec": 4.355,
+  "loopEndSec": 37.258
+}

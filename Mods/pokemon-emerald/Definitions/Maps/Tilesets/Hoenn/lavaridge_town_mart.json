@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/lavaridge_town_mart",
+  "name": "Lavaridge Town Mart",
+  "texturePath": "Graphics/Tilesets/Hoenn/lavaridge_town_mart.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 55,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

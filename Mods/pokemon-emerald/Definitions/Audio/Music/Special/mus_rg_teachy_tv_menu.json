@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_teachy_tv_menu",
+  "name": "RG Teachy Tv Menu",
+  "audioPath": "Audio/Music/Special/mus_rg_teachy_tv_menu.ogg",
+  "volume": 0.465,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 18374,
+  "loopLengthSamples": 146999,
+  "loopStartSec": 0.417,
+  "loopEndSec": 3.75
+}

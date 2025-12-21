@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:sfx/battle/se_exp_max",
+  "name": "Exp Max",
+  "audioPath": "Audio/SFX/Battle/se_exp_max.ogg",
+  "volume": 0.74,
+  "loop": false,
+  "fadeIn": 0.0,
+  "fadeOut": 0.0
+}

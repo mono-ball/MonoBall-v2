@@ -1,0 +1,263 @@
+{
+  "id": "base:tileset:hoenn/rustboro_city",
+  "name": "Rustboro City",
+  "texturePath": "Graphics/Tilesets/Hoenn/rustboro_city.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 320,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 320,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 172,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 255,
+          "durationMs": 266
+        },
+        {
+          "tileId": 256,
+          "durationMs": 266
+        },
+        {
+          "tileId": 255,
+          "durationMs": 266
+        },
+        {
+          "tileId": 257,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 0,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 258,
+          "durationMs": 266
+        },
+        {
+          "tileId": 259,
+          "durationMs": 266
+        },
+        {
+          "tileId": 260,
+          "durationMs": 266
+        },
+        {
+          "tileId": 261,
+          "durationMs": 266
+        },
+        {
+          "tileId": 262,
+          "durationMs": 266
+        },
+        {
+          "tileId": 263,
+          "durationMs": 266
+        },
+        {
+          "tileId": 264,
+          "durationMs": 266
+        },
+        {
+          "tileId": 265,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 2,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 266,
+          "durationMs": 266
+        },
+        {
+          "tileId": 267,
+          "durationMs": 266
+        },
+        {
+          "tileId": 268,
+          "durationMs": 266
+        },
+        {
+          "tileId": 269,
+          "durationMs": 266
+        },
+        {
+          "tileId": 270,
+          "durationMs": 266
+        },
+        {
+          "tileId": 271,
+          "durationMs": 266
+        },
+        {
+          "tileId": 272,
+          "durationMs": 266
+        },
+        {
+          "tileId": 273,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 15,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 274,
+          "durationMs": 266
+        },
+        {
+          "tileId": 275,
+          "durationMs": 266
+        },
+        {
+          "tileId": 276,
+          "durationMs": 266
+        },
+        {
+          "tileId": 277,
+          "durationMs": 266
+        },
+        {
+          "tileId": 278,
+          "durationMs": 266
+        },
+        {
+          "tileId": 279,
+          "durationMs": 266
+        },
+        {
+          "tileId": 280,
+          "durationMs": 266
+        },
+        {
+          "tileId": 281,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 17,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 282,
+          "durationMs": 266
+        },
+        {
+          "tileId": 283,
+          "durationMs": 266
+        },
+        {
+          "tileId": 284,
+          "durationMs": 266
+        },
+        {
+          "tileId": 285,
+          "durationMs": 266
+        },
+        {
+          "tileId": 286,
+          "durationMs": 266
+        },
+        {
+          "tileId": 287,
+          "durationMs": 266
+        },
+        {
+          "tileId": 288,
+          "durationMs": 266
+        },
+        {
+          "tileId": 289,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 4,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 290,
+          "durationMs": 266
+        },
+        {
+          "tileId": 291,
+          "durationMs": 266
+        },
+        {
+          "tileId": 292,
+          "durationMs": 266
+        },
+        {
+          "tileId": 293,
+          "durationMs": 266
+        },
+        {
+          "tileId": 294,
+          "durationMs": 266
+        },
+        {
+          "tileId": 295,
+          "durationMs": 266
+        },
+        {
+          "tileId": 296,
+          "durationMs": 266
+        },
+        {
+          "tileId": 297,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 211,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 314,
+          "durationMs": 266
+        },
+        {
+          "tileId": 315,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 214,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 316,
+          "durationMs": 266
+        },
+        {
+          "tileId": 317,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

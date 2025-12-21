@@ -1,0 +1,158 @@
+{
+  "id": "base:map:hoenn/lavaridge_town_herb_shop",
+  "name": "LavaridgeTown_HerbShop",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_oldale",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/lavaridge_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/lavaridge_town_herb_shop",
+    "bottomLayer": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/lavaridge_town_herb_shop/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAAAAAAAAwAAAAMAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAAAAAAGAAAABgAAAAAAAAAHAAAABwAAAAcAAAAAAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbAAAAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbAAAAGwAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/lavaridge_town_herb_shop/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAADAAAABAAAAAUAAAADAAAAAwAAAAIAAAACAAAAAgAAAAMAAAACAAAAAgAAAAcAAAAIAAAACQAAAAoAAAAHAAAAAgAAAAIAAAACAAAABwAAAAsAAAANAAAADQAAAA0AAAANAAAAAgAAAAsAAAANAAAADQAAAA0AAAANAAAADwAAAA8AAAAPAAAADwAAAA8AAAAQAAAAEQAAABIAAAASAAAAEgAAABMAAAALAAAADQAAAA0AAAANAAAADQAAAA0AAAAUAAAAEgAAABIAAAASAAAAFgAAABEAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAAYAAAAEQAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAAA0AAAAcAAAAHQAAABIAAAAeAAAAHwAAABIAAAASAAAAEgAAABIAAAAcAAAAHQAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/lavaridge_town_herb_shop/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAGQAAABoAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAGQAAABoAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/lavaridge_town_herb_shop"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/lavaridge_town_herb_shop/warp_to_lavaridge_town",
+      "name": "Warp to lavaridge_town",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town",
+      "targetX": 12,
+      "targetY": 15,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/lavaridge_town_herb_shop/warp_to_lavaridge_town",
+      "name": "Warp to lavaridge_town",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town",
+      "targetX": 12,
+      "targetY": 15,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/lavaridge_town_herb_shop/npc_3",
+      "name": "NPC_3",
+      "x": 48,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/woman_2",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/lavaridge_town_herb_shop_event_script_clerk",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/lavaridge_town_herb_shop/npc_4",
+      "name": "NPC_4",
+      "x": 112,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/old_man",
+      "behaviorId": "base:behavior:movement/look_around",
+      "interactionScript": "base:behavior:interaction/lavaridge_town_herb_shop_event_script_old_man",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/lavaridge_town_herb_shop/npc_5",
+      "name": "NPC_5",
+      "x": 144,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:behavior:movement/wander_horizontal",
+      "interactionScript": "base:behavior:interaction/lavaridge_town_herb_shop_event_script_expert_m",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/routes/mus_route104",
+  "name": "Route104",
+  "audioPath": "Audio/Music/Routes/mus_route104.ogg",
+  "volume": 0.764,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 176400,
+  "loopLengthSamples": 1764000,
+  "loopStartSec": 4.0,
+  "loopEndSec": 44.0
+}

@@ -1,0 +1,75 @@
+{
+  "id": "base:textwindow:tilesheet/6",
+  "displayName": "6",
+  "type": "TileSheet",
+  "texturePath": "Graphics/Sprites/TextWindow/6.png",
+  "tileWidth": 8,
+  "tileHeight": 8,
+  "tileCount": 9,
+  "tiles": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 8,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 2,
+      "x": 16,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 3,
+      "x": 0,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 4,
+      "x": 8,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 5,
+      "x": 16,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 6,
+      "x": 0,
+      "y": 16,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 7,
+      "x": 8,
+      "y": 16,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 8,
+      "x": 16,
+      "y": 16,
+      "width": 8,
+      "height": 8
+    }
+  ],
+  "description": "Text window tile sheet from Pokemon Emerald (GBA tile-based rendering)"
+}

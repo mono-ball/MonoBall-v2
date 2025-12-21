@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/sky_pillar_entrance",
+  "name": "Sky Pillar Entrance",
+  "texturePath": "Graphics/Tilesets/Hoenn/sky_pillar_entrance.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 21,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

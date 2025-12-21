@@ -1,0 +1,54 @@
+{
+  "id": "base:tileset:hoenn/safari_zone_northeast",
+  "name": "Safari Zone Northeast",
+  "texturePath": "Graphics/Tilesets/Hoenn/safari_zone_northeast.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 64,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 14,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 50,
+          "durationMs": 266
+        },
+        {
+          "tileId": 51,
+          "durationMs": 266
+        },
+        {
+          "tileId": 52,
+          "durationMs": 266
+        },
+        {
+          "tileId": 53,
+          "durationMs": 266
+        },
+        {
+          "tileId": 54,
+          "durationMs": 266
+        },
+        {
+          "tileId": 55,
+          "durationMs": 266
+        },
+        {
+          "tileId": 56,
+          "durationMs": 266
+        },
+        {
+          "tileId": 57,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

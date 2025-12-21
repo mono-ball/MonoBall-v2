@@ -1,0 +1,179 @@
+{
+  "id": "base:map:hoenn/route110_seaside_cycling_road_north_entrance",
+  "name": "Route110_SeasideCyclingRoadNorthEntrance",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 15,
+  "height": 6,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_slateport",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/route_110",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/route110_seaside_cycling_road_north_entrance",
+    "bottomLayer": [
+      31,
+      31,
+      31,
+      31
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/route110_seaside_cycling_road_north_entrance/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 6,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAAAAAAFAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAABwAAAAcAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/route110_seaside_cycling_road_north_entrance/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 6,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAAEAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAABQAAAAUAAAAFAAAABQAAAAUAAAAGAAAABwAAAAUAAAAIAAAABQAAAAYAAAAFAAAABQAAAAUAAAAFAAAACQAAAAoAAAAKAAAACgAAAAoAAAALAAAACgAAAAoAAAAKAAAACgAAAA4AAAAJAAAACgAAAAoAAAAKAAAADwAAABAAAAAQAAAAEAAAABAAAAARAAAAEgAAABMAAAASAAAAEgAAABQAAAAPAAAAEAAAABAAAAAQAAAADwAAABAAAAAQAAAAEAAAABAAAAAKAAAACgAAAAoAAAAKAAAACgAAAAoAAAAYAAAAEAAAABAAAAAQAAAAGQAAABoAAAAbAAAAEAAAABAAAAAQAAAAHQAAAB4AAAAdAAAAHgAAABAAAAAQAAAAGgAAABsAAAAZAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/route110_seaside_cycling_road_north_entrance/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 6,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAADAAAAA0AAAAMAAAADAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAFQAAAAIAAAACAAAAAgAAAAIAAAACAAAAFgAAABcAAAAWAAAAFwAAAAIAAAACAAAAAgAAAAIAAAAVAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/route110_seaside_cycling_road_north_entrance"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 16,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route110",
+      "targetX": 15,
+      "targetY": 16,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 32,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route110",
+      "targetX": 15,
+      "targetY": 16,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 192,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route110",
+      "targetX": 18,
+      "targetY": 16,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 208,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route110",
+      "targetX": 18,
+      "targetY": 16,
+      "elevation": 0
+    }
+  ],
+  "triggers": [
+    {
+      "triggerId": "base:trigger:hoenn/route110_seaside_cycling_road_north_entrance/trigger_var_temp_1_0",
+      "name": "Trigger: VAR_TEMP_1 == 0",
+      "x": 112,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_1",
+      "value": 0,
+      "triggerScript": "base:script:hoenn/Triggers/Route110_SeasideCyclingRoadNorthEntrance_EventScript_BikeCheck.csx",
+      "elevation": 3
+    },
+    {
+      "triggerId": "base:trigger:hoenn/route110_seaside_cycling_road_north_entrance/trigger_var_temp_1_1",
+      "name": "Trigger: VAR_TEMP_1 == 1",
+      "x": 80,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/VAR_TEMP_1",
+      "value": 1,
+      "triggerScript": "base:script:hoenn/Triggers/Route110_SeasideCyclingRoadNorthEntrance_EventScript_ClearCyclingRoad.csx",
+      "elevation": 3
+    }
+  ],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/route110_seaside_cycling_road_north_entrance/npc_7",
+      "name": "NPC_7",
+      "x": 112,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route110_seaside_cycling_road_north_entrance_event_script_clerk",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

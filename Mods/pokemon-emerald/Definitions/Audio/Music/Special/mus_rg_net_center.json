@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_net_center",
+  "name": "RG Net Center",
+  "audioPath": "Audio/Music/Special/mus_rg_net_center.ogg",
+  "volume": 0.756,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 1485471,
+  "loopStartSec": 0.0,
+  "loopEndSec": 33.684
+}

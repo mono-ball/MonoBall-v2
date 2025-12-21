@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/battle/mus_rg_encounter_deoxys",
+  "name": "RG Encounter Deoxys",
+  "audioPath": "Audio/Music/Battle/mus_rg_encounter_deoxys.ogg",
+  "volume": 0.622,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 661500,
+  "loopStartSec": 0.0,
+  "loopEndSec": 15.0
+}

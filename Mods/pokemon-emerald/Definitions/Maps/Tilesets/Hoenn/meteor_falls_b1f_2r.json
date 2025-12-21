@@ -1,0 +1,249 @@
+{
+  "id": "base:tileset:hoenn/meteor_falls_b1f_2r",
+  "name": "Meteor Falls B1F 2R",
+  "texturePath": "Graphics/Tilesets/Hoenn/meteor_falls_b1f_2r.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 80,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 12,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 28,
+          "durationMs": 266
+        },
+        {
+          "tileId": 29,
+          "durationMs": 266
+        },
+        {
+          "tileId": 30,
+          "durationMs": 266
+        },
+        {
+          "tileId": 31,
+          "durationMs": 266
+        },
+        {
+          "tileId": 32,
+          "durationMs": 266
+        },
+        {
+          "tileId": 33,
+          "durationMs": 266
+        },
+        {
+          "tileId": 34,
+          "durationMs": 266
+        },
+        {
+          "tileId": 35,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 14,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 36,
+          "durationMs": 266
+        },
+        {
+          "tileId": 37,
+          "durationMs": 266
+        },
+        {
+          "tileId": 38,
+          "durationMs": 266
+        },
+        {
+          "tileId": 39,
+          "durationMs": 266
+        },
+        {
+          "tileId": 40,
+          "durationMs": 266
+        },
+        {
+          "tileId": 41,
+          "durationMs": 266
+        },
+        {
+          "tileId": 42,
+          "durationMs": 266
+        },
+        {
+          "tileId": 43,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 18,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 44,
+          "durationMs": 266
+        },
+        {
+          "tileId": 45,
+          "durationMs": 266
+        },
+        {
+          "tileId": 46,
+          "durationMs": 266
+        },
+        {
+          "tileId": 47,
+          "durationMs": 266
+        },
+        {
+          "tileId": 48,
+          "durationMs": 266
+        },
+        {
+          "tileId": 49,
+          "durationMs": 266
+        },
+        {
+          "tileId": 50,
+          "durationMs": 266
+        },
+        {
+          "tileId": 51,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 20,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 52,
+          "durationMs": 266
+        },
+        {
+          "tileId": 53,
+          "durationMs": 266
+        },
+        {
+          "tileId": 54,
+          "durationMs": 266
+        },
+        {
+          "tileId": 55,
+          "durationMs": 266
+        },
+        {
+          "tileId": 56,
+          "durationMs": 266
+        },
+        {
+          "tileId": 57,
+          "durationMs": 266
+        },
+        {
+          "tileId": 58,
+          "durationMs": 266
+        },
+        {
+          "tileId": 59,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 21,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 60,
+          "durationMs": 266
+        },
+        {
+          "tileId": 61,
+          "durationMs": 266
+        },
+        {
+          "tileId": 62,
+          "durationMs": 266
+        },
+        {
+          "tileId": 63,
+          "durationMs": 266
+        },
+        {
+          "tileId": 64,
+          "durationMs": 266
+        },
+        {
+          "tileId": 65,
+          "durationMs": 266
+        },
+        {
+          "tileId": 66,
+          "durationMs": 266
+        },
+        {
+          "tileId": 67,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 16,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 68,
+          "durationMs": 266
+        },
+        {
+          "tileId": 69,
+          "durationMs": 266
+        },
+        {
+          "tileId": 70,
+          "durationMs": 266
+        },
+        {
+          "tileId": 71,
+          "durationMs": 266
+        },
+        {
+          "tileId": 72,
+          "durationMs": 266
+        },
+        {
+          "tileId": 73,
+          "durationMs": 266
+        },
+        {
+          "tileId": 74,
+          "durationMs": 266
+        },
+        {
+          "tileId": 75,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

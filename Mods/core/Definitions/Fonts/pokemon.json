@@ -1,0 +1,13 @@
+{
+  "id": "base:font:game/pokemon",
+  "name": "Pokemon Font",
+  "description": "Main game font for dialogue and menus",
+  "fontPath": "pokemon.ttf",
+  "category": "game",
+  "defaultSize": 16,
+  "lineSpacing": 1.0,
+  "characterSpacing": 0.0,
+  "supportsUnicode": false,
+  "isMonospace": false,
+  "version": "1.0.0"
+}

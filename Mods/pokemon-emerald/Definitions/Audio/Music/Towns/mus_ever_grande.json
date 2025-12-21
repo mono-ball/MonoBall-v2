@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_ever_grande",
+  "name": "Ever Grande",
+  "audioPath": "Audio/Music/Towns/mus_ever_grande.ogg",
+  "volume": 0.677,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 351421,
+  "loopLengthSamples": 2646000,
+  "loopStartSec": 7.969,
+  "loopEndSec": 67.969
+}

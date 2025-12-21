@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_end",
+  "name": "End",
+  "audioPath": "Audio/Music/Special/mus_end.ogg",
+  "volume": 0.283,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 51882,
+  "loopLengthSamples": 5810820,
+  "loopStartSec": 1.176,
+  "loopEndSec": 132.941
+}

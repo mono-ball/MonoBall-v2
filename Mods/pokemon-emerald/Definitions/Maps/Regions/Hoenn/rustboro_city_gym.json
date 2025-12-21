@@ -1,0 +1,207 @@
+{
+  "id": "base:map:hoenn/rustboro_city_gym",
+  "name": "RustboroCity_Gym",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_gym",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/gym",
+  "mapSectionId": "base:mapsec:hoenn/rustboro_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/rustboro_city_gym",
+    "bottomLayer": [
+      51,
+      51,
+      51,
+      51
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/rustboro_city_gym/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAUAAAAFAAAABQAAAAAAAAAFAAAABQAAAAAAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/rustboro_city_gym/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAMAAAADAAAAAwAAAAMAAAAEAAAAAwAAAAMAAAADAAAAAwAAAAUAAAAGAAAABwAAAAcAAAAHAAAABwAAAAgAAAAHAAAABwAAAAcAAAAHAAAACQAAAAIAAAALAAAADAAAAA0AAAAOAAAADwAAABAAAAARAAAADAAAAAwAAAACAAAACwAAABMAAAAUAAAAFQAAABYAAAAXAAAAGAAAABkAAAAUAAAAFAAAABoAAAAbAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABsAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAACEAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAGwAAABQAAAAlAAAAJgAAACYAAAAmAAAAJgAAACYAAAACAAAAFAAAABQAAAAbAAAAFAAAABoAAAAoAAAADAAAAAwAAAAMAAAADAAAABQAAAAUAAAAFAAAABsAAAAUAAAAFAAAABQAAAAhAAAAFAAAABQAAAAhAAAAFAAAABQAAAAUAAAAGwAAABQAAAAUAAAAKQAAABsAAAAlAAAAKwAAABsAAAAUAAAAFAAAABQAAAAbAAAAJQAAACYAAAArAAAAGwAAABoAAAAMAAAAGwAAAAIAAAAUAAAAFAAAABsAAAAaAAAADAAAAAwAAAATAAAAJQAAAAIAAAAUAAAAFAAAABQAAAAUAAAAGwAAABQAAAAUAAAAIQAAABQAAAAaAAAAJQAAACYAAAACAAAAFAAAABQAAAAbAAAAFAAAAAIAAAAbAAAAFAAAABQAAAAaAAAADAAAABQAAAAUAAAALgAAABsAAAAlAAAAJgAAACsAAAAhAAAAJQAAACsAAAAhAAAAJQAAACsAAAALAAAAEwAAABoAAAAMAAAADAAAABMAAAAaAAAADAAAABMAAAAaAAAADAAAABsAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAGwAAABQAAAAwAAAAIQAAABQAAAAUAAAAFAAAABQAAAAwAAAAIQAAABQAAAAbAAAAFAAAABoAAAATAAAAFAAAADEAAAAyAAAAFAAAABoAAAATAAAAFAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/rustboro_city_gym/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAABwAAAACAAAAAgAAAB0AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAfAAAAIAAAAAIAAAACAAAAIgAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAACQAAAAgAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAJAAAACAAAAACAAAAAgAAAAIAAAAcAAAAAgAAAB0AAAAfAAAAAgAAACIAAAAkAAAAIAAAAAIAAAACAAAAAgAAACAAAAACAAAAIgAAACQAAAACAAAAIgAAACQAAAAgAAAAAgAAAB0AAAAeAAAAKgAAAAIAAAAAAAAAAAAAAAIAAAAiAAAAJAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAgAAAB0AAAAeAAAAHgAAACwAAAAkAAAAIAAAAAIAAAAdAAAAHwAAAAIAAAACAAAAAAAAACcAAAAjAAAAIwAAACQAAAAgAAAAAgAAACIAAAAkAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAnAAAAJAAAACAAAAACAAAAIgAAAC0AAAAfAAAAAgAAAB0AAAAfAAAAAgAAACIAAAAkAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAALwAAAAIAAAACAAAAAgAAAAIAAAACAAAALwAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/rustboro_city_gym"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/rustboro_city_gym/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 80,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 27,
+      "targetY": 19,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/rustboro_city_gym/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 96,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 27,
+      "targetY": 19,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "interactionId": "base:interaction:hoenn/rustboro_city_gym/sign_rustborocity_gym_eventscript_leftgymstatue",
+      "name": "Sign: RustboroCity_Gym_EventScript_LeftGymStatue",
+      "x": 32,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/RustboroCity_Gym_EventScript_LeftGymStatue.csx",
+      "elevation": 0
+    },
+    {
+      "interactionId": "base:interaction:hoenn/rustboro_city_gym/sign_rustborocity_gym_eventscript_rightgymstatue",
+      "name": "Sign: RustboroCity_Gym_EventScript_RightGymStatue",
+      "x": 128,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "interactionScript": "base:script:hoenn/Interactions/RustboroCity_Gym_EventScript_RightGymStatue.csx",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_gym/npc_5",
+      "name": "NPC_5",
+      "x": 80,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/gym_leaders/roxanne",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/rustboro_city_gym_event_script_roxanne",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_gym/npc_6",
+      "name": "NPC_6",
+      "x": 80,
+      "y": 208,
+      "spriteId": "base:sprite:npcs/generic/youngster",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/rustboro_city_gym_event_script_josh",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_gym/npc_7",
+      "name": "NPC_7",
+      "x": 48,
+      "y": 144,
+      "spriteId": "base:sprite:npcs/generic/youngster",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/rustboro_city_gym_event_script_tommy",
+      "visibilityFlag": null,
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_gym/npc_8",
+      "name": "NPC_8",
+      "x": 48,
+      "y": 288,
+      "spriteId": "base:sprite:npcs/generic/man_2",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/rustboro_city_gym_event_script_gym_guide",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/rustboro_city_gym/npc_9",
+      "name": "NPC_9",
+      "x": 16,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/hiker",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/rustboro_city_gym_event_script_marc",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

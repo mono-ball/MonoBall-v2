@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_c_comm_center",
+  "name": "C Comm Center",
+  "audioPath": "Audio/Music/Special/mus_c_comm_center.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 88200,
+  "loopLengthSamples": 1411200,
+  "loopStartSec": 2.0,
+  "loopEndSec": 34.0
+}

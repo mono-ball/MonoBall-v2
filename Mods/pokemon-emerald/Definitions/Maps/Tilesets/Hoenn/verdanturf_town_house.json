@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/verdanturf_town_house",
+  "name": "Verdanturf Town House",
+  "texturePath": "Graphics/Tilesets/Hoenn/verdanturf_town_house.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 39,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

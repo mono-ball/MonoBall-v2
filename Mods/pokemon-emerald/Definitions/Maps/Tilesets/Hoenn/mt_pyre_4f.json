@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/mt_pyre_4f",
+  "name": "Mt Pyre 4F",
+  "texturePath": "Graphics/Tilesets/Hoenn/mt_pyre_4f.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 32,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

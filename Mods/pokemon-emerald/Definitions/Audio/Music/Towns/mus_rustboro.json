@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/towns/mus_rustboro",
+  "name": "Rustboro",
+  "audioPath": "Audio/Music/Towns/mus_rustboro.ogg",
+  "volume": 0.669,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 72351,
+  "loopLengthSamples": 2646000,
+  "loopStartSec": 1.641,
+  "loopEndSec": 61.641
+}

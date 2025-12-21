@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/lilycove_city_contest_lobby",
+  "name": "Lilycove City Contest Lobby",
+  "texturePath": "Graphics/Tilesets/Hoenn/lilycove_city_contest_lobby.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 59,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

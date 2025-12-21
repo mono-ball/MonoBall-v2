@@ -1,0 +1,129 @@
+{
+  "id": "base:tileset:hoenn/battle_frontier_battle_pyramid_lobby",
+  "name": "Battle Frontier Battle Pyramid Lobby",
+  "texturePath": "Graphics/Tilesets/Hoenn/battle_frontier_battle_pyramid_lobby.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 96,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 96,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 21,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 57,
+          "durationMs": 133
+        },
+        {
+          "tileId": 58,
+          "durationMs": 133
+        },
+        {
+          "tileId": 59,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 28,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 60,
+          "durationMs": 133
+        },
+        {
+          "tileId": 61,
+          "durationMs": 133
+        },
+        {
+          "tileId": 62,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 11,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 63,
+          "durationMs": 133
+        },
+        {
+          "tileId": 64,
+          "durationMs": 133
+        },
+        {
+          "tileId": 65,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 14,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 72,
+          "durationMs": 133
+        },
+        {
+          "tileId": 73,
+          "durationMs": 133
+        },
+        {
+          "tileId": 74,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 17,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 75,
+          "durationMs": 133
+        },
+        {
+          "tileId": 76,
+          "durationMs": 133
+        },
+        {
+          "tileId": 77,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 19,
+      "type": null,
+      "tileBehaviorId": null,
+      "animation": [
+        {
+          "tileId": 78,
+          "durationMs": 133
+        },
+        {
+          "tileId": 79,
+          "durationMs": 133
+        },
+        {
+          "tileId": 80,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

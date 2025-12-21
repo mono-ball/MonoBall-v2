@@ -1,0 +1,172 @@
+{
+  "id": "base:map:hoenn/route109_seashore_house",
+  "name": "Route109_SeashoreHouse",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 15,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_dewford",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/route_109",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/route109_seashore_house",
+    "bottomLayer": [
+      51,
+      51,
+      51,
+      51
+    ],
+    "topLayer": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/route109_seashore_house/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAJAAAAAAAAAA0AAAANAAAAAAAAAAAAAAANAAAADQAAAA0AAAAAAAAAAAAAAAAAAAAAAAAADQAAAA0AAAAAAAAAAAAAABcAAAAXAAAAAAAAAAAAAAAAAAAAFwAAABcAAAAAAAAAAAAAAAAAAAAAAAAAFwAAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAACYAAAAAAAAAJgAAACYAAAAmAAAAAAAAAAAAAAAmAAAAJgAAACYAAAAAAAAAAAAAACYAAAAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAACYAAAAAAAAAJgAAACYAAAAmAAAAAAAAAAAAAAAmAAAAJgAAACYAAAAAAAAAAAAAACYAAAAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYAAAAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/route109_seashore_house/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAQAAAAEAAAABQAAAAYAAAAHAAAACAAAAAQAAAAEAAAABAAAAAUAAAAGAAAABAAAAAQAAAAKAAAACwAAAA4AAAAPAAAADQAAAA0AAAASAAAAEwAAABQAAAANAAAADQAAAA0AAAANAAAADgAAAA8AAAAVAAAAFgAAABgAAAAZAAAAGgAAABsAAAAbAAAAHAAAAB0AAAAaAAAAGwAAABsAAAAbAAAAGAAAABkAAAAeAAAAHwAAACAAAAAgAAAAIQAAACIAAAAiAAAAIAAAACAAAAAhAAAAIgAAACIAAAAiAAAAIAAAACAAAAAjAAAAJQAAACcAAAAoAAAAJQAAACkAAAAnAAAAKAAAACgAAAAlAAAAKQAAACcAAAAoAAAAKAAAACUAAAAnAAAAKwAAABsAAAAsAAAAGwAAABsAAAAbAAAALAAAACwAAAAbAAAAGwAAABsAAAAsAAAALAAAABsAAAAtAAAAJQAAACcAAAAiAAAAJQAAACkAAAAnAAAAIgAAACIAAAAlAAAAKQAAACcAAAAiAAAAIgAAACUAAAAnAAAALgAAAC8AAAAoAAAALwAAAC8AAAAvAAAAKAAAACgAAAAvAAAALwAAAC8AAAAoAAAAKAAAAC8AAAAwAAAAJQAAACcAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACUAAAAnAAAALgAAAC8AAAAoAAAAKAAAACgAAAAoAAAAMQAAADIAAAAoAAAAKAAAACgAAAAoAAAAKAAAAC8AAAAwAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/route109_seashore_house/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 15,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAABEAAAAAAAAAAAAAAAAAAAAMAAAADAAAABAAAAARAAAAAAAAAAAAAAAMAAAADAAAAAAAAAAAAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/route109_seashore_house"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/route109_seashore_house/warp_to_route109",
+      "name": "Warp to route109",
+      "x": 96,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route109",
+      "targetX": 12,
+      "targetY": 5,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/route109_seashore_house/warp_to_route109",
+      "name": "Warp to route109",
+      "x": 112,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/route109",
+      "targetX": 12,
+      "targetY": 5,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/route109_seashore_house/npc_3",
+      "name": "NPC_3",
+      "x": 96,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/pokefan_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route109_seashore_house_event_script_owner",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route109_seashore_house/npc_4",
+      "name": "NPC_4",
+      "x": 32,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/sailor",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route109_seashore_house_event_script_dwayne",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route109_seashore_house/npc_5",
+      "name": "NPC_5",
+      "x": 224,
+      "y": 144,
+      "spriteId": "base:sprite:npcs/generic/tuber_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/route109_seashore_house_event_script_simon",
+      "visibilityFlag": null,
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/route109_seashore_house/npc_6",
+      "name": "NPC_6",
+      "x": 160,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/beauty",
+      "behaviorId": "base:behavior:movement/look_two_ways",
+      "interactionScript": "base:behavior:interaction/route109_seashore_house_event_script_johanna",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

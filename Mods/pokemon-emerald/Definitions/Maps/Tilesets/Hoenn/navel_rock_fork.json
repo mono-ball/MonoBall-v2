@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/navel_rock_fork",
+  "name": "Navel Rock Fork",
+  "texturePath": "Graphics/Tilesets/Hoenn/navel_rock_fork.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 20,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

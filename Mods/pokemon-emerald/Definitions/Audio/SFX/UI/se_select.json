@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:sfx/ui/se_select",
+  "name": "Select",
+  "audioPath": "Audio/SFX/UI/se_select.ogg",
+  "volume": 0.63,
+  "loop": false,
+  "fadeIn": 0.0,
+  "fadeOut": 0.0
+}

@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/lavaridge_town_herb_shop",
+  "name": "Lavaridge Town Herb Shop",
+  "texturePath": "Graphics/Tilesets/Hoenn/lavaridge_town_herb_shop.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 32,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

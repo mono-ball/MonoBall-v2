@@ -1,0 +1,9 @@
+{
+  "id": "base:audio:music/special/mus_credits",
+  "name": "Credits",
+  "audioPath": "Audio/Music/Special/mus_credits.ogg",
+  "volume": 0.787,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5
+}

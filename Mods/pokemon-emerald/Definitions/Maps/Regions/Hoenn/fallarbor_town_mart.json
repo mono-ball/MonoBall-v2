@@ -1,0 +1,186 @@
+{
+  "id": "base:map:hoenn/fallarbor_town_mart",
+  "name": "FallarborTown_Mart",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 11,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_poke_mart",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/fallarbor_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/fallarbor_town_mart",
+    "bottomLayer": [
+      55,
+      55,
+      55,
+      55
+    ],
+    "topLayer": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/fallarbor_town_mart/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAABkAAAAbAAAAGwAAABsAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAfAAAAHwAAAB8AAAAAAAAAAAAAAAAAAAAhAAAAIQAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8AAAAfAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwAAAB8AAAAAAAAAAAAAAB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/fallarbor_town_mart/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAQAAAADAAAABgAAAAYAAAAGAAAAAwAAAAMAAAADAAAAAwAAAAkAAAALAAAADQAAAA4AAAAPAAAADwAAAA8AAAARAAAAEgAAABEAAAASAAAAEwAAABQAAAAVAAAAFwAAABgAAAAVAAAAFQAAABoAAAAcAAAAGgAAABwAAAAdAAAAHwAAACEAAAAjAAAAJAAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACYAAAAnAAAAKAAAACkAAAAkAAAAIQAAACEAAAAqAAAAKwAAACwAAAAhAAAAKgAAAB8AAAAVAAAAFQAAAC0AAAAhAAAAIQAAAC4AAAAvAAAAJAAAACEAAAAuAAAAHwAAACEAAAAhAAAAIQAAACEAAAAhAAAAMAAAADEAAAAkAAAAIQAAADAAAAAfAAAAIQAAACEAAAAzAAAANAAAACEAAAA1AAAAFQAAAC0AAAAhAAAANQAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/fallarbor_town_mart/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAAAAAAFAAAABQAAAAUAAAAFAAAABwAAAAgAAAAHAAAACAAAAAoAAAAFAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAFAAAAAAAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAIAAAACIAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAAAAAAAAAAABQAAAAUAAAAAAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAAAAAAAAAAAAFAAAABQAAAAAAAAAyAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAANgAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/fallarbor_town_mart"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/fallarbor_town_mart/warp_to_fallarbor_town",
+      "name": "Warp to fallarbor_town",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/fallarbor_town",
+      "targetX": 15,
+      "targetY": 15,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/fallarbor_town_mart/warp_to_fallarbor_town",
+      "name": "Warp to fallarbor_town",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/fallarbor_town",
+      "targetX": 15,
+      "targetY": 15,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/fallarbor_town_mart/localid_fallarbor_mart_clerk",
+      "name": "LOCALID_FALLARBOR_MART_CLERK",
+      "x": 16,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fallarbor_town_mart_event_script_clerk",
+      "visibilityFlag": null,
+      "direction": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fallarbor_town_mart/npc_4",
+      "name": "NPC_4",
+      "x": 80,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/woman_2",
+      "behaviorId": "base:behavior:movement/wander",
+      "interactionScript": "base:behavior:interaction/fallarbor_town_mart_event_script_woman",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fallarbor_town_mart/npc_5",
+      "name": "NPC_5",
+      "x": 144,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/pokefan_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fallarbor_town_mart_event_script_pokefan_m",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fallarbor_town_mart/npc_6",
+      "name": "NPC_6",
+      "x": 32,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/skitty",
+      "behaviorId": "base:behavior:movement/look_around",
+      "interactionScript": "base:behavior:interaction/fallarbor_town_mart_event_script_skitty",
+      "visibilityFlag": null,
+      "direction": null,
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fallarbor_town_mart/npc_7",
+      "name": "NPC_7",
+      "x": 112,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/girl_2",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fallarbor_town_mart_event_script_metronome_tutor",
+      "visibilityFlag": null,
+      "direction": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

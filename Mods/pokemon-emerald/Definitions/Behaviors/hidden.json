@@ -1,0 +1,12 @@
+{
+  "id": "base:behavior:movement/hidden",
+  "name": "Hidden/Invisible Behavior",
+  "description": "NPC is invisible and does not move or interact",
+  "behaviorScript": "Behaviors/hidden_behavior.csx",
+  "defaultSpeed": 0.0,
+  "pauseAtWaypoint": 0.0,
+  "allowInteractionWhileMoving": false,
+  "parameters": {
+    "visible": false
+  }
+}

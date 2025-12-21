@@ -1,0 +1,208 @@
+{
+  "id": "base:map:hoenn/ever_grande_city_pokemon_league_1f",
+  "name": "EverGrandeCity_PokemonLeague_1F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 19,
+  "height": 12,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_poke_center",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/ever_grande_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/ever_grande_city_pokemon_league_1f",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_pokemon_league_1f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 19,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAIAAAACQAAAAkAAAAKAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAPAAAADwAAAA8AAAAPAAAADwAAAAAAAAAAAAAAFgAAABcAAAAXAAAAGAAAAA8AAAAPAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwAAACEAAAAAAAAAJQAAACcAAAApAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAAAAAAAAAAAALgAAAC4AAAAuAAAALgAAAC4AAAApAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAAAALgAAAC4AAAAuAAAALgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuAAAALgAAAE4AAAA1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuAAAALgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKQAAACkAAAAuAAAAAAAAAAAAAAAAAAAAAAAAAC4AAAAuAAAALgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4AAAAuAAAAAAAAAAAAAAAAAAAALgAAAC4AAAApAAAAKQAAAC4AAAAAAAAAAAAAAAAAAAAzAAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_pokemon_league_1f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 19,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAMAAAADAAAABQAAAAYAAAADAAAAAwAAAAMAAAAEAAAABAAAAAQAAAAEAAAACwAAAAwAAAADAAAAAwAAAAMAAAADAAAADQAAAA4AAAAQAAAAEQAAABIAAAATAAAAFAAAABUAAAAPAAAABAAAAAQAAAAEAAAABAAAABkAAAAaAAAAGwAAAA8AAAAPAAAADwAAABwAAAAdAAAAIAAAACIAAAAjAAAAJgAAACgAAAAqAAAAIwAAACsAAAArAAAAKwAAACsAAAArAAAAKwAAACwAAAAjAAAAKwAAACsAAAAtAAAALwAAAC8AAAAvAAAAMAAAAC8AAAAxAAAAMgAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAA0AAAALwAAADAAAAAvAAAALwAAADUAAAA2AAAANgAAADYAAAA2AAAANgAAADcAAAAzAAAAMwAAADgAAAA5AAAAMwAAADMAAAAzAAAAOgAAADYAAAA2AAAANgAAADsAAAA1AAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADwAAAA9AAAAPQAAAD4AAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAA/AAAANQAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADgAAAA9AAAAQgAAAEMAAAA9AAAAOQAAADMAAAAzAAAAMwAAADMAAAAzAAAAPwAAAEUAAABGAAAAMwAAADMAAAAzAAAAMwAAADMAAABHAAAASAAAAEkAAABKAAAASAAAAEsAAAAzAAAAMwAAADMAAABMAAAATQAAAE0AAABPAAAAUAAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAAFEAAABIAAAASAAAAFIAAAAzAAAAMwAAADMAAABTAAAAVAAAADMAAAA/AAAANQAAADMAAAAzAAAATAAAADMAAAAzAAAAMwAAADMAAAAzAAAARwAAAEsAAAAzAAAAMwAAADMAAAAzAAAAVQAAAFYAAABXAAAAPwAAADUAAAAzAAAAMwAAAFMAAABUAAAAVwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAAEwAAABXAAAAMwAAAD8AAAA1AAAATQAAAE0AAABVAAAAVgAAAEwAAAAzAAAAMwAAADMAAABZAAAAWgAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAA/AAAA",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/ever_grande_city_pokemon_league_1f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 19,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAQAAAAEAAAAAAAAAAAAAAAEAAAABwAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAeAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAeAAAAJAAAAB4AAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAQAAAAEEAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAABEAAAARAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAQAAABEAAAARAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAABAAAAAQAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAABbAAAA",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/ever_grande_city_pokemon_league_1f"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city",
+      "name": "Warp to ever_grande_city",
+      "x": 144,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city",
+      "targetX": 18,
+      "targetY": 5,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city",
+      "name": "Warp to ever_grande_city",
+      "x": 160,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city",
+      "targetX": 18,
+      "targetY": 5,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_hall5",
+      "name": "Warp to ever_grande_city_hall5",
+      "x": 144,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_hall5",
+      "targetX": 5,
+      "targetY": 12,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_hall5",
+      "name": "Warp to ever_grande_city_hall5",
+      "x": 160,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_hall5",
+      "targetX": 5,
+      "targetY": 12,
+      "elevation": 3
+    },
+    {
+      "warpId": "base:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_pokemon_league_2f",
+      "name": "Warp to ever_grande_city_pokemon_league_2f",
+      "x": 16,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ever_grande_city_pokemon_league_2f",
+      "targetX": 1,
+      "targetY": 6,
+      "elevation": 4
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_pokemon_league_1f/localid_league_nurse",
+      "name": "LOCALID_LEAGUE_NURSE",
+      "x": 48,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/nurse",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/ever_grande_city_pokemon_league_1f_event_script_nurse",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_pokemon_league_1f/npc_7",
+      "name": "NPC_7",
+      "x": 256,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/ever_grande_city_pokemon_league_1f_event_script_clerk",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_pokemon_league_1f/localid_league_guard_1",
+      "name": "LOCALID_LEAGUE_GUARD_1",
+      "x": 128,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/man_3",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/ever_grande_city_pokemon_league_1f_event_script_door_guard",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/ever_grande_city_pokemon_league_1f/localid_league_guard_2",
+      "name": "LOCALID_LEAGUE_GUARD_2",
+      "x": 176,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/man_3",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/ever_grande_city_pokemon_league_1f_event_script_door_guard",
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

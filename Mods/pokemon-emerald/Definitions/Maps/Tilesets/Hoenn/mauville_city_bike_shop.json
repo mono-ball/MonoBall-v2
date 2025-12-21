@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/mauville_city_bike_shop",
+  "name": "Mauville City Bike Shop",
+  "texturePath": "Graphics/Tilesets/Hoenn/mauville_city_bike_shop.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 86,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 96,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

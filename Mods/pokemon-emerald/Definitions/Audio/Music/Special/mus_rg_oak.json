@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_rg_oak",
+  "name": "RG Oak",
+  "audioPath": "Audio/Music/Special/mus_rg_oak.ogg",
+  "volume": 0.677,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 595350,
+  "loopLengthSamples": 529200,
+  "loopStartSec": 13.5,
+  "loopEndSec": 25.5
+}

@@ -1,0 +1,30 @@
+{
+  "id": "pokemon:emerald",
+  "name": "Pokemon Emerald",
+  "author": "MonoBall Team",
+  "version": "1.0.0",
+  "description": "Pokemon Emerald content",
+  "priority": 10,
+  "contentFolders": {
+    "Root": "",
+    "Graphics": "Graphics",
+    "Audio": "Audio",
+    "Scripts": "Scripts",
+    "TileBehaviorDefinitions": "Definitions/TileBehaviors",
+    "BehaviorDefinitions": "Definitions/Behaviors",
+    "SpriteDefinitions": "Definitions/Sprites",
+    "TilesetDefinitions": "Definitions/Maps/Tilesets",
+    "MapDefinitions": "Definitions/Maps/Regions",
+    "AudioDefinitions": "Definitions/Audio",
+    "TextWindowDefinitions": "Definitions/TextWindow",
+    "PopupBackgroundDefinitions": "Definitions/Maps/Popups/Backgrounds",
+    "PopupOutlineDefinitions": "Definitions/Maps/Popups/Outlines",
+    "PopupThemeDefinitions": "Definitions/Maps/Popups/Themes",
+    "MapSectionDefinitions": "Definitions/Maps/Sections"
+  },
+  "scripts": [],
+  "patches": [],
+  "dependencies": [
+    "base:monoball-core"
+  ]
+}

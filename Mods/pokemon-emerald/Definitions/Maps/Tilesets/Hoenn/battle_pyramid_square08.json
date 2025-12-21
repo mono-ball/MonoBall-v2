@@ -1,0 +1,14 @@
+{
+  "id": "base:tileset:hoenn/battle_pyramid_square08",
+  "name": "Battle Pyramid Square08",
+  "texturePath": "Graphics/Tilesets/Hoenn/battle_pyramid_square08.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 11,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": []
+}

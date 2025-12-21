@@ -1,0 +1,105 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_pike_room_final",
+  "name": "BattleFrontier_BattlePikeRoomFinal",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 5,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_pike",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": null,
+  "encounterDataJson": null,
+  "customPropertiesJson": null,
+  "border": {
+    "tilesetId": "base:tileset:hoenn/battle_frontier_battle_pike_room_final",
+    "bottomLayer": [
+      39,
+      39,
+      39,
+      39
+    ],
+    "topLayer": [
+      22,
+      22,
+      22,
+      22
+    ]
+  },
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_pike_room_final/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 5,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAEAAAABAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAJgAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_pike_room_final/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 5,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAoAAAALAAAADAAAAA0AAAAOAAAADwAAABEAAAASAAAAEwAAAA8AAAAUAAAAFQAAABcAAAAYAAAAFAAAABkAAAAaAAAAGwAAABwAAAAdAAAAHgAAAB8AAAAgAAAAIQAAACIAAAAUAAAAIwAAACQAAAAlAAAAFAAAAA==",
+      "imagePath": null
+    },
+    {
+      "layerId": "base:layer:hoenn/battle_frontier_battle_pike_room_final/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 5,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAMAAAAEAAAABQAAAAIAAAAGAAAABwAAAAgAAAAJAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAFgAAABYAAAAWAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAEAAAABYAAAAWAAAAFgAAABAAAAAAAAAAFgAAABYAAAAWAAAAAAAAAA==",
+      "imagePath": null
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_pike_room_final"
+    }
+  ],
+  "warps": [],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/battle_frontier_battle_pike_room_final/localid_pike_final_room_attendant",
+      "name": "LOCALID_PIKE_FINAL_ROOM_ATTENDANT",
+      "x": 32,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/link_receptionist",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": null,
+      "visibilityFlag": null,
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

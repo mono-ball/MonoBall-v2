@@ -1,0 +1,7 @@
+{
+  "id": "base:tile_behavior:movement/jump_south",
+  "name": "Jump South",
+  "description": "Allows jumping south but blocks north movement",
+  "behaviorScript": "TileBehaviors/jump_south.csx",
+  "flags": "BlocksMovement"
+}

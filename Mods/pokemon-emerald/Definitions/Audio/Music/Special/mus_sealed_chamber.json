@@ -1,0 +1,13 @@
+{
+  "id": "base:audio:music/special/mus_sealed_chamber",
+  "name": "Sealed Chamber",
+  "audioPath": "Audio/Music/Special/mus_sealed_chamber.ogg",
+  "volume": 0.787,
+  "loop": true,
+  "fadeIn": 0.5,
+  "fadeOut": 0.5,
+  "loopStartSamples": 0,
+  "loopLengthSamples": 1587598,
+  "loopStartSec": 0.0,
+  "loopEndSec": 36.0
+}
