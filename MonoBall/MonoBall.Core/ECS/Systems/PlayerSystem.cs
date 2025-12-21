@@ -100,6 +100,19 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         /// <summary>
+        /// Gets the player entity reference.
+        /// </summary>
+        /// <returns>The player entity, or null if the player has not been created yet.</returns>
+        /// <remarks>
+        /// Returns null if <see cref="InitializePlayer()"/> has not been called or if the player entity
+        /// has not been created. Callers should check for null before using the entity.
+        /// </remarks>
+        public Entity? GetPlayerEntity()
+        {
+            return _playerEntity;
+        }
+
+        /// <summary>
         /// Creates a player entity with all required components.
         /// </summary>
         /// <param name="position">The world position in pixels.</param>

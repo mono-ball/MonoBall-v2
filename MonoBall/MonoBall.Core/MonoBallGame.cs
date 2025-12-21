@@ -183,12 +183,41 @@ namespace MonoBall.Core
                 systemManager.PlayerSystem.InitializePlayer();
                 Log.Information("MonoBallGame.LoadContent: Player system initialized");
 
+                // Set camera to follow player
+                var playerEntity = systemManager.PlayerSystem.GetPlayerEntity();
+                if (playerEntity.HasValue)
+                {
+                    systemManager.CameraSystem.SetCameraFollowEntity(
+                        cameraEntity,
+                        playerEntity.Value
+                    );
+                    Log.Information(
+                        "MonoBallGame.LoadContent: Camera set to follow player entity {EntityId}",
+                        playerEntity.Value.Id
+                    );
+                }
+                else
+                {
+                    Log.Warning(
+                        "MonoBallGame.LoadContent: Player entity not found, camera will not follow player"
+                    );
+                }
+
                 // Load the initial map
                 Log.Information(
                     "MonoBallGame.LoadContent: Loading initial map: base:map:hoenn/littleroot_town"
                 );
                 systemManager.MapLoaderSystem.LoadMap("base:map:hoenn/littleroot_town");
                 Log.Information("MonoBallGame.LoadContent: Initial map loaded");
+
+                // Force camera position update after map load to ensure player is centered
+                if (playerEntity.HasValue)
+                {
+                    systemManager.CameraSystem.UpdateCameraPosition(cameraEntity);
+                    Log.Information(
+                        "MonoBallGame.LoadContent: Camera position updated after map load"
+                    );
+                }
 
                 // Create initial GameScene entity
                 var gameSceneComponent = new SceneComponent

@@ -1,4 +1,5 @@
 using System;
+using Arch.Core;
 using Microsoft.Xna.Framework;
 using MonoBall.Core;
 using MonoBall.Core.Rendering;
@@ -116,6 +117,24 @@ namespace MonoBall.Core.ECS.Components
         public Vector2? FollowTarget { get; set; }
 
         /// <summary>
+        /// Gets or sets the entity to follow. When set, the camera will follow this entity's position each frame.
+        /// Entity-based following takes precedence over position-based following (FollowTarget).
+        /// Set to null to disable entity following.
+        /// </summary>
+        /// <remarks>
+        /// The entity must have a PositionComponent. The camera system validates this each frame.
+        /// If the entity is destroyed or missing PositionComponent, following is automatically stopped.
+        /// </remarks>
+        public Entity? FollowEntity { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether camera following is locked (disabled).
+        /// When true, the camera will not follow FollowEntity, allowing manual camera control.
+        /// Useful for cutscenes, map transitions, or other scenarios requiring camera override.
+        /// </summary>
+        public bool IsFollowingLocked { get; set; }
+
+        /// <summary>
         /// Gets or sets the camera smoothing speed (0 = instant, 1 = very smooth).
         /// Lower values = faster response, higher values = smoother motion.
         /// Recommended: 0.1-0.3 for responsive feel, 0.5-0.8 for cinematic feel.
@@ -150,6 +169,8 @@ namespace MonoBall.Core.ECS.Components
             TileHeight = DefaultTileHeight;
             MapBounds = Rectangle.Empty;
             FollowTarget = null;
+            FollowEntity = null;
+            IsFollowingLocked = false;
             SmoothingSpeed = GameConstants.DefaultCameraSmoothingSpeed;
             IsActive = true;
             IsDirty = true;

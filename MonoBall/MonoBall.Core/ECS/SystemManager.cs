@@ -210,7 +210,7 @@ namespace MonoBall.Core.ECS
                 _spriteLoader
             );
             _mapConnectionSystem = new MapConnectionSystem(_world);
-            _cameraSystem = new CameraSystem(_world);
+            _cameraSystem = new CameraSystem(_world, _spriteLoader);
             _cameraViewportSystem = new CameraViewportSystem(
                 _world,
                 _graphicsDevice,
@@ -259,16 +259,17 @@ namespace MonoBall.Core.ECS
 
             // Group update systems (including scene systems)
             // SpriteSheetSystem is added early to ensure it's initialized before systems that might publish SpriteSheetChangeRequestEvent
+            // PlayerSystem runs before CameraSystem to ensure player position updates before camera follows
             _updateSystems = new Group<float>(
                 "UpdateSystems",
                 _mapLoaderSystem,
                 _mapConnectionSystem,
-                _cameraSystem,
+                _playerSystem, // Player position updates before camera follows
+                _cameraSystem, // Camera follows player (runs after player updates)
                 _cameraViewportSystem,
                 _animatedTileSystem,
                 _spriteAnimationSystem,
                 _spriteSheetSystem,
-                _playerSystem,
                 _sceneManagerSystem,
                 _sceneInputSystem
             );

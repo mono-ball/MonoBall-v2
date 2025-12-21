@@ -11,6 +11,84 @@ This document defines coding standards and best practices for the MonoBall proje
 
 ---
 
+## Development Philosophy
+
+### No Backward Compatibility
+- **NEVER maintain backward compatibility** - refactor APIs freely when improvements are needed
+- **Break existing code if necessary** - update all call sites to use new APIs
+- **Remove deprecated code immediately** - don't keep old implementations alongside new ones
+- **Update all usages** - when changing an API, find and update all call sites rather than maintaining compatibility layers
+- **Prefer clean APIs** - better to have a clean, breaking change than maintain compatibility with poor design
+
+### No Fallback Code
+- **NEVER introduce fallback code** - code should fail fast with clear errors rather than silently degrade
+- **Require all dependencies** - if a method needs a service or component, make it required (non-nullable)
+- **Throw exceptions for missing requirements** - use `InvalidOperationException` or `ArgumentNullException` with clear messages
+- **No default values for critical dependencies** - don't use optional parameters or null defaults for required services
+- **No "graceful degradation"** - if something is required, fail immediately rather than falling back to defaults
+- **Validate all prerequisites** - check for required components/services and throw exceptions if missing
+
+### Examples
+
+#### ❌ Bad: Backward Compatibility
+```csharp
+// Old method kept for compatibility
+public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity)
+{
+    // Old implementation
+}
+
+// New method with better API
+public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity, bool useSmoothing)
+{
+    // New implementation
+}
+```
+
+#### ✅ Good: Breaking Change
+```csharp
+// Single method with required parameter
+public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity, bool useSmoothing)
+{
+    // Implementation
+}
+// Update all call sites to use new signature
+```
+
+#### ❌ Bad: Fallback Code
+```csharp
+private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
+{
+    if (_spriteLoader != null && World.Has<SpriteSheetComponent>(entity))
+    {
+        // Use sprite dimensions
+        return CalculateFromSprite(entity, position);
+    }
+    
+    // Fallback to default
+    return new Vector2(position.X + 8f, position.Y + 16f);
+}
+```
+
+#### ✅ Good: Fail Fast
+```csharp
+private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
+{
+    if (!World.Has<SpriteSheetComponent>(entity))
+    {
+        throw new InvalidOperationException(
+            $"Entity {entity.Id} does not have SpriteSheetComponent. " +
+            "Cannot calculate sprite center without sprite sheet information."
+        );
+    }
+    
+    // Use sprite dimensions - no fallback
+    return CalculateFromSprite(entity, position);
+}
+```
+
+---
+
 ## .NET 10 C# Best Practices
 
 ### General C# Guidelines
@@ -777,6 +855,10 @@ public void Register(DefinitionMetadata metadata)
 - ❌ **Tight coupling** - use interfaces and dependency injection
 - ❌ **Copy-paste code** - extract to shared methods/classes
 - ❌ **Unclear naming** - use descriptive, intention-revealing names
+- ❌ **Maintaining backward compatibility** - refactor freely, update all call sites
+- ❌ **Fallback code** - fail fast with clear exceptions instead of silent degradation
+- ❌ **Optional dependencies for required functionality** - make dependencies required (non-nullable)
+- ❌ **Default values for critical dependencies** - throw exceptions if required services/components are missing
 
 ### ECS-Specific
 - ❌ **Storing behavior in components** - components are data only
