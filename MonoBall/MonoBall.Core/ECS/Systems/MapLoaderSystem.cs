@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Arch.Core;
 using Arch.System;
 using Arch.System.SourceGenerator;
@@ -22,11 +23,14 @@ namespace MonoBall.Core.ECS.Systems
         private const int ChunkSize = GameConstants.TileChunkSize; // 16x16 tiles per chunk
         private readonly DefinitionRegistry _registry;
         private readonly ITilesetLoaderService? _tilesetLoader;
+        private readonly ISpriteLoaderService? _spriteLoader;
         private readonly HashSet<string> _loadedMaps = new HashSet<string>();
         private readonly Dictionary<string, Entity> _mapEntities = new Dictionary<string, Entity>();
         private readonly Dictionary<string, List<Entity>> _mapChunkEntities =
             new Dictionary<string, List<Entity>>();
         private readonly Dictionary<string, List<Entity>> _mapConnectionEntities =
+            new Dictionary<string, List<Entity>>();
+        private readonly Dictionary<string, List<Entity>> _mapNpcEntities =
             new Dictionary<string, List<Entity>>();
         private readonly Dictionary<string, Vector2> _mapPositions =
             new Dictionary<string, Vector2>(); // Map positions in tile coordinates
@@ -37,15 +41,18 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="world">The ECS world.</param>
         /// <param name="registry">The definition registry.</param>
         /// <param name="tilesetLoader">Optional tileset loader service for preloading tilesets.</param>
+        /// <param name="spriteLoader">Optional sprite loader service for loading NPC sprites.</param>
         public MapLoaderSystem(
             World world,
             DefinitionRegistry registry,
-            ITilesetLoaderService? tilesetLoader = null
+            ITilesetLoaderService? tilesetLoader = null,
+            ISpriteLoaderService? spriteLoader = null
         )
             : base(world)
         {
             _registry = registry ?? throw new ArgumentNullException(nameof(registry));
             _tilesetLoader = tilesetLoader;
+            _spriteLoader = spriteLoader;
         }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace MonoBall.Core.ECS.Systems
             _loadedMaps.Add(mapId);
             _mapChunkEntities[mapId] = new List<Entity>();
             _mapConnectionEntities[mapId] = new List<Entity>();
+            _mapNpcEntities[mapId] = new List<Entity>();
 
             // Preload tilesets referenced by this map
             PreloadTilesets(mapDefinition);
@@ -124,6 +132,14 @@ namespace MonoBall.Core.ECS.Systems
 
             // Create connection entities
             CreateConnections(mapEntity, mapDefinition);
+
+            // Create NPC entities
+            int npcsCreated = CreateNpcs(mapEntity, mapDefinition, mapTilePosition);
+            Log.Information(
+                "MapLoaderSystem.LoadMap: Created {NpcCount} NPCs for map {MapId}",
+                npcsCreated,
+                mapId
+            );
 
             // Fire MapLoadedEvent
             var loadedEvent = new MapLoadedEvent { MapId = mapId, MapEntity = mapEntity };
@@ -202,6 +218,27 @@ namespace MonoBall.Core.ECS.Systems
                         World.Destroy(connectionEntity);
                     }
                     _mapConnectionEntities.Remove(mapId);
+                }
+
+                // Destroy all NPC entities
+                if (_mapNpcEntities.TryGetValue(mapId, out var npcEntities))
+                {
+                    foreach (var npcEntity in npcEntities)
+                    {
+                        // Fire NpcUnloadedEvent before destroying
+                        if (World.Has<NpcComponent>(npcEntity))
+                        {
+                            ref var npcComp = ref World.Get<NpcComponent>(npcEntity);
+                            var npcUnloadedEvent = new Events.NpcUnloadedEvent
+                            {
+                                NpcId = npcComp.NpcId,
+                                MapId = mapId,
+                            };
+                            EventBus.Send(ref npcUnloadedEvent);
+                        }
+                        World.Destroy(npcEntity);
+                    }
+                    _mapNpcEntities.Remove(mapId);
                 }
 
                 // Destroy the map entity
@@ -587,6 +624,145 @@ namespace MonoBall.Core.ECS.Systems
                 // Track connection entity for unloading
                 _mapConnectionEntities[mapDefinition.Id].Add(connectionEntity);
             }
+        }
+
+        /// <summary>
+        /// Maps NPC direction string to animation name.
+        /// </summary>
+        /// <param name="direction">The direction string (null, "up", "down", "left", "right").</param>
+        /// <returns>The animation name.</returns>
+        private string MapDirectionToAnimation(string? direction)
+        {
+            return direction?.ToLowerInvariant() switch
+            {
+                "up" => "face_north",
+                "left" => "face_west",
+                "right" => "face_east",
+                "down" => "face_south",
+                _ => "face_south", // Default to face_south for null or unknown directions
+            };
+        }
+
+        /// <summary>
+        /// Creates NPC entities for a map.
+        /// </summary>
+        /// <param name="mapEntity">The map entity.</param>
+        /// <param name="mapDefinition">The map definition.</param>
+        /// <param name="mapTilePosition">The map position in tile coordinates.</param>
+        /// <returns>The number of NPCs created.</returns>
+        private int CreateNpcs(
+            Entity mapEntity,
+            MapDefinition mapDefinition,
+            Vector2 mapTilePosition
+        )
+        {
+            if (mapDefinition.Npcs == null || mapDefinition.Npcs.Count == 0)
+            {
+                return 0;
+            }
+
+            if (_spriteLoader == null)
+            {
+                Log.Warning(
+                    "MapLoaderSystem.CreateNpcs: SpriteLoader is null, cannot create NPCs for map {MapId}",
+                    mapDefinition.Id
+                );
+                return 0;
+            }
+
+            int npcsCreated = 0;
+
+            foreach (var npcDef in mapDefinition.Npcs)
+            {
+                // Validate sprite definition exists
+                if (!_spriteLoader.ValidateSpriteDefinition(npcDef.SpriteId))
+                {
+                    Log.Warning(
+                        "MapLoaderSystem.CreateNpcs: Sprite definition not found for NPC {NpcId} (spriteId: {SpriteId}), skipping",
+                        npcDef.NpcId,
+                        npcDef.SpriteId
+                    );
+                    continue;
+                }
+
+                // Map direction to animation name
+                string animationName = MapDirectionToAnimation(npcDef.Direction);
+
+                // Validate animation exists
+                if (!_spriteLoader.ValidateAnimation(npcDef.SpriteId, animationName))
+                {
+                    Log.Warning(
+                        "MapLoaderSystem.CreateNpcs: Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
+                        animationName,
+                        npcDef.SpriteId,
+                        npcDef.NpcId
+                    );
+                    animationName = "face_south";
+                }
+
+                // Get sprite definition and animation to determine initial flip state
+                var spriteDefinition = _spriteLoader.GetSpriteDefinition(npcDef.SpriteId);
+                var animation = spriteDefinition?.Animations?.FirstOrDefault(a =>
+                    a.Name == animationName
+                );
+                bool flipHorizontal = animation?.FlipHorizontal ?? false;
+
+                // NPC coordinates in JSON are already in pixel coordinates (not tile coordinates)
+                // Add map pixel position offset to get world pixel position
+                Vector2 mapPixelPosition = new Vector2(
+                    mapTilePosition.X * mapDefinition.TileWidth,
+                    mapTilePosition.Y * mapDefinition.TileHeight
+                );
+                Vector2 npcPixelPosition = new Vector2(
+                    mapPixelPosition.X + npcDef.X,
+                    mapPixelPosition.Y + npcDef.Y
+                );
+
+                // Create NPC entity
+                var npcEntity = World.Create(
+                    new Components.NpcComponent
+                    {
+                        NpcId = npcDef.NpcId,
+                        Name = npcDef.Name,
+                        SpriteId = npcDef.SpriteId,
+                        MapId = mapDefinition.Id,
+                        Elevation = npcDef.Elevation,
+                        VisibilityFlag = npcDef.VisibilityFlag,
+                    },
+                    new Components.SpriteAnimationComponent
+                    {
+                        CurrentAnimationName = animationName,
+                        CurrentFrameIndex = 0,
+                        ElapsedTime = 0.0f,
+                        FlipHorizontal = flipHorizontal,
+                    },
+                    new Components.PositionComponent { Position = npcPixelPosition },
+                    new Components.RenderableComponent
+                    {
+                        IsVisible = true,
+                        RenderOrder = npcDef.Elevation,
+                        Opacity = 1.0f,
+                    }
+                );
+
+                // Preload sprite texture
+                _spriteLoader.GetSpriteTexture(npcDef.SpriteId);
+
+                // Fire NpcLoadedEvent
+                var loadedEvent = new Events.NpcLoadedEvent
+                {
+                    NpcEntity = npcEntity,
+                    NpcId = npcDef.NpcId,
+                    MapId = mapDefinition.Id,
+                };
+                EventBus.Send(ref loadedEvent);
+
+                // Track NPC entity for unloading
+                _mapNpcEntities[mapDefinition.Id].Add(npcEntity);
+                npcsCreated++;
+            }
+
+            return npcsCreated;
         }
     }
 }

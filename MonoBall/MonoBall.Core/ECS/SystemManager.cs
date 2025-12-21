@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
@@ -24,6 +25,8 @@ namespace MonoBall.Core.ECS
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
         private readonly ITilesetLoaderService _tilesetLoader;
+        private ISpriteLoaderService _spriteLoader = null!; // Initialized in Initialize()
+        private ICameraService _cameraService = null!; // Initialized in Initialize()
         private SpriteBatch? _spriteBatch;
 
         private Group<float> _updateSystems = null!; // Initialized in Initialize()
@@ -33,6 +36,8 @@ namespace MonoBall.Core.ECS
         private CameraViewportSystem _cameraViewportSystem = null!; // Initialized in Initialize()
         private MapRendererSystem _mapRendererSystem = null!; // Initialized in Initialize()
         private AnimatedTileSystem _animatedTileSystem = null!; // Initialized in Initialize()
+        private NpcAnimationSystem _npcAnimationSystem = null!; // Initialized in Initialize()
+        private NpcRendererSystem _npcRendererSystem = null!; // Initialized in Initialize()
         private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
         private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
@@ -173,8 +178,17 @@ namespace MonoBall.Core.ECS
 
             Log.Information("SystemManager.Initialize: Initializing ECS systems");
 
+            // Create services
+            _spriteLoader = new SpriteLoaderService(_graphicsDevice, _modManager);
+            _cameraService = new CameraService(_world);
+
             // Create update systems
-            _mapLoaderSystem = new MapLoaderSystem(_world, _modManager.Registry, _tilesetLoader);
+            _mapLoaderSystem = new MapLoaderSystem(
+                _world,
+                _modManager.Registry,
+                _tilesetLoader,
+                _spriteLoader
+            );
             _mapConnectionSystem = new MapConnectionSystem(_world);
             _cameraSystem = new CameraSystem(_world);
             _cameraViewportSystem = new CameraViewportSystem(
@@ -187,9 +201,17 @@ namespace MonoBall.Core.ECS
             // Create render systems
             _mapRendererSystem = new MapRendererSystem(_world, _graphicsDevice, _tilesetLoader);
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
+            _npcRendererSystem = new NpcRendererSystem(
+                _world,
+                _graphicsDevice,
+                _spriteLoader,
+                _cameraService
+            );
+            _npcRendererSystem.SetSpriteBatch(_spriteBatch);
 
-            // Create animation system
+            // Create animation systems
             _animatedTileSystem = new AnimatedTileSystem(_world, _tilesetLoader);
+            _npcAnimationSystem = new NpcAnimationSystem(_world, _spriteLoader);
 
             // Create scene systems
             _sceneManagerSystem = new SceneManagerSystem(_world);
@@ -201,6 +223,7 @@ namespace MonoBall.Core.ECS
             );
             _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
+            _sceneRendererSystem.SetNpcRendererSystem(_npcRendererSystem);
 
             // Group update systems (including scene systems)
             _updateSystems = new Group<float>(
@@ -210,6 +233,7 @@ namespace MonoBall.Core.ECS
                 _cameraSystem,
                 _cameraViewportSystem,
                 _animatedTileSystem,
+                _npcAnimationSystem,
                 _sceneManagerSystem,
                 _sceneInputSystem
             );
@@ -278,6 +302,8 @@ namespace MonoBall.Core.ECS
             _cameraViewportSystem = null!;
             _mapRendererSystem = null!;
             _animatedTileSystem = null!;
+            _npcAnimationSystem = null!;
+            _npcRendererSystem = null!;
             _sceneManagerSystem = null!;
             _sceneInputSystem = null!;
             _sceneRendererSystem = null!;

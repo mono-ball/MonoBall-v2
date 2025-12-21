@@ -193,11 +193,10 @@ MonoBall.Core/
 1. **Using statements**
 2. **Namespace declaration**
 3. **Class documentation** (XML comments)
-4. **Private fields** (dependencies, caches)
+4. **Private fields** (dependencies, caches, QueryDescription instances)
 5. **Constructors**
 6. **Public methods** (entry points, lifecycle)
-7. **Source-generated query methods** (marked with `[Query]`)
-8. **Private helper methods**
+7. **Private helper methods**
 
 ---
 
@@ -306,10 +305,10 @@ MonoBall.Core/
 
 ### Systems
 - **Systems inherit from `BaseSystem<World, float>`** (World parameter, float deltaTime)
-- **Use partial classes** with `Arch.System.SourceGenerator` for query-based system generation
 - **Systems contain logic**, not data - they operate on components
-- **Use source-generated queries** (`[Query]` attribute) for efficient component access
-- **Manual queries**: Use `QueryDescription` with `WithAll<T>()`, `WithAny<T>()`, `WithNone<T>()` when needed
+- **Use manual queries with `QueryDescription`**: Create `QueryDescription` with `WithAll<T>()`, `WithAny<T>()`, `WithNone<T>()` for component access
+- **Cache QueryDescription**: Store `QueryDescription` as instance fields (created in constructor) or static readonly fields for reuse
+- **Note**: Source-generated queries (`[Query]` attribute) are not used due to compatibility issues with the current Arch ECS version
 - **Naming convention**: End system names with `System` suffix (e.g., `MapLoaderSystem`, `MapRendererSystem`)
 - **Location**: Place systems in `ECS/Systems/` directory
 - **Namespace**: `MonoBall.Core.ECS.Systems`
@@ -331,11 +330,12 @@ MonoBall.Core/
 - **Avoid storing Entity references** long-term if possible - use component data instead
 
 ### Query Performance
-- **Prefer source-generated queries** for better performance and compile-time safety
-- **Cache QueryDescription** if reused frequently
+- **Cache QueryDescription**: Create `QueryDescription` in constructor and store as instance field, or use static readonly for shared queries
 - **Use appropriate query filters**: `WithAll` for AND, `WithAny` for OR, `WithNone` for exclusion
-- **Batch operations** when iterating over entities (collect, then process)
+- **Single-pass queries**: Get all needed components in one query pass - avoid querying entities multiple times
+- **Batch operations**: When iterating over entities, collect data first, then process (if needed)
 - **Avoid allocations** in hot path queries - reuse collections or use stack allocation when possible
+- **Don't create QueryDescription in hot paths**: Always cache query descriptions, never create them in Update/Render methods
 
 ### Component Design Patterns
 - **Keep components pure data** - no methods, only properties
@@ -361,25 +361,29 @@ namespace MonoBall.Core.ECS.Components
 }
 ```
 
-### Example: System with Query
+### Example: System with Manual Query
 ```csharp
-public partial class MapRendererSystem : BaseSystem<World, float>
+public class MapRendererSystem : BaseSystem<World, float>
 {
     private readonly GraphicsDevice _graphicsDevice;
+    private readonly QueryDescription _queryDescription;
     
     public MapRendererSystem(World world, GraphicsDevice graphicsDevice) : base(world)
     {
         _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+        _queryDescription = new QueryDescription()
+            .WithAll<TileChunkComponent, PositionComponent, RenderableComponent>();
     }
     
-    // Source-generated query method
-    [Query]
-    private void RenderChunks(ref TileChunkComponent chunk, ref PositionComponent pos, ref RenderableComponent render)
+    public override void Update(in float deltaTime)
     {
-        if (render.IsVisible)
+        World.Query(in _queryDescription, (ref TileChunkComponent chunk, ref PositionComponent pos, ref RenderableComponent render) =>
         {
-            // Render logic
-        }
+            if (render.IsVisible)
+            {
+                // Update logic
+            }
+        });
     }
 }
 ```
@@ -697,8 +701,9 @@ public void Register(DefinitionMetadata metadata)
 - ❌ **Large components** - split into focused, cohesive components
 - ❌ **Direct system-to-system calls** - use events for communication
 - ❌ **Storing Entity references in components** - use IDs or component relationships
-- ❌ **Inefficient queries** - avoid creating QueryDescription in hot paths
-- ❌ **Allocations in queries** - reuse collections or use stack allocation
+- ❌ **Inefficient queries** - avoid creating QueryDescription in hot paths (always cache them)
+- ❌ **Double querying** - don't query entities multiple times, get all needed components in one pass
+- ❌ **Allocations in queries** - reuse collections or use stack allocation when possible
 - ❌ **Mixing update and render logic** - separate into different systems/methods
 - ❌ **Not disposing event subscriptions** - unsubscribe in Dispose() to prevent leaks
 

@@ -19,6 +19,7 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly SceneManagerSystem _sceneManagerSystem;
         private SpriteBatch? _spriteBatch;
         private MapRendererSystem? _mapRendererSystem;
+        private NpcRendererSystem? _npcRendererSystem;
 
         /// <summary>
         /// Initializes a new instance of the SceneRendererSystem.
@@ -56,6 +57,16 @@ namespace MonoBall.Core.Scenes.Systems
         {
             _mapRendererSystem =
                 mapRendererSystem ?? throw new ArgumentNullException(nameof(mapRendererSystem));
+        }
+
+        /// <summary>
+        /// Sets the NpcRendererSystem reference for GameScene rendering.
+        /// </summary>
+        /// <param name="npcRendererSystem">The NpcRendererSystem instance.</param>
+        public void SetNpcRendererSystem(NpcRendererSystem npcRendererSystem)
+        {
+            _npcRendererSystem =
+                npcRendererSystem ?? throw new ArgumentNullException(nameof(npcRendererSystem));
         }
 
         /// <summary>
@@ -270,7 +281,13 @@ namespace MonoBall.Core.Scenes.Systems
                 // The viewport management is handled inside MapRendererSystem.
                 _mapRendererSystem.Render(gameTime);
 
-                // TODO: Render NPCs, player, and other game world entities here
+                // Render NPCs (after maps, so NPCs appear on top)
+                if (_npcRendererSystem != null)
+                {
+                    // Note: NpcRendererSystem.Render() internally queries for the active camera
+                    // and applies the transform, sets viewport, etc. Similar to MapRendererSystem.
+                    _npcRendererSystem.Render(gameTime);
+                }
             }
             finally
             {

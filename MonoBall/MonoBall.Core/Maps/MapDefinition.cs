@@ -145,6 +145,90 @@ namespace MonoBall.Core.Maps
         /// </summary>
         [JsonPropertyName("tilesetRefs")]
         public List<TilesetReference> TilesetRefs { get; set; } = new List<TilesetReference>();
+
+        /// <summary>
+        /// The NPCs on this map.
+        /// </summary>
+        [JsonPropertyName("npcs")]
+        public List<NpcDefinition>? Npcs { get; set; }
+    }
+
+    /// <summary>
+    /// Represents an NPC definition in a map.
+    /// </summary>
+    public class NpcDefinition
+    {
+        /// <summary>
+        /// The unique identifier for the NPC.
+        /// </summary>
+        [JsonPropertyName("npcId")]
+        public string NpcId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The name of the NPC.
+        /// </summary>
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The X position of the NPC in tiles.
+        /// </summary>
+        [JsonPropertyName("x")]
+        public int X { get; set; }
+
+        /// <summary>
+        /// The Y position of the NPC in tiles.
+        /// </summary>
+        [JsonPropertyName("y")]
+        public int Y { get; set; }
+
+        /// <summary>
+        /// The sprite ID for this NPC.
+        /// </summary>
+        [JsonPropertyName("spriteId")]
+        public string SpriteId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The behavior ID for this NPC.
+        /// </summary>
+        [JsonPropertyName("behaviorId")]
+        public string? BehaviorId { get; set; }
+
+        /// <summary>
+        /// The interaction script ID for this NPC.
+        /// </summary>
+        [JsonPropertyName("interactionScript")]
+        public string? InteractionScript { get; set; }
+
+        /// <summary>
+        /// The visibility flag for this NPC (null if always visible).
+        /// </summary>
+        [JsonPropertyName("visibilityFlag")]
+        public string? VisibilityFlag { get; set; }
+
+        /// <summary>
+        /// The initial facing direction of the NPC (null, "up", "down", "left", "right").
+        /// </summary>
+        [JsonPropertyName("direction")]
+        public string? Direction { get; set; }
+
+        /// <summary>
+        /// The X range for movement behavior.
+        /// </summary>
+        [JsonPropertyName("rangeX")]
+        public int RangeX { get; set; }
+
+        /// <summary>
+        /// The Y range for movement behavior.
+        /// </summary>
+        [JsonPropertyName("rangeY")]
+        public int RangeY { get; set; }
+
+        /// <summary>
+        /// The elevation (z-order) of the NPC.
+        /// </summary>
+        [JsonPropertyName("elevation")]
+        public int Elevation { get; set; }
     }
 
     /// <summary>
