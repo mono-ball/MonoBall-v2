@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using MonoBall.Core.Mods.Utilities;
+using Serilog;
 
 namespace MonoBall.Core.Mods
 {
@@ -14,13 +15,15 @@ namespace MonoBall.Core.Mods
         private readonly DefinitionRegistry _registry;
         private readonly ModLoader _loader;
         private readonly ModValidator _validator;
+        private readonly ILogger _logger;
         private bool _isLoaded = false;
 
         /// <summary>
         /// Initializes a new instance of the ModManager.
         /// </summary>
         /// <param name="modsDirectory">Path to the Mods directory. Defaults to "Mods" relative to the executable.</param>
-        public ModManager(string? modsDirectory = null)
+        /// <param name="logger">The logger instance for logging mod management messages.</param>
+        public ModManager(string? modsDirectory = null, ILogger? logger = null)
         {
             modsDirectory ??= ModsPathResolver.FindModsDirectory();
             if (modsDirectory == null)
@@ -32,9 +35,10 @@ namespace MonoBall.Core.Mods
                 modsDirectory = ModsPathResolver.ResolveModsDirectory(modsDirectory);
             }
 
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _registry = new DefinitionRegistry();
-            _loader = new ModLoader(modsDirectory, _registry);
-            _validator = new ModValidator(modsDirectory);
+            _loader = new ModLoader(modsDirectory, _registry, _logger);
+            _validator = new ModValidator(modsDirectory, _logger);
         }
 
         /// <summary>
@@ -94,6 +98,8 @@ namespace MonoBall.Core.Mods
                 );
             }
 
+            _logger.Information("Starting mod loading process");
+
             // First validate
             var validationIssues = Validate();
             var hasErrors = validationIssues.Any(i => i.Severity == ValidationSeverity.Error);
@@ -125,8 +131,22 @@ namespace MonoBall.Core.Mods
 
             _isLoaded = true;
 
+            var success = !hasErrors && loadErrors.Count == 0;
+            if (success)
+            {
+                _logger.Information("Mod loading completed successfully");
+            }
+            else
+            {
+                _logger.Warning(
+                    "Mod loading completed with {ErrorCount} validation errors and {LoadErrorCount} load errors",
+                    validationIssues.Count(i => i.Severity == ValidationSeverity.Error),
+                    loadErrors.Count
+                );
+            }
+
             // Return false if there were critical errors
-            return !hasErrors && loadErrors.Count == 0;
+            return success;
         }
 
         /// <summary>

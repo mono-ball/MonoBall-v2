@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using MonoBall.Core.Mods.Utilities;
+using Serilog;
 
 namespace MonoBall.Core.Mods
 {
@@ -14,6 +15,7 @@ namespace MonoBall.Core.Mods
     {
         private readonly string _modsDirectory;
         private readonly DefinitionRegistry _registry;
+        private readonly ILogger _logger;
         private readonly List<ModManifest> _loadedMods = new List<ModManifest>();
         private readonly Dictionary<string, ModManifest> _modsById =
             new Dictionary<string, ModManifest>();
@@ -23,11 +25,13 @@ namespace MonoBall.Core.Mods
         /// </summary>
         /// <param name="modsDirectory">Path to the Mods directory.</param>
         /// <param name="registry">The definition registry to populate.</param>
-        public ModLoader(string modsDirectory, DefinitionRegistry registry)
+        /// <param name="logger">The logger instance for logging mod loading messages.</param>
+        public ModLoader(string modsDirectory, DefinitionRegistry registry, ILogger logger)
         {
             _modsDirectory =
                 modsDirectory ?? throw new ArgumentNullException(nameof(modsDirectory));
             _registry = registry ?? throw new ArgumentNullException(nameof(registry));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -41,6 +45,10 @@ namespace MonoBall.Core.Mods
         /// <returns>List of validation errors and warnings found during loading.</returns>
         public List<string> LoadAllMods()
         {
+            _logger.Information(
+                "Starting mod loading from directory: {ModsDirectory}",
+                _modsDirectory
+            );
             var errors = new List<string>();
 
             // Step 1: Discover and load all mod manifests
@@ -51,17 +59,26 @@ namespace MonoBall.Core.Mods
                 return errors;
             }
 
+            _logger.Information("Discovered {ModCount} mods", modManifests.Count);
+
             // Step 2: Resolve dependencies and determine load order
             var loadOrder = ResolveLoadOrder(modManifests, errors);
+            _logger.Information("Resolved load order for {ModCount} mods", loadOrder.Count);
 
             // Step 3: Load definitions in order
             foreach (var mod in loadOrder)
             {
+                _logger.Debug("Loading definitions for mod: {ModId}", mod.Id);
                 LoadModDefinitions(mod, errors);
             }
 
             // Step 4: Lock the registry
             _registry.Lock();
+            _logger.Information(
+                "Mod loading completed. Loaded {ModCount} mods with {ErrorCount} errors",
+                loadOrder.Count,
+                errors.Count
+            );
 
             return errors;
         }
@@ -80,6 +97,7 @@ namespace MonoBall.Core.Mods
             }
 
             var modDirectories = Directory.GetDirectories(_modsDirectory);
+            _logger.Debug("Scanning {DirectoryCount} directories for mods", modDirectories.Length);
             foreach (var modDir in modDirectories)
             {
                 var modJsonPath = Path.Combine(modDir, "mod.json");
@@ -126,6 +144,11 @@ namespace MonoBall.Core.Mods
                     manifest.ModDirectory = modDir;
                     mods.Add(manifest);
                     _modsById[manifest.Id] = manifest;
+                    _logger.Debug(
+                        "Discovered mod: {ModId} ({ModName})",
+                        manifest.Id,
+                        manifest.Name
+                    );
                 }
                 catch (JsonException ex)
                 {
@@ -141,6 +164,7 @@ namespace MonoBall.Core.Mods
                 }
             }
 
+            _logger.Debug("Discovery completed: {ModCount} mods found", mods.Count);
             return mods;
         }
 
@@ -283,6 +307,11 @@ namespace MonoBall.Core.Mods
         /// </summary>
         private void LoadModDefinitions(ModManifest mod, List<string> errors)
         {
+            _logger.Debug(
+                "Loading definitions for mod {ModId} from {ContentFolderCount} content folders",
+                mod.Id,
+                mod.ContentFolders.Count
+            );
             // Load definitions from each content folder type
             foreach (var (folderType, relativePath) in mod.ContentFolders)
             {
@@ -403,11 +432,17 @@ namespace MonoBall.Core.Mods
                     }
                     catch (JsonException ex)
                     {
-                        errors.Add($"JSON error in definition file '{jsonFile}': {ex.Message}");
+                        var errorMessage =
+                            $"JSON error in definition file '{jsonFile}': {ex.Message}";
+                        _logger.Error(ex, errorMessage);
+                        errors.Add(errorMessage);
                     }
                     catch (Exception ex)
                     {
-                        errors.Add($"Error loading definition from '{jsonFile}': {ex.Message}");
+                        var errorMessage =
+                            $"Error loading definition from '{jsonFile}': {ex.Message}";
+                        _logger.Error(ex, errorMessage);
+                        errors.Add(errorMessage);
                     }
                 }
             }

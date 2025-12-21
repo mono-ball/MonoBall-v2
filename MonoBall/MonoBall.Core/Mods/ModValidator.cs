@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using MonoBall.Core.Mods.Utilities;
+using Serilog;
 
 namespace MonoBall.Core.Mods
 {
@@ -13,15 +14,18 @@ namespace MonoBall.Core.Mods
     public class ModValidator
     {
         private readonly string _modsDirectory;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the ModValidator.
         /// </summary>
         /// <param name="modsDirectory">Path to the Mods directory.</param>
-        public ModValidator(string modsDirectory)
+        /// <param name="logger">The logger instance for logging validation messages.</param>
+        public ModValidator(string modsDirectory, ILogger logger)
         {
             _modsDirectory =
                 modsDirectory ?? throw new ArgumentNullException(nameof(modsDirectory));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -30,6 +34,7 @@ namespace MonoBall.Core.Mods
         /// <returns>List of validation messages (errors and warnings).</returns>
         public List<ValidationIssue> ValidateAll()
         {
+            _logger.Debug("Starting mod validation in directory: {ModsDirectory}", _modsDirectory);
             var issues = new List<ValidationIssue>();
 
             if (!Directory.Exists(_modsDirectory))
@@ -47,6 +52,7 @@ namespace MonoBall.Core.Mods
             }
 
             var modDirectories = Directory.GetDirectories(_modsDirectory);
+            _logger.Debug("Found {ModCount} mod directories", modDirectories.Length);
             var modManifests = new Dictionary<string, ModManifest>();
             var definitionIds = new Dictionary<string, List<DefinitionLocation>>();
 
@@ -180,6 +186,14 @@ namespace MonoBall.Core.Mods
                     issues
                 );
             }
+
+            var errorCount = issues.Count(i => i.Severity == ValidationSeverity.Error);
+            var warningCount = issues.Count(i => i.Severity == ValidationSeverity.Warning);
+            _logger.Information(
+                "Mod validation completed: {ErrorCount} errors, {WarningCount} warnings",
+                errorCount,
+                warningCount
+            );
 
             return issues;
         }

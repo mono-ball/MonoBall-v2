@@ -4,6 +4,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
+using MonoBall.Core.Logging;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Utilities;
@@ -19,6 +20,7 @@ namespace MonoBall.Core
     {
         private readonly Game _game;
         private readonly GraphicsDevice _graphicsDevice;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Gets the mod manager. Will be null if mods failed to load.
@@ -45,11 +47,13 @@ namespace MonoBall.Core
         /// </summary>
         /// <param name="game">The game instance.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
-        public GameServices(Game game, GraphicsDevice graphicsDevice)
+        /// <param name="logger">The logger for logging operations.</param>
+        public GameServices(Game game, GraphicsDevice graphicsDevice, ILogger logger)
         {
             _game = game ?? throw new ArgumentNullException(nameof(game));
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -59,11 +63,11 @@ namespace MonoBall.Core
         {
             if (IsInitialized)
             {
-                Log.Warning("GameServices.Initialize: Services already initialized");
+                _logger.Warning("Services already initialized");
                 return;
             }
 
-            Log.Information("GameServices.Initialize: Initializing core services");
+            _logger.Information("Initializing core services");
 
             // Load mods
             LoadMods();
@@ -73,17 +77,15 @@ namespace MonoBall.Core
             {
                 EcsService = new EcsService();
                 _game.Services.AddService(typeof(EcsService), EcsService);
-                Log.Debug("GameServices.Initialize: ECS service registered");
+                _logger.Debug("ECS service registered");
             }
             else
             {
-                Log.Warning(
-                    "GameServices.Initialize: ModManager is null, ECS service not initialized"
-                );
+                _logger.Warning("ModManager is null, ECS service not initialized");
             }
 
             IsInitialized = true;
-            Log.Information("GameServices.Initialize: Core services initialized");
+            _logger.Information("Core services initialized");
         }
 
         /// <summary>
@@ -93,34 +95,34 @@ namespace MonoBall.Core
         {
             if (!IsInitialized)
             {
-                Log.Warning(
-                    "GameServices.LoadContent: Services not initialized. Call Initialize() first."
-                );
+                _logger.Warning("Services not initialized. Call Initialize() first.");
                 return;
             }
 
             if (TilesetLoaderService != null)
             {
-                Log.Warning("GameServices.LoadContent: Content services already loaded");
+                _logger.Warning("Content services already loaded");
                 return;
             }
 
-            Log.Information("GameServices.LoadContent: Loading content services");
+            _logger.Information("Loading content services");
 
             if (ModManager == null)
             {
-                Log.Warning(
-                    "GameServices.LoadContent: ModManager is null, cannot create TilesetLoaderService"
-                );
+                _logger.Warning("ModManager is null, cannot create TilesetLoaderService");
                 return;
             }
 
             // Create tileset loader service
-            TilesetLoaderService = new TilesetLoaderService(_graphicsDevice, ModManager);
+            TilesetLoaderService = new TilesetLoaderService(
+                _graphicsDevice,
+                ModManager,
+                LoggerFactory.CreateLogger<TilesetLoaderService>()
+            );
             _game.Services.AddService(typeof(TilesetLoaderService), TilesetLoaderService);
-            Log.Debug("GameServices.LoadContent: TilesetLoaderService registered");
+            _logger.Debug("TilesetLoaderService registered");
 
-            Log.Information("GameServices.LoadContent: Content services loaded");
+            _logger.Information("Content services loaded");
         }
 
         /// <summary>
@@ -132,39 +134,37 @@ namespace MonoBall.Core
 
             if (string.IsNullOrEmpty(modsDirectory) || !Directory.Exists(modsDirectory))
             {
-                Log.Warning(
-                    "GameServices.LoadMods: Mods directory not found. Mod system will not be available."
-                );
+                _logger.Warning("Mods directory not found. Mod system will not be available.");
                 return;
             }
 
             // Initialize mod manager
-            ModManager = new ModManager(modsDirectory);
+            ModManager = new ModManager(modsDirectory, LoggerFactory.CreateLogger<ModManager>());
 
             // Load mods and collect any errors
             var errors = new List<string>();
             bool success = ModManager.Load(errors);
 
-            // Log errors and warnings
+            // Log errors collected from mod loading
             if (errors.Count > 0)
             {
-                Log.Warning("=== Mod Loading Issues ===");
+                _logger.Warning("=== Mod Loading Issues ===");
                 foreach (var error in errors)
                 {
-                    Log.Warning("{Error}", error);
+                    _logger.Warning("{Error}", error);
                 }
-                Log.Warning("==========================");
+                _logger.Warning("==========================");
             }
 
             if (success && ModManager != null)
             {
-                Log.Information(
+                _logger.Information(
                     "Successfully loaded {ModCount} mod(s)",
                     ModManager.LoadedMods.Count
                 );
                 foreach (var mod in ModManager.LoadedMods)
                 {
-                    Log.Information(
+                    _logger.Information(
                         "  - {ModName} ({ModId}) v{ModVersion}",
                         mod.Name,
                         mod.Id,
@@ -174,12 +174,12 @@ namespace MonoBall.Core
 
                 // Register ModManager as a service
                 _game.Services.AddService(typeof(ModManager), ModManager);
-                Log.Debug("GameServices.LoadMods: ModManager registered");
+                _logger.Debug("ModManager registered");
             }
             else
             {
-                Log.Warning(
-                    "GameServices.LoadMods: Mod loading completed with errors. Some mods may not be available."
+                _logger.Warning(
+                    "Mod loading completed with errors. Some mods may not be available."
                 );
             }
         }

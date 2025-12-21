@@ -13,6 +13,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// Validates that a sprite definition exists and an animation exists within it.
         /// </summary>
         /// <param name="spriteLoader">The sprite loader service.</param>
+        /// <param name="logger">The logger instance for logging validation warnings.</param>
         /// <param name="spriteId">The sprite definition ID to validate.</param>
         /// <param name="animationName">The animation name to validate.</param>
         /// <param name="entityType">The type of entity (e.g., "Player", "NPC") for logging purposes.</param>
@@ -22,6 +23,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// <exception cref="ArgumentException">Thrown if throwOnInvalid is true and validation fails.</exception>
         public static bool ValidateSpriteAndAnimation(
             ISpriteLoaderService spriteLoader,
+            ILogger logger,
             string spriteId,
             string animationName,
             string entityType,
@@ -29,6 +31,11 @@ namespace MonoBall.Core.ECS.Utilities
             bool throwOnInvalid = true
         )
         {
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
             // Validate sprite definition exists
             if (!spriteLoader.ValidateSpriteDefinition(spriteId))
             {
@@ -39,7 +46,7 @@ namespace MonoBall.Core.ECS.Utilities
                     throw new ArgumentException(message, nameof(spriteId));
                 }
 
-                Log.Warning("SpriteValidationHelper: {Message}", message);
+                logger.Warning("{Message}", message);
                 return false;
             }
 
@@ -53,7 +60,7 @@ namespace MonoBall.Core.ECS.Utilities
                     throw new ArgumentException(message, nameof(animationName));
                 }
 
-                Log.Warning("SpriteValidationHelper: {Message}", message);
+                logger.Warning("{Message}", message);
                 return false;
             }
 
@@ -64,6 +71,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// Validates that a sprite definition exists.
         /// </summary>
         /// <param name="spriteLoader">The sprite loader service.</param>
+        /// <param name="logger">The logger instance for logging validation warnings.</param>
         /// <param name="spriteId">The sprite definition ID to validate.</param>
         /// <param name="entityType">The type of entity (e.g., "Player", "NPC") for logging purposes.</param>
         /// <param name="entityId">The entity ID for logging purposes.</param>
@@ -72,12 +80,18 @@ namespace MonoBall.Core.ECS.Utilities
         /// <exception cref="ArgumentException">Thrown if throwOnInvalid is true and validation fails.</exception>
         public static bool ValidateSpriteDefinition(
             ISpriteLoaderService spriteLoader,
+            ILogger logger,
             string spriteId,
             string entityType,
             string entityId,
             bool throwOnInvalid = true
         )
         {
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
             if (!spriteLoader.ValidateSpriteDefinition(spriteId))
             {
                 string message =
@@ -87,7 +101,7 @@ namespace MonoBall.Core.ECS.Utilities
                     throw new ArgumentException(message, nameof(spriteId));
                 }
 
-                Log.Warning("SpriteValidationHelper: {Message}", message);
+                logger.Warning("{Message}", message);
                 return false;
             }
 

@@ -1,6 +1,7 @@
 using System;
 using Arch.Core;
 using MonoBall.Core.ECS.Components;
+using Serilog;
 
 namespace MonoBall.Core.ECS.Services
 {
@@ -10,6 +11,7 @@ namespace MonoBall.Core.ECS.Services
     public class CameraService : ICameraService
     {
         private readonly World _world;
+        private readonly ILogger _logger;
         private static readonly QueryDescription CameraQueryDescription =
             new QueryDescription().WithAll<CameraComponent>();
 
@@ -17,9 +19,11 @@ namespace MonoBall.Core.ECS.Services
         /// Initializes a new instance of the CameraService.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        public CameraService(World world)
+        /// <param name="logger">The logger for logging operations.</param>
+        public CameraService(World world, ILogger logger)
         {
             _world = world ?? throw new ArgumentNullException(nameof(world));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>

@@ -26,15 +26,19 @@ namespace MonoBall.Core.ECS.Systems
         private readonly HashSet<Entity> _entitiesThisFrame = new HashSet<Entity>();
         private readonly List<Entity> _keysToRemove = new List<Entity>();
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the SpriteAnimationSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="spriteLoader">The sprite loader service for accessing animation frame cache.</param>
-        public SpriteAnimationSystem(World world, ISpriteLoaderService spriteLoader)
+        /// <param name="logger">The logger for logging operations.</param>
+        public SpriteAnimationSystem(World world, ISpriteLoaderService spriteLoader, ILogger logger)
             : base(world)
         {
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
             _npcQuery = new QueryDescription().WithAll<NpcComponent, SpriteAnimationComponent>();

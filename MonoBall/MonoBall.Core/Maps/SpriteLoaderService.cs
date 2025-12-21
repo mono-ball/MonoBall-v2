@@ -23,6 +23,7 @@ namespace MonoBall.Core.Maps
 
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
+        private readonly ILogger _logger;
         private readonly Dictionary<string, Texture2D> _textureCache =
             new Dictionary<string, Texture2D>();
         private readonly Dictionary<string, SpriteDefinition> _definitionCache =
@@ -38,11 +39,17 @@ namespace MonoBall.Core.Maps
         /// </summary>
         /// <param name="graphicsDevice">The graphics device for loading textures.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
-        public SpriteLoaderService(GraphicsDevice graphicsDevice, IModManager modManager)
+        /// <param name="logger">The logger for logging operations.</param>
+        public SpriteLoaderService(
+            GraphicsDevice graphicsDevice,
+            IModManager modManager,
+            ILogger logger
+        )
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -85,38 +92,29 @@ namespace MonoBall.Core.Maps
         {
             if (string.IsNullOrEmpty(spriteId))
             {
-                Log.Warning("Attempted to load sprite texture with null or empty ID");
+                _logger.Warning("Attempted to load sprite texture with null or empty ID");
                 return null;
             }
 
             // Check cache first
             if (_textureCache.TryGetValue(spriteId, out var cachedTexture))
             {
-                Log.Debug(
-                    "SpriteLoaderService.GetSpriteTexture: Using cached texture for {SpriteId}",
-                    spriteId
-                );
+                _logger.Debug("Using cached texture for {SpriteId}", spriteId);
                 return cachedTexture;
             }
 
-            Log.Debug(
-                "SpriteLoaderService.GetSpriteTexture: Loading sprite texture {SpriteId}",
-                spriteId
-            );
+            _logger.Debug("Loading sprite texture {SpriteId}", spriteId);
 
             // Get sprite definition
             var definition = GetSpriteDefinition(spriteId);
             if (definition == null)
             {
-                Log.Warning(
-                    "SpriteLoaderService.GetSpriteTexture: Sprite definition not found: {SpriteId}",
-                    spriteId
-                );
+                _logger.Warning("Sprite definition not found: {SpriteId}", spriteId);
                 return null;
             }
 
-            Log.Debug(
-                "SpriteLoaderService.GetSpriteTexture: Found sprite definition for {SpriteId} (texturePath: {TexturePath})",
+            _logger.Debug(
+                "Found sprite definition for {SpriteId} (texturePath: {TexturePath})",
                 spriteId,
                 definition.TexturePath
             );
@@ -125,15 +123,12 @@ namespace MonoBall.Core.Maps
             var metadata = _modManager.GetDefinitionMetadata(spriteId);
             if (metadata == null)
             {
-                Log.Warning(
-                    "SpriteLoaderService.GetSpriteTexture: Sprite metadata not found: {SpriteId}",
-                    spriteId
-                );
+                _logger.Warning("Sprite metadata not found: {SpriteId}", spriteId);
                 return null;
             }
 
-            Log.Debug(
-                "SpriteLoaderService.GetSpriteTexture: Found metadata for {SpriteId} (originalModId: {ModId})",
+            _logger.Debug(
+                "Found metadata for {SpriteId} (originalModId: {ModId})",
                 spriteId,
                 metadata.OriginalModId
             );
@@ -151,16 +146,16 @@ namespace MonoBall.Core.Maps
 
             if (modManifest == null)
             {
-                Log.Warning(
-                    "SpriteLoaderService.GetSpriteTexture: Mod manifest not found for sprite {SpriteId} (mod: {ModId})",
+                _logger.Warning(
+                    "Mod manifest not found for sprite {SpriteId} (mod: {ModId})",
                     spriteId,
                     metadata.OriginalModId
                 );
                 return null;
             }
 
-            Log.Debug(
-                "SpriteLoaderService.GetSpriteTexture: Found mod manifest for {ModId} (modDirectory: {ModDirectory})",
+            _logger.Debug(
+                "Found mod manifest for {ModId} (modDirectory: {ModDirectory})",
                 modManifest.Id,
                 modManifest.ModDirectory
             );
@@ -169,15 +164,12 @@ namespace MonoBall.Core.Maps
             string texturePath = Path.Combine(modManifest.ModDirectory, definition.TexturePath);
             texturePath = Path.GetFullPath(texturePath);
 
-            Log.Debug(
-                "SpriteLoaderService.GetSpriteTexture: Resolved texture path: {TexturePath}",
-                texturePath
-            );
+            _logger.Debug("Resolved texture path: {TexturePath}", texturePath);
 
             if (!File.Exists(texturePath))
             {
-                Log.Warning(
-                    "SpriteLoaderService.GetSpriteTexture: Sprite texture file not found: {TexturePath} (sprite: {SpriteId})",
+                _logger.Warning(
+                    "Sprite texture file not found: {TexturePath} (sprite: {SpriteId})",
                     texturePath,
                     spriteId
                 );
@@ -189,7 +181,7 @@ namespace MonoBall.Core.Maps
                 // Load texture from file system
                 var texture = Texture2D.FromFile(_graphicsDevice, texturePath);
                 _textureCache[spriteId] = texture;
-                Log.Debug(
+                _logger.Debug(
                     "Loaded sprite texture: {SpriteId} from {TexturePath}",
                     spriteId,
                     texturePath
@@ -198,7 +190,7 @@ namespace MonoBall.Core.Maps
             }
             catch (Exception ex)
             {
-                Log.Error(
+                _logger.Error(
                     ex,
                     "Failed to load sprite texture: {SpriteId} from {TexturePath}, using placeholder",
                     spriteId,
@@ -322,8 +314,8 @@ namespace MonoBall.Core.Maps
                     }
                     else
                     {
-                        Log.Warning(
-                            "SpriteLoaderService.PrecomputeAnimationFrames: Frame index {FrameIndex} not found in sprite {SpriteId}",
+                        _logger.Warning(
+                            "Frame index {FrameIndex} not found in sprite {SpriteId}",
                             frameIndex,
                             spriteId
                         );

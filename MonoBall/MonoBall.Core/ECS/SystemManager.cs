@@ -8,6 +8,7 @@ using MonoBall.Core;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
+using MonoBall.Core.Logging;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
@@ -25,6 +26,7 @@ namespace MonoBall.Core.ECS
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
         private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly ILogger _logger;
         private ISpriteLoaderService _spriteLoader = null!; // Initialized in Initialize()
         private ICameraService _cameraService = null!; // Initialized in Initialize()
         private SpriteBatch? _spriteBatch;
@@ -54,11 +56,13 @@ namespace MonoBall.Core.ECS
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="modManager">The mod manager.</param>
         /// <param name="tilesetLoader">The tileset loader service.</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public SystemManager(
             World world,
             GraphicsDevice graphicsDevice,
             IModManager modManager,
-            ITilesetLoaderService tilesetLoader
+            ITilesetLoaderService tilesetLoader,
+            ILogger logger
         )
         {
             _world = world ?? throw new ArgumentNullException(nameof(world));
@@ -67,6 +71,7 @@ namespace MonoBall.Core.ECS
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
             _tilesetLoader =
                 tilesetLoader ?? throw new ArgumentNullException(nameof(tilesetLoader));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -185,7 +190,7 @@ namespace MonoBall.Core.ECS
         {
             if (_isInitialized)
             {
-                Log.Warning("SystemManager.Initialize: Systems already initialized");
+                _logger.Warning("Systems already initialized");
                 return;
             }
 
@@ -196,26 +201,39 @@ namespace MonoBall.Core.ECS
 
             _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
 
-            Log.Information("SystemManager.Initialize: Initializing ECS systems");
+            _logger.Information("Initializing ECS systems");
 
             // Create services
-            _spriteLoader = new SpriteLoaderService(_graphicsDevice, _modManager);
-            _cameraService = new CameraService(_world);
+            _spriteLoader = new SpriteLoaderService(
+                _graphicsDevice,
+                _modManager,
+                LoggerFactory.CreateLogger<SpriteLoaderService>()
+            );
+            _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
 
             // Create update systems
             _mapLoaderSystem = new MapLoaderSystem(
                 _world,
                 _modManager.Registry,
                 _tilesetLoader,
-                _spriteLoader
+                _spriteLoader,
+                LoggerFactory.CreateLogger<MapLoaderSystem>()
             );
-            _mapConnectionSystem = new MapConnectionSystem(_world);
-            _cameraSystem = new CameraSystem(_world, _spriteLoader);
+            _mapConnectionSystem = new MapConnectionSystem(
+                _world,
+                LoggerFactory.CreateLogger<MapConnectionSystem>()
+            );
+            _cameraSystem = new CameraSystem(
+                _world,
+                _spriteLoader,
+                LoggerFactory.CreateLogger<CameraSystem>()
+            );
             _cameraViewportSystem = new CameraViewportSystem(
                 _world,
                 _graphicsDevice,
                 GameConstants.GbaReferenceWidth,
-                GameConstants.GbaReferenceHeight
+                GameConstants.GbaReferenceHeight,
+                LoggerFactory.CreateLogger<CameraViewportSystem>()
             ); // GBA resolution
 
             // Create render systems
@@ -223,35 +241,62 @@ namespace MonoBall.Core.ECS
                 _world,
                 _graphicsDevice,
                 _tilesetLoader,
-                _cameraService
+                _cameraService,
+                LoggerFactory.CreateLogger<MapRendererSystem>()
             );
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
             _spriteRendererSystem = new SpriteRendererSystem(
                 _world,
                 _graphicsDevice,
                 _spriteLoader,
-                _cameraService
+                _cameraService,
+                LoggerFactory.CreateLogger<SpriteRendererSystem>()
             );
             _spriteRendererSystem.SetSpriteBatch(_spriteBatch);
 
             // Create animation systems
-            _animatedTileSystem = new AnimatedTileSystem(_world, _tilesetLoader);
-            _spriteAnimationSystem = new SpriteAnimationSystem(_world, _spriteLoader);
+            _animatedTileSystem = new AnimatedTileSystem(
+                _world,
+                _tilesetLoader,
+                LoggerFactory.CreateLogger<AnimatedTileSystem>()
+            );
+            _spriteAnimationSystem = new SpriteAnimationSystem(
+                _world,
+                _spriteLoader,
+                LoggerFactory.CreateLogger<SpriteAnimationSystem>()
+            );
 
             // Create sprite sheet system (handles sprite sheet switching for entities with SpriteSheetComponent)
             // Must be initialized before systems that might publish SpriteSheetChangeRequestEvent
-            _spriteSheetSystem = new SpriteSheetSystem(_world, _spriteLoader);
+            _spriteSheetSystem = new SpriteSheetSystem(
+                _world,
+                _spriteLoader,
+                LoggerFactory.CreateLogger<SpriteSheetSystem>()
+            );
 
             // Create player system
-            _playerSystem = new PlayerSystem(_world, _cameraService, _spriteLoader);
+            _playerSystem = new PlayerSystem(
+                _world,
+                _cameraService,
+                _spriteLoader,
+                LoggerFactory.CreateLogger<PlayerSystem>()
+            );
 
             // Create scene systems
-            _sceneManagerSystem = new SceneManagerSystem(_world);
-            _sceneInputSystem = new SceneInputSystem(_world, _sceneManagerSystem);
+            _sceneManagerSystem = new SceneManagerSystem(
+                _world,
+                LoggerFactory.CreateLogger<SceneManagerSystem>()
+            );
+            _sceneInputSystem = new SceneInputSystem(
+                _world,
+                _sceneManagerSystem,
+                LoggerFactory.CreateLogger<SceneInputSystem>()
+            );
             _sceneRendererSystem = new SceneRendererSystem(
                 _world,
                 _graphicsDevice,
-                _sceneManagerSystem
+                _sceneManagerSystem,
+                LoggerFactory.CreateLogger<SceneRendererSystem>()
             );
             _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
@@ -277,7 +322,7 @@ namespace MonoBall.Core.ECS
             _updateSystems.Initialize();
 
             _isInitialized = true;
-            Log.Information("SystemManager.Initialize: ECS systems initialized successfully");
+            _logger.Information("ECS systems initialized successfully");
         }
 
         /// <summary>
@@ -322,7 +367,7 @@ namespace MonoBall.Core.ECS
                 return;
             }
 
-            Log.Debug("SystemManager.Dispose: Disposing systems");
+            _logger.Debug("Disposing systems");
 
             if (_isInitialized)
             {

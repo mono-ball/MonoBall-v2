@@ -39,6 +39,8 @@ namespace MonoBall.Core.ECS.Systems
                 RenderableComponent render
             )>();
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the MapRendererSystem.
         /// </summary>
@@ -46,11 +48,13 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="graphicsDevice">The graphics device for rendering.</param>
         /// <param name="tilesetLoader">The tileset loader service.</param>
         /// <param name="cameraService">The camera service for querying active camera.</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public MapRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
             ITilesetLoaderService tilesetLoader,
-            ICameraService cameraService
+            ICameraService cameraService,
+            ILogger logger
         )
             : base(world)
         {
@@ -60,6 +64,7 @@ namespace MonoBall.Core.ECS.Systems
                 tilesetLoader ?? throw new System.ArgumentNullException(nameof(tilesetLoader));
             _cameraService =
                 cameraService ?? throw new System.ArgumentNullException(nameof(cameraService));
+            _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
             _chunkQueryDescription = new QueryDescription().WithAll<
                 TileChunkComponent,
                 TileDataComponent,

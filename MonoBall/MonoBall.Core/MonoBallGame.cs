@@ -29,6 +29,7 @@ namespace MonoBall.Core
         // Service and system management
         private GameServices? gameServices;
         private SystemManager? systemManager;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Indicates if the game is running on a mobile platform.
@@ -51,7 +52,8 @@ namespace MonoBall.Core
         {
             // Initialize logging first
             LoggerFactory.ConfigureLogger();
-            Log.Information("Initializing MonoBall game");
+            _logger = LoggerFactory.CreateLogger<MonoBallGame>();
+            _logger.Information("Initializing MonoBall game");
 
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
@@ -97,7 +99,11 @@ namespace MonoBall.Core
             // Only create if not already created (e.g., by LoadContent() being called first)
             if (gameServices == null)
             {
-                gameServices = new GameServices(this, GraphicsDevice);
+                gameServices = new GameServices(
+                    this,
+                    GraphicsDevice,
+                    LoggerFactory.CreateLogger<GameServices>()
+                );
                 gameServices.Initialize();
             }
             else if (!gameServices.IsInitialized)
@@ -114,18 +120,22 @@ namespace MonoBall.Core
         {
             base.LoadContent();
 
-            Log.Information("MonoBallGame.LoadContent: Starting content loading");
+            _logger.Information("Starting content loading");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Log.Debug("MonoBallGame.LoadContent: SpriteBatch created");
+            _logger.Debug("SpriteBatch created");
 
             // Ensure gameServices is initialized (in case LoadContent() is called before Initialize() completes)
             if (gameServices == null)
             {
-                Log.Warning(
-                    "MonoBallGame.LoadContent: GameServices is null, initializing now (Initialize() may not have completed)"
+                _logger.Warning(
+                    "GameServices is null, initializing now (Initialize() may not have completed)"
                 );
-                gameServices = new GameServices(this, GraphicsDevice);
+                gameServices = new GameServices(
+                    this,
+                    GraphicsDevice,
+                    LoggerFactory.CreateLogger<GameServices>()
+                );
                 gameServices.Initialize();
             }
 
@@ -143,7 +153,8 @@ namespace MonoBall.Core
                     gameServices.EcsService.World,
                     GraphicsDevice,
                     gameServices.ModManager,
-                    gameServices.TilesetLoaderService
+                    gameServices.TilesetLoaderService,
+                    LoggerFactory.CreateLogger<SystemManager>()
                 );
 
                 systemManager.Initialize(spriteBatch);
@@ -172,8 +183,8 @@ namespace MonoBall.Core
                 );
 
                 var cameraEntity = world.Create(camera);
-                Log.Information(
-                    "MonoBallGame.LoadContent: Created default camera entity {EntityId} at tile position (10, 10) with viewport {ViewportWidth}x{ViewportHeight}",
+                _logger.Information(
+                    "Created default camera entity {EntityId} at tile position (10, 10) with viewport {ViewportWidth}x{ViewportHeight}",
                     cameraEntity.Id,
                     camera.Viewport.Width,
                     camera.Viewport.Height
@@ -181,7 +192,7 @@ namespace MonoBall.Core
 
                 // Initialize player system (creates player entity at camera position)
                 systemManager.PlayerSystem.InitializePlayer();
-                Log.Information("MonoBallGame.LoadContent: Player system initialized");
+                _logger.Information("Player system initialized");
 
                 // Set camera to follow player
                 var playerEntity = systemManager.PlayerSystem.GetPlayerEntity();
@@ -191,32 +202,26 @@ namespace MonoBall.Core
                         cameraEntity,
                         playerEntity.Value
                     );
-                    Log.Information(
-                        "MonoBallGame.LoadContent: Camera set to follow player entity {EntityId}",
+                    _logger.Information(
+                        "Camera set to follow player entity {EntityId}",
                         playerEntity.Value.Id
                     );
                 }
                 else
                 {
-                    Log.Warning(
-                        "MonoBallGame.LoadContent: Player entity not found, camera will not follow player"
-                    );
+                    _logger.Warning("Player entity not found, camera will not follow player");
                 }
 
                 // Load the initial map
-                Log.Information(
-                    "MonoBallGame.LoadContent: Loading initial map: base:map:hoenn/littleroot_town"
-                );
+                _logger.Information("Loading initial map: base:map:hoenn/littleroot_town");
                 systemManager.MapLoaderSystem.LoadMap("base:map:hoenn/littleroot_town");
-                Log.Information("MonoBallGame.LoadContent: Initial map loaded");
+                _logger.Information("Initial map loaded");
 
                 // Force camera position update after map load to ensure player is centered
                 if (playerEntity.HasValue)
                 {
                     systemManager.CameraSystem.UpdateCameraPosition(cameraEntity);
-                    Log.Information(
-                        "MonoBallGame.LoadContent: Camera position updated after map load"
-                    );
+                    _logger.Information("Camera position updated after map load");
                 }
 
                 // Create initial GameScene entity
@@ -237,16 +242,14 @@ namespace MonoBall.Core
                     gameSceneComponent,
                     new GameSceneComponent()
                 );
-                Log.Information("MonoBallGame.LoadContent: Created initial GameScene");
+                _logger.Information("Created initial GameScene");
             }
             else
             {
-                Log.Warning(
-                    "MonoBallGame.LoadContent: Cannot initialize ECS systems - required services are null"
-                );
+                _logger.Warning("Cannot initialize ECS systems - required services are null");
             }
 
-            Log.Information("MonoBallGame.LoadContent: Content loading completed");
+            _logger.Information("Content loading completed");
         }
 
         /// <summary>
@@ -312,7 +315,7 @@ namespace MonoBall.Core
                 spriteBatch?.Dispose();
                 EcsWorld.Reset();
 
-                Log.Information("Shutting down MonoBall game");
+                _logger.Information("Shutting down MonoBall game");
                 LoggerFactory.CloseAndFlush();
             }
             base.Dispose(disposing);

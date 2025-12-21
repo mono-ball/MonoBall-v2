@@ -25,6 +25,7 @@ namespace MonoBall.Core.ECS.Systems
         private readonly DefinitionRegistry _registry;
         private readonly ITilesetLoaderService? _tilesetLoader;
         private readonly ISpriteLoaderService? _spriteLoader;
+        private readonly ILogger _logger;
         private readonly HashSet<string> _loadedMaps = new HashSet<string>();
         private readonly Dictionary<string, Entity> _mapEntities = new Dictionary<string, Entity>();
         private readonly Dictionary<string, List<Entity>> _mapChunkEntities =
@@ -43,17 +44,20 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="registry">The definition registry.</param>
         /// <param name="tilesetLoader">Optional tileset loader service for preloading tilesets.</param>
         /// <param name="spriteLoader">Optional sprite loader service for loading NPC sprites.</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public MapLoaderSystem(
             World world,
             DefinitionRegistry registry,
             ITilesetLoaderService? tilesetLoader = null,
-            ISpriteLoaderService? spriteLoader = null
+            ISpriteLoaderService? spriteLoader = null,
+            ILogger logger = null!
         )
             : base(world)
         {
             _registry = registry ?? throw new ArgumentNullException(nameof(registry));
             _tilesetLoader = tilesetLoader;
             _spriteLoader = spriteLoader;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -65,31 +69,31 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (string.IsNullOrEmpty(mapId))
             {
-                Log.Warning("Attempted to load map with null or empty ID");
+                _logger.Warning("Attempted to load map with null or empty ID");
                 return;
             }
 
             if (_loadedMaps.Contains(mapId))
             {
-                Log.Debug("Map {MapId} is already loaded", mapId);
+                _logger.Debug("Map {MapId} is already loaded", mapId);
                 return;
             }
 
             var mapDefinition = _registry.GetById<MapDefinition>(mapId);
             if (mapDefinition == null)
             {
-                Log.Warning("Map definition not found: {MapId}", mapId);
+                _logger.Warning("Map definition not found: {MapId}", mapId);
                 return;
             }
 
-            Log.Information("Loading map: {MapId} ({Name})", mapId, mapDefinition.Name);
+            _logger.Information("Loading map: {MapId} ({Name})", mapId, mapDefinition.Name);
 
             // Determine map position (default to 0,0 for initial map, or use provided position)
             Vector2 mapTilePosition = tilePosition ?? Vector2.Zero;
             _mapPositions[mapId] = mapTilePosition;
 
-            Log.Debug(
-                "MapLoaderSystem.LoadMap: Positioning map {MapId} at tile position ({TileX}, {TileY})",
+            _logger.Debug(
+                "Positioning map {MapId} at tile position ({TileX}, {TileY})",
                 mapId,
                 mapTilePosition.X,
                 mapTilePosition.Y
@@ -125,8 +129,8 @@ namespace MonoBall.Core.ECS.Systems
 
             // Create tile chunks for each layer (positioned relative to map position)
             int chunksCreated = CreateTileChunks(mapEntity, mapDefinition, mapTilePosition);
-            Log.Information(
-                "MapLoaderSystem.LoadMap: Created {ChunkCount} tile chunks for map {MapId}",
+            _logger.Information(
+                "Created {ChunkCount} tile chunks for map {MapId}",
                 chunksCreated,
                 mapId
             );
@@ -136,11 +140,7 @@ namespace MonoBall.Core.ECS.Systems
 
             // Create NPC entities
             int npcsCreated = CreateNpcs(mapEntity, mapDefinition, mapTilePosition);
-            Log.Information(
-                "MapLoaderSystem.LoadMap: Created {NpcCount} NPCs for map {MapId}",
-                npcsCreated,
-                mapId
-            );
+            _logger.Information("Created {NpcCount} NPCs for map {MapId}", npcsCreated, mapId);
 
             // Fire MapLoadedEvent
             var loadedEvent = new MapLoadedEvent { MapId = mapId, MapEntity = mapEntity };
@@ -158,8 +158,8 @@ namespace MonoBall.Core.ECS.Systems
                     var targetMapDefinition = _registry.GetById<MapDefinition>(connection.MapId);
                     if (targetMapDefinition == null)
                     {
-                        Log.Warning(
-                            "MapLoaderSystem.LoadMap: Target map definition not found for connection: {MapId}",
+                        _logger.Warning(
+                            "Target map definition not found for connection: {MapId}",
                             connection.MapId
                         );
                         continue;
@@ -178,8 +178,8 @@ namespace MonoBall.Core.ECS.Systems
 
                     if (!_loadedMaps.Contains(connection.MapId))
                     {
-                        Log.Debug(
-                            "MapLoaderSystem.LoadMap: Loading connected map {ConnectedMapId} at tile position ({TileX}, {TileY}) via {Direction} connection",
+                        _logger.Debug(
+                            "Loading connected map {ConnectedMapId} at tile position ({TileX}, {TileY}) via {Direction} connection",
                             connection.MapId,
                             connectedMapPosition.X,
                             connectedMapPosition.Y,
@@ -200,8 +200,8 @@ namespace MonoBall.Core.ECS.Systems
                                 || Math.Abs(existingPosition.Y - connectedMapPosition.Y) > tolerance
                             )
                             {
-                                Log.Warning(
-                                    "MapLoaderSystem.LoadMap: Position conflict for map {MapId}. Existing: ({ExistingX}, {ExistingY}), Expected: ({ExpectedX}, {ExpectedY}) via {Direction} connection from {SourceMapId}",
+                                _logger.Warning(
+                                    "Position conflict for map {MapId}. Existing: ({ExistingX}, {ExistingY}), Expected: ({ExpectedX}, {ExpectedY}) via {Direction} connection from {SourceMapId}",
                                     connection.MapId,
                                     existingPosition.X,
                                     existingPosition.Y,
@@ -216,7 +216,7 @@ namespace MonoBall.Core.ECS.Systems
                 }
             }
 
-            Log.Information("Map loaded: {MapId}", mapId);
+            _logger.Information("Map loaded: {MapId}", mapId);
         }
 
         /// <summary>
@@ -235,7 +235,7 @@ namespace MonoBall.Core.ECS.Systems
                 return;
             }
 
-            Log.Information("Unloading map: {MapId}", mapId);
+            _logger.Information("Unloading map: {MapId}", mapId);
 
             if (_mapEntities.TryGetValue(mapId, out var mapEntity))
             {
@@ -291,52 +291,44 @@ namespace MonoBall.Core.ECS.Systems
             // Fire MapUnloadedEvent
             var unloadedEvent = new MapUnloadedEvent { MapId = mapId };
             EventBus.Send(ref unloadedEvent);
-            Log.Information("Map unloaded: {MapId}", mapId);
+            _logger.Information("Map unloaded: {MapId}", mapId);
         }
 
         private void PreloadTilesets(MapDefinition mapDefinition)
         {
             if (_tilesetLoader == null)
             {
-                Log.Warning(
-                    "MapLoaderSystem.PreloadTilesets: TilesetLoader is null, cannot preload tilesets"
-                );
+                _logger.Warning("TilesetLoader is null, cannot preload tilesets");
                 return;
             }
 
             if (mapDefinition.TilesetRefs == null || mapDefinition.TilesetRefs.Count == 0)
             {
-                Log.Warning(
-                    "MapLoaderSystem.PreloadTilesets: Map {MapId} has no tileset references",
-                    mapDefinition.Id
-                );
+                _logger.Warning("Map {MapId} has no tileset references", mapDefinition.Id);
                 return;
             }
 
-            Log.Information(
-                "MapLoaderSystem.PreloadTilesets: Preloading {Count} tileset(s) for map {MapId}",
+            _logger.Information(
+                "Preloading {Count} tileset(s) for map {MapId}",
                 mapDefinition.TilesetRefs.Count,
                 mapDefinition.Id
             );
             foreach (var tilesetRef in mapDefinition.TilesetRefs)
             {
-                Log.Debug(
-                    "MapLoaderSystem.PreloadTilesets: Loading tileset {TilesetId} (firstGid: {FirstGid})",
+                _logger.Debug(
+                    "Loading tileset {TilesetId} (firstGid: {FirstGid})",
                     tilesetRef.TilesetId,
                     tilesetRef.FirstGid
                 );
                 var texture = _tilesetLoader.LoadTileset(tilesetRef.TilesetId);
                 if (texture == null)
                 {
-                    Log.Warning(
-                        "MapLoaderSystem.PreloadTilesets: Failed to load tileset {TilesetId}",
-                        tilesetRef.TilesetId
-                    );
+                    _logger.Warning("Failed to load tileset {TilesetId}", tilesetRef.TilesetId);
                 }
                 else
                 {
-                    Log.Information(
-                        "MapLoaderSystem.PreloadTilesets: Successfully loaded tileset {TilesetId}",
+                    _logger.Information(
+                        "Successfully loaded tileset {TilesetId}",
                         tilesetRef.TilesetId
                     );
                 }
@@ -402,15 +394,12 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (mapDefinition.Layers == null || mapDefinition.Layers.Count == 0)
             {
-                Log.Warning(
-                    "MapLoaderSystem.CreateTileChunks: Map {MapId} has no layers",
-                    mapDefinition.Id
-                );
+                _logger.Warning("Map {MapId} has no layers", mapDefinition.Id);
                 return 0;
             }
 
-            Log.Debug(
-                "MapLoaderSystem.CreateTileChunks: Creating chunks for {LayerCount} layers in map {MapId}",
+            _logger.Debug(
+                "Creating chunks for {LayerCount} layers in map {MapId}",
                 mapDefinition.Layers.Count,
                 mapDefinition.Id
             );
@@ -421,8 +410,8 @@ namespace MonoBall.Core.ECS.Systems
             {
                 if (!layer.Visible)
                 {
-                    Log.Debug(
-                        "MapLoaderSystem.CreateTileChunks: Skipping invisible layer {LayerId} (index: {Index})",
+                    _logger.Debug(
+                        "Skipping invisible layer {LayerId} (index: {Index})",
                         layer.LayerId,
                         layerIndex
                     );
@@ -432,8 +421,8 @@ namespace MonoBall.Core.ECS.Systems
 
                 if (string.IsNullOrEmpty(layer.TileData))
                 {
-                    Log.Warning(
-                        "MapLoaderSystem.CreateTileChunks: Layer {LayerId} (index: {Index}) has no tile data",
+                    _logger.Warning(
+                        "Layer {LayerId} (index: {Index}) has no tile data",
                         layer.LayerId,
                         layerIndex
                     );
@@ -441,8 +430,8 @@ namespace MonoBall.Core.ECS.Systems
                     continue;
                 }
 
-                Log.Debug(
-                    "MapLoaderSystem.CreateTileChunks: Processing layer {LayerId} (index: {Index}, size: {Width}x{Height})",
+                _logger.Debug(
+                    "Processing layer {LayerId} (index: {Index}, size: {Width}x{Height})",
                     layer.LayerId,
                     layerIndex,
                     layer.Width,
@@ -453,16 +442,16 @@ namespace MonoBall.Core.ECS.Systems
                 var tileIndices = TileDataDecoder.Decode(layer.TileData, layer.Width, layer.Height);
                 if (tileIndices == null)
                 {
-                    Log.Warning(
-                        "MapLoaderSystem.CreateTileChunks: Failed to decode tile data for layer {LayerId}",
+                    _logger.Warning(
+                        "Failed to decode tile data for layer {LayerId}",
                         layer.LayerId
                     );
                     layerIndex++;
                     continue;
                 }
 
-                Log.Debug(
-                    "MapLoaderSystem.CreateTileChunks: Decoded {TileCount} tiles for layer {LayerId}",
+                _logger.Debug(
+                    "Decoded {TileCount} tiles for layer {LayerId}",
                     tileIndices.Length,
                     layer.LayerId
                 );
@@ -480,8 +469,8 @@ namespace MonoBall.Core.ECS.Systems
                 int chunksX = (int)Math.Ceiling((double)layer.Width / ChunkSize);
                 int chunksY = (int)Math.Ceiling((double)layer.Height / ChunkSize);
 
-                Log.Debug(
-                    "MapLoaderSystem.CreateTileChunks: Creating {ChunksX}x{ChunksY} chunks for layer {LayerId}",
+                _logger.Debug(
+                    "Creating {ChunksX}x{ChunksY} chunks for layer {LayerId}",
                     chunksX,
                     chunksY,
                     layer.LayerId
@@ -628,8 +617,8 @@ namespace MonoBall.Core.ECS.Systems
                     }
                 }
 
-                Log.Debug(
-                    "MapLoaderSystem.CreateTileChunks: Created {ChunkCount} chunks for layer {LayerId}",
+                _logger.Debug(
+                    "Created {ChunkCount} chunks for layer {LayerId}",
                     layerChunks,
                     layer.LayerId
                 );
@@ -713,8 +702,8 @@ namespace MonoBall.Core.ECS.Systems
 
             if (_spriteLoader == null)
             {
-                Log.Warning(
-                    "MapLoaderSystem.CreateNpcs: SpriteLoader is null, cannot create NPCs for map {MapId}",
+                _logger.Warning(
+                    "SpriteLoader is null, cannot create NPCs for map {MapId}",
                     mapDefinition.Id
                 );
                 return 0;
@@ -734,9 +723,9 @@ namespace MonoBall.Core.ECS.Systems
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(
+                    _logger.Error(
                         ex,
-                        "MapLoaderSystem.CreateNpcs: Failed to create NPC {NpcId} for map {MapId}",
+                        "Failed to create NPC {NpcId} for map {MapId}",
                         npcDef.NpcId,
                         mapDefinition.Id
                     );
@@ -784,6 +773,7 @@ namespace MonoBall.Core.ECS.Systems
             // Validate sprite definition exists (strict validation - throw on invalid)
             SpriteValidationHelper.ValidateSpriteDefinition(
                 _spriteLoader,
+                _logger,
                 npcDef.SpriteId,
                 "NPC",
                 npcDef.NpcId,
@@ -798,8 +788,8 @@ namespace MonoBall.Core.ECS.Systems
             // This differs from Player creation which uses strict validation (throws on invalid)
             if (!_spriteLoader.ValidateAnimation(npcDef.SpriteId, animationName))
             {
-                Log.Warning(
-                    "MapLoaderSystem.CreateNpcEntity: Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
+                _logger.Warning(
+                    "Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
                     animationName,
                     npcDef.SpriteId,
                     npcDef.NpcId

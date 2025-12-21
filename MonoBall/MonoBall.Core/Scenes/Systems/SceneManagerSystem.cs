@@ -23,13 +23,17 @@ namespace MonoBall.Core.Scenes.Systems
         private int _nextInsertionOrder = 0;
         private readonly QueryDescription _cameraQueryDescription;
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the SceneManagerSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        public SceneManagerSystem(World world)
+        /// <param name="logger">The logger for logging operations.</param>
+        public SceneManagerSystem(World world, ILogger logger)
             : base(world)
         {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             // Subscribe to SceneMessageEvent for inter-scene communication
             EventBus.Subscribe<SceneMessageEvent>(OnSceneMessage);
             _cameraQueryDescription = new QueryDescription().WithAll<CameraComponent>();
@@ -76,7 +80,6 @@ namespace MonoBall.Core.Scenes.Systems
                 // Query for the camera entity by ID
                 var cameraEntityId = sceneComponent.CameraEntityId.Value;
                 bool cameraFound = false;
-                bool hasCameraComponent = false;
 
                 World.Query(
                     in _cameraQueryDescription,
@@ -85,7 +88,6 @@ namespace MonoBall.Core.Scenes.Systems
                         if (entity.Id == cameraEntityId)
                         {
                             cameraFound = true;
-                            hasCameraComponent = true;
                         }
                     }
                 );
@@ -137,8 +139,8 @@ namespace MonoBall.Core.Scenes.Systems
                 SceneEntity = sceneEntity,
             };
             EventBus.Send(ref createdEvent);
-            Log.Information(
-                "SceneManagerSystem: Created scene '{SceneId}' with priority {Priority}",
+            _logger.Information(
+                "Created scene '{SceneId}' with priority {Priority}",
                 sceneComponent.SceneId,
                 sceneComponent.Priority
             );
@@ -154,7 +156,7 @@ namespace MonoBall.Core.Scenes.Systems
         {
             if (!World.IsAlive(sceneEntity))
             {
-                Log.Warning("Attempted to destroy scene entity that is not alive");
+                _logger.Warning("Attempted to destroy scene entity that is not alive");
                 return;
             }
 
@@ -177,7 +179,7 @@ namespace MonoBall.Core.Scenes.Systems
             // Destroy entity
             World.Destroy(sceneEntity);
 
-            Log.Information("SceneManagerSystem: Destroyed scene '{SceneId}'", sceneId);
+            _logger.Information("Destroyed scene '{SceneId}'", sceneId);
         }
 
         /// <summary>
@@ -193,7 +195,7 @@ namespace MonoBall.Core.Scenes.Systems
 
             if (!_sceneIds.TryGetValue(sceneId, out var sceneEntity))
             {
-                Log.Warning("Scene with ID '{SceneId}' not found", sceneId);
+                _logger.Warning("Scene with ID '{SceneId}' not found", sceneId);
                 return;
             }
 
@@ -235,7 +237,7 @@ namespace MonoBall.Core.Scenes.Systems
             var sceneEntity = GetSceneEntity(sceneId);
             if (sceneEntity == null)
             {
-                Log.Warning("Scene with ID '{SceneId}' not found", sceneId);
+                _logger.Warning("Scene with ID '{SceneId}' not found", sceneId);
                 return;
             }
 
@@ -248,13 +250,13 @@ namespace MonoBall.Core.Scenes.Systems
             {
                 var activatedEvent = new SceneActivatedEvent { SceneId = sceneId };
                 EventBus.Send(ref activatedEvent);
-                Log.Debug("SceneManagerSystem: Activated scene '{SceneId}'", sceneId);
+                _logger.Debug("Activated scene '{SceneId}'", sceneId);
             }
             else if (!active && wasActive)
             {
                 var deactivatedEvent = new SceneDeactivatedEvent { SceneId = sceneId };
                 EventBus.Send(ref deactivatedEvent);
-                Log.Debug("SceneManagerSystem: Deactivated scene '{SceneId}'", sceneId);
+                _logger.Debug("Deactivated scene '{SceneId}'", sceneId);
             }
         }
 
@@ -268,7 +270,7 @@ namespace MonoBall.Core.Scenes.Systems
             var sceneEntity = GetSceneEntity(sceneId);
             if (sceneEntity == null)
             {
-                Log.Warning("Scene with ID '{SceneId}' not found", sceneId);
+                _logger.Warning("Scene with ID '{SceneId}' not found", sceneId);
                 return;
             }
 
@@ -281,13 +283,13 @@ namespace MonoBall.Core.Scenes.Systems
             {
                 var pausedEvent = new ScenePausedEvent { SceneId = sceneId };
                 EventBus.Send(ref pausedEvent);
-                Log.Debug("SceneManagerSystem: Paused scene '{SceneId}'", sceneId);
+                _logger.Debug("Paused scene '{SceneId}'", sceneId);
             }
             else if (!paused && wasPaused)
             {
                 var resumedEvent = new SceneResumedEvent { SceneId = sceneId };
                 EventBus.Send(ref resumedEvent);
-                Log.Debug("SceneManagerSystem: Resumed scene '{SceneId}'", sceneId);
+                _logger.Debug("Resumed scene '{SceneId}'", sceneId);
             }
         }
 
@@ -301,7 +303,7 @@ namespace MonoBall.Core.Scenes.Systems
             var sceneEntity = GetSceneEntity(sceneId);
             if (sceneEntity == null)
             {
-                Log.Warning("Scene with ID '{SceneId}' not found", sceneId);
+                _logger.Warning("Scene with ID '{SceneId}' not found", sceneId);
                 return;
             }
 
@@ -321,8 +323,8 @@ namespace MonoBall.Core.Scenes.Systems
             // Re-sort scene stack
             SortSceneStack();
 
-            Log.Debug(
-                "SceneManagerSystem: Changed priority of scene '{SceneId}' from {OldPriority} to {NewPriority}",
+            _logger.Debug(
+                "Changed priority of scene '{SceneId}' from {OldPriority} to {NewPriority}",
                 sceneId,
                 oldPriority,
                 priority

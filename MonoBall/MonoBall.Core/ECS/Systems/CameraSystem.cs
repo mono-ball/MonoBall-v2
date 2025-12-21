@@ -15,17 +15,20 @@ namespace MonoBall.Core.ECS.Systems
     {
         private readonly QueryDescription _queryDescription;
         private readonly ISpriteLoaderService _spriteLoader;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the CameraSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="spriteLoader">Sprite loader service required for calculating sprite centers when following entities.</param>
-        public CameraSystem(World world, ISpriteLoaderService spriteLoader)
+        /// <param name="logger">The logger for logging operations.</param>
+        public CameraSystem(World world, ISpriteLoaderService spriteLoader, ILogger logger)
             : base(world)
         {
             _queryDescription = new QueryDescription().WithAll<CameraComponent>();
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>

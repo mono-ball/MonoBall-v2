@@ -17,6 +17,7 @@ namespace MonoBall.Core.Maps
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
+        private readonly ILogger _logger;
         private readonly Dictionary<string, Texture2D> _textureCache =
             new Dictionary<string, Texture2D>();
         private readonly Dictionary<string, TilesetDefinition> _definitionCache =
@@ -31,11 +32,17 @@ namespace MonoBall.Core.Maps
         /// </summary>
         /// <param name="graphicsDevice">The graphics device for loading textures.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
-        public TilesetLoaderService(GraphicsDevice graphicsDevice, IModManager modManager)
+        /// <param name="logger">The logger for logging operations.</param>
+        public TilesetLoaderService(
+            GraphicsDevice graphicsDevice,
+            IModManager modManager,
+            ILogger logger
+        )
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -75,35 +82,29 @@ namespace MonoBall.Core.Maps
         {
             if (string.IsNullOrEmpty(tilesetId))
             {
-                Log.Warning("Attempted to load tileset with null or empty ID");
+                _logger.Warning("Attempted to load tileset with null or empty ID");
                 return null;
             }
 
             // Check cache first
             if (_textureCache.TryGetValue(tilesetId, out var cachedTexture))
             {
-                Log.Debug(
-                    "TilesetLoaderService.LoadTileset: Using cached texture for {TilesetId}",
-                    tilesetId
-                );
+                _logger.Debug("Using cached texture for {TilesetId}", tilesetId);
                 return cachedTexture;
             }
 
-            Log.Debug("TilesetLoaderService.LoadTileset: Loading tileset {TilesetId}", tilesetId);
+            _logger.Debug("Loading tileset {TilesetId}", tilesetId);
 
             // Get tileset definition
             var definition = GetTilesetDefinition(tilesetId);
             if (definition == null)
             {
-                Log.Warning(
-                    "TilesetLoaderService.LoadTileset: Tileset definition not found: {TilesetId}",
-                    tilesetId
-                );
+                _logger.Warning("Tileset definition not found: {TilesetId}", tilesetId);
                 return null;
             }
 
-            Log.Debug(
-                "TilesetLoaderService.LoadTileset: Found tileset definition for {TilesetId} (texturePath: {TexturePath})",
+            _logger.Debug(
+                "Found tileset definition for {TilesetId} (texturePath: {TexturePath})",
                 tilesetId,
                 definition.TexturePath
             );
@@ -112,15 +113,12 @@ namespace MonoBall.Core.Maps
             var metadata = _modManager.GetDefinitionMetadata(tilesetId);
             if (metadata == null)
             {
-                Log.Warning(
-                    "TilesetLoaderService.LoadTileset: Tileset metadata not found: {TilesetId}",
-                    tilesetId
-                );
+                _logger.Warning("Tileset metadata not found: {TilesetId}", tilesetId);
                 return null;
             }
 
-            Log.Debug(
-                "TilesetLoaderService.LoadTileset: Found metadata for {TilesetId} (originalModId: {ModId})",
+            _logger.Debug(
+                "Found metadata for {TilesetId} (originalModId: {ModId})",
                 tilesetId,
                 metadata.OriginalModId
             );
@@ -138,20 +136,20 @@ namespace MonoBall.Core.Maps
 
             if (modManifest == null)
             {
-                Log.Warning(
-                    "TilesetLoaderService.LoadTileset: Mod manifest not found for tileset {TilesetId} (mod: {ModId})",
+                _logger.Warning(
+                    "Mod manifest not found for tileset {TilesetId} (mod: {ModId})",
                     tilesetId,
                     metadata.OriginalModId
                 );
-                Log.Debug(
-                    "TilesetLoaderService.LoadTileset: Available mods: {Mods}",
+                _logger.Debug(
+                    "Available mods: {Mods}",
                     string.Join(", ", _modManager.LoadedMods.Select(m => m.Id))
                 );
                 return null;
             }
 
-            Log.Debug(
-                "TilesetLoaderService.LoadTileset: Found mod manifest for {ModId} (modDirectory: {ModDirectory})",
+            _logger.Debug(
+                "Found mod manifest for {ModId} (modDirectory: {ModDirectory})",
                 modManifest.Id,
                 modManifest.ModDirectory
             );
@@ -160,20 +158,17 @@ namespace MonoBall.Core.Maps
             string texturePath = Path.Combine(modManifest.ModDirectory, definition.TexturePath);
             texturePath = Path.GetFullPath(texturePath);
 
-            Log.Debug(
-                "TilesetLoaderService.LoadTileset: Resolved texture path: {TexturePath}",
-                texturePath
-            );
+            _logger.Debug("Resolved texture path: {TexturePath}", texturePath);
 
             if (!File.Exists(texturePath))
             {
-                Log.Warning(
-                    "TilesetLoaderService.LoadTileset: Tileset texture file not found: {TexturePath} (tileset: {TilesetId})",
+                _logger.Warning(
+                    "Tileset texture file not found: {TexturePath} (tileset: {TilesetId})",
                     texturePath,
                     tilesetId
                 );
-                Log.Debug(
-                    "TilesetLoaderService.LoadTileset: Mod directory exists: {Exists}, TexturePath from definition: {DefPath}",
+                _logger.Debug(
+                    "Mod directory exists: {Exists}, TexturePath from definition: {DefPath}",
                     Directory.Exists(modManifest.ModDirectory),
                     definition.TexturePath
                 );
@@ -185,7 +180,7 @@ namespace MonoBall.Core.Maps
                 // Load texture from file system
                 var texture = Texture2D.FromFile(_graphicsDevice, texturePath);
                 _textureCache[tilesetId] = texture;
-                Log.Debug(
+                _logger.Debug(
                     "Loaded tileset texture: {TilesetId} from {TexturePath}",
                     tilesetId,
                     texturePath
@@ -194,7 +189,7 @@ namespace MonoBall.Core.Maps
             }
             catch (Exception ex)
             {
-                Log.Error(
+                _logger.Error(
                     ex,
                     "Failed to load tileset texture: {TilesetId} from {TexturePath}",
                     tilesetId,
@@ -279,7 +274,7 @@ namespace MonoBall.Core.Maps
             {
                 texture.Dispose();
                 _textureCache.Remove(tilesetId);
-                Log.Debug("Unloaded tileset texture: {TilesetId}", tilesetId);
+                _logger.Debug("Unloaded tileset texture: {TilesetId}", tilesetId);
             }
         }
 
@@ -295,7 +290,7 @@ namespace MonoBall.Core.Maps
             _textureCache.Clear();
             _definitionCache.Clear();
             _animationCache.Clear();
-            Log.Debug("Unloaded all tileset textures");
+            _logger.Debug("Unloaded all tileset textures");
         }
 
         /// <summary>

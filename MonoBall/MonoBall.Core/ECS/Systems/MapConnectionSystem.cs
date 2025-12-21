@@ -14,18 +14,21 @@ namespace MonoBall.Core.ECS.Systems
     public class MapConnectionSystem : BaseSystem<World, float>
     {
         private readonly QueryDescription _connectionQueryDescription;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the MapConnectionSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        public MapConnectionSystem(World world)
+        /// <param name="logger">The logger for logging operations.</param>
+        public MapConnectionSystem(World world, ILogger logger)
             : base(world)
         {
             _connectionQueryDescription = new QueryDescription().WithAll<
                 MapComponent,
                 MapConnectionComponent
             >();
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -44,11 +47,11 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (string.IsNullOrEmpty(sourceMapId) || string.IsNullOrEmpty(targetMapId))
             {
-                Log.Warning("Attempted transition with null or empty map IDs");
+                _logger.Warning("Attempted transition with null or empty map IDs");
                 return;
             }
 
-            Log.Information(
+            _logger.Information(
                 "Transitioning from {SourceMap} to {TargetMap} ({Direction}, offset: {Offset})",
                 sourceMapId,
                 targetMapId,

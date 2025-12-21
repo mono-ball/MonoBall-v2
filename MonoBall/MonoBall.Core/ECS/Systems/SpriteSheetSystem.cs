@@ -16,16 +16,19 @@ namespace MonoBall.Core.ECS.Systems
     public class SpriteSheetSystem : BaseSystem<World, float>, IDisposable
     {
         private readonly ISpriteLoaderService _spriteLoader;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the SpriteSheetSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="spriteLoader">The sprite loader service for validating sprite sheets.</param>
-        public SpriteSheetSystem(World world, ISpriteLoaderService spriteLoader)
+        /// <param name="logger">The logger for logging operations.</param>
+        public SpriteSheetSystem(World world, ISpriteLoaderService spriteLoader, ILogger logger)
             : base(world)
         {
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Subscribe to sprite sheet change requests
             EventBus.Subscribe<SpriteSheetChangeRequestEvent>(OnSpriteSheetChangeRequest);
@@ -66,6 +69,7 @@ namespace MonoBall.Core.ECS.Systems
             if (
                 !SpriteValidationHelper.ValidateSpriteAndAnimation(
                     _spriteLoader,
+                    _logger,
                     evt.NewSpriteSheetId,
                     evt.AnimationName,
                     entityType,

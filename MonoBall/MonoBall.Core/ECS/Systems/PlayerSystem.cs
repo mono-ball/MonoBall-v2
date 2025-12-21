@@ -19,6 +19,7 @@ namespace MonoBall.Core.ECS.Systems
     {
         private readonly ICameraService _cameraService;
         private readonly ISpriteLoaderService _spriteLoader;
+        private readonly ILogger _logger;
         private readonly QueryDescription _playerQuery;
         private Entity? _playerEntity;
         private bool _playerCreated;
@@ -29,16 +30,19 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="world">The ECS world.</param>
         /// <param name="cameraService">The camera service for getting camera position.</param>
         /// <param name="spriteLoader">The sprite loader service for validating sprite sheets.</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public PlayerSystem(
             World world,
             ICameraService cameraService,
-            ISpriteLoaderService spriteLoader
+            ISpriteLoaderService spriteLoader,
+            ILogger logger
         )
             : base(world)
         {
             _cameraService =
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             _playerQuery = new QueryDescription().WithAll<PlayerComponent>();
         }
@@ -148,6 +152,7 @@ namespace MonoBall.Core.ECS.Systems
             // This differs from NPC creation which uses forgiving validation (logs warning, uses default)
             SpriteValidationHelper.ValidateSpriteAndAnimation(
                 _spriteLoader,
+                _logger,
                 initialSpriteSheetId,
                 initialAnimation,
                 "Player",

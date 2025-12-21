@@ -18,6 +18,7 @@ namespace MonoBall.Core.Rendering
         private readonly int _referenceWidth;
         private readonly int _referenceHeight;
         private readonly QueryDescription _cameraQuery;
+        private readonly ILogger _logger;
         private int _lastWindowWidth;
         private int _lastWindowHeight;
 
@@ -28,11 +29,13 @@ namespace MonoBall.Core.Rendering
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="referenceWidth">The reference width for aspect ratio (e.g., 240 for GBA).</param>
         /// <param name="referenceHeight">The reference height for aspect ratio (e.g., 160 for GBA).</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public CameraViewportSystem(
             World world,
             GraphicsDevice graphicsDevice,
             int referenceWidth = 240,
-            int referenceHeight = 160
+            int referenceHeight = 160,
+            ILogger logger = null!
         )
             : base(world)
         {
@@ -41,6 +44,7 @@ namespace MonoBall.Core.Rendering
             _referenceWidth = referenceWidth;
             _referenceHeight = referenceHeight;
             _cameraQuery = new QueryDescription().WithAll<CameraComponent>();
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _lastWindowWidth = 0;
             _lastWindowHeight = 0;
         }

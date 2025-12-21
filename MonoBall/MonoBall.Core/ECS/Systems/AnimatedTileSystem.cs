@@ -18,16 +18,20 @@ namespace MonoBall.Core.ECS.Systems
         // Reusable collection to avoid allocations in hot paths
         private readonly List<int> _tileIndexList = new List<int>();
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the AnimatedTileSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="tilesetLoader">The tileset loader service for accessing animation frame cache.</param>
-        public AnimatedTileSystem(World world, ITilesetLoaderService tilesetLoader)
+        /// <param name="logger">The logger for logging operations.</param>
+        public AnimatedTileSystem(World world, ITilesetLoaderService tilesetLoader, ILogger logger)
             : base(world)
         {
             _tilesetLoader =
                 tilesetLoader ?? throw new System.ArgumentNullException(nameof(tilesetLoader));
+            _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
             _queryDescription = new QueryDescription().WithAll<
                 AnimatedTileDataComponent,
                 TileDataComponent

@@ -15,16 +15,20 @@ namespace MonoBall.Core.Scenes.Systems
     {
         private readonly SceneManagerSystem _sceneManagerSystem;
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the SceneInputSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="sceneManagerSystem">The scene manager system for accessing scene stack.</param>
-        public SceneInputSystem(World world, SceneManagerSystem sceneManagerSystem)
+        /// <param name="logger">The logger for logging operations.</param>
+        public SceneInputSystem(World world, SceneManagerSystem sceneManagerSystem, ILogger logger)
             : base(world)
         {
             _sceneManagerSystem =
                 sceneManagerSystem ?? throw new ArgumentNullException(nameof(sceneManagerSystem));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>

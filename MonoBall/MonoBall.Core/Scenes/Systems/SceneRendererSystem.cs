@@ -25,16 +25,20 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly QueryDescription _cameraQuery =
             new QueryDescription().WithAll<CameraComponent>();
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the SceneRendererSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="sceneManagerSystem">The scene manager system for accessing scene stack.</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public SceneRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
-            SceneManagerSystem sceneManagerSystem
+            SceneManagerSystem sceneManagerSystem,
+            ILogger logger
         )
             : base(world)
         {
@@ -42,6 +46,7 @@ namespace MonoBall.Core.Scenes.Systems
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _sceneManagerSystem =
                 sceneManagerSystem ?? throw new ArgumentNullException(nameof(sceneManagerSystem));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -153,8 +158,8 @@ namespace MonoBall.Core.Scenes.Systems
 
                         if (!foundCamera)
                         {
-                            Log.Warning(
-                                "SceneRendererSystem: Scene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found or doesn't have CameraComponent",
+                            _logger.Warning(
+                                "Scene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found or doesn't have CameraComponent",
                                 scene.SceneId,
                                 cameraEntityId
                             );
@@ -163,8 +168,8 @@ namespace MonoBall.Core.Scenes.Systems
                     }
                     else
                     {
-                        Log.Warning(
-                            "SceneRendererSystem: Scene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
+                        _logger.Warning(
+                            "Scene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
                             scene.SceneId
                         );
                         return;
@@ -178,8 +183,8 @@ namespace MonoBall.Core.Scenes.Systems
             }
             else
             {
-                Log.Warning(
-                    "SceneRendererSystem: Scene '{SceneId}' requires camera but none was found. Scene will not render.",
+                _logger.Warning(
+                    "Scene '{SceneId}' requires camera but none was found. Scene will not render.",
                     scene.SceneId
                 );
                 // Scene cannot render without a camera, so we skip it

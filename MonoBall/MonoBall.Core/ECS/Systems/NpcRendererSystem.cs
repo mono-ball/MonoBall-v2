@@ -39,6 +39,8 @@ namespace MonoBall.Core.ECS.Systems
                 RenderableComponent render
             )>();
 
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Initializes a new instance of the NpcRendererSystem.
         /// </summary>
@@ -46,17 +48,20 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="graphicsDevice">The graphics device for rendering.</param>
         /// <param name="spriteLoader">The sprite loader service.</param>
         /// <param name="cameraService">The camera service for querying active camera.</param>
+        /// <param name="logger">The logger for logging operations.</param>
         public NpcRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
             ISpriteLoaderService spriteLoader,
-            ICameraService cameraService
+            ICameraService cameraService,
+            ILogger logger
         )
             : base(world)
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _cameraService =
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _queryDescription = new QueryDescription().WithAll<
