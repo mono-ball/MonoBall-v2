@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -15,7 +14,7 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for rendering NPCs using SpriteBatch.
     /// </summary>
-    public partial class NpcRendererSystem : BaseSystem<World, float>
+    public class NpcRendererSystem : BaseSystem<World, float>
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly ISpriteLoaderService _spriteLoader;
@@ -23,6 +22,22 @@ namespace MonoBall.Core.ECS.Systems
         private SpriteBatch? _spriteBatch;
         private Viewport _savedViewport;
         private readonly QueryDescription _queryDescription;
+
+        // Reusable collection to avoid allocations in hot paths
+        private readonly List<(
+            Entity entity,
+            NpcComponent npc,
+            SpriteAnimationComponent anim,
+            PositionComponent pos,
+            RenderableComponent render
+        )> _npcList =
+            new List<(
+                Entity entity,
+                NpcComponent npc,
+                SpriteAnimationComponent anim,
+                PositionComponent pos,
+                RenderableComponent render
+            )>();
 
         /// <summary>
         /// Initializes a new instance of the NpcRendererSystem.
@@ -83,32 +98,38 @@ namespace MonoBall.Core.ECS.Systems
             var camera = activeCamera.Value;
 
             // Collect visible NPCs
-            var npcs = CollectVisibleNpcs(camera);
-            if (npcs.Count == 0)
+            CollectVisibleNpcs(camera, _npcList);
+            if (_npcList.Count == 0)
             {
                 return;
             }
 
-            // Sort by render order
-            npcs = SortNpcsByRenderOrder(npcs);
+            // Sort by render order (in-place sort to avoid allocation)
+            _npcList.Sort((a, b) => a.render.RenderOrder.CompareTo(b.render.RenderOrder));
 
             // Render NPCs
-            RenderNpcBatch(npcs, camera);
+            RenderNpcBatch(_npcList, camera);
         }
 
         /// <summary>
         /// Collects visible NPCs within the camera's view bounds.
         /// </summary>
         /// <param name="camera">The active camera component.</param>
-        /// <returns>List of visible NPCs with their components.</returns>
-        private List<(
-            Entity entity,
-            NpcComponent npc,
-            SpriteAnimationComponent anim,
-            PositionComponent pos,
-            RenderableComponent render
-        )> CollectVisibleNpcs(CameraComponent camera)
+        /// <param name="outputList">The list to populate with visible NPCs (will be cleared first).</param>
+        private void CollectVisibleNpcs(
+            CameraComponent camera,
+            List<(
+                Entity entity,
+                NpcComponent npc,
+                SpriteAnimationComponent anim,
+                PositionComponent pos,
+                RenderableComponent render
+            )> outputList
+        )
         {
+            // Clear the output list
+            outputList.Clear();
+
             // Get visible tile bounds from camera (in tile coordinates)
             Rectangle tileViewBounds = camera.GetTileViewBounds();
 
@@ -119,15 +140,6 @@ namespace MonoBall.Core.ECS.Systems
                 tileViewBounds.Width * camera.TileWidth,
                 tileViewBounds.Height * camera.TileHeight
             );
-
-            var npcs =
-                new List<(
-                    Entity entity,
-                    NpcComponent npc,
-                    SpriteAnimationComponent anim,
-                    PositionComponent pos,
-                    RenderableComponent render
-                )>();
 
             // Single-pass query: get all components at once
             World.Query(
@@ -174,36 +186,10 @@ namespace MonoBall.Core.ECS.Systems
 
                     if (npcBounds.Intersects(visiblePixelBounds))
                     {
-                        npcs.Add((entity, npc, anim, pos, render));
+                        outputList.Add((entity, npc, anim, pos, render));
                     }
                 }
             );
-
-            return npcs;
-        }
-
-        /// <summary>
-        /// Sorts NPCs by render order (elevation).
-        /// </summary>
-        /// <param name="npcs">The list of NPCs to sort.</param>
-        /// <returns>The sorted list of NPCs.</returns>
-        private List<(
-            Entity entity,
-            NpcComponent npc,
-            SpriteAnimationComponent anim,
-            PositionComponent pos,
-            RenderableComponent render
-        )> SortNpcsByRenderOrder(
-            List<(
-                Entity entity,
-                NpcComponent npc,
-                SpriteAnimationComponent anim,
-                PositionComponent pos,
-                RenderableComponent render
-            )> npcs
-        )
-        {
-            return npcs.OrderBy(n => n.render.RenderOrder).ToList();
         }
 
         /// <summary>

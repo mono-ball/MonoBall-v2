@@ -7,6 +7,18 @@ namespace MonoBall.Core.ECS
     /// Simple event bus for decoupled event communication.
     /// This is a temporary implementation until Arch.EventBus is properly integrated.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// <b>Thread Safety:</b> This class is <b>not thread-safe</b> and is designed for single-threaded use.
+    /// MonoGame's game loop runs on a single thread, so thread safety is not required for normal operation.
+    /// If you need to publish events from multiple threads (e.g., background workers or async tasks),
+    /// you must ensure proper synchronization externally or use a thread-safe implementation.
+    /// </para>
+    /// <para>
+    /// The internal dictionary operations (Subscribe, Unsubscribe, Send) are not synchronized and may
+    /// cause data corruption if called concurrently from multiple threads.
+    /// </para>
+    /// </remarks>
     public static class EventBus
     {
         private static readonly Dictionary<Type, List<Delegate>> _subscribers = new();

@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using Arch.Core;
 using Arch.System;
-using Arch.System.SourceGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
 using Serilog;
 
@@ -14,12 +14,30 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for rendering tile chunks using SpriteBatch.
     /// </summary>
-    public partial class MapRendererSystem : BaseSystem<World, float>
+    public class MapRendererSystem : BaseSystem<World, float>
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly ICameraService _cameraService;
         private SpriteBatch? _spriteBatch;
         private Viewport _savedViewport;
+        private readonly QueryDescription _chunkQueryDescription;
+
+        // Reusable collection to avoid allocations in hot paths
+        private readonly List<(
+            Entity entity,
+            TileChunkComponent chunk,
+            TileDataComponent data,
+            PositionComponent pos,
+            RenderableComponent render
+        )> _chunkList =
+            new List<(
+                Entity entity,
+                TileChunkComponent chunk,
+                TileDataComponent data,
+                PositionComponent pos,
+                RenderableComponent render
+            )>();
 
         /// <summary>
         /// Initializes a new instance of the MapRendererSystem.
@@ -27,10 +45,12 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="world">The ECS world.</param>
         /// <param name="graphicsDevice">The graphics device for rendering.</param>
         /// <param name="tilesetLoader">The tileset loader service.</param>
+        /// <param name="cameraService">The camera service for querying active camera.</param>
         public MapRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
-            ITilesetLoaderService tilesetLoader
+            ITilesetLoaderService tilesetLoader,
+            ICameraService cameraService
         )
             : base(world)
         {
@@ -38,6 +58,14 @@ namespace MonoBall.Core.ECS.Systems
                 graphicsDevice ?? throw new System.ArgumentNullException(nameof(graphicsDevice));
             _tilesetLoader =
                 tilesetLoader ?? throw new System.ArgumentNullException(nameof(tilesetLoader));
+            _cameraService =
+                cameraService ?? throw new System.ArgumentNullException(nameof(cameraService));
+            _chunkQueryDescription = new QueryDescription().WithAll<
+                TileChunkComponent,
+                TileDataComponent,
+                PositionComponent,
+                RenderableComponent
+            >();
         }
 
         /// <summary>
@@ -62,7 +90,7 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get active camera
-            CameraComponent? activeCamera = GetActiveCamera();
+            CameraComponent? activeCamera = _cameraService.GetActiveCamera();
             if (!activeCamera.HasValue)
             {
                 Log.Debug("MapRendererSystem.Render: No active camera found, skipping render");
@@ -82,80 +110,74 @@ namespace MonoBall.Core.ECS.Systems
                 tileViewBounds.Height * camera.TileHeight
             );
 
-            // Query all renderable tile chunks
-            var queryDescription = new QueryDescription().WithAll<
-                TileChunkComponent,
-                TileDataComponent,
-                PositionComponent,
-                RenderableComponent
-            >();
+            // Clear reusable collection
+            _chunkList.Clear();
 
-            var chunks =
-                new List<(
-                    Entity entity,
-                    TileChunkComponent chunk,
-                    TileDataComponent data,
-                    PositionComponent pos,
-                    RenderableComponent render
-                )>();
-
-            // Query entities first, then get components for each
-            // This approach is needed because we require Entity references for optional component access
-            var entities = new List<Entity>();
+            // Single-pass query: get all required components at once for efficiency
+            // Entity reference is included in the tuple for optional AnimatedTileDataComponent access in RenderChunk
             World.Query(
-                in queryDescription,
-                (Entity entity) =>
+                in _chunkQueryDescription,
+                (
+                    Entity entity,
+                    ref TileChunkComponent chunkComp,
+                    ref TileDataComponent dataComp,
+                    ref PositionComponent posComp,
+                    ref RenderableComponent renderComp
+                ) =>
                 {
-                    entities.Add(entity);
+                    if (!renderComp.IsVisible)
+                    {
+                        return;
+                    }
+
+                    // Get tile dimensions from tileset for accurate culling
+                    var tilesetDef = _tilesetLoader.GetTilesetDefinition(dataComp.TilesetId);
+                    int tileWidth = tilesetDef?.TileWidth ?? 16; // Default to 16 if not found
+                    int tileHeight = tilesetDef?.TileHeight ?? 16;
+
+                    // Cull chunks outside visible bounds (chunks are positioned in pixels)
+                    Rectangle chunkBounds = new Rectangle(
+                        (int)posComp.Position.X,
+                        (int)posComp.Position.Y,
+                        chunkComp.ChunkWidth * tileWidth,
+                        chunkComp.ChunkHeight * tileHeight
+                    );
+
+                    if (chunkBounds.Intersects(visiblePixelBounds))
+                    {
+                        _chunkList.Add((entity, chunkComp, dataComp, posComp, renderComp));
+                    }
                 }
             );
 
-            // Get components for each entity and collect visible chunks
-            foreach (var entity in entities)
-            {
-                ref var renderComp = ref World.Get<RenderableComponent>(entity);
-                if (!renderComp.IsVisible)
-                {
-                    continue;
-                }
-
-                ref var chunkComp = ref World.Get<TileChunkComponent>(entity);
-                ref var dataComp = ref World.Get<TileDataComponent>(entity);
-                ref var posComp = ref World.Get<PositionComponent>(entity);
-
-                // Get tile dimensions from tileset for accurate culling
-                var tilesetDef = _tilesetLoader.GetTilesetDefinition(dataComp.TilesetId);
-                int tileWidth = tilesetDef?.TileWidth ?? 16; // Default to 16 if not found
-                int tileHeight = tilesetDef?.TileHeight ?? 16;
-
-                // Cull chunks outside visible bounds (chunks are positioned in pixels)
-                Rectangle chunkBounds = new Rectangle(
-                    (int)posComp.Position.X,
-                    (int)posComp.Position.Y,
-                    chunkComp.ChunkWidth * tileWidth,
-                    chunkComp.ChunkHeight * tileHeight
-                );
-
-                if (chunkBounds.Intersects(visiblePixelBounds))
-                {
-                    chunks.Add((entity, chunkComp, dataComp, posComp, renderComp));
-                }
-            }
-
             Log.Debug(
                 "MapRendererSystem.Render: Found {ChunkCount} visible chunks to render (camera at {CameraX}, {CameraY})",
-                chunks.Count,
+                _chunkList.Count,
                 camera.Position.X,
                 camera.Position.Y
             );
 
-            if (chunks.Count == 0)
+            if (_chunkList.Count == 0)
             {
                 return;
             }
 
-            // Sort by render order (layer index)
-            chunks = chunks.OrderBy(c => c.chunk.LayerIndex).ThenBy(c => c.chunk.LayerId).ToList();
+            // Sort by render order (layer index) - in-place sort to avoid allocation
+            _chunkList.Sort(
+                (a, b) =>
+                {
+                    int layerIndexComparison = a.chunk.LayerIndex.CompareTo(b.chunk.LayerIndex);
+                    if (layerIndexComparison != 0)
+                    {
+                        return layerIndexComparison;
+                    }
+                    return string.Compare(
+                        a.chunk.LayerId,
+                        b.chunk.LayerId,
+                        StringComparison.Ordinal
+                    );
+                }
+            );
 
             // Save original viewport
             _savedViewport = _graphicsDevice.Viewport;
@@ -194,7 +216,7 @@ namespace MonoBall.Core.ECS.Systems
 
                 int renderedChunks = 0;
                 int renderedTiles = 0;
-                foreach (var (entity, chunk, data, pos, render) in chunks)
+                foreach (var (entity, chunk, data, pos, render) in _chunkList)
                 {
                     var tilesRendered = RenderChunk(entity, chunk, data, pos, render);
                     if (tilesRendered > 0)
@@ -220,29 +242,6 @@ namespace MonoBall.Core.ECS.Systems
                 // Always restore original viewport, even if an exception occurred
                 _graphicsDevice.Viewport = _savedViewport;
             }
-        }
-
-        /// <summary>
-        /// Gets the active camera component.
-        /// </summary>
-        /// <returns>The active camera, or null if none found.</returns>
-        private CameraComponent? GetActiveCamera()
-        {
-            CameraComponent? activeCamera = null;
-
-            var cameraQuery = new QueryDescription().WithAll<CameraComponent>();
-            World.Query(
-                in cameraQuery,
-                (ref CameraComponent camera) =>
-                {
-                    if (camera.IsActive)
-                    {
-                        activeCamera = camera;
-                    }
-                }
-            );
-
-            return activeCamera;
         }
 
         private int RenderChunk(
@@ -363,6 +362,17 @@ namespace MonoBall.Core.ECS.Systems
             else
             {
                 // Slower path: check for animated tiles
+                // Defensive check: ensure component exists (should always exist if HasAnimatedTiles is true)
+                if (!World.Has<AnimatedTileDataComponent>(chunkEntity))
+                {
+                    Log.Warning(
+                        "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) has HasAnimatedTiles=true but missing AnimatedTileDataComponent",
+                        pos.Position.X,
+                        pos.Position.Y
+                    );
+                    return 0;
+                }
+
                 ref var animData = ref World.Get<AnimatedTileDataComponent>(chunkEntity);
 
                 // Render each tile in the chunk

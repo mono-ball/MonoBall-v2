@@ -199,7 +199,12 @@ namespace MonoBall.Core.ECS
             ); // GBA resolution
 
             // Create render systems
-            _mapRendererSystem = new MapRendererSystem(_world, _graphicsDevice, _tilesetLoader);
+            _mapRendererSystem = new MapRendererSystem(
+                _world,
+                _graphicsDevice,
+                _tilesetLoader,
+                _cameraService
+            );
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
             _npcRendererSystem = new NpcRendererSystem(
                 _world,

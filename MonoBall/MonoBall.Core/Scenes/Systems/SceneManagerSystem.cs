@@ -14,13 +14,14 @@ namespace MonoBall.Core.Scenes.Systems
     /// <summary>
     /// System responsible for managing scene lifecycle, priority stack, updates, and event handling.
     /// </summary>
-    public partial class SceneManagerSystem : BaseSystem<World, float>
+    public class SceneManagerSystem : BaseSystem<World, float>
     {
         private readonly List<Entity> _sceneStack = new List<Entity>();
         private readonly Dictionary<string, Entity> _sceneIds = new Dictionary<string, Entity>();
         private readonly Dictionary<Entity, int> _sceneInsertionOrder =
             new Dictionary<Entity, int>();
         private int _nextInsertionOrder = 0;
+        private readonly QueryDescription _cameraQueryDescription;
 
         /// <summary>
         /// Initializes a new instance of the SceneManagerSystem.
@@ -31,6 +32,7 @@ namespace MonoBall.Core.Scenes.Systems
         {
             // Subscribe to SceneMessageEvent for inter-scene communication
             EventBus.Subscribe<SceneMessageEvent>(OnSceneMessage);
+            _cameraQueryDescription = new QueryDescription().WithAll<CameraComponent>();
         }
 
         /// <summary>
@@ -76,9 +78,8 @@ namespace MonoBall.Core.Scenes.Systems
                 bool cameraFound = false;
                 bool hasCameraComponent = false;
 
-                var cameraQuery = new QueryDescription().WithAll<CameraComponent>();
                 World.Query(
-                    in cameraQuery,
+                    in _cameraQueryDescription,
                     (Entity entity, ref CameraComponent _) =>
                     {
                         if (entity.Id == cameraEntityId)
@@ -429,40 +430,34 @@ namespace MonoBall.Core.Scenes.Systems
         /// </summary>
         private void CleanupDeadEntities()
         {
-            // Remove dead entities from stack
-            var deadEntities = new List<Entity>();
-            foreach (var sceneEntity in _sceneStack)
+            // Iterate backwards to safely remove items without allocation
+            for (int i = _sceneStack.Count - 1; i >= 0; i--)
             {
+                var sceneEntity = _sceneStack[i];
                 if (!World.IsAlive(sceneEntity))
                 {
-                    deadEntities.Add(sceneEntity);
-                }
-            }
+                    _sceneStack.RemoveAt(i);
+                    _sceneInsertionOrder.Remove(sceneEntity);
 
-            // Remove dead entities and their IDs
-            foreach (var deadEntity in deadEntities)
-            {
-                _sceneStack.Remove(deadEntity);
-                _sceneInsertionOrder.Remove(deadEntity);
-
-                // Find and remove from ID lookup
-                string? sceneIdToRemove = null;
-                foreach (var kvp in _sceneIds)
-                {
-                    if (kvp.Value.Id == deadEntity.Id)
+                    // Find and remove from ID lookup
+                    string? sceneIdToRemove = null;
+                    foreach (var kvp in _sceneIds)
                     {
-                        sceneIdToRemove = kvp.Key;
-                        break;
+                        if (kvp.Value.Id == sceneEntity.Id)
+                        {
+                            sceneIdToRemove = kvp.Key;
+                            break;
+                        }
                     }
-                }
 
-                if (sceneIdToRemove != null)
-                {
-                    _sceneIds.Remove(sceneIdToRemove);
-                    Log.Debug(
-                        "SceneManagerSystem: Cleaned up dead scene entity '{SceneId}'",
-                        sceneIdToRemove
-                    );
+                    if (sceneIdToRemove != null)
+                    {
+                        _sceneIds.Remove(sceneIdToRemove);
+                        Log.Debug(
+                            "SceneManagerSystem: Cleaned up dead scene entity '{SceneId}'",
+                            sceneIdToRemove
+                        );
+                    }
                 }
             }
         }

@@ -11,7 +11,7 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for updating animation timers and advancing frames for NPC sprites.
     /// </summary>
-    public partial class NpcAnimationSystem : BaseSystem<World, float>, IDisposable
+    public class NpcAnimationSystem : BaseSystem<World, float>, IDisposable
     {
         private readonly ISpriteLoaderService _spriteLoader;
         private readonly QueryDescription _queryDescription;
@@ -137,7 +137,12 @@ namespace MonoBall.Core.ECS.Systems
         /// <summary>
         /// Disposes the system and unsubscribes from events.
         /// </summary>
-        public new void Dispose()
+        /// <remarks>
+        /// This system implements IDisposable to properly clean up event subscriptions.
+        /// The base BaseSystem class may or may not implement IDisposable, but this ensures
+        /// proper cleanup of managed resources (event subscriptions).
+        /// </remarks>
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

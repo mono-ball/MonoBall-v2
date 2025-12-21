@@ -10,9 +10,13 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for updating animation timers and advancing frames for animated tiles.
     /// </summary>
-    public partial class AnimatedTileSystem : BaseSystem<World, float>
+    public class AnimatedTileSystem : BaseSystem<World, float>
     {
         private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly QueryDescription _queryDescription;
+
+        // Reusable collection to avoid allocations in hot paths
+        private readonly List<int> _tileIndexList = new List<int>();
 
         /// <summary>
         /// Initializes a new instance of the AnimatedTileSystem.
@@ -24,6 +28,10 @@ namespace MonoBall.Core.ECS.Systems
         {
             _tilesetLoader =
                 tilesetLoader ?? throw new System.ArgumentNullException(nameof(tilesetLoader));
+            _queryDescription = new QueryDescription().WithAll<
+                AnimatedTileDataComponent,
+                TileDataComponent
+            >();
         }
 
         /// <summary>
@@ -33,12 +41,8 @@ namespace MonoBall.Core.ECS.Systems
         public override void Update(in float deltaTime)
         {
             float dt = deltaTime; // Copy to avoid ref parameter in lambda
-            var queryDescription = new QueryDescription().WithAll<
-                AnimatedTileDataComponent,
-                TileDataComponent
-            >();
             World.Query(
-                in queryDescription,
+                in _queryDescription,
                 (ref AnimatedTileDataComponent animData, ref TileDataComponent tileData) =>
                 {
                     UpdateAnimations(ref animData, ref tileData, dt);
@@ -64,9 +68,11 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Create list of keys to iterate over (to avoid modifying dictionary during enumeration)
-            var tileIndices = new List<int>(animData.AnimatedTiles.Keys);
+            // Reuse the collection to avoid allocation
+            _tileIndexList.Clear();
+            _tileIndexList.AddRange(animData.AnimatedTiles.Keys);
 
-            foreach (var tileIndex in tileIndices)
+            foreach (var tileIndex in _tileIndexList)
             {
                 var animState = animData.AnimatedTiles[tileIndex];
 

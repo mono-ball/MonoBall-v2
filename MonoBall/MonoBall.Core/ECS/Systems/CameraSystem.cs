@@ -1,7 +1,6 @@
 using System;
 using Arch.Core;
 using Arch.System;
-using Arch.System.SourceGenerator;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
 using Serilog;
@@ -11,14 +10,19 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for updating camera positions, following targets, and enforcing bounds.
     /// </summary>
-    public partial class CameraSystem : BaseSystem<World, float>
+    public class CameraSystem : BaseSystem<World, float>
     {
+        private readonly QueryDescription _queryDescription;
+
         /// <summary>
         /// Initializes a new instance of the CameraSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         public CameraSystem(World world)
-            : base(world) { }
+            : base(world)
+        {
+            _queryDescription = new QueryDescription().WithAll<CameraComponent>();
+        }
 
         /// <summary>
         /// Updates camera positions, following logic, and bounds enforcement.
@@ -27,9 +31,8 @@ namespace MonoBall.Core.ECS.Systems
         public override void Update(in float deltaTime)
         {
             float dt = deltaTime; // Copy to avoid ref parameter in lambda
-            var queryDescription = new QueryDescription().WithAll<CameraComponent>();
             World.Query(
-                in queryDescription,
+                in _queryDescription,
                 (ref CameraComponent camera) =>
                 {
                     UpdateCamera(ref camera, dt);

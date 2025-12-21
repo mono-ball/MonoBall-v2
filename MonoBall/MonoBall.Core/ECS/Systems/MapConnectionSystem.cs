@@ -1,7 +1,7 @@
 using System;
 using Arch.Core;
 using Arch.System;
-using Arch.System.SourceGenerator;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using Serilog;
@@ -11,14 +11,22 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for managing map connections and transitions.
     /// </summary>
-    public partial class MapConnectionSystem : BaseSystem<World, float>
+    public class MapConnectionSystem : BaseSystem<World, float>
     {
+        private readonly QueryDescription _connectionQueryDescription;
+
         /// <summary>
         /// Initializes a new instance of the MapConnectionSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         public MapConnectionSystem(World world)
-            : base(world) { }
+            : base(world)
+        {
+            _connectionQueryDescription = new QueryDescription().WithAll<
+                MapComponent,
+                MapConnectionComponent
+            >();
+        }
 
         /// <summary>
         /// Transitions from one map to another via a connection.
@@ -56,7 +64,7 @@ namespace MonoBall.Core.ECS.Systems
                 Direction = direction,
                 Offset = offset,
             };
-            // Note: EventBus integration will be added when we integrate with game
+            EventBus.Send(ref transitionEvent);
 
             // Additional transition logic can be added here
             // For example: camera movement, player position updates, etc.
@@ -75,15 +83,10 @@ namespace MonoBall.Core.ECS.Systems
                 return null;
             }
 
-            var queryDescription = new QueryDescription().WithAll<
-                MapComponent,
-                MapConnectionComponent
-            >();
-
             MapConnectionComponent? foundConnection = null;
 
             World.Query(
-                in queryDescription,
+                in _connectionQueryDescription,
                 (ref MapComponent mapComp, ref MapConnectionComponent connComp) =>
                 {
                     if (mapComp.MapId == mapId && connComp.Direction == direction)

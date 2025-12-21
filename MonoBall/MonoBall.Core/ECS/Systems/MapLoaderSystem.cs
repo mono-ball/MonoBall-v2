@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Arch.Core;
 using Arch.System;
-using Arch.System.SourceGenerator;
 using Microsoft.Xna.Framework;
 using MonoBall.Core;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.Maps;
@@ -18,7 +18,7 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for loading and unloading maps, creating tile chunks, and managing map connections.
     /// </summary>
-    public partial class MapLoaderSystem : BaseSystem<World, float>
+    public class MapLoaderSystem : BaseSystem<World, float>
     {
         private const int ChunkSize = GameConstants.TileChunkSize; // 16x16 tiles per chunk
         private readonly DefinitionRegistry _registry;
@@ -143,7 +143,7 @@ namespace MonoBall.Core.ECS.Systems
 
             // Fire MapLoadedEvent
             var loadedEvent = new MapLoadedEvent { MapId = mapId, MapEntity = mapEntity };
-            // Note: EventBus integration will be added when we integrate with game
+            EventBus.Send(ref loadedEvent);
 
             // Proactively load connected maps with proper positioning
             if (mapDefinition.Connections != null)
@@ -251,8 +251,7 @@ namespace MonoBall.Core.ECS.Systems
 
             // Fire MapUnloadedEvent
             var unloadedEvent = new MapUnloadedEvent { MapId = mapId };
-            // Note: EventBus integration will be added when we integrate with game
-
+            EventBus.Send(ref unloadedEvent);
             Log.Information("Map unloaded: {MapId}", mapId);
         }
 
