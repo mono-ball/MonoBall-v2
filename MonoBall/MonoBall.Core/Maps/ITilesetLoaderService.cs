@@ -49,5 +49,27 @@ namespace MonoBall.Core.Maps
         /// Unloads all tileset textures from the cache.
         /// </summary>
         void UnloadAll();
+
+        /// <summary>
+        /// Gets animation frames for a specific tile, loading and caching if not already cached.
+        /// </summary>
+        /// <param name="tilesetId">The tileset ID.</param>
+        /// <param name="localTileId">The local tile ID within the tileset.</param>
+        /// <returns>The animation frames as a readonly list, or null if the tile has no animation or is not found.</returns>
+        System.Collections.Generic.IReadOnlyList<TileAnimationFrame>? GetTileAnimation(
+            string tilesetId,
+            int localTileId
+        );
+
+        /// <summary>
+        /// Gets cached animation frames for a specific tile (fast lookup, no definition loading).
+        /// </summary>
+        /// <param name="tilesetId">The tileset ID.</param>
+        /// <param name="localTileId">The local tile ID within the tileset.</param>
+        /// <returns>The cached animation frames as a readonly list, or null if not cached.</returns>
+        System.Collections.Generic.IReadOnlyList<TileAnimationFrame>? GetCachedAnimation(
+            string tilesetId,
+            int localTileId
+        );
     }
 }

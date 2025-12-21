@@ -21,6 +21,10 @@ namespace MonoBall.Core.Maps
             new Dictionary<string, Texture2D>();
         private readonly Dictionary<string, TilesetDefinition> _definitionCache =
             new Dictionary<string, TilesetDefinition>();
+        private readonly Dictionary<
+            (string tilesetId, int localTileId),
+            IReadOnlyList<TileAnimationFrame>
+        > _animationCache = new Dictionary<(string, int), IReadOnlyList<TileAnimationFrame>>();
 
         /// <summary>
         /// Initializes a new instance of the TilesetLoaderService.
@@ -290,7 +294,87 @@ namespace MonoBall.Core.Maps
             }
             _textureCache.Clear();
             _definitionCache.Clear();
+            _animationCache.Clear();
             Log.Debug("Unloaded all tileset textures");
+        }
+
+        /// <summary>
+        /// Gets animation frames for a specific tile, loading and caching if not already cached.
+        /// </summary>
+        /// <param name="tilesetId">The tileset ID.</param>
+        /// <param name="localTileId">The local tile ID within the tileset.</param>
+        /// <returns>The animation frames as a readonly list, or null if the tile has no animation or is not found.</returns>
+        public IReadOnlyList<TileAnimationFrame>? GetTileAnimation(
+            string tilesetId,
+            int localTileId
+        )
+        {
+            if (string.IsNullOrEmpty(tilesetId))
+            {
+                return null;
+            }
+
+            var cacheKey = (tilesetId, localTileId);
+
+            // Check cache first
+            if (_animationCache.TryGetValue(cacheKey, out var cached))
+            {
+                return cached;
+            }
+
+            // Get tileset definition
+            var definition = GetTilesetDefinition(tilesetId);
+            if (definition == null)
+            {
+                return null;
+            }
+
+            // Search for the tile in the tiles list
+            if (definition.Tiles != null)
+            {
+                foreach (var tile in definition.Tiles)
+                {
+                    if (
+                        tile.LocalTileId == localTileId
+                        && tile.Animation != null
+                        && tile.Animation.Count > 0
+                    )
+                    {
+                        // Cache and return as readonly list
+                        var readonlyFrames = tile.Animation.AsReadOnly();
+                        _animationCache[cacheKey] = readonlyFrames;
+                        return readonlyFrames;
+                    }
+                }
+            }
+
+            // No animation found for this tile
+            return null;
+        }
+
+        /// <summary>
+        /// Gets cached animation frames for a specific tile (fast lookup, no definition loading).
+        /// </summary>
+        /// <param name="tilesetId">The tileset ID.</param>
+        /// <param name="localTileId">The local tile ID within the tileset.</param>
+        /// <returns>The cached animation frames as a readonly list, or null if not cached.</returns>
+        public IReadOnlyList<TileAnimationFrame>? GetCachedAnimation(
+            string tilesetId,
+            int localTileId
+        )
+        {
+            if (string.IsNullOrEmpty(tilesetId))
+            {
+                return null;
+            }
+
+            var cacheKey = (tilesetId, localTileId);
+            if (_animationCache.TryGetValue(cacheKey, out var cached))
+            {
+                return cached;
+            }
+
+            return null;
         }
     }
 }

@@ -92,45 +92,55 @@ namespace MonoBall.Core.ECS.Systems
 
             var chunks =
                 new List<(
+                    Entity entity,
                     TileChunkComponent chunk,
                     TileDataComponent data,
                     PositionComponent pos,
                     RenderableComponent render
                 )>();
 
+            // Query entities first, then get components for each
+            // This approach is needed because we require Entity references for optional component access
+            var entities = new List<Entity>();
             World.Query(
                 in queryDescription,
-                (
-                    ref TileChunkComponent chunkComp,
-                    ref TileDataComponent dataComp,
-                    ref PositionComponent posComp,
-                    ref RenderableComponent renderComp
-                ) =>
+                (Entity entity) =>
                 {
-                    if (!renderComp.IsVisible)
-                    {
-                        return;
-                    }
-
-                    // Get tile dimensions from tileset for accurate culling
-                    var tilesetDef = _tilesetLoader.GetTilesetDefinition(dataComp.TilesetId);
-                    int tileWidth = tilesetDef?.TileWidth ?? 16; // Default to 16 if not found
-                    int tileHeight = tilesetDef?.TileHeight ?? 16;
-
-                    // Cull chunks outside visible bounds (chunks are positioned in pixels)
-                    Rectangle chunkBounds = new Rectangle(
-                        (int)posComp.Position.X,
-                        (int)posComp.Position.Y,
-                        chunkComp.ChunkWidth * tileWidth,
-                        chunkComp.ChunkHeight * tileHeight
-                    );
-
-                    if (chunkBounds.Intersects(visiblePixelBounds))
-                    {
-                        chunks.Add((chunkComp, dataComp, posComp, renderComp));
-                    }
+                    entities.Add(entity);
                 }
             );
+
+            // Get components for each entity and collect visible chunks
+            foreach (var entity in entities)
+            {
+                ref var renderComp = ref World.Get<RenderableComponent>(entity);
+                if (!renderComp.IsVisible)
+                {
+                    continue;
+                }
+
+                ref var chunkComp = ref World.Get<TileChunkComponent>(entity);
+                ref var dataComp = ref World.Get<TileDataComponent>(entity);
+                ref var posComp = ref World.Get<PositionComponent>(entity);
+
+                // Get tile dimensions from tileset for accurate culling
+                var tilesetDef = _tilesetLoader.GetTilesetDefinition(dataComp.TilesetId);
+                int tileWidth = tilesetDef?.TileWidth ?? 16; // Default to 16 if not found
+                int tileHeight = tilesetDef?.TileHeight ?? 16;
+
+                // Cull chunks outside visible bounds (chunks are positioned in pixels)
+                Rectangle chunkBounds = new Rectangle(
+                    (int)posComp.Position.X,
+                    (int)posComp.Position.Y,
+                    chunkComp.ChunkWidth * tileWidth,
+                    chunkComp.ChunkHeight * tileHeight
+                );
+
+                if (chunkBounds.Intersects(visiblePixelBounds))
+                {
+                    chunks.Add((entity, chunkComp, dataComp, posComp, renderComp));
+                }
+            }
 
             Log.Debug(
                 "MapRendererSystem.Render: Found {ChunkCount} visible chunks to render (camera at {CameraX}, {CameraY})",
@@ -184,9 +194,9 @@ namespace MonoBall.Core.ECS.Systems
 
                 int renderedChunks = 0;
                 int renderedTiles = 0;
-                foreach (var (chunk, data, pos, render) in chunks)
+                foreach (var (entity, chunk, data, pos, render) in chunks)
                 {
-                    var tilesRendered = RenderChunk(chunk, data, pos, render);
+                    var tilesRendered = RenderChunk(entity, chunk, data, pos, render);
                     if (tilesRendered > 0)
                     {
                         renderedChunks++;
@@ -236,6 +246,7 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         private int RenderChunk(
+            Entity chunkEntity,
             TileChunkComponent chunk,
             TileDataComponent data,
             PositionComponent pos,
@@ -295,54 +306,139 @@ namespace MonoBall.Core.ECS.Systems
             int emptyTiles = 0;
             int invalidGids = 0;
 
-            // Render each tile in the chunk
-            for (int y = 0; y < chunk.ChunkHeight; y++)
+            // Fast path: if no animated tiles, render all tiles normally
+            if (!data.HasAnimatedTiles)
             {
-                for (int x = 0; x < chunk.ChunkWidth; x++)
+                // Render each tile in the chunk (fast path - no animation checks)
+                for (int y = 0; y < chunk.ChunkHeight; y++)
                 {
-                    int tileIndex = y * chunk.ChunkWidth + x;
-                    if (tileIndex >= data.TileIndices.Length)
+                    for (int x = 0; x < chunk.ChunkWidth; x++)
                     {
-                        continue;
-                    }
+                        int tileIndex = y * chunk.ChunkWidth + x;
+                        if (tileIndex >= data.TileIndices.Length)
+                        {
+                            continue;
+                        }
 
-                    int gid = data.TileIndices[tileIndex];
+                        int gid = data.TileIndices[tileIndex];
 
-                    // Skip empty tiles (GID 0 or negative)
-                    if (gid <= 0)
-                    {
-                        emptyTiles++;
-                        continue;
-                    }
+                        // Skip empty tiles (GID 0 or negative)
+                        if (gid <= 0)
+                        {
+                            emptyTiles++;
+                            continue;
+                        }
 
-                    // Calculate source rectangle for this tile
-                    var sourceRect = _tilesetLoader.CalculateSourceRectangle(
-                        data.TilesetId,
-                        gid,
-                        data.FirstGid
-                    );
-                    if (sourceRect == null)
-                    {
-                        invalidGids++;
-                        Log.Debug(
-                            "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
-                            gid,
+                        // Calculate source rectangle for this tile
+                        var sourceRect = _tilesetLoader.CalculateSourceRectangle(
                             data.TilesetId,
+                            gid,
                             data.FirstGid
                         );
-                        continue;
+                        if (sourceRect == null)
+                        {
+                            invalidGids++;
+                            Log.Debug(
+                                "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
+                                gid,
+                                data.TilesetId,
+                                data.FirstGid
+                            );
+                            continue;
+                        }
+
+                        // Calculate world position for this tile
+                        Vector2 tilePosition = new Vector2(
+                            pos.Position.X + x * tilesetDefinition.TileWidth,
+                            pos.Position.Y + y * tilesetDefinition.TileHeight
+                        );
+
+                        // Draw the tile
+                        _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect.Value, color);
+
+                        tilesRendered++;
                     }
+                }
+            }
+            else
+            {
+                // Slower path: check for animated tiles
+                ref var animData = ref World.Get<AnimatedTileDataComponent>(chunkEntity);
 
-                    // Calculate world position for this tile
-                    Vector2 tilePosition = new Vector2(
-                        pos.Position.X + x * tilesetDefinition.TileWidth,
-                        pos.Position.Y + y * tilesetDefinition.TileHeight
-                    );
+                // Render each tile in the chunk
+                for (int y = 0; y < chunk.ChunkHeight; y++)
+                {
+                    for (int x = 0; x < chunk.ChunkWidth; x++)
+                    {
+                        int tileIndex = y * chunk.ChunkWidth + x;
+                        if (tileIndex >= data.TileIndices.Length)
+                        {
+                            continue;
+                        }
 
-                    // Draw the tile
-                    _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect.Value, color);
+                        int gid = data.TileIndices[tileIndex];
 
-                    tilesRendered++;
+                        // Skip empty tiles (GID 0 or negative)
+                        if (gid <= 0)
+                        {
+                            emptyTiles++;
+                            continue;
+                        }
+
+                        // Determine render GID (use animated frame if this tile is animated)
+                        int renderGid = gid;
+                        if (
+                            animData.AnimatedTiles != null
+                            && animData.AnimatedTiles.TryGetValue(tileIndex, out var animState)
+                        )
+                        {
+                            // Get animation frames from cache
+                            var frames = _tilesetLoader.GetCachedAnimation(
+                                animState.AnimationTilesetId,
+                                animState.AnimationLocalTileId
+                            );
+
+                            if (
+                                frames != null
+                                && frames.Count > 0
+                                && animState.CurrentFrameIndex < frames.Count
+                            )
+                            {
+                                // Use current animation frame's tile ID
+                                var currentFrame = frames[animState.CurrentFrameIndex];
+                                renderGid = currentFrame.TileId + data.FirstGid;
+                            }
+                        }
+
+                        // Calculate source rectangle for this tile
+                        var sourceRect = _tilesetLoader.CalculateSourceRectangle(
+                            data.TilesetId,
+                            renderGid,
+                            data.FirstGid
+                        );
+                        if (sourceRect == null)
+                        {
+                            invalidGids++;
+                            Log.Debug(
+                                "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
+                                renderGid,
+                                data.TilesetId,
+                                data.FirstGid
+                            );
+                            continue;
+                        }
+
+                        // Calculate world position for this tile
+                        Vector2 tilePosition = new Vector2(
+                            pos.Position.X + x * tilesetDefinition.TileWidth,
+                            pos.Position.Y + y * tilesetDefinition.TileHeight
+                        );
+
+                        // Draw the tile
+                        _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect.Value, color);
+
+                        tilesRendered++;
+                    }
                 }
             }
 

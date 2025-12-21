@@ -32,6 +32,7 @@ namespace MonoBall.Core.ECS
         private CameraSystem _cameraSystem = null!; // Initialized in Initialize()
         private CameraViewportSystem _cameraViewportSystem = null!; // Initialized in Initialize()
         private MapRendererSystem _mapRendererSystem = null!; // Initialized in Initialize()
+        private AnimatedTileSystem _animatedTileSystem = null!; // Initialized in Initialize()
         private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
         private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
@@ -187,6 +188,9 @@ namespace MonoBall.Core.ECS
             _mapRendererSystem = new MapRendererSystem(_world, _graphicsDevice, _tilesetLoader);
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
 
+            // Create animation system
+            _animatedTileSystem = new AnimatedTileSystem(_world, _tilesetLoader);
+
             // Create scene systems
             _sceneManagerSystem = new SceneManagerSystem(_world);
             _sceneInputSystem = new SceneInputSystem(_world, _sceneManagerSystem);
@@ -205,6 +209,7 @@ namespace MonoBall.Core.ECS
                 _mapConnectionSystem,
                 _cameraSystem,
                 _cameraViewportSystem,
+                _animatedTileSystem,
                 _sceneManagerSystem,
                 _sceneInputSystem
             );
@@ -272,6 +277,7 @@ namespace MonoBall.Core.ECS
             _cameraSystem = null!;
             _cameraViewportSystem = null!;
             _mapRendererSystem = null!;
+            _animatedTileSystem = null!;
             _sceneManagerSystem = null!;
             _sceneInputSystem = null!;
             _sceneRendererSystem = null!;

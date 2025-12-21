@@ -19,5 +19,11 @@ namespace MonoBall.Core.ECS.Components
         /// The first GID (Global ID) for the tileset.
         /// </summary>
         public int FirstGid { get; set; }
+
+        /// <summary>
+        /// Indicates whether this chunk contains any animated tiles.
+        /// Used for fast-path optimization in the renderer to avoid World.Has<> checks.
+        /// </summary>
+        public bool HasAnimatedTiles { get; set; }
     }
 }

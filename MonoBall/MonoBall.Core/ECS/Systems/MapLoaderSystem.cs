@@ -423,6 +423,44 @@ namespace MonoBall.Core.ECS.Systems
                             }
                         }
 
+                        // Detect animated tiles in this chunk
+                        var animatedTiles = new System.Collections.Generic.Dictionary<
+                            int,
+                            Components.TileAnimationState
+                        >();
+                        bool hasAnimatedTiles = false;
+
+                        if (_tilesetLoader != null)
+                        {
+                            for (int i = 0; i < chunkTileIndices.Length; i++)
+                            {
+                                int gid = chunkTileIndices[i];
+                                if (gid > 0)
+                                {
+                                    int localTileId = gid - firstGid;
+                                    if (localTileId >= 0)
+                                    {
+                                        var animation = _tilesetLoader.GetTileAnimation(
+                                            tilesetId,
+                                            localTileId
+                                        );
+                                        if (animation != null && animation.Count > 0)
+                                        {
+                                            var animState = new Components.TileAnimationState
+                                            {
+                                                AnimationTilesetId = tilesetId,
+                                                AnimationLocalTileId = localTileId,
+                                                CurrentFrameIndex = 0,
+                                                ElapsedTime = 0.0f,
+                                            };
+                                            animatedTiles[i] = animState;
+                                            hasAnimatedTiles = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         // Calculate world position for chunk (relative to map's tile position)
                         // Convert chunk tile coordinates to pixel coordinates, offset by map position
                         Vector2 chunkPosition = new Vector2(
@@ -430,32 +468,72 @@ namespace MonoBall.Core.ECS.Systems
                             (mapTilePosition.Y + chunkStartY) * mapDefinition.TileHeight
                         );
 
-                        // Create chunk entity
-                        var chunkEntity = World.Create(
-                            new MapComponent { MapId = mapDefinition.Id },
-                            new TileChunkComponent
-                            {
-                                ChunkX = chunkX,
-                                ChunkY = chunkY,
-                                ChunkWidth = chunkWidth,
-                                ChunkHeight = chunkHeight,
-                                LayerId = layer.LayerId,
-                                LayerIndex = layerIndex,
-                            },
-                            new TileDataComponent
-                            {
-                                TilesetId = tilesetId,
-                                TileIndices = chunkTileIndices,
-                                FirstGid = firstGid,
-                            },
-                            new PositionComponent { Position = chunkPosition },
-                            new RenderableComponent
-                            {
-                                IsVisible = true,
-                                RenderOrder = layerIndex,
-                                Opacity = layer.Opacity,
-                            }
-                        );
+                        // Create chunk entity with components
+                        Entity chunkEntity;
+                        if (hasAnimatedTiles)
+                        {
+                            // Create with AnimatedTileDataComponent
+                            chunkEntity = World.Create(
+                                new MapComponent { MapId = mapDefinition.Id },
+                                new TileChunkComponent
+                                {
+                                    ChunkX = chunkX,
+                                    ChunkY = chunkY,
+                                    ChunkWidth = chunkWidth,
+                                    ChunkHeight = chunkHeight,
+                                    LayerId = layer.LayerId,
+                                    LayerIndex = layerIndex,
+                                },
+                                new TileDataComponent
+                                {
+                                    TilesetId = tilesetId,
+                                    TileIndices = chunkTileIndices,
+                                    FirstGid = firstGid,
+                                    HasAnimatedTiles = hasAnimatedTiles,
+                                },
+                                new PositionComponent { Position = chunkPosition },
+                                new RenderableComponent
+                                {
+                                    IsVisible = true,
+                                    RenderOrder = layerIndex,
+                                    Opacity = layer.Opacity,
+                                },
+                                new Components.AnimatedTileDataComponent
+                                {
+                                    AnimatedTiles = animatedTiles,
+                                }
+                            );
+                        }
+                        else
+                        {
+                            // Create without AnimatedTileDataComponent
+                            chunkEntity = World.Create(
+                                new MapComponent { MapId = mapDefinition.Id },
+                                new TileChunkComponent
+                                {
+                                    ChunkX = chunkX,
+                                    ChunkY = chunkY,
+                                    ChunkWidth = chunkWidth,
+                                    ChunkHeight = chunkHeight,
+                                    LayerId = layer.LayerId,
+                                    LayerIndex = layerIndex,
+                                },
+                                new TileDataComponent
+                                {
+                                    TilesetId = tilesetId,
+                                    TileIndices = chunkTileIndices,
+                                    FirstGid = firstGid,
+                                    HasAnimatedTiles = hasAnimatedTiles,
+                                },
+                                new PositionComponent { Position = chunkPosition },
+                                new RenderableComponent
+                                {
+                                    IsVisible = true,
+                                    RenderOrder = layerIndex,
+                                    Opacity = layer.Opacity,
+                                }
+                            );
+                        }
 
                         // Track chunk entity for unloading
                         _mapChunkEntities[mapDefinition.Id].Add(chunkEntity);
