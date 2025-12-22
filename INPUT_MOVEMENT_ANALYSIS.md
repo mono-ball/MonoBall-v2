@@ -74,3 +74,4 @@
 2. **MovementSystem.cs**: Check for pending MovementRequest before setting RunningState to NotMoving
 3. **PlayerMovementAnimationSystem.cs**: Ensure animation state matches movement state (should be fine after MovementSystem fix)
 
+

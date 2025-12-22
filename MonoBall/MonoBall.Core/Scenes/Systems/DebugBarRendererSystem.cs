@@ -131,7 +131,9 @@ namespace MonoBall.Core.Scenes.Systems
             var font = _debugFont?.GetFont(FontSize);
             if (font == null)
             {
-                _logger.Warning("Failed to get font from FontSystem. Debug bar will not render text.");
+                _logger.Warning(
+                    "Failed to get font from FontSystem. Debug bar will not render text."
+                );
                 return;
             }
 
