@@ -107,12 +107,22 @@ namespace MonoBall.Core.ECS.Systems
             // Get visible tile bounds from camera (in tile coordinates)
             Rectangle tileViewBounds = camera.GetTileViewBounds();
 
+            // Expand bounds slightly to include edge chunks that might be partially visible
+            // This prevents empty rows/columns when moving near map edges
+            int expandTiles = 1; // Expand by 1 tile in each direction
+            Rectangle expandedTileBounds = new Rectangle(
+                tileViewBounds.X - expandTiles,
+                tileViewBounds.Y - expandTiles,
+                tileViewBounds.Width + (expandTiles * 2),
+                tileViewBounds.Height + (expandTiles * 2)
+            );
+
             // Convert to pixel bounds for culling chunks (chunks are positioned in pixels)
             Rectangle visiblePixelBounds = new Rectangle(
-                tileViewBounds.X * camera.TileWidth,
-                tileViewBounds.Y * camera.TileHeight,
-                tileViewBounds.Width * camera.TileWidth,
-                tileViewBounds.Height * camera.TileHeight
+                expandedTileBounds.X * camera.TileWidth,
+                expandedTileBounds.Y * camera.TileHeight,
+                expandedTileBounds.Width * camera.TileWidth,
+                expandedTileBounds.Height * camera.TileHeight
             );
 
             // Clear reusable collection
