@@ -42,6 +42,8 @@ namespace MonoBall.Core.ECS
         private SpriteRendererSystem _spriteRendererSystem = null!; // Initialized in Initialize()
         private SpriteSheetSystem _spriteSheetSystem = null!; // Initialized in Initialize()
         private PlayerSystem _playerSystem = null!; // Initialized in Initialize()
+        private InputSystem _inputSystem = null!; // Initialized in Initialize()
+        private MovementSystem _movementSystem = null!; // Initialized in Initialize()
         private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
         private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
@@ -282,6 +284,31 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<PlayerSystem>()
             );
 
+            // Create input and movement services
+            var inputBuffer = new Services.InputBuffer(
+                GameConstants.InputBufferMaxSize,
+                GameConstants.InputBufferTimeoutSeconds
+            );
+            var inputBindingService = new Services.InputBindingService();
+            var nullInputBlocker = new Services.NullInputBlocker();
+            var nullCollisionService = new Services.NullCollisionService();
+
+            // Create input system
+            _inputSystem = new InputSystem(
+                _world,
+                nullInputBlocker,
+                inputBuffer,
+                inputBindingService,
+                LoggerFactory.CreateLogger<InputSystem>()
+            );
+
+            // Create movement system (handles animation state directly, matching oldmonoball architecture)
+            _movementSystem = new MovementSystem(
+                _world,
+                nullCollisionService,
+                LoggerFactory.CreateLogger<MovementSystem>()
+            );
+
             // Create scene systems
             _sceneManagerSystem = new SceneManagerSystem(
                 _world,
@@ -304,16 +331,19 @@ namespace MonoBall.Core.ECS
 
             // Group update systems (including scene systems)
             // SpriteSheetSystem is added early to ensure it's initialized before systems that might publish SpriteSheetChangeRequestEvent
-            // PlayerSystem runs before CameraSystem to ensure player position updates before camera follows
+            // InputSystem runs first (Priority 0) to process input and create MovementRequest components
+            // MovementSystem runs after InputSystem (Priority 90) to process MovementRequest, update movement, AND handle animation
             _updateSystems = new Group<float>(
                 "UpdateSystems",
                 _mapLoaderSystem,
                 _mapConnectionSystem,
-                _playerSystem, // Player position updates before camera follows
-                _cameraSystem, // Camera follows player (runs after player updates)
+                _playerSystem, // Player initialization only (no per-frame updates)
+                _inputSystem, // Priority 0: Process input, create MovementRequest
+                _movementSystem, // Priority 90: Process MovementRequest, update movement and animation
+                _cameraSystem, // Camera follows player (runs after movement updates)
                 _cameraViewportSystem,
                 _animatedTileSystem,
-                _spriteAnimationSystem,
+                _spriteAnimationSystem, // Animation frame updates (CurrentFrame, FrameTimer)
                 _spriteSheetSystem,
                 _sceneManagerSystem,
                 _sceneInputSystem
@@ -387,6 +417,8 @@ namespace MonoBall.Core.ECS
             _spriteRendererSystem = null!;
             _spriteSheetSystem = null!;
             _playerSystem = null!;
+            _inputSystem = null!;
+            _movementSystem = null!;
             _sceneManagerSystem = null!;
             _sceneInputSystem = null!;
             _sceneRendererSystem = null!;

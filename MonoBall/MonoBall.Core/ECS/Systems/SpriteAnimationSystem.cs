@@ -75,7 +75,18 @@ namespace MonoBall.Core.ECS.Systems
                         entity,
                         anim.CurrentAnimationName
                     );
-                    UpdateAnimation(entity, npc.SpriteId, ref anim, dt);
+                    bool animationLoops = _spriteLoader.GetAnimationLoops(
+                        npc.SpriteId,
+                        anim.CurrentAnimationName
+                    );
+
+                    // Set FlipHorizontal from animation manifest (matches oldmonoball line 130)
+                    anim.FlipHorizontal = _spriteLoader.GetAnimationFlipHorizontal(
+                        npc.SpriteId,
+                        anim.CurrentAnimationName
+                    );
+
+                    UpdateAnimation(entity, npc.SpriteId, ref anim, dt, animationLoops);
                     CheckAndPublishAnimationChange(
                         entity,
                         previousAnimationName,
@@ -99,7 +110,24 @@ namespace MonoBall.Core.ECS.Systems
                         entity,
                         anim.CurrentAnimationName
                     );
-                    UpdateAnimation(entity, spriteSheet.CurrentSpriteSheetId, ref anim, dt);
+                    bool animationLoops = _spriteLoader.GetAnimationLoops(
+                        spriteSheet.CurrentSpriteSheetId,
+                        anim.CurrentAnimationName
+                    );
+
+                    // Set FlipHorizontal from animation manifest (matches oldmonoball line 130)
+                    anim.FlipHorizontal = _spriteLoader.GetAnimationFlipHorizontal(
+                        spriteSheet.CurrentSpriteSheetId,
+                        anim.CurrentAnimationName
+                    );
+
+                    UpdateAnimation(
+                        entity,
+                        spriteSheet.CurrentSpriteSheetId,
+                        ref anim,
+                        dt,
+                        animationLoops
+                    );
                     CheckAndPublishAnimationChange(
                         entity,
                         previousAnimationName,
@@ -166,18 +194,27 @@ namespace MonoBall.Core.ECS.Systems
 
         /// <summary>
         /// Updates animation timer and advances frame for a single sprite.
+        /// Handles PlayOnce mode and sets IsComplete when animation finishes.
         /// </summary>
         /// <param name="entity">The entity.</param>
         /// <param name="spriteId">The sprite ID.</param>
         /// <param name="anim">The sprite animation component.</param>
         /// <param name="deltaTime">The elapsed time since last update in seconds.</param>
+        /// <param name="animationLoops">Whether the animation definition has Loop=true.</param>
         private void UpdateAnimation(
             Entity entity,
             string spriteId,
             ref SpriteAnimationComponent anim,
-            float deltaTime
+            float deltaTime,
+            bool animationLoops
         )
         {
+            // Skip if not playing
+            if (!anim.IsPlaying)
+            {
+                return;
+            }
+
             // Get animation frames from cache
             var frames = _spriteLoader.GetAnimationFrames(spriteId, anim.CurrentAnimationName);
 
@@ -216,11 +253,28 @@ namespace MonoBall.Core.ECS.Systems
                 // Subtract frame duration for frame-perfect timing
                 anim.ElapsedTime -= frameDurationSeconds;
 
-                // Advance to next frame (loop to 0 when reaching end)
+                // Advance to next frame
                 anim.CurrentFrameIndex++;
+
+                // Handle end of animation sequence
                 if (anim.CurrentFrameIndex >= frameCount)
                 {
-                    anim.CurrentFrameIndex = 0;
+                    // PlayOnce overrides Loop setting - treat as non-looping
+                    if (animationLoops && !anim.PlayOnce)
+                    {
+                        // Animation loops - reset to first frame
+                        anim.CurrentFrameIndex = 0;
+                        anim.TriggeredEventFrames = 0; // Reset event triggers on loop
+                    }
+                    else
+                    {
+                        // Non-looping animation completed (or PlayOnce completed one cycle)
+                        anim.CurrentFrameIndex = frameCount - 1;
+                        anim.IsComplete = true;
+                        anim.IsPlaying = false;
+                        // Don't advance further - animation is done
+                        break;
+                    }
                 }
 
                 // Defensive check: ensure index is still valid before accessing
@@ -245,6 +299,10 @@ namespace MonoBall.Core.ECS.Systems
                 ref var anim = ref World.Get<SpriteAnimationComponent>(evt.Entity);
                 anim.CurrentFrameIndex = 0;
                 anim.ElapsedTime = 0.0f;
+                anim.IsPlaying = true;
+                anim.IsComplete = false;
+                anim.TriggeredEventFrames = 0;
+                // NOTE: PlayOnce should be set by the system that changes the animation (e.g., MovementSystem), not here
 
                 // Update stored previous animation name
                 _previousAnimationNames[evt.Entity] = evt.NewAnimationName;

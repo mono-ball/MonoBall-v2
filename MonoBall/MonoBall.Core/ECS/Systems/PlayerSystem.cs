@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
@@ -160,6 +162,13 @@ namespace MonoBall.Core.ECS.Systems
                 throwOnInvalid: true
             );
 
+            // Convert pixel position to grid coordinates for PositionComponent
+            int tileSize = GameConstants.TileSize;
+            int gridX = (int)(position.X / tileSize);
+            int gridY = (int)(position.Y / tileSize);
+            float pixelX = gridX * tileSize;
+            float pixelY = gridY * tileSize;
+
             // Create player entity with all required components
             var playerEntity = World.Create(
                 new PlayerComponent { PlayerId = "player:main", Name = "May" },
@@ -170,8 +179,35 @@ namespace MonoBall.Core.ECS.Systems
                     CurrentFrameIndex = 0,
                     ElapsedTime = 0.0f,
                     FlipHorizontal = false,
+                    IsPlaying = true,
+                    IsComplete = false,
+                    PlayOnce = false,
+                    TriggeredEventFrames = 0,
                 },
-                new PositionComponent { Position = position },
+                new PositionComponent
+                {
+                    X = gridX,
+                    Y = gridY,
+                    PixelX = pixelX,
+                    PixelY = pixelY,
+                },
+                new GridMovement(GameConstants.DefaultPlayerMovementSpeed)
+                {
+                    FacingDirection = Direction.South,
+                    MovementDirection = Direction.South,
+                    RunningState = RunningState.NotMoving,
+                },
+                new InputState
+                {
+                    InputEnabled = true,
+                    PressedDirection = Direction.None,
+                    ActionPressed = false,
+                    InputBufferTime = 0f,
+                    PressedActions = new HashSet<InputAction>(),
+                    JustPressedActions = new HashSet<InputAction>(),
+                    JustReleasedActions = new HashSet<InputAction>(),
+                },
+                new DirectionComponent { Value = Direction.South },
                 new RenderableComponent
                 {
                     IsVisible = true,
@@ -184,10 +220,12 @@ namespace MonoBall.Core.ECS.Systems
             _playerCreated = true;
 
             Log.Information(
-                "PlayerSystem.CreatePlayerEntity: Created player entity {EntityId} at position ({X}, {Y}) with sprite sheet {SpriteSheetId} and animation {AnimationName}",
+                "PlayerSystem.CreatePlayerEntity: Created player entity {EntityId} at grid position ({GridX}, {GridY}), pixel position ({PixelX}, {PixelY}) with sprite sheet {SpriteSheetId} and animation {AnimationName}",
                 playerEntity.Id,
-                position.X,
-                position.Y,
+                gridX,
+                gridY,
+                pixelX,
+                pixelY,
                 initialSpriteSheetId,
                 initialAnimation
             );

@@ -368,6 +368,62 @@ namespace MonoBall.Core.Maps
         }
 
         /// <summary>
+        /// Gets whether an animation should loop.
+        /// </summary>
+        /// <param name="spriteId">The sprite ID.</param>
+        /// <param name="animationName">The animation name.</param>
+        /// <returns>True if the animation loops, false otherwise. Returns true if animation not found (default behavior).</returns>
+        public bool GetAnimationLoops(string spriteId, string animationName)
+        {
+            if (string.IsNullOrEmpty(spriteId) || string.IsNullOrEmpty(animationName))
+            {
+                return true;
+            }
+
+            var definition = GetSpriteDefinition(spriteId);
+            if (definition == null)
+            {
+                return true;
+            }
+
+            var animation = definition.Animations?.FirstOrDefault(a => a.Name == animationName);
+            if (animation == null)
+            {
+                return true;
+            }
+
+            return animation.Loop;
+        }
+
+        /// <summary>
+        /// Gets whether an animation should be horizontally flipped.
+        /// </summary>
+        /// <param name="spriteId">The sprite ID.</param>
+        /// <param name="animationName">The animation name.</param>
+        /// <returns>True if the animation should be flipped, false otherwise.</returns>
+        public bool GetAnimationFlipHorizontal(string spriteId, string animationName)
+        {
+            if (string.IsNullOrEmpty(spriteId) || string.IsNullOrEmpty(animationName))
+            {
+                return false;
+            }
+
+            var definition = GetSpriteDefinition(spriteId);
+            if (definition == null)
+            {
+                return false;
+            }
+
+            var animation = definition.Animations?.FirstOrDefault(a => a.Name == animationName);
+            if (animation == null)
+            {
+                return false;
+            }
+
+            return animation.FlipHorizontal;
+        }
+
+        /// <summary>
         /// Gets or creates a placeholder texture for missing sprites.
         /// </summary>
         /// <returns>A placeholder texture (magenta square).</returns>

@@ -56,5 +56,31 @@ namespace MonoBall.Core
         /// Default player initial animation name.
         /// </summary>
         public const string DefaultPlayerInitialAnimation = "face_south";
+
+        /// <summary>
+        /// Default player movement speed in tiles per second.
+        /// Matches MonoBall's default: 4.0 tiles per second.
+        /// </summary>
+        public const float DefaultPlayerMovementSpeed = 4.0f;
+
+        /// <summary>
+        /// Tile size in pixels (matches DefaultTileWidth/Height).
+        /// Used for tile-based movement calculations.
+        /// </summary>
+        public const int TileSize = 16;
+
+        /// <summary>
+        /// Input buffer timeout in seconds.
+        /// Inputs expire after this time (default: 200ms).
+        /// Matches MonoBall's default: 0.2f.
+        /// </summary>
+        public const float InputBufferTimeoutSeconds = 0.2f;
+
+        /// <summary>
+        /// Maximum number of inputs in buffer.
+        /// Prevents buffer overflow (default: 5).
+        /// Matches MonoBall's default: 5.
+        /// </summary>
+        public const int InputBufferMaxSize = 5;
     }
 }

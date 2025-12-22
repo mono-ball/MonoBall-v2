@@ -1,350 +1,361 @@
-# Architecture Analysis: Player Entity Implementation Plan
+# Architecture Analysis - Uncommitted Changes
 
-## Critical Architecture Problems
+## Summary
 
-### 1. **Query Complexity and Performance Issue**
+Analysis of uncommitted changes for architecture issues, Arch ECS query/event issues, SOLID/DRY violations, and other rule violations.
 
-**Problem:**
-The plan requires querying for `WithAny<NpcComponent, PlayerComponent>()` and then checking for optional `SpriteSheetComponent` inside the lambda. In Arch ECS, you cannot query for optional components efficiently.
+---
 
-**Current Plan:**
+## 🔴 Critical Issues
+
+### 1. Backward Compatibility Violation (PositionComponent)
+
+**Location**: `MonoBall.Core/ECS/Components/PositionComponent.cs`
+
+**Issue**: The `Position` property maintains backward compatibility with existing code, violating the project rule: **"NEVER maintain backward compatibility - refactor APIs freely when improvements are needed"**.
+
+**Current Code**:
 ```csharp
-// This doesn't work well - SpriteSheetComponent is optional
-World.Query(in query, (ref NpcComponent npc, ref PlayerComponent player, ...) => {
-    string spriteId;
-    if (World.Has<SpriteSheetComponent>(entity)) {
-        // Player path
-    } else {
-        // NPC path
+/// <summary>
+/// Gets or sets the world position in pixels (backward compatibility property).
+/// This property maintains compatibility with existing code that uses Position.
+/// Setting this property automatically syncs pixel coordinates to grid coordinates.
+/// </summary>
+public Vector2 Position
+{
+    get => new Vector2(PixelX, PixelY);
+    set
+    {
+        PixelX = value.X;
+        PixelY = value.Y;
+        SyncPixelsToGrid();
     }
-});
-```
-
-**Issues:**
-- `World.Has<T>()` check inside hot path (rendering/animation) is inefficient
-- Can't use `WithAny` for optional components in a clean way
-- Forces branching logic in every iteration
-
-**Solutions:**
-1. **Separate Queries** (Recommended): Query NPCs and Players separately
-   ```csharp
-   // Query 1: NPCs (no SpriteSheetComponent)
-   _npcQuery = new QueryDescription()
-       .WithAll<NpcComponent, SpriteAnimationComponent>()
-       .WithNone<SpriteSheetComponent>();
-   
-   // Query 2: Players (with SpriteSheetComponent)
-   _playerQuery = new QueryDescription()
-       .WithAll<PlayerComponent, SpriteSheetComponent, SpriteAnimationComponent>();
-   ```
-
-2. **Unified SpriteComponent**: Create a generic `SpriteComponent` that both NPCs and Players use
-   ```csharp
-   public struct SpriteComponent {
-       public string SpriteId { get; set; }
-   }
-   // NPCs: Set once, never change
-   // Players: Update when sprite sheet changes
-   ```
-
-3. **Make SpriteSheetComponent Required for Players**: Always add it, never optional
-
----
-
-### 2. **Component Design Inconsistency**
-
-**Problem:**
-NPCs use `NpcComponent.SpriteId` (single sprite), Players use `SpriteSheetComponent.CurrentSpriteSheetId` (multiple sprites). This creates:
-- Different code paths for similar functionality
-- Future refactoring needed if NPCs need multiple sprites
-- Complexity in systems that need sprite information
-
-**Better Approach:**
-Use a unified `SpriteComponent` that both entity types use:
-```csharp
-public struct SpriteComponent {
-    public string SpriteId { get; set; } // Current active sprite
 }
 ```
 
-- NPCs: Set once during creation, never changes
-- Players: Updated when sprite sheet changes
-- Systems: Always query `SpriteComponent.SpriteId` (consistent)
+**Problem**: 
+- The component explicitly maintains backward compatibility
+- Documentation states "maintains compatibility with existing code"
+- This violates the "No Backward Compatibility" rule
 
-**Alternative:** Keep current design but make it explicit that `SpriteSheetComponent` is the "multi-sprite" version, and NPCs could use it too if needed.
+**Recommendation**: 
+- Remove the `Position` property entirely
+- Update all call sites to use `PixelX` and `PixelY` directly
+- Search codebase for usages and update them
+
+**Impact**: Medium - Requires finding and updating all usages of `PositionComponent.Position`
 
 ---
 
-### 3. **System Coupling and Responsibility**
+### 2. Component Contains Behavior (SpriteAnimationComponent)
 
-**Problem:**
-`PlayerSystem.SwitchSpriteSheet()` is a public method that other systems must call directly. This creates:
-- Tight coupling (systems need PlayerSystem reference)
-- Hard to test (must mock PlayerSystem)
-- Violates ECS principle (systems shouldn't directly call each other)
+**Location**: `MonoBall.Core/ECS/Components/SpriteAnimationComponent.cs`
 
-**Better Approach:**
-Use events or component-based operations:
+**Issue**: Components should be pure data (value types), but `SpriteAnimationComponent` contains methods that modify state.
 
-**Option A: Events (Recommended)**
+**Current Code**:
 ```csharp
-// Input/Movement system publishes event
-EventBus.Publish(new SpriteSheetChangeRequestEvent {
-    Entity = playerEntity,
-    NewSpriteSheetId = "base:sprite:players/may/machbike",
-    AnimationName = "face_south"
-});
+public void ChangeAnimation(string animationName, bool forceRestart = false, bool playOnce = false)
+public void Reset()
+public void Pause()
+public void Resume()
+public void Stop()
+```
 
-// PlayerSystem subscribes and handles
-private void OnSpriteSheetChangeRequest(SpriteSheetChangeRequestEvent evt) {
-    // Validate and switch
+**Problem**: 
+- Components should store data only, not behavior
+- Methods like `ChangeAnimation`, `Reset`, `Pause`, etc. are behavior, not data
+- This violates ECS component design principles
+
+**Recommendation**: 
+- Move these methods to a helper class or extension methods
+- Or handle animation state changes in `SpriteAnimationSystem` or `MovementSystem`
+- Components should only have properties
+
+**Impact**: Medium - Architectural violation but may be intentional for convenience
+
+---
+
+## 🟡 Architecture Issues
+
+### 3. Code Duplication - Movement Completion Logic
+
+**Location**: `MonoBall.Core/ECS/Systems/MovementSystem.cs`
+
+**Issue**: `ProcessMovementWithAnimation` and `ProcessMovementNoAnimation` contain duplicated logic for:
+- Movement progress calculation
+- Movement completion (snapping to target, calculating old position)
+- Event publishing
+- Position interpolation
+
+**Duplicated Code Sections**:
+- Lines 220-277 (with animation) vs Lines 364-418 (no animation)
+- Movement completion logic is nearly identical
+- Position interpolation is identical
+- Event publishing is identical
+
+**Recommendation**: 
+- Extract common movement update logic into private methods:
+  - `UpdateMovementProgress(ref GridMovement movement, float deltaTime)`
+  - `CompleteMovement(Entity entity, ref PositionComponent position, ref GridMovement movement)`
+  - `InterpolatePosition(ref PositionComponent position, ref GridMovement movement)`
+- Only handle animation-specific logic in the separate methods
+
+**Impact**: Medium - Violates DRY principle, makes maintenance harder
+
+---
+
+### 4. Code Duplication - Map ID Retrieval
+
+**Location**: `MonoBall.Core/ECS/Systems/MovementSystem.cs`
+
+**Issue**: Map ID retrieval logic is duplicated in multiple places:
+- Lines 104-110 (ProcessMovementRequests)
+- Lines 258-264 (ProcessMovementWithAnimation)
+- Lines 384-390 (ProcessMovementNoAnimation)
+
+**Current Pattern**:
+```csharp
+string? mapId = null;
+if (World.Has<MapComponent>(entity))
+{
+    ref var mapComponent = ref World.Get<MapComponent>(entity);
+    mapId = mapComponent.MapId;
 }
 ```
 
-**Option B: Component-Based**
+**Recommendation**: 
+- Extract to helper method: `private string? GetMapId(Entity entity)`
+- Reduces duplication and improves maintainability
+
+**Impact**: Low - Minor DRY violation
+
+---
+
+### 5. Single Responsibility Violation (MovementSystem)
+
+**Location**: `MonoBall.Core/ECS/Systems/MovementSystem.cs`
+
+**Issue**: `MovementSystem` handles both:
+1. Movement interpolation and validation
+2. Animation state management (directly calling `animation.ChangeAnimation()`)
+
+**Current Behavior**:
+- System directly controls animation state (lines 250-254, 296-303, 315-336, 341-349)
+- This mixes movement logic with animation logic
+
+**Note**: Comments indicate this is intentional to match oldmonoball architecture and prevent timing bugs. However, it still violates SRP.
+
+**Recommendation**: 
+- Consider separating concerns if possible
+- If intentional, document why SRP is violated (already done in comments)
+- Consider using events for animation state changes instead of direct control
+
+**Impact**: Low - Documented as intentional, but violates SRP
+
+---
+
+## 🟢 Arch ECS Query/Event Issues
+
+### 6. QueryDescription Caching ✅
+
+**Status**: **CORRECT**
+
+**Location**: `MonoBall.Core/ECS/Systems/InputSystem.cs`, `MovementSystem.cs`
+
+**Implementation**:
+- `InputSystem`: Caches `_playerQuery` as instance field (line 26)
+- `MovementSystem`: Caches `_movementRequestQuery` and `_movementQuery` as instance fields (lines 27-28)
+- Queries are created in constructors, not in hot paths
+
+**Verdict**: ✅ Follows best practices - queries are cached and reused
+
+---
+
+### 7. Query Efficiency ✅
+
+**Status**: **CORRECT**
+
+**Implementation**:
+- Uses `WithAll<T>()` appropriately for required components
+- `InputSystem` queries for all required components in one pass
+- `MovementSystem` uses separate queries for different concerns (movement requests vs active movements)
+
+**Verdict**: ✅ Efficient query patterns
+
+---
+
+### 8. Optional Component Access ✅
+
+**Status**: **CORRECT**
+
+**Location**: `MonoBall.Core/ECS/Systems/MovementSystem.cs` (line 186)
+
+**Implementation**:
 ```csharp
-// Add component to request change
-public struct SpriteSheetChangeRequestComponent {
-    public string NewSpriteSheetId { get; set; }
-    public string AnimationName { get; set; }
+if (World.TryGet<SpriteAnimationComponent>(entity, out var animation))
+{
+    // Process with animation
+    World.Set(entity, animation); // Correctly writes back
 }
-
-// PlayerSystem processes requests each frame
-World.Query(in changeRequestQuery, (ref SpriteSheetChangeRequestComponent req) => {
-    // Process and remove component
-});
-```
-
----
-
-### 4. **Future System Integration Problems**
-
-#### **Movement System**
-**Needs:**
-- Query: `PlayerComponent + PositionComponent + VelocityComponent` (future)
-- When player moves, change animation: `"face_south"` → `"go_south"`
-- **Problem**: Movement system needs to know current sprite sheet to pick correct animation
-
-**Solution:**
-- Movement system queries for `SpriteSheetComponent` (or `SpriteComponent`) to get current sprite
-- Uses sprite + direction to determine animation name (e.g., `"go_south"` in current sprite sheet)
-- Publishes `SpriteAnimationChangeRequestEvent` or directly updates `SpriteAnimationComponent`
-
-#### **Input System**
-**Needs:**
-- Query: `PlayerComponent` (to identify player entity)
-- Handle key presses (e.g., mount bike button)
-- **Problem**: How to trigger sprite sheet change?
-
-**Solution:**
-- Input system publishes `SpriteSheetChangeRequestEvent` with new sprite sheet ID
-- PlayerSystem handles validation and switching
-- Or: Input system adds `SpriteSheetChangeRequestComponent` to player entity
-
-#### **Collision System**
-**Needs:**
-- Query: `PlayerComponent + PositionComponent`
-- Calculate collision bounds from sprite dimensions
-- **Problem**: Needs sprite definition to get frame width/height
-
-**Solution:**
-- Query for `SpriteComponent` (or `SpriteSheetComponent`) to get sprite ID
-- Use `ISpriteLoaderService.GetSpriteDefinition()` to get dimensions
-- Or: Cache sprite dimensions in a component (redundant but faster)
-
----
-
-### 5. **Event System Gaps**
-
-**Missing Events:**
-1. **SpriteSheetChangedEvent** - Fired when sprite sheet changes
-   - Subscribers: Animation system (reset state), rendering system (cache invalidation)
-   
-2. **SpriteAnimationChangedEvent** (Generic) - Replace `NpcAnimationChangedEvent`
-   - Works for both NPCs and Players
-   - Or keep separate: `NpcAnimationChangedEvent` + `PlayerAnimationChangedEvent`
-
-3. **SpriteSheetChangeRequestEvent** - Request to change sprite sheet
-   - Published by: Input system, movement system, game logic
-   - Handled by: PlayerSystem
-
-**Current Plan Issue:**
-Plan mentions events but doesn't specify which events are needed or how systems communicate.
-
----
-
-### 6. **Query Performance Concerns**
-
-**Current Approach:**
-```csharp
-// Inefficient - checking World.Has<> in hot path
-World.Query(in query, (ref NpcComponent npc, ref PlayerComponent player, ...) => {
-    if (World.Has<SpriteSheetComponent>(entity)) {
-        // Player
-    } else {
-        // NPC
-    }
-});
-```
-
-**Performance Impact:**
-- `World.Has<T>()` is a dictionary lookup per entity per frame
-- In rendering system, this runs for every visible entity every frame
-- Can cause frame drops with many entities
-
-**Better:**
-- Separate queries (no conditional checks)
-- Or: Make component required (always present for players)
-
----
-
-### 7. **Component Initialization and Lifecycle**
-
-**Problem:**
-Player entity needs 5 components created together:
-- `PlayerComponent`
-- `SpriteSheetComponent`
-- `SpriteAnimationComponent`
-- `PositionComponent`
-- `RenderableComponent`
-
-**Issues:**
-- What if one component is missing? (e.g., forgot to add `SpriteSheetComponent`)
-- Systems will fail silently or log warnings
-- No compile-time safety
-
-**Solution:**
-- Create helper method in PlayerSystem: `CreatePlayerEntity(...)`
-- Or: Use a "PlayerArchetype" pattern (if Arch ECS supports it)
-- Document required components clearly
-
----
-
-### 8. **Sprite ID Source Confusion**
-
-**Problem:**
-Systems need to extract sprite ID from different sources:
-- NPCs: `NpcComponent.SpriteId`
-- Players: `SpriteSheetComponent.CurrentSpriteSheetId`
-
-**Future Problems:**
-- What if we add other entity types? (Enemies, Items, etc.)
-- Each new type needs new conditional logic
-- Code becomes harder to maintain
-
-**Better:**
-Unified `SpriteComponent`:
-```csharp
-// All entities with sprites have this
-public struct SpriteComponent {
-    public string SpriteId { get; set; }
-}
-
-// NPCs: Set once
-// Players: Updated when sprite sheet changes
-// Future entities: Same pattern
-```
-
----
-
-## Recommended Architecture Changes
-
-### 1. **Unified Sprite Component**
-```csharp
-public struct SpriteComponent {
-    public string SpriteId { get; set; }
+else
+{
+    // Process without animation
 }
 ```
-- Both NPCs and Players use this
-- NPCs: Set once, immutable
-- Players: Updated when sprite sheet changes
-- Future entities: Same pattern
 
-### 2. **Separate Queries for Performance**
+**Verdict**: ✅ Correctly uses `TryGet` for optional components and writes back with `Set`
+
+---
+
+### 9. Event Structure ✅
+
+**Status**: **CORRECT**
+
+**Location**: `MonoBall.Core/ECS/Events/`
+
+**Implementation**:
+- Events are value types (`struct`) ✅
+- Events carry necessary context ✅
+- Events are documented with XML comments ✅
+- Events follow naming convention (end with `Event`) ✅
+
+**Verdict**: ✅ Follows event best practices
+
+---
+
+### 10. Event Publishing ✅
+
+**Status**: **CORRECT**
+
+**Location**: `MonoBall.Core/ECS/Systems/MovementSystem.cs`
+
+**Implementation**:
+- Uses `EventBus.Send(ref event)` correctly ✅
+- Events published at appropriate times ✅
+- Events carry necessary context ✅
+
+**Verdict**: ✅ Correct event publishing patterns
+
+---
+
+### 11. Event Subscription Check
+
+**Status**: **NO ISSUES FOUND**
+
+**Note**: No systems in the uncommitted changes subscribe to events, so no disposal issues to check.
+
+---
+
+## 🟢 SOLID/DRY Issues
+
+### 12. Dependency Injection ✅
+
+**Status**: **CORRECT**
+
+**Implementation**:
+- All systems use constructor injection ✅
+- Dependencies are non-nullable (throw ArgumentNullException) ✅
+- Services are injected, not created internally ✅
+
+**Verdict**: ✅ Follows dependency injection best practices
+
+---
+
+### 13. Null Object Pattern ✅
+
+**Status**: **CORRECT**
+
+**Location**: `SystemManager.cs` (lines 293-294)
+
+**Implementation**:
+- Uses `NullInputBlocker` and `NullCollisionService` ✅
+- Provides default implementations instead of null checks ✅
+- Follows null object pattern ✅
+
+**Verdict**: ✅ Good use of null object pattern
+
+---
+
+## 🟡 Other Issues
+
+### 14. Component Initialization (InputState)
+
+**Location**: `MonoBall.Core/ECS/Components/InputState.cs`
+
+**Issue**: Component contains `HashSet<InputAction>` (reference types) in a struct.
+
+**Current Implementation**:
 ```csharp
-// NPC query (no SpriteSheetComponent)
-_npcQuery = new QueryDescription()
-    .WithAll<NpcComponent, SpriteComponent, SpriteAnimationComponent>();
+public HashSet<InputAction> PressedActions { get; set; }
+public HashSet<InputAction> JustPressedActions { get; set; }
+public HashSet<InputAction> JustReleasedActions { get; set; }
 
-// Player query (with SpriteSheetComponent for tracking)
-_playerQuery = new QueryDescription()
-    .WithAll<PlayerComponent, SpriteComponent, SpriteAnimationComponent, SpriteSheetComponent>();
-```
-
-### 3. **Event-Based Communication**
-```csharp
-// Request sprite sheet change
-EventBus.Publish(new SpriteSheetChangeRequestEvent {
-    Entity = playerEntity,
-    NewSpriteSheetId = "...",
-    AnimationName = "..."
-});
-
-// PlayerSystem handles and fires confirmation
-EventBus.Publish(new SpriteSheetChangedEvent {
-    Entity = playerEntity,
-    OldSpriteSheetId = "...",
-    NewSpriteSheetId = "..."
-});
-```
-
-### 4. **Component-Based Requests (Alternative)**
-```csharp
-// Add request component
-public struct SpriteSheetChangeRequestComponent {
-    public string NewSpriteSheetId { get; set; }
-    public string AnimationName { get; set; }
+public InputState()
+{
+    // ... initializes HashSets
 }
-
-// PlayerSystem processes and removes
 ```
 
-### 5. **Clear System Responsibilities**
-- **PlayerSystem**: Initializes player, handles sprite sheet switching (via events/components)
-- **MovementSystem**: Updates position, changes animations based on movement
-- **InputSystem**: Publishes events for sprite sheet changes (mount bike, etc.)
-- **SpriteRendererSystem**: Renders all entities with `SpriteComponent`
-- **SpriteAnimationSystem**: Updates animations for all entities with `SpriteComponent`
+**Status**: ✅ **CORRECT** - HashSets are properly initialized in constructor to avoid NullReferenceException
+
+**Verdict**: ✅ Properly handles reference types in struct components
 
 ---
 
-## Migration Path
+### 15. Documentation ✅
 
-If keeping current design (NpcComponent.SpriteId vs SpriteSheetComponent):
+**Status**: **GOOD**
 
-1. **Make SpriteSheetComponent Required for Players**
-   - Always add it during creation
-   - Never make it optional
+**Implementation**:
+- Components have XML comments ✅
+- Systems have XML comments ✅
+- Events have XML comments ✅
+- Complex logic is documented ✅
 
-2. **Use Separate Queries**
-   - Query NPCs separately from Players
-   - Avoid `World.Has<>` checks in hot paths
-
-3. **Add Events for Communication**
-   - `SpriteSheetChangeRequestEvent`
-   - `SpriteSheetChangedEvent`
-   - Generic `SpriteAnimationChangedEvent` (or keep separate)
-
-4. **Document Component Requirements**
-   - Clearly document which components are required for each entity type
-   - Add validation in PlayerSystem.CreatePlayerEntity()
+**Verdict**: ✅ Good documentation coverage
 
 ---
 
-## Questions to Resolve
+### 16. Error Handling ✅
 
-1. **Should NPCs ever need multiple sprite sheets?**
-   - If yes: Use unified `SpriteComponent` from start
-   - If no: Current design is acceptable but use separate queries
+**Status**: **CORRECT**
 
-2. **How should movement trigger animation changes?**
-   - Direct component update? (MovementSystem updates SpriteAnimationComponent)
-   - Event-based? (MovementSystem publishes animation change event)
+**Implementation**:
+- Constructor parameters validated with `ArgumentNullException` ✅
+- No silent failures ✅
+- Fail-fast approach ✅
 
-3. **Should sprite sheet switching be synchronous or async?**
-   - Synchronous: Direct component update
-   - Async: Event-based with validation
+**Verdict**: ✅ Proper error handling
 
-4. **Performance vs. Flexibility trade-off?**
-   - Separate queries: Better performance, more code
-   - Unified query: Simpler code, worse performance
+---
+
+## 📋 Summary of Issues
+
+### Critical (Must Fix)
+1. ❌ **Backward Compatibility Violation** - PositionComponent.Position property
+2. ⚠️ **Component Contains Behavior** - SpriteAnimationComponent methods
+
+### Medium Priority (Should Fix)
+3. ⚠️ **Code Duplication** - Movement completion logic in MovementSystem
+4. ⚠️ **Code Duplication** - Map ID retrieval in MovementSystem
+
+### Low Priority (Consider Fixing)
+5. ℹ️ **Single Responsibility Violation** - MovementSystem handles animation (documented as intentional)
+
+### No Issues Found ✅
+- Query caching and efficiency
+- Event structure and publishing
+- Dependency injection
+- Error handling
+- Documentation
+
+---
+
+## Recommended Actions
+
+1. **Remove PositionComponent.Position property** and update all call sites
+2. **Extract animation methods** from SpriteAnimationComponent to helper/extension class
+3. **Refactor MovementSystem** to extract common movement logic
+4. **Extract Map ID retrieval** to helper method
+5. **Consider** separating animation concerns from MovementSystem (if feasible)

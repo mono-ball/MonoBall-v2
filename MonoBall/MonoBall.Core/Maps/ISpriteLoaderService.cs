@@ -61,5 +61,21 @@ namespace MonoBall.Core.Maps
         /// <param name="animationName">The animation name to validate.</param>
         /// <returns>True if the animation exists, false otherwise.</returns>
         bool ValidateAnimation(string spriteId, string animationName);
+
+        /// <summary>
+        /// Gets whether an animation should loop.
+        /// </summary>
+        /// <param name="spriteId">The sprite ID.</param>
+        /// <param name="animationName">The animation name.</param>
+        /// <returns>True if the animation loops, false otherwise. Returns true if animation not found (default behavior).</returns>
+        bool GetAnimationLoops(string spriteId, string animationName);
+
+        /// <summary>
+        /// Gets whether an animation should be horizontally flipped.
+        /// </summary>
+        /// <param name="spriteId">The sprite ID.</param>
+        /// <param name="animationName">The animation name.</param>
+        /// <returns>True if the animation should be flipped, false otherwise.</returns>
+        bool GetAnimationFlipHorizontal(string spriteId, string animationName);
     }
 }
