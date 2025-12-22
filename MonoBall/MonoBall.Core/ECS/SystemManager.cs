@@ -353,6 +353,7 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<Scenes.Systems.DebugBarToggleSystem>()
             );
             _debugBarRendererSystem = new Scenes.Systems.DebugBarRendererSystem(
+                _world,
                 _graphicsDevice,
                 fontService,
                 performanceStatsSystem,
