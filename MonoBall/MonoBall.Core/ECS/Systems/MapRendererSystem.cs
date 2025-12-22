@@ -90,7 +90,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (_spriteBatch == null)
             {
-                Log.Warning("MapRendererSystem.Render called but SpriteBatch is null");
+                _logger.Warning("MapRendererSystem.Render called but SpriteBatch is null");
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace MonoBall.Core.ECS.Systems
             CameraComponent? activeCamera = _cameraService.GetActiveCamera();
             if (!activeCamera.HasValue)
             {
-                Log.Debug("MapRendererSystem.Render: No active camera found, skipping render");
+                _logger.Debug("MapRendererSystem.Render: No active camera found, skipping render");
                 return;
             }
 
@@ -165,7 +165,7 @@ namespace MonoBall.Core.ECS.Systems
                 }
             );
 
-            Log.Debug(
+            _logger.Debug(
                 "MapRendererSystem.Render: Found {ChunkCount} visible chunks to render (camera at {CameraX}, {CameraY})",
                 _chunkList.Count,
                 camera.Position.X,
@@ -245,7 +245,7 @@ namespace MonoBall.Core.ECS.Systems
 
                 if (renderedTiles > 0)
                 {
-                    Log.Debug(
+                    _logger.Debug(
                         "MapRendererSystem.Render: Rendered {ChunkCount} chunks with {TileCount} tiles",
                         renderedChunks,
                         renderedTiles
@@ -269,7 +269,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!render.IsVisible)
             {
-                Log.Debug(
+                _logger.Debug(
                     "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) is not visible",
                     pos.Position.X,
                     pos.Position.Y
@@ -279,7 +279,7 @@ namespace MonoBall.Core.ECS.Systems
 
             if (data.TileIndices == null)
             {
-                Log.Warning(
+                _logger.Warning(
                     "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) has null TileIndices",
                     pos.Position.X,
                     pos.Position.Y
@@ -291,7 +291,7 @@ namespace MonoBall.Core.ECS.Systems
             var tilesetTexture = _tilesetLoader.GetTilesetTexture(data.TilesetId);
             if (tilesetTexture == null)
             {
-                Log.Warning(
+                _logger.Warning(
                     "MapRendererSystem.RenderChunk: Failed to get tileset texture for {TilesetId} at chunk ({X}, {Y})",
                     data.TilesetId,
                     pos.Position.X,
@@ -304,7 +304,7 @@ namespace MonoBall.Core.ECS.Systems
             var tilesetDefinition = _tilesetLoader.GetTilesetDefinition(data.TilesetId);
             if (tilesetDefinition == null)
             {
-                Log.Warning(
+                _logger.Warning(
                     "MapRendererSystem.RenderChunk: Failed to get tileset definition for {TilesetId} at chunk ({X}, {Y})",
                     data.TilesetId,
                     pos.Position.X,
@@ -352,7 +352,7 @@ namespace MonoBall.Core.ECS.Systems
                         if (sourceRect == null)
                         {
                             invalidGids++;
-                            Log.Debug(
+                            _logger.Debug(
                                 "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
                                 gid,
                                 data.TilesetId,
@@ -380,7 +380,7 @@ namespace MonoBall.Core.ECS.Systems
                 // Defensive check: ensure component exists (should always exist if HasAnimatedTiles is true)
                 if (!World.Has<AnimatedTileDataComponent>(chunkEntity))
                 {
-                    Log.Warning(
+                    _logger.Warning(
                         "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) has HasAnimatedTiles=true but missing AnimatedTileDataComponent",
                         pos.Position.X,
                         pos.Position.Y
@@ -444,7 +444,7 @@ namespace MonoBall.Core.ECS.Systems
                         if (sourceRect == null)
                         {
                             invalidGids++;
-                            Log.Debug(
+                            _logger.Debug(
                                 "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
                                 renderGid,
                                 data.TilesetId,
@@ -469,7 +469,7 @@ namespace MonoBall.Core.ECS.Systems
 
             if (tilesRendered == 0 && chunk.ChunkWidth * chunk.ChunkHeight > 0)
             {
-                Log.Debug(
+                _logger.Debug(
                     "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) rendered 0 tiles (empty: {Empty}, invalid: {Invalid})",
                     pos.Position.X,
                     pos.Position.Y,

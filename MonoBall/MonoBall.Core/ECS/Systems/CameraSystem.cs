@@ -151,7 +151,7 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     // Entity destroyed or missing PositionComponent - clear follow
                     camera.FollowEntity = null;
-                    Log.Warning(
+                    _logger.Warning(
                         "CameraSystem.UpdateCamera: Follow entity {EntityId} missing PositionComponent (entity may be destroyed), stopping follow",
                         followEntity.Id
                     );
@@ -163,7 +163,7 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     // Entity missing required sprite components - clear follow
                     camera.FollowEntity = null;
-                    Log.Warning(
+                    _logger.Warning(
                         "CameraSystem.UpdateCamera: Follow entity {EntityId} missing SpriteSheetComponent or SpriteAnimationComponent, stopping follow",
                         followEntity.Id
                     );
@@ -228,7 +228,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!World.Has<CameraComponent>(cameraEntity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "CameraSystem.SetCameraPosition: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
                 );
@@ -256,7 +256,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!World.Has<CameraComponent>(cameraEntity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "CameraSystem.SetCameraTarget: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
                 );
@@ -279,7 +279,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!World.Has<CameraComponent>(cameraEntity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "CameraSystem.SetCameraFollowEntity: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
                 );
@@ -330,7 +330,7 @@ namespace MonoBall.Core.ECS.Systems
             // Immediately update camera position to match target (ensures correct position on first frame)
             camera.Position = tilePos;
 
-            Log.Debug(
+            _logger.Debug(
                 "CameraSystem.SetCameraFollowEntity: Updated camera position to ({X}, {Y}) tiles (player at {PlayerX}, {PlayerY} pixels)",
                 tilePos.X,
                 tilePos.Y,
@@ -353,7 +353,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!World.Has<CameraComponent>(cameraEntity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "CameraSystem.StopFollowing: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
                 );
@@ -377,7 +377,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!World.Has<CameraComponent>(cameraEntity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "CameraSystem.LockCameraFollowing: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
                 );
@@ -398,7 +398,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!World.Has<CameraComponent>(cameraEntity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "CameraSystem.UpdateCameraPosition: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
                 );
@@ -410,7 +410,7 @@ namespace MonoBall.Core.ECS.Systems
             // Early return if no follow entity is set
             if (!camera.FollowEntity.HasValue)
             {
-                Log.Debug(
+                _logger.Debug(
                     "CameraSystem.UpdateCameraPosition: No follow entity set for camera {EntityId}, nothing to update",
                     cameraEntity.Id
                 );

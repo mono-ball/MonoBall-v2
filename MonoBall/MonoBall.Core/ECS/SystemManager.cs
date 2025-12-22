@@ -286,10 +286,13 @@ namespace MonoBall.Core.ECS
 
             // Create input and movement services
             var inputBuffer = new Services.InputBuffer(
+                LoggerFactory.CreateLogger<Services.InputBuffer>(),
                 GameConstants.InputBufferMaxSize,
                 GameConstants.InputBufferTimeoutSeconds
             );
-            var inputBindingService = new Services.InputBindingService();
+            var inputBindingService = new Services.InputBindingService(
+                LoggerFactory.CreateLogger<Services.InputBindingService>()
+            );
             var nullInputBlocker = new Services.NullInputBlocker();
             var nullCollisionService = new Services.NullCollisionService();
 

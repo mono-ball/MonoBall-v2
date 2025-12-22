@@ -87,7 +87,7 @@ namespace MonoBall.Core.Scenes.Systems
         {
             if (_spriteBatch == null)
             {
-                Log.Warning("SceneRendererSystem.Render called but SpriteBatch is null");
+                _logger.Warning("SceneRendererSystem.Render called but SpriteBatch is null");
                 return;
             }
 
@@ -272,7 +272,7 @@ namespace MonoBall.Core.Scenes.Systems
         {
             if (_mapRendererSystem == null)
             {
-                Log.Warning(
+                _logger.Warning(
                     "SceneRendererSystem: Cannot render GameScene '{SceneId}' - MapRendererSystem is null",
                     scene.SceneId
                 );

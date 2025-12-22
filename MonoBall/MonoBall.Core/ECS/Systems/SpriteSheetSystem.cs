@@ -55,7 +55,7 @@ namespace MonoBall.Core.ECS.Systems
             // Validate entity has SpriteSheetComponent (required for sprite sheet switching)
             if (!World.Has<SpriteSheetComponent>(evt.Entity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "SpriteSheetSystem.OnSpriteSheetChangeRequest: Entity {EntityId} does not have SpriteSheetComponent",
                     evt.Entity.Id
                 );
@@ -92,7 +92,7 @@ namespace MonoBall.Core.ECS.Systems
             // Update animation component if it exists
             if (!World.Has<SpriteAnimationComponent>(evt.Entity))
             {
-                Log.Warning(
+                _logger.Warning(
                     "SpriteSheetSystem.OnSpriteSheetChangeRequest: Entity {EntityId} does not have SpriteAnimationComponent",
                     evt.Entity.Id
                 );
@@ -113,7 +113,7 @@ namespace MonoBall.Core.ECS.Systems
             };
             EventBus.Send(ref changedEvent);
 
-            Log.Information(
+            _logger.Information(
                 "SpriteSheetSystem.OnSpriteSheetChangeRequest: Changed sprite sheet for {EntityType} entity {EntityId} from {OldSpriteSheetId} to {NewSpriteSheetId} with animation {AnimationName}",
                 entityType,
                 evt.Entity.Id,

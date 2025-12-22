@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
+using Serilog;
 
 namespace MonoBall.Core.ECS.Services
 {
@@ -17,17 +18,21 @@ namespace MonoBall.Core.ECS.Services
         private KeyboardState _previousKeyboardState;
         private GamePadState _currentGamePadState;
         private GamePadState _previousGamePadState;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the InputBindingService with default key bindings.
         /// </summary>
-        public InputBindingService()
+        /// <param name="logger">The logger for logging operations.</param>
+        public InputBindingService(ILogger logger)
         {
+            _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
             _keyBindings = new Dictionary<InputAction, Keys>();
             _keyBindingsMultiple = new Dictionary<InputAction, HashSet<Keys>>();
 
             // Set default key bindings (matches MonoBall behavior)
             SetDefaultBindings();
+            _logger.Debug("InputBindingService initialized with default key bindings");
         }
 
         /// <summary>
@@ -174,6 +179,7 @@ namespace MonoBall.Core.ECS.Services
             }
 
             _keyBindings[action] = key;
+            _logger.Debug("Key binding changed: {Action} -> {Key}", action, key);
         }
 
         /// <summary>

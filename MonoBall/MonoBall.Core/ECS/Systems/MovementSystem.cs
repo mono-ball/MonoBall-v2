@@ -144,6 +144,14 @@ namespace MonoBall.Core.ECS.Systems
                             MapId = mapId,
                         };
                         EventBus.Send(ref blockedEvent);
+                        _logger.Debug(
+                            "Movement blocked for entity {EntityId} to ({TargetX}, {TargetY}) in direction {Direction}: {Reason}",
+                            entity.Id,
+                            targetX,
+                            targetY,
+                            request.Direction,
+                            blockedEvent.BlockReason
+                        );
                         return;
                     }
 
@@ -181,6 +189,16 @@ namespace MonoBall.Core.ECS.Systems
                     // Update grid position immediately (for collision/lookup)
                     position.X = targetX;
                     position.Y = targetY;
+
+                    _logger.Debug(
+                        "Movement started for entity {EntityId} from ({OldX}, {OldY}) to ({TargetX}, {TargetY}) in direction {Direction}",
+                        entity.Id,
+                        oldX,
+                        oldY,
+                        targetX,
+                        targetY,
+                        request.Direction
+                    );
                 }
             );
         }
@@ -368,6 +386,16 @@ namespace MonoBall.Core.ECS.Systems
                 MovementTime = 1.0f / movement.MovementSpeed,
             };
             EventBus.Send(ref completedEvent);
+
+            _logger.Debug(
+                "Movement completed for entity {EntityId} from ({OldX}, {OldY}) to ({NewX}, {NewY}) in direction {Direction}",
+                entity.Id,
+                oldX,
+                oldY,
+                position.X,
+                position.Y,
+                movement.MovementDirection
+            );
         }
 
         /// <summary>

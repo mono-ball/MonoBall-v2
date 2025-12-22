@@ -455,7 +455,7 @@ namespace MonoBall.Core.Scenes.Systems
                     if (sceneIdToRemove != null)
                     {
                         _sceneIds.Remove(sceneIdToRemove);
-                        Log.Debug(
+                        _logger.Debug(
                             "SceneManagerSystem: Cleaned up dead scene entity '{SceneId}'",
                             sceneIdToRemove
                         );

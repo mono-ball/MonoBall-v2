@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MonoBall.Core.ECS.Components;
+using Serilog;
 
 namespace MonoBall.Core.ECS.Services
 {
@@ -20,14 +21,17 @@ namespace MonoBall.Core.ECS.Services
         private readonly Queue<InputCommand> _buffer;
         private readonly float _bufferTimeoutSeconds;
         private readonly int _maxBufferSize;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the InputBuffer class.
         /// </summary>
+        /// <param name="logger">The logger for logging operations.</param>
         /// <param name="maxSize">Maximum number of inputs to buffer (default: 5).</param>
         /// <param name="timeoutSeconds">How long inputs remain valid in seconds (default: 0.2s = 200ms).</param>
-        public InputBuffer(int maxSize = 5, float timeoutSeconds = 0.2f)
+        public InputBuffer(ILogger logger, int maxSize = 5, float timeoutSeconds = 0.2f)
         {
+            _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
             _buffer = new Queue<InputCommand>(maxSize);
             _maxBufferSize = maxSize;
             _bufferTimeoutSeconds = timeoutSeconds;
@@ -59,6 +63,12 @@ namespace MonoBall.Core.ECS.Services
             // Check if buffer has space
             if (_buffer.Count >= _maxBufferSize)
             {
+                _logger.Debug(
+                    "InputBuffer overflow: buffer is full ({BufferSize}/{MaxSize}), dropping input {Direction}",
+                    _buffer.Count,
+                    _maxBufferSize,
+                    direction
+                );
                 return false;
             }
 

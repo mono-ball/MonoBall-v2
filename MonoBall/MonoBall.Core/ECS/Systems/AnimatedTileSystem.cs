@@ -88,7 +88,7 @@ namespace MonoBall.Core.ECS.Systems
 
                 if (frames == null || frames.Count == 0)
                 {
-                    Log.Warning(
+                    _logger.Warning(
                         "AnimatedTileSystem.UpdateAnimations: Animation frames not found in cache for tileset {TilesetId}, localTileId {LocalTileId}",
                         animState.AnimationTilesetId,
                         animState.AnimationLocalTileId

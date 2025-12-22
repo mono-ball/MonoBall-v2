@@ -220,7 +220,7 @@ namespace MonoBall.Core.ECS.Systems
 
             if (frames == null || frames.Count == 0)
             {
-                Log.Warning(
+                _logger.Warning(
                     "SpriteAnimationSystem.UpdateAnimation: Animation frames not found for sprite {SpriteId}, animation {AnimationName}",
                     spriteId,
                     anim.CurrentAnimationName

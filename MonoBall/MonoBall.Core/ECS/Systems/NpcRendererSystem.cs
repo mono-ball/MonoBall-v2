@@ -89,7 +89,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (_spriteBatch == null)
             {
-                Log.Warning("NpcRendererSystem.Render called but SpriteBatch is null");
+                _logger.Warning("NpcRendererSystem.Render called but SpriteBatch is null");
                 return;
             }
 
@@ -165,7 +165,7 @@ namespace MonoBall.Core.ECS.Systems
                     // Validate sprite definition exists
                     if (!_spriteLoader.ValidateSpriteDefinition(npc.SpriteId))
                     {
-                        Log.Warning(
+                        _logger.Warning(
                             "NpcRendererSystem.CollectVisibleNpcs: Sprite definition not found for NPC {NpcId} (spriteId: {SpriteId})",
                             npc.NpcId,
                             npc.SpriteId
@@ -291,7 +291,7 @@ namespace MonoBall.Core.ECS.Systems
             var spriteTexture = _spriteLoader.GetSpriteTexture(npc.SpriteId);
             if (spriteTexture == null)
             {
-                Log.Warning(
+                _logger.Warning(
                     "NpcRendererSystem.RenderSingleNpc: Failed to get sprite texture for {SpriteId} (NPC {NpcId})",
                     npc.SpriteId,
                     npc.NpcId
@@ -307,7 +307,7 @@ namespace MonoBall.Core.ECS.Systems
             );
             if (!frameRect.HasValue)
             {
-                Log.Warning(
+                _logger.Warning(
                     "NpcRendererSystem.RenderSingleNpc: Failed to get frame rectangle for sprite {SpriteId}, animation {AnimationName}, frame {FrameIndex}",
                     npc.SpriteId,
                     anim.CurrentAnimationName,

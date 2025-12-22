@@ -74,7 +74,7 @@ namespace MonoBall.Core.ECS.Systems
             CameraComponent? activeCamera = _cameraService.GetActiveCamera();
             if (!activeCamera.HasValue)
             {
-                Log.Warning(
+                _logger.Warning(
                     "PlayerSystem.InitializePlayer: No active camera found, using default position (0, 0)"
                 );
                 CreatePlayerEntity(Vector2.Zero, spriteSheet, animation);
@@ -219,7 +219,7 @@ namespace MonoBall.Core.ECS.Systems
             _playerEntity = playerEntity;
             _playerCreated = true;
 
-            Log.Information(
+            _logger.Information(
                 "PlayerSystem.CreatePlayerEntity: Created player entity {EntityId} at grid position ({GridX}, {GridY}), pixel position ({PixelX}, {PixelY}) with sprite sheet {SpriteSheetId} and animation {AnimationName}",
                 playerEntity.Id,
                 gridX,

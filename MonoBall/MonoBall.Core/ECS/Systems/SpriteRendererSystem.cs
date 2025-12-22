@@ -100,7 +100,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (_spriteBatch == null)
             {
-                Log.Warning("SpriteRendererSystem.Render called but SpriteBatch is null");
+                _logger.Warning("SpriteRendererSystem.Render called but SpriteBatch is null");
                 return;
             }
 
@@ -122,6 +122,11 @@ namespace MonoBall.Core.ECS.Systems
 
             // Sort by render order (in-place sort to avoid allocation)
             _spriteList.Sort((a, b) => a.render.RenderOrder.CompareTo(b.render.RenderOrder));
+
+            _logger.Debug(
+                "Rendering {SpriteCount} sprites (NPCs and Players) within camera view",
+                _spriteList.Count
+            );
 
             // Render sprites
             RenderSpriteBatch(_spriteList, camera);
@@ -333,7 +338,7 @@ namespace MonoBall.Core.ECS.Systems
             var spriteTexture = _spriteLoader.GetSpriteTexture(spriteId);
             if (spriteTexture == null)
             {
-                Log.Warning(
+                _logger.Warning(
                     "SpriteRendererSystem.RenderSingleSprite: Failed to get sprite texture for {SpriteId}",
                     spriteId
                 );
@@ -348,7 +353,7 @@ namespace MonoBall.Core.ECS.Systems
             );
             if (!frameRect.HasValue)
             {
-                Log.Warning(
+                _logger.Warning(
                     "SpriteRendererSystem.RenderSingleSprite: Failed to get frame rectangle for sprite {SpriteId}, animation {AnimationName}, frame {FrameIndex}",
                     spriteId,
                     anim.CurrentAnimationName,
