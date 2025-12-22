@@ -22,5 +22,6 @@
         <PackageReference Include="Arch.System.SourceGenerator" Version="2.1.0" />
         <PackageReference Include="Arch.EventBus" Version="1.0.2" />
         <PackageReference Include="CSharpier.MSBuild" Version="0.30.0" />
+        <PackageReference Include="FontStashSharp.MonoGame" Version="1.5.2" />
     </ItemGroup>
 </Project>

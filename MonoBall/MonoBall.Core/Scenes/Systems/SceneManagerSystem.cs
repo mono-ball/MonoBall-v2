@@ -111,7 +111,7 @@ namespace MonoBall.Core.Scenes.Systems
             storedSceneComponent = sceneComponent;
 
             // Add additional components if provided
-            // Note: We handle GameSceneComponent specifically since it's commonly used
+            // Note: We handle scene type components specifically
             if (additionalComponents != null && additionalComponents.Length > 0)
             {
                 foreach (var component in additionalComponents)
@@ -119,6 +119,10 @@ namespace MonoBall.Core.Scenes.Systems
                     if (component is GameSceneComponent gameSceneComp)
                     {
                         World.Add<GameSceneComponent>(sceneEntity, gameSceneComp);
+                    }
+                    else if (component is DebugBarSceneComponent debugBarSceneComp)
+                    {
+                        World.Add<DebugBarSceneComponent>(sceneEntity, debugBarSceneComp);
                     }
                     // Add other component types as needed in the future
                 }
@@ -411,6 +415,33 @@ namespace MonoBall.Core.Scenes.Systems
         {
             foreach (var sceneEntity in _sceneStack)
             {
+                if (!World.IsAlive(sceneEntity))
+                {
+                    continue;
+                }
+
+                ref var sceneComponent = ref World.Get<SceneComponent>(sceneEntity);
+
+                // Process scene - if callback returns false, stop iterating
+                if (!processScene(sceneEntity, sceneComponent))
+                {
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Helper method to iterate scenes in reverse priority order (lowest to highest) with a callback.
+        /// Used for rendering so that higher priority scenes render last (on top).
+        /// Handles dead entity checks and provides a consistent iteration pattern.
+        /// </summary>
+        /// <param name="processScene">Callback that processes each scene. Return false to stop iteration, true to continue.</param>
+        public void IterateScenesReverse(Func<Entity, SceneComponent, bool> processScene)
+        {
+            // Iterate in reverse order (lowest priority first, highest priority last)
+            for (int i = _sceneStack.Count - 1; i >= 0; i--)
+            {
+                var sceneEntity = _sceneStack[i];
                 if (!World.IsAlive(sceneEntity))
                 {
                     continue;

@@ -47,6 +47,8 @@ namespace MonoBall.Core.ECS
         private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
         private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
+        private Services.InputBindingService _inputBindingService = null!; // Initialized in Initialize()
+        private Scenes.Systems.DebugBarRendererSystem? _debugBarRendererSystem; // Initialized in Initialize(), may be null
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -290,7 +292,7 @@ namespace MonoBall.Core.ECS
                 GameConstants.InputBufferMaxSize,
                 GameConstants.InputBufferTimeoutSeconds
             );
-            var inputBindingService = new Services.InputBindingService(
+            _inputBindingService = new Services.InputBindingService(
                 LoggerFactory.CreateLogger<Services.InputBindingService>()
             );
             var nullInputBlocker = new Services.NullInputBlocker();
@@ -301,7 +303,7 @@ namespace MonoBall.Core.ECS
                 _world,
                 nullInputBlocker,
                 inputBuffer,
-                inputBindingService,
+                _inputBindingService,
                 LoggerFactory.CreateLogger<InputSystem>()
             );
 
@@ -332,6 +334,37 @@ namespace MonoBall.Core.ECS
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
             _sceneRendererSystem.SetSpriteRendererSystem(_spriteRendererSystem);
 
+            // Create font service and performance stats system
+            var fontService = new Rendering.FontService(
+                _modManager,
+                _graphicsDevice,
+                LoggerFactory.CreateLogger<Rendering.FontService>()
+            );
+            var performanceStatsSystem = new PerformanceStatsSystem(
+                _world,
+                LoggerFactory.CreateLogger<PerformanceStatsSystem>()
+            );
+
+            // Create debug bar systems
+            var debugBarToggleSystem = new Scenes.Systems.DebugBarToggleSystem(
+                _world,
+                _sceneManagerSystem,
+                _inputBindingService,
+                LoggerFactory.CreateLogger<Scenes.Systems.DebugBarToggleSystem>()
+            );
+            _debugBarRendererSystem = new Scenes.Systems.DebugBarRendererSystem(
+                _graphicsDevice,
+                fontService,
+                performanceStatsSystem,
+                _spriteBatch,
+                LoggerFactory.CreateLogger<Scenes.Systems.DebugBarRendererSystem>()
+            );
+            _sceneRendererSystem.SetDebugBarRendererSystem(_debugBarRendererSystem);
+
+            // Update render systems to track draw calls
+            _mapRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
+            _spriteRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
+
             // Group update systems (including scene systems)
             // SpriteSheetSystem is added early to ensure it's initialized before systems that might publish SpriteSheetChangeRequestEvent
             // InputSystem runs first (Priority 0) to process input and create MovementRequest components
@@ -348,8 +381,10 @@ namespace MonoBall.Core.ECS
                 _animatedTileSystem,
                 _spriteAnimationSystem, // Animation frame updates (CurrentFrame, FrameTimer)
                 _spriteSheetSystem,
+                performanceStatsSystem, // Track performance stats each frame
                 _sceneManagerSystem,
-                _sceneInputSystem
+                _sceneInputSystem,
+                debugBarToggleSystem // Handle debug bar toggle input
             );
 
             _updateSystems.Initialize();
@@ -425,6 +460,8 @@ namespace MonoBall.Core.ECS
             _sceneManagerSystem = null!;
             _sceneInputSystem = null!;
             _sceneRendererSystem = null!;
+            _debugBarRendererSystem?.Dispose();
+            _debugBarRendererSystem = null;
 
             _isDisposed = true;
         }

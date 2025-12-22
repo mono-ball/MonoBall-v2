@@ -21,7 +21,11 @@ This allows modal scenes (menus, dialogs) to pause gameplay while still allowing
 
 ### Scene Priority
 
-Scenes are ordered by priority (higher priority = rendered/updated first). Within the same priority, scenes are ordered by creation time (newer scenes on top).
+Scenes are ordered by priority for both updates and rendering, but the iteration order differs:
+- **Updates**: Higher priority = updated first (allows high-priority scenes to process before lower-priority ones)
+- **Rendering**: Higher priority = rendered last (ensures high-priority scenes appear on top of lower-priority ones)
+
+Within the same priority, scenes are ordered by creation time (newer scenes on top).
 
 ## Architecture
 
@@ -30,7 +34,9 @@ Scenes are ordered by priority (higher priority = rendered/updated first). Withi
 #### SceneComponent
 Stores scene state data:
 - `SceneId` (string): Unique identifier for the scene
-- `Priority` (int): Rendering/update priority (higher = first)
+- `Priority` (int): Rendering/update priority
+  - For updates: Higher priority = updated first
+  - For rendering: Higher priority = rendered last (appears on top)
 - `RenderingMode` (enum): CameraBased or ScreenSpace
 - `BlocksUpdate` (bool): Whether this scene blocks lower scenes from updating
 - `BlocksDraw` (bool): Whether this scene blocks lower scenes from drawing
@@ -96,11 +102,12 @@ private List<Entity> _sceneStack = new List<Entity>();
      - If scene blocks update, stop iterating (lower scenes don't update)
 
 2. **Draw Flow**:
-   - Iterate scenes from highest to lowest priority
+   - Iterate scenes from lowest to highest priority (reverse order)
    - For each scene:
      - If scene is not active, skip
-     - If scene blocks draw, don't render lower scenes
      - Render scene (camera-based or screen-space)
+     - If scene blocks draw, stop iterating (higher priority scenes won't render)
+   - Note: Reverse iteration ensures higher priority scenes render on top
 
 ### Camera Selection
 

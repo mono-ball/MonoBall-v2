@@ -20,6 +20,7 @@ namespace MonoBall.Core.Scenes.Systems
         private SpriteBatch? _spriteBatch;
         private MapRendererSystem? _mapRendererSystem;
         private SpriteRendererSystem? _spriteRendererSystem;
+        private DebugBarRendererSystem? _debugBarRendererSystem;
 
         // Cached query descriptions to avoid allocations in hot paths
         private readonly QueryDescription _cameraQuery =
@@ -80,7 +81,19 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
-        /// Renders all scenes in priority order.
+        /// Sets the DebugBarRendererSystem reference for screen-space rendering.
+        /// </summary>
+        /// <param name="debugBarRendererSystem">The DebugBarRendererSystem instance.</param>
+        public void SetDebugBarRendererSystem(DebugBarRendererSystem debugBarRendererSystem)
+        {
+            _debugBarRendererSystem =
+                debugBarRendererSystem
+                ?? throw new ArgumentNullException(nameof(debugBarRendererSystem));
+        }
+
+        /// <summary>
+        /// Renders all scenes in reverse priority order (lowest priority first, highest priority last).
+        /// This ensures higher priority scenes render on top of lower priority scenes.
         /// </summary>
         /// <param name="gameTime">The game time.</param>
         public void Render(GameTime gameTime)
@@ -91,8 +104,9 @@ namespace MonoBall.Core.Scenes.Systems
                 return;
             }
 
-            // Iterate scenes using helper method from SceneManagerSystem
-            _sceneManagerSystem.IterateScenes(
+            // Iterate scenes in reverse order (lowest priority first, highest priority last)
+            // This ensures higher priority scenes render on top
+            _sceneManagerSystem.IterateScenesReverse(
                 (sceneEntity, sceneComponent) =>
                 {
                     // Skip inactive scenes
@@ -104,7 +118,10 @@ namespace MonoBall.Core.Scenes.Systems
                     // Render the scene
                     RenderScene(sceneEntity, ref sceneComponent, gameTime);
 
-                    // If scene blocks draw, stop iterating (lower scenes don't render)
+                    // If scene blocks draw, stop iterating
+                    // Note: We iterate in reverse (lowest to highest priority), so if a scene blocks draw,
+                    // it prevents higher priority scenes (that would render on top) from rendering.
+                    // This allows lower priority scenes to fully occlude higher priority scenes when needed.
                     if (sceneComponent.BlocksDraw)
                     {
                         return false; // Stop iterating
@@ -249,13 +266,60 @@ namespace MonoBall.Core.Scenes.Systems
             GameTime gameTime
         )
         {
-            // TODO: Implement screen space rendering for UI scenes
-            // For now, this is a placeholder
+            // Check if this is a debug bar scene
+            if (World.Has<DebugBarSceneComponent>(sceneEntity))
+            {
+                if (_debugBarRendererSystem == null)
+                {
+                    _logger.Warning(
+                        "Scene '{SceneId}' is a DebugBarScene but DebugBarRendererSystem is null",
+                        scene.SceneId
+                    );
+                    return;
+                }
+
+                // Save original viewport
+                var savedViewport = _graphicsDevice.Viewport;
+
+                try
+                {
+                    // Set viewport to full window
+                    _graphicsDevice.Viewport = new Viewport(
+                        0,
+                        0,
+                        _graphicsDevice.Viewport.Width,
+                        _graphicsDevice.Viewport.Height
+                    );
+
+                    // Begin SpriteBatch with identity matrix for screen-space rendering
+                    _spriteBatch!.Begin(
+                        SpriteSortMode.Deferred,
+                        BlendState.AlphaBlend,
+                        SamplerState.PointClamp,
+                        DepthStencilState.None,
+                        RasterizerState.CullCounterClockwise,
+                        null,
+                        Matrix.Identity
+                    );
+
+                    // Render debug bar
+                    _debugBarRendererSystem.Render(gameTime);
+
+                    // End SpriteBatch
+                    _spriteBatch.End();
+                }
+                finally
+                {
+                    // Always restore viewport, even if rendering fails
+                    _graphicsDevice.Viewport = savedViewport;
+                }
+            }
+            // TODO: Add other screen-space scene types (PopupScene, UIScene, etc.) as they are implemented
         }
 
         /// <summary>
-        /// Renders a GameScene by calling MapRendererSystem to render all maps.
-        /// Eventually will also render NPCs, player, and other game world entities.
+        /// Renders a GameScene by calling MapRendererSystem to render all maps,
+        /// then SpriteRendererSystem to render NPCs and players.
         /// </summary>
         /// <param name="sceneEntity">The scene entity.</param>
         /// <param name="scene">The scene component.</param>

@@ -23,6 +23,7 @@ namespace MonoBall.Core.ECS.Systems
         private Viewport _savedViewport;
         private readonly QueryDescription _npcQuery;
         private readonly QueryDescription _playerQuery;
+        private PerformanceStatsSystem? _performanceStatsSystem;
 
         // Reusable collections to avoid allocations in hot paths
         private readonly List<(
@@ -90,6 +91,17 @@ namespace MonoBall.Core.ECS.Systems
         public void SetSpriteBatch(SpriteBatch spriteBatch)
         {
             _spriteBatch = spriteBatch;
+        }
+
+        /// <summary>
+        /// Sets the PerformanceStatsSystem instance for tracking draw calls.
+        /// </summary>
+        /// <param name="performanceStatsSystem">The PerformanceStatsSystem instance.</param>
+        public void SetPerformanceStatsSystem(PerformanceStatsSystem performanceStatsSystem)
+        {
+            _performanceStatsSystem =
+                performanceStatsSystem
+                ?? throw new ArgumentNullException(nameof(performanceStatsSystem));
         }
 
         /// <summary>
@@ -293,6 +305,9 @@ namespace MonoBall.Core.ECS.Systems
                 }
 
                 _spriteBatch.End();
+
+                // Increment draw call counter
+                _performanceStatsSystem?.IncrementDrawCalls();
             }
             finally
             {

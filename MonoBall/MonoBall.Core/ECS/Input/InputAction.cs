@@ -40,5 +40,10 @@ namespace MonoBall.Core.ECS.Input
         /// Menu (if different from Pause).
         /// </summary>
         Menu,
+
+        /// <summary>
+        /// Toggle debug bar visibility.
+        /// </summary>
+        ToggleDebugBar,
     }
 }

@@ -2,7 +2,7 @@
   "id": "base:font:debug/mono",
   "name": "Debug Font",
   "description": "Monospace font for debug overlays and developer tools",
-  "fontPath": "0xProtoNerdFontMono-Regular.ttf",
+  "fontPath": "Fonts/0xProtoNerdFontMono-Regular.ttf",
   "category": "debug",
   "defaultSize": 14,
   "lineSpacing": 1.2,

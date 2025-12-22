@@ -50,6 +50,7 @@ namespace MonoBall.Core.ECS.Services
             _keyBindings[InputAction.Interact] = Keys.Space; // Also supports Enter, Z
             _keyBindings[InputAction.Pause] = Keys.Escape;
             _keyBindings[InputAction.Menu] = Keys.Tab;
+            _keyBindings[InputAction.ToggleDebugBar] = Keys.F3;
         }
 
         /// <summary>

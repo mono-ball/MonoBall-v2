@@ -228,7 +228,7 @@ namespace MonoBall.Core
                 var gameSceneComponent = new SceneComponent
                 {
                     SceneId = "game:main",
-                    Priority = 50,
+                    Priority = ScenePriorities.GameScene,
                     CameraMode = SceneCameraMode.GameCamera,
                     CameraEntityId = null,
                     BlocksUpdate = false,
