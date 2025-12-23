@@ -83,17 +83,8 @@ namespace MonoBall.Core.Rendering
                 metadata.OriginalModId
             );
 
-            // Find mod manifest
-            ModManifest? modManifest = null;
-            foreach (var mod in _modManager.LoadedMods)
-            {
-                if (mod.Id == metadata.OriginalModId)
-                {
-                    modManifest = mod;
-                    break;
-                }
-            }
-
+            // Get mod manifest
+            var modManifest = _modManager.GetModManifest(metadata.OriginalModId);
             if (modManifest == null)
             {
                 _logger.Warning(
@@ -130,15 +121,56 @@ namespace MonoBall.Core.Rendering
 
             try
             {
-                // Create FontSystem and load font
+                // Create FontSystem (GraphicsDevice is not needed in constructor, it's used during rendering)
                 var fontSystem = new FontSystem();
-                fontSystem.AddFont(File.ReadAllBytes(fontPath));
 
-                // Cache the font system
+                // Read font file bytes
+                byte[] fontData = File.ReadAllBytes(fontPath);
+                if (fontData == null || fontData.Length == 0)
+                {
+                    _logger.Warning(
+                        "Font file is empty or could not be read: {FontPath} (font: {FontId})",
+                        fontPath,
+                        fontId
+                    );
+                    return null;
+                }
+
+                // Add font to FontSystem
+                fontSystem.AddFont(fontData);
+
+                // Verify font was added by attempting to get a font (this will throw if no fonts were added)
+                // This ensures we don't cache an invalid FontSystem
+                try
+                {
+                    // Try to get a font to verify it was added successfully
+                    // Use a small test size to verify the font is valid
+                    var testFont = fontSystem.GetFont(12);
+                    if (testFont == null)
+                    {
+                        _logger.Error(
+                            "Font was added but GetFont(12) returned null: {FontId}. Font may be corrupted.",
+                            fontId
+                        );
+                        return null;
+                    }
+                }
+                catch (Exception verifyEx)
+                {
+                    _logger.Error(
+                        verifyEx,
+                        "Font was added but GetFont failed (font may be invalid or corrupted): {FontId}. Error: {Error}",
+                        fontId,
+                        verifyEx.Message
+                    );
+                    return null;
+                }
+
+                // Cache the font system only after successful verification
                 _fontCache[fontId] = fontSystem;
 
                 _logger.Information(
-                    "Successfully loaded font {FontId} from {FontPath}",
+                    "Successfully loaded and verified font {FontId} from {FontPath}",
                     fontId,
                     fontPath
                 );

@@ -22,6 +22,7 @@ namespace MonoBall.Core.Scenes.Systems
         private SpriteRendererSystem? _spriteRendererSystem;
         private DebugBarRendererSystem? _debugBarRendererSystem;
         private MapPopupRendererSystem? _mapPopupRendererSystem;
+        private LoadingSceneRendererSystem? _loadingSceneRendererSystem;
 
         // Cached query descriptions to avoid allocations in hot paths
         private readonly QueryDescription _cameraQuery =
@@ -104,10 +105,76 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
+        /// Sets the LoadingSceneRendererSystem reference for loading scene rendering.
+        /// </summary>
+        /// <param name="loadingSceneRendererSystem">The LoadingSceneRendererSystem instance.</param>
+        public void SetLoadingSceneRendererSystem(
+            LoadingSceneRendererSystem loadingSceneRendererSystem
+        )
+        {
+            _loadingSceneRendererSystem =
+                loadingSceneRendererSystem
+                ?? throw new ArgumentNullException(nameof(loadingSceneRendererSystem));
+        }
+
+        /// <summary>
         /// Renders all scenes in reverse priority order (lowest priority first, highest priority last).
         /// This ensures higher priority scenes render on top of lower priority scenes.
         /// </summary>
         /// <param name="gameTime">The game time.</param>
+        /// <summary>
+        /// Gets the background color for the current scene state.
+        /// Determines color based on the highest priority active scene that blocks draw.
+        /// </summary>
+        /// <returns>The background color to use for clearing the screen.</returns>
+        public Color GetBackgroundColor()
+        {
+            Color? backgroundColor = null;
+
+            // Iterate scenes in reverse order (lowest priority first, highest priority last)
+            // Find the first active scene that blocks draw (this is what will be rendered)
+            _sceneManagerSystem.IterateScenesReverse(
+                (sceneEntity, sceneComponent) =>
+                {
+                    // Skip inactive scenes
+                    if (!sceneComponent.IsActive)
+                    {
+                        return true; // Continue iterating
+                    }
+
+                    // Determine background color based on scene type
+                    if (World.Has<LoadingSceneComponent>(sceneEntity))
+                    {
+                        // Loading screen uses light gray theme
+                        backgroundColor = new Color(234, 234, 233);
+                        return false; // Stop iterating - found the scene that will render
+                    }
+                    else if (World.Has<GameSceneComponent>(sceneEntity))
+                    {
+                        // Game scene uses black background
+                        backgroundColor = Color.Black;
+                        return false; // Stop iterating - found the scene that will render
+                    }
+
+                    // If scene blocks draw, stop iterating (even if we haven't found a known scene type)
+                    if (sceneComponent.BlocksDraw)
+                    {
+                        // Default to black for unknown scene types that block draw
+                        if (!backgroundColor.HasValue)
+                        {
+                            backgroundColor = Color.Black;
+                        }
+                        return false; // Stop iterating
+                    }
+
+                    return true; // Continue iterating
+                }
+            );
+
+            // Default to black if no scene found
+            return backgroundColor ?? Color.Black;
+        }
+
         public void Render(GameTime gameTime)
         {
             if (_spriteBatch == null)
@@ -328,6 +395,59 @@ namespace MonoBall.Core.Scenes.Systems
 
                     // End SpriteBatch
                     _spriteBatch.End();
+                }
+                finally
+                {
+                    // Always restore viewport, even if rendering fails
+                    _graphicsDevice.Viewport = savedViewport;
+                }
+            }
+            // Check if this is a loading scene
+            else if (World.Has<LoadingSceneComponent>(sceneEntity))
+            {
+                if (_loadingSceneRendererSystem == null)
+                {
+                    _logger.Warning(
+                        "Scene '{SceneId}' is a LoadingScene but LoadingSceneRendererSystem is null",
+                        scene.SceneId
+                    );
+                    return;
+                }
+
+                // Save original viewport
+                var savedViewport = _graphicsDevice.Viewport;
+
+                try
+                {
+                    // Set viewport to full window
+                    _graphicsDevice.Viewport = new Viewport(
+                        0,
+                        0,
+                        _graphicsDevice.Viewport.Width,
+                        _graphicsDevice.Viewport.Height
+                    );
+
+                    // Begin SpriteBatch with identity matrix for screen-space rendering
+                    _spriteBatch!.Begin(
+                        SpriteSortMode.Deferred,
+                        BlendState.AlphaBlend,
+                        SamplerState.PointClamp,
+                        DepthStencilState.None,
+                        RasterizerState.CullCounterClockwise,
+                        null,
+                        Matrix.Identity
+                    );
+
+                    try
+                    {
+                        // Render loading screen
+                        _loadingSceneRendererSystem.Render(gameTime);
+                    }
+                    finally
+                    {
+                        // Always End SpriteBatch, even if Render() throws an exception
+                        _spriteBatch.End();
+                    }
                 }
                 finally
                 {

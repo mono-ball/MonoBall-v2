@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,9 +12,11 @@ using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Localization;
 using MonoBall.Core.Logging;
+using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Systems;
 using Serilog;
 
 namespace MonoBall.Core
@@ -30,6 +35,22 @@ namespace MonoBall.Core
         private GameServices? gameServices;
         private SystemManager? systemManager;
         private readonly ILogger _logger;
+
+        // Async initialization
+        private GameInitializationService? _initializationService;
+        private Task<GameInitializationService.InitializationResult>? _initializationTask;
+        private Entity? _loadingSceneEntity;
+        private SceneManagerSystem? _earlySceneManager; // Early scene manager (replaced by SystemManager's later)
+        private SceneRendererSystem? _earlySceneRenderer; // Early scene renderer (replaced by SystemManager's later)
+        private LoadingSceneRendererSystem? _earlyLoadingRenderer; // Early loading renderer (replaced by SystemManager's later)
+        private SpriteBatch? _loadingSpriteBatch;
+
+        // Thread-safe progress update queue (marshals updates from async task to main thread)
+        private readonly ConcurrentQueue<(float progress, string step)> _progressUpdateQueue =
+            new();
+
+        // Track if we've shown 100% progress for at least one frame before transitioning
+        private bool _hasShownCompleteProgress = false;
 
         /// <summary>
         /// Indicates if the game is running on a mobile platform.
@@ -76,193 +97,84 @@ namespace MonoBall.Core
         }
 
         /// <summary>
-        /// Initializes the game, including setting up localization and core services.
+        /// Initializes the game. Sets up minimal initialization for loading screen.
+        /// Actual game loading happens asynchronously in LoadContent().
         /// </summary>
         protected override void Initialize()
         {
             base.Initialize();
 
-            // Load supported languages and set the default language.
-            List<CultureInfo> cultures = LocalizationManager.GetSupportedCultures();
-            var languages = new List<CultureInfo>();
-            for (int i = 0; i < cultures.Count; i++)
-            {
-                languages.Add(cultures[i]);
-            }
+            _logger.Information("Game window initialized, preparing for async loading");
 
-            // TODO You should load this from a settings file or similar,
-            // based on what the user or operating system selected.
-            var selectedLanguage = LocalizationManager.DEFAULT_CULTURE_CODE;
-            LocalizationManager.SetCulture(selectedLanguage);
-
-            // Initialize game services (mods, ECS world)
-            // Only create if not already created (e.g., by LoadContent() being called first)
-            if (gameServices == null)
-            {
-                gameServices = new GameServices(
-                    this,
-                    GraphicsDevice,
-                    LoggerFactory.CreateLogger<GameServices>()
-                );
-                gameServices.Initialize();
-            }
-            else if (!gameServices.IsInitialized)
-            {
-                // If it was created but not initialized, initialize it now
-                gameServices.Initialize();
-            }
+            // Note: We don't load mods or services here - that happens asynchronously
+            // This allows the window to appear immediately while loading happens in the background
         }
 
         /// <summary>
-        /// Loads game content, such as textures and particle systems.
+        /// Loads game content. Creates main world early, loading scene, and starts async initialization.
         /// </summary>
         protected override void LoadContent()
         {
             base.LoadContent();
 
-            _logger.Information("Starting content loading");
+            _logger.Information("Starting async content loading");
 
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            _logger.Debug("SpriteBatch created");
+            // Load all mods synchronously first for system-critical resources (fonts, etc.)
+            // Core mod (slot 0 in mod.manifest) loads first, then other mods
+            // This ensures FontService is available when the loading screen renders
+            LoadModsSynchronously();
 
-            // Ensure gameServices is initialized (in case LoadContent() is called before Initialize() completes)
-            if (gameServices == null)
-            {
-                _logger.Warning(
-                    "GameServices is null, initializing now (Initialize() may not have completed)"
-                );
-                gameServices = new GameServices(
-                    this,
-                    GraphicsDevice,
-                    LoggerFactory.CreateLogger<GameServices>()
-                );
-                gameServices.Initialize();
-            }
+            // Create sprite batch for loading screen
+            _loadingSpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // Load content services (tileset loader)
-            gameServices.LoadContent();
+            // Create main world early (empty, just for scenes)
+            // This ensures the world exists before async initialization starts
+            var mainWorld = EcsWorld.Instance;
+            _logger.Debug("Main world created early for loading scene");
 
-            // Initialize ECS systems
-            if (
-                gameServices.ModManager != null
-                && gameServices.EcsService != null
-                && gameServices.TilesetLoaderService != null
-            )
-            {
-                systemManager = new SystemManager(
-                    gameServices.EcsService.World,
-                    GraphicsDevice,
-                    gameServices.ModManager,
-                    gameServices.TilesetLoaderService,
-                    LoggerFactory.CreateLogger<SystemManager>()
-                );
+            // Create early scene manager and renderer for loading scene
+            // These will be replaced by SystemManager's systems when initialization completes
+            _earlySceneManager = new SceneManagerSystem(
+                mainWorld,
+                LoggerFactory.CreateLogger<SceneManagerSystem>()
+            );
 
-                systemManager.Initialize(spriteBatch);
+            _earlySceneRenderer = new SceneRendererSystem(
+                mainWorld,
+                GraphicsDevice,
+                _earlySceneManager,
+                LoggerFactory.CreateLogger<SceneRendererSystem>()
+            );
+            _earlySceneRenderer.SetSpriteBatch(_loadingSpriteBatch);
 
-                // Create default camera
-                var world = gameServices.EcsService!.World;
+            // Create loading scene renderer
+            _earlyLoadingRenderer = new LoadingSceneRendererSystem(
+                mainWorld,
+                GraphicsDevice,
+                _loadingSpriteBatch,
+                this,
+                LoggerFactory.CreateLogger<LoadingSceneRendererSystem>()
+            );
+            _earlySceneRenderer.SetLoadingSceneRendererSystem(_earlyLoadingRenderer);
 
-                // Get tile sizes from mod configuration (required - no fallback)
-                if (gameServices.ModManager == null)
-                {
-                    throw new InvalidOperationException(
-                        "Cannot initialize camera: ModManager is required for tile size configuration. "
-                            + "Ensure mods are loaded before creating the camera."
-                    );
-                }
+            // Create initialization service with progress queue for thread-safe updates
+            _initializationService = new GameInitializationService(
+                this,
+                GraphicsDevice,
+                LoggerFactory.CreateLogger<GameInitializationService>(),
+                _progressUpdateQueue
+            );
 
-                int tileWidth = gameServices.ModManager.GetTileWidth();
-                int tileHeight = gameServices.ModManager.GetTileHeight();
-
-                var camera = new CameraComponent
-                {
-                    Position = new Vector2(10, 10), // Center at tile (10, 10)
-                    Zoom = GameConstants.DefaultCameraZoom,
-                    Rotation = GameConstants.DefaultCameraRotation,
-                    TileWidth = tileWidth,
-                    TileHeight = tileHeight,
-                    IsActive = true,
-                    IsDirty = true,
-                };
-
-                // Initialize viewport (GBA resolution: 240x160)
-                // Viewport will be updated by CameraViewportSystem, but we initialize it here
-                Rendering.CameraViewportSystem.UpdateViewportForResize(
-                    ref camera,
-                    GraphicsDevice.Viewport.Width,
-                    GraphicsDevice.Viewport.Height,
-                    GameConstants.GbaReferenceWidth,
-                    GameConstants.GbaReferenceHeight
+            // Create loading scene in main world and start async initialization
+            (_loadingSceneEntity, _initializationTask) =
+                _initializationService.CreateLoadingSceneAndStartInitialization(
+                    mainWorld,
+                    _earlySceneManager
                 );
 
-                var cameraEntity = world.Create(camera);
-                _logger.Information(
-                    "Created default camera entity {EntityId} at tile position (10, 10) with viewport {ViewportWidth}x{ViewportHeight}",
-                    cameraEntity.Id,
-                    camera.Viewport.Width,
-                    camera.Viewport.Height
-                );
-
-                // Initialize player system (creates player entity at camera position)
-                systemManager.PlayerSystem.InitializePlayer();
-                _logger.Information("Player system initialized");
-
-                // Set camera to follow player
-                var playerEntity = systemManager.PlayerSystem.GetPlayerEntity();
-                if (playerEntity.HasValue)
-                {
-                    systemManager.CameraSystem.SetCameraFollowEntity(
-                        cameraEntity,
-                        playerEntity.Value
-                    );
-                    _logger.Information(
-                        "Camera set to follow player entity {EntityId}",
-                        playerEntity.Value.Id
-                    );
-                }
-                else
-                {
-                    _logger.Warning("Player entity not found, camera will not follow player");
-                }
-
-                // Load the initial map
-                _logger.Information("Loading initial map: base:map:hoenn/littleroot_town");
-                systemManager.MapLoaderSystem.LoadMap("base:map:hoenn/littleroot_town");
-                _logger.Information("Initial map loaded");
-
-                // Force camera position update after map load to ensure player is centered
-                if (playerEntity.HasValue)
-                {
-                    systemManager.CameraSystem.UpdateCameraPosition(cameraEntity);
-                    _logger.Information("Camera position updated after map load");
-                }
-
-                // Create initial GameScene entity
-                var gameSceneComponent = new SceneComponent
-                {
-                    SceneId = "game:main",
-                    Priority = ScenePriorities.GameScene,
-                    CameraMode = SceneCameraMode.GameCamera,
-                    CameraEntityId = null,
-                    BlocksUpdate = false,
-                    BlocksDraw = false,
-                    BlocksInput = false,
-                    IsActive = true,
-                    IsPaused = false,
-                };
-
-                systemManager.SceneManagerSystem.CreateScene(
-                    gameSceneComponent,
-                    new GameSceneComponent()
-                );
-                _logger.Information("Created initial GameScene");
-            }
-            else
-            {
-                _logger.Warning("Cannot initialize ECS systems - required services are null");
-            }
-
-            _logger.Information("Content loading completed");
+            _logger.Information(
+                "Loading scene created in main world, async initialization started"
+            );
         }
 
         /// <summary>
@@ -279,6 +191,171 @@ namespace MonoBall.Core
                 || Keyboard.GetState().IsKeyDown(Keys.Escape)
             )
                 Exit();
+
+            // Process thread-safe progress updates from async initialization task
+            // This marshals updates from the background thread to the main thread's ECS world
+            _initializationService?.ProcessProgressUpdates();
+
+            // Check if initialization is complete
+            if (_initializationTask != null && _initializationTask.IsCompleted)
+            {
+                if (!_initializationTask.IsFaulted && !_initializationTask.IsCanceled)
+                {
+                    var result = _initializationTask.Result;
+                    if (result.Success && systemManager == null)
+                    {
+                        // Validate initialization result
+                        if (
+                            result.GameServices == null
+                            || result.SystemManager == null
+                            || result.SpriteBatch == null
+                        )
+                        {
+                            _logger.Error(
+                                "Initialization succeeded but required properties are null. GameServices: {GameServices}, SystemManager: {SystemManager}, SpriteBatch: {SpriteBatch}",
+                                result.GameServices != null,
+                                result.SystemManager != null,
+                                result.SpriteBatch != null
+                            );
+                            // Keep loading scene visible to show error
+                            return;
+                        }
+
+                        // Check if we've shown 100% progress (wait for at least one frame after completion)
+                        if (_loadingSceneEntity != null)
+                        {
+                            var world = EcsWorld.Instance;
+                            if (world.Has<LoadingProgressComponent>(_loadingSceneEntity.Value))
+                            {
+                                ref var progressComponent = ref world.Get<LoadingProgressComponent>(
+                                    _loadingSceneEntity.Value
+                                );
+
+                                // Check if progress is 100% and complete
+                                bool isComplete =
+                                    progressComponent.IsComplete
+                                    && Math.Abs(progressComponent.Progress - 1.0f) < 0.001f;
+
+                                if (isComplete)
+                                {
+                                    // Mark that we've seen 100% - next frame we can transition
+                                    if (!_hasShownCompleteProgress)
+                                    {
+                                        _hasShownCompleteProgress = true;
+                                        _logger.Debug(
+                                            "Loading reached 100% - will transition next frame"
+                                        );
+                                        return; // Wait one more frame to show 100%
+                                    }
+                                }
+                                else
+                                {
+                                    // Not complete yet, wait
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                // Component missing, wait
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            // Entity missing, wait
+                            return;
+                        }
+
+                        // Transition from loading to game
+                        _logger.Information(
+                            "Game initialization complete, transitioning to game scene"
+                        );
+
+                        gameServices = result.GameServices;
+                        systemManager = result.SystemManager;
+                        spriteBatch = result.SpriteBatch;
+
+                        // Destroy loading scene (now managed by SystemManager's SceneManagerSystem)
+                        // The scene entity exists in the world, SystemManager's SceneManagerSystem will handle it
+                        if (_loadingSceneEntity != null && systemManager != null)
+                        {
+                            try
+                            {
+                                // Destroy scene from early manager first (if it still exists)
+                                if (_earlySceneManager != null)
+                                {
+                                    _earlySceneManager.DestroyScene(_loadingSceneEntity.Value);
+                                }
+                                else
+                                {
+                                    // If early manager was already cleaned up, destroy directly via SystemManager's manager
+                                    systemManager.SceneManagerSystem.DestroyScene(
+                                        _loadingSceneEntity.Value
+                                    );
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.Warning(
+                                    ex,
+                                    "Error destroying loading scene: {Error}",
+                                    ex.Message
+                                );
+                                // Try to destroy via SystemManager's manager as fallback
+                                try
+                                {
+                                    if (systemManager != null)
+                                    {
+                                        systemManager.SceneManagerSystem.DestroyScene(
+                                            _loadingSceneEntity.Value
+                                        );
+                                    }
+                                }
+                                catch
+                                {
+                                    // If both fail, log and continue - scene will be cleaned up when world is destroyed
+                                    _logger.Warning(
+                                        "Failed to destroy loading scene via both managers"
+                                    );
+                                }
+                            }
+                            _loadingSceneEntity = null;
+                        }
+
+                        // Cleanup early scene systems (SystemManager now owns scene management)
+                        if (_earlySceneManager != null)
+                        {
+                            try
+                            {
+                                _earlySceneManager.Cleanup(); // Unsubscribe from EventBus
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.Warning(ex, "Error cleaning up early scene manager");
+                            }
+                            _earlySceneManager = null;
+                        }
+
+                        _earlyLoadingRenderer?.Dispose();
+                        _earlyLoadingRenderer = null;
+                        _earlySceneRenderer = null; // SceneRendererSystem doesn't need disposal (no resources)
+
+                        // Clean up loading resources
+                        _loadingSpriteBatch?.Dispose();
+                        _loadingSpriteBatch = null;
+                        _initializationService = null;
+                        _initializationTask = null;
+                    }
+                    else if (!result.Success)
+                    {
+                        _logger.Error(
+                            "Game initialization failed: {ErrorMessage}",
+                            result.ErrorMessage
+                        );
+                        // Keep loading scene visible to show error
+                    }
+                }
+            }
 
             // Update ECS systems (CameraViewportSystem handles window resize)
             systemManager?.Update(gameTime);
@@ -307,13 +384,100 @@ namespace MonoBall.Core
         /// </param>
         protected override void Draw(GameTime gameTime)
         {
-            // Clears the screen with the MonoGame orange color before drawing.
-            GraphicsDevice.Clear(Color.MonoGameOrange);
+            // Determine background color from active scene system
+            Color backgroundColor;
+            if (systemManager != null)
+            {
+                // Use SceneRendererSystem to determine background color based on active scenes
+                backgroundColor = systemManager.SceneRendererSystem.GetBackgroundColor();
+            }
+            else if (_earlySceneRenderer != null)
+            {
+                // Early loading screen - use loading screen background color
+                backgroundColor = Scenes.Systems.LoadingSceneRendererSystem.GetBackgroundColor();
+            }
+            else
+            {
+                // Fallback to black if no renderer available
+                backgroundColor = Color.Black;
+            }
 
-            // Render ECS systems
-            systemManager?.Render(gameTime);
+            GraphicsDevice.Clear(backgroundColor);
+
+            // Render ECS systems (includes loading scene if still loading, or game scene if loaded)
+            // Loading scene blocks draw, so game scene won't render until loading completes
+            if (systemManager != null)
+            {
+                // Use SystemManager's rendering (includes SceneRendererSystem)
+                systemManager.Render(gameTime);
+            }
+            else if (_earlySceneRenderer != null)
+            {
+                // Use early scene renderer (before SystemManager is ready)
+                _earlySceneRenderer.Render(gameTime);
+            }
 
             base.Draw(gameTime);
+        }
+
+        /// <summary>
+        /// Loads all mods synchronously before async initialization, ensuring core mod (slot 0 in mod.manifest) loads first.
+        /// This ensures system-critical resources like fonts are available for the loading screen.
+        /// </summary>
+        private void LoadModsSynchronously()
+        {
+            _logger.Information(
+                "Loading all mods synchronously for system-critical resources (core mod loads first)"
+            );
+
+            string? modsDirectory = Mods.Utilities.ModsPathResolver.FindModsDirectory();
+            if (string.IsNullOrEmpty(modsDirectory) || !Directory.Exists(modsDirectory))
+            {
+                throw new InvalidOperationException(
+                    $"Mods directory not found: {modsDirectory}. "
+                        + "Cannot load mods. Ensure Mods directory exists."
+                );
+            }
+
+            // Create ModManager and load all mods (core mod loads first)
+            var modManager = new Mods.ModManager(
+                modsDirectory,
+                LoggerFactory.CreateLogger<Mods.ModManager>()
+            );
+
+            // Load mods (core mod loads first, then others)
+            var errors = new List<string>();
+            bool success = modManager.Load(errors);
+
+            if (!success)
+            {
+                throw new InvalidOperationException(
+                    $"Failed to load mods. Errors: {string.Join("; ", errors)}"
+                );
+            }
+
+            // Register ModManager in Game.Services
+            Services.AddService(typeof(Mods.ModManager), modManager);
+            _logger.Debug(
+                "ModManager loaded and registered with {ModCount} mod(s)",
+                modManager.LoadedMods.Count
+            );
+
+            // Create and register FontService immediately after mods load
+            // This ensures fonts are available for the loading screen
+            Mods.Utilities.FontServiceFactory.GetOrCreateFontService(
+                this,
+                modManager,
+                GraphicsDevice,
+                LoggerFactory.CreateLogger<Rendering.FontService>()
+            );
+            _logger.Debug("FontService created and registered");
+
+            _logger.Information(
+                "All mods loaded successfully ({ModCount} mods, core mod: {CoreModId}), FontService available",
+                modManager.LoadedMods.Count,
+                modManager.CoreMod?.Id ?? "unknown"
+            );
         }
 
         /// <summary>
@@ -324,6 +488,7 @@ namespace MonoBall.Core
         {
             if (disposing)
             {
+                _loadingSpriteBatch?.Dispose();
                 systemManager?.Dispose();
                 spriteBatch?.Dispose();
                 EcsWorld.Reset();

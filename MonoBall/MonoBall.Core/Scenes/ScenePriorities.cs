@@ -12,6 +12,11 @@ namespace MonoBall.Core.Scenes
         public const int DebugOverlay = 100;
 
         /// <summary>
+        /// Priority for loading screen scenes that should appear above game scenes but below debug overlays.
+        /// </summary>
+        public const int LoadingScreen = 75;
+
+        /// <summary>
         /// Priority for the main game scene.
         /// </summary>
         public const int GameScene = 50;

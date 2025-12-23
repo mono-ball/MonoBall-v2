@@ -19,6 +19,7 @@ namespace MonoBall.Core.Mods
         private readonly List<ModManifest> _loadedMods = new List<ModManifest>();
         private readonly Dictionary<string, ModManifest> _modsById =
             new Dictionary<string, ModManifest>();
+        private ModManifest? _coreMod;
 
         /// <summary>
         /// Initializes a new instance of the ModLoader.
@@ -40,7 +41,28 @@ namespace MonoBall.Core.Mods
         public IReadOnlyList<ModManifest> LoadedMods => _loadedMods.AsReadOnly();
 
         /// <summary>
+        /// Gets the core mod manifest (slot 0 in mod.manifest).
+        /// </summary>
+        public ModManifest? CoreMod => _coreMod;
+
+        /// <summary>
+        /// Gets a mod manifest by ID.
+        /// </summary>
+        /// <param name="modId">The mod ID.</param>
+        /// <returns>The mod manifest, or null if not found.</returns>
+        public ModManifest? GetModManifest(string modId)
+        {
+            if (string.IsNullOrEmpty(modId))
+            {
+                return null;
+            }
+            _modsById.TryGetValue(modId, out var manifest);
+            return manifest;
+        }
+
+        /// <summary>
         /// Loads all mods from the Mods directory, resolves load order, and loads all definitions.
+        /// Ensures the core mod (slot 0 in mod.manifest) loads first for system-critical resources.
         /// </summary>
         /// <returns>List of validation errors and warnings found during loading.</returns>
         public List<string> LoadAllMods()
@@ -61,26 +83,97 @@ namespace MonoBall.Core.Mods
 
             _logger.Information("Discovered {ModCount} mods", modManifests.Count);
 
-            // Step 2: Resolve dependencies and determine load order
-            var loadOrder = ResolveLoadOrder(modManifests, errors);
+            // Step 2: Determine core mod from mod.manifest slot 0
+            string? coreModId = DetermineCoreModId(errors);
+            if (string.IsNullOrEmpty(coreModId))
+            {
+                errors.Add(
+                    "Core mod (slot 0 in mod.manifest) not found. System-critical resources may not be available."
+                );
+                return errors;
+            }
+
+            // Step 3: Load core mod FIRST for system-critical resources
+            var coreMod = modManifests.FirstOrDefault(m => m.Id == coreModId);
+            if (coreMod == null)
+            {
+                errors.Add(
+                    $"Core mod '{coreModId}' (slot 0 in mod.manifest) not found. System-critical resources may not be available."
+                );
+                return errors;
+            }
+
+            _logger.Information(
+                "Loading core mod '{CoreModId}' (slot 0) first for system-critical resources",
+                coreModId
+            );
+            LoadModDefinitions(coreMod, errors);
+            _loadedMods.Add(coreMod);
+            _coreMod = coreMod;
+            modManifests.Remove(coreMod); // Remove from list so it's not loaded again
+
+            // Step 4: Resolve dependencies and determine load order for remaining mods
+            var loadOrder = ResolveLoadOrder(modManifests, coreModId, errors);
             _logger.Information("Resolved load order for {ModCount} mods", loadOrder.Count);
 
-            // Step 3: Load definitions in order
+            // Step 5: Load remaining mod definitions in order
             foreach (var mod in loadOrder)
             {
                 _logger.Debug("Loading definitions for mod: {ModId}", mod.Id);
                 LoadModDefinitions(mod, errors);
             }
 
-            // Step 4: Lock the registry
+            // Step 6: Lock the registry
             _registry.Lock();
             _logger.Information(
                 "Mod loading completed. Loaded {ModCount} mods with {ErrorCount} errors",
-                loadOrder.Count,
+                _loadedMods.Count,
                 errors.Count
             );
 
             return errors;
+        }
+
+        /// <summary>
+        /// Determines the core mod ID from mod.manifest slot 0.
+        /// </summary>
+        /// <param name="errors">List to populate with errors.</param>
+        /// <returns>The core mod ID, or null if not found.</returns>
+        private string? DetermineCoreModId(List<string> errors)
+        {
+            var rootManifestPath = Path.Combine(_modsDirectory, "mod.manifest");
+            if (File.Exists(rootManifestPath))
+            {
+                try
+                {
+                    var rootManifestContent = File.ReadAllText(rootManifestPath);
+                    var rootManifest = JsonSerializer.Deserialize<RootModManifest>(
+                        rootManifestContent,
+                        JsonSerializerOptionsFactory.ForManifests
+                    );
+
+                    if (
+                        rootManifest != null
+                        && rootManifest.ModOrder != null
+                        && rootManifest.ModOrder.Count > 0
+                    )
+                    {
+                        var coreModId = rootManifest.ModOrder[0];
+                        _logger.Debug(
+                            "Core mod determined from mod.manifest slot 0: {CoreModId}",
+                            coreModId
+                        );
+                        return coreModId;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    errors.Add($"Error reading root mod.manifest: {ex.Message}");
+                }
+            }
+
+            errors.Add("mod.manifest not found or empty. Cannot determine core mod (slot 0).");
+            return null;
         }
 
         /// <summary>
@@ -171,7 +264,15 @@ namespace MonoBall.Core.Mods
         /// <summary>
         /// Resolves mod load order based on priority and dependencies.
         /// </summary>
-        private List<ModManifest> ResolveLoadOrder(List<ModManifest> mods, List<string> errors)
+        /// <param name="mods">The mods to order (excluding core mod).</param>
+        /// <param name="coreModId">The core mod ID to exclude from ordering.</param>
+        /// <param name="errors">List to populate with errors.</param>
+        /// <returns>Ordered list of mods.</returns>
+        private List<ModManifest> ResolveLoadOrder(
+            List<ModManifest> mods,
+            string coreModId,
+            List<string> errors
+        )
         {
             // First, check for a root-level mod.manifest file
             var rootManifestPath = Path.Combine(_modsDirectory, "mod.manifest");
@@ -197,6 +298,12 @@ namespace MonoBall.Core.Mods
 
                         foreach (var modId in rootManifest.ModOrder)
                         {
+                            // Skip core mod - it was already loaded first
+                            if (modId == coreModId)
+                            {
+                                continue;
+                            }
+
                             if (modsById.TryGetValue(modId, out var mod))
                             {
                                 orderedMods.Add(mod);
@@ -210,9 +317,10 @@ namespace MonoBall.Core.Mods
                         }
 
                         // Add any mods not in the root manifest at the end
+                        // (excluding core mod which was already loaded)
                         foreach (var mod in mods)
                         {
-                            if (!orderedMods.Contains(mod))
+                            if (!orderedMods.Contains(mod) && mod.Id != coreModId)
                             {
                                 orderedMods.Add(mod);
                                 errors.Add(
@@ -221,7 +329,14 @@ namespace MonoBall.Core.Mods
                             }
                         }
 
-                        _loadedMods.AddRange(orderedMods);
+                        // Add to loaded mods list (core mod already added)
+                        foreach (var mod in orderedMods)
+                        {
+                            if (!_loadedMods.Contains(mod))
+                            {
+                                _loadedMods.Add(mod);
+                            }
+                        }
                         return orderedMods;
                     }
                 }
@@ -236,8 +351,11 @@ namespace MonoBall.Core.Mods
             var processed = new HashSet<string>();
             var processing = new HashSet<string>();
 
-            // Sort by priority first
-            var modsByPriority = mods.OrderBy(m => m.Priority).ThenBy(m => m.Id).ToList();
+            // Sort by priority first (excluding core mod which was already loaded)
+            var modsByPriority = mods.Where(m => m.Id != coreModId)
+                .OrderBy(m => m.Priority)
+                .ThenBy(m => m.Id)
+                .ToList();
 
             foreach (var mod in modsByPriority)
             {
@@ -247,7 +365,14 @@ namespace MonoBall.Core.Mods
                 }
             }
 
-            _loadedMods.AddRange(sortedMods);
+            // Add to loaded mods list (core mod already added)
+            foreach (var mod in sortedMods)
+            {
+                if (!_loadedMods.Contains(mod))
+                {
+                    _loadedMods.Add(mod);
+                }
+            }
             return sortedMods;
         }
 

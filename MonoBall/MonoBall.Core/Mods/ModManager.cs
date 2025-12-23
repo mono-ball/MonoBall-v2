@@ -193,7 +193,7 @@ namespace MonoBall.Core.Mods
 
         /// <summary>
         /// Gets the tile width from mod configuration.
-        /// Prioritizes the core mod (base:monoball-core), then falls back to the first loaded mod.
+        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
         /// </summary>
         /// <returns>The tile width in pixels.</returns>
         /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no mods have tile width configuration.</exception>
@@ -208,10 +208,9 @@ namespace MonoBall.Core.Mods
             }
 
             // Prioritize core mod
-            var coreMod = LoadedMods.FirstOrDefault(m => m.Id == "base:monoball-core");
-            if (coreMod != null && coreMod.TileWidth > 0)
+            if (CoreMod != null && CoreMod.TileWidth > 0)
             {
-                return coreMod.TileWidth;
+                return CoreMod.TileWidth;
             }
 
             // Fall back to first loaded mod (lowest priority = loaded first)
@@ -223,13 +222,13 @@ namespace MonoBall.Core.Mods
 
             throw new InvalidOperationException(
                 "Cannot get tile width: No mods have tileWidth configured. "
-                    + "Ensure at least one mod (preferably base:monoball-core) has tileWidth specified in mod.json."
+                    + "Ensure at least one mod (preferably the core mod) has tileWidth specified in mod.json."
             );
         }
 
         /// <summary>
         /// Gets the tile height from mod configuration.
-        /// Prioritizes the core mod (base:monoball-core), then falls back to the first loaded mod.
+        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
         /// </summary>
         /// <returns>The tile height in pixels.</returns>
         /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no mods have tile height configuration.</exception>
@@ -244,10 +243,9 @@ namespace MonoBall.Core.Mods
             }
 
             // Prioritize core mod
-            var coreMod = LoadedMods.FirstOrDefault(m => m.Id == "base:monoball-core");
-            if (coreMod != null && coreMod.TileHeight > 0)
+            if (CoreMod != null && CoreMod.TileHeight > 0)
             {
-                return coreMod.TileHeight;
+                return CoreMod.TileHeight;
             }
 
             // Fall back to first loaded mod (lowest priority = loaded first)
@@ -259,8 +257,57 @@ namespace MonoBall.Core.Mods
 
             throw new InvalidOperationException(
                 "Cannot get tile height: No mods have tileHeight configured. "
-                    + "Ensure at least one mod (preferably base:monoball-core) has tileHeight specified in mod.json."
+                    + "Ensure at least one mod (preferably the core mod) has tileHeight specified in mod.json."
             );
+        }
+
+        /// <summary>
+        /// Gets the core mod manifest (slot 0 in mod.manifest).
+        /// </summary>
+        public ModManifest? CoreMod
+        {
+            get
+            {
+                if (!_isLoaded)
+                {
+                    throw new InvalidOperationException(
+                        "Mods must be loaded before accessing core mod. Call Load() first."
+                    );
+                }
+                return _loader.CoreMod;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the specified mod ID is the core mod.
+        /// </summary>
+        /// <param name="modId">The mod ID to check.</param>
+        /// <returns>True if the mod is the core mod, false otherwise.</returns>
+        public bool IsCoreMod(string modId)
+        {
+            if (!_isLoaded)
+            {
+                throw new InvalidOperationException(
+                    "Mods must be loaded before checking if mod is core. Call Load() first."
+                );
+            }
+            return CoreMod?.Id == modId;
+        }
+
+        /// <summary>
+        /// Gets a mod manifest by ID.
+        /// </summary>
+        /// <param name="modId">The mod ID.</param>
+        /// <returns>The mod manifest, or null if not found.</returns>
+        public ModManifest? GetModManifest(string modId)
+        {
+            if (!_isLoaded)
+            {
+                throw new InvalidOperationException(
+                    "Mods must be loaded before accessing mod manifests. Call Load() first."
+                );
+            }
+            return _loader.GetModManifest(modId);
         }
     }
 }

@@ -50,7 +50,7 @@ namespace MonoBall.Core.Mods
 
         /// <summary>
         /// Gets the tile width from mod configuration.
-        /// Prioritizes the core mod (base:monoball-core), then falls back to the first loaded mod.
+        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
         /// </summary>
         /// <returns>The tile width in pixels.</returns>
         /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no mods have tile width configuration.</exception>
@@ -58,10 +58,29 @@ namespace MonoBall.Core.Mods
 
         /// <summary>
         /// Gets the tile height from mod configuration.
-        /// Prioritizes the core mod (base:monoball-core), then falls back to the first loaded mod.
+        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
         /// </summary>
         /// <returns>The tile height in pixels.</returns>
         /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no mods have tile height configuration.</exception>
         int GetTileHeight();
+
+        /// <summary>
+        /// Gets the core mod manifest (slot 0 in mod.manifest, or first loaded mod).
+        /// </summary>
+        ModManifest? CoreMod { get; }
+
+        /// <summary>
+        /// Checks if the specified mod ID is the core mod.
+        /// </summary>
+        /// <param name="modId">The mod ID to check.</param>
+        /// <returns>True if the mod is the core mod, false otherwise.</returns>
+        bool IsCoreMod(string modId);
+
+        /// <summary>
+        /// Gets a mod manifest by ID.
+        /// </summary>
+        /// <param name="modId">The mod ID.</param>
+        /// <returns>The mod manifest, or null if not found.</returns>
+        ModManifest? GetModManifest(string modId);
     }
 }

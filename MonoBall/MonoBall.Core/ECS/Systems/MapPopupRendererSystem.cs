@@ -680,17 +680,8 @@ namespace MonoBall.Core.ECS.Systems
                 return null;
             }
 
-            // Find mod manifest
-            ModManifest? modManifest = null;
-            foreach (var mod in _modManager.LoadedMods)
-            {
-                if (mod.Id == metadata.OriginalModId)
-                {
-                    modManifest = mod;
-                    break;
-                }
-            }
-
+            // Get mod manifest
+            var modManifest = _modManager.GetModManifest(metadata.OriginalModId);
             if (modManifest == null)
             {
                 _logger.Warning(

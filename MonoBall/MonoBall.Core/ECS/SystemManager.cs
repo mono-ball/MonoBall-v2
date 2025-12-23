@@ -26,6 +26,7 @@ namespace MonoBall.Core.ECS
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
         private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly Game _game;
         private readonly ILogger _logger;
         private ISpriteLoaderService _spriteLoader = null!; // Initialized in Initialize()
         private ICameraService _cameraService = null!; // Initialized in Initialize()
@@ -53,6 +54,7 @@ namespace MonoBall.Core.ECS
         private MapPopupOrchestratorSystem _mapPopupOrchestratorSystem = null!; // Initialized in Initialize()
         private MapPopupSystem _mapPopupSystem = null!; // Initialized in Initialize()
         private MapPopupRendererSystem _mapPopupRendererSystem = null!; // Initialized in Initialize()
+        private Scenes.Systems.LoadingSceneRendererSystem? _loadingSceneRendererSystem; // Initialized in Initialize(), may be null
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -64,12 +66,14 @@ namespace MonoBall.Core.ECS
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="modManager">The mod manager.</param>
         /// <param name="tilesetLoader">The tileset loader service.</param>
+        /// <param name="game">The game instance for accessing services.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public SystemManager(
             World world,
             GraphicsDevice graphicsDevice,
             IModManager modManager,
             ITilesetLoaderService tilesetLoader,
+            Game game,
             ILogger logger
         )
         {
@@ -79,6 +83,7 @@ namespace MonoBall.Core.ECS
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
             _tilesetLoader =
                 tilesetLoader ?? throw new ArgumentNullException(nameof(tilesetLoader));
+            _game = game ?? throw new ArgumentNullException(nameof(game));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -169,6 +174,24 @@ namespace MonoBall.Core.ECS
                     );
                 }
                 return _sceneInputSystem;
+            }
+        }
+
+        /// <summary>
+        /// Gets the scene renderer system.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
+        public SceneRendererSystem SceneRendererSystem
+        {
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new InvalidOperationException(
+                        "Systems are not initialized. Call Initialize() first."
+                    );
+                }
+                return _sceneRendererSystem;
             }
         }
 
@@ -358,12 +381,15 @@ namespace MonoBall.Core.ECS
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
             _sceneRendererSystem.SetSpriteRendererSystem(_spriteRendererSystem);
 
-            // Create font service and performance stats system
-            var fontService = new Rendering.FontService(
-                _modManager,
-                _graphicsDevice,
-                LoggerFactory.CreateLogger<Rendering.FontService>()
-            );
+            // Get FontService from Game.Services (created earlier in GameServices.LoadMods)
+            var fontService = _game.Services.GetService<Rendering.FontService>();
+            if (fontService == null)
+            {
+                throw new InvalidOperationException(
+                    "FontService is not available in Game.Services. "
+                        + "Ensure GameServices.Initialize() was called and mods were loaded successfully."
+                );
+            }
             var performanceStatsSystem = new PerformanceStatsSystem(
                 _world,
                 LoggerFactory.CreateLogger<PerformanceStatsSystem>()
@@ -414,6 +440,16 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<MapPopupRendererSystem>()
             );
             _sceneRendererSystem.SetMapPopupRendererSystem(_mapPopupRendererSystem);
+
+            // Create loading scene renderer system (optional, for loading screen)
+            _loadingSceneRendererSystem = new Scenes.Systems.LoadingSceneRendererSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                _game,
+                LoggerFactory.CreateLogger<Scenes.Systems.LoadingSceneRendererSystem>()
+            );
+            _sceneRendererSystem.SetLoadingSceneRendererSystem(_loadingSceneRendererSystem);
 
             // Update render systems to track draw calls
             _mapRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);

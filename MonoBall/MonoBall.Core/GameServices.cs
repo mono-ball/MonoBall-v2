@@ -8,6 +8,7 @@ using MonoBall.Core.Logging;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Utilities;
+using MonoBall.Core.Rendering;
 using Serilog;
 
 namespace MonoBall.Core
@@ -127,9 +128,32 @@ namespace MonoBall.Core
 
         /// <summary>
         /// Loads all mods from the Mods directory.
+        /// Reuses existing ModManager from Game.Services if already loaded (e.g., by LoadModsSynchronously).
         /// </summary>
         private void LoadMods()
         {
+            // Check if ModManager already exists in Game.Services (loaded synchronously for loading screen)
+            var existingModManager = _game.Services.GetService<ModManager>();
+            if (existingModManager != null)
+            {
+                _logger.Information("Reusing existing ModManager from Game.Services");
+                ModManager = existingModManager;
+
+                // Ensure FontService exists (should already exist from LoadModsSynchronously)
+                // Use factory method to get or create FontService (preserves existing instance if present)
+                var fontService = Mods.Utilities.FontServiceFactory.GetOrCreateFontService(
+                    _game,
+                    existingModManager,
+                    _graphicsDevice,
+                    LoggerFactory.CreateLogger<Rendering.FontService>()
+                );
+                _logger.Debug(
+                    "FontService available (existing: {IsExisting})",
+                    _game.Services.GetService<Rendering.FontService>() == fontService
+                );
+                return;
+            }
+
             string? modsDirectory = ModsPathResolver.FindModsDirectory();
 
             if (string.IsNullOrEmpty(modsDirectory) || !Directory.Exists(modsDirectory))
@@ -172,9 +196,22 @@ namespace MonoBall.Core
                     );
                 }
 
-                // Register ModManager as a service
-                _game.Services.AddService(typeof(ModManager), ModManager);
-                _logger.Debug("ModManager registered");
+                // Register ModManager as a service (if not already registered)
+                if (_game.Services.GetService<ModManager>() == null)
+                {
+                    _game.Services.AddService(typeof(ModManager), ModManager);
+                    _logger.Debug("ModManager registered");
+                }
+
+                // Create and register FontService immediately after mods load (if not already registered)
+                // This ensures fonts are available for the loading screen
+                // Uses factory method to prevent duplicate registration and preserve cached fonts
+                Mods.Utilities.FontServiceFactory.GetOrCreateFontService(
+                    _game,
+                    ModManager,
+                    _graphicsDevice,
+                    LoggerFactory.CreateLogger<Rendering.FontService>()
+                );
             }
             else
             {

@@ -128,6 +128,14 @@ namespace MonoBall.Core.Scenes.Systems
                     {
                         World.Add<MapPopupSceneComponent>(sceneEntity, mapPopupSceneComp);
                     }
+                    else if (component is LoadingSceneComponent loadingSceneComp)
+                    {
+                        World.Add<LoadingSceneComponent>(sceneEntity, loadingSceneComp);
+                    }
+                    else if (component is LoadingProgressComponent loadingProgressComp)
+                    {
+                        World.Add<LoadingProgressComponent>(sceneEntity, loadingProgressComp);
+                    }
                     // Add other component types as needed in the future
                 }
             }
