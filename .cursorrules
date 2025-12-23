@@ -2,6 +2,23 @@
 
 This document defines coding standards and best practices for the MonoBall project, ensuring consistency, maintainability, and adherence to MonoGame conventions, .NET 10 C# best practices, SOLID principles, and DRY methodology.
 
+## ⚠️ CRITICAL RULES - READ FIRST ⚠️
+
+**These rules MUST be followed in all code changes:**
+
+1. **NO BACKWARD COMPATIBILITY** - Refactor APIs freely, break existing code if needed, update all call sites
+2. **NO FALLBACK CODE** - Fail fast with clear exceptions, never silently degrade or use default values for required dependencies
+3. **ECS Systems**: Inherit from `BaseSystem<World, float>`, cache `QueryDescription` in constructor, never create queries in Update/Render
+4. **ECS Components**: Value types (`struct`) only, data not behavior, end names with `Component` suffix
+5. **Event Subscriptions**: MUST implement `IDisposable` and unsubscribe in `Dispose()` to prevent leaks
+6. **Nullable Types**: Always enable nullable reference types, use `?` for nullable, validate nulls with exceptions
+7. **Dependency Injection**: Required dependencies in constructor, throw `ArgumentNullException` for null
+8. **XML Documentation**: Document all public APIs with XML comments
+9. **Namespace**: Match folder structure, root is `MonoBall.Core`
+10. **File Organization**: One class per file, PascalCase naming, match file name to class name
+
+---
+
 ## Project Context
 - **Framework**: MonoGame 3.8+ with .NET 10.0
 - **Language**: C# with nullable reference types enabled
@@ -18,42 +35,13 @@ This document defines coding standards and best practices for the MonoBall proje
 - **Break existing code if necessary** - update all call sites to use new APIs
 - **Remove deprecated code immediately** - don't keep old implementations alongside new ones
 - **Update all usages** - when changing an API, find and update all call sites rather than maintaining compatibility layers
-- **Prefer clean APIs** - better to have a clean, breaking change than maintain compatibility with poor design
 
 ### No Fallback Code
 - **NEVER introduce fallback code** - code should fail fast with clear errors rather than silently degrade
 - **Require all dependencies** - if a method needs a service or component, make it required (non-nullable)
 - **Throw exceptions for missing requirements** - use `InvalidOperationException` or `ArgumentNullException` with clear messages
 - **No default values for critical dependencies** - don't use optional parameters or null defaults for required services
-- **No "graceful degradation"** - if something is required, fail immediately rather than falling back to defaults
 - **Validate all prerequisites** - check for required components/services and throw exceptions if missing
-
-### Examples
-
-#### ❌ Bad: Backward Compatibility
-```csharp
-// Old method kept for compatibility
-public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity)
-{
-    // Old implementation
-}
-
-// New method with better API
-public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity, bool useSmoothing)
-{
-    // New implementation
-}
-```
-
-#### ✅ Good: Breaking Change
-```csharp
-// Single method with required parameter
-public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity, bool useSmoothing)
-{
-    // Implementation
-}
-// Update all call sites to use new signature
-```
 
 #### ❌ Bad: Fallback Code
 ```csharp
@@ -61,12 +49,9 @@ private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
 {
     if (_spriteLoader != null && World.Has<SpriteSheetComponent>(entity))
     {
-        // Use sprite dimensions
         return CalculateFromSprite(entity, position);
     }
-    
-    // Fallback to default
-    return new Vector2(position.X + 8f, position.Y + 16f);
+    return new Vector2(position.X + 8f, position.Y + 16f); // Fallback
 }
 ```
 
@@ -81,8 +66,6 @@ private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
             "Cannot calculate sprite center without sprite sheet information."
         );
     }
-    
-    // Use sprite dimensions - no fallback
     return CalculateFromSprite(entity, position);
 }
 ```
@@ -91,125 +74,63 @@ private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
 
 ## .NET 10 C# Best Practices
 
-### General C# Guidelines
-- **Always enable nullable reference types**: Use `Nullable` context in csproj (`<Nullable>enable</Nullable>`)
-- **Use modern C# features**: Pattern matching, record types (when appropriate), init-only properties, nullable reference types
-- **Prefer expression-bodied members** for simple properties and methods
-- **Use `var` for local variables** when type is obvious from context
-- **Avoid `var`** when it reduces readability or the type is not immediately clear
+### General Guidelines
+- **Always enable nullable reference types**: `<Nullable>enable</Nullable>` in csproj
+- **Use modern C# features**: Pattern matching, nullable reference types, init-only properties
+- **Prefer expression-bodied members** for simple properties/methods
+- **Use `var`** when type is obvious, avoid when it reduces readability
 - **Use null-conditional operators** (`?.`, `??`) appropriately
-- **Prefer `string.IsNullOrEmpty()` and `string.IsNullOrWhiteSpace()`** over manual null/empty checks
-- **Use `IReadOnlyList<T>` and `IReadOnlyCollection<T>`** for collections that shouldn't be modified after initialization
+- **Prefer `string.IsNullOrEmpty()` and `string.IsNullOrWhiteSpace()`** over manual checks
+- **Use `IReadOnlyList<T>`** for read-only collections
 - **Prefer `IEnumerable<T>`** for method parameters when mutation isn't needed
-
-### Async/Await
-- **Use async/await** for I/O-bound operations (file I/O, network calls)
-- **Avoid async void** except for event handlers; use `async Task` instead
-- **ConfigureAwait(false)** is optional in .NET Core+ but may be used for library code
-
-### Collections
-- **Prefer `List<T>`** over arrays when size may change
-- **Use `Dictionary<TKey, TValue>`** for key-value lookups
-- **Prefer LINQ** for querying collections, but avoid over-complex queries
-- **Consider `Span<T>` and `Memory<T>`** for performance-critical code dealing with arrays
 
 ### Exception Handling
 - **Catch specific exceptions**, not `Exception` unless absolutely necessary
-- **Use `throw;` to rethrow** exceptions without losing stack trace
-- **Use `throw new ExceptionType()`** when wrapping exceptions with context
-- **Validate arguments** and throw `ArgumentException` or `ArgumentNullException` with parameter names
+- **Validate arguments** and throw `ArgumentNullException` or `ArgumentException` with parameter names
 - **Document exceptions** in XML comments using `<exception>` tags
+
+### Collections & Performance
+- **Prefer `List<T>`** over arrays when size may change
+- **Use `Dictionary<TKey, TValue>`** for key-value lookups
+- **Avoid allocations** in Update/Draw loops (object pooling for frequently created objects)
+- **Pre-size collections** when size is known (`new List<T>(capacity)`)
 
 ---
 
 ## SOLID Principles
 
-### Single Responsibility Principle (SRP)
-- **Each class should have one reason to change**
-- Keep classes focused on a single responsibility
-- Extract related functionality into separate classes
-- Example: `ModManager` manages mod loading, `DefinitionRegistry` stores definitions, `ModValidator` validates mods
-
-### Open/Closed Principle (OCP)
-- **Open for extension, closed for modification**
-- Use interfaces and abstractions to allow extension
-- Prefer composition over inheritance
-- Use strategy pattern, factory pattern, or dependency injection when appropriate
-
-### Liskov Substitution Principle (LSP)
-- **Derived classes must be substitutable for their base classes**
-- Ensure derived classes don't violate base class contracts
-- Override methods should maintain the same behavior and constraints as the base method
-
-### Interface Segregation Principle (ISP)
-- **Clients shouldn't depend on interfaces they don't use**
-- Create focused, specific interfaces rather than large, general-purpose ones
-- Prefer smaller, cohesive interfaces over large interfaces with many methods
-
-### Dependency Inversion Principle (DIP)
-- **Depend on abstractions, not concretions**
-- Use interfaces for dependencies
-- Inject dependencies through constructors or properties
-- MonoGame's `Game.Services` pattern is acceptable for game-specific services
+- **Single Responsibility**: Each class should have one reason to change
+- **Open/Closed**: Open for extension, closed for modification (use interfaces/abstractions)
+- **Liskov Substitution**: Derived classes must be substitutable for their base classes
+- **Interface Segregation**: Clients shouldn't depend on interfaces they don't use
+- **Dependency Inversion**: Depend on abstractions, not concretions (use interfaces, inject dependencies)
 
 ---
 
 ## DRY (Don't Repeat Yourself)
 
-### Code Reusability
 - **Extract common logic** into methods or classes
-- **Create utility classes** for shared functionality (e.g., `ModsPathResolver`, `JsonElementMerger`)
-- **Avoid copy-paste code**; refactor into shared methods
+- **Create utility classes** for shared functionality
+- **Avoid copy-paste code** - refactor into shared methods
 - **Use extension methods** for common operations on types you don't control
-- **Create base classes** or helper methods for similar functionality
-
-### Configuration and Constants
 - **Define constants** for magic numbers and strings
-- **Use configuration classes** for settings and options
-- **Centralize string literals** (consider resources for user-facing strings)
 
 ---
 
 ## MonoGame Best Practices
 
-### Game Class Structure
-- **Keep `MonoBallGame` class focused** on game initialization and high-level orchestration
-- **Defer heavy logic** to specialized classes (Managers, Services, Systems)
-- **Use `Game.Services`** to share services across components
-- **Initialize platform-specific settings** in constructor (e.g., `GraphicsDeviceManager` configuration)
-
-### Content Pipeline
-- **Load content in `LoadContent()`** method
-- **Unload content** in `UnloadContent()` if needed
-- **Keep Content.RootDirectory** as "Content"
-- **Reference content through Content Pipeline**, not direct file paths in runtime
-
 ### Game Loop
 - **Use `GameTime`** for frame-independent updates (don't assume 60 FPS)
 - **Separate Update and Draw logic** clearly
 - **Avoid heavy computations** in Draw methods; pre-calculate when possible
-- **Batch draw calls** when rendering many objects (SpriteBatch)
-- **ECS System Updates**: Update ECS systems in `Game.Update()` using `Group<T>.BeforeUpdate()`, `Update()`, `AfterUpdate()` with deltaTime
-- **ECS Rendering**: Call render methods from `Game.Draw()` for rendering systems (e.g., `MapRendererSystem.Render()`)
-- **Convert GameTime to deltaTime**: Use `(float)gameTime.ElapsedGameTime.TotalSeconds` for ECS system updates
+- **ECS System Updates**: Update in `Game.Update()` using `Group<T>.BeforeUpdate()`, `Update()`, `AfterUpdate()` with deltaTime
+- **ECS Rendering**: Call render methods from `Game.Draw()` for rendering systems
+- **Convert GameTime to deltaTime**: Use `(float)gameTime.ElapsedGameTime.TotalSeconds`
 
-### Graphics and Rendering
-- **Use `SpriteBatch`** for 2D rendering
-- **Call `SpriteBatch.Begin()` and `SpriteBatch.End()`** appropriately
+### Graphics & Input
+- **Use `SpriteBatch`** for 2D rendering, call `Begin()` and `End()` appropriately
 - **Minimize state changes** between draw calls
-- **Clear the screen** at the start of Draw with `GraphicsDevice.Clear()`
-- **Use appropriate blend states** for transparency effects
-
-### Input Handling
 - **Check input state** in Update, not Draw
-- **Store previous frame's input state** if you need to detect key presses (not just held keys)
-- **Use `Keyboard.GetState()` and `Mouse.GetState()`** for input polling
-- **Consider input abstraction** for cross-platform input handling
-
-### Performance
-- **Profile before optimizing** - use Visual Studio Diagnostic Tools or MonoGame profiling
-- **Avoid allocations** in Update/Draw loops (object pooling for frequently created objects)
-- **Use `ref struct` or `Span<T>`** for high-performance code paths when appropriate
 - **Cache frequently accessed properties** (e.g., `GraphicsDevice`, `Window`)
 
 ---
@@ -219,8 +140,8 @@ private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
 ### Namespace Structure
 - **Match namespace to folder structure**
 - **Root namespace**: `MonoBall.Core`
-- **Sub-namespaces** should match subdirectories (e.g., `MonoBall.Core.Mods`, `MonoBall.Core.Mods.Utilities`)
-- **One class per file** (except for closely related classes like enums and their helpers)
+- **Sub-namespaces** match subdirectories (e.g., `MonoBall.Core.Mods`, `MonoBall.Core.Mods.Utilities`)
+- **One class per file** (except closely related classes like enums and helpers)
 
 ### Directory Structure
 ```
@@ -232,187 +153,77 @@ MonoBall.Core/
 │   ├── EcsService.cs  # ECS service wrapper
 │   └── EcsWorld.cs    # ECS world singleton
 ├── Mods/              # Mod system classes
-│   └── Utilities/     # Mod-related utilities
-├── Localization/      # Localization classes
 ├── Maps/              # Map-related classes
-│   └── Utilities/     # Map utilities
-├── Logging/           # Logging infrastructure
-├── Content/           # Content pipeline files
 └── [Feature Areas]/   # Other feature-specific folders
 ```
 
-### File Naming
-- **Use PascalCase** for class names and file names (e.g., `ModManager.cs`, `DefinitionRegistry.cs`)
+### File Naming & Code Organization
+- **Use PascalCase** for class names and file names (e.g., `ModManager.cs`)
 - **Match file name to primary class name**
-- **Use descriptive names** that clearly indicate purpose
-
-### Code Organization Within Files
-
-#### For Classes
-1. **Using statements** (sorted alphabetically, grouped by System, third-party, local)
-2. **Namespace declaration**
-3. **Class documentation** (XML comments)
-4. **Constants and static fields**
-5. **Instance fields** (private first, then protected, then public)
-6. **Properties**
-7. **Constructors**
-8. **Public methods**
-9. **Protected methods**
-10. **Private methods**
-11. **Nested types** (if any)
-
-#### For Components (Structs)
-1. **Using statements**
-2. **Namespace declaration**
-3. **Component documentation** (XML comments)
-4. **Properties** (organized by logical grouping)
-
-#### For Systems
-1. **Using statements**
-2. **Namespace declaration**
-3. **Class documentation** (XML comments)
-4. **Private fields** (dependencies, caches, QueryDescription instances)
-5. **Constructors**
-6. **Public methods** (entry points, lifecycle)
-7. **Private helper methods**
+- **Code order**: Using statements → Namespace → XML docs → Constants/Fields → Properties → Constructors → Public methods → Protected → Private
 
 ---
 
 ## Documentation Standards
 
-### XML Comments
-- **Document all public APIs** with XML comments
-- **Document protected members** that are part of public API surface
-- **Use `<summary>`** for class, method, and property descriptions
-- **Use `<param>`** for method parameters
-- **Use `<returns>`** for return value descriptions
-- **Use `<exception>`** for exceptions that may be thrown
-- **Use `<typeparam>`** for generic type parameters
-- **Use `<remarks>`** for additional information
-
-### Code Comments
+- **Document all public APIs** with XML comments (`<summary>`, `<param>`, `<returns>`, `<exception>`)
 - **Use comments to explain "why", not "what"** (code should be self-explanatory)
 - **Avoid commented-out code** - remove it or explain why it's kept
-- **Use TODO comments** sparingly and include context
 
 ---
 
 ## Type Safety and Nullability
 
-### Nullable Reference Types
 - **Use `?` suffix** for nullable reference types (e.g., `string?`, `ModManager?`)
-- **Use null-forgiving operator `!`** sparingly and only when you're certain a value isn't null
+- **Use null-forgiving operator `!`** sparingly and only when certain a value isn't null
 - **Prefer null-conditional operators** (`?.`, `??`) over null checks when appropriate
 - **Return null** only when null is a valid, expected state (document in XML comments)
-
-### Generic Types
-- **Use generics** for type-safe, reusable code
-- **Apply constraints** appropriately (`where T : class`, `where T : struct`, `where T : IInterface`)
 
 ---
 
 ## Error Handling and Validation
 
-### Input Validation
 - **Validate method parameters** at the beginning of methods
 - **Throw `ArgumentNullException`** for null arguments
 - **Throw `ArgumentException`** for invalid argument values
-- **Include parameter name** in exception messages
-
-### State Validation
-- **Check object state** before operations that require it
 - **Throw `InvalidOperationException`** for invalid state
+- **Include parameter name** in exception messages
 - **Use guard clauses** for early returns in validation
-
----
-
-## Performance Considerations
-
-### Memory Management
-- **Avoid unnecessary allocations** in hot paths (Update/Draw methods)
-- **Reuse objects** when possible (object pooling for game entities)
-- **Dispose of IDisposable resources** properly (use `using` statements)
-
-### Collection Usage
-- **Pre-size collections** when size is known (`new List<T>(capacity)`)
-- **Use appropriate collection types** for use case (List, Dictionary, HashSet, etc.)
-- **Consider `ArrayPool<T>`** for temporary arrays in hot paths
-
----
-
-## Testing Considerations
-
-### Testability
-- **Design for testability**: Use dependency injection, avoid static state where possible
-- **Make dependencies explicit** through constructor parameters
-- **Use interfaces** for testable abstractions
-
----
-
-## Mod System Specific Guidelines
-
-### Mod Loading
-- **Validate mods before loading** using `ModValidator`
-- **Handle loading errors gracefully** - log errors but don't crash
-- **Support load order resolution** through manifest or dependencies
-- **Lock registries** after loading to prevent modifications
-
-### Definition Management
-- **Use strongly-typed definitions** with generics (`GetDefinition<T>()`)
-- **Store definitions in registry** for efficient lookup
-- **Support definition operations** (modify, extend, replace) properly
 
 ---
 
 ## Arch ECS Best Practices
 
-### Architecture Overview
-- **Use Arch ECS** (Arch.Core, Arch.System, Arch.System.SourceGenerator) for entity-component-system architecture
-- **ECS World**: Single instance accessed via `EcsWorld.Instance` or injected through `EcsService`
-- **Register EcsService** in `Game.Services` for dependency access
-- **Use `Group<T>`** to organize and update systems with lifecycle methods (BeforeUpdate, Update, AfterUpdate)
-
 ### Components
-- **Components are value types** (`struct`) for performance - store data, not behavior
-- **Keep components small and focused** - each component represents a single aspect (Position, Renderable, Health)
-- **Use properties** in components for clarity and encapsulation
-- **Document components** with XML comments explaining what they represent
-- **Naming convention**: End component names with `Component` suffix (e.g., `PositionComponent`, `MapComponent`)
-- **Location**: Place components in `ECS/Components/` directory
-- **Namespace**: `MonoBall.Core.ECS.Components`
+- **Components are value types** (`struct`) - store data, not behavior
+- **Keep components small and focused** - each component represents a single aspect
+- **Naming**: End component names with `Component` suffix (e.g., `PositionComponent`)
+- **Location**: `ECS/Components/` directory, namespace `MonoBall.Core.ECS.Components`
+- **Keep components pure data** - no methods, only properties
 
 ### Systems
-- **Systems inherit from `BaseSystem<World, float>`** (World parameter, float deltaTime)
+- **Inherit from `BaseSystem<World, float>`** (World parameter, float deltaTime)
 - **Systems contain logic**, not data - they operate on components
-- **Use manual queries with `QueryDescription`**: Create `QueryDescription` with `WithAll<T>()`, `WithAny<T>()`, `WithNone<T>()` for component access
-- **Cache QueryDescription**: Store `QueryDescription` as instance fields (created in constructor) or static readonly fields for reuse
-- **Note**: Source-generated queries (`[Query]` attribute) are not used due to compatibility issues with the current Arch ECS version
-- **Naming convention**: End system names with `System` suffix (e.g., `MapLoaderSystem`, `MapRendererSystem`)
-- **Location**: Place systems in `ECS/Systems/` directory
-- **Namespace**: `MonoBall.Core.ECS.Systems`
+- **Cache QueryDescription**: Store as instance fields (created in constructor) or static readonly fields
+- **NEVER create QueryDescription in Update/Render methods** - always cache them
+- **Naming**: End system names with `System` suffix (e.g., `MapLoaderSystem`)
+- **Location**: `ECS/Systems/` directory, namespace `MonoBall.Core.ECS.Systems`
 - **Inject dependencies** through constructor (World, services, managers)
-- **Separate concerns**: Keep update logic separate from render logic (separate systems or methods)
+- **Separate concerns**: Keep update logic separate from render logic
 
 ### System Organization
 - **Use `Group<T>`** to organize related systems (e.g., "MapSystems", "RenderSystems")
 - **Call lifecycle methods**: `BeforeUpdate()`, `Update()`, `AfterUpdate()` in that order
 - **Update systems in `Game.Update()`**: Pass deltaTime as `(float)gameTime.ElapsedGameTime.TotalSeconds`
 - **Render systems separately**: Call render methods from `Game.Draw()`, not through Group
-- **Initialize systems** after dependencies are ready (in `LoadContent()` or after services are registered)
 
-### System Disposal and IDisposable
-
-#### When to Implement IDisposable
-- **Implement `IDisposable`** only when a system has managed resources that need cleanup (e.g., event subscriptions, cached collections that track entities)
-- **Do NOT implement `IDisposable`** if the system has no resources to dispose (most simple systems don't need it)
-- **Event subscriptions require disposal**: If a system subscribes to events, it MUST implement `IDisposable` and unsubscribe in `Dispose()`
-
-#### Dispose Pattern for Systems
+### System Disposal (IDisposable)
+- **Implement `IDisposable`** only when system has managed resources (event subscriptions, cached collections)
+- **Event subscriptions require disposal**: If subscribing to events, MUST implement `IDisposable` and unsubscribe in `Dispose()`
 - **Use standard dispose pattern** with protected `Dispose(bool disposing)` method
-- **Use `new` keyword** on public `Dispose()` method if `BaseSystem` has a `Dispose()` method (avoids hiding warnings)
-- **Do NOT call `GC.SuppressFinalize(this)`** unless you have a finalizer (which systems typically don't need)
+- **Use `new` keyword** on public `Dispose()` if `BaseSystem` has a `Dispose()` method
+- **Do NOT call `GC.SuppressFinalize(this)`** unless you have a finalizer (systems typically don't)
 - **Always check `_disposed` flag** to prevent multiple disposals
-- **Only dispose managed resources** in the `disposing` parameter check
 
 #### Dispose Pattern Template
 ```csharp
@@ -422,77 +233,33 @@ public class MySystem : BaseSystem<World, float>, IDisposable
 
     public MySystem(World world) : base(world)
     {
-        // Subscribe to events if needed
         EventBus.Subscribe<SomeEvent>(OnSomeEvent);
     }
 
-    // ... system logic ...
+    public new void Dispose() => Dispose(true);
 
-    /// <summary>
-    /// Disposes the system and unsubscribes from events.
-    /// </summary>
-    /// <remarks>
-    /// Implements IDisposable to properly clean up event subscriptions.
-    /// Uses standard dispose pattern without finalizer since only managed resources are disposed.
-    /// Uses 'new' keyword because BaseSystem may have a Dispose() method with different signature.
-    /// </remarks>
-    public new void Dispose()
-    {
-        Dispose(true);
-    }
-
-    /// <summary>
-    /// Disposes the system and unsubscribes from events.
-    /// </summary>
-    /// <param name="disposing">Whether managed resources should be disposed.</param>
     protected virtual void Dispose(bool disposing)
     {
-        if (!_disposed)
+        if (!_disposed && disposing)
         {
-            if (disposing)
-            {
-                // Unsubscribe from events
-                EventBus.Unsubscribe<SomeEvent>(OnSomeEvent);
-                // Clear any cached collections tracking entities
-                // Dispose any other managed resources
-            }
-            _disposed = true;
+            EventBus.Unsubscribe<SomeEvent>(OnSomeEvent);
+            // Clear cached collections, dispose other resources
         }
+        _disposed = true;
     }
 }
 ```
 
-#### Common Mistakes to Avoid
-- ❌ **Don't call `GC.SuppressFinalize(this)`** without a finalizer - it's unnecessary
-- ❌ **Don't use `override` keyword** for `Dispose()` - use `new` if `BaseSystem` has `Dispose()`
-- ❌ **Don't forget to unsubscribe** from events - causes memory leaks
-- ❌ **Don't dispose multiple times** - always check `_disposed` flag
-- ❌ **Don't implement `IDisposable` unnecessarily** - only if you have resources to dispose
-- ✅ **Do unsubscribe from all events** subscribed in constructor
-- ✅ **Do clear entity-tracking dictionaries** in Dispose to prevent memory leaks
-- ✅ **Do use `new` keyword** when `BaseSystem` has a `Dispose()` method to avoid compiler warnings
+### Query Performance
+- **Cache QueryDescription**: Create in constructor, store as instance field or static readonly
+- **Use appropriate filters**: `WithAll` for AND, `WithAny` for OR, `WithNone` for exclusion
+- **Single-pass queries**: Get all needed components in one query pass
+- **Avoid allocations** in hot path queries - reuse collections or use stack allocation
 
 ### Entity Management
 - **Create entities** with `World.Create()` and pass initial components
 - **Destroy entities** with `World.Destroy()` when no longer needed
-- **Track entity references** in systems when needed for cleanup (e.g., per-map entity lists)
-- **Use Entity IDs** for identification when needed, but prefer component-based queries
-- **Avoid storing Entity references** long-term if possible - use component data instead
-
-### Query Performance
-- **Cache QueryDescription**: Create `QueryDescription` in constructor and store as instance field, or use static readonly for shared queries
-- **Use appropriate query filters**: `WithAll` for AND, `WithAny` for OR, `WithNone` for exclusion
-- **Single-pass queries**: Get all needed components in one query pass - avoid querying entities multiple times
-- **Batch operations**: When iterating over entities, collect data first, then process (if needed)
-- **Avoid allocations** in hot path queries - reuse collections or use stack allocation when possible
-- **Don't create QueryDescription in hot paths**: Always cache query descriptions, never create them in Update/Render methods
-
-### Component Design Patterns
-- **Keep components pure data** - no methods, only properties
-- **Use appropriate types**: Prefer value types (structs) over reference types for components
-- **Group related data**: If data always changes together, keep it in one component
-- **Separate concerns**: If data changes independently, use separate components
-- **Consider data locality**: Frequently accessed data together should be in the same component
+- **Avoid storing Entity references** long-term - use component data instead
 
 ### Example: Component
 ```csharp
@@ -538,23 +305,6 @@ public class MapRendererSystem : BaseSystem<World, float>
 }
 ```
 
-### Example: System Group Usage
-```csharp
-var systems = new Group<float>(
-    "MapSystems",
-    mapLoaderSystem,
-    mapConnectionSystem
-);
-
-systems.Initialize();
-
-// In Update loop:
-float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-systems.BeforeUpdate(in deltaTime);
-systems.Update(in deltaTime);
-systems.AfterUpdate(in deltaTime);
-```
-
 ---
 
 ## Event System Best Practices
@@ -562,37 +312,22 @@ systems.AfterUpdate(in deltaTime);
 ### Event Architecture
 - **Use Arch.EventBus** for decoupled event communication
 - **Events are value types** (`struct`) - lightweight data containers
-- **Naming convention**: End event names with `Event` suffix (e.g., `MapLoadedEvent`, `MapTransitionEvent`)
-- **Location**: Place events in `ECS/Events/` directory
-- **Namespace**: `MonoBall.Core.ECS.Events`
+- **Naming**: End event names with `Event` suffix (e.g., `MapLoadedEvent`)
+- **Location**: `ECS/Events/` directory, namespace `MonoBall.Core.ECS.Events`
 - **Events carry context**: Include relevant entity references, IDs, and state data
 
-### Event Design
+### Event Design & Publishing
 - **Keep events focused** - represent a single occurrence or state change
-- **Include necessary context**: Entity references, IDs, timestamps, or related data
-- **Make events immutable** - use `readonly` properties or init-only setters when appropriate
-- **Document events** with XML comments explaining when they're fired and what they represent
-- **Use descriptive property names** that clearly indicate what the data represents
-
-### Event Publishing
-- **Publish events** from systems or services after state changes
+- **Make events immutable** - use `readonly` properties or init-only setters
+- **Document events** with XML comments explaining when they're fired
 - **Use EventBus.Send()** to broadcast events (takes ref parameter for struct events)
-- **Fire events at appropriate times**: After state changes are complete and valid
-- **Don't fire events** for internal operations that shouldn't be observable
-- **Log important events** for debugging (use Serilog)
+- **Fire events after state changes** are complete and valid
 
 ### Event Subscription
 - **Subscribe to events** in systems that need to react to state changes
-- **Use EventBus.Subscribe()** or equivalent method
-- **Handle events asynchronously** when appropriate (non-blocking operations)
-- **Unsubscribe** when systems are disposed to prevent memory leaks
+- **Use EventBus.Subscribe()** for subscription
+- **MUST unsubscribe** when systems are disposed to prevent memory leaks
 - **Keep event handlers focused** - delegate to other methods if logic is complex
-
-### Event Patterns
-- **One-way communication**: Events flow from publisher to subscribers
-- **Decoupling**: Systems shouldn't directly call each other - use events
-- **Order matters**: Document if event order is important
-- **Idempotency**: Events should be safe to process multiple times if needed
 
 ### Example: Event Definition
 ```csharp
@@ -603,197 +338,69 @@ namespace MonoBall.Core.ECS.Events
     /// </summary>
     public struct MapLoadedEvent
     {
-        /// <summary>
-        /// The map definition ID that was loaded.
-        /// </summary>
         public string MapId { get; set; }
-        
-        /// <summary>
-        /// The entity reference for the map.
-        /// </summary>
         public Entity MapEntity { get; set; }
     }
 }
 ```
 
-### Example: Publishing Events
+### Example: Publishing & Subscribing
 ```csharp
-// After successfully loading a map
-var loadedEvent = new MapLoadedEvent
-{
-    MapId = mapId,
-    MapEntity = mapEntity
-};
+// Publishing
+var loadedEvent = new MapLoadedEvent { MapId = mapId, MapEntity = mapEntity };
 EventBus.Send(ref loadedEvent);
-Log.Information("Map loaded: {MapId}", mapId);
-```
 
-### Example: Subscribing to Events
-```csharp
-public class MapTransitionSystem : BaseSystem<World, float>, IDisposable
-{
-    public MapTransitionSystem(World world) : base(world)
-    {
-        EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
-    }
-    
-    private void OnMapTransition(MapTransitionEvent evt)
-    {
-        // Handle map transition logic
-    }
-    
-    public new void Dispose()
-    {
-        Dispose(true);
-    }
-    
-    protected virtual void Dispose(bool disposing)
-    {
-        if (!_disposed)
-        {
-            if (disposing)
-            {
-                EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
-            }
-            _disposed = true;
-        }
-    }
-    
-    private bool _disposed = false;
-}
+// Subscribing (in system constructor)
+EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
+
+// Unsubscribing (in Dispose)
+EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
 ```
 
 ---
 
-## Persistence Best Practices
+## Mod System Guidelines
 
-### Save/Load Architecture
-- **Design for serialization** from the start - consider what needs to be saved
-- **Use separate persistence services** for different data types (game state, settings, player data)
-- **Version your save files** - include version numbers to handle migration
-- **Use async I/O** for save/load operations to avoid blocking the game loop
-- **Validate loaded data** - check integrity and handle corrupted saves gracefully
+- **Validate mods before loading** using `ModValidator`
+- **Handle loading errors gracefully** - log errors but don't crash
+- **Use strongly-typed definitions** with generics (`GetDefinition<T>()`)
+- **Store definitions in registry** for efficient lookup
 
-### Data to Persist
-- **Component state**: Serialize relevant component data (Position, Health, Inventory)
-- **Entity IDs**: Track entity IDs for reconstruction, but validate on load
-- **Game state**: Level progress, unlocked content, statistics
-- **Settings**: User preferences, key bindings, graphics settings
-- **Metadata**: Save timestamp, version, checksums
+---
 
-### Serialization Strategy
-- **Use System.Text.Json** for JSON serialization (already used in mod system)
-- **Prefer JSON** for human-readable saves that can be debugged
-- **Consider binary serialization** for large datasets or performance-critical saves
-- **Use Data Transfer Objects (DTOs)** - separate serialization models from game components
-- **Ignore transient data**: Don't save computed values or temporary state
+## Anti-Patterns to Avoid
 
-### Save File Structure
-- **Organize saves** in a dedicated directory (e.g., "Saves/")
-- **Use descriptive file names**: Include timestamp, slot number, or identifier
-- **Implement save slots**: Support multiple save files (slot 1, 2, 3, auto-save)
-- **Auto-save**: Implement periodic auto-save for player progress
-- **Save on exit**: Save game state when game closes (when appropriate)
+### General
+- ❌ **God classes** - classes that do too much
+- ❌ **Magic numbers and strings** - use constants or configuration
+- ❌ **Unchecked null references** - use nullable types properly
+- ❌ **Heavy computation in Draw()** - pre-calculate or cache
+- ❌ **Creating objects in Update/Draw loops** - reuse or pool
+- ❌ **Ignoring GameTime** - don't assume fixed frame rate
+- ❌ **Tight coupling** - use interfaces and dependency injection
+- ❌ **Copy-paste code** - extract to shared methods/classes
+- ❌ **Maintaining backward compatibility** - refactor freely, update all call sites
+- ❌ **Fallback code** - fail fast with clear exceptions
 
-### Loading Strategy
-- **Validate on load**: Check file format, version compatibility, data integrity
-- **Handle missing data**: Provide defaults or handle gracefully when data is missing
-- **Reconstruct entities**: Recreate entities and components from saved data
-- **Restore relationships**: Rebuild entity relationships and references
-- **Log load operations**: Use Serilog to track what's being loaded
+### ECS-Specific
+- ❌ **Storing behavior in components** - components are data only
+- ❌ **Large components** - split into focused, cohesive components
+- ❌ **Direct system-to-system calls** - use events for communication
+- ❌ **Storing Entity references in components** - use IDs or component relationships
+- ❌ **Creating QueryDescription in hot paths** - always cache them
+- ❌ **Double querying** - get all needed components in one pass
+- ❌ **Allocations in queries** - reuse collections or use stack allocation
+- ❌ **Mixing update and render logic** - separate into different systems/methods
+- ❌ **Not disposing event subscriptions** - unsubscribe in Dispose() to prevent leaks
 
-### Error Handling
-- **Graceful degradation**: If save fails, continue game but warn user
-- **Backup saves**: Keep backup of previous save before overwriting
-- **Corruption handling**: Detect and handle corrupted save files
-- **Migration support**: Support loading older save file versions with migration logic
-
-### Performance Considerations
-- **Save asynchronously**: Don't block game loop during save operations
-- **Incremental saves**: Save only changed data when possible
-- **Compression**: Consider compressing large save files
-- **Batch operations**: Save/load related data together for efficiency
-
-### Example: Save Service Interface
-```csharp
-public interface ISaveService
-{
-    Task<bool> SaveGameAsync(GameState state, string slot);
-    Task<GameState?> LoadGameAsync(string slot);
-    Task<bool> SaveExistsAsync(string slot);
-    Task DeleteSaveAsync(string slot);
-    Task<List<string>> GetSaveSlotsAsync();
-}
-```
-
-### Example: Save Data Model
-```csharp
-/// <summary>
-/// Data transfer object for game state persistence.
-/// </summary>
-public class GameStateDto
-{
-    public int Version { get; set; }
-    public DateTime SaveTimestamp { get; set; }
-    public string CurrentMapId { get; set; } = string.Empty;
-    public List<EntityStateDto> Entities { get; set; } = new();
-    // ... other game state data
-}
-
-/// <summary>
-/// Data transfer object for entity state.
-/// </summary>
-public class EntityStateDto
-{
-    public int EntityId { get; set; }
-    public Vector2 Position { get; set; }
-    // ... other component data
-}
-```
-
-### Example: Persistence Integration
-```csharp
-public class GamePersistenceSystem : BaseSystem<World, float>
-{
-    private readonly ISaveService _saveService;
-    private readonly World _world;
-    
-    public async Task SaveGameAsync(string slot)
-    {
-        var state = new GameStateDto
-        {
-            Version = 1,
-            SaveTimestamp = DateTime.UtcNow,
-            Entities = SerializeEntities()
-        };
-        
-        await _saveService.SaveGameAsync(state, slot);
-    }
-    
-    private List<EntityStateDto> SerializeEntities()
-    {
-        var entities = new List<EntityStateDto>();
-        // Query and serialize relevant entities
-        return entities;
-    }
-}
-```
+### Event-Specific
+- ❌ **Events with side effects** - events carry data, not behavior
+- ❌ **Circular event dependencies** - avoid events triggering events that trigger the first
+- ❌ **Events for every state change** - only fire for significant, observable changes
 
 ---
 
 ## Code Examples
-
-### Good: Single Responsibility
-```csharp
-// ModManager handles mod lifecycle
-public class ModManager
-{
-    private readonly DefinitionRegistry _registry;
-    private readonly ModLoader _loader;
-    
-    // ModManager delegates loading to ModLoader and storage to DefinitionRegistry
-}
-```
 
 ### Good: Dependency Injection
 ```csharp
@@ -807,18 +414,6 @@ public class ModLoader
         _modsDirectory = modsDirectory ?? throw new ArgumentNullException(nameof(modsDirectory));
         _registry = registry ?? throw new ArgumentNullException(nameof(registry));
     }
-}
-```
-
-### Good: Nullable Reference Types
-```csharp
-/// <summary>
-/// Gets a definition by ID.
-/// </summary>
-/// <returns>The definition, or null if not found.</returns>
-public T? GetDefinition<T>(string id) where T : class
-{
-    // Implementation
 }
 ```
 
@@ -839,68 +434,3 @@ public void Register(DefinitionMetadata metadata)
     // Registration logic
 }
 ```
-
----
-
-## Anti-Patterns to Avoid
-
-### General
-- ❌ **God classes** - classes that do too much
-- ❌ **Deep inheritance hierarchies** - prefer composition
-- ❌ **Magic numbers and strings** - use constants or configuration
-- ❌ **Unchecked null references** - use nullable types properly
-- ❌ **Heavy computation in Draw()** - pre-calculate or cache
-- ❌ **Creating objects in Update/Draw loops** - reuse or pool
-- ❌ **Ignoring GameTime** - don't assume fixed frame rate
-- ❌ **Tight coupling** - use interfaces and dependency injection
-- ❌ **Copy-paste code** - extract to shared methods/classes
-- ❌ **Unclear naming** - use descriptive, intention-revealing names
-- ❌ **Maintaining backward compatibility** - refactor freely, update all call sites
-- ❌ **Fallback code** - fail fast with clear exceptions instead of silent degradation
-- ❌ **Optional dependencies for required functionality** - make dependencies required (non-nullable)
-- ❌ **Default values for critical dependencies** - throw exceptions if required services/components are missing
-
-### ECS-Specific
-- ❌ **Storing behavior in components** - components are data only
-- ❌ **Large components** - split into focused, cohesive components
-- ❌ **Direct system-to-system calls** - use events for communication
-- ❌ **Storing Entity references in components** - use IDs or component relationships
-- ❌ **Inefficient queries** - avoid creating QueryDescription in hot paths (always cache them)
-- ❌ **Double querying** - don't query entities multiple times, get all needed components in one pass
-- ❌ **Allocations in queries** - reuse collections or use stack allocation when possible
-- ❌ **Mixing update and render logic** - separate into different systems/methods
-- ❌ **Not disposing event subscriptions** - unsubscribe in Dispose() to prevent leaks
-
-### Event-Specific
-- ❌ **Events with side effects** - events carry data, not behavior
-- ❌ **Circular event dependencies** - avoid events triggering events that trigger the first
-- ❌ **Too many event types** - consolidate related events when possible
-- ❌ **Events for every state change** - only fire for significant, observable changes
-
-### Persistence-Specific
-- ❌ **Saving computed values** - only save source data, recompute on load
-- ❌ **Synchronous I/O** - use async/await for save/load operations
-- ❌ **No versioning** - always include version numbers in save files
-- ❌ **Saving everything** - only persist what's necessary for game state restoration
-- ❌ **No validation** - always validate loaded data for integrity
-
----
-
-## Additional Resources
-
-### General
-- [MonoGame Documentation](https://docs.monogame.net/)
-- [.NET API Documentation](https://docs.microsoft.com/dotnet/api/)
-- [C# Coding Conventions](https://docs.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions)
-- [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
-
-### ECS
-- [Arch ECS Documentation](https://github.com/genaray/Arch)
-- [Arch.Core GitHub](https://github.com/genaray/Arch.Core)
-- [Arch.System GitHub](https://github.com/genaray/Arch.System)
-- [Arch.EventBus GitHub](https://github.com/genaray/Arch.EventBus)
-
-### Persistence
-- [System.Text.Json Documentation](https://docs.microsoft.com/dotnet/api/system.text.json)
-- [Async/Await Best Practices](https://docs.microsoft.com/dotnet/csharp/async)
-
