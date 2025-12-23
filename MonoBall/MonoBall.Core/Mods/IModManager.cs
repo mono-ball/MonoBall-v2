@@ -47,5 +47,21 @@ namespace MonoBall.Core.Mods
         /// <param name="id">The definition ID.</param>
         /// <returns>The definition metadata, or null if not found.</returns>
         DefinitionMetadata? GetDefinitionMetadata(string id);
+
+        /// <summary>
+        /// Gets the tile width from mod configuration.
+        /// Prioritizes the core mod (base:monoball-core), then falls back to the first loaded mod.
+        /// </summary>
+        /// <returns>The tile width in pixels.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no mods have tile width configuration.</exception>
+        int GetTileWidth();
+
+        /// <summary>
+        /// Gets the tile height from mod configuration.
+        /// Prioritizes the core mod (base:monoball-core), then falls back to the first loaded mod.
+        /// </summary>
+        /// <returns>The tile height in pixels.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no mods have tile height configuration.</exception>
+        int GetTileHeight();
     }
 }

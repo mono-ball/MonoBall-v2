@@ -26,5 +26,7 @@
   "patches": [],
   "dependencies": [
     "base:monoball-core"
-  ]
+  ],
+  "tileWidth": 16,
+  "tileHeight": 16
 }

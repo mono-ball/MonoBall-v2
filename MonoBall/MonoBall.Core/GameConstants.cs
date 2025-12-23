@@ -6,16 +6,6 @@ namespace MonoBall.Core
     public static class GameConstants
     {
         /// <summary>
-        /// Default tile width in pixels (standard for tile-based games).
-        /// </summary>
-        public const int DefaultTileWidth = 16;
-
-        /// <summary>
-        /// Default tile height in pixels (standard for tile-based games).
-        /// </summary>
-        public const int DefaultTileHeight = 16;
-
-        /// <summary>
         /// Tile chunk size in tiles (16x16 tiles per chunk).
         /// </summary>
         public const int TileChunkSize = 16;
@@ -62,12 +52,6 @@ namespace MonoBall.Core
         /// Matches MonoBall's default: 4.0 tiles per second.
         /// </summary>
         public const float DefaultPlayerMovementSpeed = 4.0f;
-
-        /// <summary>
-        /// Tile size in pixels (matches DefaultTileWidth/Height).
-        /// Used for tile-based movement calculations.
-        /// </summary>
-        public const int TileSize = 16;
 
         /// <summary>
         /// Input buffer timeout in seconds.

@@ -19,12 +19,12 @@ namespace MonoBall.Core.ECS.Components
     public struct PositionComponent
     {
         /// <summary>
-        /// Gets or sets the X grid coordinate (tile-based, 16x16 pixels per tile).
+        /// Gets or sets the X grid coordinate (tile-based).
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        /// Gets or sets the Y grid coordinate (tile-based, 16x16 pixels per tile).
+        /// Gets or sets the Y grid coordinate (tile-based).
         /// </summary>
         public int Y { get; set; }
 
@@ -43,6 +43,10 @@ namespace MonoBall.Core.ECS.Components
         /// This property maintains compatibility with existing code that uses Position.
         /// Setting this property automatically syncs pixel coordinates to grid coordinates.
         /// </summary>
+        /// <remarks>
+        /// When setting Position, SyncPixelsToGrid() is called with default tile dimensions (16x16).
+        /// For non-square tiles, use SyncPixelsToGrid() directly with appropriate tile width/height.
+        /// </remarks>
         public Vector2 Position
         {
             get => new Vector2(PixelX, PixelY);
@@ -50,7 +54,7 @@ namespace MonoBall.Core.ECS.Components
             {
                 PixelX = value.X;
                 PixelY = value.Y;
-                SyncPixelsToGrid();
+                SyncPixelsToGrid(); // Uses default 16x16 - for rectangular tiles, call SyncPixelsToGrid() directly
             }
         }
 
@@ -59,11 +63,12 @@ namespace MonoBall.Core.ECS.Components
         /// Does NOT snap pixel coordinates - maintains smooth interpolation during movement.
         /// Matches oldmonoball behavior.
         /// </summary>
-        /// <param name="tileSize">The tile size in pixels (default: 16).</param>
-        public void SyncPixelsToGrid(int tileSize = 16)
+        /// <param name="tileWidth">The tile width in pixels (default: 16).</param>
+        /// <param name="tileHeight">The tile height in pixels (default: 16).</param>
+        public void SyncPixelsToGrid(int tileWidth = 16, int tileHeight = 16)
         {
-            X = (int)(PixelX / tileSize);
-            Y = (int)(PixelY / tileSize);
+            X = (int)(PixelX / tileWidth);
+            Y = (int)(PixelY / tileHeight);
             // NOTE: Do NOT snap PixelX/PixelY - this breaks smooth movement interpolation
             // Old MonoBall didn't snap pixels in its sync method
         }

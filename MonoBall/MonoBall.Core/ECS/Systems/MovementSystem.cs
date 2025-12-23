@@ -6,6 +6,8 @@ using MonoBall.Core;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Services;
+using MonoBall.Core.ECS.Utilities;
+using MonoBall.Core.Mods;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -41,6 +43,7 @@ namespace MonoBall.Core.ECS.Systems
     public class MovementSystem : BaseSystem<World, float>
     {
         private readonly ICollisionService _collisionService;
+        private readonly IModManager? _modManager;
         private readonly ILogger _logger;
         private readonly QueryDescription _movementRequestQuery;
         private readonly QueryDescription _movementQuery;
@@ -50,12 +53,19 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="collisionService">The collision service for movement validation.</param>
+        /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public MovementSystem(World world, ICollisionService collisionService, ILogger logger)
+        public MovementSystem(
+            World world,
+            ICollisionService collisionService,
+            IModManager? modManager = null,
+            ILogger? logger = null
+        )
             : base(world)
         {
             _collisionService =
                 collisionService ?? throw new ArgumentNullException(nameof(collisionService));
+            _modManager = modManager;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Query for entities with movement requests to process
@@ -156,9 +166,11 @@ namespace MonoBall.Core.ECS.Systems
                     }
 
                     // Calculate movement positions
-                    int tileSize = GameConstants.TileSize;
+                    // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
+                    int tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
+                    int tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
                     Vector2 startPosition = new Vector2(position.PixelX, position.PixelY);
-                    Vector2 targetPosition = new Vector2(targetX * tileSize, targetY * tileSize);
+                    Vector2 targetPosition = new Vector2(targetX * tileWidth, targetY * tileHeight);
 
                     // Publish movement started event BEFORE starting movement (allows cancellation)
                     // NOTE: Event handlers can set IsCancelled=true to prevent movement
@@ -424,7 +436,10 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="position">The position component to sync.</param>
         private void SyncPositionToGrid(ref PositionComponent position)
         {
-            position.SyncPixelsToGrid(GameConstants.TileSize);
+            // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
+            int tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
+            int tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
+            position.SyncPixelsToGrid(tileWidth, tileHeight);
         }
 
         /// <summary>

@@ -9,6 +9,7 @@ using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Mods;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -21,6 +22,7 @@ namespace MonoBall.Core.ECS.Systems
     {
         private readonly ICameraService _cameraService;
         private readonly ISpriteLoaderService _spriteLoader;
+        private readonly IModManager? _modManager;
         private readonly ILogger _logger;
         private readonly QueryDescription _playerQuery;
         private Entity? _playerEntity;
@@ -32,18 +34,21 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="world">The ECS world.</param>
         /// <param name="cameraService">The camera service for getting camera position.</param>
         /// <param name="spriteLoader">The sprite loader service for validating sprite sheets.</param>
+        /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public PlayerSystem(
             World world,
             ICameraService cameraService,
             ISpriteLoaderService spriteLoader,
-            ILogger logger
+            IModManager? modManager = null,
+            ILogger? logger = null
         )
             : base(world)
         {
             _cameraService =
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _modManager = modManager;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             _playerQuery = new QueryDescription().WithAll<PlayerComponent>();
@@ -163,11 +168,13 @@ namespace MonoBall.Core.ECS.Systems
             );
 
             // Convert pixel position to grid coordinates for PositionComponent
-            int tileSize = GameConstants.TileSize;
-            int gridX = (int)(position.X / tileSize);
-            int gridY = (int)(position.Y / tileSize);
-            float pixelX = gridX * tileSize;
-            float pixelY = gridY * tileSize;
+            // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
+            int tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
+            int tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
+            int gridX = (int)(position.X / tileWidth);
+            int gridY = (int)(position.Y / tileHeight);
+            float pixelX = gridX * tileWidth;
+            float pixelY = gridY * tileHeight;
 
             // Create player entity with all required components
             var playerEntity = World.Create(

@@ -161,13 +161,26 @@ namespace MonoBall.Core
 
                 // Create default camera
                 var world = gameServices.EcsService!.World;
+
+                // Get tile sizes from mod configuration (required - no fallback)
+                if (gameServices.ModManager == null)
+                {
+                    throw new InvalidOperationException(
+                        "Cannot initialize camera: ModManager is required for tile size configuration. "
+                            + "Ensure mods are loaded before creating the camera."
+                    );
+                }
+
+                int tileWidth = gameServices.ModManager.GetTileWidth();
+                int tileHeight = gameServices.ModManager.GetTileHeight();
+
                 var camera = new CameraComponent
                 {
                     Position = new Vector2(10, 10), // Center at tile (10, 10)
                     Zoom = GameConstants.DefaultCameraZoom,
                     Rotation = GameConstants.DefaultCameraRotation,
-                    TileWidth = GameConstants.DefaultTileWidth,
-                    TileHeight = GameConstants.DefaultTileHeight,
+                    TileWidth = tileWidth,
+                    TileHeight = tileHeight,
                     IsActive = true,
                     IsDirty = true,
                 };

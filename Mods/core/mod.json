@@ -27,5 +27,7 @@
   },
   "scripts": [],
   "patches": [],
-  "dependencies": []
+  "dependencies": [],
+  "tileWidth": 16,
+  "tileHeight": 16
 }

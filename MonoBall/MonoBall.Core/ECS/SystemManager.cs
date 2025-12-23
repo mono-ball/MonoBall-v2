@@ -305,6 +305,7 @@ namespace MonoBall.Core.ECS
                 _world,
                 _cameraService,
                 _spriteLoader,
+                _modManager,
                 LoggerFactory.CreateLogger<PlayerSystem>()
             );
 
@@ -333,6 +334,7 @@ namespace MonoBall.Core.ECS
             _movementSystem = new MovementSystem(
                 _world,
                 nullCollisionService,
+                _modManager,
                 LoggerFactory.CreateLogger<MovementSystem>()
             );
 

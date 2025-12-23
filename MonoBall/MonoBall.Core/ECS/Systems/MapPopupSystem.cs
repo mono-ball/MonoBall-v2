@@ -95,10 +95,7 @@ namespace MonoBall.Core.ECS.Systems
             var popupTheme = _modManager.GetDefinition<PopupThemeDefinition>(evt.ThemeId);
             if (popupTheme == null)
             {
-                _logger.Warning(
-                    "PopupTheme definition not found for {ThemeId}",
-                    evt.ThemeId
-                );
+                _logger.Warning("PopupTheme definition not found for {ThemeId}", evt.ThemeId);
                 return;
             }
 
@@ -106,10 +103,7 @@ namespace MonoBall.Core.ECS.Systems
             var outlineDef = _modManager.GetDefinition<PopupOutlineDefinition>(popupTheme.Outline);
             if (outlineDef == null)
             {
-                _logger.Warning(
-                    "Outline definition not found for {OutlineId}",
-                    popupTheme.Outline
-                );
+                _logger.Warning("Outline definition not found for {OutlineId}", popupTheme.Outline);
                 return;
             }
 
@@ -222,10 +216,7 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="popupEntity">The popup entity to destroy.</param>
         private void DestroyPopup(Entity popupEntity)
         {
-            _logger.Debug(
-                "Destroying popup entity {PopupEntityId}",
-                popupEntity.Id
-            );
+            _logger.Debug("Destroying popup entity {PopupEntityId}", popupEntity.Id);
 
             // Get scene entity from popup component before destroying
             Entity? sceneEntityToDestroy = null;

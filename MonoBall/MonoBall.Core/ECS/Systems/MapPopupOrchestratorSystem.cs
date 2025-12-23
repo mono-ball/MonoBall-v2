@@ -89,30 +89,21 @@ namespace MonoBall.Core.ECS.Systems
             var mapDefinition = _modManager.GetDefinition<MapDefinition>(mapId);
             if (mapDefinition == null)
             {
-                _logger.Warning(
-                    "Map definition not found for {MapId}",
-                    mapId
-                );
+                _logger.Warning("Map definition not found for {MapId}", mapId);
                 return;
             }
 
             // Check if map name display is enabled for this map
             if (!mapDefinition.ShowMapName)
             {
-                _logger.Debug(
-                    "Map {MapId} has ShowMapName=false, skipping popup",
-                    mapId
-                );
+                _logger.Debug("Map {MapId} has ShowMapName=false, skipping popup", mapId);
                 return;
             }
 
             // Get MapSectionId from MapDefinition
             if (string.IsNullOrEmpty(mapDefinition.MapSectionId))
             {
-                _logger.Debug(
-                    "Map {MapId} has no MapSectionId, skipping popup",
-                    mapId
-                );
+                _logger.Debug("Map {MapId} has no MapSectionId, skipping popup", mapId);
                 return;
             }
 

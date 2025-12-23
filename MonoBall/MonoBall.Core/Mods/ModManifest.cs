@@ -70,6 +70,22 @@ namespace MonoBall.Core.Mods
         public List<string> Dependencies { get; set; } = new List<string>();
 
         /// <summary>
+        /// Tile width in pixels for maps in this mod.
+        /// Used when maps don't specify tileWidth explicitly.
+        /// Defaults to 16 if not specified.
+        /// </summary>
+        [JsonPropertyName("tileWidth")]
+        public int TileWidth { get; set; } = 16;
+
+        /// <summary>
+        /// Tile height in pixels for maps in this mod.
+        /// Used when maps don't specify tileHeight explicitly.
+        /// Defaults to 16 if not specified.
+        /// </summary>
+        [JsonPropertyName("tileHeight")]
+        public int TileHeight { get; set; } = 16;
+
+        /// <summary>
         /// Full path to the mod directory. Set by the loader.
         /// </summary>
         [JsonIgnore]
