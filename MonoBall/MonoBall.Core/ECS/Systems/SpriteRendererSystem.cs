@@ -135,12 +135,7 @@ namespace MonoBall.Core.ECS.Systems
             // Sort by render order (in-place sort to avoid allocation)
             _spriteList.Sort((a, b) => a.render.RenderOrder.CompareTo(b.render.RenderOrder));
 
-            _logger.Debug(
-                "Rendering {SpriteCount} sprites (NPCs and Players) within camera view",
-                _spriteList.Count
-            );
-
-            // Render sprites
+            // Render sprites - no logging needed (this happens every frame)
             RenderSpriteBatch(_spriteList, camera);
         }
 

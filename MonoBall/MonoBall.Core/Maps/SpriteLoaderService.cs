@@ -99,7 +99,7 @@ namespace MonoBall.Core.Maps
             // Check cache first
             if (_textureCache.TryGetValue(spriteId, out var cachedTexture))
             {
-                _logger.Debug("Using cached texture for {SpriteId}", spriteId);
+                // Cache hit - no logging needed (this happens every frame during rendering)
                 return cachedTexture;
             }
 

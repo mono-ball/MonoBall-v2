@@ -110,7 +110,7 @@ namespace MonoBall.Core.ECS.Systems
             CameraComponent? activeCamera = _cameraService.GetActiveCamera();
             if (!activeCamera.HasValue)
             {
-                _logger.Debug("MapRendererSystem.Render: No active camera found, skipping render");
+                // No active camera - this can happen during scene transitions, don't log every frame
                 return;
             }
 
@@ -177,12 +177,7 @@ namespace MonoBall.Core.ECS.Systems
                 }
             );
 
-            _logger.Debug(
-                "MapRendererSystem.Render: Found {ChunkCount} visible chunks to render (camera at {CameraX}, {CameraY})",
-                _chunkList.Count,
-                camera.Position.X,
-                camera.Position.Y
-            );
+            // Found visible chunks - no logging needed (this happens every frame)
 
             if (_chunkList.Count == 0)
             {
@@ -258,14 +253,7 @@ namespace MonoBall.Core.ECS.Systems
                 // Increment draw call counter
                 _performanceStatsSystem?.IncrementDrawCalls();
 
-                if (renderedTiles > 0)
-                {
-                    _logger.Debug(
-                        "MapRendererSystem.Render: Rendered {ChunkCount} chunks with {TileCount} tiles",
-                        renderedChunks,
-                        renderedTiles
-                    );
-                }
+                // Rendered chunks - no logging needed (this happens every frame)
             }
             finally
             {
@@ -284,11 +272,7 @@ namespace MonoBall.Core.ECS.Systems
         {
             if (!render.IsVisible)
             {
-                _logger.Debug(
-                    "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) is not visible",
-                    pos.Position.X,
-                    pos.Position.Y
-                );
+                // Chunk not visible - no logging needed (this is normal culling behavior)
                 return 0;
             }
 
@@ -367,12 +351,7 @@ namespace MonoBall.Core.ECS.Systems
                         if (sourceRect == null)
                         {
                             invalidGids++;
-                            _logger.Debug(
-                                "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
-                                gid,
-                                data.TilesetId,
-                                data.FirstGid
-                            );
+                            // Invalid source rectangle - skip tile (no logging needed, happens frequently)
                             continue;
                         }
 
@@ -459,12 +438,7 @@ namespace MonoBall.Core.ECS.Systems
                         if (sourceRect == null)
                         {
                             invalidGids++;
-                            _logger.Debug(
-                                "MapRendererSystem.RenderChunk: Invalid source rectangle for GID {Gid} (tileset: {TilesetId}, firstGid: {FirstGid})",
-                                renderGid,
-                                data.TilesetId,
-                                data.FirstGid
-                            );
+                            // Invalid source rectangle - skip tile (no logging needed, happens frequently)
                             continue;
                         }
 
@@ -482,16 +456,7 @@ namespace MonoBall.Core.ECS.Systems
                 }
             }
 
-            if (tilesRendered == 0 && chunk.ChunkWidth * chunk.ChunkHeight > 0)
-            {
-                _logger.Debug(
-                    "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) rendered 0 tiles (empty: {Empty}, invalid: {Invalid})",
-                    pos.Position.X,
-                    pos.Position.Y,
-                    emptyTiles,
-                    invalidGids
-                );
-            }
+            // Chunk rendered - no logging needed (empty chunks are normal, happens every frame)
 
             return tilesRendered;
         }

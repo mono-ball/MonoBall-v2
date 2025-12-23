@@ -89,7 +89,7 @@ namespace MonoBall.Core.Maps
             // Check cache first
             if (_textureCache.TryGetValue(tilesetId, out var cachedTexture))
             {
-                _logger.Debug("Using cached texture for {TilesetId}", tilesetId);
+                // Cache hit - no logging needed (this happens every frame during rendering)
                 return cachedTexture;
             }
 
