@@ -92,7 +92,10 @@ namespace MonoBall.Core.Mods
 
             try
             {
-                return JsonSerializer.Deserialize<T>(metadata.Data.GetRawText());
+                return JsonSerializer.Deserialize<T>(
+                    metadata.Data.GetRawText(),
+                    Utilities.JsonSerializerOptionsFactory.Default
+                );
             }
             catch
             {

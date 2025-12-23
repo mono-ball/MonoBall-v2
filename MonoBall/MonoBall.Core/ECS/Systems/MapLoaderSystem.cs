@@ -146,6 +146,10 @@ namespace MonoBall.Core.ECS.Systems
             var loadedEvent = new MapLoadedEvent { MapId = mapId, MapEntity = mapEntity };
             EventBus.Send(ref loadedEvent);
 
+            // Note: MapTransitionEvent should be fired by a system that detects when the player
+            // actually crosses map boundaries, not when maps are loaded. MapLoaderSystem only
+            // loads maps - it doesn't know when the player transitions.
+
             // Proactively load connected maps with proper positioning
             if (mapDefinition.Connections != null)
             {
@@ -855,6 +859,68 @@ namespace MonoBall.Core.ECS.Systems
             EventBus.Send(ref loadedEvent);
 
             return npcEntity;
+        }
+
+        /// <summary>
+        /// Gets the map ID that the player is currently positioned in.
+        /// </summary>
+        /// <returns>The map ID containing the player, or null if player not found or not in any map.</returns>
+        private string? GetPlayerCurrentMapId()
+        {
+            // Query for player entity
+            Vector2? playerPixelPos = null;
+            World.Query(
+                new QueryDescription().WithAll<
+                    Components.PlayerComponent,
+                    Components.PositionComponent
+                >(),
+                (Entity entity, ref Components.PositionComponent position) =>
+                {
+                    playerPixelPos = new Vector2(position.PixelX, position.PixelY);
+                }
+            );
+
+            if (!playerPixelPos.HasValue)
+            {
+                return null;
+            }
+
+            // Find which map contains the player
+            string? playerMapId = null;
+            World.Query(
+                new QueryDescription().WithAll<MapComponent, Components.PositionComponent>(),
+                (
+                    Entity entity,
+                    ref MapComponent map,
+                    ref Components.PositionComponent mapPosition
+                ) =>
+                {
+                    // If we already found a map, skip remaining maps (return first match)
+                    if (playerMapId != null)
+                    {
+                        return;
+                    }
+
+                    // Calculate map bounds in pixels
+                    float mapLeft = mapPosition.Position.X;
+                    float mapTop = mapPosition.Position.Y;
+                    float mapRight = mapLeft + (map.Width * map.TileWidth);
+                    float mapBottom = mapTop + (map.Height * map.TileHeight);
+
+                    // Check if player is within map bounds
+                    if (
+                        playerPixelPos.Value.X >= mapLeft
+                        && playerPixelPos.Value.X < mapRight
+                        && playerPixelPos.Value.Y >= mapTop
+                        && playerPixelPos.Value.Y < mapBottom
+                    )
+                    {
+                        playerMapId = map.MapId;
+                    }
+                }
+            );
+
+            return playerMapId;
         }
     }
 }

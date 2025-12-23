@@ -259,7 +259,7 @@ namespace MonoBall.Core.Scenes.Systems
         /// <summary>
         /// Disposes resources used by the debug bar renderer.
         /// </summary>
-        public void Dispose()
+        public new void Dispose()
         {
             _pixelTexture?.Dispose();
             _pixelTexture = null;

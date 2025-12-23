@@ -49,6 +49,10 @@ namespace MonoBall.Core.ECS
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
         private Services.InputBindingService _inputBindingService = null!; // Initialized in Initialize()
         private Scenes.Systems.DebugBarRendererSystem? _debugBarRendererSystem; // Initialized in Initialize(), may be null
+        private MapTransitionDetectionSystem _mapTransitionDetectionSystem = null!; // Initialized in Initialize()
+        private MapPopupOrchestratorSystem _mapPopupOrchestratorSystem = null!; // Initialized in Initialize()
+        private MapPopupSystem _mapPopupSystem = null!; // Initialized in Initialize()
+        private MapPopupRendererSystem _mapPopupRendererSystem = null!; // Initialized in Initialize()
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -165,6 +169,24 @@ namespace MonoBall.Core.ECS
                     );
                 }
                 return _sceneInputSystem;
+            }
+        }
+
+        /// <summary>
+        /// Gets the map popup renderer system.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
+        public MapPopupRendererSystem MapPopupRendererSystem
+        {
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new InvalidOperationException(
+                        "Systems are not initialized. Call Initialize() first."
+                    );
+                }
+                return _mapPopupRendererSystem;
             }
         }
 
@@ -362,6 +384,35 @@ namespace MonoBall.Core.ECS
             );
             _sceneRendererSystem.SetDebugBarRendererSystem(_debugBarRendererSystem);
 
+            // Create map transition detection system (detects when player crosses map boundaries)
+            _mapTransitionDetectionSystem = new MapTransitionDetectionSystem(
+                _world,
+                LoggerFactory.CreateLogger<MapTransitionDetectionSystem>()
+            );
+
+            // Create popup systems (after SceneManagerSystem, before SceneRendererSystem)
+            _mapPopupOrchestratorSystem = new MapPopupOrchestratorSystem(
+                _world,
+                _modManager,
+                LoggerFactory.CreateLogger<MapPopupOrchestratorSystem>()
+            );
+            _mapPopupSystem = new MapPopupSystem(
+                _world,
+                _sceneManagerSystem,
+                fontService,
+                _modManager,
+                LoggerFactory.CreateLogger<MapPopupSystem>()
+            );
+            _mapPopupRendererSystem = new MapPopupRendererSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                fontService,
+                _modManager,
+                LoggerFactory.CreateLogger<MapPopupRendererSystem>()
+            );
+            _sceneRendererSystem.SetMapPopupRendererSystem(_mapPopupRendererSystem);
+
             // Update render systems to track draw calls
             _mapRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
             _spriteRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
@@ -377,6 +428,7 @@ namespace MonoBall.Core.ECS
                 _playerSystem, // Player initialization only (no per-frame updates)
                 _inputSystem, // Priority 0: Process input, create MovementRequest
                 _movementSystem, // Priority 90: Process MovementRequest, update movement and animation
+                _mapTransitionDetectionSystem, // Detect map transitions after movement updates
                 _cameraSystem, // Camera follows player (runs after movement updates)
                 _cameraViewportSystem,
                 _animatedTileSystem,
@@ -385,6 +437,8 @@ namespace MonoBall.Core.ECS
                 performanceStatsSystem, // Track performance stats each frame
                 _sceneManagerSystem,
                 _sceneInputSystem,
+                _mapPopupOrchestratorSystem, // Listen for map transitions and trigger popups
+                _mapPopupSystem, // Manage popup lifecycle and animation
                 debugBarToggleSystem // Handle debug bar toggle input
             );
 
@@ -463,6 +517,12 @@ namespace MonoBall.Core.ECS
             _sceneRendererSystem = null!;
             _debugBarRendererSystem?.Dispose();
             _debugBarRendererSystem = null;
+            _mapTransitionDetectionSystem = null!;
+            _mapPopupOrchestratorSystem?.Dispose();
+            _mapPopupOrchestratorSystem = null!;
+            _mapPopupSystem?.Dispose();
+            _mapPopupSystem = null!;
+            _mapPopupRendererSystem = null!;
 
             _isDisposed = true;
         }

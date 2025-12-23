@@ -82,5 +82,57 @@ namespace MonoBall.Core
         /// Matches MonoBall's default: 5.
         /// </summary>
         public const int InputBufferMaxSize = 5;
+
+        // === Map Popup Constants (GBA-accurate pokeemerald dimensions) ===
+
+        /// <summary>
+        /// Map popup background width in pixels at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupBackgroundWidth = 80;
+
+        /// <summary>
+        /// Map popup background height in pixels at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupBackgroundHeight = 24;
+
+        /// <summary>
+        /// Map popup base font size at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupBaseFontSize = 12;
+
+        /// <summary>
+        /// Map popup text Y offset from window top at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupTextOffsetY = 3;
+
+        /// <summary>
+        /// Map popup text padding from edges at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupTextPadding = 4;
+
+        /// <summary>
+        /// Map popup text shadow X offset at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupShadowOffsetX = 1;
+
+        /// <summary>
+        /// Map popup text shadow Y offset at 1x GBA scale (pokeemerald accurate).
+        /// </summary>
+        public const int PopupShadowOffsetY = 1;
+
+        /// <summary>
+        /// Map popup interior tiles width (background width / tile size = 80 / 8).
+        /// </summary>
+        public const int PopupInteriorTilesX = 10;
+
+        /// <summary>
+        /// Map popup interior tiles height (background height / tile size = 24 / 8).
+        /// </summary>
+        public const int PopupInteriorTilesY = 3;
+
+        /// <summary>
+        /// Map popup screen padding from edges at 1x GBA scale (pokeemerald accurate: 0).
+        /// </summary>
+        public const int PopupScreenPadding = 0;
     }
 }

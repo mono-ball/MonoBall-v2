@@ -124,6 +124,10 @@ namespace MonoBall.Core.Scenes.Systems
                     {
                         World.Add<DebugBarSceneComponent>(sceneEntity, debugBarSceneComp);
                     }
+                    else if (component is MapPopupSceneComponent mapPopupSceneComp)
+                    {
+                        World.Add<MapPopupSceneComponent>(sceneEntity, mapPopupSceneComp);
+                    }
                     // Add other component types as needed in the future
                 }
             }

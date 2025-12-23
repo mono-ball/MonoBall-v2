@@ -21,6 +21,7 @@ namespace MonoBall.Core.Scenes.Systems
         private MapRendererSystem? _mapRendererSystem;
         private SpriteRendererSystem? _spriteRendererSystem;
         private DebugBarRendererSystem? _debugBarRendererSystem;
+        private MapPopupRendererSystem? _mapPopupRendererSystem;
 
         // Cached query descriptions to avoid allocations in hot paths
         private readonly QueryDescription _cameraQuery =
@@ -89,6 +90,17 @@ namespace MonoBall.Core.Scenes.Systems
             _debugBarRendererSystem =
                 debugBarRendererSystem
                 ?? throw new ArgumentNullException(nameof(debugBarRendererSystem));
+        }
+
+        /// <summary>
+        /// Sets the MapPopupRendererSystem reference for popup scene rendering.
+        /// </summary>
+        /// <param name="mapPopupRendererSystem">The MapPopupRendererSystem instance.</param>
+        public void SetMapPopupRendererSystem(MapPopupRendererSystem mapPopupRendererSystem)
+        {
+            _mapPopupRendererSystem =
+                mapPopupRendererSystem
+                ?? throw new ArgumentNullException(nameof(mapPopupRendererSystem));
         }
 
         /// <summary>
@@ -251,7 +263,16 @@ namespace MonoBall.Core.Scenes.Systems
                 ref var gameSceneComponent = ref World.Get<GameSceneComponent>(sceneEntity);
                 RenderGameScene(sceneEntity, ref scene, ref gameSceneComponent, camera, gameTime);
             }
-            // TODO: Add other scene types (PopupScene, UIScene, etc.) as they are implemented
+            else if (World.Has<MapPopupSceneComponent>(sceneEntity))
+            {
+                _logger.Debug(
+                    "SceneRendererSystem: Rendering MapPopupScene '{SceneId}' (entity {EntityId})",
+                    scene.SceneId,
+                    sceneEntity.Id
+                );
+                RenderPopupScene(sceneEntity, ref scene, camera, gameTime);
+            }
+            // TODO: Add other scene types (UIScene, etc.) as they are implemented
         }
 
         /// <summary>
@@ -360,6 +381,66 @@ namespace MonoBall.Core.Scenes.Systems
                     // and applies the transform, sets viewport, etc. Similar to MapRendererSystem.
                     _spriteRendererSystem.Render(gameTime);
                 }
+            }
+            finally
+            {
+                // Always restore viewport, even if rendering fails
+                _graphicsDevice.Viewport = savedViewport;
+            }
+        }
+
+        /// <summary>
+        /// Renders a MapPopupScene by calling MapPopupRendererSystem to render popups.
+        /// </summary>
+        /// <param name="sceneEntity">The scene entity.</param>
+        /// <param name="scene">The scene component.</param>
+        /// <param name="camera">The camera component to use.</param>
+        /// <param name="gameTime">The game time.</param>
+        private void RenderPopupScene(
+            Entity sceneEntity,
+            ref SceneComponent scene,
+            CameraComponent camera,
+            GameTime gameTime
+        )
+        {
+            if (_mapPopupRendererSystem == null)
+            {
+                _logger.Warning(
+                    "SceneRendererSystem: Cannot render PopupScene '{SceneId}' - MapPopupRendererSystem is null",
+                    scene.SceneId
+                );
+                return;
+            }
+
+            // Save original viewport
+            var savedViewport = _graphicsDevice.Viewport;
+
+            try
+            {
+                // Set viewport to camera's virtual viewport (if available) or regular viewport
+                // Popups render in screen space within this viewport
+                if (camera.VirtualViewport != Rectangle.Empty)
+                {
+                    _graphicsDevice.Viewport = new Viewport(camera.VirtualViewport);
+                }
+
+                // Render popups in SCREEN SPACE (not world space) - use Matrix.Identity
+                // Map popups are UI overlays that should stay fixed on screen
+                _spriteBatch!.Begin(
+                    SpriteSortMode.Deferred,
+                    BlendState.AlphaBlend,
+                    SamplerState.PointClamp,
+                    DepthStencilState.None,
+                    RasterizerState.CullCounterClockwise,
+                    null,
+                    Matrix.Identity // Screen space - no camera transform
+                );
+
+                // Render popup (renderer handles popup rendering in screen space)
+                _mapPopupRendererSystem.Render(sceneEntity, camera, gameTime);
+
+                // End SpriteBatch
+                _spriteBatch.End();
             }
             finally
             {

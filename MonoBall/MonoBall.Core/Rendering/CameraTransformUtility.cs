@@ -45,6 +45,34 @@ namespace MonoBall.Core.Rendering
         }
 
         /// <summary>
+        /// Calculates the viewport scale factor from a camera component.
+        /// The scale represents how many times larger the viewport is compared to the reference resolution.
+        /// </summary>
+        /// <param name="camera">The camera component.</param>
+        /// <param name="referenceWidth">The reference width (e.g., GameConstants.GbaReferenceWidth).</param>
+        /// <returns>The scale factor (1 = 1x, 2 = 2x, etc.). Returns 1 if viewport is not initialized.</returns>
+        public static int GetViewportScale(CameraComponent camera, int referenceWidth)
+        {
+            if (referenceWidth <= 0)
+            {
+                return 1; // Invalid reference width, return default scale
+            }
+
+            // Use VirtualViewport if available (accounts for letterboxing), otherwise fall back to Viewport
+            int viewportWidth =
+                camera.VirtualViewport != Rectangle.Empty
+                    ? camera.VirtualViewport.Width
+                    : camera.Viewport.Width;
+
+            if (viewportWidth <= 0)
+            {
+                return 1; // Viewport not initialized, return default scale
+            }
+
+            return viewportWidth / referenceWidth;
+        }
+
+        /// <summary>
         /// Converts screen coordinates to tile coordinates.
         /// Useful for mouse/touch input handling and click detection.
         /// </summary>
