@@ -79,6 +79,17 @@ namespace MonoBall.Core
                 EcsService = new EcsService();
                 _game.Services.AddService(typeof(EcsService), EcsService);
                 _logger.Debug("ECS service registered");
+
+                // Register FlagVariableService
+                var flagVariableService = new ECS.Services.FlagVariableService(
+                    EcsService.World,
+                    LoggerFactory.CreateLogger<ECS.Services.FlagVariableService>()
+                );
+                _game.Services.AddService(
+                    typeof(ECS.Services.IFlagVariableService),
+                    flagVariableService
+                );
+                _logger.Debug("FlagVariableService registered");
             }
             else
             {

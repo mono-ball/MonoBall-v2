@@ -25,6 +25,7 @@ namespace MonoBall.Core.ECS.Systems
         private readonly DefinitionRegistry _registry;
         private readonly ITilesetLoaderService? _tilesetLoader;
         private readonly ISpriteLoaderService? _spriteLoader;
+        private readonly Services.IFlagVariableService? _flagVariableService;
         private readonly ILogger _logger;
         private readonly HashSet<string> _loadedMaps = new HashSet<string>();
         private readonly Dictionary<string, Entity> _mapEntities = new Dictionary<string, Entity>();
@@ -44,12 +45,14 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="registry">The definition registry.</param>
         /// <param name="tilesetLoader">Optional tileset loader service for preloading tilesets.</param>
         /// <param name="spriteLoader">Optional sprite loader service for loading NPC sprites.</param>
+        /// <param name="flagVariableService">Optional flag/variable service for checking NPC visibility flags.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public MapLoaderSystem(
             World world,
             DefinitionRegistry registry,
             ITilesetLoaderService? tilesetLoader = null,
             ISpriteLoaderService? spriteLoader = null,
+            Services.IFlagVariableService? flagVariableService = null,
             ILogger logger = null!
         )
             : base(world)
@@ -57,6 +60,7 @@ namespace MonoBall.Core.ECS.Systems
             _registry = registry ?? throw new ArgumentNullException(nameof(registry));
             _tilesetLoader = tilesetLoader;
             _spriteLoader = spriteLoader;
+            _flagVariableService = flagVariableService;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -819,6 +823,13 @@ namespace MonoBall.Core.ECS.Systems
                 mapPixelPosition.Y + npcDef.Y
             );
 
+            // Determine initial visibility based on flag
+            bool isVisible = true;
+            if (!string.IsNullOrWhiteSpace(npcDef.VisibilityFlag) && _flagVariableService != null)
+            {
+                isVisible = _flagVariableService.GetFlag(npcDef.VisibilityFlag);
+            }
+
             // Create NPC entity with all required components
             var npcEntity = World.Create(
                 new Components.NpcComponent
@@ -840,7 +851,7 @@ namespace MonoBall.Core.ECS.Systems
                 new Components.PositionComponent { Position = npcPixelPosition },
                 new Components.RenderableComponent
                 {
-                    IsVisible = true,
+                    IsVisible = isVisible, // Set based on flag value
                     RenderOrder = npcDef.Elevation,
                     Opacity = 1.0f,
                 }

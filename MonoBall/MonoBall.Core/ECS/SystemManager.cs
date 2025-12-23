@@ -55,6 +55,7 @@ namespace MonoBall.Core.ECS
         private MapPopupSystem _mapPopupSystem = null!; // Initialized in Initialize()
         private MapPopupRendererSystem _mapPopupRendererSystem = null!; // Initialized in Initialize()
         private Scenes.Systems.LoadingSceneRendererSystem? _loadingSceneRendererSystem; // Initialized in Initialize(), may be null
+        private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -252,6 +253,15 @@ namespace MonoBall.Core.ECS
 
             _logger.Information("Initializing ECS systems");
 
+            // TODO: Register components with Arch.Persistence when persistence is implemented
+            // Components to register:
+            // - FlagsComponent
+            // - VariablesComponent
+            // - EntityFlagsComponent
+            // - EntityVariablesComponent
+            // - FlagVariableMetadataComponent
+            // Example: world.RegisterComponent<FlagsComponent>();
+
             // Create services
             _spriteLoader = new SpriteLoaderService(
                 _graphicsDevice,
@@ -260,12 +270,23 @@ namespace MonoBall.Core.ECS
             );
             _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
 
+            // Get FlagVariableService from Game.Services
+            var flagVariableService = _game.Services.GetService<Services.IFlagVariableService>();
+            if (flagVariableService == null)
+            {
+                throw new InvalidOperationException(
+                    "IFlagVariableService is not available in Game.Services. "
+                        + "Ensure GameServices.Initialize() was called."
+                );
+            }
+
             // Create update systems
             _mapLoaderSystem = new MapLoaderSystem(
                 _world,
                 _modManager.Registry,
                 _tilesetLoader,
                 _spriteLoader,
+                flagVariableService,
                 LoggerFactory.CreateLogger<MapLoaderSystem>()
             );
             _mapConnectionSystem = new MapConnectionSystem(
@@ -451,6 +472,13 @@ namespace MonoBall.Core.ECS
             );
             _sceneRendererSystem.SetLoadingSceneRendererSystem(_loadingSceneRendererSystem);
 
+            // Create visibility flag system (reacts to flag changes)
+            _visibilityFlagSystem = new VisibilityFlagSystem(
+                _world,
+                flagVariableService,
+                LoggerFactory.CreateLogger<VisibilityFlagSystem>()
+            );
+
             // Update render systems to track draw calls
             _mapRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
             _spriteRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
@@ -472,6 +500,7 @@ namespace MonoBall.Core.ECS
                 _animatedTileSystem,
                 _spriteAnimationSystem, // Animation frame updates (CurrentFrame, FrameTimer)
                 _spriteSheetSystem,
+                _visibilityFlagSystem, // Update entity visibility based on flags
                 performanceStatsSystem, // Track performance stats each frame
                 _sceneManagerSystem,
                 _sceneInputSystem,

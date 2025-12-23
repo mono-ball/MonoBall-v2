@@ -125,7 +125,7 @@ namespace MonoBall.Core.ECS.Systems
             // Create popup scene entity first (before popup entity so we can reference it)
             var sceneComponent = new SceneComponent
             {
-                SceneId = "MapPopupScene",
+                SceneId = "map:popup",
                 Priority = ScenePriorities.GameScene + 10, // 60
                 CameraMode = SceneCameraMode.GameCamera,
                 BlocksUpdate = false,
