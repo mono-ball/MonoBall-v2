@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -44,20 +45,24 @@ namespace MonoBall.Core.ECS.Systems
     {
         private readonly ICollisionService _collisionService;
         private readonly IModManager? _modManager;
+        private readonly IActiveMapFilterService _activeMapFilterService;
         private readonly ILogger _logger;
         private readonly QueryDescription _movementRequestQuery;
         private readonly QueryDescription _movementQuery;
+        private readonly QueryDescription _movementQueryWithActiveMap;
 
         /// <summary>
         /// Initializes a new instance of the MovementSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="collisionService">The collision service for movement validation.</param>
+        /// <param name="activeMapFilterService">The active map filter service for filtering entities by active maps.</param>
         /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public MovementSystem(
             World world,
             ICollisionService collisionService,
+            IActiveMapFilterService activeMapFilterService,
             IModManager? modManager = null,
             ILogger? logger = null
         )
@@ -65,36 +70,54 @@ namespace MonoBall.Core.ECS.Systems
         {
             _collisionService =
                 collisionService ?? throw new ArgumentNullException(nameof(collisionService));
+            _activeMapFilterService =
+                activeMapFilterService
+                ?? throw new ArgumentNullException(nameof(activeMapFilterService));
             _modManager = modManager;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-            // Query for entities with movement requests to process
+            // Query for entities with movement requests to process (only in active maps)
             _movementRequestQuery = new QueryDescription().WithAll<
                 PositionComponent,
                 GridMovement,
-                MovementRequest
+                MovementRequest,
+                ActiveMapEntity
             >();
 
-            // Query for entities with movement (position + grid movement)
+            // Query for entities with movement (position + grid movement) - only in active maps
+            // This query uses ActiveMapEntity tag to filter at query level, avoiding iteration over inactive entities
+            _movementQueryWithActiveMap = new QueryDescription().WithAll<
+                PositionComponent,
+                GridMovement,
+                ActiveMapEntity
+            >();
+
+            // Fallback query without ActiveMapEntity (for backwards compatibility, but shouldn't be needed)
             _movementQuery = new QueryDescription().WithAll<PositionComponent, GridMovement>();
         }
 
         /// <summary>
         /// Updates the movement system, processing movement requests and updating movement interpolation.
+        /// Only processes entities in currently loaded maps (current map + connected maps) for performance.
+        /// Uses ActiveMapEntity tag component for query-level filtering to avoid iterating over inactive entities.
         /// </summary>
         /// <param name="deltaTime">The elapsed time since last update in seconds.</param>
         public override void Update(in float deltaTime)
         {
             // Process movement requests first (before updating existing movements)
+            // Query includes ActiveMapEntity tag, so only entities in active maps are iterated
             ProcessMovementRequests(deltaTime);
 
             // Update existing movements (handles both with and without animation)
+            // Query includes ActiveMapEntity tag, so only entities in active maps are iterated
             UpdateMovements(deltaTime);
         }
 
         /// <summary>
         /// Processes MovementRequest components, validates movement, and starts movement if valid.
+        /// Query includes ActiveMapEntity tag, so only entities in active maps are processed.
         /// </summary>
+        /// <param name="deltaTime">The elapsed time since last update.</param>
         private void ProcessMovementRequests(float deltaTime)
         {
             World.Query(
@@ -129,8 +152,8 @@ namespace MonoBall.Core.ECS.Systems
                     int oldX = position.X;
                     int oldY = position.Y;
 
-                    // Get map ID (from MapComponent if exists)
-                    string? mapId = GetMapId(entity);
+                    // Get map ID (from NpcComponent or MapComponent)
+                    string? mapId = _activeMapFilterService.GetEntityMapId(entity);
 
                     // Validate movement (collision checking)
                     // Pass fromDirection for directional collision checking (e.g., one-way tiles)
@@ -218,13 +241,34 @@ namespace MonoBall.Core.ECS.Systems
         /// <summary>
         /// Updates movement interpolation for entities currently moving.
         /// Handles animation state directly (matching oldmonoball architecture).
+        /// Query includes ActiveMapEntity tag, so only entities in active maps are processed.
         /// </summary>
+        /// <param name="deltaTime">The elapsed time since last update.</param>
         private void UpdateMovements(float deltaTime)
         {
+            // Use query with ActiveMapEntity tag to filter at query level
+            // This avoids iterating over entities in unloaded maps
             World.Query(
-                in _movementQuery,
+                in _movementQueryWithActiveMap,
                 (Entity entity, ref PositionComponent position, ref GridMovement movement) =>
                 {
+                    // Performance optimization: Skip stationary NPCs that aren't moving and have no movement request
+                    // Only process entities that are:
+                    // 1. Moving (IsMoving = true)
+                    // 2. Have a movement request (will start moving soon)
+                    // 3. Are the player (always process player for input responsiveness)
+                    // 4. Are turning in place (RunningState = TurnDirection)
+                    bool isPlayer = World.TryGet<PlayerComponent>(entity, out _);
+                    bool hasMovementRequest = World.TryGet<MovementRequest>(entity, out _);
+                    bool isMoving = movement.IsMoving;
+                    bool isTurning = movement.RunningState == RunningState.TurnDirection;
+
+                    // Skip if none of the above conditions are true (stationary NPC doing nothing)
+                    if (!isPlayer && !isMoving && !hasMovementRequest && !isTurning)
+                    {
+                        return;
+                    }
+
                     // Check for optional SpriteAnimationComponent
                     if (World.TryGet<SpriteAnimationComponent>(entity, out var animation))
                     {
@@ -384,8 +428,8 @@ namespace MonoBall.Core.ECS.Systems
             // Complete movement state
             movement.CompleteMovement();
 
-            // Get map ID (from MapComponent if exists)
-            string? mapId = GetMapId(entity);
+            // Get map ID (from NpcComponent or MapComponent)
+            string? mapId = _activeMapFilterService.GetEntityMapId(entity);
 
             // Publish movement completed event
             var completedEvent = new MovementCompletedEvent
@@ -440,21 +484,6 @@ namespace MonoBall.Core.ECS.Systems
             int tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
             int tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
             position.SyncPixelsToGrid(tileWidth, tileHeight);
-        }
-
-        /// <summary>
-        /// Gets the map ID for an entity if it has a MapComponent.
-        /// </summary>
-        /// <param name="entity">The entity to check.</param>
-        /// <returns>The map ID, or null if the entity doesn't have a MapComponent.</returns>
-        private string? GetMapId(Entity entity)
-        {
-            if (World.Has<MapComponent>(entity))
-            {
-                ref var mapComponent = ref World.Get<MapComponent>(entity);
-                return mapComponent.MapId;
-            }
-            return null;
         }
     }
 }

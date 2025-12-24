@@ -56,6 +56,8 @@ namespace MonoBall.Core.ECS
         private MapPopupRendererSystem _mapPopupRendererSystem = null!; // Initialized in Initialize()
         private Scenes.Systems.LoadingSceneRendererSystem? _loadingSceneRendererSystem; // Initialized in Initialize(), may be null
         private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
+        private ActiveMapManagementSystem _activeMapManagementSystem = null!; // Initialized in Initialize()
+        private Services.IActiveMapFilterService _activeMapFilterService = null!; // Initialized in Initialize()
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -365,6 +367,16 @@ namespace MonoBall.Core.ECS
             var nullInputBlocker = new Services.NullInputBlocker();
             var nullCollisionService = new Services.NullCollisionService();
 
+            // Create active map filter service (used by multiple systems for filtering entities by active maps)
+            _activeMapFilterService = new Services.ActiveMapFilterService(_world);
+
+            // Create active map management system (manages ActiveMapEntity tag component)
+            _activeMapManagementSystem = new ActiveMapManagementSystem(
+                _world,
+                _activeMapFilterService,
+                LoggerFactory.CreateLogger<ActiveMapManagementSystem>()
+            );
+
             // Create input system
             _inputSystem = new InputSystem(
                 _world,
@@ -378,6 +390,7 @@ namespace MonoBall.Core.ECS
             _movementSystem = new MovementSystem(
                 _world,
                 nullCollisionService,
+                _activeMapFilterService,
                 _modManager,
                 LoggerFactory.CreateLogger<MovementSystem>()
             );
@@ -485,12 +498,14 @@ namespace MonoBall.Core.ECS
 
             // Group update systems (including scene systems)
             // SpriteSheetSystem is added early to ensure it's initialized before systems that might publish SpriteSheetChangeRequestEvent
+            // ActiveMapManagementSystem runs early to tag entities in active maps (needed by other systems)
             // InputSystem runs first (Priority 0) to process input and create MovementRequest components
             // MovementSystem runs after InputSystem (Priority 90) to process MovementRequest, update movement, AND handle animation
             _updateSystems = new Group<float>(
                 "UpdateSystems",
                 _mapLoaderSystem,
                 _mapConnectionSystem,
+                _activeMapManagementSystem, // Manage ActiveMapEntity tags (runs early, before systems that filter by active maps)
                 _playerSystem, // Player initialization only (no per-frame updates)
                 _inputSystem, // Priority 0: Process input, create MovementRequest
                 _movementSystem, // Priority 90: Process MovementRequest, update movement and animation

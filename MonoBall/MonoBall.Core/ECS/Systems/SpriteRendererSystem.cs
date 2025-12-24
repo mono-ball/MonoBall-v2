@@ -68,11 +68,13 @@ namespace MonoBall.Core.ECS.Systems
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
 
             // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
+            // NPC query includes ActiveMapEntity tag to only process NPCs in active maps
             _npcQuery = new QueryDescription().WithAll<
                 NpcComponent,
                 SpriteAnimationComponent,
                 PositionComponent,
-                RenderableComponent
+                RenderableComponent,
+                ActiveMapEntity
             >();
 
             _playerQuery = new QueryDescription().WithAll<

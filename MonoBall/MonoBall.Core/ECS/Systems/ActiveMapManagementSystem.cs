@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+using Arch.Core;
+using Arch.System;
+using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Services;
+using Serilog;
+
+namespace MonoBall.Core.ECS.Systems
+{
+    /// <summary>
+    /// System that manages the ActiveMapEntity tag component for efficient query-level filtering.
+    /// Adds ActiveMapEntity to entities in loaded maps and removes it when maps are unloaded.
+    /// This allows other systems to query only entities in active maps at the query level,
+    /// avoiding iteration over entities in unloaded maps.
+    /// </summary>
+    public class ActiveMapManagementSystem : BaseSystem<World, float>, IDisposable
+    {
+        private readonly IActiveMapFilterService _activeMapFilterService;
+        private readonly ILogger _logger;
+        private readonly QueryDescription _npcQuery;
+        private readonly QueryDescription _playerQuery;
+        private bool _disposed;
+
+        /// <summary>
+        /// Initializes a new instance of the ActiveMapManagementSystem.
+        /// </summary>
+        /// <param name="world">The ECS world.</param>
+        /// <param name="activeMapFilterService">The active map filter service.</param>
+        /// <param name="logger">The logger for logging operations.</param>
+        public ActiveMapManagementSystem(
+            World world,
+            IActiveMapFilterService activeMapFilterService,
+            ILogger logger
+        )
+            : base(world)
+        {
+            _activeMapFilterService =
+                activeMapFilterService
+                ?? throw new ArgumentNullException(nameof(activeMapFilterService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
+            _npcQuery = new QueryDescription().WithAll<NpcComponent>();
+            _playerQuery = new QueryDescription().WithAll<PlayerComponent>();
+
+            // Subscribe to map load/unload events
+            EventBus.Subscribe<MapLoadedEvent>(OnMapLoaded);
+            EventBus.Subscribe<MapUnloadedEvent>(OnMapUnloaded);
+        }
+
+        /// <summary>
+        /// Updates the system, ensuring ActiveMapEntity tags are correctly applied.
+        /// Called every frame to handle entities that may have been created after map load events.
+        /// </summary>
+        /// <param name="deltaTime">The elapsed time since last update in seconds.</param>
+        public override void Update(in float deltaTime)
+        {
+            HashSet<string> activeMapIds = _activeMapFilterService.GetActiveMapIds();
+
+            // Update NPCs: Add ActiveMapEntity to NPCs in active maps, remove from others
+            // Note: Most NPCs will already have the tag (added by MapLoaderSystem), so most checks are no-ops
+            World.Query(
+                in _npcQuery,
+                (Entity entity, ref NpcComponent npc) =>
+                {
+                    bool shouldBeActive = activeMapIds.Contains(npc.MapId);
+                    bool isActive = World.TryGet<ActiveMapEntity>(entity, out _);
+
+                    if (shouldBeActive && !isActive)
+                    {
+                        World.Add<ActiveMapEntity>(entity);
+                    }
+                    else if (!shouldBeActive && isActive)
+                    {
+                        World.Remove<ActiveMapEntity>(entity);
+                    }
+                }
+            );
+
+            // Player is always in active maps
+            World.Query(
+                in _playerQuery,
+                (Entity entity) =>
+                {
+                    if (!World.TryGet<ActiveMapEntity>(entity, out _))
+                    {
+                        World.Add<ActiveMapEntity>(entity);
+                    }
+                }
+            );
+        }
+
+        /// <summary>
+        /// Event handler for map loaded events.
+        /// Invalidates the cache and triggers update to tag entities.
+        /// </summary>
+        private void OnMapLoaded(ref MapLoadedEvent evt)
+        {
+            _activeMapFilterService.InvalidateCache();
+            _logger.Debug("Map loaded: {MapId}, invalidating active map cache", evt.MapId);
+        }
+
+        /// <summary>
+        /// Event handler for map unloaded events.
+        /// Invalidates the cache and triggers update to remove tags.
+        /// </summary>
+        private void OnMapUnloaded(ref MapUnloadedEvent evt)
+        {
+            _activeMapFilterService.InvalidateCache();
+            _logger.Debug("Map unloaded: {MapId}, invalidating active map cache", evt.MapId);
+        }
+
+        /// <summary>
+        /// Disposes the system and unsubscribes from events.
+        /// </summary>
+        public new void Dispose() => Dispose(true);
+
+        /// <summary>
+        /// Disposes the system and unsubscribes from events.
+        /// </summary>
+        /// <param name="disposing">True if disposing managed resources.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed && disposing)
+            {
+                EventBus.Unsubscribe<MapLoadedEvent>(OnMapLoaded);
+                EventBus.Unsubscribe<MapUnloadedEvent>(OnMapUnloaded);
+            }
+            _disposed = true;
+        }
+    }
+}

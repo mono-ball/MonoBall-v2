@@ -41,7 +41,12 @@ namespace MonoBall.Core.ECS.Systems
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
-            _npcQuery = new QueryDescription().WithAll<NpcComponent, SpriteAnimationComponent>();
+            // NPC query includes ActiveMapEntity tag to only process NPCs in active maps
+            _npcQuery = new QueryDescription().WithAll<
+                NpcComponent,
+                SpriteAnimationComponent,
+                ActiveMapEntity
+            >();
 
             _playerQuery = new QueryDescription().WithAll<
                 PlayerComponent,

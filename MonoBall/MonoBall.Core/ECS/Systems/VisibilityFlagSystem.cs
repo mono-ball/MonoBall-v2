@@ -30,7 +30,12 @@ namespace MonoBall.Core.ECS.Systems
             _flagVariableService =
                 flagVariableService ?? throw new ArgumentNullException(nameof(flagVariableService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _queryDescription = new QueryDescription().WithAll<NpcComponent, RenderableComponent>();
+            // Query only NPCs in active maps for performance
+            _queryDescription = new QueryDescription().WithAll<
+                NpcComponent,
+                RenderableComponent,
+                ActiveMapEntity
+            >();
 
             // Subscribe to flag changes using RefAction delegate
             EventBus.Subscribe<FlagChangedEvent>(OnFlagChanged);

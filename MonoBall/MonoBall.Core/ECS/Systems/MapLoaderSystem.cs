@@ -691,6 +691,28 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         /// <summary>
+        /// Parses a direction string from map definition to Direction enum.
+        /// Supports: "north"/"up", "south"/"down", "east"/"right", "west"/"left".
+        /// </summary>
+        /// <param name="direction">The direction string (null, "up", "down", "left", "right", "north", "south", "east", "west").</param>
+        /// <param name="defaultDirection">The default direction if parsing fails (default: Direction.South).</param>
+        /// <returns>The parsed Direction enum value.</returns>
+        private Direction ParseDirection(
+            string? direction,
+            Direction defaultDirection = Direction.South
+        )
+        {
+            return direction?.ToLowerInvariant() switch
+            {
+                "north" or "up" => Direction.North,
+                "south" or "down" => Direction.South,
+                "west" or "left" => Direction.West,
+                "east" or "right" => Direction.East,
+                _ => defaultDirection,
+            };
+        }
+
+        /// <summary>
         /// Creates NPC entities for a map.
         /// </summary>
         /// <param name="mapEntity">The map entity.</param>
@@ -788,6 +810,9 @@ namespace MonoBall.Core.ECS.Systems
                 throwOnInvalid: true
             );
 
+            // Parse direction from map definition
+            Direction facingDirection = ParseDirection(npcDef.Direction, Direction.South);
+
             // Map direction to animation name
             string animationName = MapDirectionToAnimation(npcDef.Direction);
 
@@ -831,6 +856,10 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Create NPC entity with all required components
+            // All NPCs get GridMovement component (even stationary ones) to store facing direction
+            // Default movement speed: 3.75 tiles/second (matches oldmonoball NpcSpawnBuilder default)
+            // NPCs created in loaded maps get ActiveMapEntity tag immediately for query-level filtering
+            const float defaultNpcMovementSpeed = 3.75f;
             var npcEntity = World.Create(
                 new Components.NpcComponent
                 {
@@ -854,7 +883,13 @@ namespace MonoBall.Core.ECS.Systems
                     IsVisible = isVisible, // Set based on flag value
                     RenderOrder = npcDef.Elevation,
                     Opacity = 1.0f,
-                }
+                },
+                new Components.GridMovement(defaultNpcMovementSpeed)
+                {
+                    FacingDirection = facingDirection,
+                    MovementDirection = facingDirection,
+                },
+                new Components.ActiveMapEntity() // Tag NPCs in loaded maps immediately
             );
 
             // Preload sprite texture
