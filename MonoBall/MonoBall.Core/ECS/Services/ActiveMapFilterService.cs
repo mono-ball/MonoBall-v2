@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Arch.Core;
+using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
 
 namespace MonoBall.Core.ECS.Services
@@ -12,6 +13,8 @@ namespace MonoBall.Core.ECS.Services
     {
         private readonly World _world;
         private readonly QueryDescription _mapQuery;
+        private readonly QueryDescription _playerQuery;
+        private readonly QueryDescription _mapWithPositionQuery;
         private HashSet<string>? _cachedActiveMapIds;
         private int _lastMapEntityCount = -1;
 
@@ -23,6 +26,11 @@ namespace MonoBall.Core.ECS.Services
         {
             _world = world ?? throw new System.ArgumentNullException(nameof(world));
             _mapQuery = new QueryDescription().WithAll<MapComponent>();
+            _playerQuery = new QueryDescription().WithAll<PlayerComponent, PositionComponent>();
+            _mapWithPositionQuery = new QueryDescription().WithAll<
+                MapComponent,
+                PositionComponent
+            >();
         }
 
         /// <summary>
@@ -114,6 +122,61 @@ namespace MonoBall.Core.ECS.Services
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Gets the map ID that the player is currently positioned in.
+        /// </summary>
+        /// <returns>The map ID containing the player, or null if player not found or not in any map.</returns>
+        public string? GetPlayerCurrentMapId()
+        {
+            // Query for player entity
+            Vector2? playerPixelPos = null;
+            _world.Query(
+                in _playerQuery,
+                (Entity entity, ref PositionComponent position) =>
+                {
+                    playerPixelPos = new Vector2(position.PixelX, position.PixelY);
+                }
+            );
+
+            if (!playerPixelPos.HasValue)
+            {
+                return null;
+            }
+
+            // Find which map contains the player
+            string? playerMapId = null;
+            _world.Query(
+                in _mapWithPositionQuery,
+                (Entity entity, ref MapComponent map, ref PositionComponent mapPosition) =>
+                {
+                    // If we already found a map, skip remaining maps (return first match)
+                    if (playerMapId != null)
+                    {
+                        return;
+                    }
+
+                    // Calculate map bounds in pixels
+                    float mapLeft = mapPosition.Position.X;
+                    float mapTop = mapPosition.Position.Y;
+                    float mapRight = mapLeft + (map.Width * map.TileWidth);
+                    float mapBottom = mapTop + (map.Height * map.TileHeight);
+
+                    // Check if player is within map bounds
+                    if (
+                        playerPixelPos.Value.X >= mapLeft
+                        && playerPixelPos.Value.X < mapRight
+                        && playerPixelPos.Value.Y >= mapTop
+                        && playerPixelPos.Value.Y < mapBottom
+                    )
+                    {
+                        playerMapId = map.MapId;
+                    }
+                }
+            );
+
+            return playerMapId;
         }
 
         /// <summary>

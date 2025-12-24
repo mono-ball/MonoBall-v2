@@ -20,6 +20,7 @@ namespace MonoBall.Core.Scenes.Systems
         private SpriteBatch? _spriteBatch;
         private MapRendererSystem? _mapRendererSystem;
         private SpriteRendererSystem? _spriteRendererSystem;
+        private MapBorderRendererSystem? _mapBorderRendererSystem;
         private DebugBarRendererSystem? _debugBarRendererSystem;
         private MapPopupRendererSystem? _mapPopupRendererSystem;
         private LoadingSceneRendererSystem? _loadingSceneRendererSystem;
@@ -80,6 +81,17 @@ namespace MonoBall.Core.Scenes.Systems
             _spriteRendererSystem =
                 spriteRendererSystem
                 ?? throw new ArgumentNullException(nameof(spriteRendererSystem));
+        }
+
+        /// <summary>
+        /// Sets the MapBorderRendererSystem reference for GameScene rendering.
+        /// </summary>
+        /// <param name="mapBorderRendererSystem">The MapBorderRendererSystem instance.</param>
+        public void SetMapBorderRendererSystem(MapBorderRendererSystem mapBorderRendererSystem)
+        {
+            _mapBorderRendererSystem =
+                mapBorderRendererSystem
+                ?? throw new ArgumentNullException(nameof(mapBorderRendererSystem));
         }
 
         /// <summary>
@@ -494,12 +506,24 @@ namespace MonoBall.Core.Scenes.Systems
                 // The viewport management is handled inside MapRendererSystem.
                 _mapRendererSystem.Render(gameTime);
 
+                // Render border bottom layer (after maps, before sprites)
+                if (_mapBorderRendererSystem != null)
+                {
+                    _mapBorderRendererSystem.Render(gameTime);
+                }
+
                 // Render sprites (NPCs and Players) (after maps, so sprites appear on top)
                 if (_spriteRendererSystem != null)
                 {
                     // Note: SpriteRendererSystem.Render() internally queries for the active camera
                     // and applies the transform, sets viewport, etc. Similar to MapRendererSystem.
                     _spriteRendererSystem.Render(gameTime);
+                }
+
+                // Render border top layer (after sprites, so borders appear on top)
+                if (_mapBorderRendererSystem != null)
+                {
+                    _mapBorderRendererSystem.RenderTopLayer(gameTime);
                 }
             }
             finally

@@ -38,6 +38,7 @@ namespace MonoBall.Core.ECS
         private CameraSystem _cameraSystem = null!; // Initialized in Initialize()
         private CameraViewportSystem _cameraViewportSystem = null!; // Initialized in Initialize()
         private MapRendererSystem _mapRendererSystem = null!; // Initialized in Initialize()
+        private MapBorderRendererSystem _mapBorderRendererSystem = null!; // Initialized in Initialize()
         private AnimatedTileSystem _animatedTileSystem = null!; // Initialized in Initialize()
         private SpriteAnimationSystem _spriteAnimationSystem = null!; // Initialized in Initialize()
         private SpriteRendererSystem _spriteRendererSystem = null!; // Initialized in Initialize()
@@ -272,6 +273,10 @@ namespace MonoBall.Core.ECS
             );
             _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
 
+            // Create active map filter service (used by multiple systems for filtering entities by active maps)
+            // Must be created before render systems that depend on it
+            _activeMapFilterService = new Services.ActiveMapFilterService(_world);
+
             // Get FlagVariableService from Game.Services
             var flagVariableService = _game.Services.GetService<Services.IFlagVariableService>();
             if (flagVariableService == null)
@@ -317,6 +322,15 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<MapRendererSystem>()
             );
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
+            _mapBorderRendererSystem = new MapBorderRendererSystem(
+                _world,
+                _graphicsDevice,
+                _tilesetLoader,
+                _cameraService,
+                _activeMapFilterService,
+                LoggerFactory.CreateLogger<MapBorderRendererSystem>()
+            );
+            _mapBorderRendererSystem.SetSpriteBatch(_spriteBatch);
             _spriteRendererSystem = new SpriteRendererSystem(
                 _world,
                 _graphicsDevice,
@@ -367,9 +381,6 @@ namespace MonoBall.Core.ECS
             var nullInputBlocker = new Services.NullInputBlocker();
             var nullCollisionService = new Services.NullCollisionService();
 
-            // Create active map filter service (used by multiple systems for filtering entities by active maps)
-            _activeMapFilterService = new Services.ActiveMapFilterService(_world);
-
             // Create active map management system (manages ActiveMapEntity tag component)
             _activeMapManagementSystem = new ActiveMapManagementSystem(
                 _world,
@@ -413,6 +424,7 @@ namespace MonoBall.Core.ECS
             );
             _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
+            _sceneRendererSystem.SetMapBorderRendererSystem(_mapBorderRendererSystem);
             _sceneRendererSystem.SetSpriteRendererSystem(_spriteRendererSystem);
 
             // Get FontService from Game.Services (created earlier in GameServices.LoadMods)
@@ -449,6 +461,7 @@ namespace MonoBall.Core.ECS
             // Create map transition detection system (detects when player crosses map boundaries)
             _mapTransitionDetectionSystem = new MapTransitionDetectionSystem(
                 _world,
+                _activeMapFilterService,
                 LoggerFactory.CreateLogger<MapTransitionDetectionSystem>()
             );
 
@@ -494,6 +507,7 @@ namespace MonoBall.Core.ECS
 
             // Update render systems to track draw calls
             _mapRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
+            _mapBorderRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
             _spriteRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
 
             // Group update systems (including scene systems)

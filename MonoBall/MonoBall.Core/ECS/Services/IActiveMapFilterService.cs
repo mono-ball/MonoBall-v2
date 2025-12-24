@@ -30,6 +30,12 @@ namespace MonoBall.Core.ECS.Services
         string? GetEntityMapId(Entity entity);
 
         /// <summary>
+        /// Gets the map ID that the player is currently positioned in.
+        /// </summary>
+        /// <returns>The map ID containing the player, or null if player not found or not in any map.</returns>
+        string? GetPlayerCurrentMapId();
+
+        /// <summary>
         /// Invalidates the cached active map IDs, forcing a recalculation on next access.
         /// Call this when maps are loaded or unloaded.
         /// </summary>

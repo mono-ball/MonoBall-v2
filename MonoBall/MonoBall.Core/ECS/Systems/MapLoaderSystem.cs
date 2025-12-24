@@ -131,6 +131,17 @@ namespace MonoBall.Core.ECS.Systems
             // Preload tilesets referenced by this map
             PreloadTilesets(mapDefinition);
 
+            // Create border component if border data exists
+            if (mapDefinition.Border != null)
+            {
+                var borderComponent = CreateMapBorderComponent(mapDefinition);
+                if (borderComponent.HasBorder)
+                {
+                    World.Add(mapEntity, borderComponent);
+                    _logger.Debug("Added MapBorderComponent to map {MapId}", mapId);
+                }
+            }
+
             // Create tile chunks for each layer (positioned relative to map position)
             int chunksCreated = CreateTileChunks(mapEntity, mapDefinition, mapTilePosition);
             _logger.Information(
@@ -908,65 +919,177 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         /// <summary>
-        /// Gets the map ID that the player is currently positioned in.
+        /// Creates a MapBorderComponent from map definition border data.
+        /// Validates border data, gets tileset definition, calculates source rectangles, and creates component.
         /// </summary>
-        /// <returns>The map ID containing the player, or null if player not found or not in any map.</returns>
-        private string? GetPlayerCurrentMapId()
+        /// <param name="mapDefinition">The map definition containing border data.</param>
+        /// <returns>The created MapBorderComponent, or component with HasBorder=false if validation fails.</returns>
+        private MapBorderComponent CreateMapBorderComponent(MapDefinition mapDefinition)
         {
-            // Query for player entity
-            Vector2? playerPixelPos = null;
-            World.Query(
-                new QueryDescription().WithAll<
-                    Components.PlayerComponent,
-                    Components.PositionComponent
-                >(),
-                (Entity entity, ref Components.PositionComponent position) =>
-                {
-                    playerPixelPos = new Vector2(position.PixelX, position.PixelY);
-                }
-            );
-
-            if (!playerPixelPos.HasValue)
+            var border = mapDefinition.Border;
+            if (border == null)
             {
-                return null;
+                return new MapBorderComponent
+                {
+                    BottomLayerGids = Array.Empty<int>(),
+                    TopLayerGids = Array.Empty<int>(),
+                    TilesetId = string.Empty,
+                    BottomSourceRects = Array.Empty<Rectangle>(),
+                    TopSourceRects = Array.Empty<Rectangle>(),
+                };
             }
 
-            // Find which map contains the player
-            string? playerMapId = null;
-            World.Query(
-                new QueryDescription().WithAll<MapComponent, Components.PositionComponent>(),
-                (
-                    Entity entity,
-                    ref MapComponent map,
-                    ref Components.PositionComponent mapPosition
-                ) =>
+            // Validate bottom layer has exactly 4 elements
+            if (border.BottomLayer == null || border.BottomLayer.Count != 4)
+            {
+                _logger.Warning(
+                    "Map {MapId} has invalid border bottom layer (expected 4 elements, got {Count})",
+                    mapDefinition.Id,
+                    border.BottomLayer?.Count ?? 0
+                );
+                return new MapBorderComponent
                 {
-                    // If we already found a map, skip remaining maps (return first match)
-                    if (playerMapId != null)
+                    BottomLayerGids = Array.Empty<int>(),
+                    TopLayerGids = Array.Empty<int>(),
+                    TilesetId = string.Empty,
+                    BottomSourceRects = Array.Empty<Rectangle>(),
+                    TopSourceRects = Array.Empty<Rectangle>(),
+                };
+            }
+
+            // Validate tileset ID
+            if (string.IsNullOrEmpty(border.TilesetId))
+            {
+                _logger.Warning("Map {MapId} has border data but no tileset ID", mapDefinition.Id);
+                return new MapBorderComponent
+                {
+                    BottomLayerGids = Array.Empty<int>(),
+                    TopLayerGids = Array.Empty<int>(),
+                    TilesetId = string.Empty,
+                    BottomSourceRects = Array.Empty<Rectangle>(),
+                    TopSourceRects = Array.Empty<Rectangle>(),
+                };
+            }
+
+            // Get tileset definition
+            if (_tilesetLoader == null)
+            {
+                _logger.Warning(
+                    "TilesetLoader is null, cannot create border component for map {MapId}",
+                    mapDefinition.Id
+                );
+                return new MapBorderComponent
+                {
+                    BottomLayerGids = Array.Empty<int>(),
+                    TopLayerGids = Array.Empty<int>(),
+                    TilesetId = string.Empty,
+                    BottomSourceRects = Array.Empty<Rectangle>(),
+                    TopSourceRects = Array.Empty<Rectangle>(),
+                };
+            }
+
+            var tilesetDefinition = _tilesetLoader.GetTilesetDefinition(border.TilesetId);
+            if (tilesetDefinition == null)
+            {
+                _logger.Warning(
+                    "Tileset {TilesetId} not found for border in map {MapId}",
+                    border.TilesetId,
+                    mapDefinition.Id
+                );
+                return new MapBorderComponent
+                {
+                    BottomLayerGids = Array.Empty<int>(),
+                    TopLayerGids = Array.Empty<int>(),
+                    TilesetId = string.Empty,
+                    BottomSourceRects = Array.Empty<Rectangle>(),
+                    TopSourceRects = Array.Empty<Rectangle>(),
+                };
+            }
+
+            // Find tileset reference to get firstGid
+            int firstGid = 1;
+            if (mapDefinition.TilesetRefs != null)
+            {
+                var tilesetRef = mapDefinition.TilesetRefs.FirstOrDefault(tr =>
+                    tr.TilesetId == border.TilesetId
+                );
+                if (tilesetRef != null)
+                {
+                    firstGid = tilesetRef.FirstGid;
+                }
+                else
+                {
+                    _logger.Warning(
+                        "Tileset reference not found for {TilesetId} in map {MapId}, using firstGid=1",
+                        border.TilesetId,
+                        mapDefinition.Id
+                    );
+                }
+            }
+
+            // Pre-calculate source rectangles for bottom layer
+            var bottomSourceRects = new Rectangle[4];
+            for (int i = 0; i < 4; i++)
+            {
+                int localTileId = border.BottomLayer[i];
+                if (localTileId > 0)
+                {
+                    // Convert local tile ID to global GID
+                    int globalGid = localTileId + firstGid - 1;
+                    var sourceRect = _tilesetLoader.CalculateSourceRectangle(
+                        border.TilesetId,
+                        globalGid,
+                        firstGid
+                    );
+                    bottomSourceRects[i] = sourceRect ?? Rectangle.Empty;
+                }
+                else
+                {
+                    bottomSourceRects[i] = Rectangle.Empty;
+                }
+            }
+
+            // Pre-calculate source rectangles for top layer
+            var topSourceRects = new Rectangle[4];
+            if (border.TopLayer != null && border.TopLayer.Count == 4)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    int localTileId = border.TopLayer[i];
+                    if (localTileId > 0)
                     {
-                        return;
+                        // Convert local tile ID to global GID
+                        int globalGid = localTileId + firstGid - 1;
+                        var sourceRect = _tilesetLoader.CalculateSourceRectangle(
+                            border.TilesetId,
+                            globalGid,
+                            firstGid
+                        );
+                        topSourceRects[i] = sourceRect ?? Rectangle.Empty;
                     }
-
-                    // Calculate map bounds in pixels
-                    float mapLeft = mapPosition.Position.X;
-                    float mapTop = mapPosition.Position.Y;
-                    float mapRight = mapLeft + (map.Width * map.TileWidth);
-                    float mapBottom = mapTop + (map.Height * map.TileHeight);
-
-                    // Check if player is within map bounds
-                    if (
-                        playerPixelPos.Value.X >= mapLeft
-                        && playerPixelPos.Value.X < mapRight
-                        && playerPixelPos.Value.Y >= mapTop
-                        && playerPixelPos.Value.Y < mapBottom
-                    )
+                    else
                     {
-                        playerMapId = map.MapId;
+                        topSourceRects[i] = Rectangle.Empty;
                     }
                 }
-            );
+            }
+            else
+            {
+                // No top layer or invalid top layer - all empty
+                for (int i = 0; i < 4; i++)
+                {
+                    topSourceRects[i] = Rectangle.Empty;
+                }
+            }
 
-            return playerMapId;
+            return new MapBorderComponent
+            {
+                BottomLayerGids = border.BottomLayer.ToArray(),
+                TopLayerGids = border.TopLayer?.ToArray() ?? Array.Empty<int>(),
+                TilesetId = border.TilesetId,
+                BottomSourceRects = bottomSourceRects,
+                TopSourceRects = topSourceRects,
+            };
         }
     }
 }
