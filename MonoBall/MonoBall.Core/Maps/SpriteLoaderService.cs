@@ -23,6 +23,7 @@ namespace MonoBall.Core.Maps
 
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
+        private readonly MonoBall.Core.ECS.Services.IVariableSpriteResolver? _variableSpriteResolver;
         private readonly ILogger _logger;
         private readonly Dictionary<string, Texture2D> _textureCache =
             new Dictionary<string, Texture2D>();
@@ -39,17 +40,68 @@ namespace MonoBall.Core.Maps
         /// </summary>
         /// <param name="graphicsDevice">The graphics device for loading textures.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
+        /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public SpriteLoaderService(
             GraphicsDevice graphicsDevice,
             IModManager modManager,
-            ILogger logger
+            MonoBall.Core.ECS.Services.IVariableSpriteResolver? variableSpriteResolver = null,
+            ILogger logger = null!
         )
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _variableSpriteResolver = variableSpriteResolver;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
+
+        /// <summary>
+        /// Resolves a variable sprite ID to an actual sprite ID if needed.
+        /// This is a safety net for cases where variable sprites are encountered outside of MapLoaderSystem.
+        /// </summary>
+        /// <param name="spriteId">The sprite ID to resolve (may be a variable sprite).</param>
+        /// <param name="context">Context description for error messages (e.g., "sprite definition", "sprite texture").</param>
+        /// <returns>The resolved sprite ID, or null if resolution fails.</returns>
+        private string? ResolveVariableSpriteIfNeeded(string spriteId, string context)
+        {
+            if (string.IsNullOrEmpty(spriteId))
+            {
+                return null;
+            }
+
+            // If not a variable sprite, return as-is
+            if (_variableSpriteResolver?.IsVariableSprite(spriteId) != true)
+            {
+                return spriteId;
+            }
+
+            // Attempt to resolve variable sprite (safety net)
+            // Note: Variable sprites should already be resolved in MapLoaderSystem before reaching here
+            try
+            {
+                var resolved = _variableSpriteResolver.ResolveVariableSprite(spriteId);
+                if (resolved == null)
+                {
+                    _logger.Warning(
+                        "Failed to resolve variable sprite '{VariableSpriteId}' for {Context}. Variable sprite should be resolved before loading.",
+                        spriteId,
+                        context
+                    );
+                    return null;
+                }
+                return resolved;
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger.Error(
+                    ex,
+                    "Cannot resolve variable sprite '{VariableSpriteId}' for {Context}. Game state variable is not set. Variable sprite should be resolved before loading.",
+                    spriteId,
+                    context
+                );
+                return null;
+            }
         }
 
         /// <summary>
@@ -64,19 +116,27 @@ namespace MonoBall.Core.Maps
                 return null;
             }
 
+            // Resolve variable sprites (fallback safety net)
+            // Note: Variable sprites should already be resolved in MapLoaderSystem before reaching here
+            string? actualSpriteId = ResolveVariableSpriteIfNeeded(spriteId, "sprite definition");
+            if (actualSpriteId == null)
+            {
+                return null; // Resolution failed
+            }
+
             // Check cache first
-            if (_definitionCache.TryGetValue(spriteId, out var cached))
+            if (_definitionCache.TryGetValue(actualSpriteId, out var cached))
             {
                 return cached;
             }
 
             // Load from registry
-            var definition = _modManager.GetDefinition<SpriteDefinition>(spriteId);
+            var definition = _modManager.GetDefinition<SpriteDefinition>(actualSpriteId);
             if (definition != null)
             {
-                _definitionCache[spriteId] = definition;
+                _definitionCache[actualSpriteId] = definition;
                 // Pre-compute animation frames when definition is loaded
-                PrecomputeAnimationFrames(spriteId, definition);
+                PrecomputeAnimationFrames(actualSpriteId, definition);
             }
 
             return definition;
@@ -96,40 +156,48 @@ namespace MonoBall.Core.Maps
                 return null;
             }
 
+            // Resolve variable sprites (fallback safety net)
+            // Note: Variable sprites should already be resolved in MapLoaderSystem before reaching here
+            string? actualSpriteId = ResolveVariableSpriteIfNeeded(spriteId, "sprite texture");
+            if (actualSpriteId == null)
+            {
+                return null; // Resolution failed
+            }
+
             // Check cache first
-            if (_textureCache.TryGetValue(spriteId, out var cachedTexture))
+            if (_textureCache.TryGetValue(actualSpriteId, out var cachedTexture))
             {
                 // Cache hit - no logging needed (this happens every frame during rendering)
                 return cachedTexture;
             }
 
-            _logger.Debug("Loading sprite texture {SpriteId}", spriteId);
+            _logger.Debug("Loading sprite texture {SpriteId}", actualSpriteId);
 
-            // Get sprite definition
-            var definition = GetSpriteDefinition(spriteId);
+            // Get sprite definition (this will also resolve variable sprites if needed)
+            var definition = GetSpriteDefinition(actualSpriteId);
             if (definition == null)
             {
-                _logger.Warning("Sprite definition not found: {SpriteId}", spriteId);
+                _logger.Warning("Sprite definition not found: {SpriteId}", actualSpriteId);
                 return null;
             }
 
             _logger.Debug(
                 "Found sprite definition for {SpriteId} (texturePath: {TexturePath})",
-                spriteId,
+                actualSpriteId,
                 definition.TexturePath
             );
 
             // Get mod directory
-            var metadata = _modManager.GetDefinitionMetadata(spriteId);
+            var metadata = _modManager.GetDefinitionMetadata(actualSpriteId);
             if (metadata == null)
             {
-                _logger.Warning("Sprite metadata not found: {SpriteId}", spriteId);
+                _logger.Warning("Sprite metadata not found: {SpriteId}", actualSpriteId);
                 return null;
             }
 
             _logger.Debug(
                 "Found metadata for {SpriteId} (originalModId: {ModId})",
-                spriteId,
+                actualSpriteId,
                 metadata.OriginalModId
             );
 
@@ -148,7 +216,7 @@ namespace MonoBall.Core.Maps
             {
                 _logger.Warning(
                     "Mod manifest not found for sprite {SpriteId} (mod: {ModId})",
-                    spriteId,
+                    actualSpriteId,
                     metadata.OriginalModId
                 );
                 return null;
@@ -171,7 +239,7 @@ namespace MonoBall.Core.Maps
                 _logger.Warning(
                     "Sprite texture file not found: {TexturePath} (sprite: {SpriteId})",
                     texturePath,
-                    spriteId
+                    actualSpriteId
                 );
                 return null;
             }
@@ -180,10 +248,10 @@ namespace MonoBall.Core.Maps
             {
                 // Load texture from file system
                 var texture = Texture2D.FromFile(_graphicsDevice, texturePath);
-                _textureCache[spriteId] = texture;
+                _textureCache[actualSpriteId] = texture;
                 _logger.Debug(
                     "Loaded sprite texture: {SpriteId} from {TexturePath}",
-                    spriteId,
+                    actualSpriteId,
                     texturePath
                 );
                 return texture;
@@ -193,7 +261,7 @@ namespace MonoBall.Core.Maps
                 _logger.Error(
                     ex,
                     "Failed to load sprite texture: {SpriteId} from {TexturePath}, using placeholder",
-                    spriteId,
+                    actualSpriteId,
                     texturePath
                 );
                 return GetPlaceholderTexture();

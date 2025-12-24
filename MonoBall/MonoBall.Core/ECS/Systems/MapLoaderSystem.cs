@@ -26,6 +26,7 @@ namespace MonoBall.Core.ECS.Systems
         private readonly ITilesetLoaderService? _tilesetLoader;
         private readonly ISpriteLoaderService? _spriteLoader;
         private readonly Services.IFlagVariableService? _flagVariableService;
+        private readonly Services.IVariableSpriteResolver? _variableSpriteResolver;
         private readonly ILogger _logger;
         private readonly HashSet<string> _loadedMaps = new HashSet<string>();
         private readonly Dictionary<string, Entity> _mapEntities = new Dictionary<string, Entity>();
@@ -46,6 +47,7 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="tilesetLoader">Optional tileset loader service for preloading tilesets.</param>
         /// <param name="spriteLoader">Optional sprite loader service for loading NPC sprites.</param>
         /// <param name="flagVariableService">Optional flag/variable service for checking NPC visibility flags.</param>
+        /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public MapLoaderSystem(
             World world,
@@ -53,6 +55,7 @@ namespace MonoBall.Core.ECS.Systems
             ITilesetLoaderService? tilesetLoader = null,
             ISpriteLoaderService? spriteLoader = null,
             Services.IFlagVariableService? flagVariableService = null,
+            Services.IVariableSpriteResolver? variableSpriteResolver = null,
             ILogger logger = null!
         )
             : base(world)
@@ -61,6 +64,7 @@ namespace MonoBall.Core.ECS.Systems
             _tilesetLoader = tilesetLoader;
             _spriteLoader = spriteLoader;
             _flagVariableService = flagVariableService;
+            _variableSpriteResolver = variableSpriteResolver;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -811,11 +815,54 @@ namespace MonoBall.Core.ECS.Systems
                 );
             }
 
-            // Validate sprite definition exists (strict validation - throw on invalid)
+            // CRITICAL: Resolve variable sprite FIRST, before validation
+            // Variable sprite IDs like {base:sprite:npcs/generic/var_rival} are not valid sprite definitions
+            string actualSpriteId = npcDef.SpriteId;
+            if (_variableSpriteResolver?.IsVariableSprite(npcDef.SpriteId) == true)
+            {
+                try
+                {
+                    var resolved = _variableSpriteResolver.ResolveVariableSprite(
+                        npcDef.SpriteId,
+                        Entity.Null
+                    );
+                    if (resolved == null)
+                    {
+                        _logger.Error(
+                            "Failed to resolve variable sprite '{VariableSpriteId}' for NPC '{NpcId}'. Invalid variable sprite format.",
+                            npcDef.SpriteId,
+                            npcDef.NpcId
+                        );
+                        throw new InvalidOperationException(
+                            $"Cannot create NPC '{npcDef.NpcId}': variable sprite resolution failed. "
+                                + $"Variable sprite ID: '{npcDef.SpriteId}'. Invalid variable sprite format."
+                        );
+                    }
+                    actualSpriteId = resolved;
+                }
+                catch (InvalidOperationException ex)
+                {
+                    // Re-throw with context about NPC creation
+                    _logger.Error(
+                        ex,
+                        "Cannot resolve variable sprite '{VariableSpriteId}' for NPC '{NpcId}'. Game state variable is not set.",
+                        npcDef.SpriteId,
+                        npcDef.NpcId
+                    );
+                    throw new InvalidOperationException(
+                        $"Cannot create NPC '{npcDef.NpcId}': variable sprite resolution failed. "
+                            + $"Variable sprite ID: '{npcDef.SpriteId}'. {ex.Message}",
+                        ex
+                    );
+                }
+            }
+
+            // CRITICAL: Always validate the RESOLVED sprite ID, never the variable sprite ID
+            // Variable sprite IDs like {base:sprite:npcs/generic/var_rival} are not valid sprite definitions
             SpriteValidationHelper.ValidateSpriteDefinition(
                 _spriteLoader,
                 _logger,
-                npcDef.SpriteId,
+                actualSpriteId, // Always a real sprite ID, never a variable sprite ID
                 "NPC",
                 npcDef.NpcId,
                 throwOnInvalid: true
@@ -830,19 +877,21 @@ namespace MonoBall.Core.ECS.Systems
             // Validate animation exists
             // Note: NPCs use forgiving validation (logs warning, defaults to face_south) for resilience
             // This differs from Player creation which uses strict validation (throws on invalid)
-            if (!_spriteLoader.ValidateAnimation(npcDef.SpriteId, animationName))
+            // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
+            if (!_spriteLoader.ValidateAnimation(actualSpriteId, animationName))
             {
                 _logger.Warning(
                     "Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
                     animationName,
-                    npcDef.SpriteId,
+                    actualSpriteId,
                     npcDef.NpcId
                 );
                 animationName = "face_south";
             }
 
             // Get sprite definition and animation to determine initial flip state
-            var spriteDefinition = _spriteLoader.GetSpriteDefinition(npcDef.SpriteId);
+            // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
+            var spriteDefinition = _spriteLoader.GetSpriteDefinition(actualSpriteId);
             var animation = spriteDefinition?.Animations?.FirstOrDefault(a =>
                 a.Name == animationName
             );
@@ -876,7 +925,7 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     NpcId = npcDef.NpcId,
                     Name = npcDef.Name,
-                    SpriteId = npcDef.SpriteId,
+                    SpriteId = actualSpriteId, // Store resolved ID, never variable sprite ID
                     MapId = mapDefinition.Id,
                     Elevation = npcDef.Elevation,
                     VisibilityFlag = npcDef.VisibilityFlag,
@@ -904,7 +953,7 @@ namespace MonoBall.Core.ECS.Systems
             );
 
             // Preload sprite texture
-            _spriteLoader.GetSpriteTexture(npcDef.SpriteId);
+            _spriteLoader.GetSpriteTexture(actualSpriteId);
 
             // Fire NpcLoadedEvent
             var loadedEvent = new Events.NpcLoadedEvent

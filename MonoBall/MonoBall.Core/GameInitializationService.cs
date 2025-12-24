@@ -320,6 +320,11 @@ namespace MonoBall.Core
                     _logger
                 );
 
+                // Step 7.5: Setup initial game state (variables and flags)
+                UpdateProgress(InitializationProgress.Player + 0.05f, "Setting up game state...");
+                await Task.Yield();
+                GameInitializationHelper.SetupInitialGameState(_game, _logger);
+
                 // Step 8: Load initial map
                 UpdateProgress(InitializationProgress.InitialMap, "Loading initial map...");
                 await Task.Yield();

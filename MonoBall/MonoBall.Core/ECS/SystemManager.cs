@@ -30,6 +30,7 @@ namespace MonoBall.Core.ECS
         private readonly ILogger _logger;
         private ISpriteLoaderService _spriteLoader = null!; // Initialized in Initialize()
         private ICameraService _cameraService = null!; // Initialized in Initialize()
+        private Services.IVariableSpriteResolver? _variableSpriteResolver; // Initialized in Initialize()
         private SpriteBatch? _spriteBatch;
 
         private Group<float> _updateSystems = null!; // Initialized in Initialize()
@@ -265,18 +266,6 @@ namespace MonoBall.Core.ECS
             // - FlagVariableMetadataComponent
             // Example: world.RegisterComponent<FlagsComponent>();
 
-            // Create services
-            _spriteLoader = new SpriteLoaderService(
-                _graphicsDevice,
-                _modManager,
-                LoggerFactory.CreateLogger<SpriteLoaderService>()
-            );
-            _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
-
-            // Create active map filter service (used by multiple systems for filtering entities by active maps)
-            // Must be created before render systems that depend on it
-            _activeMapFilterService = new Services.ActiveMapFilterService(_world);
-
             // Get FlagVariableService from Game.Services
             var flagVariableService = _game.Services.GetService<Services.IFlagVariableService>();
             if (flagVariableService == null)
@@ -287,6 +276,25 @@ namespace MonoBall.Core.ECS
                 );
             }
 
+            // Create VariableSpriteResolver
+            _variableSpriteResolver = new Services.VariableSpriteResolver(
+                flagVariableService,
+                LoggerFactory.CreateLogger<Services.VariableSpriteResolver>()
+            );
+
+            // Create services
+            _spriteLoader = new SpriteLoaderService(
+                _graphicsDevice,
+                _modManager,
+                _variableSpriteResolver,
+                LoggerFactory.CreateLogger<SpriteLoaderService>()
+            );
+            _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
+
+            // Create active map filter service (used by multiple systems for filtering entities by active maps)
+            // Must be created before render systems that depend on it
+            _activeMapFilterService = new Services.ActiveMapFilterService(_world);
+
             // Create update systems
             _mapLoaderSystem = new MapLoaderSystem(
                 _world,
@@ -294,6 +302,7 @@ namespace MonoBall.Core.ECS
                 _tilesetLoader,
                 _spriteLoader,
                 flagVariableService,
+                _variableSpriteResolver,
                 LoggerFactory.CreateLogger<MapLoaderSystem>()
             );
             _mapConnectionSystem = new MapConnectionSystem(
@@ -619,6 +628,10 @@ namespace MonoBall.Core.ECS
             _mapPopupSystem?.Dispose();
             _mapPopupSystem = null!;
             _mapPopupRendererSystem = null!;
+
+            // Dispose services
+            _variableSpriteResolver?.Dispose();
+            _variableSpriteResolver = null;
 
             _isDisposed = true;
         }

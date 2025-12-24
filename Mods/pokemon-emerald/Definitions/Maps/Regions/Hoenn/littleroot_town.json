@@ -368,7 +368,7 @@
       "name": "LOCALID_LITTLEROOT_RIVAL",
       "x": 208,
       "y": 160,
-      "spriteId": "base:sprite:npcs/generic/var_0",
+      "spriteId": "{base:sprite:npcs/generic/var_rival}",
       "behaviorId": "base:behavior:movement/stationary",
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_rival",

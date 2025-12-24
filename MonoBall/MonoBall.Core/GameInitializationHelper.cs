@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Localization;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
@@ -224,6 +225,39 @@ namespace MonoBall.Core
                 systemManager.CameraSystem.UpdateCameraPosition(cameraEntity.Value);
                 logger.Information("Camera position updated after map load");
             }
+        }
+
+        /// <summary>
+        /// Sets up initial game state variables and flags.
+        /// This is a temporary setup for testing variable sprite resolution.
+        /// </summary>
+        /// <param name="game">The game instance.</param>
+        /// <param name="logger">The logger for logging operations.</param>
+        public static void SetupInitialGameState(Game game, ILogger logger)
+        {
+            var flagVariableService = game.Services.GetService<IFlagVariableService>();
+            if (flagVariableService == null)
+            {
+                logger.Warning(
+                    "FlagVariableService not found in Game.Services. Cannot set up initial game state."
+                );
+                return;
+            }
+
+            // Set variable sprite ID for rival
+            flagVariableService.SetVariable(
+                "base:sprite:npcs/generic/var_rival",
+                "base:sprite:players/brendan/normal"
+            );
+            logger.Information(
+                "Set game state variable base:sprite:npcs/generic/var_rival = base:sprite:players/brendan/normal"
+            );
+
+            // Set visibility flag for littleroot town rival (temporary)
+            flagVariableService.SetFlag("base:flag:visibility/littleroot_town_rival", true);
+            logger.Information(
+                "Set game state flag base:flag:visibility/littleroot_town_rival = true"
+            );
         }
 
         /// <summary>

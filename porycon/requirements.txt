@@ -1,0 +1,22 @@
+# Porycon - Pokemon Emerald to Tiled Converter
+# Python dependencies
+
+# JSON handling
+# (built-in json module is sufficient, but we may need additional parsing)
+
+# Image processing for tileset generation
+Pillow>=10.0.0
+
+# Binary file reading for .bin files
+# (built-in struct module is sufficient)
+
+# Path handling
+pathlib2>=2.3.7; python_version < '3.4'
+
+
+
+
+
+
+
+
