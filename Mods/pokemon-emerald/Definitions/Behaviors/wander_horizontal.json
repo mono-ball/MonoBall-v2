@@ -2,7 +2,7 @@
   "id": "base:behavior:movement/wander_horizontal",
   "name": "Wander Horizontal Behavior",
   "description": "NPC wanders left and right within a specified range",
-  "behaviorScript": "Behaviors/wander_behavior.csx",
+  "Scripts/Behaviorscript": "Scripts/Behaviors/wander_behavior.csx",
   "defaultSpeed": 1.5,
   "pauseAtWaypoint": 0.5,
   "allowInteractionWhileMoving": true,

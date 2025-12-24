@@ -2,6 +2,6 @@
   "id": "base:tile_behavior:movement/ice",
   "name": "Ice Tile",
   "description": "Forces sliding movement",
-  "behaviorScript": "TileBehaviors/ice.csx",
+  "behaviorScript": "Scripts/TileBehaviors/ice.csx",
   "flags": "ForcesMovement, DisablesRunning"
 }

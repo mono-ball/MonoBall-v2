@@ -2,7 +2,7 @@
   "id": "base:behavior:movement/stationary",
   "name": "Stationary Behavior",
   "description": "NPC stays in one place, does not move",
-  "behaviorScript": "Behaviors/stationary_behavior.csx",
+  "Scripts/Behaviorscript": "Scripts/Behaviors/stationary_behavior.csx",
   "defaultSpeed": 0.0,
   "pauseAtWaypoint": 0.0,
   "allowInteractionWhileMoving": false

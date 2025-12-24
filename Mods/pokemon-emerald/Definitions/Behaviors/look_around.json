@@ -2,7 +2,7 @@
   "id": "base:behavior:movement/look_around",
   "name": "Look Around Behavior",
   "description": "NPC periodically changes facing direction, looking around the area",
-  "behaviorScript": "Behaviors/look_around_behavior.csx",
+  "Scripts/Behaviorscript": "Scripts/Behaviors/look_around_behavior.csx",
   "defaultSpeed": 0.0,
   "pauseAtWaypoint": 0.0,
   "allowInteractionWhileMoving": false,

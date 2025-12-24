@@ -22,7 +22,6 @@
     "PopupThemeDefinitions": "Definitions/Maps/Popups/Themes",
     "MapSectionDefinitions": "Definitions/Maps/Sections"
   },
-  "scripts": [],
   "patches": [],
   "dependencies": [
     "base:monoball-core"
