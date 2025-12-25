@@ -111,7 +111,8 @@ namespace MonoBall.Core.ECS.Systems
         /// Renders all visible tile chunks.
         /// </summary>
         /// <param name="gameTime">The game time.</param>
-        public void Render(GameTime gameTime)
+        /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, uses global shaders only.</param>
+        public void Render(GameTime gameTime, Entity? sceneEntity = null)
         {
             if (_spriteBatch == null)
             {
@@ -238,8 +239,8 @@ namespace MonoBall.Core.ECS.Systems
                 // Note: The transform uses camera.Viewport (logical size), which matches renderViewport size
                 Matrix transform = camera.GetTransformMatrix();
 
-                // Get tile layer shader stack
-                var shaderStack = _shaderManagerSystem?.GetTileLayerShaderStack();
+                // Get tile layer shader stack (filtered by scene if provided)
+                var shaderStack = _shaderManagerSystem?.GetTileLayerShaderStack(sceneEntity);
                 bool needsShaderStacking =
                     shaderStack != null
                     && shaderStack.Count > 0
@@ -261,16 +262,27 @@ namespace MonoBall.Core.ECS.Systems
 
                 if (needsShaderStacking)
                 {
-                    // Multiple shaders or blend modes - render to render target first, then apply shader stack
-                    var renderTarget = _renderTargetManager!.GetOrCreateRenderTarget(100); // Use index 100 for tile layer
+                    // Check if render target is already set (e.g., by SceneRendererSystem for post-processing)
+                    var currentRenderTargets = _graphicsDevice.GetRenderTargets();
+                    RenderTarget2D? renderTarget =
+                        currentRenderTargets.Length > 0
+                            ? currentRenderTargets[0].RenderTarget as RenderTarget2D
+                            : null;
+
+                    // If no render target is set, create one for shader stacking
                     if (renderTarget == null)
                     {
-                        _logger.Warning(
-                            "MapRendererSystem: Failed to create render target for shader stacking. Falling back to direct rendering."
-                        );
-                        needsShaderStacking = false;
+                        renderTarget = _renderTargetManager!.GetOrCreateRenderTarget(100); // Use index 100 for tile layer
+                        if (renderTarget == null)
+                        {
+                            _logger.Warning(
+                                "MapRendererSystem: Failed to create render target for shader stacking. Falling back to direct rendering."
+                            );
+                            needsShaderStacking = false;
+                        }
                     }
-                    else
+
+                    if (needsShaderStacking && renderTarget != null)
                     {
                         // Render geometry to render target (without shaders - ApplyShaderStack will handle all shaders)
                         var renderTargets = _graphicsDevice.GetRenderTargets();
@@ -279,11 +291,16 @@ namespace MonoBall.Core.ECS.Systems
                                 ? renderTargets[0].RenderTarget as RenderTarget2D
                                 : null;
 
-                        try
+                        // Only set render target if it's different from current (avoid unnecessary state changes)
+                        bool needToSetTarget = previousTarget != renderTarget;
+                        if (needToSetTarget)
                         {
                             _graphicsDevice.SetRenderTarget(renderTarget);
                             _graphicsDevice.Clear(Color.Transparent);
+                        }
 
+                        try
+                        {
                             // Render chunks without shader - ApplyShaderStack will apply all shaders including first
                             _spriteBatch.Begin(
                                 SpriteSortMode.Immediate,
@@ -324,7 +341,11 @@ namespace MonoBall.Core.ECS.Systems
                         }
                         finally
                         {
-                            _graphicsDevice.SetRenderTarget(previousTarget);
+                            // Only restore render target if we changed it
+                            if (needToSetTarget)
+                            {
+                                _graphicsDevice.SetRenderTarget(previousTarget);
+                            }
                         }
                     }
                 }

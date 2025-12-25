@@ -594,4 +594,3 @@ public Dictionary<string, object>? Parameters { get; set; }
 - ⚠️ Performance optimizations possible (parameter dirty tracking)
 
 **Recommendation:** Address Important issues (DRY violations, type safety), then proceed with Nice-to-Have enhancements.
-

@@ -153,7 +153,8 @@ namespace MonoBall.Core
             // Create shader parameter validator
             var shaderParameterValidator = new Rendering.ShaderParameterValidator(
                 shaderService,
-                LoggerFactory.CreateLogger<Rendering.ShaderParameterValidator>()
+                LoggerFactory.CreateLogger<Rendering.ShaderParameterValidator>(),
+                ModManager
             );
             _game.Services.AddService(
                 typeof(Rendering.IShaderParameterValidator),

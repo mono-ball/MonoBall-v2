@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.Mods;
+using MonoBall.Core.Mods.Definitions;
 using MonoBall.Core.Rendering;
 using Serilog;
 
@@ -22,7 +24,8 @@ namespace MonoBall.Core.ECS.Systems
         private readonly World _world;
         private readonly IShaderService _shaderService;
         private readonly IShaderParameterValidator _parameterValidator;
-        private readonly QueryDescription _layerShaderQuery;
+        private readonly IModManager? _modManager;
+        private readonly QueryDescription _renderingShaderQuery;
         private readonly GraphicsDevice _graphicsDevice;
         private readonly ILogger _logger;
 
@@ -61,10 +64,24 @@ namespace MonoBall.Core.ECS.Systems
             new();
 
         // Reusable collections to avoid allocations
-        private readonly List<(Entity entity, LayerShaderComponent shader)> _tileShaders = new();
-        private readonly List<(Entity entity, LayerShaderComponent shader)> _spriteShaders = new();
-        private readonly List<(Entity entity, LayerShaderComponent shader)> _combinedShaders =
+        private readonly List<(Entity entity, RenderingShaderComponent shader)> _tileShaders =
             new();
+        private readonly List<(Entity entity, RenderingShaderComponent shader)> _spriteShaders =
+            new();
+        private readonly List<(Entity entity, RenderingShaderComponent shader)> _combinedShaders =
+            new();
+
+        /// <summary>
+        /// Parameters that are automatically set by MonoGame/SpriteBatch and should not be required in shader definitions.
+        /// These are set automatically when SpriteBatch.Begin() is called with an Effect.
+        /// </summary>
+        private static readonly HashSet<string> MonoGameManagedParameters = new HashSet<string>
+        {
+            "SpriteTexture", // Set automatically by SpriteBatch
+            "Texture", // Alternative name for SpriteTexture
+            "WorldViewProjection", // Transformation matrix set by SpriteBatch
+            "MatrixTransform", // Alternative name for WorldViewProjection
+        };
 
         /// <summary>
         /// Initializes a new instance of the ShaderManagerSystem.
@@ -74,12 +91,14 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="parameterValidator">The parameter validator for validating shader parameters.</param>
         /// <param name="graphicsDevice">The graphics device for getting viewport dimensions.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="modManager">Optional mod manager for compatibility checking.</param>
         public ShaderManagerSystem(
             World world,
             IShaderService shaderService,
             IShaderParameterValidator parameterValidator,
             GraphicsDevice graphicsDevice,
-            ILogger logger
+            ILogger logger,
+            IModManager? modManager = null
         )
         {
             _world = world ?? throw new ArgumentNullException(nameof(world));
@@ -90,13 +109,15 @@ namespace MonoBall.Core.ECS.Systems
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _layerShaderQuery = new QueryDescription().WithAll<LayerShaderComponent>();
+            _modManager = modManager;
+            _renderingShaderQuery = new QueryDescription().WithAll<RenderingShaderComponent>();
         }
 
         /// <summary>
         /// Updates shader state. Called in Render phase, just before rendering systems need shaders.
         /// </summary>
-        public void UpdateShaderState()
+        /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, includes global shaders only.</param>
+        public void UpdateShaderState(Entity? sceneEntity = null)
         {
             // Always update active shaders if dirty, or if we don't have active shaders but might have components
             // This ensures shaders are found even if MarkShadersDirty() wasn't called
@@ -109,7 +130,7 @@ namespace MonoBall.Core.ECS.Systems
                 )
             )
             {
-                UpdateActiveShaders();
+                UpdateActiveShaders(sceneEntity);
                 _shadersDirty = false;
             }
 
@@ -120,39 +141,84 @@ namespace MonoBall.Core.ECS.Systems
         /// Gets the active shader stack for tile layer rendering.
         /// Returns all enabled shaders sorted by RenderOrder.
         /// </summary>
+        /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, returns global shaders only.</param>
         public IReadOnlyList<(
             Effect effect,
             ShaderBlendMode blendMode,
             Entity entity
-        )> GetTileLayerShaderStack()
+        )> GetTileLayerShaderStack(Entity? sceneEntity = null)
         {
-            return _activeTileLayerShaders;
+            if (sceneEntity == null)
+            {
+                return _activeTileLayerShaders;
+            }
+
+            // Filter by scene entity (include global shaders with null SceneEntity and shaders matching this scene)
+            return _activeTileLayerShaders
+                .Where(s =>
+                {
+                    if (!_world.Has<RenderingShaderComponent>(s.entity))
+                        return false;
+                    ref var shader = ref _world.Get<RenderingShaderComponent>(s.entity);
+                    return shader.SceneEntity == null || shader.SceneEntity == sceneEntity;
+                })
+                .ToList();
         }
 
         /// <summary>
         /// Gets the active shader stack for sprite layer rendering.
         /// Returns all enabled shaders sorted by RenderOrder.
         /// </summary>
+        /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, returns global shaders only.</param>
         public IReadOnlyList<(
             Effect effect,
             ShaderBlendMode blendMode,
             Entity entity
-        )> GetSpriteLayerShaderStack()
+        )> GetSpriteLayerShaderStack(Entity? sceneEntity = null)
         {
-            return _activeSpriteLayerShaders;
+            if (sceneEntity == null)
+            {
+                return _activeSpriteLayerShaders;
+            }
+
+            // Filter by scene entity (include global shaders with null SceneEntity and shaders matching this scene)
+            return _activeSpriteLayerShaders
+                .Where(s =>
+                {
+                    if (!_world.Has<RenderingShaderComponent>(s.entity))
+                        return false;
+                    ref var shader = ref _world.Get<RenderingShaderComponent>(s.entity);
+                    return shader.SceneEntity == null || shader.SceneEntity == sceneEntity;
+                })
+                .ToList();
         }
 
         /// <summary>
         /// Gets the active shader stack for combined layer rendering (post-processing).
         /// Returns all enabled shaders sorted by RenderOrder.
         /// </summary>
+        /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, returns global shaders only.</param>
         public IReadOnlyList<(
             Effect effect,
             ShaderBlendMode blendMode,
             Entity entity
-        )> GetCombinedLayerShaderStack()
+        )> GetCombinedLayerShaderStack(Entity? sceneEntity = null)
         {
-            return _activeCombinedLayerShaders;
+            if (sceneEntity == null)
+            {
+                return _activeCombinedLayerShaders;
+            }
+
+            // Filter by scene entity (include global shaders with null SceneEntity and shaders matching this scene)
+            return _activeCombinedLayerShaders
+                .Where(s =>
+                {
+                    if (!_world.Has<RenderingShaderComponent>(s.entity))
+                        return false;
+                    ref var shader = ref _world.Get<RenderingShaderComponent>(s.entity);
+                    return shader.SceneEntity == null || shader.SceneEntity == sceneEntity;
+                })
+                .ToList();
         }
 
         /// <summary>
@@ -202,10 +268,69 @@ namespace MonoBall.Core.ECS.Systems
             )
                 return;
 
-            foreach (var (effect, _, _) in _activeCombinedLayerShaders)
+            foreach (var (effect, _, entity) in _activeCombinedLayerShaders)
             {
                 foreach (var (paramName, value) in parameters)
                 {
+                    // Skip MonoGame-managed parameters - these are set automatically
+                    if (MonoGameManagedParameters.Contains(paramName))
+                        continue;
+
+                    // ScreenSize is handled specially - check if it exists first
+                    // Not all shaders have ScreenSize, so we check before setting
+                    if (paramName == "ScreenSize")
+                    {
+                        if (value is not Vector2 screenSize)
+                        {
+                            _logger.Warning(
+                                "ScreenSize parameter value is not Vector2 (type: {Type}) for combined layer shader, skipping.",
+                                value?.GetType().Name ?? "null"
+                            );
+                            continue;
+                        }
+
+                        // Get or create previous values dictionary for dirty tracking
+                        if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
+                        {
+                            previousValues = new Dictionary<string, object>();
+                            _previousParameterValues[entity] = previousValues;
+                        }
+
+                        // Get shader component for event firing
+                        if (_world.Has<RenderingShaderComponent>(entity))
+                        {
+                            ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
+                            TrySetScreenSizeParameter(effect, previousValues, shader, entity);
+                        }
+                        continue;
+                    }
+
+                    // Check if parameter exists before trying to set it
+                    EffectParameter? param = null;
+                    try
+                    {
+                        param = effect.Parameters[paramName];
+                    }
+                    catch (KeyNotFoundException)
+                    {
+                        // Parameter doesn't exist - skip it (may not be in all shaders)
+                        _logger.Debug(
+                            "Parameter {ParamName} does not exist in combined layer shader, skipping.",
+                            paramName
+                        );
+                        continue;
+                    }
+
+                    if (param == null)
+                    {
+                        // Parameter is null - skip it
+                        _logger.Debug(
+                            "Parameter {ParamName} is null in combined layer shader, skipping.",
+                            paramName
+                        );
+                        continue;
+                    }
+
                     try
                     {
                         ShaderParameterApplier.ApplyParameter(effect, paramName, value, _logger);
@@ -233,69 +358,36 @@ namespace MonoBall.Core.ECS.Systems
         {
             var screenSize = new Vector2(width, height);
 
-            // Update ScreenSize for tile layer shaders
-            foreach (var (effect, _, _) in _activeTileLayerShaders)
-            {
-                try
-                {
-                    ShaderParameterApplier.ApplyParameter(
-                        effect,
-                        "ScreenSize",
-                        screenSize,
-                        _logger
-                    );
-                }
-                catch (InvalidOperationException ex)
-                {
-                    // Log and continue - ScreenSize is optional for shaders
-                    _logger.Debug(
-                        ex,
-                        "ScreenSize parameter not available or invalid for tile layer shader"
-                    );
-                }
-            }
+            UpdateScreenSizeForShaders(_activeTileLayerShaders, screenSize);
+            UpdateScreenSizeForShaders(_activeSpriteLayerShaders, screenSize);
+            UpdateScreenSizeForShaders(_activeCombinedLayerShaders, screenSize);
+        }
 
-            // Update ScreenSize for sprite layer shaders
-            foreach (var (effect, _, _) in _activeSpriteLayerShaders)
+        /// <summary>
+        /// Updates the ScreenSize parameter for a list of shaders.
+        /// Uses the helper method to avoid code duplication and ensure consistent behavior.
+        /// </summary>
+        /// <param name="shaders">The list of shaders to update.</param>
+        /// <param name="screenSize">The screen size vector (unused - viewport is used instead).</param>
+        private void UpdateScreenSizeForShaders(
+            List<(Effect effect, ShaderBlendMode blendMode, Entity entity)> shaders,
+            Vector2 screenSize
+        )
+        {
+            foreach (var (effect, _, entity) in shaders)
             {
-                try
+                // Get or create previous values dictionary for dirty tracking
+                if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
                 {
-                    ShaderParameterApplier.ApplyParameter(
-                        effect,
-                        "ScreenSize",
-                        screenSize,
-                        _logger
-                    );
+                    previousValues = new Dictionary<string, object>();
+                    _previousParameterValues[entity] = previousValues;
                 }
-                catch (InvalidOperationException ex)
-                {
-                    // Log and continue - ScreenSize is optional for shaders
-                    _logger.Debug(
-                        ex,
-                        "ScreenSize parameter not available or invalid for sprite layer shader"
-                    );
-                }
-            }
 
-            // Update ScreenSize for combined layer shaders
-            foreach (var (effect, _, _) in _activeCombinedLayerShaders)
-            {
-                try
+                // Get shader component for event firing
+                if (_world.Has<RenderingShaderComponent>(entity))
                 {
-                    ShaderParameterApplier.ApplyParameter(
-                        effect,
-                        "ScreenSize",
-                        screenSize,
-                        _logger
-                    );
-                }
-                catch (InvalidOperationException ex)
-                {
-                    // Log and continue - ScreenSize is optional for shaders
-                    _logger.Debug(
-                        ex,
-                        "ScreenSize parameter not available or invalid for combined layer shader"
-                    );
+                    ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
+                    TrySetScreenSizeParameter(effect, previousValues, shader, entity);
                 }
             }
         }
@@ -308,11 +400,37 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="height">The screen/viewport height.</param>
         public void UpdateCombinedLayerScreenSize(int width, int height)
         {
-            var parameters = new Dictionary<string, object>
+            if (_activeCombinedLayerShaders.Count == 0)
+                return;
+
+            // Temporarily override viewport for ScreenSize calculation
+            var originalViewport = _graphicsDevice.Viewport;
+            try
             {
-                { "ScreenSize", new Vector2(width, height) },
-            };
-            UpdateCombinedLayerDynamicParameters(parameters);
+                _graphicsDevice.Viewport = new Viewport(0, 0, width, height);
+
+                foreach (var (effect, _, entity) in _activeCombinedLayerShaders)
+                {
+                    // Get or create previous values dictionary for dirty tracking
+                    if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
+                    {
+                        previousValues = new Dictionary<string, object>();
+                        _previousParameterValues[entity] = previousValues;
+                    }
+
+                    // Get shader component for event firing
+                    if (_world.Has<RenderingShaderComponent>(entity))
+                    {
+                        ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
+                        TrySetScreenSizeParameter(effect, previousValues, shader, entity);
+                    }
+                }
+            }
+            finally
+            {
+                // Restore original viewport
+                _graphicsDevice.Viewport = originalViewport;
+            }
         }
 
         /// <summary>
@@ -324,7 +442,11 @@ namespace MonoBall.Core.ECS.Systems
             _shadersDirty = true;
         }
 
-        private void UpdateActiveShaders()
+        /// <summary>
+        /// Updates the active shader lists based on current RenderingShaderComponent entities.
+        /// </summary>
+        /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, includes all shaders (global and per-scene).</param>
+        private void UpdateActiveShaders(Entity? sceneEntity = null)
         {
             // Clear reusable collections
             _tileShaders.Clear();
@@ -333,26 +455,40 @@ namespace MonoBall.Core.ECS.Systems
 
             int totalFound = 0;
             _world.Query(
-                in _layerShaderQuery,
-                (Entity entity, ref LayerShaderComponent shader) =>
+                in _renderingShaderQuery,
+                (Entity entity, ref RenderingShaderComponent shader) =>
                 {
                     totalFound++;
+
+                    // Filter by scene entity if provided
+                    // Include shaders with null SceneEntity (global) and shaders matching the scene
+                    if (sceneEntity != null)
+                    {
+                        if (shader.SceneEntity != null && shader.SceneEntity != sceneEntity)
+                        {
+                            // Shader is scoped to a different scene, skip it
+                            return;
+                        }
+                    }
+
                     if (!shader.IsEnabled)
                     {
                         _logger.Debug(
-                            "ShaderManagerSystem: Found disabled shader entity {EntityId}, ShaderId: {ShaderId}, Layer: {Layer}",
+                            "ShaderManagerSystem: Found disabled shader entity {EntityId}, ShaderId: {ShaderId}, Layer: {Layer}, SceneEntity: {SceneEntity}",
                             entity.Id,
                             shader.ShaderId,
-                            shader.Layer
+                            shader.Layer,
+                            shader.SceneEntity?.Id.ToString() ?? "null (global)"
                         );
                         return;
                     }
 
                     _logger.Debug(
-                        "ShaderManagerSystem: Found enabled shader entity {EntityId}, ShaderId: {ShaderId}, Layer: {Layer}",
+                        "ShaderManagerSystem: Found enabled shader entity {EntityId}, ShaderId: {ShaderId}, Layer: {Layer}, SceneEntity: {SceneEntity}",
                         entity.Id,
                         shader.ShaderId,
-                        shader.Layer
+                        shader.Layer,
+                        shader.SceneEntity?.Id.ToString() ?? "null (global)"
                     );
 
                     switch (shader.Layer)
@@ -403,7 +539,7 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         private void UpdateLayerShaderStack(
-            List<(Entity entity, LayerShaderComponent shader)> shaders,
+            List<(Entity entity, RenderingShaderComponent shader)> shaders,
             ShaderLayer layer,
             List<(Effect effect, ShaderBlendMode blendMode, Entity entity)> activeShaderStack,
             ref string? previousShaderId,
@@ -479,7 +615,9 @@ namespace MonoBall.Core.ECS.Systems
             if (activeShaderStack.Count > 0)
             {
                 var firstShader = activeShaderStack[0];
-                ref var firstShaderComp = ref _world.Get<LayerShaderComponent>(firstShader.entity);
+                ref var firstShaderComp = ref _world.Get<RenderingShaderComponent>(
+                    firstShader.entity
+                );
 
                 if (firstShaderComp.ShaderId != previousShaderId)
                 {
@@ -523,41 +661,20 @@ namespace MonoBall.Core.ECS.Systems
 
         private void UpdateShaderParametersForEntity(Entity entity, Effect effect)
         {
-            if (!_world.Has<LayerShaderComponent>(entity))
+            if (!_world.Has<RenderingShaderComponent>(entity))
                 return;
 
             // Ensure CurrentTechnique is set before setting parameters
             ShaderParameterApplier.EnsureCurrentTechnique(effect, _logger);
 
-            // Automatically set ScreenSize parameter if the shader has it
-            // This prevents warnings about null ScreenSize parameters
-            try
-            {
-                var screenSizeParam = effect.Parameters["ScreenSize"];
-                if (
-                    screenSizeParam != null
-                    && screenSizeParam.ParameterClass == EffectParameterClass.Vector
-                    && screenSizeParam.ColumnCount == 2
-                )
-                {
-                    var viewport = _graphicsDevice.Viewport;
-                    var screenSize = new Vector2(viewport.Width, viewport.Height);
-                    screenSizeParam.SetValue(screenSize);
-                }
-            }
-            catch (KeyNotFoundException)
-            {
-                // ScreenSize parameter doesn't exist - that's fine, not all shaders need it
-            }
-            catch (Exception ex)
-            {
-                // Log unexpected errors but don't fail - ScreenSize is optional
-                _logger.Debug(ex, "Failed to set ScreenSize parameter automatically");
-            }
+            ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
 
-            ref var shader = ref _world.Get<LayerShaderComponent>(entity);
-            if (shader.Parameters == null)
-                return;
+            // Get shader definition to access parameter defaults
+            ShaderDefinition? shaderDef = null;
+            if (_modManager != null)
+            {
+                shaderDef = _modManager.GetDefinition<ShaderDefinition>(shader.ShaderId);
+            }
 
             // Get or create previous parameter values dictionary for this entity
             if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
@@ -566,49 +683,229 @@ namespace MonoBall.Core.ECS.Systems
                 _previousParameterValues[entity] = previousValues;
             }
 
-            foreach (var (paramName, value) in shader.Parameters)
+            // Get component parameters (may be null)
+            var componentParameters = shader.Parameters ?? new Dictionary<string, object>();
+
+            // Build a set of all parameters that exist in the shader effect
+            // We MUST set all of these - no optional parameters allowed
+            var allShaderParameters = new Dictionary<string, EffectParameter>();
+            foreach (EffectParameter param in effect.Parameters)
             {
-                // Check if parameter value has changed (dirty tracking)
-                if (previousValues.TryGetValue(paramName, out var previousValue))
+                if (param != null)
                 {
-                    if (AreParameterValuesEqual(value, previousValue))
+                    allShaderParameters[param.Name] = param;
+                }
+            }
+
+            // First, automatically set ScreenSize if the shader has it (before definition processing)
+            // ScreenSize is a special case - it's always set from viewport, never from definition/default
+            if (TrySetScreenSizeParameter(effect, previousValues, shader, entity))
+            {
+                // ScreenSize was set (and event fired if value changed)
+            }
+
+            // Second, process all parameters from the shader definition (if available)
+            // This ensures all defined parameters are set, using defaults if not specified
+            if (shaderDef?.Parameters != null)
+            {
+                foreach (var paramDef in shaderDef.Parameters)
+                {
+                    // Skip ScreenSize - it's handled separately above
+                    if (paramDef.Name == "ScreenSize")
+                        continue;
+
+                    // Skip MonoGame-managed parameters - these are set automatically by SpriteBatch
+                    if (MonoGameManagedParameters.Contains(paramDef.Name))
+                        continue;
+
+                    // Parameter MUST exist in the shader effect if it's in the definition
+                    if (!allShaderParameters.TryGetValue(paramDef.Name, out var effectParam))
+                    {
+                        throw new InvalidOperationException(
+                            $"Shader '{shader.ShaderId}' definition lists parameter '{paramDef.Name}', "
+                                + $"but shader effect doesn't have it. Shader definitions must match shader code."
+                        );
+                    }
+
+                    // Determine the value to use: component value or default value
+                    object? valueToUse = null;
+                    bool isFromComponent = false;
+
+                    if (componentParameters.TryGetValue(paramDef.Name, out var componentValue))
+                    {
+                        // Use value from component
+                        valueToUse = componentValue;
+                        isFromComponent = true;
+                    }
+                    else if (paramDef.DefaultValue != null)
+                    {
+                        // Use default value from definition
+                        valueToUse = paramDef.DefaultValue;
+                        isFromComponent = false;
+                    }
+                    else
+                    {
+                        // Parameter is required but has no default and wasn't provided
+                        throw new InvalidOperationException(
+                            $"Shader '{shader.ShaderId}' requires parameter '{paramDef.Name}' "
+                                + $"but no value was provided and no default value is defined in the shader definition."
+                        );
+                    }
+
+                    // Get old value for event (before checking if changed)
+                    object? oldValue = previousValues.TryGetValue(
+                        paramDef.Name,
+                        out var existingValue
+                    )
+                        ? existingValue
+                        : null;
+
+                    // Check if parameter value has changed (dirty tracking)
+                    if (oldValue != null && AreParameterValuesEqual(valueToUse, oldValue))
                     {
                         // Parameter hasn't changed, skip setting it
                         continue;
                     }
-                }
 
-                EffectParameter? param = null;
-                try
-                {
-                    param = effect.Parameters[paramName];
+                    // Validate parameter
+                    if (
+                        !_parameterValidator.ValidateParameter(
+                            shader.ShaderId,
+                            paramDef.Name,
+                            valueToUse,
+                            out var error
+                        )
+                    )
+                    {
+                        throw new InvalidOperationException(
+                            $"Invalid parameter '{paramDef.Name}' for shader '{shader.ShaderId}': {error}"
+                        );
+                    }
+
+                    // Apply parameter
+                    ApplyShaderParameter(effect, paramDef.Name, valueToUse);
+
+                    // Update previous value for dirty tracking
+                    previousValues[paramDef.Name] = valueToUse;
+
+                    // Fire event for parameter change (only if value actually changed or was set from component)
+                    if (
+                        isFromComponent
+                        || oldValue == null
+                        || !AreParameterValuesEqual(valueToUse, oldValue)
+                    )
+                    {
+                        var evt = new ShaderParameterChangedEvent
+                        {
+                            Layer = shader.Layer,
+                            ShaderId = shader.ShaderId,
+                            ParameterName = paramDef.Name,
+                            OldValue = oldValue,
+                            NewValue = valueToUse,
+                            ShaderEntity = entity,
+                        };
+                        EventBus.Send(ref evt);
+                    }
                 }
-                catch (System.Collections.Generic.KeyNotFoundException)
+            }
+
+            // Second, ensure ALL parameters in the shader effect are set (no optional parameters)
+            // Check for any parameters that exist in the shader but weren't set above
+            // Note: If _modManager is null, we can't validate against definitions, so we skip this check
+            if (_modManager != null)
+            {
+                foreach (var (paramName, effectParam) in allShaderParameters)
                 {
-                    // Parameter doesn't exist - log and continue (parameter is optional)
-                    _logger.Warning(
-                        "Shader {ShaderId} does not have parameter {ParamName}",
-                        shader.ShaderId,
-                        paramName
+                    // Skip ScreenSize - already handled
+                    if (paramName == "ScreenSize")
+                        continue;
+
+                    // Skip MonoGame-managed parameters - these are set automatically by SpriteBatch
+                    if (MonoGameManagedParameters.Contains(paramName))
+                        continue;
+
+                    // Skip if already processed from definition
+                    bool alreadyProcessed =
+                        shaderDef?.Parameters?.Any(p => p.Name == paramName) ?? false;
+                    if (alreadyProcessed)
+                        continue;
+
+                    // Skip if set from component (will be processed in next loop)
+                    if (componentParameters.ContainsKey(paramName))
+                        continue;
+
+                    // Parameter exists in shader but has no definition and no component value
+                    // This is an error - all parameters must be defined or have defaults
+                    throw new InvalidOperationException(
+                        $"Shader '{shader.ShaderId}' has parameter '{paramName}' in the effect, "
+                            + $"but it's not defined in the shader definition and no value was provided. "
+                            + $"All shader parameters must be defined in the shader definition with a default value. "
+                            + $"Note: Parameters like 'SpriteTexture' and 'WorldViewProjection' are set automatically by MonoGame."
+                    );
+                }
+            }
+            else
+            {
+                // Without mod manager, we can't validate parameters against definitions
+                // Log warning but continue - parameters from component will still be processed
+                _logger.Debug(
+                    "ModManager is null for shader {ShaderId}, skipping parameter validation against definitions. "
+                        + "Only component parameters will be set.",
+                    shader.ShaderId
+                );
+            }
+
+            // Third, process any additional parameters from component that aren't in the definition
+            // This allows runtime parameters that aren't in the definition (for flexibility)
+            foreach (var (paramName, value) in componentParameters)
+            {
+                // Skip ScreenSize - already handled (set automatically from viewport)
+                if (paramName == "ScreenSize")
+                {
+                    _logger.Debug(
+                        "Component specifies ScreenSize parameter for shader {ShaderId}, "
+                            + "but ScreenSize is set automatically from viewport. Ignoring component value.",
+                        shader.ShaderId
                     );
                     continue;
                 }
-                catch (Exception ex)
+
+                // Skip MonoGame-managed parameters - these are set automatically by SpriteBatch
+                if (MonoGameManagedParameters.Contains(paramName))
                 {
-                    // Unexpected error - fail fast per .cursorrules
+                    _logger.Debug(
+                        "Component specifies MonoGame-managed parameter {ParamName} for shader {ShaderId}, "
+                            + "but it's set automatically by SpriteBatch. Ignoring component value.",
+                        paramName,
+                        shader.ShaderId
+                    );
+                    continue;
+                }
+
+                // Skip if we already processed this parameter from the definition
+                bool alreadyProcessed =
+                    shaderDef?.Parameters?.Any(p => p.Name == paramName) ?? false;
+                if (alreadyProcessed)
+                    continue;
+
+                // Parameter MUST exist in the shader effect
+                if (!allShaderParameters.TryGetValue(paramName, out var param))
+                {
                     throw new InvalidOperationException(
-                        $"Unexpected error accessing parameter '{paramName}' in shader '{shader.ShaderId}': {ex.Message}",
-                        ex
+                        $"Shader '{shader.ShaderId}' component specifies parameter '{paramName}', "
+                            + $"but shader effect doesn't have it. Cannot set parameters that don't exist in the shader."
                     );
                 }
 
-                if (param == null)
+                // Get old value for event (before checking if changed)
+                object? oldValue = previousValues.TryGetValue(paramName, out var existingValue)
+                    ? existingValue
+                    : null;
+
+                // Check if parameter value has changed (dirty tracking)
+                if (oldValue != null && AreParameterValuesEqual(value, oldValue))
                 {
-                    _logger.Warning(
-                        "Shader {ShaderId} does not have parameter {ParamName}",
-                        shader.ShaderId,
-                        paramName
-                    );
+                    // Parameter hasn't changed, skip setting it
                     continue;
                 }
 
@@ -622,13 +919,9 @@ namespace MonoBall.Core.ECS.Systems
                     )
                 )
                 {
-                    _logger.Warning(
-                        "Invalid parameter {ParamName} for shader {ShaderId}: {Error}",
-                        paramName,
-                        shader.ShaderId,
-                        error
+                    throw new InvalidOperationException(
+                        $"Invalid parameter '{paramName}' for shader '{shader.ShaderId}': {error}"
                     );
-                    continue;
                 }
 
                 // Apply parameter
@@ -636,6 +929,18 @@ namespace MonoBall.Core.ECS.Systems
 
                 // Update previous value for dirty tracking
                 previousValues[paramName] = value;
+
+                // Fire event for parameter change
+                var evt = new ShaderParameterChangedEvent
+                {
+                    Layer = shader.Layer,
+                    ShaderId = shader.ShaderId,
+                    ParameterName = paramName,
+                    OldValue = oldValue,
+                    NewValue = value,
+                    ShaderEntity = entity,
+                };
+                EventBus.Send(ref evt);
             }
         }
 
@@ -674,6 +979,72 @@ namespace MonoBall.Core.ECS.Systems
             }
         }
 
+        /// <summary>
+        /// Attempts to set the ScreenSize parameter on an effect from the current viewport.
+        /// Fires an event if the value changed.
+        /// </summary>
+        /// <param name="effect">The shader effect.</param>
+        /// <param name="previousValues">Dictionary tracking previous parameter values for dirty tracking.</param>
+        /// <param name="shader">The layer shader component.</param>
+        /// <param name="entity">The entity owning the shader component.</param>
+        /// <returns>True if ScreenSize parameter was set, false if it doesn't exist in the shader.</returns>
+        private bool TrySetScreenSizeParameter(
+            Effect effect,
+            Dictionary<string, object> previousValues,
+            RenderingShaderComponent shader,
+            Entity entity
+        )
+        {
+            try
+            {
+                var screenSizeParam = effect.Parameters["ScreenSize"];
+                if (
+                    screenSizeParam != null
+                    && screenSizeParam.ParameterClass == EffectParameterClass.Vector
+                    && screenSizeParam.ColumnCount == 2
+                )
+                {
+                    var viewport = _graphicsDevice.Viewport;
+                    var screenSize = new Vector2(viewport.Width, viewport.Height);
+
+                    // Check if value changed (dirty tracking)
+                    var oldScreenSize = previousValues.TryGetValue("ScreenSize", out var oldValue)
+                        ? oldValue
+                        : null;
+
+                    if (
+                        oldScreenSize == null
+                        || !AreParameterValuesEqual(screenSize, oldScreenSize)
+                    )
+                    {
+                        // Value changed - set it and fire event
+                        screenSizeParam.SetValue(screenSize);
+                        previousValues["ScreenSize"] = screenSize;
+
+                        // Fire event for ScreenSize update
+                        var evt = new ShaderParameterChangedEvent
+                        {
+                            Layer = shader.Layer,
+                            ShaderId = shader.ShaderId,
+                            ParameterName = "ScreenSize",
+                            OldValue = oldScreenSize,
+                            NewValue = screenSize,
+                            ShaderEntity = entity,
+                        };
+                        EventBus.Send(ref evt);
+                    }
+
+                    return true;
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                // ScreenSize doesn't exist - that's fine, not all shaders need it
+            }
+
+            return false;
+        }
+
         private void FireShaderChangedEvent(
             ShaderLayer layer,
             string? previousShaderId,
@@ -681,7 +1052,7 @@ namespace MonoBall.Core.ECS.Systems
             Entity shaderEntity
         )
         {
-            var evt = new LayerShaderChangedEvent
+            var evt = new RenderingShaderChangedEvent
             {
                 Layer = layer,
                 PreviousShaderId = previousShaderId,
@@ -689,6 +1060,108 @@ namespace MonoBall.Core.ECS.Systems
                 ShaderEntity = shaderEntity,
             };
             EventBus.Send(ref evt);
+        }
+
+        /// <summary>
+        /// Checks if two shaders are compatible with each other.
+        /// </summary>
+        /// <param name="shaderId1">First shader ID.</param>
+        /// <param name="shaderId2">Second shader ID.</param>
+        /// <returns>True if shaders are compatible, false otherwise.</returns>
+        public bool AreCompatible(string shaderId1, string shaderId2)
+        {
+            if (_modManager == null)
+            {
+                // No mod manager - assume compatible (can't check)
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(shaderId1) || string.IsNullOrEmpty(shaderId2))
+            {
+                return true; // Empty shaders are compatible
+            }
+
+            if (shaderId1 == shaderId2)
+            {
+                return true; // Same shader is compatible with itself
+            }
+
+            // Get shader definitions
+            var shader1 = _modManager.GetDefinition<ShaderDefinition>(shaderId1);
+            var shader2 = _modManager.GetDefinition<ShaderDefinition>(shaderId2);
+
+            if (shader1 == null || shader2 == null)
+            {
+                // Can't check compatibility if definitions don't exist
+                return true; // Assume compatible
+            }
+
+            // Check if shader1 lists shader2 as compatible
+            if (shader1.CompatibleWith != null && shader1.CompatibleWith.Contains(shaderId2))
+            {
+                return true;
+            }
+
+            // Check if shader2 lists shader1 as compatible
+            if (shader2.CompatibleWith != null && shader2.CompatibleWith.Contains(shaderId1))
+            {
+                return true;
+            }
+
+            // Not explicitly listed as compatible
+            return false;
+        }
+
+        /// <summary>
+        /// Validates an entire shader stack for compatibility.
+        /// Logs warnings for incompatible combinations.
+        /// </summary>
+        /// <param name="shaderIds">List of shader IDs in the stack.</param>
+        /// <returns>True if all shaders are compatible, false otherwise.</returns>
+        public bool ValidateShaderStack(IReadOnlyList<string> shaderIds)
+        {
+            if (shaderIds == null || shaderIds.Count <= 1)
+            {
+                return true; // Empty or single shader stacks are always valid
+            }
+
+            bool allCompatible = true;
+
+            // Check all pairs of shaders
+            for (int i = 0; i < shaderIds.Count; i++)
+            {
+                for (int j = i + 1; j < shaderIds.Count; j++)
+                {
+                    if (!AreCompatible(shaderIds[i], shaderIds[j]))
+                    {
+                        _logger.Warning(
+                            "Incompatible shaders detected in stack: {ShaderId1} and {ShaderId2} are not compatible",
+                            shaderIds[i],
+                            shaderIds[j]
+                        );
+                        allCompatible = false;
+                    }
+                }
+            }
+
+            return allCompatible;
+        }
+
+        /// <summary>
+        /// Validates shader stack for a specific layer.
+        /// </summary>
+        private void ValidateShaderStackForLayer(
+            List<(Entity entity, RenderingShaderComponent shader)> shaders,
+            ShaderLayer layer
+        )
+        {
+            if (shaders.Count <= 1)
+            {
+                return; // No need to validate single or empty stacks
+            }
+
+            var shaderIds = shaders.Select(s => s.shader.ShaderId).ToList();
+            ValidateShaderStack(shaderIds);
         }
     }
 }

@@ -1,42 +1,32 @@
 namespace MonoBall.Core.ECS.Components
 {
     /// <summary>
-    /// Blend mode for shader composition when multiple shaders are active on the same layer.
-    /// All blend modes except Replace require shader-based blending with render targets.
+    /// Enumeration of blend modes for shader composition when multiple shaders are active.
     /// </summary>
     public enum ShaderBlendMode
     {
         /// <summary>
-        /// Replace previous output (default, no blending).
-        /// Shader completely replaces the previous shader's output.
+        /// Replace mode: Shader replaces previous output completely (no blending).
         /// </summary>
         Replace,
 
         /// <summary>
-        /// Multiply with previous output (shader-based).
-        /// Result = Previous * Current
-        /// Requires shader support and render targets.
-        /// </summary>
-        Multiply,
-
-        /// <summary>
-        /// Add to previous output (shader-based).
-        /// Result = Previous + Current
-        /// Requires shader support and render targets.
+        /// Add mode: Shader output is added to previous output.
         /// </summary>
         Add,
 
         /// <summary>
-        /// Overlay blend mode (shader-based).
-        /// Combines previous and current with overlay algorithm.
-        /// Requires shader support and render targets.
+        /// Multiply mode: Shader output is multiplied with previous output.
+        /// </summary>
+        Multiply,
+
+        /// <summary>
+        /// Overlay mode: Overlay blend of shader output with previous output.
         /// </summary>
         Overlay,
 
         /// <summary>
-        /// Screen blend mode (shader-based).
-        /// Result = 1 - (1 - Previous) * (1 - Current)
-        /// Requires shader support and render targets.
+        /// Screen mode: Screen blend of shader output with previous output.
         /// </summary>
         Screen,
     }

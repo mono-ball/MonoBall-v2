@@ -114,7 +114,7 @@ public class ConvertCommand : Command<ConvertSettings>
         DisplaySummary(results, definitions);
     }
 
-    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes) definitions = default)
+    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments) definitions = default)
     {
         var successful = results.Count(r => r.Success);
         var failed = results.Count(r => !r.Success);
@@ -136,15 +136,21 @@ public class ConvertCommand : Command<ConvertSettings>
 
         // Show definition counts
         var hasDefinitions = definitions.Weather > 0 || definitions.BattleScenes > 0 ||
-                            definitions.Region || definitions.Sections > 0 || definitions.Themes > 0;
+                            definitions.Region || definitions.Sections > 0 || definitions.Themes > 0 ||
+                            definitions.PopupBackgrounds > 0 || definitions.PopupOutlines > 0 ||
+                            definitions.WeatherGraphics > 0 || definitions.BattleEnvironments > 0;
         if (hasDefinitions)
         {
             table.AddEmptyRow();
             table.AddRow("[blue]Weather Definitions[/]", definitions.Weather.ToString());
+            table.AddRow("[blue]Weather Graphics[/]", definitions.WeatherGraphics.ToString());
             table.AddRow("[blue]Battle Scene Definitions[/]", definitions.BattleScenes.ToString());
+            table.AddRow("[blue]Battle Environments[/]", definitions.BattleEnvironments.ToString());
             table.AddRow("[blue]Region Definition[/]", definitions.Region ? "1" : "0");
             table.AddRow("[blue]Map Sections[/]", definitions.Sections.ToString());
             table.AddRow("[blue]Popup Themes[/]", definitions.Themes.ToString());
+            table.AddRow("[blue]Popup Backgrounds[/]", definitions.PopupBackgrounds.ToString());
+            table.AddRow("[blue]Popup Outlines[/]", definitions.PopupOutlines.ToString());
         }
 
         AnsiConsole.Write(table);

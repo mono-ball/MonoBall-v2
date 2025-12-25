@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MonoBall.Core.Mods.Utilities;
 
@@ -16,6 +17,7 @@ internal static class JsonSerializerOptionsFactory
             PropertyNameCaseInsensitive = true,
             AllowTrailingCommas = true,
             ReadCommentHandling = JsonCommentHandling.Skip,
+            Converters = { new JsonStringEnumConverter() },
         };
 
     /// <summary>

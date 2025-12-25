@@ -147,7 +147,8 @@ public class DefinitionGenerator
                 visibilityRange = config.VisibilityRange
             };
 
-            var outputPath = Path.Combine(weatherDir, $"{weatherName}.json");
+            var filename = ToPascalCase(weatherName) + ".json";
+            var outputPath = Path.Combine(weatherDir, filename);
             if (!File.Exists(outputPath))
             {
                 File.WriteAllText(outputPath, JsonSerializer.Serialize(definition, JsonOptions));
@@ -199,7 +200,8 @@ public class DefinitionGenerator
                 enemyPlatformOffsetY = 0
             };
 
-            var outputPath = Path.Combine(sceneDir, $"{sceneName}.json");
+            var filename = ToPascalCase(sceneName) + ".json";
+            var outputPath = Path.Combine(sceneDir, filename);
             if (!File.Exists(outputPath))
             {
                 File.WriteAllText(outputPath, JsonSerializer.Serialize(definition, JsonOptions));
@@ -241,7 +243,8 @@ public class DefinitionGenerator
             isPlayable = true
         };
 
-        var outputPath = Path.Combine(regionDir, $"{_region}.json");
+        var filename = ToPascalCase(_region) + ".json";
+        var outputPath = Path.Combine(regionDir, filename);
         File.WriteAllText(outputPath, JsonSerializer.Serialize(definition, JsonOptions));
         return true;
     }
@@ -249,6 +252,12 @@ public class DefinitionGenerator
     private static string FormatDisplayName(string name)
     {
         return string.Join(" ", name.Split('_').Select(w =>
+            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
+    }
+
+    private static string ToPascalCase(string name)
+    {
+        return string.Concat(name.Split('_').Select(w =>
             w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 

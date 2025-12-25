@@ -148,9 +148,9 @@ public class MapSectionExtractor
 
         foreach (var (sectionId, sectionData) in sections)
         {
-            // Transform to unified ID format: base:mapsec:hoenn/name
+            // Transform to unified ID format: base:section:hoenn/name
             var sectionName = sectionId.ToLowerInvariant().Replace("mapsec_", "");
-            var unifiedId = $"base:mapsec:{_region}/{sectionName}";
+            var unifiedId = $"base:section:{_region}/{sectionName}";
 
             // Get theme from mapping or default to wood
             var themeName = themeMapping.GetValueOrDefault(sectionId, "wood");
@@ -192,7 +192,7 @@ public class MapSectionExtractor
                 var sectionName = sectionId.ToLowerInvariant().Replace("mapsec_", "");
                 merged[sectionId] = new MapSectionData
                 {
-                    Id = $"base:mapsec:{_region}/{sectionName}",
+                    Id = $"base:section:{_region}/{sectionName}",
                     Name = FormatDisplayName(sectionName),
                     Theme = $"base:theme:popup/{theme}"
                 };
@@ -210,7 +210,9 @@ public class MapSectionExtractor
         int count = 0;
         foreach (var (sectionId, sectionData) in sections)
         {
-            var filename = sectionId.ToLowerInvariant() + ".json";
+            // Convert MAPSEC_ABANDONED_SHIP to AbandonedShip (PascalCase, no prefix)
+            var baseName = sectionId.Replace("MAPSEC_", "");
+            var filename = ToPascalCase(baseName) + ".json";
             var filepath = Path.Combine(outputDir, filename);
 
             var definition = new Dictionary<string, object?>
@@ -248,10 +250,12 @@ public class MapSectionExtractor
                 name = displayName,
                 description,
                 background = $"base:popup:background/{themeName}",
-                outline = $"base:popup:outline/{themeName}_outline"
+                outline = $"base:popup:outline/{themeName}"
             };
 
-            var filepath = Path.Combine(outputDir, $"{themeName}.json");
+            // Use PascalCase filename (e.g., "Wood.json", "BwDefault.json")
+            var filename = ToPascalCase(themeName.ToUpperInvariant()) + ".json";
+            var filepath = Path.Combine(outputDir, filename);
             File.WriteAllText(filepath, JsonSerializer.Serialize(definition, JsonOptions));
             count++;
         }
@@ -262,6 +266,13 @@ public class MapSectionExtractor
     private static string FormatDisplayName(string name)
     {
         return string.Join(" ", name.Split('_').Select(w =>
+            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
+    }
+
+    private static string ToPascalCase(string name)
+    {
+        // Convert ABANDONED_SHIP to AbandonedShip
+        return string.Concat(name.Split('_').Select(w =>
             w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 

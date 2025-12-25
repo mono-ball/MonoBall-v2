@@ -208,9 +208,6 @@ namespace MonoBall.Core.Scenes.Systems
                 return;
             }
 
-            // Update shader state at start of render phase (critical timing fix)
-            _shaderManagerSystem?.UpdateShaderState();
-
             // Update ScreenSize parameter for all active shaders (tile, sprite, and combined layers)
             var viewport = _graphicsDevice.Viewport;
             _shaderManagerSystem?.UpdateAllLayersScreenSize(viewport.Width, viewport.Height);
@@ -225,6 +222,10 @@ namespace MonoBall.Core.Scenes.Systems
                     {
                         return true; // Continue iterating
                     }
+
+                    // Update shader state for this specific scene (critical timing fix)
+                    // This ensures per-scene shaders are loaded before rendering
+                    _shaderManagerSystem?.UpdateShaderState(sceneEntity);
 
                     // Render the scene
                     RenderScene(sceneEntity, ref sceneComponent, gameTime);
@@ -516,8 +517,8 @@ namespace MonoBall.Core.Scenes.Systems
                 return;
             }
 
-            // Check for combined layer shader stack (post-processing)
-            var shaderStack = _shaderManagerSystem?.GetCombinedLayerShaderStack();
+            // Check for combined layer shader stack (post-processing) for this specific scene
+            var shaderStack = _shaderManagerSystem?.GetCombinedLayerShaderStack(sceneEntity);
             bool hasPostProcessing = shaderStack != null && shaderStack.Count > 0;
 
             // Debug logging
@@ -536,9 +537,10 @@ namespace MonoBall.Core.Scenes.Systems
             RenderTarget2D? renderTarget = null;
             Viewport? originalViewport = null;
 
-            // If post-processing is active, render to render target first
+            // Determine render target: use post-processing render target if shaders are active
             if (hasPostProcessing && _renderTargetManager != null)
             {
+                // Render to post-processing render target
                 renderTarget = _renderTargetManager.GetOrCreateRenderTarget();
                 if (renderTarget != null)
                 {
@@ -556,7 +558,8 @@ namespace MonoBall.Core.Scenes.Systems
                 // Note: MapRendererSystem.Render() internally queries for the active camera
                 // and applies the transform, sets viewport, etc. So we just call it directly.
                 // The viewport management is handled inside MapRendererSystem.
-                _mapRendererSystem.Render(gameTime);
+                // Pass sceneEntity so shaders can be filtered per-scene
+                _mapRendererSystem.Render(gameTime, sceneEntity);
 
                 // Render border bottom layer (after maps, before sprites)
                 if (_mapBorderRendererSystem != null)
@@ -569,7 +572,8 @@ namespace MonoBall.Core.Scenes.Systems
                 {
                     // Note: SpriteRendererSystem.Render() internally queries for the active camera
                     // and applies the transform, sets viewport, etc. Similar to MapRendererSystem.
-                    _spriteRendererSystem.Render(gameTime);
+                    // Pass sceneEntity so shaders can be filtered per-scene
+                    _spriteRendererSystem.Render(gameTime, sceneEntity);
                 }
 
                 // Render border top layer (after sprites, so borders appear on top)

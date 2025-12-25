@@ -34,7 +34,7 @@ namespace MonoBall.Core.ECS.Events
         public object? NewValue { get; set; }
 
         /// <summary>
-        /// The entity that owns the LayerShaderComponent.
+        /// The entity that owns the RenderingShaderComponent.
         /// </summary>
         public Entity ShaderEntity { get; set; }
     }

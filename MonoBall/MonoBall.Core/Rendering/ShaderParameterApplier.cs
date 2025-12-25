@@ -41,15 +41,20 @@ namespace MonoBall.Core.Rendering
             }
             catch (KeyNotFoundException)
             {
-                // Parameter doesn't exist - log and return (parameter is optional)
-                logger?.Warning("Parameter {ParamName} not found in shader", paramName);
-                return;
+                // Parameter doesn't exist - fail fast per .cursorrules
+                throw new InvalidOperationException(
+                    $"Parameter '{paramName}' does not exist in shader effect. "
+                        + "All shader parameters must be defined in the shader definition."
+                );
             }
 
             if (param == null)
             {
-                logger?.Warning("Parameter {ParamName} is null in shader", paramName);
-                return;
+                // Parameter is null - fail fast per .cursorrules
+                throw new InvalidOperationException(
+                    $"Parameter '{paramName}' is null in shader effect. "
+                        + "This should not happen - shader parameters must be valid."
+                );
             }
 
             try

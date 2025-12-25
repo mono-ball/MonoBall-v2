@@ -9,15 +9,21 @@ namespace MonoBall.Core.Rendering
     {
         /// <summary>
         /// Loads a shader effect from mods. Shader ID must be in format "{namespace}:shader:{name}" (all lowercase).
-        /// Returns null if the shader cannot be loaded (consistent with other resource loaders).
+        /// Throws exceptions on failure (fail fast per .cursorrules).
+        /// Use this method when shader loading failures should cause immediate errors.
         /// </summary>
         /// <param name="shaderId">The shader ID (e.g., "base:shader:colorgrading").</param>
-        /// <returns>The loaded Effect, or null if loading failed.</returns>
-        Effect? LoadShader(string shaderId);
+        /// <returns>The loaded Effect.</returns>
+        /// <exception cref="ArgumentException">Thrown when shader ID format is invalid.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when shader definition is not found, mod manifest is missing, or shader loading fails.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when compiled shader file is not found.</exception>
+        Effect LoadShader(string shaderId);
 
         /// <summary>
         /// Gets a cached shader effect, or loads it if not cached. Loads from mods via LoadShader().
-        /// Returns null if the shader cannot be loaded (consistent with other resource loaders).
+        /// Returns null if the shader cannot be loaded (safe API for optional shaders).
+        /// Use this method when shader loading failures should be handled gracefully (e.g., optional shaders).
+        /// This method catches exceptions from LoadShader() and returns null, allowing callers to handle missing shaders gracefully.
         /// </summary>
         /// <param name="shaderId">The shader ID (e.g., "base:shader:colorgrading").</param>
         /// <returns>The Effect, or null if loading failed.</returns>

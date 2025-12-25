@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
+using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
@@ -29,6 +30,7 @@ namespace MonoBall.Core.Scenes.Systems
             "base:shader:wavedistortion",
             "base:shader:kaleidoscope",
             "base:shader:grayscale",
+            "base:shader:bloom",
         };
 
         // Start at index 0 (no shader) since no default shader is created at startup
@@ -54,7 +56,7 @@ namespace MonoBall.Core.Scenes.Systems
             _shaderManagerSystem =
                 shaderManagerSystem ?? throw new ArgumentNullException(nameof(shaderManagerSystem));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _combinedShaderQuery = new QueryDescription().WithAll<LayerShaderComponent>();
+            _combinedShaderQuery = new QueryDescription().WithAll<RenderingShaderComponent>();
         }
 
         /// <summary>
@@ -76,7 +78,7 @@ namespace MonoBall.Core.Scenes.Systems
                 Entity? existingShaderEntity = null;
                 World.Query(
                     in _combinedShaderQuery,
-                    (Entity entity, ref LayerShaderComponent shader) =>
+                    (Entity entity, ref RenderingShaderComponent shader) =>
                     {
                         if (shader.Layer == ShaderLayer.CombinedLayer)
                         {
@@ -100,7 +102,7 @@ namespace MonoBall.Core.Scenes.Systems
                             );
                         }
 
-                        ref var shader = ref World.Get<LayerShaderComponent>(
+                        ref var shader = ref World.Get<RenderingShaderComponent>(
                             existingShaderEntity.Value
                         );
                         shader.IsEnabled = false;
@@ -116,7 +118,7 @@ namespace MonoBall.Core.Scenes.Systems
                     {
                         // Update existing shader
                         shaderEntity = existingShaderEntity.Value;
-                        ref var shader = ref World.Get<LayerShaderComponent>(shaderEntity);
+                        ref var shader = ref World.Get<RenderingShaderComponent>(shaderEntity);
                         shader.ShaderId = nextShaderId;
                         shader.IsEnabled = true;
                         shader.Parameters = GetDefaultParametersForShader(nextShaderId); // Update parameters
@@ -136,7 +138,7 @@ namespace MonoBall.Core.Scenes.Systems
                     else
                     {
                         // Create new shader entity
-                        var shaderComponent = new LayerShaderComponent
+                        var shaderComponent = new RenderingShaderComponent
                         {
                             Layer = ShaderLayer.CombinedLayer,
                             ShaderId = nextShaderId,
@@ -200,6 +202,12 @@ namespace MonoBall.Core.Scenes.Systems
                     { "SegmentCount", 6.0f },
                 },
                 "base:shader:grayscale" => null, // No parameters needed
+                "base:shader:bloom" => new Dictionary<string, object>
+                {
+                    { "BloomIntensity", 1.0f },
+                    { "BloomThreshold", 0.7f },
+                    { "BloomBlurAmount", 0.005f },
+                },
                 _ => null,
             };
         }

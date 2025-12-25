@@ -63,6 +63,7 @@ _ReSharper*/
 Content/bin/
 Content/obj/
 *.mgcb.log
+*.mgfxo
 *.xnb
 
 ## MSTest Test Results
@@ -132,3 +133,4 @@ claude-flow
 hive-mind-prompt-*.txt
 
 pokeemerald-expansion/
+*output/

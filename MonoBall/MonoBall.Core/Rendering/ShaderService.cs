@@ -77,15 +77,14 @@ namespace MonoBall.Core.Rendering
         }
 
         /// <inheritdoc />
-        public Effect? LoadShader(string shaderId)
+        public Effect LoadShader(string shaderId)
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(ShaderService));
 
             if (string.IsNullOrEmpty(shaderId))
             {
-                _logger.Warning("Attempted to load shader with null or empty ID");
-                return null;
+                throw new ArgumentException("Shader ID cannot be null or empty.", nameof(shaderId));
             }
 
             ValidateShaderIdFormat(shaderId);
@@ -93,52 +92,40 @@ namespace MonoBall.Core.Rendering
             var metadata = _modManager.GetDefinitionMetadata(shaderId);
             if (metadata == null)
             {
-                _logger.Warning("Shader definition not found: {ShaderId}", shaderId);
-                return null;
+                throw new InvalidOperationException(
+                    $"Shader definition not found: {shaderId}. "
+                        + "Ensure the shader is defined in a loaded mod."
+                );
             }
 
             if (metadata.DefinitionType != "Shaders")
             {
-                _logger.Warning(
-                    "Definition '{ShaderId}' is not a shader definition (type: {DefinitionType})",
-                    shaderId,
-                    metadata.DefinitionType
+                throw new InvalidOperationException(
+                    $"Definition '{shaderId}' is not a shader definition (type: {metadata.DefinitionType}). "
+                        + "Expected definition type: Shaders."
                 );
-                return null;
             }
 
             var shaderDef = _modManager.GetDefinition<ShaderDefinition>(shaderId);
             if (shaderDef == null)
             {
-                _logger.Warning("Failed to deserialize shader definition: {ShaderId}", shaderId);
-                return null;
+                throw new InvalidOperationException(
+                    $"Failed to deserialize shader definition: {shaderId}. "
+                        + "The definition file may be malformed."
+                );
             }
 
             var modManifest = _modManager.GetModManifestByDefinitionId(shaderId);
             if (modManifest == null)
             {
-                _logger.Warning(
-                    "Mod manifest not found for shader {ShaderId} (mod: {ModId})",
-                    shaderId,
-                    metadata.OriginalModId
+                throw new InvalidOperationException(
+                    $"Mod manifest not found for shader {shaderId} (mod: {metadata.OriginalModId}). "
+                        + "The mod that defines this shader may not be loaded."
                 );
-                return null;
             }
 
-            try
-            {
-                return _shaderLoader.LoadShader(shaderDef, modManifest);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(
-                    ex,
-                    "Failed to load shader: {ShaderId} from mod {ModId}",
-                    shaderId,
-                    modManifest.Id
-                );
-                return null;
-            }
+            // Let exceptions propagate (fail fast per .cursorrules)
+            return _shaderLoader.LoadShader(shaderDef, modManifest);
         }
 
         /// <inheritdoc />
@@ -150,6 +137,17 @@ namespace MonoBall.Core.Rendering
             if (string.IsNullOrEmpty(shaderId))
             {
                 _logger.Warning("Attempted to get shader with null or empty ID");
+                return null;
+            }
+
+            // Validate format (fail fast for invalid IDs)
+            try
+            {
+                ValidateShaderIdFormat(shaderId);
+            }
+            catch (ArgumentException)
+            {
+                // Invalid format - return null (GetShader is meant to be safe)
                 return null;
             }
 
@@ -165,16 +163,23 @@ namespace MonoBall.Core.Rendering
                     return cachedEffect;
                 }
 
-                // Load shader (returns null on failure, consistent with other resource loaders)
-                Effect? effect = LoadShader(shaderId);
-                if (effect == null)
+                // Load shader (catch exceptions and return null - GetShader is meant to be safe)
+                try
                 {
+                    Effect effect = LoadShader(shaderId);
+                    // Add to cache
+                    AddToCache(shaderId, effect);
+                    return effect;
+                }
+                catch (Exception ex)
+                {
+                    _logger.Warning(
+                        ex,
+                        "Failed to get shader: {ShaderId}. Returning null (shader may be optional).",
+                        shaderId
+                    );
                     return null;
                 }
-
-                // Add to cache
-                AddToCache(shaderId, effect);
-                return effect;
             }
         }
 
@@ -215,6 +220,16 @@ namespace MonoBall.Core.Rendering
                 throw new ObjectDisposedException(nameof(ShaderService));
 
             if (string.IsNullOrEmpty(shaderId))
+            {
+                return false;
+            }
+
+            // Validate format (return false for invalid IDs)
+            try
+            {
+                ValidateShaderIdFormat(shaderId);
+            }
+            catch (ArgumentException)
             {
                 return false;
             }

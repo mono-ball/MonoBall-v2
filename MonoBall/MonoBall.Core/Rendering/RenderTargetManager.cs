@@ -22,6 +22,7 @@ namespace MonoBall.Core.Rendering
         // Multiple render targets support
         private readonly Dictionary<int, RenderTarget2D> _renderTargets = new();
         private readonly Dictionary<int, DepthFormat> _depthFormats = new();
+        private readonly Dictionary<int, SurfaceFormat> _surfaceFormats = new();
         private readonly Dictionary<int, (int width, int height)> _renderTargetSizes = new();
 
         /// <summary>
@@ -54,10 +55,12 @@ namespace MonoBall.Core.Rendering
         /// </summary>
         /// <param name="index">The render target index (0 = default scene render target).</param>
         /// <param name="depthFormat">The depth format (default: None).</param>
+        /// <param name="surfaceFormat">The surface format (default: Color).</param>
         /// <returns>The render target, or null if creation fails.</returns>
         public RenderTarget2D? GetOrCreateRenderTarget(
             int index,
-            DepthFormat depthFormat = DepthFormat.None
+            DepthFormat depthFormat = DepthFormat.None,
+            SurfaceFormat surfaceFormat = SurfaceFormat.Color
         )
         {
             if (_disposed)
@@ -70,12 +73,14 @@ namespace MonoBall.Core.Rendering
             if (_renderTargets.TryGetValue(index, out var existingTarget))
             {
                 var existingSize = _renderTargetSizes[index];
-                var existingDepth = _depthFormats[index];
+                var existingDepth = _depthFormats.GetValueOrDefault(index, DepthFormat.None);
+                var existingSurface = _surfaceFormats.GetValueOrDefault(index, SurfaceFormat.Color);
 
                 if (
                     existingSize.width == currentWidth
                     && existingSize.height == currentHeight
                     && existingDepth == depthFormat
+                    && existingSurface == surfaceFormat
                 )
                 {
                     // Render target is valid, return it
@@ -94,12 +99,13 @@ namespace MonoBall.Core.Rendering
                     currentWidth,
                     currentHeight,
                     false,
-                    SurfaceFormat.Color,
+                    surfaceFormat,
                     depthFormat
                 );
 
                 _renderTargets[index] = newTarget;
                 _depthFormats[index] = depthFormat;
+                _surfaceFormats[index] = surfaceFormat;
                 _renderTargetSizes[index] = (currentWidth, currentHeight);
 
                 // Also update legacy _sceneRenderTarget for backward compatibility
@@ -111,10 +117,11 @@ namespace MonoBall.Core.Rendering
                 }
 
                 _logger.Debug(
-                    "Created render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    "Created render target {Index}: {Width}x{Height}, Surface: {SurfaceFormat}, Depth: {DepthFormat}",
                     index,
                     currentWidth,
                     currentHeight,
+                    surfaceFormat,
                     depthFormat
                 );
 
@@ -124,10 +131,11 @@ namespace MonoBall.Core.Rendering
             {
                 _logger.Warning(
                     ex,
-                    "Failed to create render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    "Failed to create render target {Index}: {Width}x{Height}, Surface: {SurfaceFormat}, Depth: {DepthFormat}",
                     index,
                     currentWidth,
                     currentHeight,
+                    surfaceFormat,
                     depthFormat
                 );
                 return null;
@@ -141,12 +149,14 @@ namespace MonoBall.Core.Rendering
         /// <param name="width">The render target width.</param>
         /// <param name="height">The render target height.</param>
         /// <param name="depthFormat">The depth format (default: None).</param>
+        /// <param name="surfaceFormat">The surface format (default: Color).</param>
         /// <returns>The render target, or null if creation fails.</returns>
         public RenderTarget2D? GetOrCreateRenderTarget(
             int index,
             int width,
             int height,
-            DepthFormat depthFormat = DepthFormat.None
+            DepthFormat depthFormat = DepthFormat.None,
+            SurfaceFormat surfaceFormat = SurfaceFormat.Color
         )
         {
             if (_disposed)
@@ -156,12 +166,14 @@ namespace MonoBall.Core.Rendering
             if (_renderTargets.TryGetValue(index, out var existingTarget))
             {
                 var existingSize = _renderTargetSizes[index];
-                var existingDepth = _depthFormats[index];
+                var existingDepth = _depthFormats.GetValueOrDefault(index, DepthFormat.None);
+                var existingSurface = _surfaceFormats.GetValueOrDefault(index, SurfaceFormat.Color);
 
                 if (
                     existingSize.width == width
                     && existingSize.height == height
                     && existingDepth == depthFormat
+                    && existingSurface == surfaceFormat
                 )
                 {
                     // Render target is valid, return it
@@ -180,12 +192,13 @@ namespace MonoBall.Core.Rendering
                     width,
                     height,
                     false,
-                    SurfaceFormat.Color,
+                    surfaceFormat,
                     depthFormat
                 );
 
                 _renderTargets[index] = newTarget;
                 _depthFormats[index] = depthFormat;
+                _surfaceFormats[index] = surfaceFormat;
                 _renderTargetSizes[index] = (width, height);
 
                 // Also update legacy _sceneRenderTarget for backward compatibility
@@ -197,10 +210,11 @@ namespace MonoBall.Core.Rendering
                 }
 
                 _logger.Debug(
-                    "Created render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    "Created render target {Index}: {Width}x{Height}, Surface: {SurfaceFormat}, Depth: {DepthFormat}",
                     index,
                     width,
                     height,
+                    surfaceFormat,
                     depthFormat
                 );
 
@@ -210,10 +224,11 @@ namespace MonoBall.Core.Rendering
             {
                 _logger.Warning(
                     ex,
-                    "Failed to create render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    "Failed to create render target {Index}: {Width}x{Height}, Surface: {SurfaceFormat}, Depth: {DepthFormat}",
                     index,
                     width,
                     height,
+                    surfaceFormat,
                     depthFormat
                 );
                 return null;
@@ -231,6 +246,7 @@ namespace MonoBall.Core.Rendering
                 target.Dispose();
                 _renderTargets.Remove(index);
                 _depthFormats.Remove(index);
+                _surfaceFormats.Remove(index);
                 _renderTargetSizes.Remove(index);
 
                 // Also clear legacy _sceneRenderTarget if index 0

@@ -9,6 +9,7 @@ using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Localization;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using Serilog;

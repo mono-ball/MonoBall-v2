@@ -39,7 +39,7 @@ namespace MonoBall.Core.ECS.Systems
                 ShaderParameterAnimationComponent
             >();
             _layerShaderAnimationQuery = new QueryDescription().WithAll<
-                LayerShaderComponent,
+                RenderingShaderComponent,
                 ShaderParameterAnimationComponent
             >();
         }
@@ -77,7 +77,7 @@ namespace MonoBall.Core.ECS.Systems
                 in _layerShaderAnimationQuery,
                 (
                     Entity entity,
-                    ref LayerShaderComponent shader,
+                    ref RenderingShaderComponent shader,
                     ref ShaderParameterAnimationComponent animation
                 ) =>
                 {
@@ -105,115 +105,39 @@ namespace MonoBall.Core.ECS.Systems
             string shaderId
         )
         {
-            // Initialize parameters dictionary if needed
-            if (shader.Parameters == null)
-            {
-                shader.Parameters = new System.Collections.Generic.Dictionary<string, object>();
-            }
+            // Get parameters dictionary (may be null)
+            var parameters = shader.Parameters;
 
-            if (!shader.Parameters.ContainsKey(animation.ParameterName))
-            {
-                // Initialize with start value if not present
-                shader.Parameters[animation.ParameterName] = animation.StartValue;
-            }
+            UpdateAnimationCore(ref animation, ref parameters, deltaTime, entity, layer, shaderId);
 
-            // Update elapsed time
-            animation.ElapsedTime += deltaTime;
-
-            float progress;
-            if (animation.Duration <= 0)
-            {
-                progress = 1.0f;
-            }
-            else if (animation.PingPong)
-            {
-                // Ping-pong: full cycle is Duration * 2 (forward then back)
-                // Use modulo to wrap elapsed time and prevent overflow
-                float cycleDuration = animation.Duration * 2.0f;
-                animation.ElapsedTime = animation.ElapsedTime % cycleDuration;
-                float cycleTime = animation.ElapsedTime;
-
-                if (cycleTime > animation.Duration)
-                {
-                    // Second half: reverse direction (from 1.0 back to 0.0)
-                    progress = 2.0f - (cycleTime / animation.Duration);
-                }
-                else
-                {
-                    // First half: forward direction (from 0.0 to 1.0)
-                    progress = cycleTime / animation.Duration;
-                }
-            }
-            else if (animation.IsLooping)
-            {
-                // Looping animation: wrap elapsed time using modulo to prevent overflow
-                animation.ElapsedTime = animation.ElapsedTime % animation.Duration;
-                progress = animation.ElapsedTime / animation.Duration;
-            }
-            else
-            {
-                // Non-looping animation: clamp elapsed time to duration to prevent overflow
-                // This ensures the animation stays at end value after completion
-                if (animation.ElapsedTime > animation.Duration)
-                {
-                    animation.ElapsedTime = animation.Duration;
-                }
-                progress = animation.ElapsedTime / animation.Duration;
-            }
-
-            // Apply easing
-            float easedProgress = ApplyEasing(progress, animation.Easing);
-
-            // Interpolate value
-            object? interpolatedValue = Interpolate(
-                animation.StartValue,
-                animation.EndValue,
-                easedProgress
-            );
-
-            if (interpolatedValue == null)
-            {
-                _logger.Warning(
-                    "Failed to interpolate animation parameter {ParamName} for shader {ShaderId}",
-                    animation.ParameterName,
-                    shaderId
-                );
-                return;
-            }
-
-            // Get old value for event
-            object? oldValue = shader.Parameters.TryGetValue(
-                animation.ParameterName,
-                out var existingValue
-            )
-                ? existingValue
-                : null;
-
-            // Update parameter
-            shader.Parameters[animation.ParameterName] = interpolatedValue;
-
-            // Fire event
-            var evt = new ShaderParameterChangedEvent
-            {
-                Layer = layer,
-                ShaderId = shaderId,
-                ParameterName = animation.ParameterName,
-                OldValue = oldValue,
-                NewValue = interpolatedValue,
-                ShaderEntity = entity,
-            };
-            EventBus.Send(ref evt);
-
-            // Note: Looping is now handled above using modulo, so no need to reset here
-            // This prevents ElapsedTime from accumulating indefinitely
-
-            // Mark shaders dirty to ensure changes apply
-            _shaderManagerSystem?.MarkShadersDirty();
+            // Set parameters back (in case it was null and we created a new dictionary)
+            shader.Parameters = parameters;
         }
 
         private void UpdateAnimation(
             ref ShaderParameterAnimationComponent animation,
-            ref LayerShaderComponent shader,
+            ref RenderingShaderComponent shader,
+            float deltaTime,
+            Entity entity,
+            ShaderLayer layer,
+            string shaderId
+        )
+        {
+            // Get parameters dictionary (may be null)
+            var parameters = shader.Parameters;
+
+            UpdateAnimationCore(ref animation, ref parameters, deltaTime, entity, layer, shaderId);
+
+            // Set parameters back (in case it was null and we created a new dictionary)
+            shader.Parameters = parameters;
+        }
+
+        /// <summary>
+        /// Core animation update logic shared between ShaderComponent and RenderingShaderComponent.
+        /// </summary>
+        private void UpdateAnimationCore(
+            ref ShaderParameterAnimationComponent animation,
+            ref System.Collections.Generic.Dictionary<string, object>? parameters,
             float deltaTime,
             Entity entity,
             ShaderLayer layer,
@@ -221,15 +145,15 @@ namespace MonoBall.Core.ECS.Systems
         )
         {
             // Initialize parameters dictionary if needed
-            if (shader.Parameters == null)
+            if (parameters == null)
             {
-                shader.Parameters = new System.Collections.Generic.Dictionary<string, object>();
+                parameters = new System.Collections.Generic.Dictionary<string, object>();
             }
 
-            if (!shader.Parameters.ContainsKey(animation.ParameterName))
+            if (!parameters.ContainsKey(animation.ParameterName))
             {
                 // Initialize with start value if not present
-                shader.Parameters[animation.ParameterName] = animation.StartValue;
+                parameters[animation.ParameterName] = animation.StartValue;
             }
 
             // Update elapsed time
@@ -297,7 +221,7 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get old value for event
-            object? oldValue = shader.Parameters.TryGetValue(
+            object? oldValue = parameters.TryGetValue(
                 animation.ParameterName,
                 out var existingValue
             )
@@ -305,7 +229,7 @@ namespace MonoBall.Core.ECS.Systems
                 : null;
 
             // Update parameter
-            shader.Parameters[animation.ParameterName] = interpolatedValue;
+            parameters[animation.ParameterName] = interpolatedValue;
 
             // Fire event
             var evt = new ShaderParameterChangedEvent

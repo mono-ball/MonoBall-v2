@@ -598,4 +598,3 @@ shaderTemplateSystem.ApplyTemplate("NightTime", ShaderLayer.CombinedLayer);
 **Priority Recommendation:**
 - **Shader Inheritance/Composition** should be implemented first (easier, fully supported, high value)
 - **Screen-Space Effects** can follow if needed (more complex, limited by MonoGame capabilities)
-

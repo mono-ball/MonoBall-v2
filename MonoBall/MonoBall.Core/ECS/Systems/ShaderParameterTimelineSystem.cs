@@ -44,7 +44,7 @@ namespace MonoBall.Core.ECS.Systems
                 ShaderParameterTimelineComponent
             >();
             _layerShaderTimelineQuery = new QueryDescription().WithAll<
-                LayerShaderComponent,
+                RenderingShaderComponent,
                 ShaderParameterTimelineComponent
             >();
         }
@@ -90,7 +90,7 @@ namespace MonoBall.Core.ECS.Systems
                 in _layerShaderTimelineQuery,
                 (
                     Entity entity,
-                    ref LayerShaderComponent shader,
+                    ref RenderingShaderComponent shader,
                     ref ShaderParameterTimelineComponent timeline
                 ) =>
                 {
@@ -168,7 +168,7 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         /// <summary>
-        /// Common timeline update logic shared between LayerShaderComponent and ShaderComponent.
+        /// Common timeline update logic shared between RenderingShaderComponent and ShaderComponent.
         /// </summary>
         private void UpdateTimelineCommon(
             ref ShaderParameterTimelineComponent timeline,

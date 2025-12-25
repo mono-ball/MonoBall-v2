@@ -64,6 +64,7 @@ namespace MonoBall.Core.ECS
         private ShaderManagerSystem? _shaderManagerSystem; // Initialized in Initialize(), may be null
         private ShaderRendererSystem? _shaderRendererSystem; // Initialized in Initialize(), may be null
         private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
+        private Rendering.ShaderTemplateSystem? _shaderTemplateSystem; // Initialized in Initialize(), may be null
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -324,6 +325,11 @@ namespace MonoBall.Core.ECS
                     _world,
                     _shaderManagerSystem,
                     LoggerFactory.CreateLogger<ShaderParameterAnimationSystem>()
+                );
+                _shaderTemplateSystem = new Rendering.ShaderTemplateSystem(
+                    _world,
+                    _modManager,
+                    LoggerFactory.CreateLogger<Rendering.ShaderTemplateSystem>()
                 );
             }
 

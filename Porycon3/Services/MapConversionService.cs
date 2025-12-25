@@ -22,6 +22,9 @@ public class MapConversionService
     private readonly MapBinReader _mapBinReader;
     private readonly DefinitionGenerator _definitionGenerator;
     private readonly MapSectionExtractor _sectionExtractor;
+    private readonly PopupExtractor _popupExtractor;
+    private readonly WeatherExtractor _weatherExtractor;
+    private readonly BattleEnvironmentExtractor _battleEnvExtractor;
 
     public MapConversionService(
         string inputPath,
@@ -39,6 +42,9 @@ public class MapConversionService
         _mapBinReader = new MapBinReader(inputPath);
         _definitionGenerator = new DefinitionGenerator(inputPath, outputPath, region);
         _sectionExtractor = new MapSectionExtractor(inputPath, outputPath, region);
+        _popupExtractor = new PopupExtractor(inputPath, outputPath);
+        _weatherExtractor = new WeatherExtractor(inputPath, outputPath);
+        _battleEnvExtractor = new BattleEnvironmentExtractor(inputPath, outputPath);
     }
 
     public List<string> ScanMaps()
@@ -318,7 +324,7 @@ public class MapConversionService
             musicId = IdTransformer.AudioId(mapData.Metadata.Music),
             weatherId,
             battleSceneId,
-            mapSectionId = IdTransformer.MapsecId(mapData.Metadata.RegionMapSection, _region),
+            sectionId = IdTransformer.MapsecId(mapData.Metadata.RegionMapSection, _region),
             showMapName = mapData.Metadata.ShowMapName,
             canFly = false,
             requiresFlash = mapData.Metadata.RequiresFlash,
@@ -514,10 +520,13 @@ public class MapConversionService
     /// Generate additional definitions (Weather, BattleScenes, Region) based on IDs
     /// referenced by converted maps. Call this after all maps have been converted.
     /// </summary>
-    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes) GenerateDefinitions()
+    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments) GenerateDefinitions()
     {
         var (weather, battleScenes, region) = _definitionGenerator.GenerateAll();
         var (sections, themes) = _sectionExtractor.ExtractAll();
-        return (weather, battleScenes, region, sections, themes);
+        var (popupBackgrounds, popupOutlines) = _popupExtractor.ExtractAll();
+        var (weatherGraphics, _) = _weatherExtractor.ExtractAll();
+        var (battleEnvs, _) = _battleEnvExtractor.ExtractAll();
+        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs);
     }
 }

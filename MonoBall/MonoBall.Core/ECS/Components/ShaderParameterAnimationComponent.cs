@@ -2,7 +2,7 @@ namespace MonoBall.Core.ECS.Components
 {
     /// <summary>
     /// Component that animates shader parameters over time.
-    /// Can be attached to entities with ShaderComponent or LayerShaderComponent.
+    /// Can be attached to entities with ShaderComponent or RenderingShaderComponent.
     /// </summary>
     public struct ShaderParameterAnimationComponent
     {

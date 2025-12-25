@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Mods;
+using MonoBall.Core.Mods.Definitions;
 using Serilog;
 
 namespace MonoBall.Core.Rendering
@@ -8,10 +11,12 @@ namespace MonoBall.Core.Rendering
     /// <summary>
     /// Service for validating shader parameters before application.
     /// Validates parameter existence, types, and values by querying Effect.Parameters at runtime.
+    /// Uses ShaderDefinition metadata for enhanced validation (min/max, type checking, better error messages).
     /// </summary>
     public class ShaderParameterValidator : IShaderParameterValidator, IDisposable
     {
         private readonly IShaderService _shaderService;
+        private readonly IModManager? _modManager;
         private readonly ILogger _logger;
         private bool _disposed = false;
 
@@ -20,11 +25,17 @@ namespace MonoBall.Core.Rendering
         /// </summary>
         /// <param name="shaderService">The shader service for accessing shader effects.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public ShaderParameterValidator(IShaderService shaderService, ILogger logger)
+        /// <param name="modManager">Optional mod manager for accessing shader definition metadata.</param>
+        public ShaderParameterValidator(
+            IShaderService shaderService,
+            ILogger logger,
+            IModManager? modManager = null
+        )
         {
             _shaderService =
                 shaderService ?? throw new ArgumentNullException(nameof(shaderService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _modManager = modManager;
         }
 
         /// <inheritdoc />
@@ -156,6 +167,80 @@ namespace MonoBall.Core.Rendering
                 error =
                     $"Parameter '{parameterName}' in shader '{shaderId}' has type {parameter.ParameterType}, but value is of type {valueType.Name}.";
                 return false;
+            }
+
+            // Enhanced validation using ShaderDefinition metadata
+            if (_modManager != null)
+            {
+                var shaderDef = _modManager.GetDefinition<ShaderDefinition>(shaderId);
+                if (shaderDef?.Parameters != null)
+                {
+                    var paramDef = shaderDef.Parameters.FirstOrDefault(p =>
+                        p.Name == parameterName
+                    );
+                    if (paramDef != null)
+                    {
+                        // Validate min/max for numeric types
+                        if (
+                            valueType == typeof(float)
+                            || valueType == typeof(double)
+                            || valueType == typeof(int)
+                        )
+                        {
+                            double numericValue = Convert.ToDouble(value);
+
+                            if (paramDef.Min.HasValue && numericValue < paramDef.Min.Value)
+                            {
+                                error =
+                                    $"Parameter '{parameterName}' value {numericValue} is below minimum {paramDef.Min.Value}.";
+                                return false;
+                            }
+
+                            if (paramDef.Max.HasValue && numericValue > paramDef.Max.Value)
+                            {
+                                error =
+                                    $"Parameter '{parameterName}' value {numericValue} is above maximum {paramDef.Max.Value}.";
+                                return false;
+                            }
+                        }
+
+                        // Validate type against definition (if type is specified)
+                        if (!string.IsNullOrEmpty(paramDef.Type))
+                        {
+                            bool typeMatches;
+                            string typeLower = paramDef.Type.ToLowerInvariant();
+                            switch (typeLower)
+                            {
+                                case "float":
+                                    typeMatches = valueType == typeof(float);
+                                    break;
+                                case "float2":
+                                    typeMatches = valueType == typeof(Vector2);
+                                    break;
+                                case "float3":
+                                    typeMatches = valueType == typeof(Vector3);
+                                    break;
+                                case "float4":
+                                    typeMatches =
+                                        valueType == typeof(Vector4) || valueType == typeof(Color);
+                                    break;
+                                case "texture2d":
+                                    typeMatches = valueType == typeof(Texture2D);
+                                    break;
+                                default:
+                                    typeMatches = true; // Unknown type - assume valid
+                                    break;
+                            }
+
+                            if (!typeMatches)
+                            {
+                                error =
+                                    $"Parameter '{parameterName}' definition specifies type '{paramDef.Type}', but value is of type {valueType.Name}.";
+                                return false;
+                            }
+                        }
+                    }
+                }
             }
 
             return true;

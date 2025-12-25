@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using MonoBall.Core.ECS.Components;
 
 namespace MonoBall.Core.Mods.Definitions
 {
@@ -38,6 +39,33 @@ namespace MonoBall.Core.Mods.Definitions
         /// </summary>
         [JsonPropertyName("parameters")]
         public List<ShaderParameterDefinition>? Parameters { get; set; }
+
+        /// <summary>
+        /// Gets or sets the optional layer hint for this shader (for compatibility checking, not enforcement).
+        /// </summary>
+        [JsonPropertyName("layer")]
+        public ShaderLayer? Layer { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of shader IDs that are compatible with this shader.
+        /// Used for compatibility checking when stacking shaders.
+        /// </summary>
+        [JsonPropertyName("compatibleWith")]
+        public List<string>? CompatibleWith { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of shader IDs that are required by this shader.
+        /// Required shaders will be automatically included in the shader stack.
+        /// </summary>
+        [JsonPropertyName("requires")]
+        public List<string>? Requires { get; set; }
+
+        /// <summary>
+        /// Gets or sets the base shader ID that this shader inherits from (for documentation purposes).
+        /// This is used to document shader inheritance relationships.
+        /// </summary>
+        [JsonPropertyName("inheritsFrom")]
+        public string? InheritsFrom { get; set; }
     }
 
     /// <summary>
@@ -74,5 +102,11 @@ namespace MonoBall.Core.Mods.Definitions
         /// </summary>
         [JsonPropertyName("max")]
         public double? Max { get; set; }
+
+        /// <summary>
+        /// Gets or sets the optional description of the parameter.
+        /// </summary>
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
     }
 }

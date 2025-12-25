@@ -92,7 +92,7 @@ public static class IdTransformer
 
     /// <summary>
     /// Transform MAPSEC to unified format.
-    /// MAPSEC_LITTLEROOT_TOWN -> base:mapsection:hoenn/littleroot_town
+    /// MAPSEC_LITTLEROOT_TOWN -> base:section:hoenn/littleroot_town
     /// </summary>
     public static string MapsecId(string pokeemeraldMapsec, string? region = null)
     {
@@ -100,7 +100,7 @@ public static class IdTransformer
         if (name.StartsWith("MAPSEC_", StringComparison.OrdinalIgnoreCase))
             name = name[7..];
 
-        return CreateId("mapsection", region ?? DefaultRegion, name);
+        return CreateId("section", region ?? DefaultRegion, name);
     }
 
     #endregion
