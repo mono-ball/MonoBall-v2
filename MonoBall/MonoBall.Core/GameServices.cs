@@ -134,6 +134,26 @@ namespace MonoBall.Core
             _game.Services.AddService(typeof(TilesetLoaderService), TilesetLoaderService);
             _logger.Debug("TilesetLoaderService registered");
 
+            // Create shader service
+            var shaderService = new Rendering.ShaderService(
+                _game.Content,
+                _graphicsDevice,
+                LoggerFactory.CreateLogger<Rendering.ShaderService>()
+            );
+            _game.Services.AddService(typeof(Rendering.IShaderService), shaderService);
+            _logger.Debug("ShaderService registered");
+
+            // Create shader parameter validator
+            var shaderParameterValidator = new Rendering.ShaderParameterValidator(
+                shaderService,
+                LoggerFactory.CreateLogger<Rendering.ShaderParameterValidator>()
+            );
+            _game.Services.AddService(
+                typeof(Rendering.IShaderParameterValidator),
+                shaderParameterValidator
+            );
+            _logger.Debug("ShaderParameterValidator registered");
+
             _logger.Information("Content services loaded");
         }
 

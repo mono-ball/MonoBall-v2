@@ -19,3 +19,63 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Hud.spritefont
+
+#begin Shaders/TileLayer/ColorGrading.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/TileLayer/ColorGrading.fx
+
+#begin Shaders/SpriteLayer/Outline.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/SpriteLayer/Outline.fx
+
+#begin Shaders/CombinedLayer/Grayscale.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/CombinedLayer/Grayscale.fx
+
+#begin Shaders/CombinedLayer/Pixelation.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/CombinedLayer/Pixelation.fx
+
+#begin Shaders/CombinedLayer/CRT.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/CombinedLayer/CRT.fx
+
+#begin Shaders/CombinedLayer/WaveDistortion.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/CombinedLayer/WaveDistortion.fx
+
+#begin Shaders/CombinedLayer/Kaleidoscope.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/CombinedLayer/Kaleidoscope.fx
+
+#begin Shaders/PerEntity/Glow.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/PerEntity/Glow.fx
+
+#begin Shaders/PerEntity/Outline.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/PerEntity/Outline.fx
+
+#begin Shaders/PerEntity/Rainbow.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/PerEntity/Rainbow.fx
+
+#begin Shaders/PerEntity/PulsingGlow.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/PerEntity/PulsingGlow.fx
+
+#begin Shaders/PerEntity/Invert.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/PerEntity/Invert.fx

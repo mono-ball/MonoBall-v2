@@ -60,6 +60,9 @@ namespace MonoBall.Core.ECS
         private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
         private ActiveMapManagementSystem _activeMapManagementSystem = null!; // Initialized in Initialize()
         private Services.IActiveMapFilterService _activeMapFilterService = null!; // Initialized in Initialize()
+        private Rendering.RenderTargetManager? _renderTargetManager; // Initialized in Initialize(), may be null
+        private ShaderManagerSystem? _shaderManagerSystem; // Initialized in Initialize(), may be null
+        private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -295,6 +298,30 @@ namespace MonoBall.Core.ECS
             // Must be created before render systems that depend on it
             _activeMapFilterService = new Services.ActiveMapFilterService(_world);
 
+            // Create shader services and systems
+            var shaderService = _game.Services.GetService<Rendering.IShaderService>();
+            var shaderParameterValidator =
+                _game.Services.GetService<Rendering.IShaderParameterValidator>();
+
+            if (shaderService != null && shaderParameterValidator != null)
+            {
+                _renderTargetManager = new Rendering.RenderTargetManager(
+                    _graphicsDevice,
+                    LoggerFactory.CreateLogger<Rendering.RenderTargetManager>()
+                );
+                _shaderManagerSystem = new ShaderManagerSystem(
+                    _world,
+                    shaderService,
+                    shaderParameterValidator,
+                    LoggerFactory.CreateLogger<ShaderManagerSystem>()
+                );
+                _shaderParameterAnimationSystem = new ShaderParameterAnimationSystem(
+                    _world,
+                    _shaderManagerSystem,
+                    LoggerFactory.CreateLogger<ShaderParameterAnimationSystem>()
+                );
+            }
+
             // Create update systems
             _mapLoaderSystem = new MapLoaderSystem(
                 _world,
@@ -328,7 +355,8 @@ namespace MonoBall.Core.ECS
                 _graphicsDevice,
                 _tilesetLoader,
                 _cameraService,
-                LoggerFactory.CreateLogger<MapRendererSystem>()
+                LoggerFactory.CreateLogger<MapRendererSystem>(),
+                _shaderManagerSystem
             );
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
             _mapBorderRendererSystem = new MapBorderRendererSystem(
@@ -345,7 +373,9 @@ namespace MonoBall.Core.ECS
                 _graphicsDevice,
                 _spriteLoader,
                 _cameraService,
-                LoggerFactory.CreateLogger<SpriteRendererSystem>()
+                LoggerFactory.CreateLogger<SpriteRendererSystem>(),
+                _shaderManagerSystem,
+                shaderService
             );
             _spriteRendererSystem.SetSpriteBatch(_spriteBatch);
 
@@ -429,7 +459,9 @@ namespace MonoBall.Core.ECS
                 _world,
                 _graphicsDevice,
                 _sceneManagerSystem,
-                LoggerFactory.CreateLogger<SceneRendererSystem>()
+                LoggerFactory.CreateLogger<SceneRendererSystem>(),
+                _shaderManagerSystem,
+                _renderTargetManager
             );
             _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
@@ -466,6 +498,31 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<Scenes.Systems.DebugBarRendererSystem>()
             );
             _sceneRendererSystem.SetDebugBarRendererSystem(_debugBarRendererSystem);
+
+            // Create shader cycle system (for cycling through shader effects with F4)
+            Scenes.Systems.ShaderCycleSystem? shaderCycleSystem = null;
+            if (_shaderManagerSystem != null)
+            {
+                shaderCycleSystem = new Scenes.Systems.ShaderCycleSystem(
+                    _world,
+                    _inputBindingService,
+                    _shaderManagerSystem,
+                    LoggerFactory.CreateLogger<Scenes.Systems.ShaderCycleSystem>()
+                );
+            }
+
+            // Create player shader cycle system (for cycling through player shader effects with F5)
+            Scenes.Systems.PlayerShaderCycleSystem? playerShaderCycleSystem = null;
+            if (_shaderManagerSystem != null)
+            {
+                playerShaderCycleSystem = new Scenes.Systems.PlayerShaderCycleSystem(
+                    _world,
+                    _inputBindingService,
+                    _playerSystem,
+                    _shaderManagerSystem,
+                    LoggerFactory.CreateLogger<Scenes.Systems.PlayerShaderCycleSystem>()
+                );
+            }
 
             // Create map transition detection system (detects when player crosses map boundaries)
             _mapTransitionDetectionSystem = new MapTransitionDetectionSystem(
@@ -524,28 +581,81 @@ namespace MonoBall.Core.ECS
             // ActiveMapManagementSystem runs early to tag entities in active maps (needed by other systems)
             // InputSystem runs first (Priority 0) to process input and create MovementRequest components
             // MovementSystem runs after InputSystem (Priority 90) to process MovementRequest, update movement, AND handle animation
-            _updateSystems = new Group<float>(
-                "UpdateSystems",
-                _mapLoaderSystem,
-                _mapConnectionSystem,
-                _activeMapManagementSystem, // Manage ActiveMapEntity tags (runs early, before systems that filter by active maps)
-                _playerSystem, // Player initialization only (no per-frame updates)
-                _inputSystem, // Priority 0: Process input, create MovementRequest
-                _movementSystem, // Priority 90: Process MovementRequest, update movement and animation
-                _mapTransitionDetectionSystem, // Detect map transitions after movement updates
-                _cameraSystem, // Camera follows player (runs after movement updates)
-                _cameraViewportSystem,
-                _animatedTileSystem,
-                _spriteAnimationSystem, // Animation frame updates (CurrentFrame, FrameTimer)
-                _spriteSheetSystem,
-                _visibilityFlagSystem, // Update entity visibility based on flags
-                performanceStatsSystem, // Track performance stats each frame
-                _sceneManagerSystem,
-                _sceneInputSystem,
-                _mapPopupOrchestratorSystem, // Listen for map transitions and trigger popups
-                _mapPopupSystem, // Manage popup lifecycle and animation
-                debugBarToggleSystem // Handle debug bar toggle input
-            );
+            if (_shaderParameterAnimationSystem != null)
+            {
+                var systems = new List<BaseSystem<World, float>>
+                {
+                    _mapLoaderSystem,
+                    _mapConnectionSystem,
+                    _activeMapManagementSystem, // Manage ActiveMapEntity tags (runs early, before systems that filter by active maps)
+                    _playerSystem, // Player initialization only (no per-frame updates)
+                    _inputSystem, // Priority 0: Process input, create MovementRequest
+                    _movementSystem, // Priority 90: Process MovementRequest, update movement and animation
+                    _mapTransitionDetectionSystem, // Detect map transitions after movement updates
+                    _cameraSystem, // Camera follows player (runs after movement updates)
+                    _cameraViewportSystem,
+                    _animatedTileSystem,
+                    _spriteAnimationSystem, // Animation frame updates (CurrentFrame, FrameTimer)
+                    _spriteSheetSystem,
+                    _visibilityFlagSystem, // Update entity visibility based on flags
+                    performanceStatsSystem, // Track performance stats each frame
+                    _sceneManagerSystem,
+                    _sceneInputSystem,
+                    _mapPopupOrchestratorSystem, // Listen for map transitions and trigger popups
+                    _mapPopupSystem, // Manage popup lifecycle and animation
+                    debugBarToggleSystem, // Handle debug bar toggle input
+                    _shaderParameterAnimationSystem, // Animate shader parameters
+                };
+
+                if (shaderCycleSystem != null)
+                {
+                    systems.Add(shaderCycleSystem); // Handle shader cycling input (F4)
+                }
+
+                if (playerShaderCycleSystem != null)
+                {
+                    systems.Add(playerShaderCycleSystem); // Handle player shader cycling input (F5)
+                }
+
+                _updateSystems = new Group<float>("UpdateSystems", systems.ToArray());
+            }
+            else
+            {
+                var systems = new List<BaseSystem<World, float>>
+                {
+                    _mapLoaderSystem,
+                    _mapConnectionSystem,
+                    _activeMapManagementSystem, // Manage ActiveMapEntity tags (runs early, before systems that filter by active maps)
+                    _playerSystem, // Player initialization only (no per-frame updates)
+                    _inputSystem, // Priority 0: Process input, create MovementRequest
+                    _movementSystem, // Priority 90: Process MovementRequest, update movement and animation
+                    _mapTransitionDetectionSystem, // Detect map transitions after movement updates
+                    _cameraSystem, // Camera follows player (runs after movement updates)
+                    _cameraViewportSystem,
+                    _animatedTileSystem,
+                    _spriteAnimationSystem, // Animation frame updates (CurrentFrame, FrameTimer)
+                    _spriteSheetSystem,
+                    _visibilityFlagSystem, // Update entity visibility based on flags
+                    performanceStatsSystem, // Track performance stats each frame
+                    _sceneManagerSystem,
+                    _sceneInputSystem,
+                    _mapPopupOrchestratorSystem, // Listen for map transitions and trigger popups
+                    _mapPopupSystem, // Manage popup lifecycle and animation
+                    debugBarToggleSystem, // Handle debug bar toggle input
+                };
+
+                if (shaderCycleSystem != null)
+                {
+                    systems.Add(shaderCycleSystem); // Handle shader cycling input (F4)
+                }
+
+                if (playerShaderCycleSystem != null)
+                {
+                    systems.Add(playerShaderCycleSystem); // Handle player shader cycling input (F5)
+                }
+
+                _updateSystems = new Group<float>("UpdateSystems", systems.ToArray());
+            }
 
             _updateSystems.Initialize();
 
@@ -628,6 +738,13 @@ namespace MonoBall.Core.ECS
             _mapPopupSystem?.Dispose();
             _mapPopupSystem = null!;
             _mapPopupRendererSystem = null!;
+
+            // Dispose shader systems
+            _shaderParameterAnimationSystem?.Dispose();
+            _shaderParameterAnimationSystem = null;
+            _renderTargetManager?.Dispose();
+            _renderTargetManager = null;
+            // ShaderManagerSystem doesn't need disposal (no managed resources)
 
             // Dispose services
             _variableSpriteResolver?.Dispose();

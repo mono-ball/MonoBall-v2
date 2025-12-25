@@ -341,6 +341,10 @@ namespace MonoBall.Core
                 await Task.Yield();
                 GameInitializationHelper.CreateGameScene(systemManager, _logger);
 
+                // Step 9.5: Create test shader (for testing shader functionality)
+                await Task.Yield();
+                GameInitializationHelper.CreateTestShader(world, _logger);
+
                 // Set progress to 100% - this goes through the queue
                 UpdateProgress(InitializationProgress.Complete, "Complete!");
 

@@ -19,6 +19,7 @@ namespace MonoBall.Core.ECS.Systems
         private readonly GraphicsDevice _graphicsDevice;
         private readonly ITilesetLoaderService _tilesetLoader;
         private readonly ICameraService _cameraService;
+        private readonly ShaderManagerSystem? _shaderManagerSystem;
         private SpriteBatch? _spriteBatch;
         private Viewport _savedViewport;
         private readonly QueryDescription _chunkQueryDescription;
@@ -50,12 +51,14 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="tilesetLoader">The tileset loader service.</param>
         /// <param name="cameraService">The camera service for querying active camera.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="shaderManagerSystem">The shader manager system for tile layer shaders (optional).</param>
         public MapRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
             ITilesetLoaderService tilesetLoader,
             ICameraService cameraService,
-            ILogger logger
+            ILogger logger,
+            ShaderManagerSystem? shaderManagerSystem = null
         )
             : base(world)
         {
@@ -66,6 +69,7 @@ namespace MonoBall.Core.ECS.Systems
             _cameraService =
                 cameraService ?? throw new System.ArgumentNullException(nameof(cameraService));
             _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
+            _shaderManagerSystem = shaderManagerSystem;
             _chunkQueryDescription = new QueryDescription().WithAll<
                 TileChunkComponent,
                 TileDataComponent,
@@ -225,14 +229,25 @@ namespace MonoBall.Core.ECS.Systems
                 // Note: The transform uses camera.Viewport (logical size), which matches renderViewport size
                 Matrix transform = camera.GetTransformMatrix();
 
+                // Get tile layer shader
+                Effect? tileShader = _shaderManagerSystem?.GetTileLayerShader();
+
+                // Ensure CurrentTechnique is set before using with SpriteBatch
+                // MonoGame's SpriteBatch.Begin() will apply the effect automatically
+                if (tileShader != null)
+                {
+                    ShaderParameterApplier.EnsureCurrentTechnique(tileShader, _logger);
+                }
+
                 // Render chunks
+                // Use Immediate mode for custom effects to ensure proper parameter application
                 _spriteBatch.Begin(
-                    SpriteSortMode.Deferred,
+                    SpriteSortMode.Immediate,
                     BlendState.AlphaBlend,
                     SamplerState.PointClamp,
                     null,
                     null,
-                    null,
+                    tileShader,
                     transform
                 );
 

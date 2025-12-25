@@ -1,0 +1,147 @@
+{
+  "id": "base:map:hoenn/fortree_city_decoration_shop",
+  "name": "FortreeCity_DecorationShop",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapType": "MAP_TYPE_INDOOR",
+  "width": 8,
+  "height": 6,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_fortree",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsec:hoenn/fortree_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "layerId": "base:layer:hoenn/fortree_city_decoration_shop/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 16,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "layerId": "base:layer:hoenn/fortree_city_decoration_shop/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 16,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "layerId": "base:layer:hoenn/fortree_city_decoration_shop/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 16,
+      "height": 12,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesetRefs": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/fortree_city_decoration_shop"
+    }
+  ],
+  "warps": [
+    {
+      "warpId": "base:warp:hoenn/fortree_city_decoration_shop/warp_to_fortree_city",
+      "name": "Warp to fortree_city",
+      "x": 48,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/fortree_city",
+      "targetX": 8,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "warpId": "base:warp:hoenn/fortree_city_decoration_shop/warp_to_fortree_city",
+      "name": "Warp to fortree_city",
+      "x": 64,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/fortree_city",
+      "targetX": 8,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "npcId": "base:npc:hoenn/fortree_city_decoration_shop/npc_0",
+      "name": "NPC_0",
+      "x": 96,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/pokefan_m",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fortree_city_decoration_shop_event_script_pokefan_m",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fortree_city_decoration_shop/npc_1",
+      "name": "NPC_1",
+      "x": 0,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/girl_3",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fortree_city_decoration_shop_event_script_girl",
+      "direction": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fortree_city_decoration_shop/npc_2",
+      "name": "NPC_2",
+      "x": 16,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fortree_city_decoration_shop_event_script_clerk_desks",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "npcId": "base:npc:hoenn/fortree_city_decoration_shop/npc_3",
+      "name": "NPC_3",
+      "x": 96,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:behavior:movement/stationary",
+      "interactionScript": "base:behavior:interaction/fortree_city_decoration_shop_event_script_clerk_chairs",
+      "direction": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

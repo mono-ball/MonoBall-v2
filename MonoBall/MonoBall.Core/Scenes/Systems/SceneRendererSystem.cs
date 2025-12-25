@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Systems;
+using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes.Components;
 using Serilog;
 
@@ -17,6 +18,8 @@ namespace MonoBall.Core.Scenes.Systems
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SceneManagerSystem _sceneManagerSystem;
+        private readonly ShaderManagerSystem? _shaderManagerSystem;
+        private readonly RenderTargetManager? _renderTargetManager;
         private SpriteBatch? _spriteBatch;
         private MapRendererSystem? _mapRendererSystem;
         private SpriteRendererSystem? _spriteRendererSystem;
@@ -38,11 +41,15 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="sceneManagerSystem">The scene manager system for accessing scene stack.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="shaderManagerSystem">The shader manager system for combined layer shaders (optional).</param>
+        /// <param name="renderTargetManager">The render target manager for post-processing (optional).</param>
         public SceneRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
             SceneManagerSystem sceneManagerSystem,
-            ILogger logger
+            ILogger logger,
+            ShaderManagerSystem? shaderManagerSystem = null,
+            RenderTargetManager? renderTargetManager = null
         )
             : base(world)
         {
@@ -51,6 +58,8 @@ namespace MonoBall.Core.Scenes.Systems
             _sceneManagerSystem =
                 sceneManagerSystem ?? throw new ArgumentNullException(nameof(sceneManagerSystem));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _shaderManagerSystem = shaderManagerSystem;
+            _renderTargetManager = renderTargetManager;
         }
 
         /// <summary>
@@ -194,6 +203,9 @@ namespace MonoBall.Core.Scenes.Systems
                 _logger.Warning("SceneRendererSystem.Render called but SpriteBatch is null");
                 return;
             }
+
+            // Update shader state at start of render phase (critical timing fix)
+            _shaderManagerSystem?.UpdateShaderState();
 
             // Iterate scenes in reverse order (lowest priority first, highest priority last)
             // This ensures higher priority scenes render on top
@@ -496,6 +508,38 @@ namespace MonoBall.Core.Scenes.Systems
                 return;
             }
 
+            // Check for combined layer shader (post-processing)
+            Effect? combinedShader = _shaderManagerSystem?.GetCombinedLayerShader();
+
+            // Debug logging
+            if (combinedShader != null)
+            {
+                _logger.Debug(
+                    "SceneRendererSystem: Combined layer shader found: {ShaderName}, Techniques: {TechniqueCount}",
+                    combinedShader.Name,
+                    combinedShader.Techniques.Count
+                );
+            }
+            else
+            {
+                _logger.Debug("SceneRendererSystem: No combined layer shader active");
+            }
+
+            RenderTarget2D? renderTarget = null;
+            Viewport? originalViewport = null;
+
+            // If combined shader is active, render to render target first
+            if (combinedShader != null && _renderTargetManager != null)
+            {
+                renderTarget = _renderTargetManager.GetOrCreateRenderTarget();
+                if (renderTarget != null)
+                {
+                    originalViewport = _graphicsDevice.Viewport;
+                    _graphicsDevice.SetRenderTarget(renderTarget);
+                    _graphicsDevice.Clear(Color.Transparent);
+                }
+            }
+
             // Save original viewport
             var savedViewport = _graphicsDevice.Viewport;
 
@@ -525,11 +569,104 @@ namespace MonoBall.Core.Scenes.Systems
                 {
                     _mapBorderRendererSystem.RenderTopLayer(gameTime);
                 }
+
+                // If we rendered to a render target, now apply post-processing shader
+                if (renderTarget != null && combinedShader != null)
+                {
+                    _logger.Debug(
+                        "SceneRendererSystem: Applying post-processing shader. RenderTarget: {Width}x{Height}, Shader: {ShaderName}",
+                        renderTarget.Width,
+                        renderTarget.Height,
+                        combinedShader.Name
+                    );
+
+                    // Restore original render target and viewport
+                    _graphicsDevice.SetRenderTarget(null);
+                    if (originalViewport.HasValue)
+                    {
+                        _graphicsDevice.Viewport = originalViewport.Value;
+                    }
+
+                    // Ensure CurrentTechnique is set before setting parameters
+                    ShaderParameterApplier.EnsureCurrentTechnique(combinedShader, _logger);
+
+                    // CRITICAL: Set all shader parameters right before Begin()
+                    // In Immediate mode, MonoGame requires parameters to be set immediately before Begin()
+                    // Update ScreenSize parameter dynamically based on viewport
+                    var viewport = _graphicsDevice.Viewport;
+                    _shaderManagerSystem?.UpdateCombinedLayerScreenSize(
+                        viewport.Width,
+                        viewport.Height
+                    );
+
+                    // Re-apply all shader parameters (Time is animated by ShaderParameterAnimationSystem)
+                    // This ensures parameters are set right before Begin()
+                    // NOTE: SpriteTexture is set automatically by MonoGame during Draw() call
+                    _shaderManagerSystem?.ForceUpdateCombinedLayerParameters();
+
+                    // Debug: Log parameter values
+                    try
+                    {
+                        var intensityParam = combinedShader.Parameters["VignetteIntensity"];
+                        var radiusParam = combinedShader.Parameters["VignetteRadius"];
+                        var screenSizeParam = combinedShader.Parameters["ScreenSize"];
+                        var spriteTextureParam = combinedShader.Parameters["SpriteTexture"];
+                        _logger.Debug(
+                            "SceneRendererSystem: Shader parameters - Intensity: {Intensity}, Radius: {Radius}, ScreenSize: {ScreenSize}, SpriteTexture: {HasTexture}",
+                            intensityParam?.GetValueSingle(),
+                            radiusParam?.GetValueSingle(),
+                            screenSizeParam?.GetValueVector2(),
+                            spriteTextureParam != null ? "Set" : "Null"
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warning(
+                            ex,
+                            "SceneRendererSystem: Failed to read shader parameters for debugging"
+                        );
+                    }
+
+                    // Apply post-processing shader
+                    // Use Deferred mode - MonoGame handles effect application automatically
+                    // Parameters must be set BEFORE Begin() in Deferred mode
+                    _spriteBatch!.Begin(
+                        SpriteSortMode.Deferred,
+                        BlendState.Opaque,
+                        SamplerState.LinearClamp,
+                        DepthStencilState.None,
+                        RasterizerState.CullCounterClockwise,
+                        combinedShader,
+                        Matrix.Identity
+                    );
+
+                    _spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White);
+                    _spriteBatch.End();
+
+                    _logger.Debug("SceneRendererSystem: Post-processing shader applied");
+                }
+                else if (combinedShader != null && renderTarget == null)
+                {
+                    _logger.Warning(
+                        "SceneRendererSystem: Combined shader is active but render target is null. RenderTargetManager may not be initialized."
+                    );
+                }
             }
             finally
             {
-                // Always restore viewport, even if rendering fails
-                _graphicsDevice.Viewport = savedViewport;
+                // Always restore viewport and render target, even if rendering fails
+                if (renderTarget != null)
+                {
+                    _graphicsDevice.SetRenderTarget(null);
+                    if (originalViewport.HasValue)
+                    {
+                        _graphicsDevice.Viewport = originalViewport.Value;
+                    }
+                }
+                else
+                {
+                    _graphicsDevice.Viewport = savedViewport;
+                }
             }
         }
 

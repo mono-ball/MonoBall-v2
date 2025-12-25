@@ -45,5 +45,15 @@ namespace MonoBall.Core.ECS.Input
         /// Toggle debug bar visibility.
         /// </summary>
         ToggleDebugBar,
+
+        /// <summary>
+        /// Cycle through available shader effects.
+        /// </summary>
+        CycleShader,
+
+        /// <summary>
+        /// Cycle through available shader effects for the player entity.
+        /// </summary>
+        CyclePlayerShader,
     }
 }

@@ -1,0 +1,39 @@
+namespace Porycon3.Models;
+
+/// <summary>
+/// Represents a single tile layer in the output map.
+/// Compatible with Tiled map format.
+/// </summary>
+public class LayerData
+{
+    /// <summary>
+    /// Layer name (e.g., "Bg3", "Bg2", "Bg1").
+    /// </summary>
+    public required string Name { get; init; }
+
+    /// <summary>
+    /// Width of the layer in tiles.
+    /// </summary>
+    public int Width { get; init; }
+
+    /// <summary>
+    /// Height of the layer in tiles.
+    /// </summary>
+    public int Height { get; init; }
+
+    /// <summary>
+    /// Tile data as a flat array of GIDs (row-major order).
+    /// 0 = empty tile, >0 = tile GID with optional flip flags.
+    /// </summary>
+    public int[] Data { get; init; } = Array.Empty<int>();
+
+    /// <summary>
+    /// Optional layer opacity (0.0 - 1.0).
+    /// </summary>
+    public float Opacity { get; init; } = 1.0f;
+
+    /// <summary>
+    /// Whether the layer is visible.
+    /// </summary>
+    public bool Visible { get; init; } = true;
+}

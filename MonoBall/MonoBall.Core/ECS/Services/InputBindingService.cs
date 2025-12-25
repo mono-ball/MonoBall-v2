@@ -51,6 +51,8 @@ namespace MonoBall.Core.ECS.Services
             _keyBindings[InputAction.Pause] = Keys.Escape;
             _keyBindings[InputAction.Menu] = Keys.Tab;
             _keyBindings[InputAction.ToggleDebugBar] = Keys.F3;
+            _keyBindings[InputAction.CycleShader] = Keys.F4;
+            _keyBindings[InputAction.CyclePlayerShader] = Keys.F5;
         }
 
         /// <summary>
