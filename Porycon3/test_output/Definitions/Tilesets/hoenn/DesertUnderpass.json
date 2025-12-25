@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/desert_underpass",
+  "name": "DesertUnderpass",
+  "texturePath": "Graphics/Tilesets/Hoenn/DesertUnderpass.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 32,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

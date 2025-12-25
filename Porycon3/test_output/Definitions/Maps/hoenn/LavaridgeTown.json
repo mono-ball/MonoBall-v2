@@ -1,0 +1,359 @@
+{
+  "id": "base:map:hoenn/lavaridge_town",
+  "name": "LavaridgeTown",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:town",
+  "width": 20,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_oldale",
+  "weatherId": "base:weather:outdoor/sunny",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/lavaridge_town",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": {
+    "east": {
+      "mapId": "base:map:hoenn/route112",
+      "offset": -40
+    }
+  },
+  "layers": [
+    {
+      "id": "base:layer:hoenn/lavaridge_town/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAMAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAABAAAAAQAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/lavaridge_town/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAIAAAAFAAAABQAAAAUAAAAFAAAABQAAAAYAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAABQAAAAUAAAAFAAAACAAAAAEAAAABAAAAAQAAAAEAAAABAAAACgAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAACwAAAAEAAAACAAAACwAAAAsAAAALAAAACwAAABEAAAALAAAABQAAAAsAAAAGAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAYAAAAGgAAABsAAAAaAAAAGgAAAB0AAAAfAAAAHwAAACIAAAAkAAAAJQAAACUAAAAnAAAAKQAAACoAAAArAAAACwAAAAsAAAABAAAAAQAAABgAAAAbAAAAGgAAABoAAAAbAAAAHQAAAC0AAAAvAAAAMAAAADIAAAAzAAAAMwAAADYAAAA4AAAAOQAAADoAAAA8AAAAPAAAAAEAAAABAAAAGAAAABsAAAAaAAAAGwAAABsAAAAdAAAAQgAAAEQAAABGAAAASAAAAEoAAABLAAAATAAAAE4AAABPAAAAUQAAADwAAAA8AAAAAQAAAAEAAAAYAAAAGAAAABgAAAAYAAAAGAAAAB0AAABMAAAATgAAAFcAAABYAAAAWQAAAFoAAAAfAAAAWwAAAFwAAAAfAAAAXQAAAF0AAAABAAAAAQAAABgAAAAYAAAAGAAAABgAAAAYAAAAHwAAAB8AAABbAAAAXAAAAB8AAAAfAAAAHwAAAB8AAABbAAAAXAAAAB8AAAAfAAAAHwAAAAEAAAABAAAAGAAAABgAAAAYAAAAGAAAAGAAAAAfAAAAHwAAAFsAAABcAAAAHwAAAB8AAABjAAAAHwAAAFsAAABcAAAAHwAAAB8AAAAfAAAAAQAAAAEAAAAYAAAAGAAAABgAAAAYAAAAHwAAAB8AAAAfAAAAWwAAAGUAAABmAAAAZgAAAGYAAABmAAAAZQAAAGUAAABmAAAAZgAAAGYAAAABAAAAAQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAABoAAAAaQAAAGkAAABpAAAAaQAAAGkAAABpAAAAaQAAAGkAAABpAAAAaQAAAAEAAAABAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAAQAAAAEAAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAABAAAAAQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAHgAAAB6AAAAegAAAHsAAAB4AAAAegAAAHoAAAB7AAAAHwAAAAEAAAABAAAAHwAAAB8AAAAfAAAAgAAAAB8AAACDAAAAHwAAAB8AAAAfAAAAhQAAAIcAAACIAAAAiQAAAIUAAACHAAAAiAAAAIkAAAA8AAAAAQAAAAEAAAAfAAAAHwAAAB8AAAA8AAAAHwAAAJAAAAAfAAAAHwAAAB8AAACSAAAAlAAAAJUAAACWAAAAkgAAAJQAAACVAAAAlgAAADwAAAABAAAAAQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAGMAAAAfAAAAHwAAAB8AAAAfAAAAPAAAAAAAAAAAAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAADwAAAA8AAAAAQAAAAEAAAABAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAXQAAAF0AAAABAAAAAQAAAAAAAAAAAAAAmwAAAJsAAACbAAAAmwAAAJsAAACbAAAAmwAAAJsAAACbAAAAmwAAAJsAAACbAAAAmwAAAJsAAACbAAAAmwAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/lavaridge_town/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "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"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/lavaridge_town"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/lavaridge_town/warp_to_lavaridge_town_herb_shop",
+      "name": "Warp to lavaridge_town_herb_shop",
+      "x": 192,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town_herb_shop",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/lavaridge_town/warp_to_lavaridge_town_gym_1f",
+      "name": "Warp to lavaridge_town_gym_1f",
+      "x": 80,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town_gym_1f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/lavaridge_town/warp_to_lavaridge_town_mart",
+      "name": "Warp to lavaridge_town_mart",
+      "x": 240,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town_mart",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/lavaridge_town/warp_to_lavaridge_town_pokemon_center_1f",
+      "name": "Warp to lavaridge_town_pokemon_center_1f",
+      "x": 144,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town_pokemon_center_1f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/lavaridge_town/warp_to_lavaridge_town_house",
+      "name": "Warp to lavaridge_town_house",
+      "x": 256,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town_house",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/lavaridge_town/warp_to_lavaridge_town_pokemon_center_1f",
+      "name": "Warp to lavaridge_town_pokemon_center_1f",
+      "x": 144,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/lavaridge_town_pokemon_center_1f",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [
+    {
+      "id": "base:trigger:hoenn/lavaridge_town/trigger_trigger_run_immediately_0",
+      "name": "Trigger: TRIGGER_RUN_IMMEDIATELY == 0",
+      "x": 96,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/trigger_run_immediately",
+      "value": 0,
+      "triggerId": "base:script:trigger/lavaridge_town_event_script_hot_springs_trigger",
+      "elevation": 3
+    }
+  ],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_lavaridgetowneventscriptherbshopsign",
+      "name": "Sign: LavaridgeTown_EventScript_HerbShopSign",
+      "x": 224,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_herb_shop_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_lavaridgetowneventscriptgymsign",
+      "name": "Sign: LavaridgeTown_EventScript_GymSign",
+      "x": 112,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_gym_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_commoneventscriptshowpokemartsign",
+      "name": "Sign: Common_EventScript_ShowPokemartSign",
+      "x": 272,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemart_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_lavaridgetowneventscripttownsign",
+      "name": "Sign: LavaridgeTown_EventScript_TownSign",
+      "x": 208,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_town_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_commoneventscriptshowpokemoncentersign",
+      "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
+      "x": 160,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemon_center_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_commoneventscriptshowpokemartsign",
+      "name": "Sign: Common_EventScript_ShowPokemartSign",
+      "x": 256,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemart_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/sign_commoneventscriptshowpokemoncentersign",
+      "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
+      "x": 176,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemon_center_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/lavaridge_town/hidden_item_",
+      "name": "Hidden_item: ",
+      "x": 64,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "elevation": 3
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_0",
+      "name": "NPC_0",
+      "x": 128,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/expert_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_expert_f",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_1",
+      "name": "NPC_1",
+      "x": 80,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_expert_m",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_2",
+      "name": "NPC_2",
+      "x": 80,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/old_man",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_old_man",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_3",
+      "name": "NPC_3",
+      "x": 160,
+      "y": 208,
+      "spriteId": "base:sprite:npcs/generic/twin",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_twin",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 2,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_4",
+      "name": "NPC_4",
+      "x": 64,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/hot_springs_old_woman",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_hot_springs_old_woman1",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_5",
+      "name": "NPC_5",
+      "x": 80,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/hot_springs_old_woman",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_hot_springs_old_woman2",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/localid_lavaridge_rival_on_bike",
+      "name": "LOCALID_LAVARIDGE_RIVAL_ON_BIKE",
+      "x": 96,
+      "y": 256,
+      "spriteId": "{base:sprite:npcs/generic/var_3}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/lavaridge_town_rival_on_bike",
+      "facingDirection": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/localid_lavaridge_rival",
+      "name": "LOCALID_LAVARIDGE_RIVAL",
+      "x": 192,
+      "y": 240,
+      "spriteId": "{base:sprite:npcs/generic/var_rival}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/lavaridge_town_rival",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/lavaridge_town/npc_8",
+      "name": "NPC_8",
+      "x": 64,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/expert_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/lavaridge_town_event_script_egg_woman",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

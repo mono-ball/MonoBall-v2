@@ -1,0 +1,173 @@
+{
+  "id": "base:map:hoenn/abandoned_ship_rooms2_1f",
+  "name": "AbandonedShip_Rooms2_1F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:underground",
+  "width": 9,
+  "height": 17,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_abandoned_ship",
+  "weatherId": "base:weather:outdoor/shade",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/abandoned_ship",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/abandoned_ship_rooms2_1f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 17,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/abandoned_ship_rooms2_1f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 17,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/abandoned_ship_rooms2_1f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 17,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/abandoned_ship_rooms2_1f"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/abandoned_ship_rooms2_1f/warp_to_abandoned_ship_corridors_1f",
+      "name": "Warp to abandoned_ship_corridors_1f",
+      "x": 64,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/abandoned_ship_corridors_1f",
+      "targetX": 8,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/abandoned_ship_rooms2_1f/warp_to_abandoned_ship_corridors_1f",
+      "name": "Warp to abandoned_ship_corridors_1f",
+      "x": 80,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/abandoned_ship_corridors_1f",
+      "targetX": 8,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/abandoned_ship_rooms2_1f/warp_to_abandoned_ship_corridors_1f",
+      "name": "Warp to abandoned_ship_corridors_1f",
+      "x": 64,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/abandoned_ship_corridors_1f",
+      "targetX": 11,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/abandoned_ship_rooms2_1f/npc_0",
+      "name": "NPC_0",
+      "x": 112,
+      "y": 208,
+      "spriteId": "base:sprite:npcs/generic/man_4",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/abandoned_ship_rooms2_1f_event_script_dan",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/abandoned_ship_rooms2_1f/npc_1",
+      "name": "NPC_1",
+      "x": 96,
+      "y": 208,
+      "spriteId": "base:sprite:npcs/generic/woman_4",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/abandoned_ship_rooms2_1f_event_script_kira",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/abandoned_ship_rooms2_1f/npc_2",
+      "name": "NPC_2",
+      "x": 64,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/item_ball",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/common_event_script_find_item",
+      "visibilityFlag": "base:flag:item/abandoned_ship_rooms_2_1f_revive",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/abandoned_ship_rooms2_1f/npc_3",
+      "name": "NPC_3",
+      "x": 48,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/hiker",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/abandoned_ship_rooms2_1f_event_script_garrison",
+      "facingDirection": "right",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/abandoned_ship_rooms2_1f/npc_4",
+      "name": "NPC_4",
+      "x": 112,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/tuber_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/abandoned_ship_rooms2_1f_event_script_jani",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

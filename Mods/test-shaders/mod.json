@@ -1,0 +1,14 @@
+{
+  "id": "base:test-shaders",
+  "name": "Test Shaders",
+  "author": "MonoBall Team",
+  "version": "1.0.0",
+  "description": "Test mod containing all shaders migrated from Content Pipeline",
+  "priority": 1,
+  "contentFolders": {
+    "Shaders": "Definitions/Shaders"
+  },
+  "patches": [],
+  "dependencies": []
+}
+

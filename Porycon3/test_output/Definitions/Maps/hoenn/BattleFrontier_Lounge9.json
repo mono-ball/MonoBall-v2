@@ -1,0 +1,107 @@
+{
+  "id": "base:map:hoenn/battle_frontier_lounge9",
+  "name": "BattleFrontier_Lounge9",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 9,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_tower_rs",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/battle_frontier_lounge9/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_lounge9/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_lounge9/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 10,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_lounge9"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/battle_frontier_lounge9/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 16,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 11,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/battle_frontier_lounge9/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 32,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 11,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/battle_frontier_lounge9/npc_0",
+      "name": "NPC_0",
+      "x": 96,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/girl_2",
+      "behaviorId": "base:script:behavior/stationary",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 0
+    }
+  ]
+}

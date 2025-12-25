@@ -1,0 +1,21 @@
+{
+  "id": "base:shader:kaleidoscope",
+  "name": "Kaleidoscope",
+  "description": "Applies kaleidoscope mirror/repeat effect",
+  "sourceFile": "Shaders/Kaleidoscope.mgfxo",
+  "parameters": [
+    {
+      "name": "SegmentCount",
+      "type": "float",
+      "defaultValue": 6.0,
+      "min": 2.0,
+      "max": 20.0
+    },
+    {
+      "name": "ScreenSize",
+      "type": "float2",
+      "defaultValue": [800.0, 600.0]
+    }
+  ]
+}
+

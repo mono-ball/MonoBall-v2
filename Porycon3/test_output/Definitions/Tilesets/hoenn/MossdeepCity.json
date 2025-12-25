@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/mossdeep_city",
+  "name": "MossdeepCity",
+  "texturePath": "Graphics/Tilesets/Hoenn/MossdeepCity.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 290,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 304,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 33,
+      "animation": [
+        {
+          "tileId": 287,
+          "durationMs": 266
+        },
+        {
+          "tileId": 288,
+          "durationMs": 266
+        },
+        {
+          "tileId": 287,
+          "durationMs": 266
+        },
+        {
+          "tileId": 289,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

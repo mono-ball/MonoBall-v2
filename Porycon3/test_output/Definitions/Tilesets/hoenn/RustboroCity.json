@@ -1,0 +1,49 @@
+{
+  "id": "base:tileset:hoenn/rustboro_city",
+  "name": "RustboroCity",
+  "texturePath": "Graphics/Tilesets/Hoenn/RustboroCity.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 260,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 272,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 14,
+      "animation": [
+        {
+          "tileId": 255,
+          "durationMs": 266
+        },
+        {
+          "tileId": 256,
+          "durationMs": 266
+        },
+        {
+          "tileId": 255,
+          "durationMs": 266
+        },
+        {
+          "tileId": 257,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 33,
+      "animation": [
+        {
+          "tileId": 258,
+          "durationMs": 133
+        },
+        {
+          "tileId": 259,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

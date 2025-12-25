@@ -1,0 +1,42 @@
+{
+  "id": "base:shader:crt",
+  "name": "CRT",
+  "description": "Applies CRT monitor effect with scanlines, curvature, and color bleeding",
+  "sourceFile": "Shaders/CRT.mgfxo",
+  "parameters": [
+    {
+      "name": "Curvature",
+      "type": "float",
+      "defaultValue": 0.1,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "name": "ScanlineIntensity",
+      "type": "float",
+      "defaultValue": 0.3,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "name": "ScanlineCount",
+      "type": "float",
+      "defaultValue": 400.0,
+      "min": 100.0,
+      "max": 1000.0
+    },
+    {
+      "name": "ChromaticAberration",
+      "type": "float",
+      "defaultValue": 0.003,
+      "min": 0.0,
+      "max": 0.01
+    },
+    {
+      "name": "ScreenSize",
+      "type": "float2",
+      "defaultValue": [800.0, 600.0]
+    }
+  ]
+}
+

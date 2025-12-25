@@ -1,0 +1,159 @@
+{
+  "id": "base:map:hoenn/battle_pyramid_square15",
+  "name": "BattlePyramidSquare15",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 8,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_none",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/gym",
+  "mapSectionId": "base:mapsection:hoenn/dynamic",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/battle_pyramid_square15/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 8,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/battle_pyramid_square15/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 8,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/battle_pyramid_square15/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 8,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_pyramid_square15"
+    }
+  ],
+  "warps": [],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_0",
+      "name": "NPC_0",
+      "x": 32,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/pokefan_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_trainer_battle",
+      "facingDirection": "up",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_1",
+      "name": "NPC_1",
+      "x": 32,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/pokefan_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_trainer_battle",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_2",
+      "name": "NPC_2",
+      "x": 96,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/pokefan_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_trainer_battle",
+      "facingDirection": "up",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_3",
+      "name": "NPC_3",
+      "x": 96,
+      "y": 0,
+      "spriteId": "base:sprite:npcs/generic/pokefan_f",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_trainer_battle",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_4",
+      "name": "NPC_4",
+      "x": 0,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/item_ball",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_find_item_ball",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_5",
+      "name": "NPC_5",
+      "x": 112,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/item_ball",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_find_item_ball",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/battle_pyramid_square15/npc_6",
+      "name": "NPC_6",
+      "x": 16,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/item_ball",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_pyramid_find_item_ball",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    }
+  ]
+}

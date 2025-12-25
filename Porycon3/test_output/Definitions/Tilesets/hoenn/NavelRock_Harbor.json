@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/navel_rock_harbor",
+  "name": "NavelRock_Harbor",
+  "texturePath": "Graphics/Tilesets/Hoenn/NavelRock_Harbor.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 12,
+  "columns": 12,
+  "imageWidth": 192,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

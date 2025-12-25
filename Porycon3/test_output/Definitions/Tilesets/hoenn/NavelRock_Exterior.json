@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/navel_rock_exterior",
+  "name": "NavelRock_Exterior",
+  "texturePath": "Graphics/Tilesets/Hoenn/NavelRock_Exterior.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 77,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0
+}

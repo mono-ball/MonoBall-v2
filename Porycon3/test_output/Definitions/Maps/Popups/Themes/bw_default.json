@@ -1,0 +1,7 @@
+{
+  "id": "base:theme:popup/bw_default",
+  "name": "BW Default",
+  "description": "Black/white default frame - used for special areas",
+  "background": "base:popup:background/bw_default",
+  "outline": "base:popup:outline/bw_default_outline"
+}

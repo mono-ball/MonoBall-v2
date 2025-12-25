@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/terra_cave_entrance",
+  "name": "TerraCave_Entrance",
+  "texturePath": "Graphics/Tilesets/Hoenn/TerraCave_Entrance.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 25,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

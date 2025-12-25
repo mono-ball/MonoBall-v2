@@ -1,0 +1,12 @@
+{
+  "weatherId": "base:weather:outdoor/shade",
+  "name": "Shade",
+  "description": "Shade weather condition",
+  "category": "outdoor",
+  "intensity": 0.7,
+  "affectsBattle": false,
+  "screenTint": "#404040",
+  "screenTintOpacity": 0.2,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

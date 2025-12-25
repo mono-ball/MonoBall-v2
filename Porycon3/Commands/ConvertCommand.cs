@@ -107,11 +107,14 @@ public class ConvertCommand : Command<ConvertSettings>
                     });
             });
 
+        // Generate additional definitions (Weather, BattleScenes, Region)
+        var definitions = converter.GenerateDefinitions();
+
         // Display summary table
-        DisplaySummary(results);
+        DisplaySummary(results, definitions);
     }
 
-    private void DisplaySummary(List<ConversionResult> results)
+    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes) definitions = default)
     {
         var successful = results.Count(r => r.Success);
         var failed = results.Count(r => !r.Success);
@@ -130,6 +133,19 @@ public class ConvertCommand : Command<ConvertSettings>
         table.AddRow("Total Time", $"{totalTime / 1000:F1}s");
         if (results.Count > 0)
             table.AddRow("Avg per Map", $"{totalTime / results.Count:F0}ms");
+
+        // Show definition counts
+        var hasDefinitions = definitions.Weather > 0 || definitions.BattleScenes > 0 ||
+                            definitions.Region || definitions.Sections > 0 || definitions.Themes > 0;
+        if (hasDefinitions)
+        {
+            table.AddEmptyRow();
+            table.AddRow("[blue]Weather Definitions[/]", definitions.Weather.ToString());
+            table.AddRow("[blue]Battle Scene Definitions[/]", definitions.BattleScenes.ToString());
+            table.AddRow("[blue]Region Definition[/]", definitions.Region ? "1" : "0");
+            table.AddRow("[blue]Map Sections[/]", definitions.Sections.ToString());
+            table.AddRow("[blue]Popup Themes[/]", definitions.Themes.ToString());
+        }
 
         AnsiConsole.Write(table);
 

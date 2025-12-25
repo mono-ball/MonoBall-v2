@@ -14,7 +14,7 @@ namespace MonoBall.Core.ECS.Components
         public ShaderLayer Layer { get; set; }
 
         /// <summary>
-        /// The shader ID (e.g., "TileLayerColorGrading").
+        /// The shader ID in mod format (e.g., "base:shader:colorgrading").
         /// </summary>
         public string ShaderId { get; set; }
 
@@ -34,5 +34,12 @@ namespace MonoBall.Core.ECS.Components
         /// Used when multiple shaders are active on the same layer.
         /// </summary>
         public int RenderOrder { get; set; }
+
+        /// <summary>
+        /// Blend mode for shader composition when multiple shaders are active.
+        /// Replace: No blending (shader replaces previous output).
+        /// Other modes: Shader-based blending (requires render targets).
+        /// </summary>
+        public ShaderBlendMode BlendMode { get; set; }
     }
 }

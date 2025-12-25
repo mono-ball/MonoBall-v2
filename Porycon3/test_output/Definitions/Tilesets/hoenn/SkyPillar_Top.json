@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/sky_pillar_top",
+  "name": "SkyPillar_Top",
+  "texturePath": "Graphics/Tilesets/Hoenn/SkyPillar_Top.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 30,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

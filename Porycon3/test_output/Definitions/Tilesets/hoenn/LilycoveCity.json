@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/lilycove_city",
+  "name": "LilycoveCity",
+  "texturePath": "Graphics/Tilesets/Hoenn/LilycoveCity.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 359,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 368,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "animation": [
+        {
+          "tileId": 356,
+          "durationMs": 266
+        },
+        {
+          "tileId": 357,
+          "durationMs": 266
+        },
+        {
+          "tileId": 356,
+          "durationMs": 266
+        },
+        {
+          "tileId": 358,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

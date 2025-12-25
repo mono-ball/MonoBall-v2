@@ -1,0 +1,144 @@
+{
+  "id": "base:map:hoenn/rustboro_city_devon_corp_3f",
+  "name": "RustboroCity_DevonCorp_3F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 19,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_rustboro",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/rustboro_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/rustboro_city_devon_corp_3f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 19,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/rustboro_city_devon_corp_3f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 19,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/rustboro_city_devon_corp_3f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 19,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/rustboro_city_devon_corp_3f"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/rustboro_city_devon_corp_3f/warp_to_rustboro_city_devon_corp_2f",
+      "name": "Warp to rustboro_city_devon_corp_2f",
+      "x": 32,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city_devon_corp_2f",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/rustboro_city_devon_corp_3f/sign_rustborocitydevoncorp3feventscriptrarerocksdisplay",
+      "name": "Sign: RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay",
+      "x": 16,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_devon_corp_3f_event_script_rare_rocks_display",
+      "elevation": 3
+    },
+    {
+      "id": "base:interaction:hoenn/rustboro_city_devon_corp_3f/sign_rustborocitydevoncorp3feventscriptrarerocksdisplay",
+      "name": "Sign: RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay",
+      "x": 16,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_devon_corp_3f_event_script_rare_rocks_display",
+      "elevation": 3
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/rustboro_city_devon_corp_3f/npc_0",
+      "name": "NPC_0",
+      "x": 272,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/gentleman",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_devon_corp_3f_event_script_mr_stone",
+      "facingDirection": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_devon_corp_3f/localid_devon_corp_3f_employee",
+      "name": "LOCALID_DEVON_CORP_3F_EMPLOYEE",
+      "x": 48,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/man_2",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_devon_corp_3f_event_script_employee",
+      "visibilityFlag": "base:flag:visibility/rustboro_city_devon_corp_3f_employee",
+      "facingDirection": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_devon_corp_3f/npc_2",
+      "name": "NPC_2",
+      "x": 240,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/gentleman",
+      "behaviorId": "base:script:behavior/invisible",
+      "interactionId": "base:script:interaction/rustboro_city_devon_corp_3f_event_script_mr_stone",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

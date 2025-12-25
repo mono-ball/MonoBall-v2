@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/granite_cave_stevens_room",
+  "name": "GraniteCave_StevensRoom",
+  "texturePath": "Graphics/Tilesets/Hoenn/GraniteCave_StevensRoom.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 20,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

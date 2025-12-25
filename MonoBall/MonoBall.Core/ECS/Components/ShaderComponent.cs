@@ -9,7 +9,8 @@ namespace MonoBall.Core.ECS.Components
     public struct ShaderComponent
     {
         /// <summary>
-        /// The shader ID (e.g., "PerEntityGlow").
+        /// The shader ID in mod format. Must be all lowercase and match format "{namespace}:shader:{name}" (e.g., "base:shader:glow").
+        /// The shader must exist in the mod registry. Invalid formats will cause runtime errors when the shader is loaded.
         /// </summary>
         public string ShaderId { get; set; }
 

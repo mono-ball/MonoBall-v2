@@ -1,0 +1,21 @@
+{
+  "id": "base:shader:pixelation",
+  "name": "Pixelation",
+  "description": "Applies pixelation effect (retro/low-res look)",
+  "sourceFile": "Shaders/Pixelation.mgfxo",
+  "parameters": [
+    {
+      "name": "PixelSize",
+      "type": "float",
+      "defaultValue": 8.0,
+      "min": 1.0,
+      "max": 64.0
+    },
+    {
+      "name": "ScreenSize",
+      "type": "float2",
+      "defaultValue": [800.0, 600.0]
+    }
+  ]
+}
+

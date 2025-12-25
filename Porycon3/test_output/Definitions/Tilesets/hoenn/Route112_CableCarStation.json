@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/route112_cable_car_station",
+  "name": "Route112_CableCarStation",
+  "texturePath": "Graphics/Tilesets/Hoenn/Route112_CableCarStation.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 39,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0
+}

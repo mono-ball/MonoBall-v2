@@ -1,0 +1,367 @@
+{
+  "id": "base:map:hoenn/ss_tidal_corridor",
+  "name": "SSTidalCorridor",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 18,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/routes/mus_sailing",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/dynamic",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/ss_tidal_corridor/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 18,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/ss_tidal_corridor/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 18,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/ss_tidal_corridor/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 18,
+      "height": 13,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/ss_tidal_corridor"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 64,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 112,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 160,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 4,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 208,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 6,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 64,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 8,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 112,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 9,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 160,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 10,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "name": "Warp to ss_tidal_rooms",
+      "x": 208,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_rooms",
+      "targetX": 11,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_lower_deck",
+      "name": "Warp to ss_tidal_lower_deck",
+      "x": 256,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/ss_tidal_lower_deck",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 32,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 64,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 96,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 160,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 192,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 224,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "name": "Sign: SSTidalCorridor_EventScript_Porthole",
+      "x": 256,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_porthole",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin1sign",
+      "name": "Sign: SSTidalCorridor_EventScript_Cabin1Sign",
+      "x": 80,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_cabin1_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin2sign",
+      "name": "Sign: SSTidalCorridor_EventScript_Cabin2Sign",
+      "x": 128,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_cabin2_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin3sign",
+      "name": "Sign: SSTidalCorridor_EventScript_Cabin3Sign",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_cabin3_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin4sign",
+      "name": "Sign: SSTidalCorridor_EventScript_Cabin4Sign",
+      "x": 224,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_cabin4_sign",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/ss_tidal_corridor/localid_ss_tidal_exit_sailor",
+      "name": "LOCALID_SS_TIDAL_EXIT_SAILOR",
+      "x": 16,
+      "y": 176,
+      "spriteId": "base:sprite:npcs/generic/sailor",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_exit_sailor",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/ss_tidal_corridor/npc_1",
+      "name": "NPC_1",
+      "x": 256,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/sailor",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_sailor",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 2,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/ss_tidal_corridor/npc_2",
+      "name": "NPC_2",
+      "x": 144,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/expert_m",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_briney",
+      "visibilityFlag": "base:flag:visibility/ss_tidal_corridor_mr_briney",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/ss_tidal_corridor/npc_3",
+      "name": "NPC_3",
+      "x": 112,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/wingull",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/ss_tidal_corridor_event_script_peeko",
+      "visibilityFlag": "base:flag:visibility/ss_tidal_corridor_mr_briney",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/ss_tidal_corridor/localid_ss_tidal_scott",
+      "name": "LOCALID_SS_TIDAL_SCOTT",
+      "x": 144,
+      "y": 160,
+      "spriteId": "base:sprite:npcs/generic/scott",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/ss_tidal_corridor_scott",
+      "facingDirection": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

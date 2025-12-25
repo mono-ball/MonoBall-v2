@@ -1,0 +1,253 @@
+{
+  "id": "base:map:hoenn/littleroot_town_brendans_house_1f",
+  "name": "LittlerootTown_BrendansHouse_1F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 11,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_littleroot",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/littleroot_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/littleroot_town_brendans_house_1f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/littleroot_town_brendans_house_1f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/littleroot_town_brendans_house_1f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/littleroot_town_brendans_house_1f"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/littleroot_town_brendans_house_1f/warp_to_littleroot_town",
+      "name": "Warp to littleroot_town",
+      "x": 144,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/littleroot_town",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/littleroot_town_brendans_house_1f/warp_to_littleroot_town",
+      "name": "Warp to littleroot_town",
+      "x": 128,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/littleroot_town",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/littleroot_town_brendans_house_1f/warp_to_littleroot_town_brendans_house_2f",
+      "name": "Warp to littleroot_town_brendans_house_2f",
+      "x": 128,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/littleroot_town_brendans_house_2f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [
+    {
+      "id": "base:trigger:hoenn/littleroot_town_brendans_house_1f/trigger_var_littleroot_intro_state_4",
+      "name": "Trigger: VAR_LITTLEROOT_INTRO_STATE == 4",
+      "x": 128,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_littleroot_intro_state",
+      "value": 4,
+      "triggerId": "base:script:trigger/littleroot_town_brendans_house_1f_event_script_go_see_room",
+      "elevation": 0
+    },
+    {
+      "id": "base:trigger:hoenn/littleroot_town_brendans_house_1f/trigger_var_littleroot_rival_state_2",
+      "name": "Trigger: VAR_LITTLEROOT_RIVAL_STATE == 2",
+      "x": 112,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_littleroot_rival_state",
+      "value": 2,
+      "triggerId": "base:script:trigger/littleroot_town_brendans_house_1f_event_script_meet_rival0",
+      "elevation": 0
+    },
+    {
+      "id": "base:trigger:hoenn/littleroot_town_brendans_house_1f/trigger_var_littleroot_rival_state_2",
+      "name": "Trigger: VAR_LITTLEROOT_RIVAL_STATE == 2",
+      "x": 128,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_littleroot_rival_state",
+      "value": 2,
+      "triggerId": "base:script:trigger/littleroot_town_brendans_house_1f_event_script_meet_rival1",
+      "elevation": 0
+    },
+    {
+      "id": "base:trigger:hoenn/littleroot_town_brendans_house_1f/trigger_var_littleroot_rival_state_2",
+      "name": "Trigger: VAR_LITTLEROOT_RIVAL_STATE == 2",
+      "x": 144,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_littleroot_rival_state",
+      "value": 2,
+      "triggerId": "base:script:trigger/littleroot_town_brendans_house_1f_event_script_meet_rival2",
+      "elevation": 0
+    }
+  ],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/localid_players_house_1f_mom",
+      "name": "LOCALID_PLAYERS_HOUSE_1F_MOM",
+      "x": 32,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/mom",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/players_house_1f_event_script_mom",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_mom",
+      "facingDirection": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/npc_1",
+      "name": "NPC_1",
+      "x": 16,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/vigoroth_carrying_box",
+      "behaviorId": "base:script:behavior/walk",
+      "interactionId": "base:script:interaction/players_house_1f_event_script_vigoroth2",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_players_house_vigoroth_2",
+      "facingDirection": "left",
+      "rangeX": 3,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/npc_2",
+      "name": "NPC_2",
+      "x": 64,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/vigoroth_facing_away",
+      "behaviorId": "base:script:behavior/walk",
+      "interactionId": "base:script:interaction/players_house_1f_event_script_vigoroth1",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_players_house_vigoroth_1",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/localid_rivals_house_1f_mom",
+      "name": "LOCALID_RIVALS_HOUSE_1F_MOM",
+      "x": 32,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/woman_4",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rivals_house_1f_event_script_rival_mom",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_rival_mom",
+      "facingDirection": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/localid_players_house_1f_dad",
+      "name": "LOCALID_PLAYERS_HOUSE_1F_DAD",
+      "x": 80,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/gym_leaders/norman",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/players_house_dad",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/npc_5",
+      "name": "NPC_5",
+      "x": 16,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/ninja_boy",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/rivals_house_1f_event_script_rival_sibling",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_rival_sibling",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_brendans_house_1f/localid_rivals_house_1f_rival",
+      "name": "LOCALID_RIVALS_HOUSE_1F_RIVAL",
+      "x": 128,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/rival_brendan_normal",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_brendan",
+      "facingDirection": "up",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

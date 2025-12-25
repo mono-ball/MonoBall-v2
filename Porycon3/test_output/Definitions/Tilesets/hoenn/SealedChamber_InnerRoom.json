@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/sealed_chamber_inner_room",
+  "name": "SealedChamber_InnerRoom",
+  "texturePath": "Graphics/Tilesets/Hoenn/SealedChamber_InnerRoom.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 21,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

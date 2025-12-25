@@ -8,20 +8,20 @@ namespace MonoBall.Core.Rendering
     public interface IShaderService
     {
         /// <summary>
-        /// Loads a shader effect from content.
+        /// Loads a shader effect from mods. Shader ID must be in format "{namespace}:shader:{name}" (all lowercase).
+        /// Returns null if the shader cannot be loaded (consistent with other resource loaders).
         /// </summary>
-        /// <param name="shaderId">The shader ID (e.g., "TileLayerColorGrading").</param>
-        /// <returns>The loaded Effect.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when shader fails to load.</exception>
-        Effect LoadShader(string shaderId);
+        /// <param name="shaderId">The shader ID (e.g., "base:shader:colorgrading").</param>
+        /// <returns>The loaded Effect, or null if loading failed.</returns>
+        Effect? LoadShader(string shaderId);
 
         /// <summary>
-        /// Gets a cached shader effect, or loads it if not cached.
+        /// Gets a cached shader effect, or loads it if not cached. Loads from mods via LoadShader().
+        /// Returns null if the shader cannot be loaded (consistent with other resource loaders).
         /// </summary>
-        /// <param name="shaderId">The shader ID.</param>
-        /// <returns>The Effect.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when shader fails to load.</exception>
-        Effect GetShader(string shaderId);
+        /// <param name="shaderId">The shader ID (e.g., "base:shader:colorgrading").</param>
+        /// <returns>The Effect, or null if loading failed.</returns>
+        Effect? GetShader(string shaderId);
 
         /// <summary>
         /// Checks if a shader exists and is loaded.

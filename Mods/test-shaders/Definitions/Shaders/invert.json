@@ -1,0 +1,16 @@
+{
+  "id": "base:shader:invert",
+  "name": "Invert",
+  "description": "Applies color inversion effect to individual entities",
+  "sourceFile": "Shaders/Invert.mgfxo",
+  "parameters": [
+    {
+      "name": "Intensity",
+      "type": "float",
+      "defaultValue": 1.0,
+      "min": 0.0,
+      "max": 1.0
+    }
+  ]
+}
+

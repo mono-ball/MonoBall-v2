@@ -82,5 +82,12 @@ namespace MonoBall.Core.Mods
         /// <param name="modId">The mod ID.</param>
         /// <returns>The mod manifest, or null if not found.</returns>
         ModManifest? GetModManifest(string modId);
+
+        /// <summary>
+        /// Gets the mod manifest that owns a definition by definition ID.
+        /// </summary>
+        /// <param name="definitionId">The definition ID.</param>
+        /// <returns>The mod manifest that owns the definition, or null if not found.</returns>
+        ModManifest? GetModManifestByDefinitionId(string definitionId);
     }
 }

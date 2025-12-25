@@ -1,0 +1,70 @@
+{
+  "id": "base:map:hoenn/unused_contest_hall5",
+  "name": "UnusedContestHall5",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 1,
+  "height": 1,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_gsc_pewter",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/dynamic",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/unused_contest_hall5/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 1,
+      "height": 1,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/unused_contest_hall5/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 1,
+      "height": 1,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/unused_contest_hall5/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 1,
+      "height": 1,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/unused_contest_hall5"
+    }
+  ],
+  "warps": [],
+  "triggers": [],
+  "interactions": [],
+  "npcs": []
+}

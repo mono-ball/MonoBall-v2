@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/granite_cave_b1f",
+  "name": "GraniteCave_B1F",
+  "texturePath": "Graphics/Tilesets/Hoenn/GraniteCave_B1F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 26,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

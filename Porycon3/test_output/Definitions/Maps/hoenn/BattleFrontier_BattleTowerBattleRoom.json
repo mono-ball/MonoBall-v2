@@ -1,0 +1,133 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_tower_battle_room",
+  "name": "BattleFrontier_BattleTowerBattleRoom",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 10,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_tower",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/frontier",
+  "mapSectionId": "base:mapsection:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/battle_frontier_battle_tower_battle_room/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_battle_tower_battle_room/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_battle_tower_battle_room/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_tower_battle_room"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/battle_frontier_battle_tower_battle_room/warp_to_battle_frontier_battle_tower_lobby",
+      "name": "Warp to battle_frontier_battle_tower_lobby",
+      "x": 80,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_battle_tower_lobby",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/battle_frontier_battle_tower_battle_room/warp_to_battle_frontier_battle_tower_lobby",
+      "name": "Warp to battle_frontier_battle_tower_lobby",
+      "x": 96,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_battle_tower_lobby",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_opponent",
+      "name": "LOCALID_TOWER_BATTLE_OPPONENT",
+      "x": 80,
+      "y": 16,
+      "spriteId": "{base:sprite:npcs/generic/var_rival}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/battle_tower_opponent",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_attendant_1",
+      "name": "LOCALID_TOWER_BATTLE_ATTENDANT_1",
+      "x": 16,
+      "y": 112,
+      "spriteId": "base:sprite:npcs/generic/teala",
+      "behaviorId": "base:script:behavior/stationary",
+      "facingDirection": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_attendant_2",
+      "name": "LOCALID_TOWER_BATTLE_ATTENDANT_2",
+      "x": 64,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/teala",
+      "behaviorId": "base:script:behavior/stationary",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

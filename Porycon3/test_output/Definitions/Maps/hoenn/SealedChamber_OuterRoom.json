@@ -1,0 +1,374 @@
+{
+  "id": "base:map:hoenn/sealed_chamber_outer_room",
+  "name": "SealedChamber_OuterRoom",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:underground",
+  "width": 21,
+  "height": 23,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_sealed_chamber",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/sealed_chamber",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/sealed_chamber_outer_room/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 21,
+      "height": 23,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAACQAAAAkAAAAJAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAkAAAAJAAAACQAAAAkAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsAAAALAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/sealed_chamber_outer_room/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 21,
+      "height": 23,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAACAAAABQAAAAEAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAGAAAABwAAAAgAAAAJAAAACgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAIAAAALAAAABQAAAAUAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAACAAAADQAAAA4AAAAPAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAgAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEQAAABIAAAATAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAFAAAABUAAAAWAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEQAAABIAAAATAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAFAAAABUAAAAWAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEQAAABIAAAASAAAAEgAAABMAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAFAAAABUAAAAVAAAAFQAAABYAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAXAAAAGQAAABkAAAAZAAAAGwAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAdAAAAHwAAAB8AAAAfAAAAIAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAEAAAABAAAAAQAAAAEAAAABAAAAAdAAAAHwAAACIAAAAfAAAAIAAAABAAAAAQAAAAEAAAABAAAAAQAAAACwAAAAsAAAALAAAABQAAAAUAAAAFAAAAIwAAACMAAAAjAAAAIwAAACMAAAAlAAAAJQAAACUAAAAlAAAAJQAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAAAsAAAALAAAABQAAAAUAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAACMAAAALAAAABQAAAAUAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAACMAAAAjAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/sealed_chamber_outer_room/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 21,
+      "height": 23,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAYAAAAGgAAABoAAAAaAAAAHAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAeAAAAAgAAAAIAAAACAAAAIQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAeAAAAAgAAAAIAAAACAAAAIQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjAAAAIwAAACMAAAAjAAAAIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAACMAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAACAAAAIwAAACMAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/sealed_chamber_outer_room"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/sealed_chamber_outer_room/warp_to_sealed_chamber_inner_room",
+      "name": "Warp to sealed_chamber_inner_room",
+      "x": 160,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/sealed_chamber_inner_room",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleABC",
+      "x": 80,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_abc",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleGHI",
+      "x": 80,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_ghi",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleMNO",
+      "x": 80,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_mno",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleTUV",
+      "x": 80,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_tuv",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDEF",
+      "x": 176,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_def",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleJKL",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_jkl",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePQRS",
+      "x": 176,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_pqrs",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
+      "x": 176,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_wxyz",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleperiod",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePeriod",
+      "x": 256,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_period",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillecomma",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleComma",
+      "x": 256,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_comma",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptinnerroomentrancewall",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_InnerRoomEntranceWall",
+      "x": 160,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_inner_room_entrance_wall",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleABC",
+      "x": 96,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_abc",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleABC",
+      "x": 64,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_abc",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleGHI",
+      "x": 64,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_ghi",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleGHI",
+      "x": 96,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_ghi",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleMNO",
+      "x": 64,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_mno",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleMNO",
+      "x": 96,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_mno",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleTUV",
+      "x": 64,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_tuv",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleTUV",
+      "x": 96,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_tuv",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDEF",
+      "x": 160,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_def",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDEF",
+      "x": 192,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_def",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleJKL",
+      "x": 160,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_jkl",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleJKL",
+      "x": 192,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_jkl",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePQRS",
+      "x": 160,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_pqrs",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePQRS",
+      "x": 192,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_pqrs",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
+      "x": 160,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_wxyz",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
+      "x": 192,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_wxyz",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledighere",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDigHere",
+      "x": 144,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_dig_here",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledighere",
+      "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDigHere",
+      "x": 176,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/sealed_chamber_outer_room_event_script_braille_dig_here",
+      "elevation": 0
+    }
+  ],
+  "npcs": []
+}

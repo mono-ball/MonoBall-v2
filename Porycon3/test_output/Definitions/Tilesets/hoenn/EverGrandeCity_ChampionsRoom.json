@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/ever_grande_city_champions_room",
+  "name": "EverGrandeCity_ChampionsRoom",
+  "texturePath": "Graphics/Tilesets/Hoenn/EverGrandeCity_ChampionsRoom.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 2,
+  "columns": 2,
+  "imageWidth": 32,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

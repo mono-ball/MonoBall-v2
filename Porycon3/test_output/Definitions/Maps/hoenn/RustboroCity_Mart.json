@@ -1,0 +1,148 @@
+{
+  "id": "base:map:hoenn/rustboro_city_mart",
+  "name": "RustboroCity_Mart",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 11,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_poke_mart",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/rustboro_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/rustboro_city_mart/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/rustboro_city_mart/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/rustboro_city_mart/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 11,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/rustboro_city_mart"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/rustboro_city_mart/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/rustboro_city_mart/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/rustboro_city_mart/localid_rustboro_mart_clerk",
+      "name": "LOCALID_RUSTBORO_MART_CLERK",
+      "x": 16,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/mart_employee",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_mart_event_script_clerk",
+      "facingDirection": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_mart/npc_1",
+      "name": "NPC_1",
+      "x": 32,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/boy_1",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_mart_event_script_boy",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_mart/npc_2",
+      "name": "NPC_2",
+      "x": 128,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/pokefan_f",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/rustboro_city_mart_event_script_pokefan_f",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_mart/npc_3",
+      "name": "NPC_3",
+      "x": 128,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/bug_catcher",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_mart_event_script_bug_catcher",
+      "facingDirection": "up",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

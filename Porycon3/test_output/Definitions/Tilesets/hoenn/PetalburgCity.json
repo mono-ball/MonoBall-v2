@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/petalburg_city",
+  "name": "PetalburgCity",
+  "texturePath": "Graphics/Tilesets/Hoenn/PetalburgCity.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 152,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 160,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 10,
+      "animation": [
+        {
+          "tileId": 149,
+          "durationMs": 266
+        },
+        {
+          "tileId": 150,
+          "durationMs": 266
+        },
+        {
+          "tileId": 149,
+          "durationMs": 266
+        },
+        {
+          "tileId": 151,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

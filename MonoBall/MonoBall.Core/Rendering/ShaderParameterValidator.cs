@@ -62,7 +62,7 @@ namespace MonoBall.Core.Rendering
             Effect? effect = _shaderService.GetShader(shaderId);
             if (effect == null)
             {
-                error = $"Shader '{shaderId}' not found.";
+                error = $"Shader '{shaderId}' not found or failed to load.";
                 return false;
             }
 

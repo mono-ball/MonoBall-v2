@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/underwater_marine_cave",
+  "name": "Underwater_MarineCave",
+  "texturePath": "Graphics/Tilesets/Hoenn/Underwater_MarineCave.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 19,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

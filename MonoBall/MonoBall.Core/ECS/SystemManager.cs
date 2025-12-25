@@ -62,6 +62,7 @@ namespace MonoBall.Core.ECS
         private Services.IActiveMapFilterService _activeMapFilterService = null!; // Initialized in Initialize()
         private Rendering.RenderTargetManager? _renderTargetManager; // Initialized in Initialize(), may be null
         private ShaderManagerSystem? _shaderManagerSystem; // Initialized in Initialize(), may be null
+        private ShaderRendererSystem? _shaderRendererSystem; // Initialized in Initialize(), may be null
         private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
 
         private bool _isInitialized;
@@ -313,7 +314,11 @@ namespace MonoBall.Core.ECS
                     _world,
                     shaderService,
                     shaderParameterValidator,
+                    _graphicsDevice,
                     LoggerFactory.CreateLogger<ShaderManagerSystem>()
+                );
+                _shaderRendererSystem = new ShaderRendererSystem(
+                    LoggerFactory.CreateLogger<ShaderRendererSystem>()
                 );
                 _shaderParameterAnimationSystem = new ShaderParameterAnimationSystem(
                     _world,
@@ -356,7 +361,9 @@ namespace MonoBall.Core.ECS
                 _tilesetLoader,
                 _cameraService,
                 LoggerFactory.CreateLogger<MapRendererSystem>(),
-                _shaderManagerSystem
+                _shaderManagerSystem,
+                _shaderRendererSystem,
+                _renderTargetManager
             );
             _mapRendererSystem.SetSpriteBatch(_spriteBatch);
             _mapBorderRendererSystem = new MapBorderRendererSystem(
@@ -375,7 +382,9 @@ namespace MonoBall.Core.ECS
                 _cameraService,
                 LoggerFactory.CreateLogger<SpriteRendererSystem>(),
                 _shaderManagerSystem,
-                shaderService
+                shaderService,
+                _shaderRendererSystem,
+                _renderTargetManager
             );
             _spriteRendererSystem.SetSpriteBatch(_spriteBatch);
 
@@ -461,7 +470,8 @@ namespace MonoBall.Core.ECS
                 _sceneManagerSystem,
                 LoggerFactory.CreateLogger<SceneRendererSystem>(),
                 _shaderManagerSystem,
-                _renderTargetManager
+                _renderTargetManager,
+                _shaderRendererSystem
             );
             _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
             _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);

@@ -1,0 +1,40 @@
+{
+  "id": "base:shader:wavedistortion",
+  "name": "Wave Distortion",
+  "description": "Applies animated wave distortion effect",
+  "sourceFile": "Shaders/WaveDistortion.mgfxo",
+  "parameters": [
+    {
+      "name": "WaveSpeed",
+      "type": "float",
+      "defaultValue": 2.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    {
+      "name": "WaveFrequency",
+      "type": "float",
+      "defaultValue": 10.0,
+      "min": 1.0,
+      "max": 50.0
+    },
+    {
+      "name": "WaveAmplitude",
+      "type": "float",
+      "defaultValue": 0.02,
+      "min": 0.0,
+      "max": 0.2
+    },
+    {
+      "name": "Time",
+      "type": "float",
+      "defaultValue": 0.0
+    },
+    {
+      "name": "ScreenSize",
+      "type": "float2",
+      "defaultValue": [800.0, 600.0]
+    }
+  ]
+}
+

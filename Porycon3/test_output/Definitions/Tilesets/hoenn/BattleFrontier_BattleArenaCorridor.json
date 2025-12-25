@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/battle_frontier_battle_arena_corridor",
+  "name": "BattleFrontier_BattleArenaCorridor",
+  "texturePath": "Graphics/Tilesets/Hoenn/BattleFrontier_BattleArenaCorridor.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 2,
+  "columns": 2,
+  "imageWidth": 32,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

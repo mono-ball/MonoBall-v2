@@ -1,0 +1,57 @@
+{
+  "id": "base:tileset:hoenn/magma_hideout_3f_3_r",
+  "name": "MagmaHideout_3F_3R",
+  "texturePath": "Graphics/Tilesets/Hoenn/MagmaHideout_3F_3R.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 43,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 8,
+      "animation": [
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 40,
+          "durationMs": 133
+        },
+        {
+          "tileId": 41,
+          "durationMs": 133
+        },
+        {
+          "tileId": 42,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 7,
+      "animation": [
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 40,
+          "durationMs": 133
+        },
+        {
+          "tileId": 41,
+          "durationMs": 133
+        },
+        {
+          "tileId": 42,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

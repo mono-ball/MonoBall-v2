@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/petalburg_woods",
+  "name": "PetalburgWoods",
+  "texturePath": "Graphics/Tilesets/Hoenn/PetalburgWoods.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 19,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

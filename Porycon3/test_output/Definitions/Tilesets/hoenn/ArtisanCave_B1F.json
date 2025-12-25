@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/artisan_cave_b1f",
+  "name": "ArtisanCave_B1F",
+  "texturePath": "Graphics/Tilesets/Hoenn/ArtisanCave_B1F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 24,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

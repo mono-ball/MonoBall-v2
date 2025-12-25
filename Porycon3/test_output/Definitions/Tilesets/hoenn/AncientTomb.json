@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/ancient_tomb",
+  "name": "AncientTomb",
+  "texturePath": "Graphics/Tilesets/Hoenn/AncientTomb.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 42,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0
+}

@@ -202,16 +202,7 @@ namespace MonoBall.Core.Maps
             );
 
             // Find mod manifest
-            ModManifest? modManifest = null;
-            foreach (var mod in _modManager.LoadedMods)
-            {
-                if (mod.Id == metadata.OriginalModId)
-                {
-                    modManifest = mod;
-                    break;
-                }
-            }
-
+            var modManifest = _modManager.GetModManifestByDefinitionId(actualSpriteId);
             if (modManifest == null)
             {
                 _logger.Warning(

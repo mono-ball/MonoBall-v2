@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/lavaridge_town_gym_1f",
+  "name": "LavaridgeTown_Gym_1F",
+  "texturePath": "Graphics/Tilesets/Hoenn/LavaridgeTown_Gym_1F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 3,
+  "columns": 3,
+  "imageWidth": 48,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

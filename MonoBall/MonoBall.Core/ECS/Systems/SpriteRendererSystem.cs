@@ -21,6 +21,8 @@ namespace MonoBall.Core.ECS.Systems
         private readonly ISpriteLoaderService _spriteLoader;
         private readonly ICameraService _cameraService;
         private readonly ShaderManagerSystem? _shaderManagerSystem;
+        private readonly ShaderRendererSystem? _shaderRendererSystem;
+        private readonly RenderTargetManager? _renderTargetManager;
         private readonly IShaderService? _shaderService;
         private SpriteBatch? _spriteBatch;
         private Viewport _savedViewport;
@@ -56,6 +58,8 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="logger">The logger for logging operations.</param>
         /// <param name="shaderManagerSystem">The shader manager system for sprite layer shaders (optional).</param>
         /// <param name="shaderService">The shader service for per-entity shaders (optional).</param>
+        /// <param name="shaderRendererSystem">The shader renderer system for shader stacking (optional).</param>
+        /// <param name="renderTargetManager">The render target manager for shader stacking (optional).</param>
         public SpriteRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
@@ -63,7 +67,9 @@ namespace MonoBall.Core.ECS.Systems
             ICameraService cameraService,
             ILogger logger,
             ShaderManagerSystem? shaderManagerSystem = null,
-            IShaderService? shaderService = null
+            IShaderService? shaderService = null,
+            ShaderRendererSystem? shaderRendererSystem = null,
+            RenderTargetManager? renderTargetManager = null
         )
             : base(world)
         {
@@ -75,6 +81,8 @@ namespace MonoBall.Core.ECS.Systems
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _shaderManagerSystem = shaderManagerSystem;
             _shaderService = shaderService;
+            _shaderRendererSystem = shaderRendererSystem;
+            _renderTargetManager = renderTargetManager;
 
             // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
             // NPC query includes ActiveMapEntity tag to only process NPCs in active maps
@@ -302,94 +310,261 @@ namespace MonoBall.Core.ECS.Systems
                 // Get camera transform matrix (handles tile-to-pixel conversion, zoom, and centering)
                 Matrix transform = camera.GetTransformMatrix();
 
-                // Get sprite layer shader
-                Effect? spriteLayerShader = _shaderManagerSystem?.GetSpriteLayerShader();
+                // Get sprite layer shader stack
+                var shaderStack = _shaderManagerSystem?.GetSpriteLayerShaderStack();
+                bool needsShaderStacking =
+                    shaderStack != null
+                    && shaderStack.Count > 0
+                    && (
+                        shaderStack.Count > 1 || shaderStack[0].blendMode != ShaderBlendMode.Replace
+                    );
 
-                // Sort sprites by shader to minimize SpriteBatch restarts
-                sprites.Sort(
-                    (a, b) =>
-                    {
-                        Effect? shaderA = GetEntityShader(a.entity);
-                        Effect? shaderB = GetEntityShader(b.entity);
-                        Effect? activeA = shaderA ?? spriteLayerShader;
-                        Effect? activeB = shaderB ?? spriteLayerShader;
-                        return (activeA?.GetHashCode() ?? 0).CompareTo(activeB?.GetHashCode() ?? 0);
-                    }
-                );
-
-                // Render sprites with shader batching
-                Effect? currentShader = spriteLayerShader;
-                bool batchStarted = false;
-
-                foreach (var (entity, spriteId, anim, pos, render) in sprites)
+                if (
+                    needsShaderStacking
+                    && (_shaderRendererSystem == null || _renderTargetManager == null)
+                )
                 {
-                    // Check for per-entity shader
-                    Effect? entityShader = GetEntityShader(entity);
-                    Effect? activeShader = entityShader ?? spriteLayerShader;
-
-                    // If shader changed, restart SpriteBatch
-                    if (activeShader != currentShader)
-                    {
-                        if (batchStarted)
-                        {
-                            _spriteBatch!.End();
-                        }
-
-                        currentShader = activeShader;
-                        batchStarted = true;
-
-                        // Ensure CurrentTechnique is set before using with SpriteBatch
-                        // MonoGame's SpriteBatch.Begin() will apply the effect automatically
-                        if (currentShader != null)
-                        {
-                            ShaderParameterApplier.EnsureCurrentTechnique(currentShader, _logger);
-                        }
-
-                        // Use Immediate mode for custom effects to ensure proper parameter application
-                        _spriteBatch!.Begin(
-                            SpriteSortMode.Immediate,
-                            BlendState.AlphaBlend,
-                            SamplerState.PointClamp,
-                            null,
-                            null,
-                            currentShader,
-                            transform
-                        );
-                    }
-                    else if (!batchStarted)
-                    {
-                        // Start first batch
-                        batchStarted = true;
-
-                        // Ensure CurrentTechnique is set before using with SpriteBatch
-                        // MonoGame's SpriteBatch.Begin() will apply the effect automatically
-                        if (currentShader != null)
-                        {
-                            ShaderParameterApplier.EnsureCurrentTechnique(currentShader, _logger);
-                        }
-
-                        // Use Immediate mode for custom effects to ensure proper parameter application
-                        _spriteBatch!.Begin(
-                            SpriteSortMode.Immediate,
-                            BlendState.AlphaBlend,
-                            SamplerState.PointClamp,
-                            null,
-                            null,
-                            currentShader,
-                            transform
-                        );
-                    }
-
-                    RenderSingleSprite(spriteId, anim, pos, render);
+                    // Shader stacking requested but dependencies missing - fall back to single shader
+                    _logger.Warning(
+                        "SpriteRendererSystem: Shader stacking requested but ShaderRendererSystem or RenderTargetManager not available. Falling back to single shader."
+                    );
+                    needsShaderStacking = false;
                 }
 
-                if (batchStarted)
+                if (needsShaderStacking)
                 {
-                    _spriteBatch!.End();
+                    // Multiple shaders or blend modes - render to render target first, then apply shader stack
+                    var renderTarget = _renderTargetManager!.GetOrCreateRenderTarget(101); // Use index 101 for sprite layer
+                    if (renderTarget == null)
+                    {
+                        _logger.Warning(
+                            "SpriteRendererSystem: Failed to create render target for shader stacking. Falling back to direct rendering."
+                        );
+                        needsShaderStacking = false;
+                    }
+                    else
+                    {
+                        // Render sprites with per-entity shaders to render target (layer shaders applied by ApplyShaderStack)
+                        var renderTargets = _graphicsDevice.GetRenderTargets();
+                        RenderTarget2D? previousTarget =
+                            renderTargets.Length > 0
+                                ? renderTargets[0].RenderTarget as RenderTarget2D
+                                : null;
+
+                        try
+                        {
+                            _graphicsDevice.SetRenderTarget(renderTarget);
+                            _graphicsDevice.Clear(Color.Transparent);
+
+                            // Don't apply layer shader during geometry rendering - ApplyShaderStack will handle all layer shaders
+                            // Only use per-entity shaders (if any)
+                            // Sort sprites by shader to minimize SpriteBatch restarts
+                            sprites.Sort(
+                                (a, b) =>
+                                {
+                                    Effect? shaderA = GetEntityShader(a.entity);
+                                    Effect? shaderB = GetEntityShader(b.entity);
+                                    return (shaderA?.GetHashCode() ?? 0).CompareTo(
+                                        shaderB?.GetHashCode() ?? 0
+                                    );
+                                }
+                            );
+
+                            // Render sprites with per-entity shader batching (no layer shader)
+                            Effect? currentShader = null; // No layer shader - ApplyShaderStack will handle it
+                            bool batchStarted = false;
+
+                            foreach (var (entity, spriteId, anim, pos, render) in sprites)
+                            {
+                                // Check for per-entity shader only (no layer shader fallback)
+                                Effect? entityShader = GetEntityShader(entity);
+                                Effect? activeShader = entityShader; // No layer shader - ApplyShaderStack will handle it
+
+                                // If shader changed, restart SpriteBatch
+                                if (activeShader != currentShader)
+                                {
+                                    if (batchStarted)
+                                    {
+                                        _spriteBatch!.End();
+                                    }
+
+                                    currentShader = activeShader;
+                                    batchStarted = true;
+
+                                    // Ensure CurrentTechnique is set before using with SpriteBatch
+                                    if (currentShader != null)
+                                    {
+                                        ShaderParameterApplier.EnsureCurrentTechnique(
+                                            currentShader,
+                                            _logger
+                                        );
+                                    }
+
+                                    // Use Immediate mode for custom effects to ensure proper parameter application
+                                    _spriteBatch!.Begin(
+                                        SpriteSortMode.Immediate,
+                                        BlendState.AlphaBlend,
+                                        SamplerState.PointClamp,
+                                        null,
+                                        null,
+                                        currentShader,
+                                        transform
+                                    );
+                                }
+                                else if (!batchStarted)
+                                {
+                                    // Start first batch
+                                    batchStarted = true;
+
+                                    // Ensure CurrentTechnique is set before using with SpriteBatch
+                                    if (currentShader != null)
+                                    {
+                                        ShaderParameterApplier.EnsureCurrentTechnique(
+                                            currentShader,
+                                            _logger
+                                        );
+                                    }
+
+                                    // Use Immediate mode for custom effects to ensure proper parameter application
+                                    _spriteBatch!.Begin(
+                                        SpriteSortMode.Immediate,
+                                        BlendState.AlphaBlend,
+                                        SamplerState.PointClamp,
+                                        null,
+                                        null,
+                                        currentShader,
+                                        transform
+                                    );
+                                }
+
+                                RenderSingleSprite(spriteId, anim, pos, render);
+                            }
+
+                            if (batchStarted)
+                            {
+                                _spriteBatch!.End();
+                            }
+
+                            // Apply shader stack
+                            _shaderRendererSystem!.ApplyShaderStack(
+                                renderTarget,
+                                null, // Render to back buffer
+                                shaderStack!,
+                                _spriteBatch!,
+                                _graphicsDevice,
+                                _renderTargetManager!
+                            );
+
+                            // Increment draw call counter
+                            _performanceStatsSystem?.IncrementDrawCalls();
+                        }
+                        finally
+                        {
+                            _graphicsDevice.SetRenderTarget(previousTarget);
+                        }
+                    }
                 }
 
-                // Increment draw call counter
-                _performanceStatsSystem?.IncrementDrawCalls();
+                if (!needsShaderStacking)
+                {
+                    // Single shader or no shaders - render normally
+                    Effect? spriteLayerShader =
+                        shaderStack != null && shaderStack.Count > 0 ? shaderStack[0].effect : null;
+
+                    // Sort sprites by shader to minimize SpriteBatch restarts
+                    sprites.Sort(
+                        (a, b) =>
+                        {
+                            Effect? shaderA = GetEntityShader(a.entity);
+                            Effect? shaderB = GetEntityShader(b.entity);
+                            Effect? activeA = shaderA ?? spriteLayerShader;
+                            Effect? activeB = shaderB ?? spriteLayerShader;
+                            return (activeA?.GetHashCode() ?? 0).CompareTo(
+                                activeB?.GetHashCode() ?? 0
+                            );
+                        }
+                    );
+
+                    // Render sprites with shader batching
+                    Effect? currentShader = spriteLayerShader;
+                    bool batchStarted = false;
+
+                    foreach (var (entity, spriteId, anim, pos, render) in sprites)
+                    {
+                        // Check for per-entity shader
+                        Effect? entityShader = GetEntityShader(entity);
+                        Effect? activeShader = entityShader ?? spriteLayerShader;
+
+                        // If shader changed, restart SpriteBatch
+                        if (activeShader != currentShader)
+                        {
+                            if (batchStarted)
+                            {
+                                _spriteBatch!.End();
+                            }
+
+                            currentShader = activeShader;
+                            batchStarted = true;
+
+                            // Ensure CurrentTechnique is set before using with SpriteBatch
+                            // MonoGame's SpriteBatch.Begin() will apply the effect automatically
+                            if (currentShader != null)
+                            {
+                                ShaderParameterApplier.EnsureCurrentTechnique(
+                                    currentShader,
+                                    _logger
+                                );
+                            }
+
+                            // Use Immediate mode for custom effects to ensure proper parameter application
+                            _spriteBatch!.Begin(
+                                SpriteSortMode.Immediate,
+                                BlendState.AlphaBlend,
+                                SamplerState.PointClamp,
+                                null,
+                                null,
+                                currentShader,
+                                transform
+                            );
+                        }
+                        else if (!batchStarted)
+                        {
+                            // Start first batch
+                            batchStarted = true;
+
+                            // Ensure CurrentTechnique is set before using with SpriteBatch
+                            // MonoGame's SpriteBatch.Begin() will apply the effect automatically
+                            if (currentShader != null)
+                            {
+                                ShaderParameterApplier.EnsureCurrentTechnique(
+                                    currentShader,
+                                    _logger
+                                );
+                            }
+
+                            // Use Immediate mode for custom effects to ensure proper parameter application
+                            _spriteBatch!.Begin(
+                                SpriteSortMode.Immediate,
+                                BlendState.AlphaBlend,
+                                SamplerState.PointClamp,
+                                null,
+                                null,
+                                currentShader,
+                                transform
+                            );
+                        }
+
+                        RenderSingleSprite(spriteId, anim, pos, render);
+                    }
+
+                    if (batchStarted)
+                    {
+                        _spriteBatch!.End();
+                    }
+
+                    // Increment draw call counter
+                    _performanceStatsSystem?.IncrementDrawCalls();
+                }
             }
             finally
             {
@@ -434,23 +609,44 @@ namespace MonoBall.Core.ECS.Systems
             if (!shaderComp.IsEnabled)
                 return null;
 
-            Effect shader;
-            try
+            Effect? shader = _shaderService.GetShader(shaderComp.ShaderId);
+            if (shader == null)
             {
-                shader = _shaderService.GetShader(shaderComp.ShaderId);
-            }
-            catch (InvalidOperationException ex)
-            {
-                _logger.Error(
-                    ex,
-                    "Failed to load per-entity shader {ShaderId}",
-                    shaderComp.ShaderId
-                );
+                _logger.Warning("Failed to load per-entity shader {ShaderId}", shaderComp.ShaderId);
                 return null;
             }
 
             // Ensure CurrentTechnique is set
             ShaderParameterApplier.EnsureCurrentTechnique(shader, _logger);
+
+            // Automatically set ScreenSize parameter if the shader has it
+            // This prevents warnings about null ScreenSize parameters
+            try
+            {
+                var screenSizeParam = shader.Parameters["ScreenSize"];
+                if (
+                    screenSizeParam != null
+                    && screenSizeParam.ParameterClass == EffectParameterClass.Vector
+                    && screenSizeParam.ColumnCount == 2
+                )
+                {
+                    var viewport = _graphicsDevice.Viewport;
+                    var screenSize = new Vector2(viewport.Width, viewport.Height);
+                    screenSizeParam.SetValue(screenSize);
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                // ScreenSize parameter doesn't exist - that's fine, not all shaders need it
+            }
+            catch (Exception ex)
+            {
+                // Log unexpected errors but don't fail - ScreenSize is optional
+                _logger.Debug(
+                    ex,
+                    "Failed to set ScreenSize parameter automatically for per-entity shader"
+                );
+            }
 
             if (shaderComp.Parameters == null)
                 return shader;

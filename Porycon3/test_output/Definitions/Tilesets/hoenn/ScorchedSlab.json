@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/scorched_slab",
+  "name": "ScorchedSlab",
+  "texturePath": "Graphics/Tilesets/Hoenn/ScorchedSlab.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 28,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

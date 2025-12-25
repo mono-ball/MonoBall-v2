@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/sealed_chamber_outer_room",
+  "name": "SealedChamber_OuterRoom",
+  "texturePath": "Graphics/Tilesets/Hoenn/SealedChamber_OuterRoom.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 37,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0
+}

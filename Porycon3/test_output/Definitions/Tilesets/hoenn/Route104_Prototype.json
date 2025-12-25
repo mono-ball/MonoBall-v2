@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/route104_prototype",
+  "name": "Route104_Prototype",
+  "texturePath": "Graphics/Tilesets/Hoenn/Route104_Prototype.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 2,
+  "columns": 2,
+  "imageWidth": 32,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

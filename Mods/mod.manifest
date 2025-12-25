@@ -1,6 +1,7 @@
 {
   "modOrder": [
     "base:monoball-core",
+    "base:test-shaders",
     "pokemon:emerald"
   ]
 }

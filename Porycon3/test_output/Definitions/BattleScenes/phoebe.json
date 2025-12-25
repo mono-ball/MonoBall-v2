@@ -1,0 +1,14 @@
+{
+  "battleSceneId": "base:battlescene:normal/phoebe",
+  "name": "Phoebe",
+  "description": "Phoebe battle background",
+  "category": "elite_four",
+  "backgroundTextureId": "base:texture:battle/background/stadium",
+  "playerPlatformTextureId": "base:texture:battle/platform/stadium_player",
+  "enemyPlatformTextureId": "base:texture:battle/platform/stadium_enemy",
+  "paletteId": "base:texture:battle/palette/elite_phoebe",
+  "defaultMusicId": "base:audio:music/battle/elite_four",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

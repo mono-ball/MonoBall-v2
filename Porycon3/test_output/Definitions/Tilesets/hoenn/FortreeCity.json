@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/fortree_city",
+  "name": "FortreeCity",
+  "texturePath": "Graphics/Tilesets/Hoenn/FortreeCity.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 124,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 128,
+  "spacing": 0,
+  "margin": 0
+}

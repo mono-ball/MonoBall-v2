@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.Content;
+using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Mods;
+using MonoBall.Core.Mods.Definitions;
 using Serilog;
 
 namespace MonoBall.Core.Rendering
@@ -11,9 +13,10 @@ namespace MonoBall.Core.Rendering
     /// </summary>
     public class ShaderService : IShaderService, IDisposable
     {
-        private readonly ContentManager _content;
         private readonly GraphicsDevice _graphicsDevice;
+        private readonly IModManager _modManager;
         private readonly ILogger _logger;
+        private readonly ShaderLoader _shaderLoader;
         private readonly Dictionary<string, Effect> _cache = new();
         private readonly LinkedList<string> _accessOrder = new();
         private readonly object _lock = new();
@@ -23,94 +26,131 @@ namespace MonoBall.Core.Rendering
         /// <summary>
         /// Initializes a new instance of the ShaderService.
         /// </summary>
-        /// <param name="content">The content manager for loading shaders.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
+        /// <param name="modManager">The mod manager for accessing shader definitions.</param>
+        /// <param name="shaderLoader">The shader loader for loading compiled shader files.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public ShaderService(ContentManager content, GraphicsDevice graphicsDevice, ILogger logger)
+        /// <exception cref="ArgumentNullException">Thrown when graphicsDevice, modManager, shaderLoader, or logger is null.</exception>
+        public ShaderService(
+            GraphicsDevice graphicsDevice,
+            IModManager modManager,
+            ShaderLoader shaderLoader,
+            ILogger logger
+        )
         {
-            _content = content ?? throw new ArgumentNullException(nameof(content));
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+            _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _shaderLoader = shaderLoader ?? throw new ArgumentNullException(nameof(shaderLoader));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
-        /// Gets the subdirectory and shader name for a shader based on its ID prefix.
+        /// Validates that a shader ID matches the mod shader format and is all lowercase.
         /// </summary>
-        /// <param name="shaderId">The shader ID (e.g., "TileLayerColorGrading").</param>
-        /// <returns>A tuple containing (subdirectory, shaderName).</returns>
-        /// <exception cref="ArgumentException">Thrown when the shader ID has an unknown prefix.</exception>
-        private (string subdirectory, string shaderName) GetShaderPathInfo(string shaderId)
+        /// <param name="shaderId">The shader ID to validate.</param>
+        /// <exception cref="ArgumentException">Thrown when shader ID format is invalid.</exception>
+        private void ValidateShaderIdFormat(string shaderId)
         {
-            if (shaderId.StartsWith("TileLayer"))
-            {
-                string shaderName = shaderId.Substring("TileLayer".Length);
-                return ("TileLayer", shaderName);
-            }
-            if (shaderId.StartsWith("SpriteLayer"))
-            {
-                string shaderName = shaderId.Substring("SpriteLayer".Length);
-                return ("SpriteLayer", shaderName);
-            }
-            if (shaderId.StartsWith("CombinedLayer"))
-            {
-                string shaderName = shaderId.Substring("CombinedLayer".Length);
-                return ("CombinedLayer", shaderName);
-            }
-            if (shaderId.StartsWith("PerEntity"))
-            {
-                string shaderName = shaderId.Substring("PerEntity".Length);
-                return ("PerEntity", shaderName);
-            }
-
-            throw new ArgumentException(
-                $"Unknown shader layer prefix: {shaderId}",
-                nameof(shaderId)
-            );
-        }
-
-        /// <inheritdoc />
-        public Effect LoadShader(string shaderId)
-        {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(ShaderService));
-
             if (string.IsNullOrEmpty(shaderId))
             {
                 throw new ArgumentNullException(nameof(shaderId));
             }
 
-            var (subdirectory, shaderName) = GetShaderPathInfo(shaderId);
-            // MonoGame ContentManager expects paths without file extension (auto-adds .xnb)
-            string contentPath = $"Shaders/{subdirectory}/{shaderName}";
-
-            _logger.Debug("Loading shader from content path: {ContentPath}", contentPath);
-
-            try
+            if (!shaderId.Contains(":shader:"))
             {
-                Effect effect = _content.Load<Effect>(contentPath);
-                _logger.Debug("Successfully loaded shader: {ShaderId}", shaderId);
-                return effect;
+                throw new ArgumentException(
+                    $"Shader ID '{shaderId}' does not match mod shader format. "
+                        + "Expected format: {{namespace}}:shader:{{name}} (all lowercase).",
+                    nameof(shaderId)
+                );
             }
-            catch (Microsoft.Xna.Framework.Content.ContentLoadException ex)
+
+            if (shaderId != shaderId.ToLowerInvariant())
             {
-                // Fail fast per .cursorrules - shader loading failure is a critical error
-                throw new InvalidOperationException(
-                    $"Failed to load shader '{shaderId}' from content path '{contentPath}': {ex.Message}",
-                    ex
+                throw new ArgumentException(
+                    $"Shader ID '{shaderId}' must be all lowercase. "
+                        + "Expected format: {{namespace}}:shader:{{name}} (all lowercase).",
+                    nameof(shaderId)
                 );
             }
         }
 
         /// <inheritdoc />
-        public Effect GetShader(string shaderId)
+        public Effect? LoadShader(string shaderId)
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(ShaderService));
 
             if (string.IsNullOrEmpty(shaderId))
             {
-                throw new ArgumentNullException(nameof(shaderId));
+                _logger.Warning("Attempted to load shader with null or empty ID");
+                return null;
+            }
+
+            ValidateShaderIdFormat(shaderId);
+
+            var metadata = _modManager.GetDefinitionMetadata(shaderId);
+            if (metadata == null)
+            {
+                _logger.Warning("Shader definition not found: {ShaderId}", shaderId);
+                return null;
+            }
+
+            if (metadata.DefinitionType != "Shaders")
+            {
+                _logger.Warning(
+                    "Definition '{ShaderId}' is not a shader definition (type: {DefinitionType})",
+                    shaderId,
+                    metadata.DefinitionType
+                );
+                return null;
+            }
+
+            var shaderDef = _modManager.GetDefinition<ShaderDefinition>(shaderId);
+            if (shaderDef == null)
+            {
+                _logger.Warning("Failed to deserialize shader definition: {ShaderId}", shaderId);
+                return null;
+            }
+
+            var modManifest = _modManager.GetModManifestByDefinitionId(shaderId);
+            if (modManifest == null)
+            {
+                _logger.Warning(
+                    "Mod manifest not found for shader {ShaderId} (mod: {ModId})",
+                    shaderId,
+                    metadata.OriginalModId
+                );
+                return null;
+            }
+
+            try
+            {
+                return _shaderLoader.LoadShader(shaderDef, modManifest);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(
+                    ex,
+                    "Failed to load shader: {ShaderId} from mod {ModId}",
+                    shaderId,
+                    modManifest.Id
+                );
+                return null;
+            }
+        }
+
+        /// <inheritdoc />
+        public Effect? GetShader(string shaderId)
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(ShaderService));
+
+            if (string.IsNullOrEmpty(shaderId))
+            {
+                _logger.Warning("Attempted to get shader with null or empty ID");
+                return null;
             }
 
             lock (_lock)
@@ -125,8 +165,12 @@ namespace MonoBall.Core.Rendering
                     return cachedEffect;
                 }
 
-                // Load shader (throws on failure per .cursorrules)
-                Effect effect = LoadShader(shaderId);
+                // Load shader (returns null on failure, consistent with other resource loaders)
+                Effect? effect = LoadShader(shaderId);
+                if (effect == null)
+                {
+                    return null;
+                }
 
                 // Add to cache
                 AddToCache(shaderId, effect);
@@ -175,6 +219,14 @@ namespace MonoBall.Core.Rendering
                 return false;
             }
 
+            // Check if shader exists in registry
+            var metadata = _modManager.GetDefinitionMetadata(shaderId);
+            if (metadata == null || metadata.DefinitionType != "Shaders")
+            {
+                return false;
+            }
+
+            // Also check cache (for performance - shader might be loaded)
             lock (_lock)
             {
                 return _cache.ContainsKey(shaderId);

@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/route114_fossil_maniacs_tunnel",
+  "name": "Route114_FossilManiacsTunnel",
+  "texturePath": "Graphics/Tilesets/Hoenn/Route114_FossilManiacsTunnel.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 35,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0
+}

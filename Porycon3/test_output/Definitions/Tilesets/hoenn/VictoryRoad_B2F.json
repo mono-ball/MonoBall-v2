@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/victory_road_b2f",
+  "name": "VictoryRoad_B2F",
+  "texturePath": "Graphics/Tilesets/Hoenn/VictoryRoad_B2F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 55,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0
+}

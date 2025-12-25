@@ -1,0 +1,298 @@
+{
+  "id": "base:map:hoenn/verdanturf_town",
+  "name": "VerdanturfTown",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:town",
+  "width": 20,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_verdanturf",
+  "weatherId": "base:weather:outdoor/sunny",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/verdanturf_town",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": {
+    "north": {
+      "mapId": "base:map:hoenn/route116",
+      "offset": -80
+    },
+    "east": {
+      "mapId": "base:map:hoenn/route117",
+      "offset": 0
+    }
+  },
+  "layers": [
+    {
+      "id": "base:layer:hoenn/verdanturf_town/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/verdanturf_town/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAADAAAABAAAAAQAAAAAAAAABgAAAAYAAAACAAAABgAAAAEAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAADwAAABEAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAAFAAAABUAAAAUAAAAFAAAABYAAAAYAAAAGQAAABoAAAAcAAAAHgAAAB8AAAAhAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAABEAAAAjAAAAIwAAACMAAAAkAAAAJgAAACgAAAApAAAAKgAAACwAAAAuAAAAMAAAADIAAAA0AAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAOwAAADwAAAAjAAAAIwAAACMAAAA\u002BAAAAQAAAAEEAAABDAAAAPgAAAEAAAABEAAAARQAAAEYAAABGAAAASAAAAEgAAABIAAAASAAAAEgAAAAjAAAAIwAAACMAAAAjAAAAIwAAACMAAAARAAAAEQAAAE8AAAAjAAAAEQAAABEAAAAjAAAANAAAAEYAAABIAAAASAAAAEgAAABIAAAASAAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAABEAAAARAAAAIwAAACMAAAARAAAAEQAAACMAAAAjAAAARgAAAEgAAABIAAAASAAAAEgAAABIAAAAIwAAAFsAAAAjAAAAIwAAACMAAAAjAAAAEQAAABEAAAA8AAAAIwAAABEAAAARAAAAIwAAACMAAABGAAAASAAAAEgAAABIAAAASAAAAGAAAAARAAAAIwAAACMAAAAjAAAAIwAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAAjAAAAIwAAADQAAAA8AAAAIwAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAATwAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAACMAAABPAAAAIwAAACMAAABbAAAAIwAAACMAAAAjAAAATwAAACMAAABPAAAAIwAAACMAAAAjAAAAWwAAACMAAAAjAAAAEQAAABEAAAAjAAAAIwAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAACMAAABPAAAAIwAAAE8AAAAjAAAAIwAAACMAAAAjAAAAIwAAACMAAAARAAAAEQAAAE8AAAAjAAAAIwAAACMAAABPAAAAIwAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAABEAAAARAAAATwAAACMAAAAjAAAAIwAAACMAAAAjAAAAIwAAAGsAAAAkAAAAWwAAACMAAABbAAAAWwAAACMAAABrAAAAIwAAAGsAAAAkAAAAEQAAABEAAABPAAAAIwAAACMAAAAjAAAAIwAAACMAAAAjAAAAcAAAAHIAAAAjAAAAWwAAAFsAAAA8AAAAIwAAAHAAAAAjAAAAcAAAAHIAAAARAAAAEQAAAE8AAAAjAAAAIwAAAGsAAAAkAAAAEQAAAE8AAAAjAAAAIwAAAE8AAABPAAAAIwAAAE8AAABPAAAAIwAAABEAAAARAAAAEQAAABEAAAAjAAAAIwAAACMAAAAjAAAAcAAAAHIAAAARAAAAIwAAAE8AAABPAAAAIwAAACMAAAAjAAAATwAAACMAAAAjAAAAIwAAAE8AAAAjAAAATwAAACMAAABPAAAAIwAAACMAAAAjAAAAIwAAADQAAABbAAAAIwAAAE8AAAAjAAAAIwAAAFsAAAA0AAAANAAAADQAAAA0AAAAIwAAAFsAAABPAAAATwAAACMAAAAjAAAAIwAAACMAAAA0AAAARgAAADQAAAA0AAAAWwAAACMAAAAjAAAANAAAAEYAAABGAAAARgAAAEYAAAA0AAAANAAAACMAAAAjAAAAEQAAABEAAAARAAAANAAAAEYAAABGAAAARgAAAEYAAAA0AAAANAAAADQAAABGAAAARgAAAEYAAABGAAAARgAAAEYAAABGAAAANAAAADQAAAA0AAAANAAAADQAAABGAAAARgAAAA=="
+    },
+    {
+      "id": "base:layer:hoenn/verdanturf_town/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 20,
+      "height": 20,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAgAAAAIAAAAJAAAACgAAAAoAAAALAAAADAAAAA0AAAAOAAAAEAAAABIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAABcAAAACAAAAAgAAABsAAAAdAAAAHgAAAB8AAAAAAAAAIgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAABIAAAACAAAAAgAAAAIAAAAlAAAAJwAAAAIAAAACAAAAKwAAAC0AAAAvAAAAMQAAADMAAAA1AAAANQAAADYAAAA3AAAAOAAAADkAAAA6AAAAIgAAAAIAAAACAAAAAgAAAD0AAAA/AAAAAgAAAAIAAAAAAAAAPwAAAAIAAAACAAAAQwAAAEcAAABHAAAASQAAAEoAAABLAAAATAAAAE0AAAACAAAAAgAAAAIAAAACAAAATgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAUAAAAEcAAABRAAAAUgAAAFMAAABUAAAAVQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAARwAAAFYAAABXAAAAWAAAAFkAAABaAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAABHAAAAXAAAAF0AAABeAAAAXwAAAGEAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAFAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAGIAAABjAAAAYwAAAGQAAAACAAAAAgAAAAIAAAACAAAAYgAAAGMAAABjAAAAYwAAAGQAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAZQAAAGYAAABmAAAAZwAAAGgAAABoAAAAaAAAAGgAAABlAAAAZgAAAGYAAABmAAAAZwAAAAIAAAACAAAAAgAAAGIAAABjAAAAYwAAAGQAAABpAAAAagAAAGwAAABtAAAAAgAAAAIAAAACAAAAAgAAAGkAAABsAAAAagAAAGwAAABtAAAAAgAAAAIAAAACAAAAZQAAAGYAAABmAAAAZwAAAG4AAABvAAAAcQAAAHMAAAACAAAAAgAAAAIAAAACAAAAbgAAAHEAAABvAAAAcQAAAHMAAAACAAAAAgAAAAIAAABpAAAAagAAAGwAAABtAAAAdAAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAG4AAABvAAAAcQAAAHMAAAB1AAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAADUAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA1AAAANQAAADUAAAA1AAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA1AAAARwAAADUAAAA1AAAAAgAAAAIAAAACAAAANQAAAEcAAABHAAAARwAAAEcAAAA1AAAANQAAAAIAAAACAAAAdgAAAHYAAAB2AAAANQAAAEcAAABHAAAARwAAAEcAAAA1AAAANQAAADUAAABHAAAARwAAAEcAAABHAAAARwAAAEcAAABHAAAANQAAADUAAAA1AAAANQAAADUAAABHAAAARwAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/verdanturf_town"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_battle_tent_lobby",
+      "name": "Warp to verdanturf_town_battle_tent_lobby",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town_battle_tent_lobby",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_mart",
+      "name": "Warp to verdanturf_town_mart",
+      "x": 192,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town_mart",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_pokemon_center_1f",
+      "name": "Warp to verdanturf_town_pokemon_center_1f",
+      "x": 256,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town_pokemon_center_1f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_wandas_house",
+      "name": "Warp to verdanturf_town_wandas_house",
+      "x": 160,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town_wandas_house",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_rusturf_tunnel",
+      "name": "Warp to rusturf_tunnel",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rusturf_tunnel",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_friendship_raters_house",
+      "name": "Warp to verdanturf_town_friendship_raters_house",
+      "x": 16,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town_friendship_raters_house",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_house",
+      "name": "Warp to verdanturf_town_house",
+      "x": 272,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/verdanturf_town_house",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemartsign",
+      "name": "Sign: Common_EventScript_ShowPokemartSign",
+      "x": 224,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemart_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscripttownsign",
+      "name": "Sign: VerdanturfTown_EventScript_TownSign",
+      "x": 224,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_town_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemoncentersign",
+      "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
+      "x": 272,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemon_center_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscriptwandashousesign",
+      "name": "Sign: VerdanturfTown_EventScript_WandasHouseSign",
+      "x": 112,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_wandas_house_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemartsign",
+      "name": "Sign: Common_EventScript_ShowPokemartSign",
+      "x": 208,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemart_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemoncentersign",
+      "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
+      "x": 288,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/common_event_script_show_pokemon_center_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscriptbattletentsign",
+      "name": "Sign: VerdanturfTown_EventScript_BattleTentSign",
+      "x": 16,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_battle_tent_sign",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscriptrusturftunnelsign",
+      "name": "Sign: VerdanturfTown_EventScript_RusturfTunnelSign",
+      "x": 112,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_rusturf_tunnel_sign",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/verdanturf_town/npc_0",
+      "name": "NPC_0",
+      "x": 64,
+      "y": 272,
+      "spriteId": "base:sprite:npcs/generic/man_2",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_man",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/verdanturf_town/localid_verdanturf_twin",
+      "name": "LOCALID_VERDANTURF_TWIN",
+      "x": 144,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/twin",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_twin",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/verdanturf_town/npc_2",
+      "name": "NPC_2",
+      "x": 112,
+      "y": 176,
+      "spriteId": "base:sprite:npcs/generic/boy_1",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_boy",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/verdanturf_town/npc_3",
+      "name": "NPC_3",
+      "x": 112,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/camper",
+      "behaviorId": "base:script:behavior/wander",
+      "interactionId": "base:script:interaction/verdanturf_town_event_script_camper",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

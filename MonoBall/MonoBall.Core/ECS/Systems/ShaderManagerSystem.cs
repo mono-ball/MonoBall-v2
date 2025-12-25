@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,19 +23,32 @@ namespace MonoBall.Core.ECS.Systems
         private readonly IShaderService _shaderService;
         private readonly IShaderParameterValidator _parameterValidator;
         private readonly QueryDescription _layerShaderQuery;
+        private readonly GraphicsDevice _graphicsDevice;
         private readonly ILogger _logger;
 
-        // Cached active shaders per layer
-        private Effect? _activeTileLayerShader;
-        private Effect? _activeSpriteLayerShader;
-        private Effect? _activeCombinedLayerShader;
+        // Cached active shader stacks per layer
+        private readonly List<(
+            Effect effect,
+            ShaderBlendMode blendMode,
+            Entity entity
+        )> _activeTileLayerShaders = new();
+        private readonly List<(
+            Effect effect,
+            ShaderBlendMode blendMode,
+            Entity entity
+        )> _activeSpriteLayerShaders = new();
+        private readonly List<(
+            Effect effect,
+            ShaderBlendMode blendMode,
+            Entity entity
+        )> _activeCombinedLayerShaders = new();
 
-        // Track previous shader IDs for change detection
+        // Track previous shader IDs for change detection (for backward compatibility)
         private string? _previousTileShaderId;
         private string? _previousSpriteShaderId;
         private string? _previousCombinedShaderId;
 
-        // Track shader entities for event firing
+        // Track shader entities for event firing (for backward compatibility)
         private Entity? _tileShaderEntity;
         private Entity? _spriteShaderEntity;
         private Entity? _combinedShaderEntity;
@@ -43,7 +57,8 @@ namespace MonoBall.Core.ECS.Systems
         private bool _shadersDirty = true;
 
         // Track previous parameter values per entity for dirty tracking
-        private readonly Dictionary<Entity, Dictionary<string, object>> _previousParameterValues = new();
+        private readonly Dictionary<Entity, Dictionary<string, object>> _previousParameterValues =
+            new();
 
         // Reusable collections to avoid allocations
         private readonly List<(Entity entity, LayerShaderComponent shader)> _tileShaders = new();
@@ -57,11 +72,13 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="world">The ECS world.</param>
         /// <param name="shaderService">The shader service for loading shaders.</param>
         /// <param name="parameterValidator">The parameter validator for validating shader parameters.</param>
+        /// <param name="graphicsDevice">The graphics device for getting viewport dimensions.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public ShaderManagerSystem(
             World world,
             IShaderService shaderService,
             IShaderParameterValidator parameterValidator,
+            GraphicsDevice graphicsDevice,
             ILogger logger
         )
         {
@@ -70,6 +87,8 @@ namespace MonoBall.Core.ECS.Systems
                 shaderService ?? throw new ArgumentNullException(nameof(shaderService));
             _parameterValidator =
                 parameterValidator ?? throw new ArgumentNullException(nameof(parameterValidator));
+            _graphicsDevice =
+                graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _layerShaderQuery = new QueryDescription().WithAll<LayerShaderComponent>();
         }
@@ -84,9 +103,9 @@ namespace MonoBall.Core.ECS.Systems
             if (
                 _shadersDirty
                 || (
-                    _activeTileLayerShader == null
-                    && _activeSpriteLayerShader == null
-                    && _activeCombinedLayerShader == null
+                    _activeTileLayerShaders.Count == 0
+                    && _activeSpriteLayerShaders.Count == 0
+                    && _activeCombinedLayerShaders.Count == 0
                 )
             )
             {
@@ -98,55 +117,185 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         /// <summary>
-        /// Gets the active shader for tile layer rendering.
+        /// Gets the active shader stack for tile layer rendering.
+        /// Returns all enabled shaders sorted by RenderOrder.
         /// </summary>
-        public Effect? GetTileLayerShader() => _activeTileLayerShader;
+        public IReadOnlyList<(
+            Effect effect,
+            ShaderBlendMode blendMode,
+            Entity entity
+        )> GetTileLayerShaderStack()
+        {
+            return _activeTileLayerShaders;
+        }
 
         /// <summary>
-        /// Gets the active shader for sprite layer rendering.
+        /// Gets the active shader stack for sprite layer rendering.
+        /// Returns all enabled shaders sorted by RenderOrder.
         /// </summary>
-        public Effect? GetSpriteLayerShader() => _activeSpriteLayerShader;
+        public IReadOnlyList<(
+            Effect effect,
+            ShaderBlendMode blendMode,
+            Entity entity
+        )> GetSpriteLayerShaderStack()
+        {
+            return _activeSpriteLayerShaders;
+        }
 
         /// <summary>
-        /// Gets the active shader for combined layer rendering (post-processing).
+        /// Gets the active shader stack for combined layer rendering (post-processing).
+        /// Returns all enabled shaders sorted by RenderOrder.
         /// </summary>
-        public Effect? GetCombinedLayerShader() => _activeCombinedLayerShader;
+        public IReadOnlyList<(
+            Effect effect,
+            ShaderBlendMode blendMode,
+            Entity entity
+        )> GetCombinedLayerShaderStack()
+        {
+            return _activeCombinedLayerShaders;
+        }
 
         /// <summary>
-        /// Forces update of all parameters for the active combined layer shader.
+        /// Gets the active shader for tile layer rendering (backward compatibility).
+        /// Returns the first shader from the stack, or null if no shaders.
+        /// </summary>
+        public Effect? GetTileLayerShader() =>
+            _activeTileLayerShaders.Count > 0 ? _activeTileLayerShaders[0].effect : null;
+
+        /// <summary>
+        /// Gets the active shader for sprite layer rendering (backward compatibility).
+        /// Returns the first shader from the stack, or null if no shaders.
+        /// </summary>
+        public Effect? GetSpriteLayerShader() =>
+            _activeSpriteLayerShaders.Count > 0 ? _activeSpriteLayerShaders[0].effect : null;
+
+        /// <summary>
+        /// Gets the active shader for combined layer rendering (backward compatibility).
+        /// Returns the first shader from the stack, or null if no shaders.
+        /// </summary>
+        public Effect? GetCombinedLayerShader() =>
+            _activeCombinedLayerShaders.Count > 0 ? _activeCombinedLayerShaders[0].effect : null;
+
+        /// <summary>
+        /// Forces update of all parameters for all active combined layer shaders.
         /// Called right before SpriteBatch.Begin() in Immediate mode to ensure parameters are set.
         /// </summary>
         public void ForceUpdateCombinedLayerParameters()
         {
-            if (_activeCombinedLayerShader != null && _combinedShaderEntity.HasValue)
+            foreach (var (effect, _, entity) in _activeCombinedLayerShaders)
             {
-                UpdateShaderParametersForEntity(
-                    _combinedShaderEntity.Value,
-                    _activeCombinedLayerShader
-                );
+                UpdateShaderParametersForEntity(entity, effect);
             }
         }
 
         /// <summary>
-        /// Updates dynamic parameters for the active combined layer shader.
+        /// Updates dynamic parameters for all active combined layer shaders.
         /// Called before applying post-processing to ensure correct parameter values.
         /// </summary>
         /// <param name="parameters">Dictionary of parameter names to values.</param>
         public void UpdateCombinedLayerDynamicParameters(Dictionary<string, object> parameters)
         {
-            if (_activeCombinedLayerShader == null || parameters == null || parameters.Count == 0)
+            if (
+                _activeCombinedLayerShaders.Count == 0
+                || parameters == null
+                || parameters.Count == 0
+            )
                 return;
 
-            foreach (var (paramName, value) in parameters)
+            foreach (var (effect, _, _) in _activeCombinedLayerShaders)
+            {
+                foreach (var (paramName, value) in parameters)
+                {
+                    try
+                    {
+                        ShaderParameterApplier.ApplyParameter(effect, paramName, value, _logger);
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        // Log and continue - one parameter failure shouldn't stop others
+                        _logger.Warning(
+                            ex,
+                            "Failed to set dynamic parameter {ParamName} on combined layer shader",
+                            paramName
+                        );
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Updates the ScreenSize parameter for all active shaders (tile, sprite, and combined layers).
+        /// Called before applying parameters to ensure correct screen dimensions.
+        /// </summary>
+        /// <param name="width">The screen/viewport width.</param>
+        /// <param name="height">The screen/viewport height.</param>
+        public void UpdateAllLayersScreenSize(int width, int height)
+        {
+            var screenSize = new Vector2(width, height);
+
+            // Update ScreenSize for tile layer shaders
+            foreach (var (effect, _, _) in _activeTileLayerShaders)
             {
                 try
                 {
-                    ShaderParameterApplier.ApplyParameter(_activeCombinedLayerShader, paramName, value, _logger);
+                    ShaderParameterApplier.ApplyParameter(
+                        effect,
+                        "ScreenSize",
+                        screenSize,
+                        _logger
+                    );
                 }
                 catch (InvalidOperationException ex)
                 {
-                    // Log and continue - one parameter failure shouldn't stop others
-                    _logger.Warning(ex, "Failed to set dynamic parameter {ParamName} on combined layer shader", paramName);
+                    // Log and continue - ScreenSize is optional for shaders
+                    _logger.Debug(
+                        ex,
+                        "ScreenSize parameter not available or invalid for tile layer shader"
+                    );
+                }
+            }
+
+            // Update ScreenSize for sprite layer shaders
+            foreach (var (effect, _, _) in _activeSpriteLayerShaders)
+            {
+                try
+                {
+                    ShaderParameterApplier.ApplyParameter(
+                        effect,
+                        "ScreenSize",
+                        screenSize,
+                        _logger
+                    );
+                }
+                catch (InvalidOperationException ex)
+                {
+                    // Log and continue - ScreenSize is optional for shaders
+                    _logger.Debug(
+                        ex,
+                        "ScreenSize parameter not available or invalid for sprite layer shader"
+                    );
+                }
+            }
+
+            // Update ScreenSize for combined layer shaders
+            foreach (var (effect, _, _) in _activeCombinedLayerShaders)
+            {
+                try
+                {
+                    ShaderParameterApplier.ApplyParameter(
+                        effect,
+                        "ScreenSize",
+                        screenSize,
+                        _logger
+                    );
+                }
+                catch (InvalidOperationException ex)
+                {
+                    // Log and continue - ScreenSize is optional for shaders
+                    _logger.Debug(
+                        ex,
+                        "ScreenSize parameter not available or invalid for combined layer shader"
+                    );
                 }
             }
         }
@@ -159,7 +308,10 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="height">The screen/viewport height.</param>
         public void UpdateCombinedLayerScreenSize(int width, int height)
         {
-            var parameters = new Dictionary<string, object> { { "ScreenSize", new Vector2(width, height) } };
+            var parameters = new Dictionary<string, object>
+            {
+                { "ScreenSize", new Vector2(width, height) },
+            };
             UpdateCombinedLayerDynamicParameters(parameters);
         }
 
@@ -226,131 +378,146 @@ namespace MonoBall.Core.ECS.Systems
                 _combinedShaders.Count
             );
 
-            // Select shader with lowest RenderOrder for each layer
-            UpdateLayerShader(
+            // Select all enabled shaders for each layer (sorted by RenderOrder)
+            UpdateLayerShaderStack(
                 _tileShaders,
                 ShaderLayer.TileLayer,
-                ref _activeTileLayerShader,
+                _activeTileLayerShaders,
                 ref _previousTileShaderId,
                 ref _tileShaderEntity
             );
-            UpdateLayerShader(
+            UpdateLayerShaderStack(
                 _spriteShaders,
                 ShaderLayer.SpriteLayer,
-                ref _activeSpriteLayerShader,
+                _activeSpriteLayerShaders,
                 ref _previousSpriteShaderId,
                 ref _spriteShaderEntity
             );
-            UpdateLayerShader(
+            UpdateLayerShaderStack(
                 _combinedShaders,
                 ShaderLayer.CombinedLayer,
-                ref _activeCombinedLayerShader,
+                _activeCombinedLayerShaders,
                 ref _previousCombinedShaderId,
                 ref _combinedShaderEntity
             );
         }
 
-        private void UpdateLayerShader(
+        private void UpdateLayerShaderStack(
             List<(Entity entity, LayerShaderComponent shader)> shaders,
             ShaderLayer layer,
-            ref Effect? activeShader,
+            List<(Effect effect, ShaderBlendMode blendMode, Entity entity)> activeShaderStack,
             ref string? previousShaderId,
             ref Entity? shaderEntity
         )
         {
+            // Clear current stack
+            activeShaderStack.Clear();
+
             if (shaders.Count == 0)
             {
-                if (activeShader != null)
+                if (previousShaderId != null)
                 {
                     // Shader was disabled
                     FireShaderChangedEvent(layer, previousShaderId, null, shaderEntity ?? default);
-                    activeShader = null;
                     previousShaderId = null;
                     shaderEntity = null;
                 }
-
                 return;
             }
 
-            // Sort by RenderOrder (lowest first)
-            shaders.Sort((a, b) => a.shader.RenderOrder.CompareTo(b.shader.RenderOrder));
-            var selected = shaders[0];
-
-            _logger.Debug(
-                "ShaderManagerSystem: Loading shader {ShaderId} for layer {Layer}",
-                selected.shader.ShaderId,
-                layer
+            // Sort by RenderOrder (lowest first), then by entity ID for stable ordering
+            shaders.Sort(
+                (a, b) =>
+                {
+                    int orderComparison = a.shader.RenderOrder.CompareTo(b.shader.RenderOrder);
+                    if (orderComparison != 0)
+                        return orderComparison;
+                    return a.entity.Id.CompareTo(b.entity.Id);
+                }
             );
 
-            Effect newShader;
-            try
+            // Load all shaders
+            foreach (var (entity, shaderComp) in shaders)
             {
-                newShader = _shaderService.GetShader(selected.shader.ShaderId);
                 _logger.Debug(
-                    "ShaderManagerSystem: Successfully loaded shader {ShaderId}, Techniques: {TechniqueCount}",
-                    selected.shader.ShaderId,
-                    newShader.Techniques.Count
-                );
-            }
-            catch (InvalidOperationException ex)
-            {
-                _logger.Error(
-                    ex,
-                    "Shader {ShaderId} failed to load for layer {Layer}",
-                    selected.shader.ShaderId,
+                    "ShaderManagerSystem: Loading shader {ShaderId} for layer {Layer}",
+                    shaderComp.ShaderId,
                     layer
                 );
-                return;
-            }
 
-            // Set CurrentTechnique (use first technique if not explicitly set)
-            ShaderParameterApplier.EnsureCurrentTechnique(newShader, _logger);
-
-            // Check if shader changed
-            if (selected.shader.ShaderId != previousShaderId)
-            {
-                FireShaderChangedEvent(
-                    layer,
-                    previousShaderId,
-                    selected.shader.ShaderId,
-                    selected.entity
-                );
-                previousShaderId = selected.shader.ShaderId;
-                shaderEntity = selected.entity;
-
-                // Clear previous parameter values when shader changes
-                if (_previousParameterValues.ContainsKey(selected.entity))
+                Effect? effect = _shaderService.GetShader(shaderComp.ShaderId);
+                if (effect == null)
                 {
-                    _previousParameterValues[selected.entity].Clear();
+                    _logger.Warning(
+                        "Shader {ShaderId} failed to load for layer {Layer}",
+                        shaderComp.ShaderId,
+                        layer
+                    );
+                    continue; // Skip failed shader, continue with others
+                }
+
+                _logger.Debug(
+                    "ShaderManagerSystem: Successfully loaded shader {ShaderId}, Techniques: {TechniqueCount}",
+                    shaderComp.ShaderId,
+                    effect.Techniques.Count
+                );
+
+                // Set CurrentTechnique (use first technique if not explicitly set)
+                ShaderParameterApplier.EnsureCurrentTechnique(effect, _logger);
+
+                // Add to stack
+                activeShaderStack.Add((effect, shaderComp.BlendMode, entity));
+
+                // Clear previous parameter values when shader is added
+                if (_previousParameterValues.ContainsKey(entity))
+                {
+                    _previousParameterValues[entity].Clear();
                 }
             }
 
-            activeShader = newShader;
+            // Check if first shader changed (for backward compatibility and events)
+            if (activeShaderStack.Count > 0)
+            {
+                var firstShader = activeShaderStack[0];
+                ref var firstShaderComp = ref _world.Get<LayerShaderComponent>(firstShader.entity);
+
+                if (firstShaderComp.ShaderId != previousShaderId)
+                {
+                    FireShaderChangedEvent(
+                        layer,
+                        previousShaderId,
+                        firstShaderComp.ShaderId,
+                        firstShader.entity
+                    );
+                    previousShaderId = firstShaderComp.ShaderId;
+                    shaderEntity = firstShader.entity;
+                }
+            }
+
+            _logger.Debug(
+                "ShaderManagerSystem: Updated shader stack for layer {Layer}, Count: {Count}",
+                layer,
+                activeShaderStack.Count
+            );
         }
 
         private void UpdateShaderParameters()
         {
-            // Update shader parameters for active shaders
+            // Update shader parameters for all active shaders in stacks
             // Validate parameters before applying
-            if (_activeTileLayerShader != null && _tileShaderEntity.HasValue)
+            foreach (var (effect, _, entity) in _activeTileLayerShaders)
             {
-                UpdateShaderParametersForEntity(_tileShaderEntity.Value, _activeTileLayerShader);
+                UpdateShaderParametersForEntity(entity, effect);
             }
 
-            if (_activeSpriteLayerShader != null && _spriteShaderEntity.HasValue)
+            foreach (var (effect, _, entity) in _activeSpriteLayerShaders)
             {
-                UpdateShaderParametersForEntity(
-                    _spriteShaderEntity.Value,
-                    _activeSpriteLayerShader
-                );
+                UpdateShaderParametersForEntity(entity, effect);
             }
 
-            if (_activeCombinedLayerShader != null && _combinedShaderEntity.HasValue)
+            foreach (var (effect, _, entity) in _activeCombinedLayerShaders)
             {
-                UpdateShaderParametersForEntity(
-                    _combinedShaderEntity.Value,
-                    _activeCombinedLayerShader
-                );
+                UpdateShaderParametersForEntity(entity, effect);
             }
         }
 
@@ -361,6 +528,32 @@ namespace MonoBall.Core.ECS.Systems
 
             // Ensure CurrentTechnique is set before setting parameters
             ShaderParameterApplier.EnsureCurrentTechnique(effect, _logger);
+
+            // Automatically set ScreenSize parameter if the shader has it
+            // This prevents warnings about null ScreenSize parameters
+            try
+            {
+                var screenSizeParam = effect.Parameters["ScreenSize"];
+                if (
+                    screenSizeParam != null
+                    && screenSizeParam.ParameterClass == EffectParameterClass.Vector
+                    && screenSizeParam.ColumnCount == 2
+                )
+                {
+                    var viewport = _graphicsDevice.Viewport;
+                    var screenSize = new Vector2(viewport.Width, viewport.Height);
+                    screenSizeParam.SetValue(screenSize);
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                // ScreenSize parameter doesn't exist - that's fine, not all shaders need it
+            }
+            catch (Exception ex)
+            {
+                // Log unexpected errors but don't fail - ScreenSize is optional
+                _logger.Debug(ex, "Failed to set ScreenSize parameter automatically");
+            }
 
             ref var shader = ref _world.Get<LayerShaderComponent>(entity);
             if (shader.Parameters == null)

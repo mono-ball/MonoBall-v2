@@ -34,6 +34,36 @@
   </Target>
 
   <!-- 
+    Compile mod shaders from .fx to .mgfxo files.
+    Runs before CopyMods to ensure compiled shaders are available when mods are copied.
+    Uses MonoGame's MGFXC tool. Requires dotnet-mgfxc to be installed (via dotnet tool restore).
+  -->
+  <Target Name="CompileModShaders" BeforeTargets="CopyMods" DependsOnTargets="RestoreDotnetTools">
+    <PropertyGroup>
+      <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
+    </PropertyGroup>
+
+    <!-- Discover all .fx files in Mods directory -->
+    <ItemGroup>
+      <ShaderFxFiles Include="$(ModsSourcePath)\**\*.fx" />
+    </ItemGroup>
+
+    <!-- Compile each .fx to .mgfxo in same directory -->
+    <Message
+      Text="Compiling shader(s) from mods..."
+      Importance="High"
+      Condition="'@(ShaderFxFiles)' != ''"
+    />
+    <Exec
+      Command="dotnet tool run mgfxc -- &quot;%(ShaderFxFiles.Identity)&quot; &quot;%(ShaderFxFiles.RelativeDir)%(ShaderFxFiles.Filename).mgfxo&quot; /Profile:OpenGL"
+      ContinueOnError="false"
+      Condition="'@(ShaderFxFiles)' != ''"
+      WorkingDirectory="$(MSBuildProjectDirectory)"
+      IgnoreStandardErrorWarningFormat="false"
+    />
+  </Target>
+
+  <!-- 
     Copy Mods directory to output directory after build.
     The Mods folder is located at the solution root (../../Mods relative to this project).
     This ensures mods are available when running the game from the output directory.

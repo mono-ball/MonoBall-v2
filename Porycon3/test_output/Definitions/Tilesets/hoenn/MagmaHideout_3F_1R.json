@@ -1,0 +1,99 @@
+{
+  "id": "base:tileset:hoenn/magma_hideout_3f_1_r",
+  "name": "MagmaHideout_3F_1R",
+  "texturePath": "Graphics/Tilesets/Hoenn/MagmaHideout_3F_1R.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 70,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 2,
+      "animation": [
+        {
+          "tileId": 66,
+          "durationMs": 133
+        },
+        {
+          "tileId": 67,
+          "durationMs": 133
+        },
+        {
+          "tileId": 68,
+          "durationMs": 133
+        },
+        {
+          "tileId": 69,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 9,
+      "animation": [
+        {
+          "tileId": 66,
+          "durationMs": 133
+        },
+        {
+          "tileId": 67,
+          "durationMs": 133
+        },
+        {
+          "tileId": 68,
+          "durationMs": 133
+        },
+        {
+          "tileId": 69,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 8,
+      "animation": [
+        {
+          "tileId": 66,
+          "durationMs": 133
+        },
+        {
+          "tileId": 67,
+          "durationMs": 133
+        },
+        {
+          "tileId": 68,
+          "durationMs": 133
+        },
+        {
+          "tileId": 69,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 19,
+      "animation": [
+        {
+          "tileId": 66,
+          "durationMs": 133
+        },
+        {
+          "tileId": 67,
+          "durationMs": 133
+        },
+        {
+          "tileId": 68,
+          "durationMs": 133
+        },
+        {
+          "tileId": 69,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

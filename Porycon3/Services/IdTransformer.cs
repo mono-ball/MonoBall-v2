@@ -88,11 +88,11 @@ public static class IdTransformer
 
     #endregion
 
-    #region MapSec IDs
+    #region MapSection IDs
 
     /// <summary>
     /// Transform MAPSEC to unified format.
-    /// MAPSEC_LITTLEROOT_TOWN -> base:mapsec:hoenn/littleroot_town
+    /// MAPSEC_LITTLEROOT_TOWN -> base:mapsection:hoenn/littleroot_town
     /// </summary>
     public static string MapsecId(string pokeemeraldMapsec, string? region = null)
     {
@@ -100,7 +100,7 @@ public static class IdTransformer
         if (name.StartsWith("MAPSEC_", StringComparison.OrdinalIgnoreCase))
             name = name[7..];
 
-        return CreateId("mapsec", region ?? DefaultRegion, name);
+        return CreateId("mapsection", region ?? DefaultRegion, name);
     }
 
     #endregion
@@ -193,9 +193,9 @@ public static class IdTransformer
 
     /// <summary>
     /// Transform map type to unified format.
-    /// MAP_TYPE_ROUTE -> base:maptype:hoenn/route
+    /// MAP_TYPE_ROUTE -> base:maptype:route
     /// </summary>
-    public static string MapTypeId(string pokeemeraldMapType, string? region = null)
+    public static string MapTypeId(string pokeemeraldMapType)
     {
         if (string.IsNullOrEmpty(pokeemeraldMapType))
             return "";
@@ -204,7 +204,7 @@ public static class IdTransformer
         if (name.StartsWith("MAP_TYPE_", StringComparison.OrdinalIgnoreCase))
             name = name[9..];
 
-        return CreateId("maptype", region ?? DefaultRegion, name);
+        return $"{Namespace}:maptype:{Normalize(name)}";
     }
 
     #endregion

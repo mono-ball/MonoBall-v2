@@ -1,0 +1,322 @@
+{
+  "id": "base:map:hoenn/littleroot_town_mays_house_2f",
+  "name": "LittlerootTown_MaysHouse_2F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 9,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/towns/mus_littleroot",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/littleroot_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/littleroot_town_mays_house_2f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/littleroot_town_mays_house_2f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/littleroot_town_mays_house_2f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/littleroot_town_mays_house_2f"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/littleroot_town_mays_house_2f/warp_to_littleroot_town_mays_house_1f",
+      "name": "Warp to littleroot_town_mays_house_1f",
+      "x": 16,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/littleroot_town_mays_house_1f",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/littleroot_town_mays_house_2f/sign_playershouse2feventscriptgamecube",
+      "name": "Sign: PlayersHouse_2F_EventScript_GameCube",
+      "x": 80,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/players_house_2f_event_script_game_cube",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/littleroot_town_mays_house_2f/sign_playershouse2feventscriptnotebook",
+      "name": "Sign: PlayersHouse_2F_EventScript_Notebook",
+      "x": 112,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/players_house_2f_event_script_notebook",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/littleroot_town_mays_house_2f/sign_littleroottownmayshouse2feventscriptwallclock",
+      "name": "Sign: LittlerootTown_MaysHouse_2F_EventScript_WallClock",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/littleroot_town_mays_house_2f_event_script_wall_clock",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/littleroot_town_mays_house_2f/sign_littleroottownmayshouse2feventscriptpc",
+      "name": "Sign: LittlerootTown_MaysHouse_2F_EventScript_PC",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/littleroot_town_mays_house_2f_event_script_pc",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/localid_rivals_house_2f_rival",
+      "name": "LOCALID_RIVALS_HOUSE_2F_RIVAL",
+      "x": 16,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/rival_may_normal",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rivals_house_2f_event_script_rival",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_mays_house_rival_bedroom",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_1",
+      "name": "NPC_1",
+      "x": 0,
+      "y": 96,
+      "spriteId": "{base:sprite:npcs/generic/var_rival}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/1",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_2",
+      "name": "NPC_2",
+      "x": 16,
+      "y": 96,
+      "spriteId": "{base:sprite:npcs/generic/var_player}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/2",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_3",
+      "name": "NPC_3",
+      "x": 32,
+      "y": 96,
+      "spriteId": "{base:sprite:npcs/generic/var_2}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/3",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_4",
+      "name": "NPC_4",
+      "x": 48,
+      "y": 96,
+      "spriteId": "{base:sprite:npcs/generic/var_3}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/4",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_5",
+      "name": "NPC_5",
+      "x": 64,
+      "y": 96,
+      "spriteId": "{base:sprite:npcs/generic/var_4}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/5",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_6",
+      "name": "NPC_6",
+      "x": 80,
+      "y": 96,
+      "spriteId": "{base:sprite:npcs/generic/var_5}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/6",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_7",
+      "name": "NPC_7",
+      "x": 0,
+      "y": 112,
+      "spriteId": "{base:sprite:npcs/generic/var_6}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/7",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_8",
+      "name": "NPC_8",
+      "x": 16,
+      "y": 112,
+      "spriteId": "{base:sprite:npcs/generic/var_7}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/8",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_9",
+      "name": "NPC_9",
+      "x": 32,
+      "y": 112,
+      "spriteId": "{base:sprite:npcs/generic/var_8}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/9",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_10",
+      "name": "NPC_10",
+      "x": 48,
+      "y": 112,
+      "spriteId": "{base:sprite:npcs/generic/var_9}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/10",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_11",
+      "name": "NPC_11",
+      "x": 64,
+      "y": 112,
+      "spriteId": "{base:sprite:npcs/generic/var_a}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/11",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_12",
+      "name": "NPC_12",
+      "x": 80,
+      "y": 112,
+      "spriteId": "{base:sprite:npcs/generic/var_b}",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:decoration/12",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/localid_players_house_2f_mom",
+      "name": "LOCALID_PLAYERS_HOUSE_2F_MOM",
+      "x": 16,
+      "y": 16,
+      "spriteId": "base:sprite:npcs/generic/mom",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_players_bedroom_mom",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_14",
+      "name": "NPC_14",
+      "x": 48,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/pichu_doll",
+      "behaviorId": "base:script:behavior/stationary",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_mays_house_2f_pichu_doll",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 4
+    },
+    {
+      "id": "base:npc:hoenn/littleroot_town_mays_house_2f/npc_15",
+      "name": "NPC_15",
+      "x": 80,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/item_ball",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/littleroot_town_mays_house_2f_event_script_rivals_poke_ball",
+      "visibilityFlag": "base:flag:visibility/littleroot_town_mays_house_2f_poke_ball",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 0
+    }
+  ]
+}

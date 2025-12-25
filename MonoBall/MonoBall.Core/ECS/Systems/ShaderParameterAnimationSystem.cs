@@ -132,7 +132,7 @@ namespace MonoBall.Core.ECS.Systems
                 float cycleDuration = animation.Duration * 2.0f;
                 animation.ElapsedTime = animation.ElapsedTime % cycleDuration;
                 float cycleTime = animation.ElapsedTime;
-                
+
                 if (cycleTime > animation.Duration)
                 {
                     // Second half: reverse direction (from 1.0 back to 0.0)
@@ -247,7 +247,7 @@ namespace MonoBall.Core.ECS.Systems
                 float cycleDuration = animation.Duration * 2.0f;
                 animation.ElapsedTime = animation.ElapsedTime % cycleDuration;
                 float cycleTime = animation.ElapsedTime;
-                
+
                 if (cycleTime > animation.Duration)
                 {
                     // Second half: reverse direction (from 1.0 back to 0.0)

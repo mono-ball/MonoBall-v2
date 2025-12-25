@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/battle_frontier_outside_east",
+  "name": "BattleFrontier_OutsideEast",
+  "texturePath": "Graphics/Tilesets/Hoenn/BattleFrontier_OutsideEast.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 155,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 160,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 20,
+      "animation": [
+        {
+          "tileId": 152,
+          "durationMs": 266
+        },
+        {
+          "tileId": 153,
+          "durationMs": 266
+        },
+        {
+          "tileId": 152,
+          "durationMs": 266
+        },
+        {
+          "tileId": 154,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

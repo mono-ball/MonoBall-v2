@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/fallarbor_town",
+  "name": "FallarborTown",
+  "texturePath": "Graphics/Tilesets/Hoenn/FallarborTown.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 132,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 144,
+  "spacing": 0,
+  "margin": 0
+}

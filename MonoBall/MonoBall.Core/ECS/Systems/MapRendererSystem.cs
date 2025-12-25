@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Rendering;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -20,6 +21,8 @@ namespace MonoBall.Core.ECS.Systems
         private readonly ITilesetLoaderService _tilesetLoader;
         private readonly ICameraService _cameraService;
         private readonly ShaderManagerSystem? _shaderManagerSystem;
+        private readonly ShaderRendererSystem? _shaderRendererSystem;
+        private readonly RenderTargetManager? _renderTargetManager;
         private SpriteBatch? _spriteBatch;
         private Viewport _savedViewport;
         private readonly QueryDescription _chunkQueryDescription;
@@ -52,13 +55,17 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="cameraService">The camera service for querying active camera.</param>
         /// <param name="logger">The logger for logging operations.</param>
         /// <param name="shaderManagerSystem">The shader manager system for tile layer shaders (optional).</param>
+        /// <param name="shaderRendererSystem">The shader renderer system for shader stacking (optional).</param>
+        /// <param name="renderTargetManager">The render target manager for shader stacking (optional).</param>
         public MapRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
             ITilesetLoaderService tilesetLoader,
             ICameraService cameraService,
             ILogger logger,
-            ShaderManagerSystem? shaderManagerSystem = null
+            ShaderManagerSystem? shaderManagerSystem = null,
+            ShaderRendererSystem? shaderRendererSystem = null,
+            RenderTargetManager? renderTargetManager = null
         )
             : base(world)
         {
@@ -70,6 +77,8 @@ namespace MonoBall.Core.ECS.Systems
                 cameraService ?? throw new System.ArgumentNullException(nameof(cameraService));
             _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
             _shaderManagerSystem = shaderManagerSystem;
+            _shaderRendererSystem = shaderRendererSystem;
+            _renderTargetManager = renderTargetManager;
             _chunkQueryDescription = new QueryDescription().WithAll<
                 TileChunkComponent,
                 TileDataComponent,
@@ -229,44 +238,139 @@ namespace MonoBall.Core.ECS.Systems
                 // Note: The transform uses camera.Viewport (logical size), which matches renderViewport size
                 Matrix transform = camera.GetTransformMatrix();
 
-                // Get tile layer shader
-                Effect? tileShader = _shaderManagerSystem?.GetTileLayerShader();
+                // Get tile layer shader stack
+                var shaderStack = _shaderManagerSystem?.GetTileLayerShaderStack();
+                bool needsShaderStacking =
+                    shaderStack != null
+                    && shaderStack.Count > 0
+                    && (
+                        shaderStack.Count > 1 || shaderStack[0].blendMode != ShaderBlendMode.Replace
+                    );
 
-                // Ensure CurrentTechnique is set before using with SpriteBatch
-                // MonoGame's SpriteBatch.Begin() will apply the effect automatically
-                if (tileShader != null)
+                if (
+                    needsShaderStacking
+                    && (_shaderRendererSystem == null || _renderTargetManager == null)
+                )
                 {
-                    ShaderParameterApplier.EnsureCurrentTechnique(tileShader, _logger);
+                    // Shader stacking requested but dependencies missing - fall back to single shader
+                    _logger.Warning(
+                        "MapRendererSystem: Shader stacking requested but ShaderRendererSystem or RenderTargetManager not available. Falling back to single shader."
+                    );
+                    needsShaderStacking = false;
                 }
 
-                // Render chunks
-                // Use Immediate mode for custom effects to ensure proper parameter application
-                _spriteBatch.Begin(
-                    SpriteSortMode.Immediate,
-                    BlendState.AlphaBlend,
-                    SamplerState.PointClamp,
-                    null,
-                    null,
-                    tileShader,
-                    transform
-                );
-
-                int renderedChunks = 0;
-                int renderedTiles = 0;
-                foreach (var (entity, chunk, data, pos, render) in _chunkList)
+                if (needsShaderStacking)
                 {
-                    var tilesRendered = RenderChunk(entity, chunk, data, pos, render);
-                    if (tilesRendered > 0)
+                    // Multiple shaders or blend modes - render to render target first, then apply shader stack
+                    var renderTarget = _renderTargetManager!.GetOrCreateRenderTarget(100); // Use index 100 for tile layer
+                    if (renderTarget == null)
                     {
-                        renderedChunks++;
-                        renderedTiles += tilesRendered;
+                        _logger.Warning(
+                            "MapRendererSystem: Failed to create render target for shader stacking. Falling back to direct rendering."
+                        );
+                        needsShaderStacking = false;
+                    }
+                    else
+                    {
+                        // Render geometry to render target (without shaders - ApplyShaderStack will handle all shaders)
+                        var renderTargets = _graphicsDevice.GetRenderTargets();
+                        RenderTarget2D? previousTarget =
+                            renderTargets.Length > 0
+                                ? renderTargets[0].RenderTarget as RenderTarget2D
+                                : null;
+
+                        try
+                        {
+                            _graphicsDevice.SetRenderTarget(renderTarget);
+                            _graphicsDevice.Clear(Color.Transparent);
+
+                            // Render chunks without shader - ApplyShaderStack will apply all shaders including first
+                            _spriteBatch.Begin(
+                                SpriteSortMode.Immediate,
+                                BlendState.AlphaBlend,
+                                SamplerState.PointClamp,
+                                null,
+                                null,
+                                null, // No shader - let ApplyShaderStack handle all shaders
+                                transform
+                            );
+
+                            int renderedChunks = 0;
+                            int renderedTiles = 0;
+                            foreach (var (entity, chunk, data, pos, render) in _chunkList)
+                            {
+                                var tilesRendered = RenderChunk(entity, chunk, data, pos, render);
+                                if (tilesRendered > 0)
+                                {
+                                    renderedChunks++;
+                                    renderedTiles += tilesRendered;
+                                }
+                            }
+
+                            _spriteBatch.End();
+
+                            // Apply shader stack (includes all shaders, no double application)
+                            _shaderRendererSystem!.ApplyShaderStack(
+                                renderTarget,
+                                null, // Render to back buffer
+                                shaderStack!,
+                                _spriteBatch,
+                                _graphicsDevice,
+                                _renderTargetManager!
+                            );
+
+                            // Increment draw call counter
+                            _performanceStatsSystem?.IncrementDrawCalls();
+                        }
+                        finally
+                        {
+                            _graphicsDevice.SetRenderTarget(previousTarget);
+                        }
                     }
                 }
 
-                _spriteBatch.End();
+                if (!needsShaderStacking)
+                {
+                    // Single shader or no shaders - render normally
+                    Effect? tileShader =
+                        shaderStack != null && shaderStack.Count > 0 ? shaderStack[0].effect : null;
 
-                // Increment draw call counter
-                _performanceStatsSystem?.IncrementDrawCalls();
+                    // Ensure CurrentTechnique is set before using with SpriteBatch
+                    // MonoGame's SpriteBatch.Begin() will apply the effect automatically
+                    if (tileShader != null)
+                    {
+                        ShaderParameterApplier.EnsureCurrentTechnique(tileShader, _logger);
+                    }
+
+                    // Render chunks
+                    // Use Immediate mode for custom effects to ensure proper parameter application
+                    _spriteBatch.Begin(
+                        SpriteSortMode.Immediate,
+                        BlendState.AlphaBlend,
+                        SamplerState.PointClamp,
+                        null,
+                        null,
+                        tileShader,
+                        transform
+                    );
+
+                    int renderedChunks = 0;
+                    int renderedTiles = 0;
+                    foreach (var (entity, chunk, data, pos, render) in _chunkList)
+                    {
+                        var tilesRendered = RenderChunk(entity, chunk, data, pos, render);
+                        if (tilesRendered > 0)
+                        {
+                            renderedChunks++;
+                            renderedTiles += tilesRendered;
+                        }
+                    }
+
+                    _spriteBatch.End();
+
+                    // Increment draw call counter
+                    _performanceStatsSystem?.IncrementDrawCalls();
+                }
 
                 // Rendered chunks - no logging needed (this happens every frame)
             }

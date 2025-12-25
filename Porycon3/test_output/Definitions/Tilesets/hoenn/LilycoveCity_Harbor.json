@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/lilycove_city_harbor",
+  "name": "LilycoveCity_Harbor",
+  "texturePath": "Graphics/Tilesets/Hoenn/LilycoveCity_Harbor.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 36,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0
+}

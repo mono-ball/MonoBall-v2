@@ -38,6 +38,12 @@
       "commands": [
         "mgcb-editor-mac"
       ]
+    },
+    "dotnet-mgfxc": {
+      "version": "3.8.5-preview.1",
+      "commands": [
+        "mgfxc"
+      ]
     }
   }
 }

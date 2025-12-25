@@ -22,15 +22,15 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly ILogger _logger;
         private readonly QueryDescription _playerQuery;
 
-        // Available per-entity shader IDs to cycle through
+        // Available per-entity shader IDs to cycle through (mod format: {namespace}:shader:{name})
         private readonly List<string?> _availableShaders = new()
         {
             null, // No shader (disabled)
-            "PerEntityGlow",
-            "PerEntityOutline",
-            "PerEntityRainbow",
-            "PerEntityPulsingGlow",
-            "PerEntityInvert",
+            "base:shader:glow",
+            "base:shader:outline",
+            "base:shader:rainbow",
+            "base:shader:pulsingglow",
+            "base:shader:invert",
         };
 
         // Start at index 0 (no shader) since player doesn't have shader by default
@@ -158,24 +158,24 @@ namespace MonoBall.Core.Scenes.Systems
         {
             return shaderId switch
             {
-                "PerEntityGlow" => new Dictionary<string, object>
+                "base:shader:glow" => new Dictionary<string, object>
                 {
                     { "GlowColor", new Vector4(1.0f, 1.0f, 0.0f, 1.0f) }, // Yellow glow
                     { "GlowIntensity", 0.5f },
                 },
-                "PerEntityOutline" => new Dictionary<string, object>
+                "base:shader:outline" => new Dictionary<string, object>
                 {
                     { "OutlineColor", new Vector4(1.0f, 0.0f, 1.0f, 1.0f) }, // Magenta outline
                     { "OutlineThickness", 2.0f },
                     { "ScreenSize", new Vector2(800.0f, 600.0f) }, // Will be updated dynamically
                 },
-                "PerEntityRainbow" => new Dictionary<string, object>
+                "base:shader:rainbow" => new Dictionary<string, object>
                 {
                     { "Intensity", 0.5f },
                     { "Speed", 1.0f },
                     { "Time", 0.0f }, // Will be animated by ShaderParameterAnimationSystem
                 },
-                "PerEntityPulsingGlow" => new Dictionary<string, object>
+                "base:shader:pulsingglow" => new Dictionary<string, object>
                 {
                     { "GlowColor", new Vector4(1.0f, 0.5f, 0.0f, 1.0f) }, // Orange glow
                     { "BaseIntensity", 0.3f },
@@ -183,7 +183,7 @@ namespace MonoBall.Core.Scenes.Systems
                     { "PulseSpeed", 2.0f },
                     { "Time", 0.0f }, // Will be animated by ShaderParameterAnimationSystem
                 },
-                "PerEntityInvert" => new Dictionary<string, object>
+                "base:shader:invert" => new Dictionary<string, object>
                 {
                     { "Intensity", 1.0f }, // Full inversion
                 },
@@ -200,7 +200,7 @@ namespace MonoBall.Core.Scenes.Systems
         {
             return shaderId switch
             {
-                "PerEntityRainbow" => new ShaderParameterAnimationComponent
+                "base:shader:rainbow" => new ShaderParameterAnimationComponent
                 {
                     ParameterName = "Time",
                     StartValue = 0.0f,
@@ -212,7 +212,7 @@ namespace MonoBall.Core.Scenes.Systems
                     IsEnabled = true,
                     PingPong = false,
                 },
-                "PerEntityPulsingGlow" => new ShaderParameterAnimationComponent
+                "base:shader:pulsingglow" => new ShaderParameterAnimationComponent
                 {
                     ParameterName = "Time",
                     StartValue = 0.0f,

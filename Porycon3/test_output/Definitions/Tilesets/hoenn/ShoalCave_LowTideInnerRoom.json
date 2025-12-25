@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/shoal_cave_low_tide_inner_room",
+  "name": "ShoalCave_LowTideInnerRoom",
+  "texturePath": "Graphics/Tilesets/Hoenn/ShoalCave_LowTideInnerRoom.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 32,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

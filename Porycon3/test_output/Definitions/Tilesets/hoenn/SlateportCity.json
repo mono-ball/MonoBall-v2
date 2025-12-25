@@ -1,0 +1,57 @@
+{
+  "id": "base:tileset:hoenn/slateport_city",
+  "name": "SlateportCity",
+  "texturePath": "Graphics/Tilesets/Hoenn/SlateportCity.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 405,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 416,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 2,
+      "animation": [
+        {
+          "tileId": 399,
+          "durationMs": 266
+        },
+        {
+          "tileId": 400,
+          "durationMs": 266
+        },
+        {
+          "tileId": 399,
+          "durationMs": 266
+        },
+        {
+          "tileId": 401,
+          "durationMs": 266
+        }
+      ]
+    },
+    {
+      "localTileId": 324,
+      "animation": [
+        {
+          "tileId": 402,
+          "durationMs": 133
+        },
+        {
+          "tileId": 403,
+          "durationMs": 133
+        },
+        {
+          "tileId": 404,
+          "durationMs": 133
+        },
+        {
+          "tileId": 403,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

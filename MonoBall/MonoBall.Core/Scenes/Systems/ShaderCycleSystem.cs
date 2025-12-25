@@ -24,11 +24,11 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly List<string?> _availableShaders = new()
         {
             null, // No shader (disabled)
-            "CombinedLayerPixelation",
-            "CombinedLayerCRT",
-            "CombinedLayerWaveDistortion",
-            "CombinedLayerKaleidoscope",
-            "CombinedLayerGrayscale",
+            "base:shader:pixelation",
+            "base:shader:crt",
+            "base:shader:wavedistortion",
+            "base:shader:kaleidoscope",
+            "base:shader:grayscale",
         };
 
         // Start at index 0 (no shader) since no default shader is created at startup
@@ -177,29 +177,29 @@ namespace MonoBall.Core.Scenes.Systems
         {
             return shaderId switch
             {
-                "CombinedLayerPixelation" => new Dictionary<string, object>
+                "base:shader:pixelation" => new Dictionary<string, object>
                 {
                     { "PixelSize", 8.0f },
                 },
-                "CombinedLayerCRT" => new Dictionary<string, object>
+                "base:shader:crt" => new Dictionary<string, object>
                 {
                     { "Curvature", 0.1f },
                     { "ScanlineIntensity", 0.3f },
                     { "ScanlineCount", 400.0f },
                     { "ChromaticAberration", 0.003f },
                 },
-                "CombinedLayerWaveDistortion" => new Dictionary<string, object>
+                "base:shader:wavedistortion" => new Dictionary<string, object>
                 {
                     { "WaveSpeed", 2.0f },
                     { "WaveFrequency", 10.0f },
                     { "WaveAmplitude", 0.02f },
                     { "Time", 0.0f }, // Will be animated by ShaderParameterAnimationSystem
                 },
-                "CombinedLayerKaleidoscope" => new Dictionary<string, object>
+                "base:shader:kaleidoscope" => new Dictionary<string, object>
                 {
                     { "SegmentCount", 6.0f },
                 },
-                "CombinedLayerGrayscale" => null, // No parameters needed
+                "base:shader:grayscale" => null, // No parameters needed
                 _ => null,
             };
         }
@@ -213,7 +213,7 @@ namespace MonoBall.Core.Scenes.Systems
         {
             return shaderId switch
             {
-                "CombinedLayerWaveDistortion" => new ShaderParameterAnimationComponent
+                "base:shader:wavedistortion" => new ShaderParameterAnimationComponent
                 {
                     ParameterName = "Time",
                     StartValue = 0.0f,

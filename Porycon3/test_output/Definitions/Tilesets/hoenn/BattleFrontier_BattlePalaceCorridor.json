@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/battle_frontier_battle_palace_corridor",
+  "name": "BattleFrontier_BattlePalaceCorridor",
+  "texturePath": "Graphics/Tilesets/Hoenn/BattleFrontier_BattlePalaceCorridor.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 18,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "animation": [
+        {
+          "tileId": 15,
+          "durationMs": 266
+        },
+        {
+          "tileId": 16,
+          "durationMs": 266
+        },
+        {
+          "tileId": 15,
+          "durationMs": 266
+        },
+        {
+          "tileId": 17,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

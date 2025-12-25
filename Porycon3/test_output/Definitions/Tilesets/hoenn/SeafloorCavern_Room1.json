@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/seafloor_cavern_room1",
+  "name": "SeafloorCavern_Room1",
+  "texturePath": "Graphics/Tilesets/Hoenn/SeafloorCavern_Room1.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 31,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

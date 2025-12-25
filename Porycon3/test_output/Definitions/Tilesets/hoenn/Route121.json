@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/route121",
+  "name": "Route121",
+  "texturePath": "Graphics/Tilesets/Hoenn/Route121.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 127,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 128,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 4,
+      "animation": [
+        {
+          "tileId": 124,
+          "durationMs": 266
+        },
+        {
+          "tileId": 125,
+          "durationMs": 266
+        },
+        {
+          "tileId": 124,
+          "durationMs": 266
+        },
+        {
+          "tileId": 126,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

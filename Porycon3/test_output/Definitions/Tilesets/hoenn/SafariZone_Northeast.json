@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/safari_zone_northeast",
+  "name": "SafariZone_Northeast",
+  "texturePath": "Graphics/Tilesets/Hoenn/SafariZone_Northeast.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 50,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0
+}

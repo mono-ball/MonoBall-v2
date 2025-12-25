@@ -1,0 +1,36 @@
+{
+  "id": "base:tileset:hoenn/oldale_town",
+  "name": "OldaleTown",
+  "texturePath": "Graphics/Tilesets/Hoenn/OldaleTown.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 87,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 96,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 3,
+      "animation": [
+        {
+          "tileId": 84,
+          "durationMs": 266
+        },
+        {
+          "tileId": 85,
+          "durationMs": 266
+        },
+        {
+          "tileId": 84,
+          "durationMs": 266
+        },
+        {
+          "tileId": 86,
+          "durationMs": 266
+        }
+      ]
+    }
+  ]
+}

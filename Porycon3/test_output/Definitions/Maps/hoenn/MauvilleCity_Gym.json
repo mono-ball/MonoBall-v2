@@ -1,0 +1,258 @@
+{
+  "id": "base:map:hoenn/mauville_city_gym",
+  "name": "MauvilleCity_Gym",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 10,
+  "height": 21,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_gym",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/gym",
+  "mapSectionId": "base:mapsection:hoenn/mauville_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/mauville_city_gym/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 21,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/mauville_city_gym/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 21,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAAAAAAAAAAAABAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/mauville_city_gym/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 10,
+      "height": 21,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAACAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/mauville_city_gym"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/mauville_city_gym/warp_to_mauville_city",
+      "name": "Warp to mauville_city",
+      "x": 64,
+      "y": 320,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mauville_city",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/mauville_city_gym/warp_to_mauville_city",
+      "name": "Warp to mauville_city",
+      "x": 80,
+      "y": 320,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/mauville_city",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [
+    {
+      "id": "base:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 64,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "base:script:trigger/mauville_city_gym_event_script_switch2",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 48,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "base:script:trigger/mauville_city_gym_event_script_switch3",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 0,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "base:script:trigger/mauville_city_gym_event_script_switch1",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 128,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "base:script:trigger/mauville_city_gym_event_script_switch4",
+      "elevation": 3
+    }
+  ],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/mauville_city_gym/sign_mauvillecitygymeventscriptleftgymstatue",
+      "name": "Sign: MauvilleCity_Gym_EventScript_LeftGymStatue",
+      "x": 48,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_left_gym_statue",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/mauville_city_gym/sign_mauvillecitygymeventscriptrightgymstatue",
+      "name": "Sign: MauvilleCity_Gym_EventScript_RightGymStatue",
+      "x": 96,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_right_gym_statue",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_0",
+      "name": "NPC_0",
+      "x": 80,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/gym_leaders/wattson",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_wattson",
+      "visibilityFlag": "base:flag:visibility/mauville_gym_wattson",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_1",
+      "name": "NPC_1",
+      "x": 112,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/man_5",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_shawn",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_2",
+      "name": "NPC_2",
+      "x": 16,
+      "y": 256,
+      "spriteId": "base:sprite:npcs/generic/girl_3",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_vivian",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_3",
+      "name": "NPC_3",
+      "x": 80,
+      "y": 160,
+      "spriteId": "base:sprite:npcs/generic/youngster",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_ben",
+      "facingDirection": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_4",
+      "name": "NPC_4",
+      "x": 16,
+      "y": 208,
+      "spriteId": "base:sprite:npcs/generic/man_5",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_kirk",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_5",
+      "name": "NPC_5",
+      "x": 112,
+      "y": 320,
+      "spriteId": "base:sprite:npcs/generic/man_2",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_gym_guide",
+      "facingDirection": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:npc:hoenn/mauville_city_gym/npc_6",
+      "name": "NPC_6",
+      "x": 112,
+      "y": 160,
+      "spriteId": "base:sprite:npcs/generic/maniac",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/mauville_city_gym_event_script_angelo",
+      "facingDirection": "up",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}

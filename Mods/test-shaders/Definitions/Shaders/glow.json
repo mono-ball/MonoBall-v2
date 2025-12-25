@@ -1,0 +1,21 @@
+{
+  "id": "base:shader:glow",
+  "name": "Glow",
+  "description": "Applies glow effect to individual entities",
+  "sourceFile": "Shaders/Glow.mgfxo",
+  "parameters": [
+    {
+      "name": "GlowColor",
+      "type": "float4",
+      "defaultValue": [1.0, 1.0, 1.0, 1.0]
+    },
+    {
+      "name": "GlowIntensity",
+      "type": "float",
+      "defaultValue": 0.5,
+      "min": 0.0,
+      "max": 2.0
+    }
+  ]
+}
+

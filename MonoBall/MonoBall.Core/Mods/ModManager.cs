@@ -309,5 +309,28 @@ namespace MonoBall.Core.Mods
             }
             return _loader.GetModManifest(modId);
         }
+
+        /// <summary>
+        /// Gets the mod manifest that owns a definition by definition ID.
+        /// </summary>
+        /// <param name="definitionId">The definition ID.</param>
+        /// <returns>The mod manifest that owns the definition, or null if not found.</returns>
+        public ModManifest? GetModManifestByDefinitionId(string definitionId)
+        {
+            if (!_isLoaded)
+            {
+                throw new InvalidOperationException(
+                    "Mods must be loaded before accessing mod manifests. Call Load() first."
+                );
+            }
+
+            var metadata = GetDefinitionMetadata(definitionId);
+            if (metadata == null)
+            {
+                return null;
+            }
+
+            return _loader.GetModManifest(metadata.OriginalModId);
+        }
     }
 }

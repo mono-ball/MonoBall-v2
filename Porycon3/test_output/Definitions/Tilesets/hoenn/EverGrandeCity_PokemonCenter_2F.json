@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/ever_grande_city_pokemon_center_2f",
+  "name": "EverGrandeCity_PokemonCenter_2F",
+  "texturePath": "Graphics/Tilesets/Hoenn/EverGrandeCity_PokemonCenter_2F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 2,
+  "columns": 2,
+  "imageWidth": 32,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

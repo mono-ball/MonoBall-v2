@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/verdanturf_town_battle_tent_lobby",
+  "name": "VerdanturfTown_BattleTentLobby",
+  "texturePath": "Graphics/Tilesets/Hoenn/VerdanturfTown_BattleTentLobby.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 2,
+  "columns": 2,
+  "imageWidth": 32,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

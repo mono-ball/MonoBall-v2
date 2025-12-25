@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/route129",
+  "name": "Route129",
+  "texturePath": "Graphics/Tilesets/Hoenn/Route129.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 30,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

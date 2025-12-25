@@ -1,0 +1,239 @@
+{
+  "id": "base:map:hoenn/rustboro_city_pokemon_school",
+  "name": "RustboroCity_PokemonSchool",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 12,
+  "height": 11,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_school",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/rustboro_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/rustboro_city_pokemon_school/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 12,
+      "height": 11,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/rustboro_city_pokemon_school/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 12,
+      "height": 11,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/rustboro_city_pokemon_school/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 12,
+      "height": 11,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/rustboro_city_pokemon_school"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/rustboro_city_pokemon_school/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 80,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 4,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "base:warp:hoenn/rustboro_city_pokemon_school/warp_to_rustboro_city",
+      "name": "Warp to rustboro_city",
+      "x": 96,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/rustboro_city",
+      "targetX": 4,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "base:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
+      "x": 80,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_blackboard",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
+      "x": 64,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_blackboard",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
+      "x": 96,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_blackboard",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
+      "x": 112,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_blackboard",
+      "elevation": 0
+    },
+    {
+      "id": "base:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptstudentnotebook",
+      "name": "Sign: RustboroCity_PokemonSchool_EventScript_StudentNotebook",
+      "x": 48,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_student_notebook",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_0",
+      "name": "NPC_0",
+      "x": 128,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/gameboy_kid",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_gameboy_kid1",
+      "facingDirection": "right",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_1",
+      "name": "NPC_1",
+      "x": 144,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/gameboy_kid",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_gameboy_kid2",
+      "facingDirection": "left",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_2",
+      "name": "NPC_2",
+      "x": 48,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/rich_boy",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_rich_boy",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_3",
+      "name": "NPC_3",
+      "x": 160,
+      "y": 128,
+      "spriteId": "base:sprite:npcs/generic/lass",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_lass",
+      "facingDirection": "up",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_4",
+      "name": "NPC_4",
+      "x": 48,
+      "y": 96,
+      "spriteId": "base:sprite:npcs/generic/school_kid_m",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_school_kid_m",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_5",
+      "name": "NPC_5",
+      "x": 80,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/gentleman",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_teacher",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/rustboro_city_pokemon_school/npc_6",
+      "name": "NPC_6",
+      "x": 0,
+      "y": 160,
+      "spriteId": "base:sprite:npcs/generic/scott",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/rustboro_city_pokemon_school_event_script_scott",
+      "visibilityFlag": "base:flag:visibility/rustboro_city_pokemon_school_scott",
+      "facingDirection": "up",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 0
+    }
+  ]
+}

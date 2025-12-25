@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/mt_pyre_5f",
+  "name": "MtPyre_5F",
+  "texturePath": "Graphics/Tilesets/Hoenn/MtPyre_5F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 31,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0
+}

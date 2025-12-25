@@ -1,0 +1,13 @@
+{
+  "weatherId": "base:weather:outdoor/underwater_bubbles",
+  "name": "Underwater Bubbles",
+  "description": "Underwater Bubbles weather condition",
+  "category": "outdoor",
+  "intensity": 0.5,
+  "affectsBattle": false,
+  "effectScriptId": "base:script:weather/bubbles",
+  "screenTint": "#0066CC",
+  "screenTintOpacity": 0.2,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

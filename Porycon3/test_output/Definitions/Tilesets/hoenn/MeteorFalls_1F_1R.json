@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/meteor_falls_1f_1_r",
+  "name": "MeteorFalls_1F_1R",
+  "texturePath": "Graphics/Tilesets/Hoenn/MeteorFalls_1F_1R.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 35,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 48,
+  "spacing": 0,
+  "margin": 0
+}

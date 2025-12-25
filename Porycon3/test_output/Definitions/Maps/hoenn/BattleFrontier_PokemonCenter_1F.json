@@ -1,0 +1,173 @@
+{
+  "id": "base:map:hoenn/battle_frontier_pokemon_center_1f",
+  "name": "BattleFrontier_PokemonCenter_1F",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 14,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_poke_center",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/battle_frontier_pokemon_center_1f/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 14,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_pokemon_center_1f/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 14,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_pokemon_center_1f/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 14,
+      "height": 9,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_pokemon_center_1f"
+    }
+  ],
+  "warps": [
+    {
+      "id": "base:warp:hoenn/battle_frontier_pokemon_center_1f/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 112,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 12,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/battle_frontier_pokemon_center_1f/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 96,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_outside_east",
+      "targetX": 12,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:warp:hoenn/battle_frontier_pokemon_center_1f/warp_to_battle_frontier_pokemon_center_2f",
+      "name": "Warp to battle_frontier_pokemon_center_2f",
+      "x": 16,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "base:map:hoenn/battle_frontier_pokemon_center_2f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 4
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/battle_frontier_pokemon_center_1f/localid_frontier_nurse",
+      "name": "LOCALID_FRONTIER_NURSE",
+      "x": 112,
+      "y": 32,
+      "spriteId": "base:sprite:npcs/generic/nurse",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
+      "rangeX": 0,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_pokemon_center_1f/npc_1",
+      "name": "NPC_1",
+      "x": 64,
+      "y": 80,
+      "spriteId": "base:sprite:npcs/generic/school_kid_m",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_pokemon_center_1f_event_script_school_kid",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_pokemon_center_1f/npc_2",
+      "name": "NPC_2",
+      "x": 176,
+      "y": 64,
+      "spriteId": "base:sprite:npcs/generic/man_3",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_pokemon_center_1f_event_script_man",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_pokemon_center_1f/npc_3",
+      "name": "NPC_3",
+      "x": 32,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/picnicker",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_pokemon_center_1f_event_script_picnicker",
+      "facingDirection": "left",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_pokemon_center_1f/npc_4",
+      "name": "NPC_4",
+      "x": 16,
+      "y": 48,
+      "spriteId": "base:sprite:npcs/generic/skitty",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_pokemon_center_1f_event_script_skitty",
+      "facingDirection": "right",
+      "rangeX": 1,
+      "rangeY": 0,
+      "elevation": 3
+    }
+  ]
+}

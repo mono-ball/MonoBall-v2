@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Serilog;
 
@@ -7,6 +8,7 @@ namespace MonoBall.Core.Rendering
     /// <summary>
     /// Manages RenderTarget2D lifecycle for post-processing effects.
     /// Handles creation, resizing, and disposal of render targets.
+    /// Supports multiple render targets with depth buffers.
     /// </summary>
     public class RenderTargetManager : IDisposable
     {
@@ -16,6 +18,11 @@ namespace MonoBall.Core.Rendering
         private int _lastWidth;
         private int _lastHeight;
         private bool _disposed = false;
+
+        // Multiple render targets support
+        private readonly Dictionary<int, RenderTarget2D> _renderTargets = new();
+        private readonly Dictionary<int, DepthFormat> _depthFormats = new();
+        private readonly Dictionary<int, (int width, int height)> _renderTargetSizes = new();
 
         /// <summary>
         /// Initializes a new instance of the RenderTargetManager.
@@ -38,65 +45,230 @@ namespace MonoBall.Core.Rendering
         /// <returns>The render target, or null if creation fails.</returns>
         public RenderTarget2D? GetOrCreateRenderTarget()
         {
+            return GetOrCreateRenderTarget(0);
+        }
+
+        /// <summary>
+        /// Gets or creates a render target by index with optional depth buffer.
+        /// Automatically recreates the render target if viewport size or format changes.
+        /// </summary>
+        /// <param name="index">The render target index (0 = default scene render target).</param>
+        /// <param name="depthFormat">The depth format (default: None).</param>
+        /// <returns>The render target, or null if creation fails.</returns>
+        public RenderTarget2D? GetOrCreateRenderTarget(
+            int index,
+            DepthFormat depthFormat = DepthFormat.None
+        )
+        {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(RenderTargetManager));
 
             int currentWidth = _graphicsDevice.Viewport.Width;
             int currentHeight = _graphicsDevice.Viewport.Height;
 
-            // Check if we need to recreate the render target
-            if (
-                _sceneRenderTarget == null
-                || currentWidth != _lastWidth
-                || currentHeight != _lastHeight
-            )
+            // Check if render target exists and matches current requirements
+            if (_renderTargets.TryGetValue(index, out var existingTarget))
             {
-                DisposeRenderTarget();
+                var existingSize = _renderTargetSizes[index];
+                var existingDepth = _depthFormats[index];
 
-                try
+                if (
+                    existingSize.width == currentWidth
+                    && existingSize.height == currentHeight
+                    && existingDepth == depthFormat
+                )
                 {
-                    _sceneRenderTarget = new RenderTarget2D(
-                        _graphicsDevice,
-                        currentWidth,
-                        currentHeight,
-                        false,
-                        SurfaceFormat.Color,
-                        DepthFormat.None
-                    );
-                    _lastWidth = currentWidth;
-                    _lastHeight = currentHeight;
-                    _logger.Debug(
-                        "Created render target: {Width}x{Height}",
-                        currentWidth,
-                        currentHeight
-                    );
+                    // Render target is valid, return it
+                    return existingTarget;
                 }
-                catch (Exception ex)
-                {
-                    _logger.Warning(
-                        ex,
-                        "Failed to create render target: {Width}x{Height}",
-                        currentWidth,
-                        currentHeight
-                    );
-                    return null;
-                }
+
+                // Size or format changed - recreate
+                DisposeRenderTarget(index);
             }
 
-            return _sceneRenderTarget;
+            // Create new render target
+            try
+            {
+                var newTarget = new RenderTarget2D(
+                    _graphicsDevice,
+                    currentWidth,
+                    currentHeight,
+                    false,
+                    SurfaceFormat.Color,
+                    depthFormat
+                );
+
+                _renderTargets[index] = newTarget;
+                _depthFormats[index] = depthFormat;
+                _renderTargetSizes[index] = (currentWidth, currentHeight);
+
+                // Also update legacy _sceneRenderTarget for backward compatibility
+                if (index == 0)
+                {
+                    _sceneRenderTarget = newTarget;
+                    _lastWidth = currentWidth;
+                    _lastHeight = currentHeight;
+                }
+
+                _logger.Debug(
+                    "Created render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    index,
+                    currentWidth,
+                    currentHeight,
+                    depthFormat
+                );
+
+                return newTarget;
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(
+                    ex,
+                    "Failed to create render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    index,
+                    currentWidth,
+                    currentHeight,
+                    depthFormat
+                );
+                return null;
+            }
         }
 
         /// <summary>
-        /// Disposes the current render target.
+        /// Gets or creates a render target with explicit dimensions and depth format.
+        /// </summary>
+        /// <param name="index">The render target index.</param>
+        /// <param name="width">The render target width.</param>
+        /// <param name="height">The render target height.</param>
+        /// <param name="depthFormat">The depth format (default: None).</param>
+        /// <returns>The render target, or null if creation fails.</returns>
+        public RenderTarget2D? GetOrCreateRenderTarget(
+            int index,
+            int width,
+            int height,
+            DepthFormat depthFormat = DepthFormat.None
+        )
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(RenderTargetManager));
+
+            // Check if render target exists and matches requirements
+            if (_renderTargets.TryGetValue(index, out var existingTarget))
+            {
+                var existingSize = _renderTargetSizes[index];
+                var existingDepth = _depthFormats[index];
+
+                if (
+                    existingSize.width == width
+                    && existingSize.height == height
+                    && existingDepth == depthFormat
+                )
+                {
+                    // Render target is valid, return it
+                    return existingTarget;
+                }
+
+                // Size or format changed - recreate
+                DisposeRenderTarget(index);
+            }
+
+            // Create new render target
+            try
+            {
+                var newTarget = new RenderTarget2D(
+                    _graphicsDevice,
+                    width,
+                    height,
+                    false,
+                    SurfaceFormat.Color,
+                    depthFormat
+                );
+
+                _renderTargets[index] = newTarget;
+                _depthFormats[index] = depthFormat;
+                _renderTargetSizes[index] = (width, height);
+
+                // Also update legacy _sceneRenderTarget for backward compatibility
+                if (index == 0)
+                {
+                    _sceneRenderTarget = newTarget;
+                    _lastWidth = width;
+                    _lastHeight = height;
+                }
+
+                _logger.Debug(
+                    "Created render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    index,
+                    width,
+                    height,
+                    depthFormat
+                );
+
+                return newTarget;
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(
+                    ex,
+                    "Failed to create render target {Index}: {Width}x{Height}, Depth: {DepthFormat}",
+                    index,
+                    width,
+                    height,
+                    depthFormat
+                );
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Disposes a specific render target by index.
+        /// </summary>
+        /// <param name="index">The render target index.</param>
+        public void DisposeRenderTarget(int index)
+        {
+            if (_renderTargets.TryGetValue(index, out var target))
+            {
+                target.Dispose();
+                _renderTargets.Remove(index);
+                _depthFormats.Remove(index);
+                _renderTargetSizes.Remove(index);
+
+                // Also clear legacy _sceneRenderTarget if index 0
+                if (index == 0)
+                {
+                    _sceneRenderTarget = null;
+                }
+
+                _logger.Debug("Disposed render target {Index}", index);
+            }
+        }
+
+        /// <summary>
+        /// Disposes the default render target (index 0).
         /// </summary>
         public void DisposeRenderTarget()
         {
-            if (_sceneRenderTarget != null)
+            DisposeRenderTarget(0);
+        }
+
+        /// <summary>
+        /// Disposes all render targets.
+        /// </summary>
+        public void DisposeAllRenderTargets()
+        {
+            var indices = new List<int>(_renderTargets.Keys);
+            foreach (var index in indices)
             {
-                _sceneRenderTarget.Dispose();
-                _sceneRenderTarget = null;
-                _logger.Debug("Disposed render target");
+                DisposeRenderTarget(index);
             }
+        }
+
+        /// <summary>
+        /// Clears the render target pool (for testing/reset).
+        /// </summary>
+        public void ClearRenderTargetPool()
+        {
+            DisposeAllRenderTargets();
         }
 
         /// <summary>
@@ -106,7 +278,7 @@ namespace MonoBall.Core.Rendering
         {
             if (!_disposed)
             {
-                DisposeRenderTarget();
+                DisposeAllRenderTargets();
                 _disposed = true;
             }
         }

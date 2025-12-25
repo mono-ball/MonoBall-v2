@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using MonoBall.Core.Mods.Definitions;
 using MonoBall.Core.Mods.Utilities;
 using Serilog;
 
@@ -121,7 +122,7 @@ namespace MonoBall.Core.Mods
                     }
 
                     // Collect definition IDs
-                    CollectDefinitionIds(manifest, modDir, definitionIds);
+                    CollectDefinitionIds(manifest, modDir, definitionIds, issues);
                 }
                 catch (Exception ex)
                 {
@@ -247,7 +248,8 @@ namespace MonoBall.Core.Mods
         private void CollectDefinitionIds(
             ModManifest manifest,
             string modDir,
-            Dictionary<string, List<DefinitionLocation>> definitionIds
+            Dictionary<string, List<DefinitionLocation>> definitionIds,
+            List<ValidationIssue> issues
         )
         {
             foreach (var (folderType, relativePath) in manifest.ContentFolders)
@@ -295,10 +297,28 @@ namespace MonoBall.Core.Mods
                                     );
                             }
                         }
+
+                        // Validate shader definitions
+                        if (folderType == "Shaders")
+                        {
+                            ValidateShaderDefinition(jsonFile, jsonDoc, modDir, issues);
+                        }
+                    }
+                    catch (JsonException ex)
+                    {
+                        issues.Add(
+                            new ValidationIssue
+                            {
+                                Severity = ValidationSeverity.Error,
+                                Message = $"Invalid JSON in definition file: {ex.Message}",
+                                ModId = manifest.Id,
+                                FilePath = jsonFile,
+                            }
+                        );
                     }
                     catch
                     {
-                        // Skip invalid JSON files during validation
+                        // Skip other errors during validation
                     }
                 }
             }
@@ -340,6 +360,137 @@ namespace MonoBall.Core.Mods
                         issues
                     );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Validates a shader definition file.
+        /// </summary>
+        /// <param name="definitionPath">Path to the shader definition JSON file.</param>
+        /// <param name="jsonDoc">The parsed JSON document.</param>
+        /// <param name="modDir">The mod directory root.</param>
+        /// <param name="issues">List to add validation issues to.</param>
+        private void ValidateShaderDefinition(
+            string definitionPath,
+            JsonDocument jsonDoc,
+            string modDir,
+            List<ValidationIssue> issues
+        )
+        {
+            var root = jsonDoc.RootElement;
+
+            // Validate required fields
+            if (
+                !root.TryGetProperty("id", out var idElement)
+                || string.IsNullOrEmpty(idElement.GetString())
+            )
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = "Shader definition missing required 'id' field",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
+                return;
+            }
+
+            var id = idElement.GetString()!;
+
+            if (
+                !root.TryGetProperty("name", out var nameElement)
+                || string.IsNullOrEmpty(nameElement.GetString())
+            )
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Shader definition '{id}' missing required 'name' field",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
+            }
+
+            if (
+                !root.TryGetProperty("sourceFile", out var sourceFileElement)
+                || string.IsNullOrEmpty(sourceFileElement.GetString())
+            )
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Shader definition '{id}' missing required 'sourceFile' field",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
+                return;
+            }
+
+            var sourceFile = sourceFileElement.GetString()!;
+
+            // Validate shader ID format
+            if (!id.Contains(":shader:", StringComparison.OrdinalIgnoreCase))
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message =
+                            $"Shader ID '{id}' does not match required format. Expected: {{namespace}}:shader:{{name}} (all lowercase)",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
+            }
+
+            if (id != id.ToLowerInvariant())
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Shader ID '{id}' must be all lowercase",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
+            }
+
+            // Validate sourceFile has .mgfxo extension
+            if (!sourceFile.EndsWith(".mgfxo", StringComparison.OrdinalIgnoreCase))
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Shader sourceFile '{sourceFile}' must have .mgfxo extension",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
+            }
+
+            // Validate .mgfxo file exists relative to mod root
+            var mgfxoPath = Path.Combine(modDir, sourceFile);
+            mgfxoPath = Path.GetFullPath(mgfxoPath);
+            if (!File.Exists(mgfxoPath))
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message =
+                            $"Shader compiled file not found: {mgfxoPath}. Ensure shaders are compiled during build.",
+                        ModId = string.Empty,
+                        FilePath = definitionPath,
+                    }
+                );
             }
         }
 

@@ -1,0 +1,21 @@
+{
+  "id": "base:shader:chromaticaberration",
+  "name": "Chromatic Aberration",
+  "description": "Applies chromatic aberration effect (color separation at edges)",
+  "sourceFile": "Shaders/ChromaticAberration.mgfxo",
+  "parameters": [
+    {
+      "name": "AberrationAmount",
+      "type": "float",
+      "defaultValue": 0.005,
+      "min": 0.0,
+      "max": 0.1
+    },
+    {
+      "name": "ScreenSize",
+      "type": "float2",
+      "defaultValue": [800.0, 600.0]
+    }
+  ]
+}
+

@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/oldale_town_pokemon_center_1f",
+  "name": "OldaleTown_PokemonCenter_1F",
+  "texturePath": "Graphics/Tilesets/Hoenn/OldaleTown_PokemonCenter_1F.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 2,
+  "columns": 2,
+  "imageWidth": 32,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

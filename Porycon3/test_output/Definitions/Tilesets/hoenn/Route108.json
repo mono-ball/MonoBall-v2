@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/route108",
+  "name": "Route108",
+  "texturePath": "Graphics/Tilesets/Hoenn/Route108.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 52,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0
+}

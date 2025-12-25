@@ -1,0 +1,35 @@
+{
+  "id": "base:shader:colorgrading",
+  "name": "Color Grading",
+  "description": "Applies color grading effects including brightness, contrast, saturation, and color tint",
+  "sourceFile": "Shaders/ColorGrading.mgfxo",
+  "parameters": [
+    {
+      "name": "Brightness",
+      "type": "float",
+      "defaultValue": 0.0,
+      "min": -1.0,
+      "max": 1.0
+    },
+    {
+      "name": "Contrast",
+      "type": "float",
+      "defaultValue": 1.0,
+      "min": 0.0,
+      "max": 2.0
+    },
+    {
+      "name": "Saturation",
+      "type": "float",
+      "defaultValue": 1.0,
+      "min": 0.0,
+      "max": 2.0
+    },
+    {
+      "name": "ColorTint",
+      "type": "float3",
+      "defaultValue": [1.0, 1.0, 1.0]
+    }
+  ]
+}
+

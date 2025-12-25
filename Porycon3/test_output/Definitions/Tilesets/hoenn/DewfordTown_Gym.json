@@ -1,0 +1,13 @@
+{
+  "id": "base:tileset:hoenn/dewford_town_gym",
+  "name": "DewfordTown_Gym",
+  "texturePath": "Graphics/Tilesets/Hoenn/DewfordTown_Gym.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 3,
+  "columns": 3,
+  "imageWidth": 48,
+  "imageHeight": 16,
+  "spacing": 0,
+  "margin": 0
+}

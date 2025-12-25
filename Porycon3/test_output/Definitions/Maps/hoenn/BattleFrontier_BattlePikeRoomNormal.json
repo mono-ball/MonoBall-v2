@@ -1,0 +1,182 @@
+{
+  "id": "base:map:hoenn/battle_frontier_battle_pike_room_normal",
+  "name": "BattleFrontier_BattlePikeRoomNormal",
+  "description": "",
+  "regionId": "base:region:hoenn",
+  "mapTypeId": "base:maptype:indoor",
+  "width": 9,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "base:audio:music/special/mus_b_pike",
+  "weatherId": "base:weather:outdoor/none",
+  "battleSceneId": "base:battlescene:normal/normal",
+  "mapSectionId": "base:mapsection:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "base:layer:hoenn/battle_frontier_battle_pike_room_normal/ground",
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_battle_pike_room_normal/objects",
+      "name": "Objects",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "base:layer:hoenn/battle_frontier_battle_pike_room_normal/overhead",
+      "name": "Overhead",
+      "type": "tilelayer",
+      "width": 9,
+      "height": 8,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "base:tileset:hoenn/battle_frontier_battle_pike_room_normal"
+    }
+  ],
+  "warps": [],
+  "triggers": [
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_1_0",
+      "name": "Trigger: VAR_TEMP_1 == 0",
+      "x": 64,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_1",
+      "value": 0,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_exit",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 48,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_2",
+      "value": 0,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_set_entered_room",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_3",
+      "value": 1,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_no_turning_back",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 64,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_2",
+      "value": 0,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_set_entered_room",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 80,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_2",
+      "value": 0,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_set_entered_room",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_3",
+      "value": 1,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_no_turning_back",
+      "elevation": 3
+    },
+    {
+      "id": "base:trigger:hoenn/battle_frontier_battle_pike_room_normal/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 80,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "variable": "base:variable:hoenn/var_temp_3",
+      "value": 1,
+      "triggerId": "base:script:trigger/battle_frontier_battle_pike_room_normal_event_script_no_turning_back",
+      "elevation": 3
+    }
+  ],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "base:npc:hoenn/battle_frontier_battle_pike_room_normal/localid_pike_room_npc_1",
+      "name": "LOCALID_PIKE_ROOM_NPC_1",
+      "x": 64,
+      "y": 64,
+      "spriteId": "{base:sprite:npcs/generic/var_rival}",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_battle_pike_room_normal_event_script_npc",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    },
+    {
+      "id": "base:npc:hoenn/battle_frontier_battle_pike_room_normal/localid_pike_room_npc_2",
+      "name": "LOCALID_PIKE_ROOM_NPC_2",
+      "x": 48,
+      "y": 64,
+      "spriteId": "{base:sprite:npcs/generic/var_player}",
+      "behaviorId": "base:script:behavior/stationary",
+      "interactionId": "base:script:interaction/battle_frontier_battle_pike_room_normal_event_script_status_mon",
+      "facingDirection": "down",
+      "rangeX": 1,
+      "rangeY": 1,
+      "elevation": 3
+    }
+  ]
+}
