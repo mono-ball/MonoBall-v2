@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
@@ -14,7 +15,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// <summary>
     /// System that cycles through available combined layer shaders when F4 is pressed.
     /// </summary>
-    public class ShaderCycleSystem : BaseSystem<World, float>
+    public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly IInputBindingService _inputBindingService;
         private readonly ShaderManagerSystem _shaderManagerSystem;
@@ -35,6 +36,11 @@ namespace MonoBall.Core.Scenes.Systems
 
         // Start at index 0 (no shader) since no default shader is created at startup
         private int _currentShaderIndex = 0;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.ShaderCycle;
 
         /// <summary>
         /// Initializes a new instance of the ShaderCycleSystem.

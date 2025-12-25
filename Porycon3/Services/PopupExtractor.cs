@@ -35,10 +35,10 @@ public class PopupExtractor
         _outputPath = outputPath;
 
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "map_popup");
-        _outputGraphicsBg = Path.Combine(outputPath, "Graphics", "Maps", "Popups", "Backgrounds");
-        _outputGraphicsOutline = Path.Combine(outputPath, "Graphics", "Maps", "Popups", "Outlines");
-        _outputDataBg = Path.Combine(outputPath, "Definitions", "Maps", "Popups", "Backgrounds");
-        _outputDataOutline = Path.Combine(outputPath, "Definitions", "Maps", "Popups", "Outlines");
+        _outputGraphicsBg = Path.Combine(outputPath, "Graphics", "Sprites", "Popups", "Backgrounds");
+        _outputGraphicsOutline = Path.Combine(outputPath, "Graphics", "Sprites", "Popups", "Outlines");
+        _outputDataBg = Path.Combine(outputPath, "Definitions", "Sprites", "Popups", "Backgrounds");
+        _outputDataOutline = Path.Combine(outputPath, "Definitions", "Sprites", "Popups", "Outlines");
     }
 
     /// <summary>
@@ -184,7 +184,7 @@ public class PopupExtractor
             id = unifiedId,
             name = FormatDisplayName(styleName),
             type = "Bitmap",
-            texturePath = $"Graphics/Maps/Popups/Backgrounds/{pascalName}.png",
+            texturePath = $"Graphics/Sprites/Popups/Backgrounds/{pascalName}.png",
             width = 80,
             height = 24,
             description = "Background bitmap for map popup"
@@ -295,7 +295,7 @@ public class PopupExtractor
             id = unifiedId,
             name = $"{FormatDisplayName(styleName)} Outline",
             type = "TileSheet",
-            texturePath = $"Graphics/Maps/Popups/Outlines/{pascalName}.png",
+            texturePath = $"Graphics/Sprites/Popups/Outlines/{pascalName}.png",
             tileWidth = 8,
             tileHeight = 8,
             tileCount = 30,

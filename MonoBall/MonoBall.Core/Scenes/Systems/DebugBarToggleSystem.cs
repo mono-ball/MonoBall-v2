@@ -2,6 +2,7 @@ using System;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Scenes.Components;
@@ -12,13 +13,18 @@ namespace MonoBall.Core.Scenes.Systems
     /// <summary>
     /// System that handles toggling the debug bar scene visibility via F3 key press.
     /// </summary>
-    public class DebugBarToggleSystem : BaseSystem<World, float>
+    public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private const string DebugBarSceneId = "debug:bar";
 
         private readonly SceneSystem _sceneSystem;
         private readonly IInputBindingService _inputBindingService;
         private readonly ILogger _logger;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.DebugBarToggle;
 
         /// <summary>
         /// Initializes a new instance of the DebugBarToggleSystem.

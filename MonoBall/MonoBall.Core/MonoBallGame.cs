@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -40,14 +39,6 @@ namespace MonoBall.Core
         private GameInitializationService? _initializationService;
         private Task<GameInitializationService.InitializationResult>? _initializationTask;
         private Entity? _loadingSceneEntity;
-        private SceneSystem? _earlySceneSystem; // Early scene system (replaced by SystemManager's later)
-        private LoadingSceneSystem? _earlyLoadingSceneSystem; // Early loading scene system (replaced by SystemManager's later)
-        private LoadingSceneRendererSystem? _earlyLoadingRenderer; // Early loading renderer (replaced by SystemManager's later)
-        private SpriteBatch? _loadingSpriteBatch;
-
-        // Thread-safe progress update queue (marshals updates from async task to main thread)
-        private readonly ConcurrentQueue<(float progress, string step)> _progressUpdateQueue =
-            new();
 
         // Track if we've shown 100% progress for at least one frame before transitioning
         private bool _hasShownCompleteProgress = false;
@@ -124,56 +115,71 @@ namespace MonoBall.Core
             // This ensures FontService is available when the loading screen renders
             LoadModsSynchronously();
 
-            // Create sprite batch for loading screen
-            _loadingSpriteBatch = new SpriteBatch(GraphicsDevice);
-
             // Create main world early (empty, just for scenes)
             // This ensures the world exists before async initialization starts
             var mainWorld = EcsWorld.Instance;
             _logger.Debug("Main world created early for loading scene");
 
-            // Create early scene manager and renderer for loading scene
-            // These will be replaced by SystemManager's systems when initialization completes
-            _earlySceneSystem = new SceneSystem(
-                mainWorld,
-                LoggerFactory.CreateLogger<SceneSystem>()
-            );
+            // Create minimal GameServices for early SystemManager initialization
+            var modManager = Services.GetService<Mods.ModManager>();
+            if (modManager == null)
+            {
+                throw new InvalidOperationException(
+                    "ModManager not found in Game.Services after LoadModsSynchronously()"
+                );
+            }
 
-            // Create loading scene renderer (needed for LoadingSceneSystem)
-            _earlyLoadingRenderer = new LoadingSceneRendererSystem(
-                mainWorld,
-                GraphicsDevice,
-                _loadingSpriteBatch,
+            // Create minimal services required for early SystemManager initialization
+            var ecsService = GameInitializationHelper.EnsureEcsService(this, _logger);
+            var flagVariableService = GameInitializationHelper.EnsureFlagVariableService(
                 this,
-                LoggerFactory.CreateLogger<LoadingSceneRendererSystem>()
+                ecsService,
+                _logger
+            );
+            var tilesetLoaderService = GameInitializationHelper.EnsureTilesetLoaderService(
+                this,
+                GraphicsDevice,
+                modManager,
+                _logger
             );
 
-            // Create early loading scene system (before SystemManager is ready)
-            _earlyLoadingSceneSystem = new LoadingSceneSystem(
+            // Create sprite batch for early systems
+            var loadingSpriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // Initialize SystemManager early (creates SceneSystem, LoadingSceneRendererSystem, LoadingSceneSystem first)
+            var earlySystemManager = new SystemManager(
                 mainWorld,
                 GraphicsDevice,
-                _loadingSpriteBatch,
-                _earlyLoadingRenderer,
-                LoggerFactory.CreateLogger<LoadingSceneSystem>()
+                modManager,
+                tilesetLoaderService,
+                this,
+                LoggerFactory.CreateLogger<SystemManager>()
             );
+            earlySystemManager.Initialize(loadingSpriteBatch);
 
-            // Create initialization service with progress queue for thread-safe updates
+            // Create initialization service
             _initializationService = new GameInitializationService(
                 this,
                 GraphicsDevice,
-                LoggerFactory.CreateLogger<GameInitializationService>(),
-                _progressUpdateQueue
+                LoggerFactory.CreateLogger<GameInitializationService>()
             );
+
+            // Set LoadingSceneSystem for progress updates
+            _initializationService.SetLoadingSceneSystem(earlySystemManager.LoadingSceneSystem);
 
             // Create loading scene in main world and start async initialization
             (_loadingSceneEntity, _initializationTask) =
                 _initializationService.CreateLoadingSceneAndStartInitialization(
                     mainWorld,
-                    _earlySceneSystem,
+                    earlySystemManager.SceneSystem,
                     GraphicsDevice,
-                    _loadingSpriteBatch,
-                    _earlyLoadingRenderer!
+                    loadingSpriteBatch,
+                    earlySystemManager.LoadingSceneRendererSystem!
                 );
+
+            // Store early SystemManager temporarily (will be replaced by async initialization result)
+            systemManager = earlySystemManager;
+            spriteBatch = loadingSpriteBatch;
 
             _logger.Information(
                 "Loading scene created in main world, async initialization started"
@@ -195,17 +201,14 @@ namespace MonoBall.Core
             )
                 Exit();
 
-            // Process thread-safe progress updates from async initialization task
-            // This marshals updates from the background thread to the main thread's ECS world
-            _initializationService?.ProcessProgressUpdates();
-
             // Check if initialization is complete
             if (_initializationTask != null && _initializationTask.IsCompleted)
             {
                 if (!_initializationTask.IsFaulted && !_initializationTask.IsCanceled)
                 {
                     var result = _initializationTask.Result;
-                    if (result.Success && systemManager == null)
+                    // Check if we need to transition to the new SystemManager from async initialization
+                    if (result.Success && systemManager != result.SystemManager)
                     {
                         // Validate initialization result
                         if (
@@ -278,24 +281,31 @@ namespace MonoBall.Core
                         systemManager = result.SystemManager;
                         spriteBatch = result.SpriteBatch;
 
-                        // Destroy loading scene (now managed by SystemManager's SceneManagerSystem)
-                        // The scene entity exists in the world, SystemManager's SceneManagerSystem will handle it
-                        if (_loadingSceneEntity != null && systemManager != null)
+                        // Dispose early SystemManager (will be replaced by the one from async initialization)
+                        var earlySystemManager = systemManager;
+                        if (
+                            earlySystemManager != null
+                            && earlySystemManager != result.SystemManager
+                        )
                         {
                             try
                             {
-                                // Destroy scene from early manager first (if it still exists)
-                                if (_earlySceneSystem != null)
-                                {
-                                    _earlySceneSystem.DestroyScene(_loadingSceneEntity.Value);
-                                }
-                                else
-                                {
-                                    // If early manager was already cleaned up, destroy directly via SystemManager's manager
-                                    systemManager.SceneSystem.DestroyScene(
-                                        _loadingSceneEntity.Value
-                                    );
-                                }
+                                earlySystemManager.Dispose();
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.Warning(ex, "Error disposing early SystemManager");
+                            }
+                        }
+
+                        // Destroy loading scene (now managed by new SystemManager's SceneSystem)
+                        if (_loadingSceneEntity != null && result.SystemManager != null)
+                        {
+                            try
+                            {
+                                result.SystemManager.SceneSystem.DestroyScene(
+                                    _loadingSceneEntity.Value
+                                );
                             }
                             catch (Exception ex)
                             {
@@ -304,48 +314,10 @@ namespace MonoBall.Core
                                     "Error destroying loading scene: {Error}",
                                     ex.Message
                                 );
-                                // Try to destroy via SystemManager's manager as fallback
-                                try
-                                {
-                                    if (systemManager != null)
-                                    {
-                                        systemManager.SceneSystem.DestroyScene(
-                                            _loadingSceneEntity.Value
-                                        );
-                                    }
-                                }
-                                catch
-                                {
-                                    // If both fail, log and continue - scene will be cleaned up when world is destroyed
-                                    _logger.Warning(
-                                        "Failed to destroy loading scene via both managers"
-                                    );
-                                }
                             }
                             _loadingSceneEntity = null;
                         }
 
-                        // Cleanup early scene systems (SystemManager now owns scene management)
-                        if (_earlySceneSystem != null)
-                        {
-                            try
-                            {
-                                _earlySceneSystem.Cleanup(); // Unsubscribe from EventBus
-                            }
-                            catch (Exception ex)
-                            {
-                                _logger.Warning(ex, "Error cleaning up early scene manager");
-                            }
-                            _earlySceneSystem = null;
-                        }
-
-                        _earlyLoadingRenderer?.Dispose();
-                        _earlyLoadingRenderer = null;
-                        _earlyLoadingSceneSystem = null; // LoadingSceneSystem doesn't need disposal (no resources)
-
-                        // Clean up loading resources
-                        _loadingSpriteBatch?.Dispose();
-                        _loadingSpriteBatch = null;
                         _initializationService = null;
                         _initializationTask = null;
                     }
@@ -388,22 +360,17 @@ namespace MonoBall.Core
         protected override void Draw(GameTime gameTime)
         {
             // Determine background color from active scene system
-            Color backgroundColor;
-            if (systemManager != null)
+            // Fail fast if systemManager is not initialized
+            if (systemManager == null)
             {
-                // Use SceneRendererSystem to determine background color based on active scenes
-                backgroundColor = systemManager.SceneRendererSystem.GetBackgroundColor();
+                throw new InvalidOperationException(
+                    "Cannot render: SystemManager is null. "
+                        + "Ensure game initialization completed successfully before calling Draw()."
+                );
             }
-            else if (_earlyLoadingSceneSystem != null)
-            {
-                // Early loading screen - use loading screen background color
-                backgroundColor = Scenes.Systems.LoadingSceneRendererSystem.GetBackgroundColor();
-            }
-            else
-            {
-                // Fallback to black if no renderer available
-                backgroundColor = Color.Black;
-            }
+
+            // Use SceneRendererSystem to determine background color based on active scenes
+            Color backgroundColor = systemManager.SceneRendererSystem.GetBackgroundColor();
 
             GraphicsDevice.Clear(backgroundColor);
 
@@ -413,11 +380,6 @@ namespace MonoBall.Core
             {
                 // Use SystemManager's rendering (includes SceneRendererSystem)
                 systemManager.Render(gameTime);
-            }
-            else if (_earlyLoadingSceneSystem != null && _loadingSceneEntity.HasValue)
-            {
-                // Use early loading scene system (before SystemManager is ready)
-                _earlyLoadingSceneSystem.RenderScene(_loadingSceneEntity.Value, gameTime);
             }
 
             base.Draw(gameTime);
@@ -491,7 +453,6 @@ namespace MonoBall.Core
         {
             if (disposing)
             {
-                _loadingSpriteBatch?.Dispose();
                 systemManager?.Dispose();
                 spriteBatch?.Dispose();
                 EcsWorld.Reset();

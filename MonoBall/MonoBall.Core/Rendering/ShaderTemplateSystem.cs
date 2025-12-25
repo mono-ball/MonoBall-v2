@@ -19,6 +19,10 @@ namespace MonoBall.Core.Rendering
         private readonly IModManager _modManager;
         private readonly ILogger _logger;
 
+        // Cached query description to avoid allocations in hot paths
+        private static readonly QueryDescription _renderingShaderQuery =
+            new QueryDescription().WithAll<RenderingShaderComponent>();
+
         /// <summary>
         /// Initializes a new instance of the ShaderTemplateSystem.
         /// </summary>
@@ -63,9 +67,8 @@ namespace MonoBall.Core.Rendering
 
             // Find existing layer shader entities for this layer
             var existingEntities = new List<Entity>();
-            var query = new QueryDescription().WithAll<RenderingShaderComponent>();
             _world.Query(
-                in query,
+                in _renderingShaderQuery,
                 (ref RenderingShaderComponent shader) =>
                 {
                     if (shader.Layer == layer)
@@ -133,11 +136,10 @@ namespace MonoBall.Core.Rendering
         public void ClearLayer(ShaderLayer layer)
         {
             // Query for all entities with RenderingShaderComponent
-            var query = new QueryDescription().WithAll<RenderingShaderComponent>();
             var entitiesToRemove = new List<Entity>();
 
             _world.Query(
-                in query,
+                in _renderingShaderQuery,
                 (Entity entity, ref RenderingShaderComponent shader) =>
                 {
                     if (shader.Layer == layer)

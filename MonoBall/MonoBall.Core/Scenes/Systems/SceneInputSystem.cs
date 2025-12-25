@@ -2,6 +2,7 @@ using System;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework.Input;
+using MonoBall.Core.ECS;
 using MonoBall.Core.Scenes.Components;
 using Serilog;
 
@@ -11,11 +12,16 @@ namespace MonoBall.Core.Scenes.Systems
     /// System responsible for processing input for scenes in priority order.
     /// Respects BlocksInput flag to prevent lower-priority scenes from receiving input.
     /// </summary>
-    public partial class SceneInputSystem : BaseSystem<World, float>
+    public partial class SceneInputSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly SceneSystem _sceneSystem;
 
         private readonly ILogger _logger;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.SceneInput;
 
         /// <summary>
         /// Initializes a new instance of the SceneInputSystem.

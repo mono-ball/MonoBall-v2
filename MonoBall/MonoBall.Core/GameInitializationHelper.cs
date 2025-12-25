@@ -1,40 +1,150 @@
 using System;
-using System.Collections.Generic;
 using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
-using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
-using MonoBall.Core.Localization;
 using MonoBall.Core.Logging;
+using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
-using MonoBall.Core.Rendering;
-using MonoBall.Core.Scenes;
-using MonoBall.Core.Scenes.Components;
 using Serilog;
 
 namespace MonoBall.Core
 {
     /// <summary>
-    /// Helper class containing reusable game initialization steps.
-    /// Eliminates code duplication between async and sync initialization paths.
+    /// Helper methods for game initialization.
     /// </summary>
     public static class GameInitializationHelper
     {
         /// <summary>
-        /// Loads localization settings.
+        /// Ensures EcsService exists in Game.Services, creating it if necessary.
         /// </summary>
+        /// <param name="game">The game instance.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public static void LoadLocalization(ILogger logger)
+        /// <returns>The EcsService instance.</returns>
+        public static EcsService EnsureEcsService(Game game, ILogger logger)
         {
-            var cultures = LocalizationManager.GetSupportedCultures();
-            LocalizationManager.SetCulture(LocalizationManager.DEFAULT_CULTURE_CODE);
-            logger.Debug("Localization loaded");
+            if (game == null)
+            {
+                throw new ArgumentNullException(nameof(game));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
+            var existingEcsService = game.Services.GetService<EcsService>();
+            if (existingEcsService == null)
+            {
+                var ecsService = new EcsService();
+                game.Services.AddService(typeof(EcsService), ecsService);
+                logger.Debug("EcsService created and registered");
+                return ecsService;
+            }
+            else
+            {
+                logger.Debug("Reusing existing EcsService from Game.Services");
+                return existingEcsService;
+            }
         }
 
         /// <summary>
-        /// Initializes game services (mods, ECS world).
+        /// Ensures FlagVariableService exists in Game.Services, creating it if necessary.
+        /// </summary>
+        /// <param name="game">The game instance.</param>
+        /// <param name="ecsService">The ECS service (must not be null).</param>
+        /// <param name="logger">The logger for logging operations.</param>
+        /// <returns>The FlagVariableService instance.</returns>
+        public static IFlagVariableService EnsureFlagVariableService(
+            Game game,
+            EcsService ecsService,
+            ILogger logger
+        )
+        {
+            if (game == null)
+            {
+                throw new ArgumentNullException(nameof(game));
+            }
+            if (ecsService == null)
+            {
+                throw new ArgumentNullException(nameof(ecsService));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
+            var existingFlagService = game.Services.GetService<IFlagVariableService>();
+            if (existingFlagService == null)
+            {
+                var flagVariableService = new FlagVariableService(
+                    ecsService.World,
+                    LoggerFactory.CreateLogger<FlagVariableService>()
+                );
+                game.Services.AddService(typeof(IFlagVariableService), flagVariableService);
+                logger.Debug("FlagVariableService created and registered");
+                return flagVariableService;
+            }
+            else
+            {
+                logger.Debug("Reusing existing FlagVariableService from Game.Services");
+                return existingFlagService;
+            }
+        }
+
+        /// <summary>
+        /// Ensures TilesetLoaderService exists in Game.Services, creating it if necessary.
+        /// </summary>
+        /// <param name="game">The game instance.</param>
+        /// <param name="graphicsDevice">The graphics device.</param>
+        /// <param name="modManager">The mod manager.</param>
+        /// <param name="logger">The logger for logging operations.</param>
+        /// <returns>The TilesetLoaderService instance.</returns>
+        public static TilesetLoaderService EnsureTilesetLoaderService(
+            Game game,
+            GraphicsDevice graphicsDevice,
+            IModManager modManager,
+            ILogger logger
+        )
+        {
+            if (game == null)
+            {
+                throw new ArgumentNullException(nameof(game));
+            }
+            if (graphicsDevice == null)
+            {
+                throw new ArgumentNullException(nameof(graphicsDevice));
+            }
+            if (modManager == null)
+            {
+                throw new ArgumentNullException(nameof(modManager));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
+            var existingTilesetLoader = game.Services.GetService<TilesetLoaderService>();
+            if (existingTilesetLoader == null)
+            {
+                var tilesetLoaderService = new TilesetLoaderService(
+                    graphicsDevice,
+                    modManager,
+                    LoggerFactory.CreateLogger<TilesetLoaderService>()
+                );
+                game.Services.AddService(typeof(TilesetLoaderService), tilesetLoaderService);
+                logger.Debug("TilesetLoaderService created and registered");
+                return tilesetLoaderService;
+            }
+            else
+            {
+                logger.Debug("Reusing existing TilesetLoaderService from Game.Services");
+                return existingTilesetLoader;
+            }
+        }
+
+        /// <summary>
+        /// Initializes core services (mods, ECS world). Should be called from Game.Initialize().
         /// </summary>
         /// <param name="game">The game instance.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
@@ -98,40 +208,41 @@ namespace MonoBall.Core
             ILogger logger
         )
         {
-            if (
-                gameServices.ModManager == null
-                || gameServices.EcsService == null
-                || gameServices.TilesetLoaderService == null
-            )
+            if (gameServices?.ModManager == null)
             {
                 throw new InvalidOperationException(
-                    "Cannot initialize ECS systems - required services are null"
+                    "GameServices.ModManager is null. Ensure GameServices.Initialize() was called successfully."
+                );
+            }
+
+            if (gameServices.TilesetLoaderService == null)
+            {
+                throw new InvalidOperationException(
+                    "GameServices.TilesetLoaderService is null. Ensure GameServices.LoadContent() was called."
                 );
             }
 
             var systemManager = new SystemManager(
-                gameServices.EcsService.World,
+                gameServices.EcsService!.World,
                 graphicsDevice,
                 gameServices.ModManager,
                 gameServices.TilesetLoaderService,
                 game,
                 LoggerFactory.CreateLogger<SystemManager>()
             );
-
             systemManager.Initialize(spriteBatch);
             logger.Debug("ECS systems initialized");
             return systemManager;
         }
 
         /// <summary>
-        /// Creates the default camera entity.
+        /// Creates a default camera entity in the world.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="modManager">The mod manager for tile size configuration.</param>
-        /// <param name="graphicsDevice">The graphics device.</param>
+        /// <param name="modManager">The mod manager for getting default tile sizes.</param>
+        /// <param name="graphicsDevice">The graphics device for viewport setup.</param>
         /// <param name="logger">The logger for logging operations.</param>
         /// <returns>The created camera entity.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if ModManager is null.</exception>
         public static Entity CreateDefaultCamera(
             World world,
             IModManager modManager,
@@ -139,156 +250,182 @@ namespace MonoBall.Core
             ILogger logger
         )
         {
+            if (world == null)
+            {
+                throw new ArgumentNullException(nameof(world));
+            }
             if (modManager == null)
             {
-                throw new InvalidOperationException(
-                    "Cannot initialize camera: ModManager is required for tile size configuration."
-                );
+                throw new ArgumentNullException(nameof(modManager));
+            }
+            if (graphicsDevice == null)
+            {
+                throw new ArgumentNullException(nameof(graphicsDevice));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
             }
 
+            // Get default tile dimensions from mod manager
             int tileWidth = modManager.GetTileWidth();
             int tileHeight = modManager.GetTileHeight();
 
-            var camera = new CameraComponent
+            // Create camera component with default settings
+            var cameraComponent = new ECS.Components.CameraComponent
             {
-                Position = new Vector2(10, 10),
+                Position = Vector2.Zero,
                 Zoom = GameConstants.DefaultCameraZoom,
                 Rotation = GameConstants.DefaultCameraRotation,
+                Viewport = new Rectangle(
+                    0,
+                    0,
+                    graphicsDevice.Viewport.Width,
+                    graphicsDevice.Viewport.Height
+                ),
+                VirtualViewport = new Rectangle(
+                    0,
+                    0,
+                    graphicsDevice.Viewport.Width,
+                    graphicsDevice.Viewport.Height
+                ),
+                ReferenceWidth = GameConstants.GbaReferenceWidth,
+                ReferenceHeight = GameConstants.GbaReferenceHeight,
                 TileWidth = tileWidth,
                 TileHeight = tileHeight,
+                MapBounds = Rectangle.Empty, // No bounds initially
+                FollowTarget = null,
+                FollowEntity = null,
+                IsFollowingLocked = false,
+                SmoothingSpeed = GameConstants.DefaultCameraSmoothingSpeed,
                 IsActive = true,
                 IsDirty = true,
             };
 
-            Rendering.CameraViewportSystem.UpdateViewportForResize(
-                ref camera,
-                graphicsDevice.Viewport.Width,
-                graphicsDevice.Viewport.Height,
-                GameConstants.GbaReferenceWidth,
-                GameConstants.GbaReferenceHeight
-            );
-
-            var cameraEntity = world.Create(camera);
+            var cameraEntity = world.Create(cameraComponent);
             logger.Information("Created default camera entity {EntityId}", cameraEntity.Id);
             return cameraEntity;
         }
 
         /// <summary>
-        /// Initializes the player system and sets up camera following.
+        /// Initializes the player entity using the PlayerSystem.
         /// </summary>
-        /// <param name="systemManager">The system manager.</param>
-        /// <param name="cameraEntity">The camera entity.</param>
+        /// <param name="systemManager">The system manager containing the PlayerSystem.</param>
+        /// <param name="cameraEntity">The camera entity (used for spawn position).</param>
         /// <param name="logger">The logger for logging operations.</param>
-        /// <returns>The player entity, or null if not found.</returns>
-        public static Entity? InitializePlayer(
+        /// <returns>The created player entity.</returns>
+        public static Entity InitializePlayer(
             SystemManager systemManager,
             Entity cameraEntity,
             ILogger logger
         )
         {
-            systemManager.PlayerSystem.InitializePlayer();
-            logger.Information("Player system initialized");
-
-            var playerEntity = systemManager.PlayerSystem.GetPlayerEntity();
-            if (playerEntity.HasValue)
+            if (systemManager == null)
             {
-                systemManager.CameraSystem.SetCameraFollowEntity(cameraEntity, playerEntity.Value);
-                logger.Information(
-                    "Camera set to follow player entity {EntityId}",
-                    playerEntity.Value.Id
+                throw new ArgumentNullException(nameof(systemManager));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
+            // Pass camera entity directly to ensure it's used (avoids query timing issues)
+            systemManager.InitializePlayer(cameraEntity);
+            var playerEntity = systemManager.GetPlayerEntity();
+            if (!playerEntity.HasValue)
+            {
+                throw new InvalidOperationException(
+                    "Player entity was not created after InitializePlayer() call."
                 );
             }
-
-            return playerEntity;
+            logger.Information("Player entity initialized: {EntityId}", playerEntity.Value.Id);
+            return playerEntity.Value;
         }
 
         /// <summary>
-        /// Loads the initial map.
-        /// </summary>
-        /// <param name="systemManager">The system manager.</param>
-        /// <param name="mapId">The map ID to load.</param>
-        /// <param name="playerEntity">The player entity (optional, for camera positioning).</param>
-        /// <param name="cameraEntity">The camera entity (optional, for camera positioning).</param>
-        /// <param name="logger">The logger for logging operations.</param>
-        public static void LoadInitialMap(
-            SystemManager systemManager,
-            string mapId,
-            Entity? playerEntity,
-            Entity? cameraEntity,
-            ILogger logger
-        )
-        {
-            logger.Information("Loading initial map: {MapId}", mapId);
-            systemManager.MapLoaderSystem.LoadMap(mapId);
-            logger.Information("Initial map loaded");
-
-            if (playerEntity.HasValue && cameraEntity.HasValue)
-            {
-                systemManager.CameraSystem.UpdateCameraPosition(cameraEntity.Value);
-                logger.Information("Camera position updated after map load");
-            }
-        }
-
-        /// <summary>
-        /// Sets up initial game state variables and flags.
-        /// This is a temporary setup for testing variable sprite resolution.
+        /// Sets up initial game state (flags and variables).
         /// </summary>
         /// <param name="game">The game instance.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public static void SetupInitialGameState(Game game, ILogger logger)
         {
-            var flagVariableService = game.Services.GetService<IFlagVariableService>();
-            if (flagVariableService == null)
+            if (game == null)
             {
-                logger.Warning(
-                    "FlagVariableService not found in Game.Services. Cannot set up initial game state."
-                );
-                return;
+                throw new ArgumentNullException(nameof(game));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
             }
 
-            // Set variable sprite ID for rival
-            flagVariableService.SetVariable(
-                "base:sprite:npcs/generic/var_rival",
-                "base:sprite:players/brendan/normal"
-            );
-            logger.Information(
-                "Set game state variable base:sprite:npcs/generic/var_rival = base:sprite:players/brendan/normal"
-            );
+            // Get FlagVariableService from Game.Services
+            var flagVariableService = game.Services.GetService<ECS.Services.IFlagVariableService>();
+            if (flagVariableService == null)
+            {
+                throw new InvalidOperationException(
+                    "IFlagVariableService is not available in Game.Services. "
+                        + "Ensure GameServices.Initialize() was called."
+                );
+            }
 
-            // Set visibility flag for littleroot town rival (temporary)
-            flagVariableService.SetFlag("base:flag:visibility/littleroot_town_rival", true);
+            // FlagVariableService automatically creates the game state entity on first access
+            // We just need to ensure it's initialized by accessing it
+            // The service will create the singleton entity with FlagsComponent, VariablesComponent, and FlagVariableMetadataComponent
+            // No explicit initialization needed - the service handles it internally
+            logger.Debug("Game state initialized (flags and variables singleton entity created)");
+        }
+
+        /// <summary>
+        /// Sets up camera to follow player. Should be called after both camera and player are created.
+        /// </summary>
+        /// <param name="systemManager">The system manager containing the CameraSystem.</param>
+        /// <param name="cameraEntity">The camera entity.</param>
+        /// <param name="playerEntity">The player entity.</param>
+        /// <param name="logger">The logger for logging operations.</param>
+        public static void SetupCameraFollow(
+            SystemManager systemManager,
+            Entity cameraEntity,
+            Entity playerEntity,
+            ILogger logger
+        )
+        {
+            if (systemManager == null)
+            {
+                throw new ArgumentNullException(nameof(systemManager));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+
+            // Set camera to follow player
+            systemManager.CameraSystem.SetCameraFollowEntity(cameraEntity, playerEntity);
             logger.Information(
-                "Set game state flag base:flag:visibility/littleroot_town_rival = true"
+                "Camera {CameraEntityId} set to follow player {PlayerEntityId}",
+                cameraEntity.Id,
+                playerEntity.Id
             );
         }
 
         /// <summary>
-        /// Creates the initial game scene.
+        /// Creates the game scene using GameSceneHelper.
         /// </summary>
-        /// <param name="systemManager">The system manager.</param>
+        /// <param name="systemManager">The system manager containing the SceneSystem.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public static void CreateGameScene(SystemManager systemManager, ILogger logger)
         {
-            var gameSceneComponent = new SceneComponent
+            if (systemManager == null)
             {
-                SceneId = "game:main",
-                Priority = ScenePriorities.GameScene,
-                CameraMode = SceneCameraMode.GameCamera,
-                CameraEntityId = null,
-                BlocksUpdate = false,
-                BlocksDraw = false,
-                BlocksInput = false,
-                IsActive = true,
-                IsPaused = false,
-                BackgroundColor = Color.Black,
-            };
+                throw new ArgumentNullException(nameof(systemManager));
+            }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
 
-            var sceneEntity = systemManager.SceneSystem.CreateScene(
-                gameSceneComponent,
-                new GameSceneComponent()
-            );
-
-            logger.Information("Created initial GameScene");
+            // Create game scene using SceneSystem
+            systemManager.CreateGameScene();
+            logger.Information("Game scene created");
         }
     }
 }

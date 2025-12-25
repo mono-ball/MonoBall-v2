@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
@@ -14,7 +15,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// <summary>
     /// System that cycles through available per-entity shaders for the player when F5 is pressed.
     /// </summary>
-    public class PlayerShaderCycleSystem : BaseSystem<World, float>
+    public class PlayerShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly IInputBindingService _inputBindingService;
         private readonly PlayerSystem _playerSystem;
@@ -35,6 +36,11 @@ namespace MonoBall.Core.Scenes.Systems
 
         // Start at index 0 (no shader) since player doesn't have shader by default
         private int _currentShaderIndex = 0;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.PlayerShaderCycle;
 
         /// <summary>
         /// Initializes a new instance of the PlayerShaderCycleSystem.

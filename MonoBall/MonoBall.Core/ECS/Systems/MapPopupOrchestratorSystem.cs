@@ -5,6 +5,7 @@ using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Scenes.Components;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -13,11 +14,25 @@ namespace MonoBall.Core.ECS.Systems
     /// System responsible for listening to map transitions and triggering popup display.
     /// Resolves map section and popup theme definitions and fires MapPopupShowEvent.
     /// </summary>
-    public class MapPopupOrchestratorSystem : BaseSystem<World, float>, IDisposable
+    public class MapPopupOrchestratorSystem
+        : BaseSystem<World, float>,
+            IPrioritizedSystem,
+            IDisposable
     {
         private readonly IModManager _modManager;
         private readonly ILogger _logger;
         private bool _disposed = false;
+
+        // Cached query description for loading scene checks (avoid allocations)
+        private readonly QueryDescription _loadingSceneQuery = new QueryDescription().WithAll<
+            SceneComponent,
+            LoadingSceneComponent
+        >();
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.MapPopupOrchestrator;
 
         /// <summary>
         /// Initializes a new instance of the MapPopupOrchestratorSystem.
@@ -53,6 +68,16 @@ namespace MonoBall.Core.ECS.Systems
                 return;
             }
 
+            // Don't show popup if loading scene is active (game still initializing)
+            if (IsLoadingSceneActive())
+            {
+                _logger.Debug(
+                    "Loading scene is active, deferring popup for map {InitialMapId}",
+                    evt.InitialMapId
+                );
+                return;
+            }
+
             // Show popup for the initial map (same logic as map transition)
             ShowPopupForMap(evt.InitialMapId);
         }
@@ -75,8 +100,38 @@ namespace MonoBall.Core.ECS.Systems
                 return;
             }
 
+            // Don't show popup if loading scene is active (game still initializing)
+            if (IsLoadingSceneActive())
+            {
+                _logger.Debug(
+                    "Loading scene is active, deferring popup for map {TargetMapId}",
+                    evt.TargetMapId
+                );
+                return;
+            }
+
             // Show popup for the target map
             ShowPopupForMap(evt.TargetMapId);
+        }
+
+        /// <summary>
+        /// Checks if a loading scene is currently active.
+        /// </summary>
+        /// <returns>True if a loading scene is active, false otherwise.</returns>
+        private bool IsLoadingSceneActive()
+        {
+            bool hasActiveLoadingScene = false;
+            World.Query(
+                in _loadingSceneQuery,
+                (Entity entity, ref SceneComponent scene) =>
+                {
+                    if (scene.IsActive && !scene.IsPaused)
+                    {
+                        hasActiveLoadingScene = true;
+                    }
+                }
+            );
+            return hasActiveLoadingScene;
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 using System;
 using Arch.Core;
 using Arch.System;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using Serilog;
 
@@ -9,9 +10,12 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System that tracks performance statistics including FPS, frame time, entity count, memory usage, draw calls, and GC information.
     /// </summary>
-    public class PerformanceStatsSystem : BaseSystem<World, float>
+    public class PerformanceStatsSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly ILogger _logger;
+
+        // Cached query description to avoid allocations in hot paths
+        private static readonly QueryDescription _allEntitiesQuery = new QueryDescription();
 
         // Stats tracking
         private float _fps;
@@ -27,6 +31,11 @@ namespace MonoBall.Core.ECS.Systems
         private float _fpsAccumulator;
         private int _fpsFrames;
         private float _fpsTimer;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.PerformanceStats;
 
         /// <summary>
         /// Initializes a new instance of the PerformanceStatsSystem.
@@ -106,7 +115,7 @@ namespace MonoBall.Core.ECS.Systems
             _frameTimeMs = deltaTime * 1000.0f;
 
             // Update entity count
-            _entityCount = World.CountEntities(new QueryDescription());
+            _entityCount = World.CountEntities(_allEntitiesQuery);
 
             // Update memory usage
             _memoryBytes = GC.GetTotalMemory(false);

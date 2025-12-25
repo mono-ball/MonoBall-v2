@@ -3,6 +3,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using Serilog;
 
@@ -12,7 +13,7 @@ namespace MonoBall.Core.Rendering
     /// System responsible for updating camera viewports when the window is resized.
     /// Handles integer scaling and aspect ratio preservation.
     /// </summary>
-    public partial class CameraViewportSystem : BaseSystem<World, float>
+    public partial class CameraViewportSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly int _referenceWidth;
@@ -21,6 +22,11 @@ namespace MonoBall.Core.Rendering
         private readonly ILogger _logger;
         private int _lastWindowWidth;
         private int _lastWindowHeight;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.CameraViewport;
 
         /// <summary>
         /// Initializes a new instance of the CameraViewportSystem.

@@ -15,13 +15,21 @@ namespace MonoBall.Core.ECS.Systems
     /// This allows other systems to query only entities in active maps at the query level,
     /// avoiding iteration over entities in unloaded maps.
     /// </summary>
-    public class ActiveMapManagementSystem : BaseSystem<World, float>, IDisposable
+    public class ActiveMapManagementSystem
+        : BaseSystem<World, float>,
+            IPrioritizedSystem,
+            IDisposable
     {
         private readonly IActiveMapFilterService _activeMapFilterService;
         private readonly ILogger _logger;
         private readonly QueryDescription _npcQuery;
         private readonly QueryDescription _playerQuery;
         private bool _disposed;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.ActiveMapManagement;
 
         /// <summary>
         /// Initializes a new instance of the ActiveMapManagementSystem.

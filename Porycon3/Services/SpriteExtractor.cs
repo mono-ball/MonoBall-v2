@@ -1,12 +1,14 @@
 using System.Text.Json;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
 namespace Porycon3.Services;
 
 /// <summary>
-/// Extracts NPC and player sprites from pokeemerald-expansion.
+/// Extracts overworld sprites from pokeemerald-expansion.
+/// Handles all sprite categories: people, berry_trees, cushions, dolls, misc, pokemon_old.
 /// Outputs Sprite definitions matching porycon2 format.
 /// </summary>
 public class SpriteExtractor
@@ -16,9 +18,20 @@ public class SpriteExtractor
     private readonly bool _verbose;
     private readonly AnimationData _animationData;
 
-    private readonly string _spritesPath;
+    private readonly string _picsBasePath;
     private readonly string _outputGraphics;
     private readonly string _outputData;
+
+    // Sprite categories with their base folder mappings
+    private static readonly Dictionary<string, string> CategoryMappings = new()
+    {
+        { "people", "Npcs" },
+        { "berry_trees", "Objects/BerryTrees" },
+        { "cushions", "Objects/Cushions" },
+        { "dolls", "Objects/Dolls" },
+        { "misc", "Objects/Misc" },
+        { "pokemon_old", "Pokemon" }
+    };
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
@@ -33,7 +46,7 @@ public class SpriteExtractor
         _outputPath = outputPath;
         _verbose = verbose;
 
-        _spritesPath = Path.Combine(inputPath, "graphics", "object_events", "pics", "people");
+        _picsBasePath = Path.Combine(inputPath, "graphics", "object_events", "pics");
         _outputGraphics = Path.Combine(outputPath, "Graphics", "Sprites");
         _outputData = Path.Combine(outputPath, "Definitions", "Sprites");
 
@@ -47,10 +60,10 @@ public class SpriteExtractor
     /// </summary>
     public (int Sprites, int Graphics) ExtractAll()
     {
-        if (!Directory.Exists(_spritesPath))
+        if (!Directory.Exists(_picsBasePath))
         {
             if (_verbose)
-                Console.WriteLine($"[SpriteExtractor] Sprites path not found: {_spritesPath}");
+                Console.WriteLine($"[SpriteExtractor] Pics path not found: {_picsBasePath}");
             return (0, 0);
         }
 
@@ -97,27 +110,35 @@ public class SpriteExtractor
             }
         }
 
-        // Also extract standalone PNGs not in sPicTables or multi-file pics
-        var allPngs = Directory.GetFiles(_spritesPath, "*.png", SearchOption.AllDirectories);
-        foreach (var pngPath in allPngs)
+        // Process each sprite category directory
+        foreach (var category in CategoryMappings.Keys)
         {
-            var relativePath = Path.GetRelativePath(_spritesPath, pngPath);
-            var pathWithoutExt = Path.ChangeExtension(relativePath, null).Replace('\\', '/');
+            var categoryPath = Path.Combine(_picsBasePath, category);
+            if (!Directory.Exists(categoryPath)) continue;
 
-            if (!processedFiles.Contains(pathWithoutExt))
+            // Extract standalone PNGs not in sPicTables or multi-file pics
+            var allPngs = Directory.GetFiles(categoryPath, "*.png", SearchOption.AllDirectories);
+            foreach (var pngPath in allPngs)
             {
-                try
+                // Build relative path from pics base (e.g., "people/may/walking" or "misc/ball_poke")
+                var relativePath = Path.GetRelativePath(_picsBasePath, pngPath);
+                var pathWithoutExt = Path.ChangeExtension(relativePath, null).Replace('\\', '/');
+
+                if (!processedFiles.Contains(pathWithoutExt))
                 {
-                    if (ExtractStandalonePng(pngPath))
+                    try
                     {
-                        spriteCount++;
-                        graphicsCount++;
+                        if (ExtractStandalonePng(pngPath, category))
+                        {
+                            spriteCount++;
+                            graphicsCount++;
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    if (_verbose)
-                        Console.WriteLine($"[SpriteExtractor] Error processing {Path.GetFileName(pngPath)}: {ex.Message}");
+                    catch (Exception ex)
+                    {
+                        if (_verbose)
+                            Console.WriteLine($"[SpriteExtractor] Error processing {Path.GetFileName(pngPath)}: {ex.Message}");
+                    }
                 }
             }
         }
@@ -131,30 +152,49 @@ public class SpriteExtractor
         if (sources.Count == 0) return false;
 
         var firstFilePath = sources[0].FilePath;
-        var directory = Path.GetDirectoryName(firstFilePath)?.Replace('\\', '/') ?? "";
-        var isPlayerSprite = directory.StartsWith("may", StringComparison.OrdinalIgnoreCase) ||
-                             directory.StartsWith("brendan", StringComparison.OrdinalIgnoreCase);
-        var category = directory.Split('/').FirstOrDefault() ?? "generic";
+        // FilePath now includes category prefix like "people/may/walking" or "misc/ball_poke"
+        var pathParts = firstFilePath.Replace('\\', '/').Split('/');
+        var sourceCategory = pathParts.Length > 0 ? pathParts[0] : "people";
+        var subPath = pathParts.Length > 1 ? string.Join("/", pathParts.Skip(1).Take(pathParts.Length - 2)) : "";
 
-        var spriteName = ConvertPicTableNameToSpriteName(picTableName, category);
+        var isPlayerSprite = sourceCategory == "people" &&
+                             (subPath.StartsWith("may", StringComparison.OrdinalIgnoreCase) ||
+                              subPath.StartsWith("brendan", StringComparison.OrdinalIgnoreCase));
+
+        var spriteName = ConvertPicTableNameToSpriteName(picTableName, subPath);
 
         if (_verbose)
-            Console.WriteLine($"[SpriteExtractor] Processing: {picTableName} -> {spriteName}");
+            Console.WriteLine($"[SpriteExtractor] Processing: {picTableName} -> {spriteName} (category: {sourceCategory})");
 
-        // Load all source PNGs
+        // Load all source PNGs, handling multi-file pics
         var sourceImages = new List<Image<Rgba32>>();
         var totalWidth = 0;
         var maxHeight = 0;
         var totalPhysicalFrames = 0;
+        var allSourceFiles = new List<string>();
 
         foreach (var source in sources)
         {
-            if (string.IsNullOrWhiteSpace(source.FilePath)) continue;
+            if (string.IsNullOrWhiteSpace(source.PicName)) continue;
 
-            var pngPath = Path.Combine(_spritesPath, $"{source.FilePath}.png");
+            // Check if this pic is a multi-file pic (e.g., walking + running combined)
+            if (_animationData.MultiFilePics.TryGetValue(source.PicName, out var multiFiles))
+            {
+                allSourceFiles.AddRange(multiFiles);
+            }
+            else if (!string.IsNullOrWhiteSpace(source.FilePath))
+            {
+                allSourceFiles.Add(source.FilePath);
+            }
+        }
+
+        foreach (var filePath in allSourceFiles)
+        {
+            var pngPath = Path.Combine(_picsBasePath, $"{filePath}.png");
             if (!File.Exists(pngPath)) continue;
 
-            var img = Image.Load<Rgba32>(pngPath);
+            // Load with proper index 0 transparency
+            var img = LoadWithIndex0Transparency(pngPath);
             sourceImages.Add(img);
             totalWidth += img.Width;
             maxHeight = Math.Max(maxHeight, img.Height);
@@ -165,10 +205,7 @@ public class SpriteExtractor
 
         if (sourceImages.Count == 0) return false;
 
-        // Detect mask color from first source
-        var maskColor = DetectMaskColor(sourceImages[0]);
-
-        // Combine images horizontally with transparency applied
+        // Combine images horizontally (transparency already applied)
         var physicalFramePositions = new List<(int Index, int X)>();
         using var combined = new Image<Rgba32>(totalWidth, maxHeight);
         var currentX = 0;
@@ -177,12 +214,6 @@ public class SpriteExtractor
         {
             var img = sourceImages[i];
             var srcFrameInfo = AnalyzeSpriteSheet(img);
-
-            // Convert to RGBA with transparency
-            ConvertToRgbaWithTransparency(img);
-            if (maskColor.HasValue)
-                ApplyTransparency(img, maskColor.Value);
-            ApplyMagentaTransparency(img);
 
             // Paste into combined image
             combined.Mutate(ctx => ctx.DrawImage(img, new Point(currentX, 0), 1f));
@@ -201,17 +232,37 @@ public class SpriteExtractor
         var frameInfo = AnalyzeSpriteSheet(sourceImages[0]);
 
         // Create output directories (PascalCase for Porycon3)
-        var baseFolder = isPlayerSprite ? "Players" : "Npcs";
-        var spriteCategory = ToPascalCase(isPlayerSprite ? category : (directory.Length > 0 ? directory : "generic"));
+        string baseFolder;
+        string spriteCategory;
 
-        var graphicsDir = Path.Combine(_outputGraphics, baseFolder, spriteCategory);
-        var dataDir = Path.Combine(_outputData, baseFolder, spriteCategory);
+        if (isPlayerSprite)
+        {
+            baseFolder = "Players";
+            spriteCategory = ToPascalCase(subPath);
+        }
+        else if (CategoryMappings.TryGetValue(sourceCategory, out var mappedFolder))
+        {
+            baseFolder = mappedFolder;
+            spriteCategory = subPath.Length > 0 ? ToPascalCase(subPath) : "";
+        }
+        else
+        {
+            baseFolder = "Npcs";
+            spriteCategory = subPath.Length > 0 ? ToPascalCase(subPath) : "Generic";
+        }
+
+        var graphicsDir = string.IsNullOrEmpty(spriteCategory)
+            ? Path.Combine(_outputGraphics, baseFolder)
+            : Path.Combine(_outputGraphics, baseFolder, spriteCategory);
+        var dataDir = string.IsNullOrEmpty(spriteCategory)
+            ? Path.Combine(_outputData, baseFolder)
+            : Path.Combine(_outputData, baseFolder, spriteCategory);
         Directory.CreateDirectory(graphicsDir);
         Directory.CreateDirectory(dataDir);
 
-        // Save combined spritesheet
+        // Save combined spritesheet as 32-bit RGBA
         var graphicsPath = Path.Combine(graphicsDir, $"{spriteName}.png");
-        combined.SaveAsPng(graphicsPath);
+        SaveAsRgbaPng(combined, graphicsPath);
 
         // Get physical frame mapping
         var physicalFrameMapping = _animationData.FrameMappings.GetValueOrDefault(picTableName);
@@ -254,11 +305,13 @@ public class SpriteExtractor
         // Generate animations
         var animations = GenerateAnimations(picTableName, frameInfo);
 
-        // Create manifest
-        var texturePath = $"Graphics/Sprites/{baseFolder}/{spriteCategory}/{spriteName}.png";
+        // Create manifest (IDs are lowercase, file paths preserve case)
+        var relativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
+        var texturePath = $"Graphics/Sprites/{baseFolder}/{relativePath}.png";
+        var idPath = $"{baseFolder}/{relativePath}".ToLowerInvariant();
         var manifest = new SpriteManifest
         {
-            Id = $"base:sprite:{baseFolder}/{spriteCategory}/{spriteName}",
+            Id = $"base:sprite:{idPath}",
             Name = FormatDisplayName(spriteName),
             Type = "Sprite",
             TexturePath = texturePath,
@@ -279,38 +332,54 @@ public class SpriteExtractor
         return true;
     }
 
-    private bool ExtractStandalonePng(string pngPath)
+    private bool ExtractStandalonePng(string pngPath, string sourceCategory)
     {
-        var relativePath = Path.GetRelativePath(_spritesPath, pngPath);
+        // Get path relative to the category directory
+        var categoryPath = Path.Combine(_picsBasePath, sourceCategory);
+        var relativePath = Path.GetRelativePath(categoryPath, pngPath);
         var spriteName = ToPascalCase(Path.GetFileNameWithoutExtension(pngPath));
-        var directory = Path.GetDirectoryName(relativePath)?.Replace('\\', '/') ?? "";
+        var subDirectory = Path.GetDirectoryName(relativePath)?.Replace('\\', '/') ?? "";
 
-        var isPlayerSprite = directory.StartsWith("may", StringComparison.OrdinalIgnoreCase) ||
-                             directory.StartsWith("brendan", StringComparison.OrdinalIgnoreCase);
-        var category = directory.Split('/').FirstOrDefault() ?? "generic";
+        var isPlayerSprite = sourceCategory == "people" &&
+                             (subDirectory.StartsWith("may", StringComparison.OrdinalIgnoreCase) ||
+                              subDirectory.StartsWith("brendan", StringComparison.OrdinalIgnoreCase));
 
-        using var image = Image.Load<Rgba32>(pngPath);
+        // Load with proper index 0 transparency
+        using var image = LoadWithIndex0Transparency(pngPath);
         var frameInfo = AnalyzeSpriteSheet(image);
 
         // Create output directories (PascalCase for Porycon3)
-        var baseFolder = isPlayerSprite ? "Players" : "Npcs";
-        var spriteCategory = ToPascalCase(directory.Length > 0 ? directory : "generic");
+        string baseFolder;
+        string spriteCategory;
 
-        var graphicsDir = Path.Combine(_outputGraphics, baseFolder, spriteCategory);
-        var dataDir = Path.Combine(_outputData, baseFolder, spriteCategory);
+        if (isPlayerSprite)
+        {
+            baseFolder = "Players";
+            spriteCategory = ToPascalCase(subDirectory);
+        }
+        else if (CategoryMappings.TryGetValue(sourceCategory, out var mappedFolder))
+        {
+            baseFolder = mappedFolder;
+            spriteCategory = subDirectory.Length > 0 ? ToPascalCase(subDirectory) : "";
+        }
+        else
+        {
+            baseFolder = "Npcs";
+            spriteCategory = subDirectory.Length > 0 ? ToPascalCase(subDirectory) : "Generic";
+        }
+
+        var graphicsDir = string.IsNullOrEmpty(spriteCategory)
+            ? Path.Combine(_outputGraphics, baseFolder)
+            : Path.Combine(_outputGraphics, baseFolder, spriteCategory);
+        var dataDir = string.IsNullOrEmpty(spriteCategory)
+            ? Path.Combine(_outputData, baseFolder)
+            : Path.Combine(_outputData, baseFolder, spriteCategory);
         Directory.CreateDirectory(graphicsDir);
         Directory.CreateDirectory(dataDir);
 
-        // Apply transparency
-        var maskColor = DetectMaskColor(image);
-        ConvertToRgbaWithTransparency(image);
-        if (maskColor.HasValue)
-            ApplyTransparency(image, maskColor.Value);
-        ApplyMagentaTransparency(image);
-
-        // Save sprite sheet
+        // Save sprite sheet as 32-bit RGBA
         var graphicsPath = Path.Combine(graphicsDir, $"{spriteName}.png");
-        image.SaveAsPng(graphicsPath);
+        SaveAsRgbaPng(image, graphicsPath);
 
         // Build frames
         var frames = new List<FrameDefinition>();
@@ -329,11 +398,13 @@ public class SpriteExtractor
         // Generate animations (may not have any for standalone)
         var animations = GenerateAnimations(spriteName, frameInfo);
 
-        // Create manifest
-        var texturePath = $"Graphics/Sprites/{baseFolder}/{spriteCategory}/{spriteName}.png";
+        // Create manifest (IDs are lowercase, file paths preserve case)
+        var outputRelativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
+        var texturePath = $"Graphics/Sprites/{baseFolder}/{outputRelativePath}.png";
+        var idPath = $"{baseFolder}/{outputRelativePath}".ToLowerInvariant();
         var manifest = new SpriteManifest
         {
-            Id = $"base:sprite:{baseFolder}/{spriteCategory}/{spriteName}",
+            Id = $"base:sprite:{idPath}",
             Name = FormatDisplayName(spriteName),
             Type = "Sprite",
             TexturePath = texturePath,
@@ -467,93 +538,217 @@ public class SpriteExtractor
                 });
             }
         }
+        else if (info.FrameCount >= 9)
+        {
+            // Generate default animations for standalone sprites
+            // Standard layout: 3 columns (south, north, west) x 3 rows (idle, walk1, walk2)
+            var lowerName = spriteName.ToLowerInvariant();
+            var isRunning = lowerName.Contains("running") || lowerName.Contains("run");
+
+            animations.AddRange(GenerateDefaultAnimations(info.FrameCount, isRunning));
+        }
 
         return animations;
     }
 
-    private void ConvertToRgbaWithTransparency(Image<Rgba32> image)
+    private List<SpriteAnimation> GenerateDefaultAnimations(int frameCount, bool isRunning)
     {
-        // For indexed/palette images, palette index 0 should be transparent
-        // ImageSharp already handles this in most cases, but we ensure it
-        image.ProcessPixelRows(accessor =>
-        {
-            for (var y = 0; y < accessor.Height; y++)
-            {
-                var row = accessor.GetRowSpan(y);
-                for (var x = 0; x < row.Length; x++)
-                {
-                    // Already in RGBA format - transparency handled by other methods
-                }
-            }
-        });
+        var animations = new List<SpriteAnimation>();
+
+        // Standard 9-frame layout: 3 directions (S, N, W) x 3 frames (idle, walk1, walk2)
+        // Frame indices: 0=S_idle, 1=N_idle, 2=W_idle, 3=S_walk1, 4=N_walk1, 5=W_walk1, 6=S_walk2, 7=N_walk2, 8=W_walk2
+
+        // Timing based on whether this is walking or running
+        var faceDuration = 16 / 60.0; // ~0.267s
+        var moveDuration = isRunning ? 4 / 60.0 : 8 / 60.0; // faster for running
+
+        // Face animations (single frame)
+        animations.Add(new SpriteAnimation { Name = "face_south", Loop = true, FrameIndices = new List<int> { 0 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = "face_north", Loop = true, FrameIndices = new List<int> { 1 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = "face_west", Loop = true, FrameIndices = new List<int> { 2 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = "face_east", Loop = true, FrameIndices = new List<int> { 2 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = true });
+
+        // Walk/run cycle: idle -> walk1 -> idle -> walk2 (4 frames per cycle)
+        var prefix = isRunning ? "go_fast" : "go";
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_south", Loop = true, FrameIndices = new List<int> { 3, 0, 6, 0 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_north", Loop = true, FrameIndices = new List<int> { 4, 1, 7, 1 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_west", Loop = true, FrameIndices = new List<int> { 5, 2, 8, 2 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_east", Loop = true, FrameIndices = new List<int> { 5, 2, 8, 2 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = true });
+
+        return animations;
     }
 
-    private void ApplyTransparency(Image<Rgba32> image, Rgba32 maskColor)
+    /// <summary>
+    /// Load an indexed PNG and convert to RGBA with palette index 0 as transparent.
+    /// This is how GBA/pokeemerald handles sprite transparency.
+    /// </summary>
+    private static Image<Rgba32> LoadWithIndex0Transparency(string pngPath)
     {
-        image.ProcessPixelRows(accessor =>
+        // Read raw PNG bytes to extract palette and pixel indices
+        var bytes = File.ReadAllBytes(pngPath);
+
+        // Load as generic image first to check format
+        using var tempImage = Image.Load(pngPath);
+
+        if (tempImage is Image<Rgba32> rgbaImage)
         {
-            for (var y = 0; y < accessor.Height; y++)
+            // Already RGBA - check if it has transparency via alpha channel
+            // If not, fall back to first pixel method
+            var hasTransparency = false;
+            rgbaImage.ProcessPixelRows(accessor =>
             {
-                var row = accessor.GetRowSpan(y);
-                for (var x = 0; x < row.Length; x++)
+                for (var y = 0; y < accessor.Height && !hasTransparency; y++)
                 {
-                    if (row[x].R == maskColor.R && row[x].G == maskColor.G && row[x].B == maskColor.B)
+                    var row = accessor.GetRowSpan(y);
+                    for (var x = 0; x < row.Length; x++)
                     {
-                        row[x] = new Rgba32(0, 0, 0, 0);
+                        if (row[x].A < 255)
+                        {
+                            hasTransparency = true;
+                            break;
+                        }
+                    }
+                }
+            });
+
+            if (hasTransparency)
+            {
+                return rgbaImage.Clone();
+            }
+
+            // No transparency - use first pixel as background
+            var bgColor = rgbaImage[0, 0];
+            var result = rgbaImage.Clone();
+            result.ProcessPixelRows(accessor =>
+            {
+                for (var y = 0; y < accessor.Height; y++)
+                {
+                    var row = accessor.GetRowSpan(y);
+                    for (var x = 0; x < row.Length; x++)
+                    {
+                        if (row[x].R == bgColor.R && row[x].G == bgColor.G && row[x].B == bgColor.B)
+                        {
+                            row[x] = new Rgba32(0, 0, 0, 0);
+                        }
+                    }
+                }
+            });
+            return result;
+        }
+
+        // For indexed images, we need to extract palette and apply index 0 transparency
+        // Parse PNG to get palette
+        var palette = ExtractPngPalette(bytes);
+        if (palette == null || palette.Length == 0)
+        {
+            // Fallback: load as RGBA and use first pixel
+            var img = Image.Load<Rgba32>(pngPath);
+            var bgColor = img[0, 0];
+            img.ProcessPixelRows(accessor =>
+            {
+                for (var y = 0; y < accessor.Height; y++)
+                {
+                    var row = accessor.GetRowSpan(y);
+                    for (var x = 0; x < row.Length; x++)
+                    {
+                        if (row[x].R == bgColor.R && row[x].G == bgColor.G && row[x].B == bgColor.B)
+                        {
+                            row[x] = new Rgba32(0, 0, 0, 0);
+                        }
+                    }
+                }
+            });
+            return img;
+        }
+
+        // Load indexed image and convert with index 0 = transparent
+        using var indexedStream = new MemoryStream(bytes);
+        using var indexed = Image.Load<L8>(indexedStream);
+
+        var output = new Image<Rgba32>(indexed.Width, indexed.Height);
+
+        indexed.ProcessPixelRows(output, (srcAccessor, dstAccessor) =>
+        {
+            for (var y = 0; y < srcAccessor.Height; y++)
+            {
+                var srcRow = srcAccessor.GetRowSpan(y);
+                var dstRow = dstAccessor.GetRowSpan(y);
+
+                for (var x = 0; x < srcRow.Length; x++)
+                {
+                    // For 4bpp indexed, the L8 value represents the palette index
+                    // In grayscale representation: white (255) = index 0, black (0) = index 15
+                    var grayValue = srcRow[x].PackedValue;
+                    var paletteIndex = 15 - (grayValue + 8) / 17;
+
+                    if (paletteIndex == 0)
+                    {
+                        // Index 0 is transparent in GBA
+                        dstRow[x] = new Rgba32(0, 0, 0, 0);
+                    }
+                    else if (paletteIndex < palette.Length)
+                    {
+                        dstRow[x] = palette[paletteIndex];
+                    }
+                    else
+                    {
+                        // Fallback
+                        dstRow[x] = new Rgba32(grayValue, grayValue, grayValue, 255);
                     }
                 }
             }
         });
+
+        return output;
     }
 
-    private void ApplyMagentaTransparency(Image<Rgba32> image)
+    /// <summary>
+    /// Extract RGB palette from PNG PLTE chunk.
+    /// </summary>
+    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
     {
-        image.ProcessPixelRows(accessor =>
+        // Find PLTE chunk
+        // PNG structure: 8-byte signature, then chunks (4-byte length, 4-byte type, data, 4-byte CRC)
+        var pos = 8; // Skip PNG signature
+
+        while (pos < pngData.Length - 12)
         {
-            for (var y = 0; y < accessor.Height; y++)
+            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
+                         (pngData[pos + 2] << 8) | pngData[pos + 3];
+            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
+
+            if (type == "PLTE")
             {
-                var row = accessor.GetRowSpan(y);
-                for (var x = 0; x < row.Length; x++)
+                var colorCount = length / 3;
+                var palette = new Rgba32[colorCount];
+
+                for (var i = 0; i < colorCount; i++)
                 {
-                    // Magenta (#FF00FF) is common transparency mask in GBA graphics
-                    if (row[x].R == 255 && row[x].G == 0 && row[x].B == 255 && row[x].A > 0)
-                    {
-                        row[x] = new Rgba32(0, 0, 0, 0);
-                    }
+                    var offset = pos + 8 + i * 3;
+                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
                 }
+
+                return palette;
             }
-        });
-    }
 
-    private Rgba32? DetectMaskColor(Image<Rgba32> image)
-    {
-        var colorCounts = new Dictionary<Rgba32, int>();
-
-        image.ProcessPixelRows(accessor =>
-        {
-            for (var y = 0; y < accessor.Height; y++)
-            {
-                var row = accessor.GetRowSpan(y);
-                for (var x = 0; x < row.Length; x++)
-                {
-                    var pixel = new Rgba32(row[x].R, row[x].G, row[x].B, 255);
-                    colorCounts[pixel] = colorCounts.GetValueOrDefault(pixel, 0) + 1;
-                }
-            }
-        });
-
-        if (colorCounts.Count == 0) return null;
-
-        var mostCommon = colorCounts.MaxBy(c => c.Value);
-        var totalPixels = image.Width * image.Height;
-
-        // If most common color appears in > 40% of pixels, it's probably background
-        if (mostCommon.Value > totalPixels * 0.4)
-        {
-            return mostCommon.Key;
+            pos += 12 + length; // 4 length + 4 type + data + 4 CRC
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Save image as 32-bit RGBA PNG (not indexed).
+    /// </summary>
+    private static void SaveAsRgbaPng(Image<Rgba32> image, string path)
+    {
+        var encoder = new PngEncoder
+        {
+            ColorType = PngColorType.RgbWithAlpha,
+            BitDepth = PngBitDepth.Bit8,
+            CompressionLevel = PngCompressionLevel.BestCompression
+        };
+        image.SaveAsPng(path, encoder);
     }
 
     private string ConvertPicTableNameToSpriteName(string picTableName, string category)

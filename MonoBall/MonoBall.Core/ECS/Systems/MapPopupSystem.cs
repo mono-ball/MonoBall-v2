@@ -20,7 +20,7 @@ namespace MonoBall.Core.ECS.Systems
     /// System responsible for managing popup lifecycle and animation state machine.
     /// Creates popup entities and scenes, updates animation states, and handles cleanup.
     /// </summary>
-    public class MapPopupSystem : BaseSystem<World, float>, IDisposable
+    public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
         // GBA-accurate constants (pokeemerald dimensions at 1x scale)
         // Use GameConstants for consistency across systems
@@ -35,6 +35,11 @@ namespace MonoBall.Core.ECS.Systems
         private Entity? _currentPopupEntity;
         private Entity? _currentPopupSceneEntity;
         private bool _disposed = false;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.MapPopup;
 
         // Cached query descriptions to avoid allocations in hot paths
         private readonly QueryDescription _popupQuery = new QueryDescription().WithAll<
@@ -240,38 +245,53 @@ namespace MonoBall.Core.ECS.Systems
             _logger.Debug("Destroying popup entity {PopupEntityId}", popupEntity.Id);
 
             // Get scene entity from popup component before destroying
-            Entity? sceneEntityToDestroy = null;
-            if (World.IsAlive(popupEntity) && World.Has<MapPopupComponent>(popupEntity))
+            // Fail fast if popup entity doesn't exist or doesn't have required component
+            if (!World.IsAlive(popupEntity))
             {
-                ref var popupComponent = ref World.Get<MapPopupComponent>(popupEntity);
-                sceneEntityToDestroy = popupComponent.SceneEntity;
+                throw new InvalidOperationException(
+                    $"Cannot destroy popup entity {popupEntity.Id}: Entity is not alive."
+                );
             }
 
-            // Destroy popup entity first
-            if (World.IsAlive(popupEntity))
+            if (!World.Has<MapPopupComponent>(popupEntity))
             {
-                World.Destroy(popupEntity);
+                throw new InvalidOperationException(
+                    $"Cannot destroy popup entity {popupEntity.Id}: Entity does not have MapPopupComponent. "
+                        + "Cannot determine scene entity to destroy."
+                );
             }
 
-            // Destroy popup scene entity
-            if (sceneEntityToDestroy.HasValue && World.IsAlive(sceneEntityToDestroy.Value))
+            ref var popupComponent = ref World.Get<MapPopupComponent>(popupEntity);
+            Entity sceneEntityToDestroy = popupComponent.SceneEntity;
+
+            // Validate scene entity exists and is alive
+            if (!World.IsAlive(sceneEntityToDestroy))
             {
-                _sceneSystem.DestroyScene(sceneEntityToDestroy.Value);
+                throw new InvalidOperationException(
+                    $"Cannot destroy popup scene entity for popup {popupEntity.Id}: "
+                        + $"Scene entity {sceneEntityToDestroy.Id} is not alive. "
+                        + "This indicates the scene entity was already destroyed or never created properly."
+                );
             }
-            else if (
-                _currentPopupSceneEntity.HasValue && World.IsAlive(_currentPopupSceneEntity.Value)
-            )
-            {
-                // Fallback: destroy tracked scene entity
-                _sceneSystem.DestroyScene(_currentPopupSceneEntity.Value);
-            }
+
+            // Destroy popup scene entity first (before destroying popup entity)
+            _sceneSystem.DestroyScene(sceneEntityToDestroy);
+
+            // Destroy popup entity
+            World.Destroy(popupEntity);
 
             // Clear tracked entities
             if (_currentPopupEntity.HasValue && _currentPopupEntity.Value.Id == popupEntity.Id)
             {
                 _currentPopupEntity = null;
             }
-            _currentPopupSceneEntity = null;
+            if (
+                _currentPopupSceneEntity.HasValue
+                && _currentPopupSceneEntity.Value.Id == sceneEntityToDestroy.Id
+            )
+            {
+                _currentPopupSceneEntity = null;
+            }
         }
 
         /// <summary>

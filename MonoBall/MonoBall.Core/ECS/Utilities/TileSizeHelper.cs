@@ -12,6 +12,10 @@ namespace MonoBall.Core.ECS.Utilities
     /// </summary>
     public static class TileSizeHelper
     {
+        // Cached query description to avoid allocations in hot paths
+        private static readonly QueryDescription MapQuery =
+            new QueryDescription().WithAll<MapComponent>();
+
         /// <summary>
         /// Gets the tile size from the first loaded map in the world, or from mod configuration.
         /// </summary>
@@ -43,10 +47,9 @@ namespace MonoBall.Core.ECS.Utilities
         {
             // First, try to get tile width from a loaded map
             int tileWidth = 0;
-            var mapQuery = new QueryDescription().WithAll<MapComponent>();
 
             world.Query(
-                in mapQuery,
+                in MapQuery,
                 (ref MapComponent map) =>
                 {
                     // Use the first map's tile width
@@ -85,10 +88,9 @@ namespace MonoBall.Core.ECS.Utilities
         {
             // First, try to get tile height from a loaded map
             int tileHeight = 0;
-            var mapQuery = new QueryDescription().WithAll<MapComponent>();
 
             world.Query(
-                in mapQuery,
+                in MapQuery,
                 (ref MapComponent map) =>
                 {
                     // Use the first map's tile height

@@ -217,6 +217,16 @@ public static class IdTransformer
     private static readonly string[] FrontierBrains = ["anabel", "brandon", "greta", "lucy",
         "noland", "spenser", "tucker"];
 
+    // Misc objects that go in objects/misc/ instead of npcs/
+    private static readonly HashSet<string> MiscObjects = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "apricorn_tree", "birth_island_stone", "breakable_rock", "cable_car",
+        "cuttable_tree", "fossil", "light", "mart_light", "moving_box",
+        "mr_brineys_boat", "poke_center_light", "pushable_boulder",
+        "ss_tidal", "statue", "submarine_shadow", "truck",
+        "trick_house_statue", "vigoroth_carrying_box", "vigoroth_facing_away"
+    };
+
     // Variable sprite mappings: VAR_0 = rival, VAR_1 = player
     private static readonly Dictionary<string, string> VariableSpriteNames = new()
     {
@@ -226,15 +236,16 @@ public static class IdTransformer
 
     /// <summary>
     /// Transform graphics ID to sprite ID.
-    /// OBJ_EVENT_GFX_BIRCH -> base:sprite:npcs/generic/birch
+    /// OBJ_EVENT_GFX_BIRCH -> base:sprite:npcs/birch
     /// OBJ_EVENT_GFX_MAY_NORMAL -> base:sprite:players/may/normal
-    /// OBJ_EVENT_GFX_VAR_0 -> {base:sprite:npcs/generic/var_rival} (variable sprite)
-    /// OBJ_EVENT_GFX_VAR_1 -> {base:sprite:npcs/generic/var_player} (variable sprite)
+    /// OBJ_EVENT_GFX_PIKACHU_DOLL -> base:sprite:objects/dolls/pikachudoll
+    /// OBJ_EVENT_GFX_ITEM_BALL -> base:sprite:objects/misc/itemball
+    /// OBJ_EVENT_GFX_VAR_0 -> {base:sprite:npcs/var_rival} (variable sprite)
     /// </summary>
     public static string SpriteId(string graphicsId)
     {
         if (string.IsNullOrEmpty(graphicsId))
-            return CreateId("sprite", "npcs", "unknown", "generic");
+            return $"{Namespace}:sprite:npcs/unknown";
 
         var name = graphicsId;
         if (name.StartsWith("OBJ_EVENT_GFX_", StringComparison.OrdinalIgnoreCase))
@@ -246,61 +257,120 @@ public static class IdTransformer
         // These are wrapped in curly braces to indicate runtime resolution
         if (name.StartsWith("var_"))
         {
-            // Map known variable sprites to meaningful names
             var varName = VariableSpriteNames.TryGetValue(name, out var mapped) ? mapped : name;
-            return $"{{{CreateId("sprite", "npcs", varName, "generic")}}}";
+            return $"{{{Namespace}:sprite:npcs/{varName}}}";
         }
 
-        var subcategory = InferSpriteCategory(name);
-
-        // Player characters: brendan_normal -> base:sprite:players/brendan/normal
-        if (subcategory is "brendan" or "may")
+        // Player characters: brendan_acro_bike -> base:sprite:players/brendan/acrobike
+        if (name.StartsWith("brendan_"))
         {
-            var prefix = $"{subcategory}_";
-            if (name.StartsWith(prefix))
-            {
-                var variant = name[prefix.Length..];
-                return CreateId("sprite", "players", variant, subcategory);
-            }
-            return CreateId("sprite", "players", name, subcategory);
+            var variant = name[8..].Replace("_", ""); // Remove "brendan_" and underscores
+            return $"{Namespace}:sprite:players/brendan/{variant}";
+        }
+        if (name.StartsWith("may_"))
+        {
+            var variant = name[4..].Replace("_", ""); // Remove "may_" and underscores
+            return $"{Namespace}:sprite:players/may/{variant}";
+        }
+        if (name.StartsWith("ruby_sapphire_brendan_"))
+        {
+            var variant = name[22..].Replace("_", "");
+            return $"{Namespace}:sprite:npcs/rubysapphirebrendan/{variant}";
+        }
+        if (name.StartsWith("ruby_sapphire_may_"))
+        {
+            var variant = name[18..].Replace("_", "");
+            return $"{Namespace}:sprite:npcs/rubysapphiremay/{variant}";
         }
 
-        // NPCs: birch -> base:sprite:npcs/generic/birch
-        return CreateId("sprite", "npcs", name, subcategory);
+        // Objects: dolls, cushions, misc items
+        if (name.EndsWith("_doll") || name.StartsWith("big_") && name.EndsWith("_doll"))
+        {
+            // Remove underscores to match SpriteExtractor PascalCase->lowercase: pikachu_doll -> pikachudoll
+            var dollName = name.Replace("_", "");
+            return $"{Namespace}:sprite:objects/dolls/{dollName}";
+        }
+        if (name.EndsWith("_cushion"))
+        {
+            var cushionName = name.Replace("_", "");
+            return $"{Namespace}:sprite:objects/cushions/{cushionName}";
+        }
+        // item_ball and poke_ball both use the same PokeBall sprite
+        if (name is "item_ball" or "poke_ball")
+        {
+            return $"{Namespace}:sprite:objects/misc/pokeball";
+        }
+        if (name == "birchs_bag")
+        {
+            return $"{Namespace}:sprite:objects/misc/birchsbag";
+        }
+        // Berry tree sprites - generic berry_tree uses cheri as default, specific berries use their name
+        if (name == "berry_tree")
+        {
+            // Generic berry tree uses Cheri as the default visual
+            return $"{Namespace}:sprite:objects/berrytrees/cheri";
+        }
+        if (name.StartsWith("berry_tree_"))
+        {
+            // berry_tree_early_stages -> berrytreeearlystages (these are separate sprites)
+            var treeName = name.Replace("_", "");
+            return $"{Namespace}:sprite:objects/berrytrees/{treeName}";
+        }
+
+        // Misc objects (truck, fossil, pushable_boulder, etc.)
+        if (MiscObjects.Contains(name))
+        {
+            var objName = name.Replace("_", "");
+            return $"{Namespace}:sprite:objects/misc/{objName}";
+        }
+
+        // NPCs with special categories
+        var (category, npcName) = InferNpcCategoryAndName(name);
+        if (!string.IsNullOrEmpty(category))
+        {
+            return $"{Namespace}:sprite:npcs/{category}/{npcName}";
+        }
+
+        // Generic NPCs: black_belt -> base:sprite:npcs/blackbelt (no underscores to match PascalCase->lowercase)
+        var npcNameNoUnderscores = name.Replace("_", "");
+        return $"{Namespace}:sprite:npcs/{npcNameNoUnderscores}";
     }
 
-    private static string InferSpriteCategory(string spriteName)
+    private static (string Category, string Name) InferNpcCategoryAndName(string spriteName)
     {
         // Elite Four
-        if (EliteFour.Any(n => spriteName == n || spriteName.StartsWith($"{n}_")))
-            return "elite_four";
+        foreach (var n in EliteFour)
+        {
+            if (spriteName == n || spriteName.StartsWith($"{n}_"))
+                return ("elitefour", spriteName.Replace("_", ""));
+        }
 
         // Gym Leaders
-        if (GymLeaders.Any(n => spriteName == n || spriteName.StartsWith($"{n}_")))
-            return "gym_leaders";
+        foreach (var n in GymLeaders)
+        {
+            if (spriteName == n || spriteName.StartsWith($"{n}_"))
+                return ("gymleaders", spriteName.Replace("_", ""));
+        }
 
         // Frontier Brains
-        if (FrontierBrains.Any(n => spriteName == n || spriteName.StartsWith($"{n}_")))
-            return "frontier_brains";
+        foreach (var n in FrontierBrains)
+        {
+            if (spriteName == n || spriteName.StartsWith($"{n}_"))
+                return ("frontierbrains", spriteName.Replace("_", ""));
+        }
 
         // Team Aqua
         if (spriteName is "archie" or "aqua_member_f" or "aqua_member_m" ||
             spriteName.StartsWith("aqua_") || spriteName.StartsWith("archie_"))
-            return "team_aqua";
+            return ("teamaqua", spriteName.Replace("_", ""));
 
         // Team Magma
         if (spriteName is "maxie" or "magma_member_f" or "magma_member_m" ||
             spriteName.StartsWith("magma_") || spriteName.StartsWith("maxie_"))
-            return "team_magma";
+            return ("teammagma", spriteName.Replace("_", ""));
 
-        // Player characters
-        if (spriteName.StartsWith("brendan"))
-            return "brendan";
-        if (spriteName.StartsWith("may"))
-            return "may";
-
-        // Default: generic NPC
-        return "generic";
+        // Default: no category (goes directly under npcs/)
+        return ("", spriteName);
     }
 
     #endregion

@@ -11,10 +11,15 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for managing map connections and transitions.
     /// </summary>
-    public class MapConnectionSystem : BaseSystem<World, float>
+    public class MapConnectionSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly QueryDescription _connectionQueryDescription;
         private readonly ILogger _logger;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.MapConnection;
 
         /// <summary>
         /// Initializes a new instance of the MapConnectionSystem.

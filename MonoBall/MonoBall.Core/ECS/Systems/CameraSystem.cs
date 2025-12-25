@@ -11,11 +11,16 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for updating camera positions, following targets, and enforcing bounds.
     /// </summary>
-    public class CameraSystem : BaseSystem<World, float>
+    public class CameraSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly QueryDescription _queryDescription;
         private readonly ISpriteLoaderService _spriteLoader;
         private readonly ILogger _logger;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.Camera;
 
         /// <summary>
         /// Initializes a new instance of the CameraSystem.

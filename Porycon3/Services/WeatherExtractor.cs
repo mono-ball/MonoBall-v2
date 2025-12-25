@@ -45,8 +45,8 @@ public class WeatherExtractor
         _outputPath = outputPath;
 
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "weather");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "Weather");
-        _outputData = Path.Combine(outputPath, "Definitions", "Weather", "Graphics");
+        _outputGraphics = Path.Combine(outputPath, "Graphics", "Sprites", "Weather");
+        _outputData = Path.Combine(outputPath, "Definitions", "Sprites", "Weather");
     }
 
     public (int Graphics, int Definitions) ExtractAll()
@@ -107,7 +107,7 @@ public class WeatherExtractor
             var (width, height) = RenderIndexedPng(sourcePath, destPath, palette);
             if (width > 0 && height > 0)
             {
-                extractedTextures.Add($"Graphics/Weather/{pascalName}/{destFilename}");
+                extractedTextures.Add($"Graphics/Sprites/Weather/{pascalName}/{destFilename}");
 
                 // Calculate tiles for this texture
                 var tilesX = width / TileSize;

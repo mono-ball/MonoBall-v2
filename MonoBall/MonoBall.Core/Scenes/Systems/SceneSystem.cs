@@ -15,7 +15,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// System responsible for managing scene lifecycle, priority stack, and state.
     /// Does NOT handle update/render - that's done by scene-specific systems.
     /// </summary>
-    public class SceneSystem : BaseSystem<World, float>, IDisposable
+    public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
         private readonly List<Entity> _sceneStack = new List<Entity>();
         private readonly Dictionary<string, Entity> _sceneIds = new Dictionary<string, Entity>();
@@ -26,6 +26,11 @@ namespace MonoBall.Core.Scenes.Systems
         private bool _disposed = false;
 
         private readonly ILogger _logger;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.Scene;
 
         /// <summary>
         /// Initializes a new instance of the SceneSystem.
@@ -559,7 +564,7 @@ namespace MonoBall.Core.Scenes.Systems
         /// <summary>
         /// Disposes of the system and unsubscribes from events.
         /// </summary>
-        public void Dispose() => Dispose(true);
+        public new void Dispose() => Dispose(true);
 
         /// <summary>
         /// Protected dispose implementation following standard dispose pattern.

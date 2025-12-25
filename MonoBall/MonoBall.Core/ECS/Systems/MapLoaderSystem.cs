@@ -19,7 +19,7 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for loading and unloading maps, creating tile chunks, and managing map connections.
     /// </summary>
-    public class MapLoaderSystem : BaseSystem<World, float>
+    public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private const int ChunkSize = GameConstants.TileChunkSize; // 16x16 tiles per chunk
         private readonly DefinitionRegistry _registry;
@@ -38,6 +38,11 @@ namespace MonoBall.Core.ECS.Systems
             new Dictionary<string, List<Entity>>();
         private readonly Dictionary<string, Vector2> _mapPositions =
             new Dictionary<string, Vector2>(); // Map positions in tile coordinates
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.MapLoader;
 
         /// <summary>
         /// Initializes a new instance of the MapLoaderSystem.

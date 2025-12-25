@@ -3,6 +3,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Rendering;
@@ -16,7 +17,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// System that handles update and rendering for GameScene entities.
     /// Queries for GameSceneComponent entities and processes them.
     /// </summary>
-    public class GameSceneSystem : BaseSystem<World, float>
+    public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
@@ -36,6 +37,11 @@ namespace MonoBall.Core.Scenes.Systems
 
         private readonly QueryDescription _cameraQuery =
             new QueryDescription().WithAll<CameraComponent>();
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.GameScene;
 
         /// <summary>
         /// Initializes a new instance of the GameSceneSystem.

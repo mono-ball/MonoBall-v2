@@ -3,6 +3,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.ECS;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Systems;
@@ -14,7 +15,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// System that handles update and rendering for DebugBarScene entities.
     /// Queries for DebugBarSceneComponent entities and processes them.
     /// </summary>
-    public class DebugBarSceneSystem : BaseSystem<World, float>
+    public class DebugBarSceneSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
@@ -26,6 +27,11 @@ namespace MonoBall.Core.Scenes.Systems
             SceneComponent,
             DebugBarSceneComponent
         >();
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.DebugBarScene;
 
         /// <summary>
         /// Initializes a new instance of the DebugBarSceneSystem.

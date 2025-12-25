@@ -17,7 +17,7 @@ namespace MonoBall.Core.ECS.Systems
     /// Movement validation and collision checking happens in MovementSystem.
     /// Input blocking is handled via IInputBlocker (e.g., when console has ExclusiveInput=true).
     /// </remarks>
-    public class InputSystem : BaseSystem<World, float>
+    public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly IInputBlocker _inputBlocker;
         private readonly InputBuffer _inputBuffer;
@@ -29,6 +29,11 @@ namespace MonoBall.Core.ECS.Systems
         private Direction _lastBufferedDirection = Direction.None;
         private float _lastBufferTime = -1f;
         private float _totalTime;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.Input;
 
         /// <summary>
         /// Initializes a new instance of the InputSystem.

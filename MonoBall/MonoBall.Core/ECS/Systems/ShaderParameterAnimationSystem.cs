@@ -2,6 +2,7 @@ using System;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using Serilog;
@@ -12,12 +13,17 @@ namespace MonoBall.Core.ECS.Systems
     /// System that animates shader parameters over time.
     /// Updates shader component parameters based on animation components.
     /// </summary>
-    public class ShaderParameterAnimationSystem : BaseSystem<World, float>
+    public class ShaderParameterAnimationSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly ShaderManagerSystem? _shaderManagerSystem;
         private readonly ILogger _logger;
         private readonly QueryDescription _entityShaderAnimationQuery;
         private readonly QueryDescription _layerShaderAnimationQuery;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.ShaderParameterAnimation;
 
         /// <summary>
         /// Initializes a new instance of the ShaderParameterAnimationSystem.

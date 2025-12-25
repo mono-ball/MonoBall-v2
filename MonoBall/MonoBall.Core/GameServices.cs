@@ -73,23 +73,11 @@ namespace MonoBall.Core
             // Load mods
             LoadMods();
 
-            // Initialize ECS world
+            // Initialize ECS world (only if not already initialized)
             if (ModManager != null)
             {
-                EcsService = new EcsService();
-                _game.Services.AddService(typeof(EcsService), EcsService);
-                _logger.Debug("ECS service registered");
-
-                // Register FlagVariableService
-                var flagVariableService = new ECS.Services.FlagVariableService(
-                    EcsService.World,
-                    LoggerFactory.CreateLogger<ECS.Services.FlagVariableService>()
-                );
-                _game.Services.AddService(
-                    typeof(ECS.Services.IFlagVariableService),
-                    flagVariableService
-                );
-                _logger.Debug("FlagVariableService registered");
+                EcsService = GameInitializationHelper.EnsureEcsService(_game, _logger);
+                GameInitializationHelper.EnsureFlagVariableService(_game, EcsService, _logger);
             }
             else
             {
@@ -125,14 +113,16 @@ namespace MonoBall.Core
                 return;
             }
 
-            // Create tileset loader service
-            TilesetLoaderService = new TilesetLoaderService(
-                _graphicsDevice,
-                ModManager,
-                LoggerFactory.CreateLogger<TilesetLoaderService>()
-            );
-            _game.Services.AddService(typeof(TilesetLoaderService), TilesetLoaderService);
-            _logger.Debug("TilesetLoaderService registered");
+            // Create tileset loader service (only if not already registered)
+            if (ModManager != null)
+            {
+                TilesetLoaderService = GameInitializationHelper.EnsureTilesetLoaderService(
+                    _game,
+                    _graphicsDevice,
+                    ModManager,
+                    _logger
+                );
+            }
 
             // Create shader loader
             var shaderLoader = new Rendering.ShaderLoader(
@@ -141,6 +131,12 @@ namespace MonoBall.Core
             );
 
             // Create shader service
+            if (ModManager == null)
+            {
+                throw new InvalidOperationException(
+                    "ModManager is null. Ensure Initialize() was called successfully."
+                );
+            }
             var shaderService = new Rendering.ShaderService(
                 _graphicsDevice,
                 ModManager,

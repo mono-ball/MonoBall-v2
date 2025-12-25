@@ -41,14 +41,18 @@ namespace MonoBall.Core.ECS.Systems
     /// from this system's Update method to maintain atomicity.
     /// </para>
     /// </remarks>
-    public class MovementSystem : BaseSystem<World, float>
+    public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly ICollisionService _collisionService;
         private readonly IModManager? _modManager;
         private readonly IActiveMapFilterService _activeMapFilterService;
         private readonly ILogger _logger;
         private readonly QueryDescription _movementRequestQuery;
-        private readonly QueryDescription _movementQuery;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.Movement;
         private readonly QueryDescription _movementQueryWithActiveMap;
 
         /// <summary>
@@ -91,9 +95,6 @@ namespace MonoBall.Core.ECS.Systems
                 GridMovement,
                 ActiveMapEntity
             >();
-
-            // Fallback query without ActiveMapEntity (for backwards compatibility, but shouldn't be needed)
-            _movementQuery = new QueryDescription().WithAll<PositionComponent, GridMovement>();
         }
 
         /// <summary>

@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Concurrent;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.ECS;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Events;
 using MonoBall.Core.Scenes.Systems;
 using Serilog;
 
@@ -14,18 +17,27 @@ namespace MonoBall.Core.Scenes.Systems
     /// System that handles update and rendering for LoadingScene entities.
     /// Queries for LoadingSceneComponent entities and processes them.
     /// </summary>
-    public class LoadingSceneSystem : BaseSystem<World, float>
+    public class LoadingSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
         private readonly LoadingSceneRendererSystem _loadingSceneRendererSystem;
         private readonly ILogger _logger;
+        private bool _disposed = false;
+
+        // Thread-safe queue for progress updates from async initialization tasks
+        private readonly ConcurrentQueue<(float progress, string step)> _progressQueue = new();
 
         // Cached query descriptions to avoid allocations in hot paths
         private readonly QueryDescription _loadingScenesQuery = new QueryDescription().WithAll<
             SceneComponent,
             LoadingSceneComponent
         >();
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.LoadingScene;
 
         /// <summary>
         /// Initializes a new instance of the LoadingSceneSystem.
@@ -54,20 +66,67 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
+        /// Enqueues a progress update from an async initialization task.
+        /// Thread-safe method that can be called from background threads.
+        /// </summary>
+        /// <param name="progress">Progress value between 0.0 and 1.0.</param>
+        /// <param name="step">Current step description.</param>
+        public void EnqueueProgress(float progress, string step)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            _progressQueue.Enqueue((progress, step ?? "Loading..."));
+        }
+
+        /// <summary>
         /// Updates active, unpaused loading scenes.
+        /// Processes queued progress updates and updates loading progress components.
         /// </summary>
         /// <param name="deltaTime">The elapsed time since last update.</param>
         public override void Update(in float deltaTime)
         {
+            if (_disposed)
+            {
+                return;
+            }
+
             // Query for active, unpaused loading scenes
+            // Note: LoadingSceneSystem.Update() should ALWAYS run to process progress queue,
+            // even when BlocksUpdate=true, because it needs to update the loading progress component
             World.Query(
                 in _loadingScenesQuery,
                 (Entity e, ref SceneComponent scene) =>
                 {
-                    if (scene.IsActive && !scene.IsPaused && !scene.BlocksUpdate)
+                    if (scene.IsActive && !scene.IsPaused)
                     {
-                        // Loading scenes typically don't need per-frame updates
-                        // But if they do, add logic here
+                        // Process queued progress updates from async initialization task
+                        // This must run even when BlocksUpdate=true, as it's the loading scene's own update
+                        while (_progressQueue.TryDequeue(out var update))
+                        {
+                            if (World.Has<LoadingProgressComponent>(e))
+                            {
+                                ref var progressComponent = ref World.Get<LoadingProgressComponent>(
+                                    e
+                                );
+                                progressComponent.Progress = Math.Clamp(
+                                    update.progress,
+                                    0.0f,
+                                    1.0f
+                                );
+                                progressComponent.CurrentStep = update.step ?? "Loading...";
+
+                                // Fire loading progress event for extensibility
+                                var progressEvent = new LoadingProgressUpdatedEvent
+                                {
+                                    Progress = progressComponent.Progress,
+                                    CurrentStep = progressComponent.CurrentStep,
+                                };
+                                EventBus.Send(ref progressEvent);
+                            }
+                        }
                     }
                 }
             );
@@ -80,6 +139,11 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="gameTime">The game time.</param>
         public void RenderScene(Entity sceneEntity, GameTime gameTime)
         {
+            if (_disposed)
+            {
+                return;
+            }
+
             // Verify this is actually a loading scene
             if (!World.Has<LoadingSceneComponent>(sceneEntity))
             {
@@ -93,6 +157,8 @@ namespace MonoBall.Core.Scenes.Systems
             }
 
             // LoadingScene only supports screen-space rendering
+            // Note: LoadingSceneSystem.RenderScene() should render even when BlocksDraw=true,
+            // because BlocksDraw prevents OTHER scenes from rendering, not the loading scene itself
             if (scene.CameraMode != SceneCameraMode.ScreenCamera)
             {
                 _logger.Warning(
@@ -157,6 +223,29 @@ namespace MonoBall.Core.Scenes.Systems
             {
                 // Always restore viewport, even if rendering fails
                 _graphicsDevice.Viewport = savedViewport;
+            }
+        }
+
+        /// <summary>
+        /// Disposes of the system and clears resources.
+        /// </summary>
+        public new void Dispose() => Dispose(true);
+
+        /// <summary>
+        /// Disposes of the system and clears resources.
+        /// </summary>
+        /// <param name="disposing">True if called from Dispose(), false if from finalizer.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed && disposing)
+            {
+                // Clear progress queue
+                while (_progressQueue.TryDequeue(out _))
+                {
+                    // Drain queue
+                }
+
+                _disposed = true;
             }
         }
     }

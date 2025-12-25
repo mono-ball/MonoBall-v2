@@ -18,7 +18,7 @@ namespace MonoBall.Core.ECS.Systems
     /// System responsible for initializing the player entity.
     /// Sprite sheet switching is handled by <see cref="SpriteSheetSystem"/>.
     /// </summary>
-    public class PlayerSystem : BaseSystem<World, float>
+    public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly ICameraService _cameraService;
         private readonly ISpriteLoaderService _spriteLoader;
@@ -27,6 +27,11 @@ namespace MonoBall.Core.ECS.Systems
         private readonly QueryDescription _playerQuery;
         private Entity? _playerEntity;
         private bool _playerCreated;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.Player;
 
         /// <summary>
         /// Initializes a new instance of the PlayerSystem.
@@ -59,12 +64,18 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="spriteSheetId">Optional sprite sheet ID. Defaults to <see cref="GameConstants.DefaultPlayerSpriteSheetId"/> if not provided.</param>
         /// <param name="initialAnimation">Optional initial animation name. Defaults to <see cref="GameConstants.DefaultPlayerInitialAnimation"/> if not provided.</param>
+        /// <param name="cameraEntity">Optional camera entity. If provided, uses this camera's position. Otherwise queries for active camera.</param>
         /// <remarks>
         /// This method initializes the player entity at the camera's position.
         /// It should be called explicitly after the camera system has created an active camera.
         /// If sprite sheet ID or animation are not provided, defaults from <see cref="GameConstants"/> are used.
+        /// If cameraEntity is provided, uses that camera directly. Otherwise queries for active camera via CameraService.
         /// </remarks>
-        public void InitializePlayer(string? spriteSheetId = null, string? initialAnimation = null)
+        public void InitializePlayer(
+            string? spriteSheetId = null,
+            string? initialAnimation = null,
+            Entity? cameraEntity = null
+        )
         {
             if (_playerCreated)
             {
@@ -75,9 +86,30 @@ namespace MonoBall.Core.ECS.Systems
             string spriteSheet = spriteSheetId ?? GameConstants.DefaultPlayerSpriteSheetId;
             string animation = initialAnimation ?? GameConstants.DefaultPlayerInitialAnimation;
 
-            // Get active camera to determine spawn position
-            CameraComponent? activeCamera = _cameraService.GetActiveCamera();
-            if (!activeCamera.HasValue)
+            // Get camera component - prefer provided camera entity, fall back to querying for active camera
+            CameraComponent? camera = null;
+            if (cameraEntity.HasValue && World.IsAlive(cameraEntity.Value))
+            {
+                if (World.Has<CameraComponent>(cameraEntity.Value))
+                {
+                    camera = World.Get<CameraComponent>(cameraEntity.Value);
+                }
+                else
+                {
+                    _logger.Warning(
+                        "PlayerSystem.InitializePlayer: Provided camera entity {CameraEntityId} does not have CameraComponent, querying for active camera",
+                        cameraEntity.Value.Id
+                    );
+                }
+            }
+
+            // If no camera from provided entity, query for active camera
+            if (!camera.HasValue)
+            {
+                camera = _cameraService.GetActiveCamera();
+            }
+
+            if (!camera.HasValue)
             {
                 _logger.Warning(
                     "PlayerSystem.InitializePlayer: No active camera found, using default position (0, 0)"
@@ -86,12 +118,16 @@ namespace MonoBall.Core.ECS.Systems
                 return;
             }
 
-            var camera = activeCamera.Value;
+            var cameraComponent = camera.Value;
 
-            // Convert camera position from tile coordinates to pixel coordinates
+            // Use default spawn position instead of camera position
+            // Camera starts at (0,0) but player should spawn at a reasonable map location
+            // Default spawn position is defined in GameConstants
+            int tileWidth = cameraComponent.TileWidth;
+            int tileHeight = cameraComponent.TileHeight;
             Vector2 pixelPosition = new Vector2(
-                camera.Position.X * camera.TileWidth,
-                camera.Position.Y * camera.TileHeight
+                GameConstants.DefaultPlayerSpawnX * tileWidth,
+                GameConstants.DefaultPlayerSpawnY * tileHeight
             );
 
             CreatePlayerEntity(pixelPosition, spriteSheet, animation);

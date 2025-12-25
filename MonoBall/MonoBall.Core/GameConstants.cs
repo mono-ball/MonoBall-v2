@@ -48,6 +48,16 @@ namespace MonoBall.Core
         public const string DefaultPlayerInitialAnimation = "face_south";
 
         /// <summary>
+        /// Default player spawn X position in tiles (for initial map load).
+        /// </summary>
+        public const int DefaultPlayerSpawnX = 10;
+
+        /// <summary>
+        /// Default player spawn Y position in tiles (for initial map load).
+        /// </summary>
+        public const int DefaultPlayerSpawnY = 8;
+
+        /// <summary>
         /// Default player movement speed in tiles per second.
         /// Matches MonoBall's default: 4.0 tiles per second.
         /// </summary>

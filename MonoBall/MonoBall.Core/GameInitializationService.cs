@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using Arch.Core;
 using Microsoft.Xna.Framework;
@@ -22,14 +21,13 @@ namespace MonoBall.Core
     /// </summary>
     public static class InitializationProgress
     {
-        public const float Localization = 0.1f;
-        public const float Mods = 0.2f;
-        public const float ContentServices = 0.4f;
-        public const float Rendering = 0.5f;
-        public const float GameSystems = 0.6f;
-        public const float Camera = 0.7f;
-        public const float Player = 0.8f;
-        public const float InitialMap = 0.9f;
+        public const float Mods = 0.1f;
+        public const float ContentServices = 0.3f;
+        public const float Rendering = 0.4f;
+        public const float GameSystems = 0.5f;
+        public const float Camera = 0.6f;
+        public const float Player = 0.7f;
+        public const float InitialMap = 0.85f;
         public const float GameScene = 0.95f;
         public const float Complete = 1.0f;
     }
@@ -45,7 +43,7 @@ namespace MonoBall.Core
         private Task<InitializationResult>? _initializationTask;
         private Entity? _loadingSceneEntity;
         private World? _mainWorld; // Reference to main world (not owned by this service)
-        private readonly ConcurrentQueue<(float progress, string step)>? _progressQueue;
+        private LoadingSceneSystem? _loadingSceneSystem; // Reference to loading scene system for progress updates
 
         /// <summary>
         /// Initializes a new instance of the GameInitializationService.
@@ -53,19 +51,23 @@ namespace MonoBall.Core
         /// <param name="game">The game instance.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        /// <param name="progressQueue">Optional thread-safe queue for progress updates. If provided, updates are queued instead of applied directly.</param>
-        public GameInitializationService(
-            Game game,
-            GraphicsDevice graphicsDevice,
-            ILogger logger,
-            ConcurrentQueue<(float progress, string step)>? progressQueue = null
-        )
+        public GameInitializationService(Game game, GraphicsDevice graphicsDevice, ILogger logger)
         {
             _game = game ?? throw new ArgumentNullException(nameof(game));
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _progressQueue = progressQueue;
+        }
+
+        /// <summary>
+        /// Sets the loading scene system for progress updates.
+        /// Must be called before starting initialization.
+        /// </summary>
+        /// <param name="loadingSceneSystem">The loading scene system.</param>
+        public void SetLoadingSceneSystem(LoadingSceneSystem loadingSceneSystem)
+        {
+            _loadingSceneSystem =
+                loadingSceneSystem ?? throw new ArgumentNullException(nameof(loadingSceneSystem));
         }
 
         /// <summary>
@@ -144,42 +146,21 @@ namespace MonoBall.Core
         }
 
         /// <summary>
-        /// Updates the loading progress. Thread-safe: if progress queue is provided, enqueues update;
-        /// otherwise applies directly (must be called from main thread).
+        /// Updates the loading progress. Thread-safe: enqueues update to LoadingSceneSystem.
         /// </summary>
         /// <param name="progress">Progress value between 0.0 and 1.0.</param>
         /// <param name="step">Current step description.</param>
         public void UpdateProgress(float progress, string step)
         {
-            // If progress queue is provided, enqueue update (thread-safe, called from async task)
-            if (_progressQueue != null)
+            if (_loadingSceneSystem == null)
             {
-                _progressQueue.Enqueue((progress, step ?? "Loading..."));
-                return;
-            }
-
-            // Otherwise, apply directly (must be called from main thread)
-            if (_mainWorld == null || _loadingSceneEntity == null)
-            {
-                return;
-            }
-
-            if (_mainWorld.Has<LoadingProgressComponent>(_loadingSceneEntity.Value))
-            {
-                ref var progressComponent = ref _mainWorld.Get<LoadingProgressComponent>(
-                    _loadingSceneEntity.Value
+                _logger.Warning(
+                    "UpdateProgress called but LoadingSceneSystem not set. Call SetLoadingSceneSystem() first."
                 );
-                progressComponent.Progress = Math.Clamp(progress, 0.0f, 1.0f);
-                progressComponent.CurrentStep = step ?? "Loading...";
-
-                // Fire loading progress event for extensibility
-                var progressEvent = new LoadingProgressUpdatedEvent
-                {
-                    Progress = progressComponent.Progress,
-                    CurrentStep = progressComponent.CurrentStep,
-                };
-                EventBus.Send(ref progressEvent);
+                return;
             }
+
+            _loadingSceneSystem.EnqueueProgress(progress, step ?? "Loading...");
         }
 
         /// <summary>
@@ -221,38 +202,6 @@ namespace MonoBall.Core
         public Entity? LoadingSceneEntity => _loadingSceneEntity;
 
         /// <summary>
-        /// Processes queued progress updates from the async initialization task.
-        /// Must be called on the main thread to update the ECS world safely.
-        /// </summary>
-        public void ProcessProgressUpdates()
-        {
-            if (_mainWorld == null || _loadingSceneEntity == null || _progressQueue == null)
-            {
-                return;
-            }
-
-            while (_progressQueue.TryDequeue(out var update))
-            {
-                if (_mainWorld.Has<LoadingProgressComponent>(_loadingSceneEntity.Value))
-                {
-                    ref var progressComponent = ref _mainWorld.Get<LoadingProgressComponent>(
-                        _loadingSceneEntity.Value
-                    );
-                    progressComponent.Progress = Math.Clamp(update.progress, 0.0f, 1.0f);
-                    progressComponent.CurrentStep = update.step ?? "Loading...";
-
-                    // Fire loading progress event for extensibility
-                    var progressEvent = new LoadingProgressUpdatedEvent
-                    {
-                        Progress = progressComponent.Progress,
-                        CurrentStep = progressComponent.CurrentStep,
-                    };
-                    EventBus.Send(ref progressEvent);
-                }
-            }
-        }
-
-        /// <summary>
         /// Asynchronously initializes the game.
         /// </summary>
         /// <param name="mainWorld">The main world (same world where loading scene exists).</param>
@@ -267,12 +216,7 @@ namespace MonoBall.Core
             {
                 _logger.Information("Starting async game initialization");
 
-                // Step 1: Load localization
-                UpdateProgress(InitializationProgress.Localization, "Loading localization...");
-                await Task.Yield(); // Allow UI to update
-                GameInitializationHelper.LoadLocalization(_logger);
-
-                // Step 2: Initialize game services (mods, ECS world)
+                // Step 1: Initialize game services (mods, ECS world)
                 UpdateProgress(InitializationProgress.Mods, "Loading mods...");
                 await Task.Yield();
                 var gameServices = GameInitializationHelper.InitializeGameServices(
@@ -289,7 +233,7 @@ namespace MonoBall.Core
                 await Task.Yield();
                 GameInitializationHelper.LoadContentServices(gameServices, _logger);
 
-                // Step 4: Create sprite batch
+                // Step 3: Create sprite batch
                 // Note: SpriteBatch is created here, but loading screen uses _loadingSpriteBatch from MonoBallGame
                 // This spriteBatch will be used for the main game rendering
                 UpdateProgress(InitializationProgress.Rendering, "Initializing rendering...");
@@ -299,7 +243,7 @@ namespace MonoBall.Core
                     _logger
                 );
 
-                // Step 5: Initialize ECS systems
+                // Step 4: Initialize ECS systems
                 UpdateProgress(InitializationProgress.GameSystems, "Initializing game systems...");
                 await Task.Yield();
                 var systemManager = GameInitializationHelper.InitializeEcsSystems(
@@ -310,7 +254,14 @@ namespace MonoBall.Core
                     _logger
                 );
 
-                // Step 6: Create default camera
+                // Step 5: Load initial map FIRST (needed for tile dimensions and spawn position)
+                UpdateProgress(InitializationProgress.InitialMap, "Loading initial map...");
+                await Task.Yield();
+                const string initialMapId = "base:map:hoenn/littleroot_town";
+                systemManager.LoadMap(initialMapId);
+                _logger.Information("Initial map loaded: {MapId}", initialMapId);
+
+                // Step 6: Create default camera (after map is loaded so we have tile dimensions)
                 UpdateProgress(InitializationProgress.Camera, "Setting up camera...");
                 await Task.Yield();
                 var world = gameServices.EcsService!.World;
@@ -321,7 +272,7 @@ namespace MonoBall.Core
                     _logger
                 );
 
-                // Step 7: Initialize player
+                // Step 7: Initialize player at default spawn position (10, 8 tiles - center-ish of map)
                 UpdateProgress(InitializationProgress.Player, "Initializing player...");
                 await Task.Yield();
                 var playerEntity = GameInitializationHelper.InitializePlayer(
@@ -335,14 +286,11 @@ namespace MonoBall.Core
                 await Task.Yield();
                 GameInitializationHelper.SetupInitialGameState(_game, _logger);
 
-                // Step 8: Load initial map
-                UpdateProgress(InitializationProgress.InitialMap, "Loading initial map...");
-                await Task.Yield();
-                GameInitializationHelper.LoadInitialMap(
+                // Step 8: Set camera to follow player (after both are created)
+                GameInitializationHelper.SetupCameraFollow(
                     systemManager,
-                    "base:map:hoenn/littleroot_town",
-                    playerEntity,
                     cameraEntity,
+                    playerEntity,
                     _logger
                 );
 
@@ -351,18 +299,9 @@ namespace MonoBall.Core
                 await Task.Yield();
                 GameInitializationHelper.CreateGameScene(systemManager, _logger);
 
-                // Set progress to 100% - this goes through the queue
-                UpdateProgress(InitializationProgress.Complete, "Complete!");
-
-                // Give the main thread time to process the progress update
-                // We need multiple yields to ensure the update is processed and rendered
-                await Task.Yield();
-                await Task.Yield();
-                await Task.Yield();
-
-                // Mark loading as complete - this sets IsComplete = true
-                // Note: This is called from async task, but MarkComplete directly modifies world
-                // The main thread will check IsComplete after processing updates
+                // Mark loading as complete - this sets Progress = 1.0f and IsComplete = true
+                // MarkComplete() directly modifies the world component, so no need to go through the queue
+                // The main thread will check IsComplete on the next Update() call
                 MarkComplete();
 
                 return new InitializationResult

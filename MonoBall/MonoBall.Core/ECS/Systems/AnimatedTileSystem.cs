@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
+using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Maps;
 using Serilog;
@@ -10,7 +11,7 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System responsible for updating animation timers and advancing frames for animated tiles.
     /// </summary>
-    public class AnimatedTileSystem : BaseSystem<World, float>
+    public class AnimatedTileSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly ITilesetLoaderService _tilesetLoader;
         private readonly QueryDescription _queryDescription;
@@ -19,6 +20,11 @@ namespace MonoBall.Core.ECS.Systems
         private readonly List<int> _tileIndexList = new List<int>();
 
         private readonly ILogger _logger;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.AnimatedTile;
 
         /// <summary>
         /// Initializes a new instance of the AnimatedTileSystem.

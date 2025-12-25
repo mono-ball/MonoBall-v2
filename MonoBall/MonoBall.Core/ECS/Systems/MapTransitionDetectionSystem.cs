@@ -14,13 +14,18 @@ namespace MonoBall.Core.ECS.Systems
     /// System that detects when the player crosses map boundaries and fires MapTransitionEvent.
     /// This system runs each frame and checks which map the player is currently in.
     /// </summary>
-    public class MapTransitionDetectionSystem : BaseSystem<World, float>
+    public class MapTransitionDetectionSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly IActiveMapFilterService _activeMapFilterService;
         private readonly ILogger _logger;
         private string? _previousPlayerMapId = null;
         private bool _isInitialized = false;
         private bool _hasRenderedFirstFrame = false;
+
+        /// <summary>
+        /// Gets the execution priority for this system.
+        /// </summary>
+        public int Priority => SystemPriority.MapTransitionDetection;
 
         /// <summary>
         /// Initializes a new instance of the MapTransitionDetectionSystem.

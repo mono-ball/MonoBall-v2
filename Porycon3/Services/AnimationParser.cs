@@ -85,8 +85,9 @@ public class AnimationParser
             RegexOptions.Compiled);
 
         // Pattern to extract individual file paths from INCBIN content
+        // Matches all subdirectories: people, berry_trees, cushions, dolls, misc, pokemon_old
         var filePattern = new Regex(
-            @"""graphics/object_events/pics/people/([^""]+)\.4bpp""",
+            @"""graphics/object_events/pics/([^""]+)\.4bpp""",
             RegexOptions.Compiled);
 
         foreach (Match match in pattern.Matches(content))
@@ -254,9 +255,9 @@ public class AnimationParser
             @"sPicTable_(\w+)\[\]\s*=\s*\{([^}]+)\}",
             RegexOptions.Compiled | RegexOptions.Singleline);
 
-        // Match: overworld_frame or obj_frame_tiles references
+        // Match: overworld_frame, overworld_ascending_frames, or obj_frame_tiles references
         var framePattern = new Regex(
-            @"(?:overworld_frame|obj_frame_tiles)\(gObjectEventPic_(\w+)",
+            @"(?:overworld_frame|overworld_ascending_frames|obj_frame_tiles)\(gObjectEventPic_(\w+)",
             RegexOptions.Compiled);
 
         foreach (Match tableMatch in tablePattern.Matches(content))
@@ -315,9 +316,28 @@ public class AnimationParser
             var spriteName = match.Groups[1].Value;
             var tableContent = match.Groups[2].Value;
 
-            // Count overworld_frame and obj_frame_tiles entries
+            // Count individual frames
             var frameMatches = Regex.Matches(tableContent, @"overworld_frame|obj_frame_tiles");
-            result[spriteName] = frameMatches.Count;
+            var frameCount = frameMatches.Count;
+
+            // Handle overworld_ascending_frames - these generate 9 or 18 frames
+            // based on whether it's a normal (9) or combined walk+run sprite (18)
+            var ascendingMatches = Regex.Matches(tableContent, @"overworld_ascending_frames\(gObjectEventPic_(\w+)");
+            foreach (Match ascMatch in ascendingMatches)
+            {
+                var picName = ascMatch.Groups[1].Value;
+                // Check if this is a multi-file pic (walking + running = 18 frames)
+                if (MultiFilePics.ContainsKey(picName))
+                {
+                    frameCount += 18; // 9 walking + 9 running frames
+                }
+                else
+                {
+                    frameCount += 9; // Standard 9 frames
+                }
+            }
+
+            result[spriteName] = frameCount;
         }
 
         return result;
