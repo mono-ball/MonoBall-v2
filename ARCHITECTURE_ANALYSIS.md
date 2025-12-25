@@ -1,315 +1,135 @@
-# Architecture & Arch ECS Analysis - MovementSystem & MapLoaderSystem Changes
+# Architecture Analysis Report
+
+## Critical Issues
+
+### 1. **SceneSystem: Missing IDisposable Implementation** ⚠️ CRITICAL
+**Location:** `MonoBall/MonoBall.Core/Scenes/Systems/SceneSystem.cs`
+**Issue:** `SceneSystem` subscribes to `EventBus.Subscribe<SceneMessageEvent>` in the constructor (line 39) but does not implement `IDisposable`. According to .cursorrules, systems with event subscriptions MUST implement `IDisposable` and unsubscribe in `Dispose()`.
+
+**Current State:**
+- Has `Cleanup()` method that unsubscribes (line 538)
+- Does not implement `IDisposable`
+- No standard dispose pattern
+
+**Impact:** Memory leak - event subscription will never be cleaned up if system is disposed through standard patterns.
+
+**Fix Required:**
+```csharp
+public class SceneSystem : BaseSystem<World, float>, IDisposable
+{
+    private bool _disposed = false;
+    
+    public void Dispose() => Dispose(true);
+    
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed && disposing)
+        {
+            EventBus.Unsubscribe<SceneMessageEvent>(OnSceneMessage);
+            _sceneStack.Clear();
+            _sceneIds.Clear();
+            _sceneInsertionOrder.Clear();
+        }
+        _disposed = true;
+    }
+}
+```
+
+---
+
+## Bugs
+
+### 2. **SceneSystem: Incorrect Logger Usage** 🐛
+**Location:** `MonoBall/MonoBall.Core/Scenes/Systems/SceneSystem.cs:383`
+**Issue:** Uses `Log.Debug()` instead of `_logger.Debug()`.
+
+**Current Code:**
+```csharp
+Log.Debug(
+    "SceneSystem: Unhandled scene message type '{MessageType}' from '{SourceSceneId}' to '{TargetSceneId}'",
+    evt.MessageType,
+    evt.SourceSceneId,
+    evt.TargetSceneId ?? "all"
+);
+```
+
+**Fix:** Replace `Log.Debug` with `_logger.Debug`.
+
+---
+
+### 3. **DebugBarSceneSystem: Missing SpriteBatch.End() Protection** 🐛
+**Location:** `MonoBall/MonoBall.Core/Scenes/Systems/DebugBarSceneSystem.cs:144-148`
+**Issue:** `SpriteBatch.End()` is called without try-finally protection. If `_debugBarRendererSystem.Render()` throws an exception, `SpriteBatch.End()` will not be called, leaving SpriteBatch in an invalid state.
+
+**Current Code:**
+```csharp
+_spriteBatch.Begin(...);
+_debugBarRendererSystem.Render(gameTime);
+_spriteBatch.End(); // Not protected!
+```
+
+**Fix:** Match the pattern in `LoadingSceneSystem`:
+```csharp
+try
+{
+    _debugBarRendererSystem.Render(gameTime);
+}
+finally
+{
+    _spriteBatch.End();
+}
+```
+
+---
+
+## Code Quality Issues
+
+### 4. **Missing Using Directives for SceneCameraMode** 📝
+**Location:** 
+- `MonoBall/MonoBall.Core/Scenes/Systems/GameSceneSystem.cs`
+- `MonoBall/MonoBall.Core/Scenes/Systems/LoadingSceneSystem.cs`
+- `MonoBall/MonoBall.Core/Scenes/Systems/DebugBarSceneSystem.cs`
+
+**Issue:** These files use `SceneCameraMode` enum but don't have `using MonoBall.Core.Scenes;` directive. The code compiles because the enum is likely accessible through transitive references, but it's not explicit.
+
+**Fix:** Add `using MonoBall.Core.Scenes;` to all three files.
+
+---
+
+### 5. **Unused Using Directive** 📝
+**Location:** `MonoBall/MonoBall.Core/Scenes/Systems/SceneSystem.cs:3`
+**Issue:** `using System.Linq;` is imported but not used anywhere in the file.
+
+**Fix:** Remove the unused using directive.
+
+---
+
+## Architecture Review
+
+### ✅ Good Practices Found
+
+1. **QueryDescription Caching:** All systems correctly cache `QueryDescription` in constructor/fields, not in Update/Render methods.
+2. **Dependency Injection:** All systems properly inject dependencies through constructors with null checks.
+3. **Exception Handling:** Proper use of `ArgumentNullException` for required dependencies.
+4. **Separation of Concerns:** Clear separation between coordinator (`SceneRendererSystem`) and scene-specific systems.
+5. **Documentation:** Good XML documentation on public APIs.
+
+### ⚠️ Potential Issues
+
+1. **SceneSystem Cleanup() vs Dispose():** The `Cleanup()` method exists but is not part of standard disposal pattern. Should be replaced with `IDisposable` implementation.
+
+2. **SceneRendererSystem Update() No-Op:** The `Update()` method is a no-op (line 207-211). This is fine, but consider if `BaseSystem` is the right base class, or if a different pattern would be clearer.
+
+3. **Missing Scene Type Handling:** `SceneRendererSystem.Render()` logs a warning for unrecognized scene types but continues. Consider if this should throw or handle more gracefully.
+
+---
 
 ## Summary
-Analysis of code changes made to add GridMovement to NPCs and optimize MovementSystem for performance.
 
----
+**Critical Issues:** 1 (IDisposable)
+**Bugs:** 2 (Logger usage, SpriteBatch protection)
+**Code Quality:** 2 (Missing usings, unused using)
 
-## 🔴 Critical Issues
+**Total Issues:** 5
 
-### 1. **Performance: Inefficient Component Access in Hot Path**
-**Location:** `MovementSystem.cs:262-263`
-
-```csharp
-bool isPlayer = World.Has<PlayerComponent>(entity);
-bool hasMovementRequest = World.Has<MovementRequest>(entity);
-```
-
-**Problem:**
-- `World.Has<>()` requires two lookups: one to check existence, one to access
-- Called for every entity in the query, even ones we skip
-- Should use `TryGet<>()` which is more efficient
-
-**Fix:**
-```csharp
-bool isPlayer = World.TryGet<PlayerComponent>(entity, out _);
-bool hasMovementRequest = World.TryGet<MovementRequest>(entity, out _);
-```
-
----
-
-### 2. **Performance: Active Map IDs Recalculated Every Frame**
-**Location:** `MovementSystem.cs:510-524`
-
-```csharp
-private HashSet<string> GetActiveMapIds()
-{
-    HashSet<string> activeMapIds = new HashSet<string>();
-    World.Query(in _mapQuery, (Entity entity, ref MapComponent map) =>
-    {
-        activeMapIds.Add(map.MapId);
-    });
-    return activeMapIds;
-}
-```
-
-**Problem:**
-- Creates new HashSet every frame (allocation)
-- Queries all map entities every frame
-- Maps don't change frequently - should be cached
-
-**Impact:** 
-- ~0.1-0.5ms per frame (depending on map count)
-- GC pressure from HashSet allocations
-
-**Fix:** Cache with event-based invalidation (see recommendations)
-
----
-
-### 3. **Performance: Inefficient GetMapId Pattern**
-**Location:** `MovementSystem.cs:495-503`
-
-```csharp
-private string? GetMapId(Entity entity)
-{
-    if (World.Has<MapComponent>(entity))
-    {
-        ref var mapComponent = ref World.Get<MapComponent>(entity);
-        return mapComponent.MapId;
-    }
-    return null;
-}
-```
-
-**Problem:**
-- Uses `Has<>()` + `Get<>()` pattern (two lookups)
-- Should use `TryGet<>()` (single lookup)
-
-**Fix:**
-```csharp
-private string? GetMapId(Entity entity)
-{
-    if (World.TryGet<MapComponent>(entity, out var mapComponent))
-    {
-        return mapComponent.MapId;
-    }
-    return null;
-}
-```
-
----
-
-## 🟡 Architecture Issues
-
-### 4. **Separation of Concerns: Map Filtering Logic in MovementSystem**
-**Location:** `MovementSystem.cs:505-559`
-
-**Problem:**
-- MovementSystem contains map filtering logic
-- This is map lifecycle management, not movement logic
-- Violates Single Responsibility Principle
-
-**Recommendation:**
-- Extract to `IMapFilterService` or similar
-- MovementSystem should focus on movement, not map management
-- Could subscribe to `MapLoadedEvent` / `MapUnloadedEvent` for cache updates
-
----
-
-### 5. **Missing Event-Based Cache Invalidation**
-**Location:** `MovementSystem.cs` (missing)
-
-**Problem:**
-- Active map IDs cache (if implemented) has no invalidation mechanism
-- Maps can be loaded/unloaded without MovementSystem knowing
-- Cache could become stale
-
-**Recommendation:**
-- Subscribe to `MapLoadedEvent` and `MapUnloadedEvent`
-- Invalidate cache when maps change
-- Or inject `MapLoaderSystem` to query directly (creates coupling)
-
----
-
-## 🟢 Arch ECS Best Practices
-
-### ✅ Good Practices (Already Implemented)
-
-1. **Query Caching:** QueryDescriptions are cached as instance fields ✓
-2. **Query Reuse:** Queries are created once in constructor ✓
-3. **Component Access Order:** `IsEntityInActiveMaps` checks components in order of likelihood ✓
-4. **TryGet Pattern:** Used in `IsEntityInActiveMaps` for efficient component access ✓
-
-### ✅ Query Iteration Issue - RESOLVED
-
-1. **Query Iteration Overhead - FIXED:**
-   - **Before:** Arch ECS queries iterate over ALL matching entities, even with early returns in lambda
-   - **After:** Use `ActiveMapEntity` tag component in QueryDescription to filter at query level
-   - **Solution:** Include `ActiveMapEntity` in queries - Arch ECS only iterates over entities with ALL required components
-   - **Result:** No iteration over entities in unloaded maps - query-level filtering eliminates the overhead
-
-2. **Spatial Filtering in Query - RESOLVED:**
-   - **Before:** Can't filter by map ID directly in QueryDescription
-   - **After:** Use `ActiveMapEntity` tag component as a proxy for "in active maps"
-   - **Result:** Query-level filtering achieved through component tagging pattern
-   - **Example:**
-     ```csharp
-     // Query only NPCs in active maps - Arch ECS filters at query level
-     _npcQuery = new QueryDescription().WithAll<
-         NpcComponent,
-         SpriteAnimationComponent,
-         ActiveMapEntity  // Arch ECS only iterates entities with this tag
-     >();
-     ```
-
----
-
-## 📋 Recommended Fixes (Priority Order)
-
-### Priority 1: Hot Path Optimizations
-
-1. **Fix component access in UpdateMovements:**
-   ```csharp
-   // Change from:
-   bool isPlayer = World.Has<PlayerComponent>(entity);
-   bool hasMovementRequest = World.Has<MovementRequest>(entity);
-   
-   // To:
-   bool isPlayer = World.TryGet<PlayerComponent>(entity, out _);
-   bool hasMovementRequest = World.TryGet<MovementRequest>(entity, out _);
-   ```
-
-2. **Fix GetMapId:**
-   ```csharp
-   // Change from Has<> + Get<> to TryGet<>
-   private string? GetMapId(Entity entity)
-   {
-       if (World.TryGet<MapComponent>(entity, out var mapComponent))
-       {
-           return mapComponent.MapId;
-       }
-       return null;
-   }
-   ```
-
-### Priority 2: Cache Active Map IDs
-
-**Option A: Simple Cache with Manual Invalidation**
-```csharp
-private HashSet<string>? _cachedActiveMapIds;
-private int _lastMapEntityCount = -1;
-
-private HashSet<string> GetActiveMapIds()
-{
-    // Quick check: if map entity count hasn't changed, return cache
-    int currentCount = World.CountEntities(in _mapQuery);
-    if (_cachedActiveMapIds != null && currentCount == _lastMapEntityCount)
-    {
-        return _cachedActiveMapIds;
-    }
-    
-    // Rebuild cache
-    HashSet<string> activeMapIds = new HashSet<string>();
-    World.Query(in _mapQuery, (Entity entity, ref MapComponent map) =>
-    {
-        activeMapIds.Add(map.MapId);
-    });
-    
-    _cachedActiveMapIds = activeMapIds;
-    _lastMapEntityCount = currentCount;
-    return activeMapIds;
-}
-```
-
-**Option B: Event-Based Cache (Better Architecture)**
-```csharp
-private HashSet<string> _cachedActiveMapIds = new HashSet<string>();
-private bool _cacheInvalidated = true;
-
-public MovementSystem(...) : base(world)
-{
-    // ... existing code ...
-    EventBus.Subscribe<MapLoadedEvent>(OnMapLoaded);
-    EventBus.Subscribe<MapUnloadedEvent>(OnMapUnloaded);
-}
-
-private void OnMapLoaded(ref MapLoadedEvent evt)
-{
-    _cachedActiveMapIds.Add(evt.MapId);
-    _cacheInvalidated = false;
-}
-
-private void OnMapUnloaded(ref MapUnloadedEvent evt)
-{
-    _cachedActiveMapIds.Remove(evt.MapId);
-    _cacheInvalidated = false;
-}
-
-private HashSet<string> GetActiveMapIds()
-{
-    if (_cacheInvalidated)
-    {
-        // Rebuild from scratch
-        _cachedActiveMapIds.Clear();
-        World.Query(in _mapQuery, (Entity entity, ref MapComponent map) =>
-        {
-            _cachedActiveMapIds.Add(map.MapId);
-        });
-        _cacheInvalidated = false;
-    }
-    return _cachedActiveMapIds;
-}
-```
-
-### Priority 3: Extract Map Filtering Service (Optional)
-
-Create `IMapFilterService`:
-```csharp
-public interface IMapFilterService
-{
-    bool IsEntityInActiveMaps(Entity entity);
-    HashSet<string> GetActiveMapIds();
-}
-```
-
-This would:
-- Separate concerns (map management vs movement)
-- Make MovementSystem more testable
-- Allow reuse by other systems
-
----
-
-## 🔍 Code Quality Issues
-
-### 6. **Unused Import**
-**Location:** `MovementSystem.cs:3`
-
-```csharp
-using System.Linq;  // Not used anywhere
-```
-
-**Fix:** Remove unused import
-
----
-
-## 📊 Performance Impact Estimates
-
-| Issue | Current Cost | After Fix | Savings |
-|-------|-------------|-----------|---------|
-| Has<> calls (2 per entity) | ~0.05-0.1ms | ~0.02-0.04ms | 50-60% |
-| GetActiveMapIds() per frame | ~0.1-0.5ms | ~0.001ms (cache hit) | 99% |
-| GetMapId() pattern | ~0.01ms | ~0.005ms | 50% |
-
-**Total Estimated Savings:** ~0.15-0.6ms per frame (depending on entity count)
-
----
-
-## ✅ What's Working Well
-
-1. **Query Structure:** Properly cached QueryDescriptions
-2. **Early Returns:** Correctly skipping inactive entities
-3. **Component Access Order:** Checking most likely components first
-4. **Map Filtering:** Correctly filtering by active maps
-5. **Stationary NPC Skip:** Good optimization to skip non-moving NPCs
-
----
-
-## 🎯 Action Items
-
-1. ✅ **DONE:** Add GridMovement to all NPCs
-2. ✅ **DONE:** Filter by active maps
-3. ✅ **DONE:** Skip stationary NPCs
-4. ✅ **FIXED:** Fix `World.Has<>` to `TryGet<>` in hot path
-5. ✅ **FIXED:** Cache active map IDs
-6. ✅ **FIXED:** Fix `GetMapId` pattern
-7. ⚠️ **OPTIONAL:** Extract map filtering to service (architectural improvement, not critical)
+All issues are fixable and don't indicate fundamental architectural problems. The main concern is the missing `IDisposable` implementation in `SceneSystem`, which could lead to memory leaks.

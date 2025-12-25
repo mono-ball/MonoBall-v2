@@ -40,8 +40,8 @@ namespace MonoBall.Core
         private GameInitializationService? _initializationService;
         private Task<GameInitializationService.InitializationResult>? _initializationTask;
         private Entity? _loadingSceneEntity;
-        private SceneManagerSystem? _earlySceneManager; // Early scene manager (replaced by SystemManager's later)
-        private SceneRendererSystem? _earlySceneRenderer; // Early scene renderer (replaced by SystemManager's later)
+        private SceneSystem? _earlySceneSystem; // Early scene system (replaced by SystemManager's later)
+        private LoadingSceneSystem? _earlyLoadingSceneSystem; // Early loading scene system (replaced by SystemManager's later)
         private LoadingSceneRendererSystem? _earlyLoadingRenderer; // Early loading renderer (replaced by SystemManager's later)
         private SpriteBatch? _loadingSpriteBatch;
 
@@ -134,20 +134,12 @@ namespace MonoBall.Core
 
             // Create early scene manager and renderer for loading scene
             // These will be replaced by SystemManager's systems when initialization completes
-            _earlySceneManager = new SceneManagerSystem(
+            _earlySceneSystem = new SceneSystem(
                 mainWorld,
-                LoggerFactory.CreateLogger<SceneManagerSystem>()
+                LoggerFactory.CreateLogger<SceneSystem>()
             );
 
-            _earlySceneRenderer = new SceneRendererSystem(
-                mainWorld,
-                GraphicsDevice,
-                _earlySceneManager,
-                LoggerFactory.CreateLogger<SceneRendererSystem>()
-            );
-            _earlySceneRenderer.SetSpriteBatch(_loadingSpriteBatch);
-
-            // Create loading scene renderer
+            // Create loading scene renderer (needed for LoadingSceneSystem)
             _earlyLoadingRenderer = new LoadingSceneRendererSystem(
                 mainWorld,
                 GraphicsDevice,
@@ -155,7 +147,15 @@ namespace MonoBall.Core
                 this,
                 LoggerFactory.CreateLogger<LoadingSceneRendererSystem>()
             );
-            _earlySceneRenderer.SetLoadingSceneRendererSystem(_earlyLoadingRenderer);
+
+            // Create early loading scene system (before SystemManager is ready)
+            _earlyLoadingSceneSystem = new LoadingSceneSystem(
+                mainWorld,
+                GraphicsDevice,
+                _loadingSpriteBatch,
+                _earlyLoadingRenderer,
+                LoggerFactory.CreateLogger<LoadingSceneSystem>()
+            );
 
             // Create initialization service with progress queue for thread-safe updates
             _initializationService = new GameInitializationService(
@@ -169,7 +169,10 @@ namespace MonoBall.Core
             (_loadingSceneEntity, _initializationTask) =
                 _initializationService.CreateLoadingSceneAndStartInitialization(
                     mainWorld,
-                    _earlySceneManager
+                    _earlySceneSystem,
+                    GraphicsDevice,
+                    _loadingSpriteBatch,
+                    _earlyLoadingRenderer!
                 );
 
             _logger.Information(
@@ -282,14 +285,14 @@ namespace MonoBall.Core
                             try
                             {
                                 // Destroy scene from early manager first (if it still exists)
-                                if (_earlySceneManager != null)
+                                if (_earlySceneSystem != null)
                                 {
-                                    _earlySceneManager.DestroyScene(_loadingSceneEntity.Value);
+                                    _earlySceneSystem.DestroyScene(_loadingSceneEntity.Value);
                                 }
                                 else
                                 {
                                     // If early manager was already cleaned up, destroy directly via SystemManager's manager
-                                    systemManager.SceneManagerSystem.DestroyScene(
+                                    systemManager.SceneSystem.DestroyScene(
                                         _loadingSceneEntity.Value
                                     );
                                 }
@@ -306,7 +309,7 @@ namespace MonoBall.Core
                                 {
                                     if (systemManager != null)
                                     {
-                                        systemManager.SceneManagerSystem.DestroyScene(
+                                        systemManager.SceneSystem.DestroyScene(
                                             _loadingSceneEntity.Value
                                         );
                                     }
@@ -323,22 +326,22 @@ namespace MonoBall.Core
                         }
 
                         // Cleanup early scene systems (SystemManager now owns scene management)
-                        if (_earlySceneManager != null)
+                        if (_earlySceneSystem != null)
                         {
                             try
                             {
-                                _earlySceneManager.Cleanup(); // Unsubscribe from EventBus
+                                _earlySceneSystem.Cleanup(); // Unsubscribe from EventBus
                             }
                             catch (Exception ex)
                             {
                                 _logger.Warning(ex, "Error cleaning up early scene manager");
                             }
-                            _earlySceneManager = null;
+                            _earlySceneSystem = null;
                         }
 
                         _earlyLoadingRenderer?.Dispose();
                         _earlyLoadingRenderer = null;
-                        _earlySceneRenderer = null; // SceneRendererSystem doesn't need disposal (no resources)
+                        _earlyLoadingSceneSystem = null; // LoadingSceneSystem doesn't need disposal (no resources)
 
                         // Clean up loading resources
                         _loadingSpriteBatch?.Dispose();
@@ -391,7 +394,7 @@ namespace MonoBall.Core
                 // Use SceneRendererSystem to determine background color based on active scenes
                 backgroundColor = systemManager.SceneRendererSystem.GetBackgroundColor();
             }
-            else if (_earlySceneRenderer != null)
+            else if (_earlyLoadingSceneSystem != null)
             {
                 // Early loading screen - use loading screen background color
                 backgroundColor = Scenes.Systems.LoadingSceneRendererSystem.GetBackgroundColor();
@@ -411,10 +414,10 @@ namespace MonoBall.Core
                 // Use SystemManager's rendering (includes SceneRendererSystem)
                 systemManager.Render(gameTime);
             }
-            else if (_earlySceneRenderer != null)
+            else if (_earlyLoadingSceneSystem != null && _loadingSceneEntity.HasValue)
             {
-                // Use early scene renderer (before SystemManager is ready)
-                _earlySceneRenderer.Render(gameTime);
+                // Use early loading scene system (before SystemManager is ready)
+                _earlyLoadingSceneSystem.RenderScene(_loadingSceneEntity.Value, gameTime);
             }
 
             base.Draw(gameTime);

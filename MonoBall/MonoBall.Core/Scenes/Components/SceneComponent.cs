@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using MonoBall.Core.Scenes;
 
 namespace MonoBall.Core.Scenes.Components
@@ -56,5 +57,10 @@ namespace MonoBall.Core.Scenes.Components
         /// Whether the scene is paused.
         /// </summary>
         public bool IsPaused { get; set; }
+
+        /// <summary>
+        /// Background color for the scene. If null, uses default based on scene type.
+        /// </summary>
+        public Color? BackgroundColor { get; set; }
     }
 }

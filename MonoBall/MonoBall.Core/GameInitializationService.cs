@@ -72,12 +72,21 @@ namespace MonoBall.Core
         /// Creates a loading scene in the main world and starts asynchronous game initialization.
         /// </summary>
         /// <param name="mainWorld">The main ECS world (created early for loading scene).</param>
-        /// <param name="sceneManager">The scene manager system for the main world.</param>
+        /// <param name="sceneSystem">The scene manager system for the main world.</param>
+        /// <param name="graphicsDevice">The graphics device.</param>
+        /// <param name="spriteBatch">The sprite batch for rendering.</param>
+        /// <param name="loadingSceneRendererSystem">The loading scene renderer system.</param>
         /// <returns>The loading scene entity and the initialization task.</returns>
         public (
             Entity loadingSceneEntity,
             Task<InitializationResult> initializationTask
-        ) CreateLoadingSceneAndStartInitialization(World mainWorld, SceneManagerSystem sceneManager)
+        ) CreateLoadingSceneAndStartInitialization(
+            World mainWorld,
+            SceneSystem sceneSystem,
+            GraphicsDevice graphicsDevice,
+            SpriteBatch spriteBatch,
+            Scenes.Systems.LoadingSceneRendererSystem loadingSceneRendererSystem
+        )
         {
             _logger.Information(
                 "Creating loading scene in main world and starting async initialization"
@@ -87,9 +96,9 @@ namespace MonoBall.Core
             {
                 throw new ArgumentNullException(nameof(mainWorld));
             }
-            if (sceneManager == null)
+            if (sceneSystem == null)
             {
-                throw new ArgumentNullException(nameof(sceneManager));
+                throw new ArgumentNullException(nameof(sceneSystem));
             }
 
             _mainWorld = mainWorld;
@@ -106,6 +115,7 @@ namespace MonoBall.Core
                 BlocksInput = true, // Block all input while loading
                 IsActive = true,
                 IsPaused = false,
+                BackgroundColor = LoadingSceneRendererSystem.GetBackgroundColor(),
             };
 
             var loadingProgressComponent = new LoadingProgressComponent
@@ -116,7 +126,7 @@ namespace MonoBall.Core
                 ErrorMessage = null,
             };
 
-            _loadingSceneEntity = sceneManager.CreateScene(
+            _loadingSceneEntity = sceneSystem.CreateScene(
                 loadingSceneComponent,
                 new LoadingSceneComponent(),
                 loadingProgressComponent

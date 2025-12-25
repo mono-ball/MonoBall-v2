@@ -1,3 +1,5 @@
+using Arch.Core;
+
 namespace MonoBall.Core.Scenes.Events
 {
     /// <summary>
@@ -9,5 +11,15 @@ namespace MonoBall.Core.Scenes.Events
         /// The scene ID.
         /// </summary>
         public string SceneId { get; set; }
+
+        /// <summary>
+        /// The scene entity.
+        /// </summary>
+        public Entity SceneEntity { get; set; }
+
+        /// <summary>
+        /// The scene priority.
+        /// </summary>
+        public int Priority { get; set; }
     }
 }

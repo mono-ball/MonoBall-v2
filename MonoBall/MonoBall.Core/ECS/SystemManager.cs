@@ -47,8 +47,11 @@ namespace MonoBall.Core.ECS
         private PlayerSystem _playerSystem = null!; // Initialized in Initialize()
         private InputSystem _inputSystem = null!; // Initialized in Initialize()
         private MovementSystem _movementSystem = null!; // Initialized in Initialize()
-        private SceneManagerSystem _sceneManagerSystem = null!; // Initialized in Initialize()
+        private SceneSystem _sceneSystem = null!; // Initialized in Initialize()
         private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
+        private GameSceneSystem _gameSceneSystem = null!; // Initialized in Initialize()
+        private LoadingSceneSystem _loadingSceneSystem = null!; // Initialized in Initialize()
+        private DebugBarSceneSystem _debugBarSceneSystem = null!; // Initialized in Initialize()
         private SceneRendererSystem _sceneRendererSystem = null!; // Initialized in Initialize()
         private Services.InputBindingService _inputBindingService = null!; // Initialized in Initialize()
         private Scenes.Systems.DebugBarRendererSystem? _debugBarRendererSystem; // Initialized in Initialize(), may be null
@@ -152,10 +155,10 @@ namespace MonoBall.Core.ECS
         }
 
         /// <summary>
-        /// Gets the scene manager system.
+        /// Gets the scene system.
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
-        public SceneManagerSystem SceneManagerSystem
+        public SceneSystem SceneSystem
         {
             get
             {
@@ -165,7 +168,7 @@ namespace MonoBall.Core.ECS
                         "Systems are not initialized. Call Initialize() first."
                     );
                 }
-                return _sceneManagerSystem;
+                return _sceneSystem;
             }
         }
 
@@ -461,59 +464,20 @@ namespace MonoBall.Core.ECS
             );
 
             // Create scene systems
-            _sceneManagerSystem = new SceneManagerSystem(
-                _world,
-                LoggerFactory.CreateLogger<SceneManagerSystem>()
-            );
+            _sceneSystem = new SceneSystem(_world, LoggerFactory.CreateLogger<SceneSystem>());
             _sceneInputSystem = new SceneInputSystem(
                 _world,
-                _sceneManagerSystem,
+                _sceneSystem,
                 LoggerFactory.CreateLogger<SceneInputSystem>()
             );
-            _sceneRendererSystem = new SceneRendererSystem(
-                _world,
-                _graphicsDevice,
-                _sceneManagerSystem,
-                LoggerFactory.CreateLogger<SceneRendererSystem>(),
-                _shaderManagerSystem,
-                _renderTargetManager,
-                _shaderRendererSystem
-            );
-            _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
-            _sceneRendererSystem.SetMapRendererSystem(_mapRendererSystem);
-            _sceneRendererSystem.SetMapBorderRendererSystem(_mapBorderRendererSystem);
-            _sceneRendererSystem.SetSpriteRendererSystem(_spriteRendererSystem);
 
-            // Get FontService from Game.Services (created earlier in GameServices.LoadMods)
-            var fontService = _game.Services.GetService<Rendering.FontService>();
-            if (fontService == null)
-            {
-                throw new InvalidOperationException(
-                    "FontService is not available in Game.Services. "
-                        + "Ensure GameServices.Initialize() was called and mods were loaded successfully."
-                );
-            }
-            var performanceStatsSystem = new PerformanceStatsSystem(
-                _world,
-                LoggerFactory.CreateLogger<PerformanceStatsSystem>()
-            );
-
-            // Create debug bar systems
+            // Create debug bar toggle system
             var debugBarToggleSystem = new Scenes.Systems.DebugBarToggleSystem(
                 _world,
-                _sceneManagerSystem,
+                _sceneSystem,
                 _inputBindingService,
                 LoggerFactory.CreateLogger<Scenes.Systems.DebugBarToggleSystem>()
             );
-            _debugBarRendererSystem = new Scenes.Systems.DebugBarRendererSystem(
-                _world,
-                _graphicsDevice,
-                fontService,
-                performanceStatsSystem,
-                _spriteBatch,
-                LoggerFactory.CreateLogger<Scenes.Systems.DebugBarRendererSystem>()
-            );
-            _sceneRendererSystem.SetDebugBarRendererSystem(_debugBarRendererSystem);
 
             // Create shader cycle system (for cycling through shader effects with F4)
             Scenes.Systems.ShaderCycleSystem? shaderCycleSystem = null;
@@ -547,38 +511,12 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<MapTransitionDetectionSystem>()
             );
 
-            // Create popup systems (after SceneManagerSystem, before SceneRendererSystem)
+            // Create popup orchestrator system
             _mapPopupOrchestratorSystem = new MapPopupOrchestratorSystem(
                 _world,
                 _modManager,
                 LoggerFactory.CreateLogger<MapPopupOrchestratorSystem>()
             );
-            _mapPopupSystem = new MapPopupSystem(
-                _world,
-                _sceneManagerSystem,
-                fontService,
-                _modManager,
-                LoggerFactory.CreateLogger<MapPopupSystem>()
-            );
-            _mapPopupRendererSystem = new MapPopupRendererSystem(
-                _world,
-                _graphicsDevice,
-                _spriteBatch,
-                fontService,
-                _modManager,
-                LoggerFactory.CreateLogger<MapPopupRendererSystem>()
-            );
-            _sceneRendererSystem.SetMapPopupRendererSystem(_mapPopupRendererSystem);
-
-            // Create loading scene renderer system (optional, for loading screen)
-            _loadingSceneRendererSystem = new Scenes.Systems.LoadingSceneRendererSystem(
-                _world,
-                _graphicsDevice,
-                _spriteBatch,
-                _game,
-                LoggerFactory.CreateLogger<Scenes.Systems.LoadingSceneRendererSystem>()
-            );
-            _sceneRendererSystem.SetLoadingSceneRendererSystem(_loadingSceneRendererSystem);
 
             // Create visibility flag system (reacts to flag changes)
             _visibilityFlagSystem = new VisibilityFlagSystem(
@@ -587,10 +525,111 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<VisibilityFlagSystem>()
             );
 
+            // Create performance stats system (needed for debug bar renderer and update systems)
+            var performanceStatsSystem = new PerformanceStatsSystem(
+                _world,
+                LoggerFactory.CreateLogger<PerformanceStatsSystem>()
+            );
+
             // Update render systems to track draw calls
             _mapRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
             _mapBorderRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
             _spriteRendererSystem.SetPerformanceStatsSystem(performanceStatsSystem);
+
+            // Get FontService from Game.Services (needed for scene systems)
+            var fontService = _game.Services.GetService<Rendering.FontService>();
+            if (fontService == null)
+            {
+                throw new InvalidOperationException(
+                    "FontService is not available in Game.Services. "
+                        + "Ensure GameServices.Initialize() was called and mods were loaded successfully."
+                );
+            }
+
+            // Create loading scene renderer system (needed for LoadingSceneSystem)
+            _loadingSceneRendererSystem = new Scenes.Systems.LoadingSceneRendererSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                _game,
+                LoggerFactory.CreateLogger<Scenes.Systems.LoadingSceneRendererSystem>()
+            );
+
+            // Create debug bar renderer system (needed for DebugBarSceneSystem)
+            _debugBarRendererSystem = new Scenes.Systems.DebugBarRendererSystem(
+                _world,
+                _graphicsDevice,
+                fontService,
+                performanceStatsSystem,
+                _spriteBatch,
+                LoggerFactory.CreateLogger<Scenes.Systems.DebugBarRendererSystem>()
+            );
+
+            // Create map popup renderer system (needed for MapPopupSystem)
+            _mapPopupRendererSystem = new MapPopupRendererSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                fontService,
+                _modManager,
+                LoggerFactory.CreateLogger<MapPopupRendererSystem>()
+            );
+
+            // Create scene-specific systems (after all render systems are created)
+            _gameSceneSystem = new GameSceneSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                _mapRendererSystem,
+                _spriteRendererSystem,
+                _mapBorderRendererSystem,
+                _shaderManagerSystem,
+                _shaderRendererSystem,
+                _renderTargetManager,
+                LoggerFactory.CreateLogger<GameSceneSystem>()
+            );
+
+            _loadingSceneSystem = new LoadingSceneSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                _loadingSceneRendererSystem,
+                LoggerFactory.CreateLogger<LoadingSceneSystem>()
+            );
+
+            _debugBarSceneSystem = new DebugBarSceneSystem(
+                _world,
+                _graphicsDevice,
+                _spriteBatch,
+                _debugBarRendererSystem,
+                LoggerFactory.CreateLogger<DebugBarSceneSystem>()
+            );
+
+            // Create map popup system (needs renderer system)
+            _mapPopupSystem = new MapPopupSystem(
+                _world,
+                _sceneSystem,
+                _graphicsDevice,
+                _spriteBatch,
+                _mapPopupRendererSystem,
+                fontService,
+                _modManager,
+                LoggerFactory.CreateLogger<MapPopupSystem>()
+            );
+
+            // Create scene renderer system (coordinator) with references to scene systems
+            _sceneRendererSystem = new SceneRendererSystem(
+                _world,
+                _graphicsDevice,
+                _sceneSystem,
+                _gameSceneSystem,
+                _loadingSceneSystem,
+                _debugBarSceneSystem,
+                _mapPopupSystem,
+                LoggerFactory.CreateLogger<SceneRendererSystem>(),
+                _shaderManagerSystem
+            );
+            _sceneRendererSystem.SetSpriteBatch(_spriteBatch);
 
             // Group update systems (including scene systems)
             // SpriteSheetSystem is added early to ensure it's initialized before systems that might publish SpriteSheetChangeRequestEvent
@@ -615,8 +654,11 @@ namespace MonoBall.Core.ECS
                     _spriteSheetSystem,
                     _visibilityFlagSystem, // Update entity visibility based on flags
                     performanceStatsSystem, // Track performance stats each frame
-                    _sceneManagerSystem,
+                    _sceneSystem,
                     _sceneInputSystem,
+                    _gameSceneSystem, // Update game scenes
+                    _loadingSceneSystem, // Update loading scenes
+                    _debugBarSceneSystem, // Update debug bar scenes
                     _mapPopupOrchestratorSystem, // Listen for map transitions and trigger popups
                     _mapPopupSystem, // Manage popup lifecycle and animation
                     debugBarToggleSystem, // Handle debug bar toggle input
@@ -653,8 +695,11 @@ namespace MonoBall.Core.ECS
                     _spriteSheetSystem,
                     _visibilityFlagSystem, // Update entity visibility based on flags
                     performanceStatsSystem, // Track performance stats each frame
-                    _sceneManagerSystem,
+                    _sceneSystem,
                     _sceneInputSystem,
+                    _gameSceneSystem, // Update game scenes
+                    _loadingSceneSystem, // Update loading scenes
+                    _debugBarSceneSystem, // Update debug bar scenes
                     _mapPopupOrchestratorSystem, // Listen for map transitions and trigger popups
                     _mapPopupSystem, // Manage popup lifecycle and animation
                     debugBarToggleSystem, // Handle debug bar toggle input
@@ -726,7 +771,7 @@ namespace MonoBall.Core.ECS
             if (_isInitialized)
             {
                 _updateSystems.Dispose();
-                _sceneManagerSystem?.Cleanup();
+                _sceneSystem?.Cleanup();
             }
 
             // Reset to null after disposal (systems are no longer valid)
@@ -743,7 +788,7 @@ namespace MonoBall.Core.ECS
             _playerSystem = null!;
             _inputSystem = null!;
             _movementSystem = null!;
-            _sceneManagerSystem = null!;
+            _sceneSystem = null!;
             _sceneInputSystem = null!;
             _sceneRendererSystem = null!;
             _debugBarRendererSystem?.Dispose();

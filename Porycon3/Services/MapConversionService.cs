@@ -25,6 +25,7 @@ public class MapConversionService
     private readonly PopupExtractor _popupExtractor;
     private readonly WeatherExtractor _weatherExtractor;
     private readonly BattleEnvironmentExtractor _battleEnvExtractor;
+    private readonly SpriteExtractor _spriteExtractor;
 
     public MapConversionService(
         string inputPath,
@@ -45,6 +46,7 @@ public class MapConversionService
         _popupExtractor = new PopupExtractor(inputPath, outputPath);
         _weatherExtractor = new WeatherExtractor(inputPath, outputPath);
         _battleEnvExtractor = new BattleEnvironmentExtractor(inputPath, outputPath);
+        _spriteExtractor = new SpriteExtractor(inputPath, outputPath, verbose);
     }
 
     public List<string> ScanMaps()
@@ -517,16 +519,17 @@ public class MapConversionService
     }
 
     /// <summary>
-    /// Generate additional definitions (Weather, BattleScenes, Region) based on IDs
+    /// Generate additional definitions (Weather, BattleScenes, Region, Sprites) based on IDs
     /// referenced by converted maps. Call this after all maps have been converted.
     /// </summary>
-    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments) GenerateDefinitions()
+    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites) GenerateDefinitions()
     {
         var (weather, battleScenes, region) = _definitionGenerator.GenerateAll();
         var (sections, themes) = _sectionExtractor.ExtractAll();
         var (popupBackgrounds, popupOutlines) = _popupExtractor.ExtractAll();
         var (weatherGraphics, _) = _weatherExtractor.ExtractAll();
         var (battleEnvs, _) = _battleEnvExtractor.ExtractAll();
-        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs);
+        var (sprites, _) = _spriteExtractor.ExtractAll();
+        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs, sprites);
     }
 }

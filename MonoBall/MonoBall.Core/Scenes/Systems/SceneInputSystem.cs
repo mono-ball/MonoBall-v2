@@ -13,7 +13,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// </summary>
     public partial class SceneInputSystem : BaseSystem<World, float>
     {
-        private readonly SceneManagerSystem _sceneManagerSystem;
+        private readonly SceneSystem _sceneSystem;
 
         private readonly ILogger _logger;
 
@@ -23,11 +23,10 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="world">The ECS world.</param>
         /// <param name="sceneManagerSystem">The scene manager system for accessing scene stack.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public SceneInputSystem(World world, SceneManagerSystem sceneManagerSystem, ILogger logger)
+        public SceneInputSystem(World world, SceneSystem sceneSystem, ILogger logger)
             : base(world)
         {
-            _sceneManagerSystem =
-                sceneManagerSystem ?? throw new ArgumentNullException(nameof(sceneManagerSystem));
+            _sceneSystem = sceneSystem ?? throw new ArgumentNullException(nameof(sceneSystem));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -44,7 +43,7 @@ namespace MonoBall.Core.Scenes.Systems
         )
         {
             // Iterate scenes using helper method from SceneManagerSystem
-            _sceneManagerSystem.IterateScenes(
+            _sceneSystem.IterateScenes(
                 (sceneEntity, sceneComponent) =>
                 {
                     // Skip inactive scenes

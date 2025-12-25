@@ -280,12 +280,14 @@ namespace MonoBall.Core
                 BlocksInput = false,
                 IsActive = true,
                 IsPaused = false,
+                BackgroundColor = Color.Black,
             };
 
-            systemManager.SceneManagerSystem.CreateScene(
+            var sceneEntity = systemManager.SceneSystem.CreateScene(
                 gameSceneComponent,
                 new GameSceneComponent()
             );
+
             logger.Information("Created initial GameScene");
         }
     }

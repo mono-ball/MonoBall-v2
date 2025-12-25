@@ -3,6 +3,7 @@ using Arch.Core;
 using Arch.System;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
@@ -24,39 +25,61 @@ namespace MonoBall.Core.ECS.Systems
         // GBA-accurate constants (pokeemerald dimensions at 1x scale)
         // Use GameConstants for consistency across systems
 
-        private readonly SceneManagerSystem _sceneManagerSystem;
+        private readonly SceneSystem _sceneSystem;
         private readonly FontService _fontService;
         private readonly IModManager _modManager;
         private readonly ILogger _logger;
+        private readonly GraphicsDevice _graphicsDevice;
+        private readonly SpriteBatch _spriteBatch;
+        private readonly MapPopupRendererSystem _mapPopupRendererSystem;
         private Entity? _currentPopupEntity;
         private Entity? _currentPopupSceneEntity;
         private bool _disposed = false;
 
-        // Cached query description for popup entities
+        // Cached query descriptions to avoid allocations in hot paths
         private readonly QueryDescription _popupQuery = new QueryDescription().WithAll<
             MapPopupComponent,
             PopupAnimationComponent
         >();
 
+        private readonly QueryDescription _mapPopupScenesQuery = new QueryDescription().WithAll<
+            SceneComponent,
+            MapPopupSceneComponent
+        >();
+
+        private readonly QueryDescription _cameraQuery =
+            new QueryDescription().WithAll<CameraComponent>();
+
         /// <summary>
         /// Initializes a new instance of the MapPopupSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="sceneManagerSystem">The scene manager system for creating/destroying scenes.</param>
+        /// <param name="sceneSystem">The scene system for creating/destroying scenes.</param>
+        /// <param name="graphicsDevice">The graphics device.</param>
+        /// <param name="spriteBatch">The sprite batch for rendering.</param>
+        /// <param name="mapPopupRendererSystem">The map popup renderer system.</param>
         /// <param name="fontService">The font service for text measurement.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public MapPopupSystem(
             World world,
-            SceneManagerSystem sceneManagerSystem,
+            SceneSystem sceneSystem,
+            GraphicsDevice graphicsDevice,
+            SpriteBatch spriteBatch,
+            MapPopupRendererSystem mapPopupRendererSystem,
             FontService fontService,
             IModManager modManager,
             ILogger logger
         )
             : base(world)
         {
-            _sceneManagerSystem =
-                sceneManagerSystem ?? throw new ArgumentNullException(nameof(sceneManagerSystem));
+            _sceneSystem = sceneSystem ?? throw new ArgumentNullException(nameof(sceneSystem));
+            _graphicsDevice =
+                graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+            _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
+            _mapPopupRendererSystem =
+                mapPopupRendererSystem
+                ?? throw new ArgumentNullException(nameof(mapPopupRendererSystem));
             _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -132,6 +155,7 @@ namespace MonoBall.Core.ECS.Systems
                 BlocksDraw = false,
                 IsActive = true,
                 IsPaused = false,
+                BackgroundColor = Color.Transparent, // Map popup is transparent overlay
             };
 
             var popupSceneComponent = new MapPopupSceneComponent();
@@ -139,10 +163,7 @@ namespace MonoBall.Core.ECS.Systems
             Entity popupSceneEntity;
             try
             {
-                popupSceneEntity = _sceneManagerSystem.CreateScene(
-                    sceneComponent,
-                    popupSceneComponent
-                );
+                popupSceneEntity = _sceneSystem.CreateScene(sceneComponent, popupSceneComponent);
             }
             catch (Exception ex)
             {
@@ -235,14 +256,14 @@ namespace MonoBall.Core.ECS.Systems
             // Destroy popup scene entity
             if (sceneEntityToDestroy.HasValue && World.IsAlive(sceneEntityToDestroy.Value))
             {
-                _sceneManagerSystem.DestroyScene(sceneEntityToDestroy.Value);
+                _sceneSystem.DestroyScene(sceneEntityToDestroy.Value);
             }
             else if (
                 _currentPopupSceneEntity.HasValue && World.IsAlive(_currentPopupSceneEntity.Value)
             )
             {
                 // Fallback: destroy tracked scene entity
-                _sceneManagerSystem.DestroyScene(_currentPopupSceneEntity.Value);
+                _sceneSystem.DestroyScene(_currentPopupSceneEntity.Value);
             }
 
             // Clear tracked entities
@@ -333,6 +354,167 @@ namespace MonoBall.Core.ECS.Systems
                     }
                 }
             );
+        }
+
+        /// <summary>
+        /// Renders a single map popup scene. Called by SceneRendererSystem (coordinator) for a single scene.
+        /// </summary>
+        /// <param name="sceneEntity">The scene entity to render.</param>
+        /// <param name="gameTime">The game time.</param>
+        public void RenderScene(Entity sceneEntity, GameTime gameTime)
+        {
+            // Verify this is actually a map popup scene
+            if (!World.Has<MapPopupSceneComponent>(sceneEntity))
+            {
+                return;
+            }
+
+            ref var scene = ref World.Get<SceneComponent>(sceneEntity);
+            if (!scene.IsActive)
+            {
+                return;
+            }
+
+            // Determine camera based on CameraMode
+            CameraComponent? camera = null;
+
+            switch (scene.CameraMode)
+            {
+                case SceneCameraMode.GameCamera:
+                    camera = GetActiveGameCamera();
+                    break;
+
+                case SceneCameraMode.SceneCamera:
+                    if (scene.CameraEntityId.HasValue)
+                    {
+                        // Query for camera entity by ID
+                        int cameraEntityId = scene.CameraEntityId.Value;
+                        bool foundCamera = false;
+                        World.Query(
+                            in _cameraQuery,
+                            (Entity entity, ref CameraComponent cam) =>
+                            {
+                                if (entity.Id == cameraEntityId)
+                                {
+                                    camera = cam;
+                                    foundCamera = true;
+                                }
+                            }
+                        );
+
+                        if (!foundCamera)
+                        {
+                            _logger.Warning(
+                                "MapPopupScene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found or doesn't have CameraComponent",
+                                scene.SceneId,
+                                cameraEntityId
+                            );
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        _logger.Warning(
+                            "MapPopupScene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
+                            scene.SceneId
+                        );
+                        return;
+                    }
+                    break;
+
+                case SceneCameraMode.ScreenCamera:
+                    // MapPopupScene requires a camera for viewport
+                    _logger.Warning(
+                        "MapPopupScene '{SceneId}' requires a camera for viewport. Use GameCamera or SceneCamera mode.",
+                        scene.SceneId
+                    );
+                    return;
+            }
+
+            if (!camera.HasValue)
+            {
+                _logger.Warning(
+                    "MapPopupScene '{SceneId}' requires camera but none was found. Scene will not render.",
+                    scene.SceneId
+                );
+                return;
+            }
+
+            // Render the map popup scene
+            RenderMapPopupScene(sceneEntity, ref scene, gameTime, camera.Value);
+        }
+
+        /// <summary>
+        /// Renders the map popup scene using the specified camera (popups render in screen space within camera viewport).
+        /// </summary>
+        /// <param name="sceneEntity">The scene entity.</param>
+        /// <param name="scene">The scene component.</param>
+        /// <param name="gameTime">The game time.</param>
+        /// <param name="camera">The camera component.</param>
+        private void RenderMapPopupScene(
+            Entity sceneEntity,
+            ref SceneComponent scene,
+            GameTime gameTime,
+            CameraComponent camera
+        )
+        {
+            // Save original viewport
+            var savedViewport = _graphicsDevice.Viewport;
+
+            try
+            {
+                // Set viewport to camera's virtual viewport (if available) or regular viewport
+                // Popups render in screen space within this viewport
+                if (camera.VirtualViewport != Rectangle.Empty)
+                {
+                    _graphicsDevice.Viewport = new Viewport(camera.VirtualViewport);
+                }
+
+                // Render popups in SCREEN SPACE (not world space) - use Matrix.Identity
+                // Map popups are UI overlays that should stay fixed on screen
+                _spriteBatch.Begin(
+                    SpriteSortMode.Deferred,
+                    BlendState.AlphaBlend,
+                    SamplerState.PointClamp,
+                    DepthStencilState.None,
+                    RasterizerState.CullCounterClockwise,
+                    null,
+                    Matrix.Identity // Screen space - no camera transform
+                );
+
+                // Render popup (renderer handles popup rendering in screen space)
+                _mapPopupRendererSystem.Render(sceneEntity, camera, gameTime);
+
+                // End SpriteBatch
+                _spriteBatch.End();
+            }
+            finally
+            {
+                // Always restore viewport, even if rendering fails
+                _graphicsDevice.Viewport = savedViewport;
+            }
+        }
+
+        /// <summary>
+        /// Gets the active game camera (CameraComponent.IsActive == true).
+        /// </summary>
+        /// <returns>The active camera component, or null if none found.</returns>
+        private CameraComponent? GetActiveGameCamera()
+        {
+            CameraComponent? activeCamera = null;
+
+            World.Query(
+                in _cameraQuery,
+                (Entity entity, ref CameraComponent camera) =>
+                {
+                    if (camera.IsActive)
+                    {
+                        activeCamera = camera;
+                    }
+                }
+            );
+
+            return activeCamera;
         }
 
         /// <summary>

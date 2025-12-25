@@ -1,9 +1,9 @@
 using System;
 using Arch.Core;
 using Arch.System;
+using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
-using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using Serilog;
 
@@ -16,7 +16,7 @@ namespace MonoBall.Core.Scenes.Systems
     {
         private const string DebugBarSceneId = "debug:bar";
 
-        private readonly SceneManagerSystem _sceneManagerSystem;
+        private readonly SceneSystem _sceneSystem;
         private readonly IInputBindingService _inputBindingService;
         private readonly ILogger _logger;
 
@@ -24,19 +24,18 @@ namespace MonoBall.Core.Scenes.Systems
         /// Initializes a new instance of the DebugBarToggleSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="sceneManagerSystem">The scene manager system for creating/toggling scenes.</param>
+        /// <param name="sceneSystem">The scene system for creating/toggling scenes.</param>
         /// <param name="inputBindingService">The input binding service for checking input.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public DebugBarToggleSystem(
             World world,
-            SceneManagerSystem sceneManagerSystem,
+            SceneSystem sceneSystem,
             IInputBindingService inputBindingService,
             ILogger logger
         )
             : base(world)
         {
-            _sceneManagerSystem =
-                sceneManagerSystem ?? throw new ArgumentNullException(nameof(sceneManagerSystem));
+            _sceneSystem = sceneSystem ?? throw new ArgumentNullException(nameof(sceneSystem));
             _inputBindingService =
                 inputBindingService ?? throw new ArgumentNullException(nameof(inputBindingService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -59,7 +58,7 @@ namespace MonoBall.Core.Scenes.Systems
                 _logger.Debug("F3 key pressed - toggling debug bar");
 
                 // Check if scene exists
-                var sceneEntity = _sceneManagerSystem.GetSceneEntity(DebugBarSceneId);
+                var sceneEntity = _sceneSystem.GetSceneEntity(DebugBarSceneId);
 
                 if (sceneEntity == null)
                 {
@@ -67,7 +66,10 @@ namespace MonoBall.Core.Scenes.Systems
                     var sceneComponent = CreateDebugBarSceneComponent();
                     var debugBarComponent = new DebugBarSceneComponent();
 
-                    _sceneManagerSystem.CreateScene(sceneComponent, debugBarComponent);
+                    var createdSceneEntity = _sceneSystem.CreateScene(
+                        sceneComponent,
+                        debugBarComponent
+                    );
 
                     _logger.Information("Debug bar scene created and activated");
                 }
@@ -81,7 +83,11 @@ namespace MonoBall.Core.Scenes.Systems
                         // Scene entity was destroyed, recreate it
                         var sceneComponent = CreateDebugBarSceneComponent();
                         var debugBarComponent = new DebugBarSceneComponent();
-                        _sceneManagerSystem.CreateScene(sceneComponent, debugBarComponent);
+                        var recreatedSceneEntity = _sceneSystem.CreateScene(
+                            sceneComponent,
+                            debugBarComponent
+                        );
+
                         _logger.Information("Debug bar scene recreated");
                     }
                     else
@@ -92,7 +98,7 @@ namespace MonoBall.Core.Scenes.Systems
                         bool newActiveState = !currentActive;
 
                         // Use SetSceneActive which safely handles the modification
-                        _sceneManagerSystem.SetSceneActive(DebugBarSceneId, newActiveState);
+                        _sceneSystem.SetSceneActive(DebugBarSceneId, newActiveState);
 
                         _logger.Debug(
                             "Debug bar scene toggled from {OldState} to {NewState}",
@@ -120,6 +126,7 @@ namespace MonoBall.Core.Scenes.Systems
                 BlocksInput = false, // Don't block input
                 IsActive = true,
                 IsPaused = false,
+                BackgroundColor = Color.Transparent, // Debug bar is transparent overlay
             };
         }
     }
