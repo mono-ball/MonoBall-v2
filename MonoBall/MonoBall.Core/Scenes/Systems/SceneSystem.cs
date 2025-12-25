@@ -2,8 +2,13 @@ using System;
 using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Systems;
+using MonoBall.Core.Mods;
+using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Events;
@@ -13,9 +18,13 @@ namespace MonoBall.Core.Scenes.Systems
 {
     /// <summary>
     /// System responsible for managing scene lifecycle, priority stack, and state.
-    /// Does NOT handle update/render - that's done by scene-specific systems.
+    /// Coordinates scene-specific systems for updates and rendering.
     /// </summary>
-    public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+    public class SceneSystem
+        : BaseSystem<World, float>,
+            IPrioritizedSystem,
+            IDisposable,
+            ISceneManager
     {
         private readonly List<Entity> _sceneStack = new List<Entity>();
         private readonly Dictionary<string, Entity> _sceneIds = new Dictionary<string, Entity>();
@@ -25,6 +34,21 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly QueryDescription _cameraQueryDescription;
         private bool _disposed = false;
 
+        // Scene-specific systems (owned by SceneSystem, set by SystemManager)
+        // Using ISceneSystem interface for loose coupling
+        private readonly ISceneSystem? _gameSceneSystem;
+        private readonly ISceneSystem? _loadingSceneSystem;
+        private readonly ISceneSystem? _debugBarSceneSystem;
+        private ISceneSystem? _mapPopupSceneSystem;
+
+        // Registry for mapping component types to scene systems
+        private readonly Dictionary<Type, ISceneSystem> _sceneSystemRegistry =
+            new Dictionary<Type, ISceneSystem>();
+
+        // Rendering dependencies
+        private readonly GraphicsDevice? _graphicsDevice;
+        private readonly ShaderManagerSystem? _shaderManagerSystem;
+
         private readonly ILogger _logger;
 
         /// <summary>
@@ -33,14 +57,104 @@ namespace MonoBall.Core.Scenes.Systems
         public int Priority => SystemPriority.Scene;
 
         /// <summary>
-        /// Initializes a new instance of the SceneSystem.
+        /// Gets the loading scene system (for progress updates during initialization).
+        /// Returns concrete type for external systems that need LoadingSceneSystem-specific functionality
+        /// (e.g., GameInitializationService.EnqueueProgress).
         /// </summary>
-        /// <param name="world">The ECS world.</param>
-        /// <param name="logger">The logger for logging operations.</param>
-        public SceneSystem(World world, ILogger logger)
+        /// <remarks>
+        /// This property exposes the concrete type for external use, but internal coordination
+        /// uses ISceneSystem interface to maintain loose coupling.
+        /// </remarks>
+        public LoadingSceneSystem? LoadingSceneSystem => _loadingSceneSystem as LoadingSceneSystem;
+
+        /// <summary>
+        /// Sets the map popup scene system.
+        /// Called by SystemManager after creating MapPopupSceneSystem (which needs ISceneManager).
+        /// </summary>
+        /// <param name="mapPopupSceneSystem">The map popup scene system.</param>
+        public void SetMapPopupSceneSystem(ISceneSystem mapPopupSceneSystem)
+        {
+            _mapPopupSceneSystem =
+                mapPopupSceneSystem ?? throw new ArgumentNullException(nameof(mapPopupSceneSystem));
+            RegisterSceneSystem(typeof(MapPopupSceneComponent), mapPopupSceneSystem);
+        }
+
+        /// <summary>
+        /// Registers a scene system for a specific component type.
+        /// </summary>
+        /// <param name="componentType">The component type that identifies the scene type.</param>
+        /// <param name="sceneSystem">The scene system to register.</param>
+        private void RegisterSceneSystem(Type componentType, ISceneSystem sceneSystem)
+        {
+            if (componentType == null)
+            {
+                throw new ArgumentNullException(nameof(componentType));
+            }
+            if (sceneSystem == null)
+            {
+                throw new ArgumentNullException(nameof(sceneSystem));
+            }
+
+            _sceneSystemRegistry[componentType] = sceneSystem;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the SceneSystem.
+        /// SceneSystem coordinates scene-specific systems but does not create them.
+        /// Systems are created by SystemManager and passed to SceneSystem.
+        /// </summary>
+        /// <param name="world">The ECS world. Required.</param>
+        /// <param name="logger">The logger for logging operations. Required.</param>
+        /// <param name="graphicsDevice">The graphics device for rendering. Required.</param>
+        /// <param name="shaderManagerSystem">The shader manager system. Optional - only needed if shader rendering is used.</param>
+        /// <param name="gameSceneSystem">The game scene system. Typically provided by SystemManager.</param>
+        /// <param name="loadingSceneSystem">The loading scene system. Typically provided by SystemManager.</param>
+        /// <param name="debugBarSceneSystem">The debug bar scene system. Typically provided by SystemManager.</param>
+        /// <param name="mapPopupSceneSystem">The map popup scene system. Typically set via SetMapPopupSceneSystem() after construction.</param>
+        /// <remarks>
+        /// Scene systems are optional parameters to allow flexible initialization.
+        /// In practice, SystemManager provides all scene systems except MapPopupSceneSystem,
+        /// which is set after SceneSystem construction (due to circular dependency).
+        /// </remarks>
+        public SceneSystem(
+            World world,
+            ILogger logger,
+            GraphicsDevice graphicsDevice,
+            ShaderManagerSystem? shaderManagerSystem = null,
+            ISceneSystem? gameSceneSystem = null,
+            ISceneSystem? loadingSceneSystem = null,
+            ISceneSystem? debugBarSceneSystem = null,
+            ISceneSystem? mapPopupSceneSystem = null
+        )
             : base(world)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _graphicsDevice =
+                graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+            _shaderManagerSystem = shaderManagerSystem;
+            _gameSceneSystem = gameSceneSystem;
+            _loadingSceneSystem = loadingSceneSystem;
+            _debugBarSceneSystem = debugBarSceneSystem;
+            _mapPopupSceneSystem = mapPopupSceneSystem;
+
+            // Register scene systems in registry
+            if (gameSceneSystem != null)
+            {
+                RegisterSceneSystem(typeof(GameSceneComponent), gameSceneSystem);
+            }
+            if (loadingSceneSystem != null)
+            {
+                RegisterSceneSystem(typeof(LoadingSceneComponent), loadingSceneSystem);
+            }
+            if (debugBarSceneSystem != null)
+            {
+                RegisterSceneSystem(typeof(DebugBarSceneComponent), debugBarSceneSystem);
+            }
+            if (mapPopupSceneSystem != null)
+            {
+                RegisterSceneSystem(typeof(MapPopupSceneComponent), mapPopupSceneSystem);
+            }
+
             // Subscribe to SceneMessageEvent for inter-scene communication
             EventBus.Subscribe<SceneMessageEvent>(OnSceneMessage);
             _cameraQueryDescription = new QueryDescription().WithAll<CameraComponent>();
@@ -411,14 +525,247 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
-        /// Updates the scene system. Only performs cleanup - scene-specific systems handle updates.
+        /// Finds the appropriate scene system for a given scene entity based on its component type.
+        /// Uses registry lookup for efficient O(1) access.
+        /// </summary>
+        /// <param name="sceneEntity">The scene entity.</param>
+        /// <returns>The scene system for this scene type, or null if not found.</returns>
+        private ISceneSystem? FindSceneSystem(Entity sceneEntity)
+        {
+            // Check component types in order of specificity and lookup in registry
+            // This is more efficient than checking World.Has<> multiple times
+            if (World.Has<GameSceneComponent>(sceneEntity))
+            {
+                return _sceneSystemRegistry.TryGetValue(typeof(GameSceneComponent), out var system)
+                    ? system
+                    : null;
+            }
+            if (World.Has<LoadingSceneComponent>(sceneEntity))
+            {
+                return _sceneSystemRegistry.TryGetValue(
+                    typeof(LoadingSceneComponent),
+                    out var system
+                )
+                    ? system
+                    : null;
+            }
+            if (World.Has<DebugBarSceneComponent>(sceneEntity))
+            {
+                return _sceneSystemRegistry.TryGetValue(
+                    typeof(DebugBarSceneComponent),
+                    out var system
+                )
+                    ? system
+                    : null;
+            }
+            if (World.Has<MapPopupSceneComponent>(sceneEntity))
+            {
+                return _sceneSystemRegistry.TryGetValue(
+                    typeof(MapPopupSceneComponent),
+                    out var system
+                )
+                    ? system
+                    : null;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Updates the scene system and coordinates scene-specific systems.
+        /// Iterates through active scenes and calls Update on the appropriate scene system.
         /// </summary>
         /// <param name="deltaTime">The elapsed time since last update.</param>
         public override void Update(in float deltaTime)
         {
             // Clean up dead entities before processing
             CleanupDeadEntities();
-            // Scene-specific systems handle scene updates
+
+            // Check if updates are blocked
+            bool isBlocked = IsUpdateBlocked();
+
+            // Copy in parameter to local variable for use in lambda (cannot capture in parameters)
+            float dt = deltaTime;
+
+            // Iterate scenes and update them (consistent with Render pattern)
+            IterateScenes(
+                (sceneEntity, sceneComponent) =>
+                {
+                    // Skip inactive or paused scenes
+                    if (!sceneComponent.IsActive || sceneComponent.IsPaused)
+                    {
+                        return true; // Continue iterating
+                    }
+
+                    // If updates are blocked, only update loading scenes (they need to process progress queue)
+                    if (isBlocked && !World.Has<LoadingSceneComponent>(sceneEntity))
+                    {
+                        return true; // Skip non-loading scenes when blocked
+                    }
+
+                    // Skip scenes that block updates (unless it's a loading scene)
+                    if (
+                        sceneComponent.BlocksUpdate
+                        && !World.Has<LoadingSceneComponent>(sceneEntity)
+                    )
+                    {
+                        return true; // Continue iterating
+                    }
+
+                    // Find appropriate scene system and update
+                    var sceneSystem = FindSceneSystem(sceneEntity);
+                    sceneSystem?.Update(sceneEntity, dt);
+
+                    return true; // Continue iterating
+                }
+            );
+
+            // Also call ProcessInternal() for systems that need to process queues/entities
+            // (e.g., LoadingSceneSystem processes progress queue, MapPopupSceneSystem updates popup animations)
+            // These systems query for entities internally, so they need ProcessInternal() called
+            if (isBlocked)
+            {
+                // Only process loading scene (needs to process progress queue even when blocked)
+                _loadingSceneSystem?.ProcessInternal(deltaTime);
+            }
+            else
+            {
+                // Process systems that need internal processing
+                _loadingSceneSystem?.ProcessInternal(deltaTime);
+                _mapPopupSceneSystem?.ProcessInternal(deltaTime);
+            }
+        }
+
+        /// <summary>
+        /// Checks if any active scene has BlocksUpdate=true.
+        /// </summary>
+        /// <returns>True if updates are blocked, false otherwise.</returns>
+        private bool IsUpdateBlocked()
+        {
+            foreach (var sceneEntity in _sceneStack)
+            {
+                if (!World.IsAlive(sceneEntity))
+                {
+                    continue;
+                }
+
+                ref var sceneComponent = ref World.Get<SceneComponent>(sceneEntity);
+                if (
+                    sceneComponent.IsActive
+                    && !sceneComponent.IsPaused
+                    && sceneComponent.BlocksUpdate
+                )
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Renders all scenes in reverse priority order (lowest priority first, highest priority last).
+        /// This ensures higher priority scenes render on top of lower priority scenes.
+        /// </summary>
+        /// <param name="gameTime">The game time.</param>
+        public void Render(GameTime gameTime)
+        {
+            if (_graphicsDevice == null)
+            {
+                _logger.Warning("SceneSystem.Render called but GraphicsDevice is null");
+                return;
+            }
+
+            // Update ScreenSize parameter for all active shaders (tile, sprite, and combined layers)
+            var viewport = _graphicsDevice.Viewport;
+            _shaderManagerSystem?.UpdateAllLayersScreenSize(viewport.Width, viewport.Height);
+
+            // Iterate scenes in reverse order (lowest priority first, highest priority last)
+            // This ensures higher priority scenes render on top
+            IterateScenesReverse(
+                (sceneEntity, sceneComponent) =>
+                {
+                    // Skip inactive scenes
+                    if (!sceneComponent.IsActive)
+                    {
+                        return true; // Continue iterating
+                    }
+
+                    // Update shader state for this specific scene (critical timing fix)
+                    // This ensures per-scene shaders are loaded before rendering
+                    _shaderManagerSystem?.UpdateShaderState(sceneEntity);
+
+                    // Find appropriate scene system and render
+                    var sceneSystem = FindSceneSystem(sceneEntity);
+                    sceneSystem?.RenderScene(sceneEntity, gameTime);
+
+                    // Check BlocksDraw - if scene blocks draw, stop iterating
+                    // Note: We iterate in reverse (lowest to highest priority), so if a scene blocks draw,
+                    // it prevents higher priority scenes (that would render on top) from rendering.
+                    // This allows lower priority scenes to fully occlude higher priority scenes when needed.
+                    if (sceneComponent.BlocksDraw)
+                    {
+                        return false; // Stop iterating
+                    }
+
+                    return true; // Continue iterating
+                }
+            );
+        }
+
+        /// <summary>
+        /// Gets the background color for the current scene state.
+        /// Determines color based on the highest priority active scene that blocks draw.
+        /// Requires BackgroundColor to be set on SceneComponent.
+        /// </summary>
+        /// <returns>The background color to use for clearing the screen.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if no active scene with BackgroundColor is found.</exception>
+        public Color GetBackgroundColor()
+        {
+            Color? backgroundColor = null;
+
+            // Iterate scenes in reverse order (lowest priority first, highest priority last)
+            // Find the first active scene that blocks draw (this is what will be rendered)
+            IterateScenesReverse(
+                (sceneEntity, sceneComponent) =>
+                {
+                    // Skip inactive scenes
+                    if (!sceneComponent.IsActive)
+                    {
+                        return true; // Continue iterating
+                    }
+
+                    // Require BackgroundColor to be set
+                    if (!sceneComponent.BackgroundColor.HasValue)
+                    {
+                        _logger.Warning(
+                            "Scene '{SceneId}' (entity {EntityId}) does not have BackgroundColor set. Scene must have BackgroundColor specified.",
+                            sceneComponent.SceneId,
+                            sceneEntity.Id
+                        );
+                        return true; // Continue iterating to find a scene with BackgroundColor
+                    }
+
+                    backgroundColor = sceneComponent.BackgroundColor.Value;
+
+                    // If scene blocks draw, stop iterating
+                    if (sceneComponent.BlocksDraw)
+                    {
+                        return false; // Stop iterating
+                    }
+
+                    return true; // Continue iterating
+                }
+            );
+
+            // Fail fast if no scene with BackgroundColor found
+            if (!backgroundColor.HasValue)
+            {
+                throw new InvalidOperationException(
+                    "No active scene with BackgroundColor found. All scenes must have BackgroundColor specified."
+                );
+            }
+
+            return backgroundColor.Value;
         }
 
         /// <summary>

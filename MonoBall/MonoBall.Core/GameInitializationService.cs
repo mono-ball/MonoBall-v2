@@ -77,7 +77,6 @@ namespace MonoBall.Core
         /// <param name="sceneSystem">The scene manager system for the main world.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="spriteBatch">The sprite batch for rendering.</param>
-        /// <param name="loadingSceneRendererSystem">The loading scene renderer system.</param>
         /// <returns>The loading scene entity and the initialization task.</returns>
         public (
             Entity loadingSceneEntity,
@@ -86,8 +85,7 @@ namespace MonoBall.Core
             World mainWorld,
             SceneSystem sceneSystem,
             GraphicsDevice graphicsDevice,
-            SpriteBatch spriteBatch,
-            Scenes.Systems.LoadingSceneRendererSystem loadingSceneRendererSystem
+            SpriteBatch spriteBatch
         )
         {
             _logger.Information(
@@ -117,7 +115,7 @@ namespace MonoBall.Core
                 BlocksInput = true, // Block all input while loading
                 IsActive = true,
                 IsPaused = false,
-                BackgroundColor = LoadingSceneRendererSystem.GetBackgroundColor(),
+                BackgroundColor = Scenes.Systems.LoadingSceneSystem.GetBackgroundColor(),
             };
 
             var loadingProgressComponent = new LoadingProgressComponent

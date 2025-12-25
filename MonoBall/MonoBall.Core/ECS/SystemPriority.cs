@@ -36,16 +36,25 @@ namespace MonoBall.Core.ECS
         // Performance tracking
         public const int PerformanceStats = 200;
 
+        // Audio systems
+        public const int AudioEvent = 210;
+        public const int AudioUpdate = 215;
+        public const int Audio = 220;
+        public const int MusicZone = 230;
+        public const int AmbientSound = 240;
+
         // Scene management
         public const int Scene = 300;
         public const int SceneInput = 310;
         public const int GameScene = 320;
         public const int LoadingScene = 330;
         public const int DebugBarScene = 340;
+        public const int MapPopupScene = 350;
 
         // Popups and UI
+        public const int MapMusicOrchestrator = 390; // Run before popup orchestrator
         public const int MapPopupOrchestrator = 400;
-        public const int MapPopup = 410;
+        public const int MapPopup = 410; // Deprecated - use MapPopupScene instead
         public const int DebugBarToggle = 420;
 
         // Shader effects

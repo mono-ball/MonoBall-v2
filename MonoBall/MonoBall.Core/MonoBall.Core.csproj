@@ -26,5 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="FontStashSharp.MonoGame" Version="1.5.2" />
+    <PackageReference Include="PortAudioSharp2" Version="1.0.2" />
+    <PackageReference Include="NVorbis" Version="0.10.5" />
   </ItemGroup>
 </Project>

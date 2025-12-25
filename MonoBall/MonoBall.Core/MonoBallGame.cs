@@ -173,8 +173,7 @@ namespace MonoBall.Core
                     mainWorld,
                     earlySystemManager.SceneSystem,
                     GraphicsDevice,
-                    loadingSpriteBatch,
-                    earlySystemManager.LoadingSceneRendererSystem!
+                    loadingSpriteBatch
                 );
 
             // Store early SystemManager temporarily (will be replaced by async initialization result)
@@ -369,8 +368,8 @@ namespace MonoBall.Core
                 );
             }
 
-            // Use SceneRendererSystem to determine background color based on active scenes
-            Color backgroundColor = systemManager.SceneRendererSystem.GetBackgroundColor();
+            // Use SceneSystem to determine background color based on active scenes
+            Color backgroundColor = systemManager.SceneSystem.GetBackgroundColor();
 
             GraphicsDevice.Clear(backgroundColor);
 

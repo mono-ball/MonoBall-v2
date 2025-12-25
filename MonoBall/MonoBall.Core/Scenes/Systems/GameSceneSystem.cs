@@ -17,7 +17,7 @@ namespace MonoBall.Core.Scenes.Systems
     /// System that handles update and rendering for GameScene entities.
     /// Queries for GameSceneComponent entities and processes them.
     /// </summary>
-    public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem
+    public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISceneSystem
     {
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
@@ -101,6 +101,28 @@ namespace MonoBall.Core.Scenes.Systems
                     }
                 }
             );
+        }
+
+        /// <summary>
+        /// Updates a specific game scene entity.
+        /// Implements ISceneSystem interface.
+        /// </summary>
+        /// <param name="sceneEntity">The scene entity to update.</param>
+        /// <param name="deltaTime">The elapsed time since last update.</param>
+        public void Update(Entity sceneEntity, float deltaTime)
+        {
+            // Game scenes typically don't need per-scene updates
+            // This method exists to satisfy ISceneSystem interface
+        }
+
+        /// <summary>
+        /// Performs internal processing for game scenes.
+        /// Implements ISceneSystem interface.
+        /// </summary>
+        /// <param name="deltaTime">The elapsed time since last update.</param>
+        public void ProcessInternal(float deltaTime)
+        {
+            // Game scenes don't need internal processing
         }
 
         /// <summary>
