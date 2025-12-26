@@ -53,5 +53,8 @@ namespace MonoBall.Core.ECS
         public const int ShaderParameterAnimation = 500;
         public const int ShaderCycle = 510;
         public const int PlayerShaderCycle = 520;
+
+        // Audio systems
+        public const int Audio = 600;
     }
 }

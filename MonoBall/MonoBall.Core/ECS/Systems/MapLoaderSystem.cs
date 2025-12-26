@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using MonoBall.Core;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Components.Audio;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
@@ -149,6 +150,23 @@ namespace MonoBall.Core.ECS.Systems
                     World.Add(mapEntity, borderComponent);
                     _logger.Debug("Added MapBorderComponent to map {MapId}", mapId);
                 }
+            }
+
+            // Create music component if music ID exists
+            if (!string.IsNullOrEmpty(mapDefinition.MusicId))
+            {
+                var musicComponent = new Components.Audio.MusicComponent
+                {
+                    AudioId = mapDefinition.MusicId,
+                    FadeInOnTransition = true,
+                    FadeDuration = 0f, // Use definition default
+                };
+                World.Add(mapEntity, musicComponent);
+                _logger.Debug(
+                    "Added MusicComponent to map {MapId} with audio {AudioId}",
+                    mapId,
+                    mapDefinition.MusicId
+                );
             }
 
             // Create tile chunks for each layer (positioned relative to map position)

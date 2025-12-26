@@ -73,7 +73,7 @@ namespace MonoBall.Core.ECS.Systems
                 (Entity entity, ref NpcComponent npc) =>
                 {
                     bool shouldBeActive = activeMapIds.Contains(npc.MapId);
-                    bool isActive = World.TryGet<ActiveMapEntity>(entity, out _);
+                    bool isActive = World.Has<ActiveMapEntity>(entity);
 
                     if (shouldBeActive && !isActive)
                     {
@@ -91,7 +91,7 @@ namespace MonoBall.Core.ECS.Systems
                 in _playerQuery,
                 (Entity entity) =>
                 {
-                    if (!World.TryGet<ActiveMapEntity>(entity, out _))
+                    if (!World.Has<ActiveMapEntity>(entity))
                     {
                         World.Add<ActiveMapEntity>(entity);
                     }

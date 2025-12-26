@@ -6,6 +6,7 @@ using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core;
+using MonoBall.Core.Audio;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
@@ -34,6 +35,7 @@ namespace MonoBall.Core.ECS
         private ISpriteLoaderService _spriteLoader = null!; // Initialized in Initialize()
         private ICameraService _cameraService = null!; // Initialized in Initialize()
         private Services.IVariableSpriteResolver? _variableSpriteResolver; // Initialized in Initialize()
+        private MonoBall.Core.Audio.IAudioEngine _audioEngine = null!; // Initialized in Initialize()
         private SpriteBatch? _spriteBatch;
 
         private Group<float> _updateSystems = null!; // Initialized in Initialize()
@@ -66,6 +68,11 @@ namespace MonoBall.Core.ECS
         private ShaderRendererSystem? _shaderRendererSystem; // Initialized in Initialize(), may be null
         private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
         private ShaderTemplateSystem? _shaderTemplateSystem; // Initialized in Initialize(), may be null
+        private Systems.Audio.MapMusicSystem _mapMusicSystem = null!; // Initialized in Initialize()
+        private Systems.Audio.MusicPlaybackSystem _musicPlaybackSystem = null!; // Initialized in Initialize()
+        private Systems.Audio.SoundEffectSystem _soundEffectSystem = null!; // Initialized in Initialize()
+        private Systems.Audio.AmbientSoundSystem _ambientSoundSystem = null!; // Initialized in Initialize()
+        private Systems.Audio.AudioVolumeSystem _audioVolumeSystem = null!; // Initialized in Initialize()
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -368,6 +375,9 @@ namespace MonoBall.Core.ECS
             // Create animation and visibility systems (including PerformanceStatsSystem)
             CreateAnimationAndVisibilitySystems();
 
+            // Create audio systems
+            CreateAudioSystems();
+
             // Create scene-specific systems
             CreateSceneSpecificSystems();
 
@@ -417,6 +427,12 @@ namespace MonoBall.Core.ECS
             // Create active map filter service (used by multiple systems for filtering entities by active maps)
             // Must be created before render systems that depend on it
             _activeMapFilterService = new Services.ActiveMapFilterService(_world);
+
+            // Create audio engine (AudioEngine creates AudioContentLoader internally)
+            _audioEngine = new Audio.AudioEngine(
+                _modManager,
+                LoggerFactory.CreateLogger<Audio.AudioEngine>()
+            );
         }
 
         /// <summary>
@@ -686,6 +702,51 @@ namespace MonoBall.Core.ECS
         }
 
         /// <summary>
+        /// Creates audio systems.
+        /// </summary>
+        private void CreateAudioSystems()
+        {
+            // Create audio systems
+            _mapMusicSystem = new Systems.Audio.MapMusicSystem(
+                _world,
+                _modManager.Registry,
+                LoggerFactory.CreateLogger<Systems.Audio.MapMusicSystem>()
+            );
+            RegisterUpdateSystem(_mapMusicSystem);
+
+            _musicPlaybackSystem = new Systems.Audio.MusicPlaybackSystem(
+                _world,
+                _modManager.Registry,
+                _audioEngine,
+                LoggerFactory.CreateLogger<Systems.Audio.MusicPlaybackSystem>()
+            );
+            RegisterUpdateSystem(_musicPlaybackSystem);
+
+            _soundEffectSystem = new Systems.Audio.SoundEffectSystem(
+                _world,
+                _modManager.Registry,
+                _audioEngine,
+                LoggerFactory.CreateLogger<Systems.Audio.SoundEffectSystem>()
+            );
+            RegisterUpdateSystem(_soundEffectSystem);
+
+            _ambientSoundSystem = new Systems.Audio.AmbientSoundSystem(
+                _world,
+                _modManager.Registry,
+                _audioEngine,
+                LoggerFactory.CreateLogger<Systems.Audio.AmbientSoundSystem>()
+            );
+            RegisterUpdateSystem(_ambientSoundSystem);
+
+            _audioVolumeSystem = new Systems.Audio.AudioVolumeSystem(
+                _world,
+                _audioEngine,
+                LoggerFactory.CreateLogger<Systems.Audio.AudioVolumeSystem>()
+            );
+            RegisterUpdateSystem(_audioVolumeSystem);
+        }
+
+        /// <summary>
         /// Creates scene-specific systems (game scene, debug bar, popups).
         /// </summary>
         private void CreateSceneSpecificSystems()
@@ -852,6 +913,9 @@ namespace MonoBall.Core.ECS
             _updateSystems.BeforeUpdate(in deltaTime);
             _updateSystems.Update(in deltaTime);
             _updateSystems.AfterUpdate(in deltaTime);
+
+            // Update audio engine
+            _audioEngine.Update(deltaTime);
         }
 
         /// <summary>
@@ -1072,6 +1136,24 @@ namespace MonoBall.Core.ECS
             _renderTargetManager?.Dispose();
             _renderTargetManager = null;
             // ShaderManagerSystem doesn't need disposal (no managed resources)
+
+            // Dispose audio systems
+            _mapMusicSystem?.Dispose();
+            _mapMusicSystem = null!;
+            _musicPlaybackSystem?.Dispose();
+            _musicPlaybackSystem = null!;
+            _ambientSoundSystem?.Dispose();
+            _ambientSoundSystem = null!;
+            _audioVolumeSystem?.Dispose();
+            _audioVolumeSystem = null!;
+            // SoundEffectSystem doesn't need disposal (no event subscriptions)
+
+            // Dispose audio engine
+            if (_audioEngine is IDisposable audioEngineDisposable)
+            {
+                audioEngineDisposable.Dispose();
+            }
+            _audioEngine = null!;
 
             // Dispose services
             _variableSpriteResolver?.Dispose();
