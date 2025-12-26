@@ -2,12 +2,8 @@
   "id": "base:behavior:movement/copy_player",
   "name": "Copy Player Behavior",
   "description": "NPC mimics the player's facing direction or movement",
-  "Scripts/Behaviorscript": "Scripts/Behaviors/copy_player_behavior.csx",
-  "defaultSpeed": 2.0,
-  "pauseAtWaypoint": 0.0,
-  "allowInteractionWhileMoving": false,
-  "parameters": {
-    "copyMode": "normal",
-    "inGrass": false
+  "scriptId": "base:script:movement/copy_player",
+  "parameterOverrides": {
+    "copyMode": "normal"
   }
 }

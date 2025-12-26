@@ -81,8 +81,8 @@ public class BattleEnvironmentExtractor
         _outputPath = outputPath;
 
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "battle_environment");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "Sprites", "Battle");
-        _outputData = Path.Combine(outputPath, "Definitions", "Sprites", "Battle");
+        _outputGraphics = Path.Combine(outputPath, "Graphics", "Battle");
+        _outputData = Path.Combine(outputPath, "Definitions", "Assets", "Battle");
     }
 
     public (int Environments, int Graphics) ExtractAll()
@@ -186,7 +186,7 @@ public class BattleEnvironmentExtractor
                 var (animWidth, animHeight, count) = RenderTileSheet(animTilesPath, destAnimPath, palette);
                 if (count > 0)
                 {
-                    animTexturePath = $"Graphics/Sprites/Battle/{pascalName}/AnimTiles.png";
+                    animTexturePath = $"Graphics/Battle/{pascalName}/AnimTiles.png";
                     animTileCount = count;
                     animTiles = GenerateTileDefinitions(count, animWidth / TileSize);
                     graphicsCount++;
@@ -200,7 +200,7 @@ public class BattleEnvironmentExtractor
             ["id"] = $"base:battle:environment/{envName}",
             ["name"] = FormatDisplayName(envName),
             ["type"] = "Bitmap",
-            ["texturePath"] = $"Graphics/Sprites/Battle/{pascalName}/{pascalName}.png",
+            ["texturePath"] = $"Graphics/Battle/{pascalName}/{pascalName}.png",
             ["width"] = width,
             ["height"] = height,
             ["description"] = $"Battle environment background for {FormatDisplayName(envName)}"
@@ -275,7 +275,7 @@ public class BattleEnvironmentExtractor
             ["id"] = $"base:battle:environment/{variantName}",
             ["name"] = variant.DisplayName,
             ["type"] = "Bitmap",
-            ["texturePath"] = $"Graphics/Sprites/Battle/{pascalName}/{pascalName}.png",
+            ["texturePath"] = $"Graphics/Battle/{pascalName}/{pascalName}.png",
             ["width"] = width,
             ["height"] = height,
             ["baseEnvironment"] = $"base:battle:environment/{baseEnv}",

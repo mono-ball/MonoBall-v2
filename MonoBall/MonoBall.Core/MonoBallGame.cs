@@ -46,13 +46,13 @@ namespace MonoBall.Core
         /// <summary>
         /// Indicates if the game is running on a mobile platform.
         /// </summary>
-        public readonly static bool IsMobile =
+        public static readonly bool IsMobile =
             OperatingSystem.IsAndroid() || OperatingSystem.IsIOS();
 
         /// <summary>
         /// Indicates if the game is running on a desktop platform.
         /// </summary>
-        public readonly static bool IsDesktop =
+        public static readonly bool IsDesktop =
             OperatingSystem.IsMacOS() || OperatingSystem.IsLinux() || OperatingSystem.IsWindows();
 
         /// <summary>

@@ -1,0 +1,25 @@
+{
+  "id": "base:script:movement/look_around",
+  "name": "Look Around Movement Script",
+  "description": "NPC periodically changes facing direction, looking around the area",
+  "scriptPath": "Scripts/Movement/look_around_behavior.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "lookInterval",
+      "type": "float",
+      "defaultValue": 2.0,
+      "min": 0.5,
+      "max": 10.0,
+      "description": "Base time in seconds between direction changes"
+    },
+    {
+      "name": "directions",
+      "type": "string",
+      "defaultValue": "up,down,left,right",
+      "description": "Comma-separated list of directions to look (up,down,left,right or north,south,east,west)"
+    }
+  ]
+}
+

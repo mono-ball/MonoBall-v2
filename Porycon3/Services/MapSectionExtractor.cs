@@ -204,7 +204,7 @@ public class MapSectionExtractor
 
     private int SaveSections(Dictionary<string, MapSectionData> sections)
     {
-        var outputDir = Path.Combine(_outputPath, "Definitions", "Maps", "Sections");
+        var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "MapSections");
         Directory.CreateDirectory(outputDir);
 
         int count = 0;
@@ -236,7 +236,7 @@ public class MapSectionExtractor
 
     private int SaveThemes()
     {
-        var outputDir = Path.Combine(_outputPath, "Definitions", "Maps", "Popups", "Themes");
+        var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "PopupThemes");
         Directory.CreateDirectory(outputDir);
 
         int count = 0;

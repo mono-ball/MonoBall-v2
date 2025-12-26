@@ -259,8 +259,6 @@
       "interactionScript": "base:behavior:interaction/oldale_town_event_script_girl",
       "visibilityFlag": null,
       "direction": "left",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -273,8 +271,6 @@
       "interactionScript": "base:behavior:interaction/oldale_town_event_script_mart_employee",
       "visibilityFlag": null,
       "direction": "down",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -287,8 +283,6 @@
       "interactionScript": "base:behavior:interaction/oldale_town_event_script_footprints_man",
       "visibilityFlag": null,
       "direction": "right",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -301,8 +295,6 @@
       "interactionScript": "base:behavior:interaction/oldale_town_event_script_rival",
       "visibilityFlag": "base:flag:visibility/oldale_town_rival",
       "direction": "up",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     }
   ]

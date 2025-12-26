@@ -1,0 +1,19 @@
+{
+  "id": "base:script:movement/patrol",
+  "name": "Patrol Movement Script",
+  "description": "NPC walks along waypoints in a loop, pausing briefly at each point",
+  "scriptPath": "Scripts/Movement/patrol_behavior.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "pauseAtWaypoint",
+      "type": "float",
+      "defaultValue": 1.0,
+      "min": 0.0,
+      "max": 10.0,
+      "description": "Time in seconds to pause at each waypoint"
+    }
+  ]
+}
+

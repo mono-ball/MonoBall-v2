@@ -1,0 +1,16 @@
+{
+  "id": "demo:plugin-scripts",
+  "name": "Plugin Scripts Demo",
+  "author": "MonoBall Team",
+  "version": "1.0.0",
+  "description": "Example mod showcasing plugin scripting capabilities - event subscription, entity creation, querying, and API usage",
+  "priority": 100,
+  "plugins": [
+    "Plugins/event_tracker.csx",
+    "Plugins/entity_spawner.csx",
+    "Plugins/player_statistics.csx",
+    "Plugins/map_explorer.csx"
+  ],
+  "dependencies": []
+}
+

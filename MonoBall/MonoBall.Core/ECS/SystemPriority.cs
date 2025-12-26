@@ -11,6 +11,9 @@ namespace MonoBall.Core.ECS
         public const int MapConnection = 10;
         public const int ActiveMapManagement = 20;
 
+        // Script lifecycle (runs after map management, before player)
+        public const int ScriptLifecycle = 25;
+
         // Player initialization (runs once, no per-frame updates)
         public const int Player = 30;
 
@@ -52,7 +55,6 @@ namespace MonoBall.Core.ECS
         // Shader effects
         public const int ShaderParameterAnimation = 500;
         public const int ShaderCycle = 510;
-        public const int PlayerShaderCycle = 520;
 
         // Audio systems
         public const int Audio = 600;

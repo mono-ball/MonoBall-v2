@@ -20,7 +20,7 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.5-preview.1" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.5-preview.1" />
-    <PackageReference Include="CSharpier.MSBuild" Version="1.2.3">
+    <PackageReference Include="CSharpier.MSBuild" Version="1.2.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

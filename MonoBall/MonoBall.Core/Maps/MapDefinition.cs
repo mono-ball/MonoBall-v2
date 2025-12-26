@@ -213,16 +213,11 @@ namespace MonoBall.Core.Maps
         public string? Direction { get; set; }
 
         /// <summary>
-        /// The X range for movement behavior.
+        /// NPC-specific behavior parameter overrides.
+        /// These override parameters from BehaviorDefinition and ScriptDefinition.
         /// </summary>
-        [JsonPropertyName("rangeX")]
-        public int RangeX { get; set; }
-
-        /// <summary>
-        /// The Y range for movement behavior.
-        /// </summary>
-        [JsonPropertyName("rangeY")]
-        public int RangeY { get; set; }
+        [JsonPropertyName("behaviorParameters")]
+        public Dictionary<string, object>? BehaviorParameters { get; set; }
 
         /// <summary>
         /// The elevation (z-order) of the NPC.

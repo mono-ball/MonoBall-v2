@@ -34,7 +34,7 @@ public class TilesetGenerationService
     public Dictionary<TileKey, int> GenerateAllTilesets()
     {
         var allMappings = new Dictionary<TileKey, int>();
-        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Tilesets", _region);
+        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", _region);
         Directory.CreateDirectory(tilesetDir);
 
         foreach (var tilesetName in _tilesetBuilder.GetUsedTilesets())
@@ -76,7 +76,7 @@ public class TilesetGenerationService
         var normalizedName = IdTransformer.Normalize(mapName);
         var tilesetId = $"base:tileset:{_region}/{normalizedName}";
 
-        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Tilesets", _region);
+        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", _region);
         Directory.CreateDirectory(tilesetDir);
 
         // Add tiles to builder

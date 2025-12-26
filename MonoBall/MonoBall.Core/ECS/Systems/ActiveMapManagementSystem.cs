@@ -66,37 +66,76 @@ namespace MonoBall.Core.ECS.Systems
         {
             HashSet<string> activeMapIds = _activeMapFilterService.GetActiveMapIds();
 
-            // Update NPCs: Add ActiveMapEntity to NPCs in active maps, remove from others
-            // Note: Most NPCs will already have the tag (added by MapLoaderSystem), so most checks are no-ops
+            // Collect entities that need ActiveMapEntity added/removed (read-only pass)
+            // CRITICAL: Cannot modify components during query iteration - causes memory corruption
+            var entitiesToAdd = new List<Entity>();
+            var entitiesToRemove = new List<Entity>();
+
+            // Update NPCs: Collect entities that need ActiveMapEntity added or removed
             World.Query(
                 in _npcQuery,
                 (Entity entity, ref NpcComponent npc) =>
                 {
+                    // Check if entity is still alive before accessing components
+                    if (!World.IsAlive(entity))
+                        return;
+
                     bool shouldBeActive = activeMapIds.Contains(npc.MapId);
                     bool isActive = World.Has<ActiveMapEntity>(entity);
 
                     if (shouldBeActive && !isActive)
                     {
-                        World.Add<ActiveMapEntity>(entity);
+                        entitiesToAdd.Add(entity);
                     }
                     else if (!shouldBeActive && isActive)
                     {
-                        World.Remove<ActiveMapEntity>(entity);
+                        entitiesToRemove.Add(entity);
                     }
                 }
             );
 
-            // Player is always in active maps
+            // Apply structural changes after query iteration completes
+            foreach (var entity in entitiesToAdd)
+            {
+                if (World.IsAlive(entity) && !World.Has<ActiveMapEntity>(entity))
+                {
+                    World.Add<ActiveMapEntity>(entity);
+                }
+            }
+
+            foreach (var entity in entitiesToRemove)
+            {
+                if (World.IsAlive(entity) && World.Has<ActiveMapEntity>(entity))
+                {
+                    World.Remove<ActiveMapEntity>(entity);
+                }
+            }
+
+            // Player is always in active maps - collect then add
+            var playersToAdd = new List<Entity>();
             World.Query(
                 in _playerQuery,
                 (Entity entity) =>
                 {
+                    // Check if entity is still alive before accessing components
+                    if (!World.IsAlive(entity))
+                        return;
+
                     if (!World.Has<ActiveMapEntity>(entity))
                     {
-                        World.Add<ActiveMapEntity>(entity);
+                        playersToAdd.Add(entity);
                     }
                 }
             );
+
+            // Apply player changes after query iteration completes
+            foreach (var entity in playersToAdd)
+            {
+                if (World.IsAlive(entity) && !World.Has<ActiveMapEntity>(entity))
+                {
+                    World.Add<ActiveMapEntity>(entity);
+                }
+            }
         }
 
         /// <summary>

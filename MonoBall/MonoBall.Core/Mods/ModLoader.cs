@@ -123,7 +123,10 @@ namespace MonoBall.Core.Mods
                 LoadModDefinitions(mod, errors);
             }
 
-            // Step 6: Lock the registry
+            // Step 6: Validate BehaviorDefinitions before locking registry
+            ValidateBehaviorDefinitions(errors);
+
+            // Step 7: Lock the registry
             _registry.Lock();
             _logger.Information(
                 "Mod loading completed. Loaded {ModCount} mods with {ErrorCount} errors",
@@ -453,6 +456,24 @@ namespace MonoBall.Core.Mods
 
                 LoadDefinitionsFromDirectory(definitionsPath, folderType, mod, errors);
             }
+
+            // Load script definitions from Definitions/Scripts/ subdirectories
+            var scriptDefinitionsPath = Path.Combine(mod.ModDirectory, "Definitions", "Scripts");
+            if (Directory.Exists(scriptDefinitionsPath))
+            {
+                LoadDefinitionsFromDirectory(scriptDefinitionsPath, "Script", mod, errors);
+            }
+
+            // Load behavior definitions from Definitions/Behaviors/ subdirectories
+            var behaviorDefinitionsPath = Path.Combine(
+                mod.ModDirectory,
+                "Definitions",
+                "Behaviors"
+            );
+            if (Directory.Exists(behaviorDefinitionsPath))
+            {
+                LoadDefinitionsFromDirectory(behaviorDefinitionsPath, "Behavior", mod, errors);
+            }
         }
 
         /// <summary>
@@ -574,6 +595,296 @@ namespace MonoBall.Core.Mods
             catch (Exception ex)
             {
                 errors.Add($"Error scanning directory '{directory}': {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Validates all loaded BehaviorDefinitions against their referenced ScriptDefinitions.
+        /// Throws exceptions for invalid definitions (fail fast).
+        /// </summary>
+        private void ValidateBehaviorDefinitions(List<string> errors)
+        {
+            // Get all BehaviorDefinition IDs from registry
+            var behaviorDefinitionIds = _registry.GetByType("Behavior").ToList();
+            if (behaviorDefinitionIds.Count == 0)
+            {
+                return; // No behavior definitions to validate
+            }
+
+            foreach (var behaviorId in behaviorDefinitionIds)
+            {
+                var behaviorDef = _registry.GetById<Definitions.BehaviorDefinition>(behaviorId);
+                if (behaviorDef == null)
+                {
+                    continue; // Skip if not found (shouldn't happen, but be safe)
+                }
+
+                // Validate scriptId is not empty
+                if (string.IsNullOrWhiteSpace(behaviorDef.ScriptId))
+                {
+                    var errorMessage =
+                        $"BehaviorDefinition '{behaviorId}' has empty scriptId. BehaviorDefinition must reference a valid ScriptDefinition.";
+                    _logger.Error(errorMessage);
+                    errors.Add(errorMessage);
+                    throw new InvalidOperationException(errorMessage);
+                }
+
+                // Look up referenced ScriptDefinition
+                var scriptDef = _registry.GetById<Definitions.ScriptDefinition>(
+                    behaviorDef.ScriptId
+                );
+                if (scriptDef == null)
+                {
+                    var errorMessage =
+                        $"ScriptDefinition '{behaviorDef.ScriptId}' not found for BehaviorDefinition '{behaviorId}'. Ensure the script definition exists and is loaded.";
+                    _logger.Error(errorMessage);
+                    errors.Add(errorMessage);
+                    throw new InvalidOperationException(errorMessage);
+                }
+
+                // Validate parameterOverrides
+                if (
+                    behaviorDef.ParameterOverrides != null
+                    && behaviorDef.ParameterOverrides.Count > 0
+                )
+                {
+                    if (scriptDef.Parameters == null || scriptDef.Parameters.Count == 0)
+                    {
+                        var errorMessage =
+                            $"BehaviorDefinition '{behaviorId}' has parameterOverrides but ScriptDefinition '{behaviorDef.ScriptId}' has no parameters defined.";
+                        _logger.Error(errorMessage);
+                        errors.Add(errorMessage);
+                        throw new InvalidOperationException(errorMessage);
+                    }
+
+                    foreach (var kvp in behaviorDef.ParameterOverrides)
+                    {
+                        var paramName = kvp.Key;
+                        var paramValue = kvp.Value;
+
+                        // Check if parameter exists in ScriptDefinition
+                        var paramDef = scriptDef.Parameters.FirstOrDefault(p =>
+                            p.Name == paramName
+                        );
+                        if (paramDef == null)
+                        {
+                            var errorMessage =
+                                $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' that does not exist in ScriptDefinition '{behaviorDef.ScriptId}'. Valid parameters: {string.Join(", ", scriptDef.Parameters.Select(p => p.Name))}.";
+                            _logger.Error(errorMessage);
+                            errors.Add(errorMessage);
+                            throw new InvalidOperationException(errorMessage);
+                        }
+
+                        // Validate parameter type (basic check - full type conversion happens in MapLoaderSystem)
+                        // JSON deserialization may return JsonElement for numeric values, which is acceptable
+                        // We just verify the JsonElement can be converted to the expected type
+                        try
+                        {
+                            var paramType = paramDef.Type.ToLowerInvariant();
+
+                            // Handle JsonElement from JSON deserialization
+                            if (paramValue is System.Text.Json.JsonElement jsonElement)
+                            {
+                                // Try to get the value type from JsonElement
+                                switch (paramType)
+                                {
+                                    case "int":
+                                        if (
+                                            jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.Number
+                                            || jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.String
+                                        )
+                                        {
+                                            // Can be converted, validation passes
+                                        }
+                                        else
+                                        {
+                                            throw new InvalidCastException(
+                                                $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to int"
+                                            );
+                                        }
+                                        break;
+                                    case "float":
+                                        if (
+                                            jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.Number
+                                            || jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.String
+                                        )
+                                        {
+                                            // Can be converted, validation passes
+                                        }
+                                        else
+                                        {
+                                            throw new InvalidCastException(
+                                                $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to float"
+                                            );
+                                        }
+                                        break;
+                                    case "bool":
+                                        if (
+                                            jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.True
+                                            || jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.False
+                                            || jsonElement.ValueKind
+                                                == System.Text.Json.JsonValueKind.String
+                                        )
+                                        {
+                                            // Can be converted, validation passes
+                                        }
+                                        else
+                                        {
+                                            throw new InvalidCastException(
+                                                $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to bool"
+                                            );
+                                        }
+                                        break;
+                                    case "string":
+                                        // String can accept anything (will be converted to string)
+                                        break;
+                                    case "vector2":
+                                        if (
+                                            jsonElement.ValueKind
+                                            == System.Text.Json.JsonValueKind.String
+                                        )
+                                        {
+                                            // Can be converted, validation passes
+                                        }
+                                        else
+                                        {
+                                            throw new InvalidCastException(
+                                                $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to Vector2 (must be string)"
+                                            );
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                // Handle already-deserialized types
+                                switch (paramType)
+                                {
+                                    case "int":
+                                        if (
+                                            paramValue
+                                            is not (int or long or double or float or string)
+                                        )
+                                        {
+                                            throw new InvalidCastException(
+                                                $"Cannot convert {paramValue.GetType()} to int"
+                                            );
+                                        }
+                                        break;
+                                    case "float":
+                                        if (
+                                            paramValue
+                                            is not (float or double or int or long or string)
+                                        )
+                                        {
+                                            throw new InvalidCastException(
+                                                $"Cannot convert {paramValue.GetType()} to float"
+                                            );
+                                        }
+                                        break;
+                                    case "bool":
+                                        if (paramValue is not (bool or string))
+                                        {
+                                            throw new InvalidCastException(
+                                                $"Cannot convert {paramValue.GetType()} to bool"
+                                            );
+                                        }
+                                        break;
+                                    case "string":
+                                        // String can accept anything (will be converted to string)
+                                        break;
+                                    case "vector2":
+                                        if (paramValue is not string)
+                                        {
+                                            throw new InvalidCastException(
+                                                "Vector2 must be string format 'X,Y'"
+                                            );
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            var errorMessage =
+                                $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' with invalid type. Expected '{paramDef.Type}', got '{paramValue.GetType()}'. Error: {ex.Message}";
+                            _logger.Error(ex, errorMessage);
+                            errors.Add(errorMessage);
+                            throw new InvalidOperationException(errorMessage, ex);
+                        }
+
+                        // Validate min/max bounds if numeric
+                        if (paramDef.Min != null || paramDef.Max != null)
+                        {
+                            double? numericValue = null;
+
+                            // Handle JsonElement from JSON deserialization
+                            if (paramValue is System.Text.Json.JsonElement jsonElement)
+                            {
+                                if (jsonElement.ValueKind == System.Text.Json.JsonValueKind.Number)
+                                {
+                                    if (jsonElement.TryGetDouble(out var doubleValue))
+                                    {
+                                        numericValue = doubleValue;
+                                    }
+                                    else if (jsonElement.TryGetInt64(out var longValue))
+                                    {
+                                        numericValue = longValue;
+                                    }
+                                }
+                                else if (
+                                    jsonElement.ValueKind == System.Text.Json.JsonValueKind.String
+                                )
+                                {
+                                    if (double.TryParse(jsonElement.GetString(), out var parsed))
+                                    {
+                                        numericValue = parsed;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                // Handle already-deserialized types
+                                numericValue = paramValue switch
+                                {
+                                    int i => i,
+                                    long l => l,
+                                    float f => f,
+                                    double d => d,
+                                    string s when double.TryParse(s, out var parsed) => parsed,
+                                    _ => null,
+                                };
+                            }
+
+                            if (numericValue != null)
+                            {
+                                if (paramDef.Min != null && numericValue < paramDef.Min)
+                                {
+                                    var errorMessage =
+                                        $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' value '{paramValue}' below minimum '{paramDef.Min}' for ScriptDefinition '{behaviorDef.ScriptId}'. Value must be >= {paramDef.Min}.";
+                                    _logger.Error(errorMessage);
+                                    errors.Add(errorMessage);
+                                    throw new ArgumentException(errorMessage);
+                                }
+
+                                if (paramDef.Max != null && numericValue > paramDef.Max)
+                                {
+                                    var errorMessage =
+                                        $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' value '{paramValue}' above maximum '{paramDef.Max}' for ScriptDefinition '{behaviorDef.ScriptId}'. Value must be <= {paramDef.Max}.";
+                                    _logger.Error(errorMessage);
+                                    errors.Add(errorMessage);
+                                    throw new ArgumentException(errorMessage);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

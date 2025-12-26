@@ -2,7 +2,8 @@
   "modOrder": [
     "base:monoball-core",
     "base:test-shaders",
-    "pokemon:emerald"
+    "pokemon:emerald",
+    "demo:plugin-scripts"
   ]
 }
 

@@ -2,8 +2,6 @@
   "id": "base:behavior:movement/wander",
   "name": "Wander Behavior",
   "description": "NPC wanders randomly around the map, changing direction occasionally",
-  "Scripts/Behaviorscript": "Scripts/Behaviors/wander_behavior.csx",
-  "defaultSpeed": 1.5,
-  "pauseAtWaypoint": 0.0,
-  "allowInteractionWhileMoving": true
+  "scriptId": "base:script:movement/wander",
+  "parameterOverrides": {}
 }

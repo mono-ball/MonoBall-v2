@@ -2,11 +2,10 @@
   "id": "base:behavior:movement/wander_vertical",
   "name": "Wander Vertical Behavior",
   "description": "NPC wanders up and down within a specified range",
-  "Scripts/Behaviorscript": "Scripts/Behaviors/wander_behavior.csx",
-  "defaultSpeed": 1.5,
-  "pauseAtWaypoint": 0.5,
-  "allowInteractionWhileMoving": true,
-  "parameters": {
+  "scriptId": "base:script:movement/wander",
+  "parameterOverrides": {
+    "minWaitTime": 0.5,
+    "maxWaitTime": 2.0,
     "rangeX": 0,
     "rangeY": 2
   }

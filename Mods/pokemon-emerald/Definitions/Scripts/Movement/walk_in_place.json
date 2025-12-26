@@ -1,0 +1,17 @@
+{
+  "id": "base:script:movement/walk_in_place",
+  "name": "Walk In Place Movement Script",
+  "description": "NPC walks in place without moving, playing walk animation",
+  "scriptPath": "Scripts/Movement/walk_in_place_behavior.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "direction",
+      "type": "string",
+      "defaultValue": "down",
+      "description": "Direction to face while walking in place (up,down,left,right or north,south,east,west)"
+    }
+  ]
+}
+

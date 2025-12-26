@@ -15,8 +15,9 @@ namespace MonoBall.Core.ECS.Services
         private readonly QueryDescription _mapQuery;
         private readonly QueryDescription _playerQuery;
         private readonly QueryDescription _mapWithPositionQuery;
+        private readonly QueryDescription _connectionQuery;
         private HashSet<string>? _cachedActiveMapIds;
-        private int _lastMapEntityCount = -1;
+        private string? _cachedPlayerMapId;
 
         /// <summary>
         /// Initializes a new instance of the ActiveMapFilterService.
@@ -31,37 +32,68 @@ namespace MonoBall.Core.ECS.Services
                 MapComponent,
                 PositionComponent
             >();
+            _connectionQuery = new QueryDescription().WithAll<
+                MapComponent,
+                MapConnectionComponent
+            >();
         }
 
         /// <summary>
-        /// Gets the set of active map IDs (all currently loaded maps).
-        /// Uses caching to avoid recalculating every call - cache is invalidated when map entity count changes.
+        /// Gets the set of active map IDs (player's current map + directly connected maps).
+        /// Uses caching to avoid recalculating every call - cache is invalidated when player changes maps.
+        /// Falls back to all loaded maps if player doesn't exist yet (during initialization).
         /// </summary>
         /// <returns>A set of active map IDs.</returns>
         public HashSet<string> GetActiveMapIds()
         {
-            // Quick check: if map entity count hasn't changed, return cached result
-            int currentCount = _world.CountEntities(in _mapQuery);
-            if (_cachedActiveMapIds != null && currentCount == _lastMapEntityCount)
+            // Get player's current map
+            string? playerMapId = GetPlayerCurrentMapId();
+
+            // Quick check: if player hasn't changed maps, return cached result
+            if (_cachedActiveMapIds != null && _cachedPlayerMapId == playerMapId)
             {
                 return _cachedActiveMapIds;
             }
 
-            // Rebuild cache (maps were loaded/unloaded)
+            // Rebuild cache (player changed maps or first call)
             HashSet<string> activeMapIds = new HashSet<string>();
 
-            // Query all map entities to get loaded maps
+            // If no player or player not in any map yet (during initialization),
+            // fall back to all loaded maps to prevent NPCs from losing ActiveMapEntity
+            if (string.IsNullOrEmpty(playerMapId))
+            {
+                _world.Query(
+                    in _mapQuery,
+                    (Entity entity, ref MapComponent map) =>
+                    {
+                        activeMapIds.Add(map.MapId);
+                    }
+                );
+                _cachedActiveMapIds = activeMapIds;
+                _cachedPlayerMapId = playerMapId;
+                return activeMapIds;
+            }
+
+            // Add player's current map
+            activeMapIds.Add(playerMapId);
+
+            // Query connection entities to find directly connected maps
+            // Connection entities have MapComponent (source map) and MapConnectionComponent (target map)
             _world.Query(
-                in _mapQuery,
-                (Entity entity, ref MapComponent map) =>
+                in _connectionQuery,
+                (Entity entity, ref MapComponent map, ref MapConnectionComponent connection) =>
                 {
-                    activeMapIds.Add(map.MapId);
+                    // If this connection belongs to the player's current map, add the target map
+                    if (map.MapId == playerMapId)
+                    {
+                        activeMapIds.Add(connection.TargetMapId);
+                    }
                 }
             );
 
             // Update cache
             _cachedActiveMapIds = activeMapIds;
-            _lastMapEntityCount = currentCount;
+            _cachedPlayerMapId = playerMapId;
 
             return activeMapIds;
         }
@@ -181,12 +213,12 @@ namespace MonoBall.Core.ECS.Services
 
         /// <summary>
         /// Invalidates the cached active map IDs, forcing a recalculation on next access.
-        /// Call this when maps are loaded or unloaded.
+        /// Call this when maps are loaded or unloaded, or when player position changes.
         /// </summary>
         public void InvalidateCache()
         {
             _cachedActiveMapIds = null;
-            _lastMapEntityCount = -1;
+            _cachedPlayerMapId = null;
         }
     }
 }

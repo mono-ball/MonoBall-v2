@@ -1,5 +1,6 @@
 using System.Text.Json;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 
 namespace Porycon3.Services;
@@ -45,8 +46,8 @@ public class WeatherExtractor
         _outputPath = outputPath;
 
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "weather");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "Sprites", "Weather");
-        _outputData = Path.Combine(outputPath, "Definitions", "Sprites", "Weather");
+        _outputGraphics = Path.Combine(outputPath, "Graphics", "Weather");
+        _outputData = Path.Combine(outputPath, "Definitions", "Assets", "Weather");
     }
 
     public (int Graphics, int Definitions) ExtractAll()
@@ -107,7 +108,7 @@ public class WeatherExtractor
             var (width, height) = RenderIndexedPng(sourcePath, destPath, palette);
             if (width > 0 && height > 0)
             {
-                extractedTextures.Add($"Graphics/Sprites/Weather/{pascalName}/{destFilename}");
+                extractedTextures.Add($"Graphics/Weather/{pascalName}/{destFilename}");
 
                 // Calculate tiles for this texture
                 var tilesX = width / TileSize;
@@ -211,54 +212,77 @@ public class WeatherExtractor
     }
 
     /// <summary>
-    /// Render indexed PNG to RGBA with palette application.
+    /// Render indexed PNG to RGBA with palette index 0 as transparent.
     /// Returns (width, height) of the processed image.
     /// </summary>
-    private (int Width, int Height) RenderIndexedPng(string sourcePath, string destPath, Rgba32[]? palette)
+    private (int Width, int Height) RenderIndexedPng(string sourcePath, string destPath, Rgba32[]? externalPalette)
     {
         try
         {
-            using var srcImage = Image.Load<Rgba32>(sourcePath);
-            var width = srcImage.Width;
-            var height = srcImage.Height;
+            // Read raw PNG bytes to extract palette
+            var bytes = File.ReadAllBytes(sourcePath);
 
-            using var destImage = new Image<Rgba32>(width, height);
+            // Extract palette from PNG PLTE chunk
+            var pngPalette = ExtractPngPalette(bytes);
 
-            srcImage.ProcessPixelRows(destImage, (srcAccessor, destAccessor) =>
+            // Load image as RGBA
+            using var image = Image.Load<Rgba32>(sourcePath);
+            var width = image.Width;
+            var height = image.Height;
+
+            // Get the color at palette index 0 - this should be transparent
+            Rgba32? index0Color = null;
+            if (pngPalette != null && pngPalette.Length > 0)
             {
-                for (int y = 0; y < height; y++)
+                index0Color = pngPalette[0];
+            }
+
+            // Apply transparency for palette index 0 color
+            if (index0Color.HasValue)
+            {
+                var bgColor = index0Color.Value;
+                image.ProcessPixelRows(accessor =>
                 {
-                    var srcRow = srcAccessor.GetRowSpan(y);
-                    var destRow = destAccessor.GetRowSpan(y);
-
-                    for (int x = 0; x < width; x++)
+                    for (int y = 0; y < accessor.Height; y++)
                     {
-                        var srcPixel = srcRow[x];
-
-                        // Convert grayscale to palette index
-                        // pokeemerald uses inverted grayscale: white (255) = index 0, black (0) = index 15
-                        var colorIndex = (byte)(15 - (srcPixel.R + 8) / 17);
-
-                        if (colorIndex == 0)
+                        var row = accessor.GetRowSpan(y);
+                        for (int x = 0; x < row.Length; x++)
                         {
-                            // Index 0 is transparent
-                            destRow[x] = new Rgba32(0, 0, 0, 0);
+                            // Check if pixel matches palette index 0 color
+                            if (row[x].R == bgColor.R && row[x].G == bgColor.G && row[x].B == bgColor.B)
+                            {
+                                row[x] = new Rgba32(0, 0, 0, 0);
+                            }
                         }
-                        else if (palette != null && colorIndex < palette.Length)
+                    }
+                });
+            }
+
+            // Also apply magenta transparency as fallback
+            image.ProcessPixelRows(accessor =>
+            {
+                for (int y = 0; y < accessor.Height; y++)
+                {
+                    var row = accessor.GetRowSpan(y);
+                    for (int x = 0; x < row.Length; x++)
+                    {
+                        if (row[x].R == 255 && row[x].G == 0 && row[x].B == 255 && row[x].A > 0)
                         {
-                            // Apply palette color
-                            destRow[x] = palette[colorIndex];
-                        }
-                        else
-                        {
-                            // No palette - keep original colors but ensure index 0 is transparent
-                            destRow[x] = srcPixel;
+                            row[x] = new Rgba32(0, 0, 0, 0);
                         }
                     }
                 }
             });
 
-            destImage.SaveAsPng(destPath);
+            // Save as 32-bit RGBA
+            var encoder = new PngEncoder
+            {
+                ColorType = PngColorType.RgbWithAlpha,
+                BitDepth = PngBitDepth.Bit8,
+                CompressionLevel = PngCompressionLevel.BestCompression
+            };
+            image.SaveAsPng(destPath, encoder);
+
             return (width, height);
         }
         catch (Exception e)
@@ -266,6 +290,41 @@ public class WeatherExtractor
             Console.WriteLine($"[WeatherExtractor] Failed to extract {sourcePath}: {e.Message}");
             return (0, 0);
         }
+    }
+
+    /// <summary>
+    /// Extract RGB palette from PNG PLTE chunk.
+    /// </summary>
+    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
+    {
+        // Find PLTE chunk
+        // PNG structure: 8-byte signature, then chunks (4-byte length, 4-byte type, data, 4-byte CRC)
+        var pos = 8; // Skip PNG signature
+
+        while (pos < pngData.Length - 12)
+        {
+            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
+                         (pngData[pos + 2] << 8) | pngData[pos + 3];
+            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
+
+            if (type == "PLTE")
+            {
+                var colorCount = length / 3;
+                var palette = new Rgba32[colorCount];
+
+                for (var i = 0; i < colorCount; i++)
+                {
+                    var offset = pos + 8 + i * 3;
+                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
+                }
+
+                return palette;
+            }
+
+            pos += 12 + length; // 4 length + 4 type + data + 4 CRC
+        }
+
+        return null;
     }
 
     private static string FormatDisplayName(string name)

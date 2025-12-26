@@ -26,6 +26,11 @@ public class MapConversionService
     private readonly WeatherExtractor _weatherExtractor;
     private readonly BattleEnvironmentExtractor _battleEnvExtractor;
     private readonly SpriteExtractor _spriteExtractor;
+    private readonly TextWindowExtractor _textWindowExtractor;
+    private readonly PokemonExtractor _pokemonExtractor;
+    private readonly SpeciesExtractor _speciesExtractor;
+    private readonly FieldEffectExtractor _fieldEffectExtractor;
+    private readonly DoorAnimationExtractor _doorAnimExtractor;
 
     public MapConversionService(
         string inputPath,
@@ -47,6 +52,11 @@ public class MapConversionService
         _weatherExtractor = new WeatherExtractor(inputPath, outputPath);
         _battleEnvExtractor = new BattleEnvironmentExtractor(inputPath, outputPath);
         _spriteExtractor = new SpriteExtractor(inputPath, outputPath, verbose);
+        _textWindowExtractor = new TextWindowExtractor(inputPath, outputPath);
+        _pokemonExtractor = new PokemonExtractor(inputPath, outputPath, verbose);
+        _speciesExtractor = new SpeciesExtractor(inputPath, outputPath, verbose);
+        _fieldEffectExtractor = new FieldEffectExtractor(inputPath, outputPath, verbose);
+        _doorAnimExtractor = new DoorAnimationExtractor(inputPath, outputPath);
     }
 
     public List<string> ScanMaps()
@@ -137,6 +147,7 @@ public class MapConversionService
     /// <summary>
     /// Process map using rendered 16x16 metatile images.
     /// Creates layer data with GIDs referencing the per-map tilesheet.
+    /// Also extracts elevation data for each tile position.
     /// </summary>
     private (List<LayerData> Layers, int TileCount) ProcessMapWithMetatiles(
         ushort[] mapBin,
@@ -214,11 +225,15 @@ public class MapConversionService
             }
         }
 
+        // Layer elevations based on GBA BG rendering priority:
+        // Ground (bg3) = elevation 0 (below player)
+        // Objects (bg2) = elevation 3 (player level, where NPCs walk)
+        // Overhead (bg1) = elevation 15 (above player, like bridges/tree canopy)
         var layers = new List<LayerData>
         {
-            new() { Name = "Ground", Width = width, Height = height, Data = bg3Data },
-            new() { Name = "Objects", Width = width, Height = height, Data = bg2Data },
-            new() { Name = "Overhead", Width = width, Height = height, Data = bg1Data }
+            new() { Name = "Ground", Width = width, Height = height, Data = bg3Data, Elevation = 0 },
+            new() { Name = "Objects", Width = width, Height = height, Data = bg2Data, Elevation = 3 },
+            new() { Name = "Overhead", Width = width, Height = height, Data = bg1Data, Elevation = 15 }
         };
 
         return (layers, builder.TileCount);
@@ -250,8 +265,8 @@ public class MapConversionService
         var imagePath = Path.Combine(graphicsDir, $"{mapName}.png");
         image.SaveAsPng(imagePath);
 
-        // Save JSON to Definitions/Tilesets/{region}/ (filename matches map)
-        var defsDir = Path.Combine(_outputPath, "Definitions", "Tilesets", _region);
+        // Save JSON to Definitions/Assets/Tilesets/{region}/ (filename matches map)
+        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", _region);
         Directory.CreateDirectory(defsDir);
 
         var cols = Math.Min(TilesPerRow, Math.Max(1, tileCount));
@@ -300,7 +315,7 @@ public class MapConversionService
 
     private void WriteOutput(string mapName, MapData mapData, List<LayerData> layers)
     {
-        var outputDir = Path.Combine(_outputPath, "Definitions", "Maps", _region);
+        var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "Maps", _region);
         Directory.CreateDirectory(outputDir);
 
         var normalizedName = IdTransformer.Normalize(mapName);
@@ -343,6 +358,7 @@ public class MapConversionService
                 type = "tilelayer",
                 width = l.Width,
                 height = l.Height,
+                elevation = l.Elevation,
                 visible = true,
                 opacity = 1,
                 offsetX = 0,
@@ -417,11 +433,10 @@ public class MapConversionService
                 y = o.Y * MetatileSize,
                 spriteId = IdTransformer.SpriteId(o.GraphicsId),
                 behaviorId = TransformBehaviorId(o.MovementType),
+                behaviorParameters = BuildBehaviorParameters(o.MovementType, o.X * MetatileSize, o.Y * MetatileSize, o.MovementRangeX, o.MovementRangeY),
                 interactionId = TransformInteractionId(o.Script),
                 visibilityFlag = string.IsNullOrEmpty(o.Flag) || o.Flag == "0" ? null : IdTransformer.FlagId(o.Flag),
                 facingDirection = ExtractDirection(o.MovementType),
-                rangeX = o.MovementRangeX,
-                rangeY = o.MovementRangeY,
                 elevation = o.Elevation
             })
         };
@@ -451,14 +466,97 @@ public class MapConversionService
 
     private static string TransformBehaviorId(string movementType)
     {
-        if (string.IsNullOrEmpty(movementType)) return "base:script:behavior/stationary";
+        if (string.IsNullOrEmpty(movementType)) return "base:behavior:stationary";
         var name = movementType.StartsWith("MOVEMENT_TYPE_") ? movementType[14..].ToLowerInvariant() : movementType.ToLowerInvariant();
-        // Simplify movement names
-        if (name.Contains("wander")) return "base:script:behavior/wander";
-        if (name.Contains("stationary") || name.Contains("face_") || name.Contains("look_around")) return "base:script:behavior/stationary";
-        if (name.Contains("walk")) return "base:script:behavior/walk";
-        if (name.Contains("jog")) return "base:script:behavior/jog";
-        return $"base:script:behavior/{name}";
+
+        // Categorize movement types
+        if (name.StartsWith("walk_sequence_")) return "base:behavior:patrol";
+        if (name.Contains("wander")) return "base:behavior:wander";
+        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around")) return "base:behavior:stationary";
+        if (name.Contains("walk") || name.Contains("pace")) return "base:behavior:walk";
+        if (name.Contains("jog") || name.Contains("run")) return "base:behavior:jog";
+        if (name.Contains("copy_player") || name.Contains("follow")) return "base:behavior:follow";
+        if (name.Contains("invisible")) return "base:behavior:invisible";
+        if (name.Contains("buried")) return "base:behavior:buried";
+        if (name.Contains("tree_disguise")) return "base:behavior:disguise_tree";
+        if (name.Contains("rock_disguise")) return "base:behavior:disguise_rock";
+
+        return $"base:behavior:{name}";
+    }
+
+    private static object? BuildBehaviorParameters(string movementType, int startX, int startY, int? rangeX, int? rangeY)
+    {
+        if (string.IsNullOrEmpty(movementType)) return null;
+        var name = movementType.StartsWith("MOVEMENT_TYPE_") ? movementType[14..].ToLowerInvariant() : movementType.ToLowerInvariant();
+
+        // Patrol behavior - calculate waypoint grid positions from direction sequence
+        if (name.StartsWith("walk_sequence_"))
+        {
+            var waypoints = CalculatePatrolWaypoints(name, startX, startY, rangeX ?? 1, rangeY ?? 1);
+            if (waypoints != null && waypoints.Length > 0)
+            {
+                return new { waypoints };
+            }
+            return null;
+        }
+
+        // Wander/Walk behaviors use range parameters
+        if (name.Contains("wander") || name.Contains("walk") || name.Contains("pace"))
+        {
+            // Only include if range values are meaningful (non-zero)
+            if ((rangeX.HasValue && rangeX.Value > 0) || (rangeY.HasValue && rangeY.Value > 0))
+            {
+                return new { rangeX = rangeX ?? 0, rangeY = rangeY ?? 0 };
+            }
+        }
+
+        return null;
+    }
+
+    private static object[]? CalculatePatrolWaypoints(string name, int startX, int startY, int rangeX, int rangeY)
+    {
+        // Remove "walk_sequence_" prefix
+        var sequence = name.StartsWith("walk_sequence_") ? name[14..] : name;
+
+        // Parse the direction sequence (e.g., "up_right_left_down")
+        var directions = new List<string>();
+        var parts = sequence.Split('_');
+        foreach (var part in parts)
+        {
+            if (part == "up" || part == "down" || part == "left" || part == "right")
+            {
+                directions.Add(part);
+            }
+        }
+
+        if (directions.Count == 0) return null;
+
+        // Calculate waypoints by following the direction sequence
+        var waypoints = new List<object>();
+        int currentX = startX;
+        int currentY = startY;
+
+        foreach (var dir in directions)
+        {
+            switch (dir)
+            {
+                case "up":
+                    currentY -= rangeY * MetatileSize;
+                    break;
+                case "down":
+                    currentY += rangeY * MetatileSize;
+                    break;
+                case "left":
+                    currentX -= rangeX * MetatileSize;
+                    break;
+                case "right":
+                    currentX += rangeX * MetatileSize;
+                    break;
+            }
+            waypoints.Add(new { x = currentX, y = currentY });
+        }
+
+        return waypoints.ToArray();
     }
 
     private static string? ExtractDirection(string movementType)
@@ -519,10 +617,10 @@ public class MapConversionService
     }
 
     /// <summary>
-    /// Generate additional definitions (Weather, BattleScenes, Region, Sprites) based on IDs
+    /// Generate additional definitions (Weather, BattleScenes, Region, Sprites, Pokemon, Species) based on IDs
     /// referenced by converted maps. Call this after all maps have been converted.
     /// </summary>
-    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites) GenerateDefinitions()
+    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations) GenerateDefinitions()
     {
         var (weather, battleScenes, region) = _definitionGenerator.GenerateAll();
         var (sections, themes) = _sectionExtractor.ExtractAll();
@@ -530,6 +628,11 @@ public class MapConversionService
         var (weatherGraphics, _) = _weatherExtractor.ExtractAll();
         var (battleEnvs, _) = _battleEnvExtractor.ExtractAll();
         var (sprites, _) = _spriteExtractor.ExtractAll();
-        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs, sprites);
+        var textWindows = _textWindowExtractor.ExtractAll();
+        var (pokemon, pokemonSprites, _) = _pokemonExtractor.ExtractAll();
+        var (species, speciesForms) = _speciesExtractor.ExtractAll();
+        var fieldEffects = _fieldEffectExtractor.ExtractAll();
+        var doorAnims = _doorAnimExtractor.Extract();
+        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs, sprites, textWindows, pokemon, pokemonSprites, species, speciesForms, fieldEffects, doorAnims);
     }
 }

@@ -52,10 +52,19 @@ namespace MonoBall.Core.Mods
             new Dictionary<string, string>();
 
         /// <summary>
-        /// List of script file paths relative to the mod root.
+        /// List of plugin script file paths relative to the mod root.
+        /// Plugin scripts are standalone scripts not attached to entities.
         /// </summary>
-        [JsonPropertyName("scripts")]
-        public List<string> Scripts { get; set; } = new List<string>();
+        [JsonPropertyName("plugins")]
+        public List<string> Plugins { get; set; } = new List<string>();
+
+        /// <summary>
+        /// List of compiled assembly (DLL) file paths relative to the mod root.
+        /// These assemblies are made available to other mods' scripts that depend on this mod.
+        /// Assemblies should contain public types that other mods can reference in their scripts.
+        /// </summary>
+        [JsonPropertyName("assemblies")]
+        public List<string> Assemblies { get; set; } = new List<string>();
 
         /// <summary>
         /// List of patch definitions (for modifying other mods' content).
@@ -65,6 +74,7 @@ namespace MonoBall.Core.Mods
 
         /// <summary>
         /// List of mod IDs that this mod depends on.
+        /// When compiling scripts, assemblies from dependency mods are automatically included as references.
         /// </summary>
         [JsonPropertyName("dependencies")]
         public List<string> Dependencies { get; set; } = new List<string>();

@@ -1,0 +1,10 @@
+{
+  "id": "base:script:movement/guard",
+  "name": "Guard Movement Script",
+  "description": "NPC stays at position, scans for threats by rotating direction",
+  "scriptPath": "Scripts/Movement/guard_behavior.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}
+

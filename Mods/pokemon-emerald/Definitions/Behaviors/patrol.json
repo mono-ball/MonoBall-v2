@@ -2,8 +2,8 @@
   "id": "base:behavior:movement/patrol",
   "name": "Patrol Behavior",
   "description": "NPC walks along waypoints in a loop, pausing briefly at each point",
-  "Scripts/Behaviorscript": "Scripts/Behaviors/patrol_behavior.csx",
-  "defaultSpeed": 4.0,
-  "pauseAtWaypoint": 1.0,
-  "allowInteractionWhileMoving": false
+  "scriptId": "base:script:movement/patrol",
+  "parameterOverrides": {
+    "pauseAtWaypoint": 1.0
+  }
 }

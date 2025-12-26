@@ -13,6 +13,9 @@ using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Maps.Utilities;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Scripting.Services;
+using MonoBall.Core.Scripting.Utilities;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -155,15 +158,15 @@ namespace MonoBall.Core.ECS.Systems
             // Create music component if music ID exists
             if (!string.IsNullOrEmpty(mapDefinition.MusicId))
             {
-                var musicComponent = new Components.Audio.MusicComponent
+                var musicComponent = new MusicComponent
                 {
                     AudioId = mapDefinition.MusicId,
                     FadeInOnTransition = true,
-                    FadeDuration = 0f, // Use definition default
+                    FadeDuration = 0f, // Use default fade duration from audio definition
                 };
                 World.Add(mapEntity, musicComponent);
                 _logger.Debug(
-                    "Added MusicComponent to map {MapId} with audio {AudioId}",
+                    "Added MusicComponent to map {MapId} with music {MusicId}",
                     mapId,
                     mapDefinition.MusicId
                 );
@@ -290,6 +293,13 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     foreach (var chunkEntity in chunkEntities)
                     {
+                        // Fire EntityDestroyedEvent before destroying
+                        var destroyedEvent = new Events.EntityDestroyedEvent
+                        {
+                            Entity = chunkEntity,
+                            DestroyedAt = DateTime.UtcNow,
+                        };
+                        EventBus.Send(ref destroyedEvent);
                         World.Destroy(chunkEntity);
                     }
                     _mapChunkEntities.Remove(mapId);
@@ -300,6 +310,13 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     foreach (var connectionEntity in connectionEntities)
                     {
+                        // Fire EntityDestroyedEvent before destroying
+                        var destroyedEvent = new Events.EntityDestroyedEvent
+                        {
+                            Entity = connectionEntity,
+                            DestroyedAt = DateTime.UtcNow,
+                        };
+                        EventBus.Send(ref destroyedEvent);
                         World.Destroy(connectionEntity);
                     }
                     _mapConnectionEntities.Remove(mapId);
@@ -321,12 +338,25 @@ namespace MonoBall.Core.ECS.Systems
                             };
                             EventBus.Send(ref npcUnloadedEvent);
                         }
+                        // Fire EntityDestroyedEvent before destroying
+                        var destroyedEvent = new Events.EntityDestroyedEvent
+                        {
+                            Entity = npcEntity,
+                            DestroyedAt = DateTime.UtcNow,
+                        };
+                        EventBus.Send(ref destroyedEvent);
                         World.Destroy(npcEntity);
                     }
                     _mapNpcEntities.Remove(mapId);
                 }
 
                 // Destroy the map entity
+                var mapDestroyedEvent = new Events.EntityDestroyedEvent
+                {
+                    Entity = mapEntity,
+                    DestroyedAt = DateTime.UtcNow,
+                };
+                EventBus.Send(ref mapDestroyedEvent);
                 World.Destroy(mapEntity);
                 _mapEntities.Remove(mapId);
             }
@@ -943,16 +973,31 @@ namespace MonoBall.Core.ECS.Systems
             // Default movement speed: 3.75 tiles/second (matches oldmonoball NpcSpawnBuilder default)
             // NPCs created in loaded maps get ActiveMapEntity tag immediately for query-level filtering
             const float defaultNpcMovementSpeed = 3.75f;
-            var npcEntity = World.Create(
-                new Components.NpcComponent
-                {
-                    NpcId = npcDef.NpcId,
-                    Name = npcDef.Name,
-                    SpriteId = actualSpriteId, // Store resolved ID, never variable sprite ID
-                    MapId = mapDefinition.Id,
-                    Elevation = npcDef.Elevation,
-                    VisibilityFlag = npcDef.VisibilityFlag,
-                },
+
+            // Create NpcComponent with explicit non-null strings to avoid Arch.Core issues
+            var npcComponent = new Components.NpcComponent
+            {
+                NpcId =
+                    npcDef.NpcId
+                    ?? throw new InvalidOperationException(
+                        $"NPC definition {npcDef.NpcId} has null NpcId"
+                    ),
+                Name = npcDef.Name ?? string.Empty,
+                SpriteId =
+                    actualSpriteId
+                    ?? throw new InvalidOperationException($"NPC {npcDef.NpcId} has null SpriteId"),
+                MapId =
+                    mapDefinition.Id
+                    ?? throw new InvalidOperationException(
+                        $"Map definition {mapDefinition.Id} has null Id"
+                    ),
+                Elevation = npcDef.Elevation,
+                VisibilityFlag = npcDef.VisibilityFlag,
+            };
+
+            var components = new List<object>
+            {
+                npcComponent,
                 new Components.SpriteAnimationComponent
                 {
                     CurrentAnimationName = animationName,
@@ -972,8 +1017,141 @@ namespace MonoBall.Core.ECS.Systems
                     FacingDirection = facingDirection,
                     MovementDirection = facingDirection,
                 },
-                new Components.ActiveMapEntity() // Tag NPCs in loaded maps immediately
-            );
+                new Components.ActiveMapEntity(), // Tag NPCs in loaded maps immediately
+            };
+
+            // Add ScriptAttachmentComponent if behavior ID is specified
+            // Fail fast - no fallback code
+            Dictionary<string, object>? mergedParameters = null;
+            Mods.Definitions.ScriptDefinition? scriptDefForVariables = null;
+
+            if (!string.IsNullOrWhiteSpace(npcDef.BehaviorId))
+            {
+                // Step 1: Look up BehaviorDefinition
+                var behaviorDef = _registry.GetById<Mods.Definitions.BehaviorDefinition>(
+                    npcDef.BehaviorId
+                );
+
+                // Step 2: Fail fast if BehaviorDefinition not found
+                if (behaviorDef == null)
+                {
+                    throw new InvalidOperationException(
+                        $"BehaviorDefinition '{npcDef.BehaviorId}' not found for NPC '{npcDef.NpcId}'. "
+                            + "Ensure the behavior definition exists and is loaded."
+                    );
+                }
+
+                // Step 3: Validate scriptId is not empty
+                if (string.IsNullOrWhiteSpace(behaviorDef.ScriptId))
+                {
+                    throw new InvalidOperationException(
+                        $"BehaviorDefinition '{npcDef.BehaviorId}' has empty scriptId for NPC '{npcDef.NpcId}'. "
+                            + "BehaviorDefinition must reference a valid ScriptDefinition."
+                    );
+                }
+
+                // Step 4: Get ScriptDefinition from BehaviorDefinition
+                var scriptDef = _registry.GetById<Mods.Definitions.ScriptDefinition>(
+                    behaviorDef.ScriptId
+                );
+
+                if (scriptDef == null)
+                {
+                    throw new InvalidOperationException(
+                        $"ScriptDefinition '{behaviorDef.ScriptId}' not found for BehaviorDefinition '{npcDef.BehaviorId}' on NPC '{npcDef.NpcId}'. "
+                            + "Ensure the script definition exists and is loaded."
+                    );
+                }
+
+                // Step 5: Merge parameters from all layers
+                mergedParameters = MergeScriptParameters(scriptDef, behaviorDef, npcDef);
+                scriptDefForVariables = scriptDef;
+
+                // Step 6: Create ScriptAttachmentComponent
+                // Get mod ID from definition metadata (same approach as ScriptLoaderService)
+                var scriptDefMetadata = _registry.GetById(scriptDef.Id);
+                if (scriptDefMetadata == null)
+                {
+                    throw new InvalidOperationException(
+                        $"Script definition metadata not found for script definition {scriptDef.Id}. Cannot attach script to NPC {npcDef.NpcId}."
+                    );
+                }
+                var modId = scriptDefMetadata.OriginalModId;
+
+                components.Add(
+                    new Components.ScriptAttachmentComponent
+                    {
+                        ScriptDefinitionId = scriptDef.Id,
+                        Priority = scriptDef.Priority,
+                        IsActive = true,
+                        ModId = modId,
+                        IsInitialized = false,
+                    }
+                );
+
+                _logger.Debug(
+                    "Attached script {ScriptId} to NPC {NpcId} via BehaviorDefinition {BehaviorId}",
+                    scriptDef.Id,
+                    npcDef.NpcId,
+                    npcDef.BehaviorId
+                );
+            }
+
+            // Create entity with all components at once (matching PlayerSystem pattern)
+            // Use World.Create() with individual component arguments, not array
+            // This matches how PlayerSystem creates entities and avoids Arch.Core array issues
+            Entity npcEntity;
+            if (components.Count == 7) // Has ScriptAttachmentComponent
+            {
+                npcEntity = World.Create(
+                    npcComponent,
+                    (Components.SpriteAnimationComponent)components[1],
+                    (Components.PositionComponent)components[2],
+                    (Components.RenderableComponent)components[3],
+                    (Components.GridMovement)components[4],
+                    (Components.ActiveMapEntity)components[5],
+                    (Components.ScriptAttachmentComponent)components[6]
+                );
+            }
+            else // No ScriptAttachmentComponent
+            {
+                npcEntity = World.Create(
+                    npcComponent,
+                    (Components.SpriteAnimationComponent)components[1],
+                    (Components.PositionComponent)components[2],
+                    (Components.RenderableComponent)components[3],
+                    (Components.GridMovement)components[4],
+                    (Components.ActiveMapEntity)components[5]
+                );
+            }
+
+            // Add EntityVariablesComponent AFTER entity creation (if we have merged parameters)
+            // This avoids issues with Arch.Core and struct components containing reference types
+            if (
+                mergedParameters != null
+                && mergedParameters.Count > 0
+                && scriptDefForVariables != null
+            )
+            {
+                var variablesComponent = new Components.EntityVariablesComponent
+                {
+                    Variables = new Dictionary<string, string>(),
+                    VariableTypes = new Dictionary<string, string>(),
+                };
+
+                foreach (var kvp in mergedParameters)
+                {
+                    var key = ScriptStateKeys.GetParameterKey(scriptDefForVariables.Id, kvp.Key);
+                    variablesComponent.Variables[key] = kvp.Value?.ToString() ?? string.Empty;
+                    variablesComponent.VariableTypes[key] =
+                        scriptDefForVariables
+                            .Parameters?.FirstOrDefault(p => p.Name == kvp.Key)
+                            ?.Type
+                        ?? "string";
+                }
+
+                World.Add(npcEntity, variablesComponent);
+            }
 
             // Preload sprite texture
             _spriteLoader.GetSpriteTexture(actualSpriteId);
@@ -988,6 +1166,103 @@ namespace MonoBall.Core.ECS.Systems
             EventBus.Send(ref loadedEvent);
 
             return npcEntity;
+        }
+
+        /// <summary>
+        /// Merges script parameters from ScriptDefinition defaults, BehaviorDefinition overrides, and NPCDefinition overrides.
+        /// </summary>
+        private Dictionary<string, object> MergeScriptParameters(
+            ScriptDefinition scriptDef,
+            BehaviorDefinition behaviorDef,
+            Maps.NpcDefinition npcDef
+        )
+        {
+            // Step 1: Start with ScriptDefinition defaults
+            var mergedParameters = ScriptParameterResolver.GetDefaults(scriptDef);
+
+            // Step 2: Apply BehaviorDefinition.parameterOverrides
+            if (behaviorDef.ParameterOverrides != null)
+            {
+                var behaviorOverrides = new Dictionary<string, object>();
+                foreach (var kvp in behaviorDef.ParameterOverrides)
+                {
+                    behaviorOverrides[kvp.Key] = kvp.Value;
+                }
+                ScriptParameterResolver.ApplyOverrides(
+                    mergedParameters,
+                    behaviorOverrides,
+                    scriptDef
+                );
+            }
+
+            // Step 3: Apply NPCDefinition.behaviorParameters
+            if (npcDef.BehaviorParameters != null)
+            {
+                ScriptParameterResolver.ApplyOverrides(
+                    mergedParameters,
+                    npcDef.BehaviorParameters,
+                    scriptDef
+                );
+            }
+
+            // Step 4: Validate merged parameters against ScriptDefinition
+            ScriptParameterResolver.ValidateParameters(mergedParameters, scriptDef);
+
+            return mergedParameters;
+        }
+
+        /// <summary>
+        /// Validates merged parameters against ScriptDefinition (min/max bounds, etc.).
+        /// Throws exceptions for invalid parameters (fail fast).
+        /// </summary>
+        private void ValidateMergedParameters(
+            Dictionary<string, object> mergedParameters,
+            Mods.Definitions.ScriptDefinition scriptDef
+        )
+        {
+            if (scriptDef.Parameters == null)
+            {
+                return;
+            }
+
+            foreach (var paramDef in scriptDef.Parameters)
+            {
+                if (mergedParameters.TryGetValue(paramDef.Name, out var value))
+                {
+                    // Validate min/max bounds
+                    if (paramDef.Min != null || paramDef.Max != null)
+                    {
+                        double? numericValue = value switch
+                        {
+                            int i => (double)i,
+                            float f => (double)f,
+                            double d => d,
+                            _ => (double?)null,
+                        };
+
+                        if (numericValue != null)
+                        {
+                            if (paramDef.Min != null && numericValue < paramDef.Min)
+                            {
+                                throw new ArgumentException(
+                                    $"Parameter '{paramDef.Name}' value '{value}' is below minimum '{paramDef.Min}' for script '{scriptDef.Id}'. "
+                                        + $"Value must be >= {paramDef.Min}.",
+                                    nameof(mergedParameters)
+                                );
+                            }
+
+                            if (paramDef.Max != null && numericValue > paramDef.Max)
+                            {
+                                throw new ArgumentException(
+                                    $"Parameter '{paramDef.Name}' value '{value}' is above maximum '{paramDef.Max}' for script '{scriptDef.Id}'. "
+                                        + $"Value must be <= {paramDef.Max}.",
+                                    nameof(mergedParameters)
+                                );
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>

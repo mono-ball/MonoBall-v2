@@ -110,21 +110,32 @@ public class DefinitionGenerator
 
     private int GenerateWeatherDefinitions()
     {
-        var weatherDir = Path.Combine(_outputPath, "Definitions", "Weather");
+        var weatherDir = Path.Combine(_outputPath, "Definitions", "Entities", "Weather");
         Directory.CreateDirectory(weatherDir);
 
         int count = 0;
-        foreach (var weatherId in _weatherIds)
+
+        // Generate definitions for ALL weather types, not just referenced ones
+        foreach (var (weatherName, config) in WeatherConfigs)
         {
-            // base:weather:outdoor/sunny -> sunny
-            var parts = weatherId.Split('/');
-            if (parts.Length < 2) continue;
+            if (weatherName == "none") continue; // Skip "none" weather
 
-            var weatherName = parts[^1];
-            var categoryParts = weatherId.Split(':');
-            var category = categoryParts.Length > 2 ? categoryParts[2].Split('/')[0] : "outdoor";
+            var category = "outdoor";
+            var weatherId = $"base:weather:{category}/{weatherName}";
 
-            var config = WeatherConfigs.GetValueOrDefault(weatherName, new WeatherConfig(1.0, false));
+            // Determine graphics ID if this weather type has associated graphics
+            string? graphicsId = weatherName switch
+            {
+                "rain" or "rain_thunderstorm" or "downpour" => "base:weather:graphics/rain",
+                "snow" => "base:weather:graphics/snow",
+                "sandstorm" => "base:weather:graphics/sandstorm",
+                "fog_horizontal" => "base:weather:graphics/fog_horizontal",
+                "fog_diagonal" => "base:weather:graphics/fog_diagonal",
+                "volcanic_ash" => "base:weather:graphics/volcanic_ash",
+                "underwater_bubbles" => "base:weather:graphics/underwater_bubbles",
+                "sunny_clouds" => "base:weather:graphics/clouds",
+                _ => null
+            };
 
             var definition = new
             {
@@ -141,6 +152,7 @@ public class DefinitionGenerator
                 affectsBattle = config.AffectsBattle,
                 ambientSoundId = config.AmbientSoundId,
                 effectScriptId = config.EffectScriptId,
+                graphicsId,
                 screenTint = config.ScreenTint,
                 screenTintOpacity = config.ScreenTintOpacity,
                 reducesVisibility = config.ReducesVisibility,
@@ -161,7 +173,7 @@ public class DefinitionGenerator
 
     private int GenerateBattleSceneDefinitions()
     {
-        var sceneDir = Path.Combine(_outputPath, "Definitions", "BattleScenes");
+        var sceneDir = Path.Combine(_outputPath, "Definitions", "Entities", "BattleScenes");
         Directory.CreateDirectory(sceneDir);
 
         int count = 0;
@@ -214,7 +226,7 @@ public class DefinitionGenerator
 
     private bool GenerateRegionDefinition()
     {
-        var regionDir = Path.Combine(_outputPath, "Definitions", "Regions");
+        var regionDir = Path.Combine(_outputPath, "Definitions", "Entities", "Regions");
         Directory.CreateDirectory(regionDir);
 
         var regionFormatted = char.ToUpper(_region[0]) + _region[1..].ToLower();

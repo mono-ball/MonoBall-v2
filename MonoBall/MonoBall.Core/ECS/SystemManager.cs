@@ -73,6 +73,10 @@ namespace MonoBall.Core.ECS
         private Systems.Audio.SoundEffectSystem _soundEffectSystem = null!; // Initialized in Initialize()
         private Systems.Audio.AmbientSoundSystem _ambientSoundSystem = null!; // Initialized in Initialize()
         private Systems.Audio.AudioVolumeSystem _audioVolumeSystem = null!; // Initialized in Initialize()
+        private Scripting.Services.ScriptCompilerService? _scriptCompilerService; // Initialized in InitializeCoreServices()
+        private Scripting.Services.ScriptLoaderService? _scriptLoaderService; // Initialized in InitializeCoreServices()
+        private Scripting.ScriptApiProvider? _scriptApiProvider; // Initialized in InitializeCoreServices()
+        private ScriptLifecycleSystem? _scriptLifecycleSystem; // Initialized in CreateGameSystems()
 
         private bool _isInitialized;
         private bool _isDisposed;
@@ -428,6 +432,31 @@ namespace MonoBall.Core.ECS
             // Must be created before render systems that depend on it
             _activeMapFilterService = new Services.ActiveMapFilterService(_world);
 
+            // Create script services (after mods are loaded)
+            _scriptCompilerService = new Scripting.Services.ScriptCompilerService(
+                LoggerFactory.CreateLogger<Scripting.Services.ScriptCompilerService>()
+            );
+            _scriptLoaderService = new Scripting.Services.ScriptLoaderService(
+                _scriptCompilerService,
+                _modManager.Registry,
+                (ModManager)_modManager, // Cast to concrete type as ModManager is internal
+                LoggerFactory.CreateLogger<Scripting.Services.ScriptLoaderService>()
+            );
+
+            // Preload all scripts (compiles but doesn't initialize plugin scripts)
+            _scriptLoaderService.PreloadAllScripts();
+
+            // Create script API provider (stub for now, will be fully initialized after systems are created)
+            _scriptApiProvider = new Scripting.ScriptApiProvider(
+                _world,
+                null, // PlayerSystem - will be set later
+                null, // MapLoaderSystem - will be set later
+                null, // MovementSystem - will be set later
+                _cameraService,
+                flagVariableService,
+                _modManager.Registry
+            );
+
             // Create audio engine (AudioEngine creates AudioContentLoader internally)
             _audioEngine = new Audio.AudioEngine(
                 _modManager,
@@ -492,6 +521,26 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<ActiveMapManagementSystem>()
             );
             RegisterUpdateSystem(_activeMapManagementSystem);
+
+            // Create script lifecycle system (runs after map management, before player)
+            if (_scriptLoaderService != null && _scriptApiProvider != null)
+            {
+                _scriptLifecycleSystem = new ScriptLifecycleSystem(
+                    _world,
+                    _scriptLoaderService,
+                    _scriptApiProvider,
+                    _modManager.Registry,
+                    LoggerFactory.CreateLogger<ScriptLifecycleSystem>()
+                );
+                RegisterUpdateSystem(_scriptLifecycleSystem);
+
+                // Create script timer system (runs after script lifecycle)
+                var scriptTimerSystem = new Systems.ScriptTimerSystem(
+                    _world,
+                    LoggerFactory.CreateLogger<Systems.ScriptTimerSystem>()
+                );
+                RegisterUpdateSystem(scriptTimerSystem);
+            }
 
             // Create player system
             _playerSystem = new PlayerSystem(
@@ -891,6 +940,20 @@ namespace MonoBall.Core.ECS
             _updateSystems = new Group<float>("UpdateSystems", _registeredUpdateSystems.ToArray());
             _updateSystems.Initialize();
 
+            // Update script API provider with actual system references
+            if (_scriptApiProvider != null && _scriptLoaderService != null)
+            {
+                // Update API provider with actual system references
+                _scriptApiProvider.UpdateSystems(_playerSystem, _mapLoaderSystem, _movementSystem);
+
+                // Initialize plugin scripts (after all systems are ready)
+                _scriptLoaderService.InitializePluginScripts(
+                    _scriptApiProvider,
+                    _world,
+                    LoggerFactory.CreateLogger<Scripting.Services.ScriptLoaderService>()
+                );
+            }
+
             _isInitialized = true;
             _logger.Information("ECS systems initialized successfully");
         }
@@ -1158,6 +1221,12 @@ namespace MonoBall.Core.ECS
             // Dispose services
             _variableSpriteResolver?.Dispose();
             _variableSpriteResolver = null;
+
+            // Dispose script services
+            _scriptLoaderService?.Dispose();
+            _scriptLoaderService = null;
+            _scriptLifecycleSystem?.Dispose();
+            _scriptLifecycleSystem = null;
 
             _isDisposed = true;
         }

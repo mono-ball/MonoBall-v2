@@ -286,11 +286,13 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/twin",
       "behaviorId": "base:behavior:movement/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 2
+      },
       "interactionScript": "base:behavior:interaction/littleroot_town_event_script_twin",
       "visibilityFlag": null,
       "direction": null,
-      "rangeX": 1,
-      "rangeY": 2,
       "elevation": 3
     },
     {
@@ -300,11 +302,13 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/fat_man",
       "behaviorId": "base:behavior:movement/wander",
+      "behaviorParameters": {
+        "rangeX": 2,
+        "rangeY": 1
+      },
       "interactionScript": "base:behavior:interaction/littleroot_town_event_script_fat_man",
       "visibilityFlag": "base:flag:visibility/littleroot_town_fat_man",
       "direction": null,
-      "rangeX": 2,
-      "rangeY": 1,
       "elevation": 3
     },
     {
@@ -314,11 +318,13 @@
       "y": 272,
       "spriteId": "base:sprite:npcs/generic/boy_2",
       "behaviorId": "base:behavior:movement/wander",
+      "behaviorParameters": {
+        "rangeX": 2,
+        "rangeY": 1
+      },
       "interactionScript": "base:behavior:interaction/littleroot_town_event_script_boy",
       "visibilityFlag": null,
       "direction": null,
-      "rangeX": 2,
-      "rangeY": 1,
       "elevation": 3
     },
     {
@@ -331,8 +337,6 @@
       "interactionScript": "base:behavior:interaction/littleroot_town_event_script_mom",
       "visibilityFlag": "base:flag:visibility/littleroot_town_mom_outside",
       "direction": "up",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -345,8 +349,6 @@
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_truck",
       "direction": "right",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 4
     },
     {
@@ -359,8 +361,6 @@
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_mays_house_truck",
       "direction": "right",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 4
     },
     {
@@ -373,8 +373,6 @@
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_rival",
       "direction": "up",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -387,8 +385,6 @@
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_birch",
       "direction": "up",
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     }
   ]

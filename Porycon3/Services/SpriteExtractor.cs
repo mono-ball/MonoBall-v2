@@ -25,12 +25,34 @@ public class SpriteExtractor
     // Sprite categories with their base folder mappings
     private static readonly Dictionary<string, string> CategoryMappings = new()
     {
-        { "people", "Npcs" },
+        { "people", "Characters/Npcs" },
         { "berry_trees", "Objects/BerryTrees" },
         { "cushions", "Objects/Cushions" },
         { "dolls", "Objects/Dolls" },
         { "misc", "Objects/Misc" },
-        { "pokemon_old", "Pokemon" }
+        { "pokemon_old", "Characters/Pokemon" }
+    };
+
+    // Pattern-based category overrides (filename -> folder)
+    // Note: Pattern matching is case-insensitive
+    // Only match actual pokeball sprite names, not cushions
+    private static readonly HashSet<string> PokeballNames = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "ball_poke", "ball_great", "ball_ultra", "ball_master",
+        "ball_safari", "ball_net", "ball_dive", "ball_nest",
+        "ball_repeat", "ball_timer", "ball_luxury", "ball_premier",
+        "ball_dusk", "ball_heal", "ball_quick", "ball_cherish",
+        "ball_park", "ball_dream", "ball_fast", "ball_level",
+        "ball_lure", "ball_heavy", "ball_love", "ball_friend",
+        "ball_moon", "ball_sport", "ball_beast", "ball_strange",
+        // PascalCase versions from pic tables
+        "pokeball", "ballpoke", "ballgreat", "ballultra", "ballmaster",
+        "ballsafari", "ballnet", "balldive", "ballnest",
+        "ballrepeat", "balltimer", "ballluxury", "ballpremier",
+        "balldusk", "ballheal", "ballquick", "ballcherish",
+        "ballpark", "balldream", "ballfast", "balllevel",
+        "balllure", "ballheavy", "balllove", "ballfriend",
+        "ballmoon", "ballsport", "ballbeast", "ballstrange"
     };
 
     private static readonly JsonSerializerOptions JsonOptions = new()
@@ -47,8 +69,8 @@ public class SpriteExtractor
         _verbose = verbose;
 
         _picsBasePath = Path.Combine(inputPath, "graphics", "object_events", "pics");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "Sprites");
-        _outputData = Path.Combine(outputPath, "Definitions", "Sprites");
+        _outputGraphics = Path.Combine(outputPath, "Graphics");
+        _outputData = Path.Combine(outputPath, "Definitions", "Assets");
 
         // Parse animation data from pokeemerald source
         var parser = new AnimationParser(inputPath, verbose);
@@ -235,10 +257,25 @@ public class SpriteExtractor
         string baseFolder;
         string spriteCategory;
 
+        // Check for pattern-based overrides (e.g., ball_* -> Pokeballs)
+        var patternOverride = GetPatternOverrideFolder(spriteName);
+
+        // Transform pokeball names (ball_fast -> FastBall)
+        if (patternOverride != null)
+        {
+            spriteName = TransformPokeballName(spriteName);
+        }
+
         if (isPlayerSprite)
         {
-            baseFolder = "Players";
+            baseFolder = "Characters/Players";
             spriteCategory = ToPascalCase(subPath);
+        }
+        else if (patternOverride != null)
+        {
+            // Pattern override takes precedence (e.g., misc/ball_poke -> Objects/Pokeballs)
+            baseFolder = patternOverride;
+            spriteCategory = "";
         }
         else if (CategoryMappings.TryGetValue(sourceCategory, out var mappedFolder))
         {
@@ -247,7 +284,7 @@ public class SpriteExtractor
         }
         else
         {
-            baseFolder = "Npcs";
+            baseFolder = "Characters/Npcs";
             spriteCategory = subPath.Length > 0 ? ToPascalCase(subPath) : "Generic";
         }
 
@@ -307,7 +344,7 @@ public class SpriteExtractor
 
         // Create manifest (IDs are lowercase, file paths preserve case)
         var relativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
-        var texturePath = $"Graphics/Sprites/{baseFolder}/{relativePath}.png";
+        var texturePath = $"Graphics/{baseFolder}/{relativePath}.png";
         var idPath = $"{baseFolder}/{relativePath}".ToLowerInvariant();
         var manifest = new SpriteManifest
         {
@@ -352,10 +389,25 @@ public class SpriteExtractor
         string baseFolder;
         string spriteCategory;
 
+        // Check for pattern-based overrides (e.g., ball_* -> Pokeballs)
+        var patternOverride = GetPatternOverrideFolder(Path.GetFileNameWithoutExtension(pngPath));
+
+        // Transform pokeball names (ball_fast -> FastBall)
+        if (patternOverride != null)
+        {
+            spriteName = TransformPokeballName(spriteName);
+        }
+
         if (isPlayerSprite)
         {
-            baseFolder = "Players";
+            baseFolder = "Characters/Players";
             spriteCategory = ToPascalCase(subDirectory);
+        }
+        else if (patternOverride != null)
+        {
+            // Pattern override takes precedence (e.g., misc/ball_poke -> Objects/Pokeballs)
+            baseFolder = patternOverride;
+            spriteCategory = "";
         }
         else if (CategoryMappings.TryGetValue(sourceCategory, out var mappedFolder))
         {
@@ -364,7 +416,7 @@ public class SpriteExtractor
         }
         else
         {
-            baseFolder = "Npcs";
+            baseFolder = "Characters/Npcs";
             spriteCategory = subDirectory.Length > 0 ? ToPascalCase(subDirectory) : "Generic";
         }
 
@@ -400,7 +452,7 @@ public class SpriteExtractor
 
         // Create manifest (IDs are lowercase, file paths preserve case)
         var outputRelativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
-        var texturePath = $"Graphics/Sprites/{baseFolder}/{outputRelativePath}.png";
+        var texturePath = $"Graphics/{baseFolder}/{outputRelativePath}.png";
         var idPath = $"{baseFolder}/{outputRelativePath}".ToLowerInvariant();
         var manifest = new SpriteManifest
         {
@@ -822,6 +874,49 @@ public class SpriteExtractor
             result.Append(c);
         }
         return result.ToString();
+    }
+
+    /// <summary>
+    /// Check if a filename matches a pattern that should override the category folder.
+    /// Returns the override folder if matched, null otherwise.
+    /// </summary>
+    private static string? GetPatternOverrideFolder(string filename)
+    {
+        // Remove any extension and check if it's a known pokeball name
+        var nameWithoutExt = Path.GetFileNameWithoutExtension(filename);
+        if (PokeballNames.Contains(nameWithoutExt))
+        {
+            return "Objects/Pokeballs";
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Transform pokeball names from "ball_fast" to "FastBall" format.
+    /// </summary>
+    private static string TransformPokeballName(string name)
+    {
+        var lower = name.ToLowerInvariant();
+
+        // Handle "ball_X" pattern -> "XBall"
+        if (lower.StartsWith("ball_") || lower.StartsWith("ball"))
+        {
+            var suffix = lower.StartsWith("ball_") ? name[5..] : name[4..];
+            if (!string.IsNullOrEmpty(suffix))
+            {
+                var pascalSuffix = char.ToUpperInvariant(suffix[0]) + suffix[1..].ToLowerInvariant();
+                return $"{pascalSuffix}Ball";
+            }
+        }
+
+        // Handle "BallX" pattern (from PascalCase) -> "XBall"
+        if (name.StartsWith("Ball") && name.Length > 4 && char.IsUpper(name[4]))
+        {
+            var suffix = name[4..];
+            return $"{suffix}Ball";
+        }
+
+        return name;
     }
 }
 

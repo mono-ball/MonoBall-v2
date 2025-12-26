@@ -117,7 +117,7 @@ public class ConvertCommand : Command<ConvertSettings>
         DisplaySummary(results, definitions);
     }
 
-    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites) definitions = default)
+    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations) definitions = default)
     {
         var successful = results.Count(r => r.Success);
         var failed = results.Count(r => !r.Success);
@@ -142,7 +142,9 @@ public class ConvertCommand : Command<ConvertSettings>
                             definitions.Region || definitions.Sections > 0 || definitions.Themes > 0 ||
                             definitions.PopupBackgrounds > 0 || definitions.PopupOutlines > 0 ||
                             definitions.WeatherGraphics > 0 || definitions.BattleEnvironments > 0 ||
-                            definitions.Sprites > 0;
+                            definitions.Sprites > 0 || definitions.TextWindows > 0 ||
+                            definitions.Pokemon > 0 || definitions.Species > 0 ||
+                            definitions.FieldEffects > 0 || definitions.DoorAnimations > 0;
         if (hasDefinitions)
         {
             table.AddEmptyRow();
@@ -151,11 +153,18 @@ public class ConvertCommand : Command<ConvertSettings>
             table.AddRow("[blue]Battle Scene Definitions[/]", definitions.BattleScenes.ToString());
             table.AddRow("[blue]Battle Environments[/]", definitions.BattleEnvironments.ToString());
             table.AddRow("[blue]NPC/Player Sprites[/]", definitions.Sprites.ToString());
+            table.AddRow("[blue]Pokemon[/]", definitions.Pokemon.ToString());
+            table.AddRow("[blue]Pokemon Sprites[/]", definitions.PokemonSprites.ToString());
+            table.AddRow("[blue]Species Definitions[/]", definitions.Species.ToString());
+            table.AddRow("[blue]Species Forms[/]", definitions.SpeciesForms.ToString());
             table.AddRow("[blue]Region Definition[/]", definitions.Region ? "1" : "0");
             table.AddRow("[blue]Map Sections[/]", definitions.Sections.ToString());
             table.AddRow("[blue]Popup Themes[/]", definitions.Themes.ToString());
             table.AddRow("[blue]Popup Backgrounds[/]", definitions.PopupBackgrounds.ToString());
             table.AddRow("[blue]Popup Outlines[/]", definitions.PopupOutlines.ToString());
+            table.AddRow("[blue]Text Windows[/]", definitions.TextWindows.ToString());
+            table.AddRow("[blue]Field Effects[/]", definitions.FieldEffects.ToString());
+            table.AddRow("[blue]Door Animations[/]", definitions.DoorAnimations.ToString());
         }
 
         AnsiConsole.Write(table);

@@ -1,0 +1,17 @@
+{
+  "id": "base:script:movement/copy_player",
+  "name": "Copy Player Movement Script",
+  "description": "NPC copies the player's facing direction or movement",
+  "scriptPath": "Scripts/Movement/copy_player_behavior.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "copyMode",
+      "type": "string",
+      "defaultValue": "normal",
+      "description": "Copy mode: 'normal' (same direction), 'opposite' (face player), 'clockwise', 'counterclockwise'"
+    }
+  ]
+}
+

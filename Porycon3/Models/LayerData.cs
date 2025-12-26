@@ -28,6 +28,13 @@ public class LayerData
     public int[] Data { get; init; } = Array.Empty<int>();
 
     /// <summary>
+    /// Elevation level for this layer (0-15).
+    /// Determines rendering priority and collision behavior.
+    /// 0 = ground, 1-14 = specific levels, 15 = bridge.
+    /// </summary>
+    public int Elevation { get; init; } = 0;
+
+    /// <summary>
     /// Optional layer opacity (0.0 - 1.0).
     /// </summary>
     public float Opacity { get; init; } = 1.0f;

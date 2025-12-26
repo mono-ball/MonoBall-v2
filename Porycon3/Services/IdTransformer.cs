@@ -223,8 +223,58 @@ public static class IdTransformer
         "apricorn_tree", "birth_island_stone", "breakable_rock", "cable_car",
         "cuttable_tree", "fossil", "light", "mart_light", "moving_box",
         "mr_brineys_boat", "poke_center_light", "pushable_boulder",
-        "ss_tidal", "statue", "submarine_shadow", "truck",
-        "trick_house_statue", "vigoroth_carrying_box", "vigoroth_facing_away"
+        "ss_tidal", "statue", "submarine_shadow", "truck"
+        // Note: vigoroth sprites are in pokemon/ folder, not objects/misc
+    };
+
+    // Pokemon overworld sprites - maps OBJ_EVENT_GFX names to extracted sprite IDs
+    private static readonly Dictionary<string, string> PokemonSprites = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ["azumarill"] = "pokemon/azumarillold",
+        ["azurill"] = "pokemon/azurillold",
+        ["deoxys"] = "pokemon/deoxysold",
+        ["deoxys_triangle"] = "pokemon/deoxysold", // same sprite
+        ["dusclops"] = "pokemon/dusclopsold",
+        ["groudon"] = "pokemon/groudonfront",
+        ["groudon_front"] = "pokemon/groudonfront",
+        ["groudon_asleep"] = "pokemon/groudonside", // asleep uses side view sprite
+        ["groudon_side"] = "pokemon/groudonside",
+        ["ho_oh"] = "pokemon/hoohold",
+        ["hooh"] = "pokemon/hoohold",
+        ["kecleon"] = "pokemon/kecleonold",
+        ["kecleon_bridge_shadow"] = "pokemon/kecleonold", // same sprite
+        ["kirlia"] = "pokemon/kirliaold",
+        ["kyogre"] = "pokemon/kyogrefront",
+        ["kyogre_front"] = "pokemon/kyogrefront",
+        ["kyogre_asleep"] = "pokemon/kyogreside", // asleep uses side view sprite
+        ["kyogre_side"] = "pokemon/kyogreside",
+        ["lugia"] = "pokemon/lugiaold",
+        ["mew"] = "pokemon/mewold",
+        ["pikachu"] = "pokemon/pikachuold",
+        ["poochyena"] = "pokemon/poochyenaold",
+        ["rayquaza"] = "pokemon/rayquazacutscene",
+        ["rayquaza_cutscene"] = "pokemon/rayquazacutscene",
+        ["rayquaza_still"] = "pokemon/rayquazastill",
+        ["regice"] = "pokemon/regi", // all regis use same sprite
+        ["regirock"] = "pokemon/regi",
+        ["registeel"] = "pokemon/regi",
+        ["skitty"] = "pokemon/skittyold",
+        ["sudowoodo"] = "pokemon/sudowoodotree",
+        ["wingull"] = "pokemon/wingullold",
+        ["zigzagoon_1"] = "pokemon/zigzagoonold",
+        ["zigzagoon_2"] = "pokemon/enemyzigzagoon",
+        ["vigoroth_carrying_box"] = "pokemon/vigorothcarryingbox",
+        ["vigoroth_facing_away"] = "pokemon/vigorothfacingaway"
+    };
+
+    // Sprite aliases: some OBJ_EVENT_GFX names map to different sprite names
+    private static readonly Dictionary<string, string> SpriteAliases = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ["trick_house_statue"] = "objects/misc/statue",
+        ["rival_brendan_normal"] = "npcs/rubysapphirebrendan/rubysapphirebrendan",
+        ["rival_may_normal"] = "npcs/rubysapphiremay/rubysapphiremay",
+        ["mystery_gift_man"] = "npcs/mysteryeventdeliveryman",
+        ["union_room_nurse"] = "npcs/nurse"
     };
 
     // Variable sprite mappings: VAR_0 = rival, VAR_1 = player
@@ -252,6 +302,18 @@ public static class IdTransformer
             name = name[14..];
 
         name = Normalize(name);
+
+        // Check for sprite aliases first
+        if (SpriteAliases.TryGetValue(name, out var aliasPath))
+        {
+            return $"{Namespace}:sprite:{aliasPath}";
+        }
+
+        // Check for Pokemon overworld sprites
+        if (PokemonSprites.TryGetValue(name, out var pokemonPath))
+        {
+            return $"{Namespace}:sprite:{pokemonPath}";
+        }
 
         // Handle variable sprites (VAR_0 through VAR_F)
         // These are wrapped in curly braces to indicate runtime resolution

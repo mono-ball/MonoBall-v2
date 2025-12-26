@@ -226,8 +226,6 @@
       "interactionScript": "base:behavior:interaction/route101_event_script_youngster",
       "visibilityFlag": null,
       "direction": null,
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -240,8 +238,6 @@
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/route_101_birch_zigzagoon_battle",
       "direction": null,
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 0
     },
     {
@@ -254,8 +250,6 @@
       "interactionScript": "base:behavior:interaction/route101_event_script_birchs_bag",
       "visibilityFlag": "base:flag:visibility/route_101_birch_starters_bag",
       "direction": null,
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -268,8 +262,6 @@
       "interactionScript": null,
       "visibilityFlag": "base:flag:visibility/route_101_zigzagoon",
       "direction": null,
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 0
     },
     {
@@ -282,8 +274,6 @@
       "interactionScript": "base:behavior:interaction/prof_birch_event_script_rate_pokedex_or_register",
       "visibilityFlag": "base:flag:visibility/route_101_birch",
       "direction": null,
-      "rangeX": 0,
-      "rangeY": 0,
       "elevation": 3
     },
     {
@@ -293,11 +283,13 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/boy_2",
       "behaviorId": "base:behavior:movement/wander_horizontal",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
       "interactionScript": "base:behavior:interaction/route101_event_script_boy",
       "visibilityFlag": "base:flag:visibility/route_101_boy",
       "direction": null,
-      "rangeX": 1,
-      "rangeY": 1,
       "elevation": 3
     }
   ]

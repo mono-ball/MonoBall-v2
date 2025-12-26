@@ -162,6 +162,11 @@ namespace MonoBall.Core.Audio.Internal
                     _output = new PortAudioOutput(_mixer);
                     _output.Play();
                 }
+                else if (_output.PlaybackState != PlaybackState.Playing)
+                {
+                    // Output exists but is not playing - restart it
+                    _output.Play();
+                }
             }
         }
 
@@ -219,6 +224,11 @@ namespace MonoBall.Core.Audio.Internal
                 {
                     _mixer = new AudioMixer(format);
                     _output = new PortAudioOutput(_mixer);
+                    _output.Play();
+                }
+                else if (_output.PlaybackState != PlaybackState.Playing)
+                {
+                    // Output exists but is not playing - restart it
                     _output.Play();
                 }
 

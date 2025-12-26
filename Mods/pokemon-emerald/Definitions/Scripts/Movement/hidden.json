@@ -1,0 +1,10 @@
+{
+  "id": "base:script:movement/hidden",
+  "name": "Hidden Movement Script",
+  "description": "NPC is invisible and does not move or interact",
+  "scriptPath": "Scripts/Movement/hidden_behavior.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}
+
