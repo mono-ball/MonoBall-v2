@@ -11,6 +11,7 @@ using MonoBall.Core.Constants;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.UI.Windows.Animations;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -38,7 +39,7 @@ namespace MonoBall.Core.ECS.Systems
         // Cached query description for popup entities
         private readonly QueryDescription _popupQuery = new QueryDescription().WithAll<
             MapPopupComponent,
-            PopupAnimationComponent
+            WindowAnimationComponent
         >();
 
         /// <summary>
@@ -83,14 +84,21 @@ namespace MonoBall.Core.ECS.Systems
             int popupCount = 0;
             World.Query(
                 in _popupQuery,
-                (Entity entity, ref MapPopupComponent popup, ref PopupAnimationComponent anim) =>
+                (Entity entity, ref MapPopupComponent popup, ref WindowAnimationComponent anim) =>
                 {
+                    // Don't render if animation is completed (like old implementation)
+                    // This prevents rendering leftover pixels when animation finishes
+                    if (anim.State == WindowAnimationState.Completed)
+                    {
+                        return;
+                    }
+
                     popupCount++;
                     _logger.Debug(
-                        "Rendering popup entity {EntityId} for '{MapSectionName}' at Y={CurrentY}, State={State}",
+                        "Rendering popup entity {EntityId} for '{MapSectionName}' at Y={PositionOffsetY}, State={State}",
                         entity.Id,
                         popup.MapSectionName,
-                        anim.CurrentY,
+                        anim.PositionOffset.Y,
                         anim.State
                     );
                     RenderPopup(entity, ref popup, ref anim, camera);
@@ -112,7 +120,7 @@ namespace MonoBall.Core.ECS.Systems
         private void RenderPopup(
             Entity entity,
             ref MapPopupComponent popup,
-            ref PopupAnimationComponent anim,
+            ref WindowAnimationComponent anim,
             CameraComponent camera
         )
         {
@@ -160,11 +168,28 @@ namespace MonoBall.Core.ECS.Systems
             int bgHeight = _constants.Get<int>("PopupBackgroundHeight") * currentScale;
 
             // Calculate popup position in SCREEN SPACE (top-left corner)
-            // CurrentY is in screen space (0 = top of screen, negative = above screen)
+            // PositionOffset.Y is in world space (negative = above screen), scale it to screen space
             int scaledPadding = _constants.Get<int>("PopupScreenPadding") * currentScale;
             int popupX = scaledPadding; // Top-left corner
-            int scaledAnimationY = (int)MathF.Round(anim.CurrentY * currentScale);
+            int scaledAnimationY = (int)MathF.Round(anim.PositionOffset.Y * currentScale);
             int popupY = scaledAnimationY;
+
+            // Calculate total popup height (border on top + background + border on bottom)
+            int totalPopupHeight = (borderThickness * 2) + bgHeight;
+
+            // Skip rendering if popup is completely off-screen
+            // Check if bottom edge is above screen (completely off-screen above)
+            if (popupY + totalPopupHeight < 0)
+            {
+                return; // Popup is completely above the screen, don't render
+            }
+
+            // Check if top edge is below screen (completely off-screen below)
+            int viewportHeight = camera.Viewport.Height;
+            if (popupY > viewportHeight)
+            {
+                return; // Popup is completely below the screen, don't render
+            }
 
             // Background position (inside the border frame)
             int bgX = popupX + borderThickness;
@@ -412,8 +437,8 @@ namespace MonoBall.Core.ECS.Systems
             // Use LeftEdge array if available, otherwise fall back to LeftMiddle
             if (usage.LeftEdge != null && usage.LeftEdge.Count > 0)
             {
-                int popupInteriorTilesYLeft = _constants.Get<int>("PopupInteriorTilesY");
-                for (int i = 0; i < usage.LeftEdge.Count && i < popupInteriorTilesYLeft; i++)
+                int interiorTilesY = _constants.Get<int>("PopupInteriorTilesY");
+                for (int i = 0; i < usage.LeftEdge.Count && i < interiorTilesY; i++)
                 {
                     int tileIndex = usage.LeftEdge[i];
                     DrawTile(tileIndex, interiorX - tileW, interiorY + (i * tileH));
@@ -422,8 +447,8 @@ namespace MonoBall.Core.ECS.Systems
             else if (usage.LeftMiddle != 0)
             {
                 // Fallback to LeftMiddle for backwards compatibility
-                int popupInteriorTilesYLeftMiddle = _constants.Get<int>("PopupInteriorTilesY");
-                for (int i = 0; i < popupInteriorTilesYLeftMiddle; i++)
+                int interiorTilesY = _constants.Get<int>("PopupInteriorTilesY");
+                for (int i = 0; i < interiorTilesY; i++)
                 {
                     DrawTile(usage.LeftMiddle, interiorX - tileW, interiorY + (i * tileH));
                 }
@@ -433,13 +458,14 @@ namespace MonoBall.Core.ECS.Systems
             // Use RightEdge array if available, otherwise fall back to RightMiddle
             if (usage.RightEdge != null && usage.RightEdge.Count > 0)
             {
-                int popupInteriorTilesYRight = _constants.Get<int>("PopupInteriorTilesY");
-                for (int i = 0; i < usage.RightEdge.Count && i < popupInteriorTilesYRight; i++)
+                int interiorTilesY = _constants.Get<int>("PopupInteriorTilesY");
+                int interiorTilesX = _constants.Get<int>("PopupInteriorTilesX");
+                for (int i = 0; i < usage.RightEdge.Count && i < interiorTilesY; i++)
                 {
                     int tileIndex = usage.RightEdge[i];
                     DrawTile(
                         tileIndex,
-                        interiorX + (_constants.Get<int>("PopupInteriorTilesX") * tileW),
+                        interiorX + (interiorTilesX * tileW),
                         interiorY + (i * tileH)
                     );
                 }
@@ -447,12 +473,13 @@ namespace MonoBall.Core.ECS.Systems
             else if (usage.RightMiddle != 0)
             {
                 // Fallback to RightMiddle for backwards compatibility
-                int popupInteriorTilesY = _constants.Get<int>("PopupInteriorTilesY");
-                for (int i = 0; i < popupInteriorTilesY; i++)
+                int interiorTilesY = _constants.Get<int>("PopupInteriorTilesY");
+                int interiorTilesX = _constants.Get<int>("PopupInteriorTilesX");
+                for (int i = 0; i < interiorTilesY; i++)
                 {
                     DrawTile(
                         usage.RightMiddle,
-                        interiorX + (_constants.Get<int>("PopupInteriorTilesX") * tileW),
+                        interiorX + (interiorTilesX * tileW),
                         interiorY + (i * tileH)
                     );
                 }
@@ -460,11 +487,12 @@ namespace MonoBall.Core.ECS.Systems
 
             // Draw bottom edge (12 tiles from x-1 to x+10)
             // This includes the bottom-left and bottom-right corner tiles
+            int popupInteriorTilesY = _constants.Get<int>("PopupInteriorTilesY");
             for (int i = 0; i < usage.BottomEdge.Count && i < 12; i++)
             {
                 int tileIndex = usage.BottomEdge[i];
                 int tileX = interiorX + ((i - 1) * tileW);
-                int tileY = interiorY + (_constants.Get<int>("PopupInteriorTilesY") * tileH);
+                int tileY = interiorY + (popupInteriorTilesY * tileH);
                 DrawTile(tileIndex, tileX, tileY);
             }
         }
@@ -681,8 +709,17 @@ namespace MonoBall.Core.ECS.Systems
                 return null;
             }
 
-            // Get mod manifest
-            var modManifest = _modManager.GetModManifest(metadata.OriginalModId);
+            // Find mod manifest
+            ModManifest? modManifest = null;
+            foreach (var mod in _modManager.LoadedMods)
+            {
+                if (mod.Id == metadata.OriginalModId)
+                {
+                    modManifest = mod;
+                    break;
+                }
+            }
+
             if (modManifest == null)
             {
                 _logger.Warning(

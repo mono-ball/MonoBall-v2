@@ -18,6 +18,7 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes.Events;
 using MonoBall.Core.Scenes.Systems;
+using MonoBall.Core.UI.Windows.Animations;
 using Serilog;
 
 namespace MonoBall.Core.ECS
@@ -760,6 +761,15 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<SpriteSheetSystem>()
             );
             RegisterUpdateSystem(_spriteSheetSystem);
+
+            // Create window animation system
+            // Pass function to get SceneSystem (may be null initially, but will be set before first update)
+            var windowAnimationSystem = new WindowAnimationSystem(
+                _world,
+                LoggerFactory.CreateLogger<WindowAnimationSystem>(),
+                () => _sceneSystem // Function to get SceneSystem (null-safe)
+            );
+            RegisterUpdateSystem(windowAnimationSystem);
 
             // Create visibility flag system
             var flagVariableService = _game.Services.GetService<Services.IFlagVariableService>();

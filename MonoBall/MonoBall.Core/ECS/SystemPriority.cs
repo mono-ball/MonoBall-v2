@@ -32,6 +32,7 @@ namespace MonoBall.Core.ECS
         public const int AnimatedTile = 100;
         public const int SpriteAnimation = 110;
         public const int SpriteSheet = 120;
+        public const int WindowAnimation = 125;
 
         // Visibility and flags
         public const int VisibilityFlag = 130;

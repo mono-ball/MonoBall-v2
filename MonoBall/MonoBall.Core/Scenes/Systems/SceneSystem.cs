@@ -673,9 +673,10 @@ namespace MonoBall.Core.Scenes.Systems
 
         /// <summary>
         /// Checks if any active scene has BlocksUpdate=true.
+        /// Public method for external systems to check if updates are blocked.
         /// </summary>
         /// <returns>True if updates are blocked, false otherwise.</returns>
-        private bool IsUpdateBlocked()
+        public bool IsUpdateBlocked()
         {
             foreach (var sceneEntity in _sceneStack)
             {
@@ -694,6 +695,103 @@ namespace MonoBall.Core.Scenes.Systems
                     return true;
                 }
             }
+            return false;
+        }
+
+        /// <summary>
+        /// Gets the list of scene entities that are currently blocking updates.
+        /// Used by systems that need to selectively update entities belonging to blocking scenes.
+        /// </summary>
+        /// <returns>A list of scene entities that have BlocksUpdate=true and are active.</returns>
+        public List<Entity> GetBlockingScenes()
+        {
+            var blockingScenes = new List<Entity>();
+            foreach (var sceneEntity in _sceneStack)
+            {
+                if (!World.IsAlive(sceneEntity))
+                {
+                    continue;
+                }
+
+                ref var sceneComponent = ref World.Get<SceneComponent>(sceneEntity);
+                if (
+                    sceneComponent.IsActive
+                    && !sceneComponent.IsPaused
+                    && sceneComponent.BlocksUpdate
+                )
+                {
+                    blockingScenes.Add(sceneEntity);
+                }
+            }
+            return blockingScenes;
+        }
+
+        /// <summary>
+        /// Checks if an entity belongs to one of the currently blocking scenes.
+        /// Centralizes scene membership logic to avoid hardcoding component types in systems.
+        /// </summary>
+        /// <param name="entity">The entity to check.</param>
+        /// <returns>True if the entity belongs to a blocking scene, false otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// This method checks multiple ways an entity can belong to a scene:
+        /// 1. Entity IS a blocking scene (e.g., message box windows where window entity = scene entity)
+        /// 2. Entity has SceneOwnershipComponent linking it to a blocking scene
+        /// 3. Legacy: Entity has MapPopupComponent with SceneEntity property (for backward compatibility)
+        /// </para>
+        /// <para>
+        /// Systems should use this method instead of hardcoding scene membership checks.
+        /// </para>
+        /// </remarks>
+        public bool DoesEntityBelongToBlockingScene(Entity entity)
+        {
+            if (!World.IsAlive(entity))
+            {
+                return false;
+            }
+
+            // Get list of blocking scenes once
+            var blockingScenes = GetBlockingScenes();
+            if (blockingScenes.Count == 0)
+            {
+                return false; // No blocking scenes, entity doesn't belong to any
+            }
+
+            // Check if entity IS a blocking scene (for message boxes, window entity = scene entity)
+            foreach (var blockingScene in blockingScenes)
+            {
+                if (entity.Id == blockingScene.Id)
+                {
+                    return true;
+                }
+            }
+
+            // Check if entity has SceneOwnershipComponent (preferred, explicit ownership)
+            if (World.Has<SceneOwnershipComponent>(entity))
+            {
+                ref var ownership = ref World.Get<SceneOwnershipComponent>(entity);
+                foreach (var blockingScene in blockingScenes)
+                {
+                    if (ownership.SceneEntity.Id == blockingScene.Id)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Legacy: Check MapPopupComponent.SceneEntity (for backward compatibility during migration)
+            if (World.Has<ECS.Components.MapPopupComponent>(entity))
+            {
+                ref var popupComponent = ref World.Get<ECS.Components.MapPopupComponent>(entity);
+                foreach (var blockingScene in blockingScenes)
+                {
+                    if (popupComponent.SceneEntity.Id == blockingScene.Id)
+                    {
+                        return true;
+                    }
+                }
+            }
+
             return false;
         }
 

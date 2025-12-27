@@ -21,6 +21,7 @@ public class SpeciesExtractor
     private readonly string _formChangeTablesPath;
     private readonly string _outputData;
     private readonly string _spriteDefinitionsPath;
+    private readonly string _criesPath;
 
     // Form change data: maps species name to (item, change type)
     private Dictionary<string, (string? Item, string ChangeType)> _formChangeData = new();
@@ -94,6 +95,7 @@ public class SpeciesExtractor
         _formChangeTablesPath = Path.Combine(inputPath, "src", "data", "pokemon", "form_change_tables.h");
         _outputData = Path.Combine(outputPath, "Definitions", "Entities", "Pokemon");
         _spriteDefinitionsPath = Path.Combine(outputPath, "Definitions", "Assets", "Pokemon");
+        _criesPath = Path.Combine(outputPath, "Audio", "SFX", "Cries");
     }
 
     /// <summary>
@@ -844,7 +846,10 @@ public class SpeciesExtractor
         species.Sprites = sprites;
         species.HasGenderDifferences = hasGenderDifferences ? true : null;
 
-        // Generate sprite references for forms
+        // Resolve cry ID for base species
+        species.CryId = ResolveCryId(pascalName, null);
+
+        // Generate sprite references and cry IDs for forms
         if (species.Forms != null)
         {
             foreach (var form in species.Forms)
@@ -855,6 +860,9 @@ public class SpeciesExtractor
                 var (formSprites, formHasGenderDifferences) = GenerateSpriteReferences(pascalName, formSuffix);
                 form.Sprites = formSprites;
                 form.HasGenderDifferences = formHasGenderDifferences ? true : null;
+
+                // Resolve cry ID for form (will fallback to base if no form-specific cry)
+                form.CryId = ResolveCryId(pascalName, formSuffix);
             }
         }
 
@@ -903,6 +911,46 @@ public class SpeciesExtractor
         return string.Join("", name.Split('-').Select(p => char.ToUpper(p[0]) + p.Substring(1).ToLower()));
     }
 
+    /// <summary>
+    /// Resolve the cry ID for a Pokemon, checking if the cry file exists.
+    /// </summary>
+    private string? ResolveCryId(string pascalPokemon, string? formSuffix)
+    {
+        if (!string.IsNullOrEmpty(formSuffix))
+        {
+            // Check if form-specific cry exists (e.g., CharizardMegaX.wav)
+            var formCryPath = Path.Combine(_criesPath, $"{pascalPokemon}{formSuffix}.wav");
+            if (File.Exists(formCryPath))
+            {
+                var kebabName = ToKebabCase($"{pascalPokemon}{formSuffix}");
+                return $"base:audio:sfx/cries/{kebabName}";
+            }
+        }
+
+        // Check if base Pokemon cry exists
+        var baseCryPath = Path.Combine(_criesPath, $"{pascalPokemon}.wav");
+        if (File.Exists(baseCryPath))
+        {
+            var kebabBaseName = ToKebabCase(pascalPokemon);
+            return $"base:audio:sfx/cries/{kebabBaseName}";
+        }
+
+        return null;
+    }
+
+    private static string ToKebabCase(string pascalName)
+    {
+        var result = new System.Text.StringBuilder();
+        for (var i = 0; i < pascalName.Length; i++)
+        {
+            var c = pascalName[i];
+            if (i > 0 && char.IsUpper(c))
+                result.Append('-');
+            result.Append(char.ToLowerInvariant(c));
+        }
+        return result.ToString();
+    }
+
     #region Data Classes
 
     private class LevelUpMove
@@ -915,6 +963,7 @@ public class SpeciesExtractor
     {
         public string? Id { get; set; }
         public string? Name { get; set; }
+        public string? CryId { get; set; }
         public BaseStats? BaseStats { get; set; }
         public List<string>? Types { get; set; }
         public int? CatchRate { get; set; }
@@ -994,6 +1043,7 @@ public class SpeciesExtractor
     {
         public string? Id { get; set; }  // "base:pokemon_form:venusaur/mega"
         public string? Name { get; set; }  // "Mega Venusaur"
+        public string? CryId { get; set; }  // "base:audio:sfx/cries/venusaur-mega"
         public string? FormKey { get; set; }  // "mega"
         public BaseStats? BaseStats { get; set; }
         public List<string>? Types { get; set; }

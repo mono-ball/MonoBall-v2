@@ -14,6 +14,7 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.UI.Windows.Animations;
 using Serilog;
 
 namespace MonoBall.Core.Scenes.Systems
@@ -60,7 +61,7 @@ namespace MonoBall.Core.Scenes.Systems
 
         private readonly QueryDescription _popupQuery = new QueryDescription().WithAll<
             MapPopupComponent,
-            PopupAnimationComponent
+            WindowAnimationComponent
         >();
 
         private readonly QueryDescription _cameraQuery =
@@ -103,88 +104,8 @@ namespace MonoBall.Core.Scenes.Systems
             EventBus.Subscribe<MapPopupHideEvent>(OnMapPopupHide);
         }
 
-        /// <summary>
-        /// Updates popup animation states.
-        /// Queries for popup entities (not scene entities) and updates their animation components.
-        /// </summary>
-        /// <param name="deltaTime">The elapsed time since last update.</param>
-        public override void Update(in float deltaTime)
-        {
-            // Copy in parameter to local variable for use in lambda (cannot capture in parameters)
-            float dt = deltaTime;
-            World.Query(
-                in _popupQuery,
-                (Entity entity, ref PopupAnimationComponent anim) =>
-                {
-                    // Ensure popup starts off-screen if animation hasn't started yet
-                    // This handles the case where popup is created and rendered in the same frame
-                    if (anim.State == PopupAnimationState.SlidingDown && anim.ElapsedTime == 0f)
-                    {
-                        anim.CurrentY = -anim.PopupHeight; // Ensure off-screen position
-                    }
-
-                    anim.ElapsedTime += dt;
-
-                    switch (anim.State)
-                    {
-                        case PopupAnimationState.SlidingDown:
-                        {
-                            float progress = anim.ElapsedTime / anim.SlideDownDuration;
-                            if (progress >= 1.0f)
-                            {
-                                anim.CurrentY = 0f; // Fully visible
-                                anim.State = PopupAnimationState.Paused;
-                                anim.ElapsedTime = 0f;
-                            }
-                            else
-                            {
-                                // Ease-out interpolation for smooth animation (slides DOWN from top)
-                                float easedProgress = 1f - MathF.Pow(1f - progress, 3f); // Cubic ease-out
-                                anim.CurrentY = MathHelper.Lerp(
-                                    -anim.PopupHeight,
-                                    0f,
-                                    easedProgress
-                                );
-                            }
-                            break;
-                        }
-
-                        case PopupAnimationState.Paused:
-                        {
-                            if (anim.ElapsedTime >= anim.PauseDuration)
-                            {
-                                anim.State = PopupAnimationState.SlidingUp;
-                                anim.ElapsedTime = 0f;
-                            }
-                            break;
-                        }
-
-                        case PopupAnimationState.SlidingUp:
-                        {
-                            float progress = anim.ElapsedTime / anim.SlideUpDuration;
-                            if (progress >= 1.0f)
-                            {
-                                anim.CurrentY = -anim.PopupHeight; // Off-screen above
-                                // Fire MapPopupHideEvent
-                                var hideEvent = new MapPopupHideEvent { PopupEntity = entity };
-                                EventBus.Send(ref hideEvent);
-                            }
-                            else
-                            {
-                                // Ease-in interpolation for smooth animation (slides UP to top)
-                                float easedProgress = progress * progress * progress; // Cubic ease-in
-                                anim.CurrentY = MathHelper.Lerp(
-                                    0f,
-                                    -anim.PopupHeight,
-                                    easedProgress
-                                );
-                            }
-                            break;
-                        }
-                    }
-                }
-            );
-        }
+        // Note: Animation updates are now handled by WindowAnimationSystem.
+        // This system only handles rendering and scene lifecycle.
 
         /// <summary>
         /// Updates a specific map popup scene entity.
@@ -314,18 +235,37 @@ namespace MonoBall.Core.Scenes.Systems
                 SceneEntity = popupSceneEntity, // Store scene entity reference
             };
 
-            var animationComponent = new PopupAnimationComponent
+            // Create window animation component using helper
+            var animationConfig = WindowAnimationHelper.CreateSlideDownUpAnimation(
+                slideDownDuration: 0.4f, // GBA-accurate slide in duration
+                pauseDuration: 2.5f, // GBA-accurate display duration
+                slideUpDuration: 0.4f, // GBA-accurate slide out duration
+                windowHeight: popupHeight,
+                destroyOnComplete: true
+            );
+
+            // Create entity first, then set WindowEntity reference
+            _currentPopupEntity = World.Create(popupComponent);
+
+            // Add explicit scene ownership component for queryable scene membership
+            World.Add(
+                _currentPopupEntity.Value,
+                new SceneOwnershipComponent { SceneEntity = popupSceneEntity }
+            );
+
+            var windowAnim = new WindowAnimationComponent
             {
-                State = PopupAnimationState.SlidingDown,
-                ElapsedTime = 0f, // Start at 0 - will be incremented in first Update() call
-                SlideDownDuration = 0.4f, // GBA-accurate slide in duration
-                PauseDuration = 2.5f, // GBA-accurate display duration
-                SlideUpDuration = 0.4f, // GBA-accurate slide out duration
-                PopupHeight = popupHeight,
-                CurrentY = -popupHeight, // Start above screen - ensures popup is off-screen when first rendered
+                State = WindowAnimationState.NotStarted,
+                ElapsedTime = 0f,
+                Config = animationConfig,
+                PositionOffset = new Vector2(0, -popupHeight), // Start off-screen
+                Scale = 1.0f,
+                Opacity = 1.0f,
+                WindowEntity = _currentPopupEntity.Value, // Set to popup entity itself
             };
 
-            _currentPopupEntity = World.Create(popupComponent, animationComponent);
+            // Add animation component to the entity
+            World.Add(_currentPopupEntity.Value, windowAnim);
 
             _logger.Information(
                 "Created popup entity {PopupEntityId} and scene entity {SceneEntityId} for {MapSectionName} (height: {Height})",
@@ -561,17 +501,23 @@ namespace MonoBall.Core.Scenes.Systems
             int popupCount = 0;
             World.Query(
                 in _popupQuery,
-                (Entity entity, ref MapPopupComponent popup, ref PopupAnimationComponent anim) =>
+                (Entity entity, ref MapPopupComponent popup, ref WindowAnimationComponent anim) =>
                 {
                     // Only render popups that belong to this scene
                     if (popup.SceneEntity.Id == sceneEntity.Id)
                     {
+                        // Don't render if animation is completed (like old implementation)
+                        // This prevents rendering leftover pixels when animation finishes
+                        if (anim.State == WindowAnimationState.Completed)
+                        {
+                            return;
+                        }
+
                         popupCount++;
                         _logger.Debug(
-                            "Rendering popup entity {EntityId} for '{MapSectionName}' at Y={CurrentY}, State={State}",
+                            "Rendering popup entity {EntityId} for '{MapSectionName}', State={State}",
                             entity.Id,
                             popup.MapSectionName,
-                            anim.CurrentY,
                             anim.State
                         );
                         RenderPopup(entity, ref popup, ref anim, camera);
@@ -594,7 +540,7 @@ namespace MonoBall.Core.Scenes.Systems
         private void RenderPopup(
             Entity entity,
             ref MapPopupComponent popup,
-            ref PopupAnimationComponent anim,
+            ref WindowAnimationComponent anim,
             CameraComponent camera
         )
         {
@@ -642,11 +588,29 @@ namespace MonoBall.Core.Scenes.Systems
             int bgHeight = _constants.Get<int>("PopupBackgroundHeight") * currentScale;
 
             // Calculate popup position in SCREEN SPACE (top-left corner)
-            // CurrentY is in screen space (0 = top of screen, negative = above screen)
+            // Calculate base position without animation offset - apply PositionOffset from animation
+            // PositionOffset is in world space, so scale it to screen space
             int scaledPadding = _constants.Get<int>("PopupScreenPadding") * currentScale;
             int popupX = scaledPadding; // Top-left corner
-            int scaledAnimationY = (int)MathF.Round(anim.CurrentY * currentScale);
-            int popupY = scaledAnimationY;
+            int scaledPositionOffsetY = (int)MathF.Round(anim.PositionOffset.Y * currentScale);
+            int popupY = scaledPositionOffsetY; // Base Y position (0) + scaled PositionOffset
+
+            // Calculate total popup height (border on top + background + border on bottom)
+            int totalPopupHeight = (borderThickness * 2) + bgHeight;
+
+            // Skip rendering if popup is completely off-screen
+            // Check if bottom edge is above screen (completely off-screen above)
+            if (popupY + totalPopupHeight < 0)
+            {
+                return; // Popup is completely above the screen, don't render
+            }
+
+            // Check if top edge is below screen (completely off-screen below)
+            int viewportHeight = camera.Viewport.Height;
+            if (popupY > viewportHeight)
+            {
+                return; // Popup is completely below the screen, don't render
+            }
 
             // Background position (inside the border frame)
             int bgX = popupX + borderThickness;

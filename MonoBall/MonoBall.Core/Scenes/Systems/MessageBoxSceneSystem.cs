@@ -13,6 +13,10 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.UI.Windows;
+using MonoBall.Core.UI.Windows.Backgrounds;
+using MonoBall.Core.UI.Windows.Borders;
+using MonoBall.Core.UI.Windows.Content;
 using Serilog;
 
 namespace MonoBall.Core.Scenes.Systems
@@ -1457,25 +1461,66 @@ namespace MonoBall.Core.Scenes.Systems
                 int msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
                 int msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
 
-                // Render dialogue frame (matches pokeemerald-expansion DrawDialogueFrame)
-                DrawDialogueFrame(
+                // Calculate scaled font size
+                int scaledFontSize = _constants.Get<int>("DefaultFontSize") * currentScale;
+
+                // Create renderers
+                var borderRenderer = new MessageBoxDialogueFrameBorderRenderer(
                     tilesheetTexture,
                     tilesheetDef,
-                    msgBoxInteriorX,
-                    msgBoxInteriorY,
-                    msgBoxInteriorWidth,
-                    msgBoxInteriorHeight,
-                    tileSize
+                    tileSize,
+                    _constants,
+                    _logger
                 );
 
-                // Render text (inside the interior area)
-                RenderText(
+                var backgroundRenderer = new TileSheetBackgroundRenderer(
+                    tilesheetTexture,
+                    tilesheetDef,
+                    tileSize,
+                    0, // Background tile index
+                    _constants
+                );
+
+                var contentRenderer = new MessageBoxContentRenderer(
+                    _fontService,
+                    scaledFontSize,
+                    currentScale,
+                    _constants,
+                    _logger
+                );
+
+                // Render background
+                if (backgroundRenderer != null)
+                {
+                    backgroundRenderer.RenderBackground(
+                        _spriteBatch,
+                        msgBoxInteriorX,
+                        msgBoxInteriorY,
+                        msgBoxInteriorWidth,
+                        msgBoxInteriorHeight
+                    );
+                }
+
+                // Render border around interior
+                if (borderRenderer != null)
+                {
+                    borderRenderer.RenderBorder(
+                        _spriteBatch,
+                        msgBoxInteriorX,
+                        msgBoxInteriorY,
+                        msgBoxInteriorWidth,
+                        msgBoxInteriorHeight
+                    );
+                }
+
+                // Render content (message box content renderer uses specialized interface)
+                contentRenderer.RenderContent(
+                    _spriteBatch,
                     ref msgBox,
                     msgBoxInteriorX,
                     msgBoxInteriorY,
                     msgBoxInteriorWidth,
-                    msgBoxInteriorHeight,
-                    currentScale
+                    msgBoxInteriorHeight
                 );
 
                 // Render down arrow indicator if waiting for input
@@ -1608,350 +1653,6 @@ namespace MonoBall.Core.Scenes.Systems
                 );
                 return null;
             }
-        }
-
-        /// <summary>
-        /// Draws the dialogue frame for the message box, matching pokeemerald-expansion's DrawDialogueFrame.
-        /// This uses a custom decorative frame pattern, not a standard 9-slice.
-        /// </summary>
-        /// <param name="texture">The tilesheet texture.</param>
-        /// <param name="tilesheetDef">The tilesheet definition.</param>
-        /// <param name="x">The X position of the message box interior (where text will be).</param>
-        /// <param name="y">The Y position of the message box interior (where text will be).</param>
-        /// <param name="width">The width of the message box interior.</param>
-        /// <param name="height">The height of the message box interior.</param>
-        /// <param name="tileSize">The scaled tile size.</param>
-        private void DrawDialogueFrame(
-            Texture2D texture,
-            PopupOutlineDefinition tilesheetDef,
-            int x,
-            int y,
-            int width,
-            int height,
-            int tileSize
-        )
-        {
-            if (tilesheetDef.Tiles == null || tilesheetDef.Tiles.Count == 0)
-            {
-                _logger.Warning("Tilesheet has no tiles array");
-                return;
-            }
-
-            // Build tile lookup by index
-            var tileLookup = new System.Collections.Generic.Dictionary<int, PopupTileDefinition>();
-            foreach (var tile in tilesheetDef.Tiles)
-            {
-                if (tile != null && !tileLookup.ContainsKey(tile.Index))
-                {
-                    tileLookup[tile.Index] = tile;
-                }
-            }
-
-            // Helper to get source rectangle for a tile by index
-            Rectangle GetTileSourceRect(int tileIndex)
-            {
-                if (tileLookup.TryGetValue(tileIndex, out var tile))
-                {
-                    return new Rectangle(tile.X, tile.Y, tile.Width, tile.Height);
-                }
-                else
-                {
-                    // Calculate from grid position if not in Tiles array
-                    int tileWidth = tilesheetDef.TileWidth;
-                    int tileHeight = tilesheetDef.TileHeight;
-                    int columns =
-                        tilesheetDef.TileCount > 0
-                            ? (int)Math.Sqrt(tilesheetDef.TileCount)
-                            : _constants.Get<int>("DefaultTilesheetColumns");
-                    int row = tileIndex / columns;
-                    int col = tileIndex % columns;
-                    int tileX = col * tileWidth;
-                    int tileY = row * tileHeight;
-                    return new Rectangle(tileX, tileY, tileWidth, tileHeight);
-                }
-            }
-
-            // Helper to draw a tile by index
-            void DrawTile(int tileIndex, int destX, int destY)
-            {
-                var srcRect = GetTileSourceRect(tileIndex);
-                var destRect = new Rectangle(destX, destY, tileSize, tileSize);
-                _spriteBatch.Draw(texture, destRect, srcRect, Color.White);
-            }
-
-            // Helper to draw a tile flipped vertically (for bottom row)
-            // Note: MonoGame SpriteBatch doesn't support negative height, so we use SpriteEffects
-            void DrawTileFlippedV(int tileIndex, int destX, int destY)
-            {
-                var srcRect = GetTileSourceRect(tileIndex);
-                var destRect = new Rectangle(destX, destY, tileSize, tileSize);
-                _spriteBatch.Draw(
-                    texture,
-                    destRect,
-                    srcRect,
-                    Color.White,
-                    0f,
-                    Vector2.Zero,
-                    SpriteEffects.FlipVertically,
-                    0f
-                );
-            }
-
-            // Match pokeemerald-expansion's DrawDialogueFrame pattern exactly
-            // Frame extends outside the interior bounds (x-2*tileSize, x-tileSize, x+width, etc.)
-            // Top row: tiles 1, 3, 4 (repeated), 5, 6
-            // Middle: tiles 7, 9 (repeated), 10
-            // Bottom row: tiles 1, 3, 4 (repeated), 5, 6 (vertically flipped)
-
-            int interiorX = x;
-            int interiorY = y;
-            int interiorWidth = width;
-            int interiorHeight = height;
-
-            // Top row (at y - tileSize)
-            int topY = interiorY - tileSize;
-            DrawTile(1, interiorX - (2 * tileSize), topY); // Left decorative corner
-            DrawTile(3, interiorX - tileSize, topY); // Left edge
-            // Top edge tile 4 repeated for width-1
-            for (int i = 0; i < interiorWidth - tileSize; i += tileSize)
-            {
-                DrawTile(4, interiorX + i, topY);
-            }
-            DrawTile(5, interiorX + interiorWidth - tileSize, topY); // Right edge
-            DrawTile(6, interiorX + interiorWidth, topY); // Right decorative corner
-
-            // Middle section (at y, height matches interior height)
-            // Note: In pokeemerald-expansion, the middle section is drawn with height=5 in FillBgTilemapBufferRect,
-            // but the actual visible height should match the interior (4 tiles) because the bottom row
-            // is drawn at tilemapTop + height (4 tiles), which overwrites the 5th tile.
-            // To avoid rendering issues, we draw the middle section only as tall as the interior,
-            // then draw the bottom row immediately after.
-            int middleHeight = interiorHeight; // Match interior height (4 tiles), not 5
-            // Left edge tile 7
-            for (int i = 0; i < middleHeight; i += tileSize)
-            {
-                DrawTile(7, interiorX - (2 * tileSize), interiorY + i);
-            }
-            // Center fill tile 9 repeated
-            for (int i = 0; i < interiorWidth + tileSize; i += tileSize)
-            {
-                for (int j = 0; j < middleHeight; j += tileSize)
-                {
-                    DrawTile(9, interiorX - tileSize + i, interiorY + j);
-                }
-            }
-            // Right edge tile 10
-            for (int i = 0; i < middleHeight; i += tileSize)
-            {
-                DrawTile(10, interiorX + interiorWidth, interiorY + i);
-            }
-
-            // Bottom row (at tilemapTop + height, where height=4 is the interior height)
-            // This matches pokeemerald-expansion exactly: bottom row is drawn at tilemapTop + height (4 tiles)
-            int bottomY = interiorY + interiorHeight;
-            DrawTileFlippedV(1, interiorX - (2 * tileSize), bottomY); // Left decorative corner (flipped)
-            DrawTileFlippedV(3, interiorX - tileSize, bottomY); // Left edge (flipped)
-            // Bottom edge tile 4 repeated for width-1 (flipped)
-            for (int i = 0; i < interiorWidth - tileSize; i += tileSize)
-            {
-                DrawTileFlippedV(4, interiorX + i, bottomY);
-            }
-            DrawTileFlippedV(5, interiorX + interiorWidth - tileSize, bottomY); // Right edge (flipped)
-            DrawTileFlippedV(6, interiorX + interiorWidth, bottomY); // Right decorative corner (flipped)
-
-            // Fill interior with tile 0 (background fill, matching rbox_fill_rectangle)
-            // This fills the entire interior area where text will be rendered
-            for (int i = 0; i < interiorWidth; i += tileSize)
-            {
-                for (int j = 0; j < interiorHeight; j += tileSize)
-                {
-                    DrawTile(0, interiorX + i, interiorY + j);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Renders the text content of the message box.
-        /// </summary>
-        /// <param name="msgBox">The message box component.</param>
-        /// <param name="msgBoxX">The X position of the message box.</param>
-        /// <param name="msgBoxY">The Y position of the message box.</param>
-        /// <param name="msgBoxWidth">The width of the message box.</param>
-        /// <param name="msgBoxHeight">The height of the message box.</param>
-        /// <param name="scale">The viewport scale factor.</param>
-        private void RenderText(
-            ref MessageBoxComponent msgBox,
-            int msgBoxX,
-            int msgBoxY,
-            int msgBoxWidth,
-            int msgBoxHeight,
-            int scale
-        )
-        {
-            // Get font
-            var fontSystem = _fontService.GetFontSystem(msgBox.FontId);
-            if (fontSystem == null)
-            {
-                _logger.Warning("Font '{FontId}' not found, cannot render text", msgBox.FontId);
-                return;
-            }
-
-            // Use scaled font size
-            int fontSize = _constants.Get<int>("DefaultFontSize") * scale;
-            var font = fontSystem.GetFont(fontSize);
-            if (font == null)
-            {
-                _logger.Warning("Failed to get scaled font, cannot render text");
-                return;
-            }
-
-            // Text padding from frame edges (Pokemon uses 1px top, 0px horizontal)
-            int textPaddingX = _constants.Get<int>("TextPaddingX") * scale;
-            int textPaddingY = _constants.Get<int>("TextPaddingTop") * scale;
-            int textStartX = msgBoxX + textPaddingX;
-            int textStartY = msgBoxY + textPaddingY;
-
-            // Render wrapped lines up to CurrentCharIndex, starting from PageStartLine
-            if (msgBox.WrappedLines == null || msgBox.WrappedLines.Count == 0)
-            {
-                return;
-            }
-
-            // Calculate scroll offset in scaled pixels (applied during scroll animation)
-            int scrollOffsetPixels = (int)(msgBox.ScrollOffset * scale);
-
-            int lineY = textStartY - scrollOffsetPixels; // Apply scroll offset
-            // Line advance = extra spacing + font height (fontSize is already scaled)
-            int lineSpacing = (msgBox.LineSpacing * scale) + fontSize;
-            int lineIndex = 0; // Track which line number we're on
-            int linesRendered = 0; // Track how many lines we've rendered on this page
-
-            // Calculate visible bounds for clipping during scroll animation
-            int visibleTop = msgBoxY;
-            int visibleBottom = msgBoxY + msgBoxHeight;
-
-            // During scroll animation, render one extra line that's scrolling into view
-            int maxLinesToRender = _maxVisibleLines;
-            if (msgBox.State == MessageBoxRenderState.Scrolling)
-            {
-                maxLinesToRender++; // Render one extra line scrolling in from bottom
-            }
-
-            foreach (var line in msgBox.WrappedLines)
-            {
-                // Skip lines before PageStartLine (previous pages)
-                if (lineIndex < msgBox.PageStartLine)
-                {
-                    lineIndex++;
-                    continue;
-                }
-
-                // Stop if we've rendered max lines for current state
-                if (linesRendered >= maxLinesToRender)
-                {
-                    break;
-                }
-
-                // Rendering logic:
-                // - Lines that end with newline have EndIndex = last char index + 1 (includes newline)
-                // - The last line (no trailing newline) has EndIndex = last char index
-                // - CurrentCharIndex advances for both Char and Newline tokens
-
-                if (msgBox.CurrentCharIndex >= line.EndIndex)
-                {
-                    // Render complete line (processed all visible characters in this line)
-                    // Only render if line is within visible bounds (for scroll clipping)
-                    bool lineVisible = lineY >= visibleTop && lineY < visibleBottom;
-                    if (!string.IsNullOrEmpty(line.Text) && lineVisible)
-                    {
-                        RenderTextLine(
-                            font,
-                            line.Text,
-                            textStartX,
-                            lineY,
-                            msgBox.TextColor,
-                            msgBox.ShadowColor,
-                            scale
-                        );
-                    }
-                    // Move to next line position (even for empty/clipped lines - preserves spacing)
-                    lineY += lineSpacing;
-                    lineIndex++;
-                    linesRendered++;
-                }
-                else if (msgBox.CurrentCharIndex > line.StartIndex)
-                {
-                    // Render partial line (currently being printed)
-                    // Only render if line is within visible bounds (for scroll clipping)
-                    bool lineVisible = lineY >= visibleTop && lineY < visibleBottom;
-                    int substringLength = msgBox.CurrentCharIndex - line.StartIndex;
-                    substringLength = Math.Min(substringLength, line.Text.Length);
-                    if (substringLength > 0 && lineVisible)
-                    {
-                        string partialText = line.Text.Substring(0, substringLength);
-                        RenderTextLine(
-                            font,
-                            partialText,
-                            textStartX,
-                            lineY,
-                            msgBox.TextColor,
-                            msgBox.ShadowColor,
-                            scale
-                        );
-                    }
-                    // Don't render lines after this one (they haven't been reached yet)
-                    break;
-                }
-                else if (
-                    msgBox.CurrentCharIndex == line.StartIndex
-                    && string.IsNullOrEmpty(line.Text)
-                )
-                {
-                    // Empty line at exact current position (consecutive newlines)
-                    lineY += lineSpacing;
-                    lineIndex++;
-                    linesRendered++;
-                    continue;
-                }
-                else
-                {
-                    // Line hasn't been reached yet - stop rendering
-                    break;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Renders a single line of text with shadow.
-        /// </summary>
-        /// <param name="font">The font to use.</param>
-        /// <param name="text">The text to render.</param>
-        /// <param name="x">The X position.</param>
-        /// <param name="y">The Y position.</param>
-        /// <param name="textColor">The text color.</param>
-        /// <param name="shadowColor">The shadow color.</param>
-        /// <param name="scale">The viewport scale for shadow offset.</param>
-        private void RenderTextLine(
-            FontStashSharp.DynamicSpriteFont font,
-            string text,
-            int x,
-            int y,
-            Color textColor,
-            Color shadowColor,
-            int scale
-        )
-        {
-            // Render shadow first (offset scales with viewport, matching map popup style)
-            int shadowOffset = _constants.Get<int>("PopupShadowOffsetY") * scale;
-            font.DrawText(
-                _spriteBatch,
-                text,
-                new Vector2(x + shadowOffset, y + shadowOffset),
-                shadowColor
-            );
-
-            // Render main text on top
-            font.DrawText(_spriteBatch, text, new Vector2(x, y), textColor);
         }
 
         /// <summary>

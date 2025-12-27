@@ -47,11 +47,8 @@ public class MidiToOggConverter
             var midiFile = new MidiFile(midiPath);
             var sequencer = new MidiFileSequencer(_synthesizer);
 
-            // Calculate total length - just render to end of song (or loop end + small fade)
+            // Calculate total length - render to end of song
             var totalSeconds = midiFile.Length.TotalSeconds;
-
-            // Add a small fade-out buffer (0.5 seconds) for note release
-            totalSeconds += 0.5;
 
             var totalSamples = (int)(totalSeconds * _sampleRate);
             var leftBuffer = new float[totalSamples];
@@ -322,13 +319,6 @@ public class MidiToOggConverter
         {
             return false;
         }
-    }
-
-    private void WriteLoopInfoJson(string wavPath, int loopStart, int loopEnd)
-    {
-        var jsonPath = Path.ChangeExtension(wavPath, ".loop.json");
-        var json = $"{{\"loopStart\":{loopStart},\"loopEnd\":{loopEnd},\"sampleRate\":{_sampleRate}}}";
-        File.WriteAllText(jsonPath, json);
     }
 
     private static int ReadBigEndianInt32(BinaryReader br)
