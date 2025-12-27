@@ -3,6 +3,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
@@ -35,6 +36,33 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
         private readonly ILogger _logger;
+        private readonly IConstantsService _constants;
+
+        // Cached constants (performance optimization - avoid lookups in Update/Render loops)
+        private readonly int _scenePriorityOffset;
+        private readonly string _defaultFontId;
+        private readonly string _messageBoxTilesheetId;
+        private readonly int _defaultLineSpacing;
+        private readonly string _textSpeedVariableName;
+        private readonly string _defaultTextSpeed;
+        private readonly float _textSpeedSlowSeconds;
+        private readonly float _textSpeedMediumSeconds;
+        private readonly float _textSpeedFastSeconds;
+        private readonly float _textSpeedInstantSeconds;
+        private readonly int _maxVisibleLines;
+        private readonly int _defaultScrollDistance;
+        private readonly float _scrollSpeedSlowPixelsPerSecond;
+        private readonly float _scrollSpeedMediumPixelsPerSecond;
+        private readonly float _scrollSpeedFastPixelsPerSecond;
+        private readonly float _scrollSpeedInstantPixelsPerSecond;
+        private readonly int _defaultFontSize;
+        private readonly int _messageBoxInteriorWidth;
+        private readonly int _messageBoxInteriorHeight;
+        private readonly int _textPaddingX;
+        private readonly int _messageBoxInteriorTileX;
+        private readonly int _messageBoxInteriorTileY;
+        private readonly int _gbaReferenceWidth;
+        private readonly int _gbaReferenceHeight;
 
         private bool _disposed = false;
 
@@ -66,6 +94,7 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="graphicsDevice">The graphics device. Required.</param>
         /// <param name="spriteBatch">The sprite batch for rendering. Required.</param>
         /// <param name="logger">The logger for logging operations. Required.</param>
+        /// <param name="constants">The constants service for accessing game constants. Required.</param>
         public MessageBoxSceneSystem(
             World world,
             ISceneManager sceneManager,
@@ -76,7 +105,8 @@ namespace MonoBall.Core.Scenes.Systems
             ICameraService cameraService,
             GraphicsDevice graphicsDevice,
             SpriteBatch spriteBatch,
-            ILogger logger
+            ILogger logger,
+            IConstantsService constants
         )
             : base(world)
         {
@@ -93,6 +123,41 @@ namespace MonoBall.Core.Scenes.Systems
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _constants = constants ?? throw new ArgumentNullException(nameof(constants));
+
+            // Cache constants used in Update/Render loops (performance optimization)
+            _scenePriorityOffset = _constants.Get<int>("ScenePriorityOffset");
+            _defaultFontId = _constants.GetString("DefaultFontId");
+            _messageBoxTilesheetId = _constants.GetString("MessageBoxTilesheetId");
+            _defaultLineSpacing = _constants.Get<int>("DefaultLineSpacing");
+            _textSpeedVariableName = _constants.GetString("TextSpeedVariableName");
+            _defaultTextSpeed = _constants.GetString("DefaultTextSpeed");
+            _textSpeedSlowSeconds = _constants.Get<float>("TextSpeedSlowSeconds");
+            _textSpeedMediumSeconds = _constants.Get<float>("TextSpeedMediumSeconds");
+            _textSpeedFastSeconds = _constants.Get<float>("TextSpeedFastSeconds");
+            _textSpeedInstantSeconds = _constants.Get<float>("TextSpeedInstantSeconds");
+            _maxVisibleLines = _constants.Get<int>("MaxVisibleLines");
+            _defaultScrollDistance = _constants.Get<int>("DefaultScrollDistance");
+            _scrollSpeedSlowPixelsPerSecond = _constants.Get<float>(
+                "ScrollSpeedSlowPixelsPerSecond"
+            );
+            _scrollSpeedMediumPixelsPerSecond = _constants.Get<float>(
+                "ScrollSpeedMediumPixelsPerSecond"
+            );
+            _scrollSpeedFastPixelsPerSecond = _constants.Get<float>(
+                "ScrollSpeedFastPixelsPerSecond"
+            );
+            _scrollSpeedInstantPixelsPerSecond = _constants.Get<float>(
+                "ScrollSpeedInstantPixelsPerSecond"
+            );
+            _defaultFontSize = _constants.Get<int>("DefaultFontSize");
+            _messageBoxInteriorWidth = _constants.Get<int>("MessageBoxInteriorWidth");
+            _messageBoxInteriorHeight = _constants.Get<int>("MessageBoxInteriorHeight");
+            _textPaddingX = _constants.Get<int>("TextPaddingX");
+            _messageBoxInteriorTileX = _constants.Get<int>("MessageBoxInteriorTileX");
+            _messageBoxInteriorTileY = _constants.Get<int>("MessageBoxInteriorTileY");
+            _gbaReferenceWidth = _constants.Get<int>("ReferenceWidth");
+            _gbaReferenceHeight = _constants.Get<int>("ReferenceHeight");
 
             // Cache QueryDescription in constructor (never create in Update/Render)
             _messageBoxScenesQuery = new QueryDescription().WithAll<
@@ -136,12 +201,12 @@ namespace MonoBall.Core.Scenes.Systems
         private PopupOutlineDefinition ValidateAndGetTilesheet()
         {
             var tilesheet = _modManager.GetDefinition<PopupOutlineDefinition>(
-                MessageBoxConstants.MessageBoxTilesheetId
+                _messageBoxTilesheetId
             );
             if (tilesheet == null)
             {
                 throw new InvalidOperationException(
-                    $"Tilesheet '{MessageBoxConstants.MessageBoxTilesheetId}' not found. "
+                    $"Tilesheet '{_messageBoxTilesheetId}' not found. "
                         + $"Cannot create message box without tilesheet. Tilesheet must exist in mod registry."
                 );
             }
@@ -349,7 +414,7 @@ namespace MonoBall.Core.Scenes.Systems
             float textSpeed = evt.TextSpeedOverride ?? GetPlayerTextSpeed();
 
             // Validate font exists (fail fast, no fallback)
-            string fontId = evt.FontId ?? MessageBoxConstants.DefaultFontId;
+            string fontId = evt.FontId ?? _defaultFontId;
             var fontSystem = ValidateAndGetFont(fontId);
 
             // Validate tilesheet exists (fail fast, no fallback)
@@ -359,7 +424,7 @@ namespace MonoBall.Core.Scenes.Systems
             var sceneComponent = new SceneComponent
             {
                 SceneId = $"messagebox:{Guid.NewGuid()}",
-                Priority = ScenePriorities.GameScene + MessageBoxConstants.ScenePriorityOffset, // 70
+                Priority = ScenePriorities.GameScene + _scenePriorityOffset, // 70
                 CameraMode = SceneCameraMode.GameCamera,
                 BlocksUpdate = true,
                 BlocksDraw = false,
@@ -425,7 +490,7 @@ namespace MonoBall.Core.Scenes.Systems
                     StartX = 0,
                     StartY = 0,
                     LetterSpacing = 0,
-                    LineSpacing = MessageBoxConstants.DefaultLineSpacing,
+                    LineSpacing = _defaultLineSpacing,
                     IsVisible = true,
                     IsWaitingForInput = false,
                     PageStartLine = 0, // Start at first line (first page)
@@ -545,22 +610,20 @@ namespace MonoBall.Core.Scenes.Systems
         /// <returns>The text speed in seconds per character (matching pokeemerald-expansion timing).</returns>
         private float GetPlayerTextSpeed()
         {
-            string? speedStr = _flagVariableService.GetVariable<string>(
-                MessageBoxConstants.TextSpeedVariableName
-            );
+            string? speedStr = _flagVariableService.GetVariable<string>(_textSpeedVariableName);
 
             if (string.IsNullOrEmpty(speedStr))
             {
-                speedStr = MessageBoxConstants.DefaultTextSpeed;
+                speedStr = _defaultTextSpeed;
             }
 
             return speedStr.ToLowerInvariant() switch
             {
-                "slow" => MessageBoxConstants.TextSpeedSlowSeconds,
-                "medium" => MessageBoxConstants.TextSpeedMediumSeconds,
-                "fast" => MessageBoxConstants.TextSpeedFastSeconds,
-                "instant" => MessageBoxConstants.TextSpeedInstantSeconds,
-                _ => MessageBoxConstants.TextSpeedMediumSeconds, // Default fallback
+                "slow" => _textSpeedSlowSeconds,
+                "medium" => _textSpeedMediumSeconds,
+                "fast" => _textSpeedFastSeconds,
+                "instant" => _textSpeedInstantSeconds,
+                _ => _textSpeedMediumSeconds, // Default fallback
             };
         }
 
@@ -583,12 +646,11 @@ namespace MonoBall.Core.Scenes.Systems
         private void StartScrollAnimation(ref MessageBoxComponent msgBox)
         {
             int visibleLineCount = msgBox.CurrentY - msgBox.PageStartLine;
-            if (visibleLineCount >= MessageBoxConstants.MaxVisibleLines)
+            if (visibleLineCount >= _maxVisibleLines)
             {
                 // Start scroll animation (like pokeemerald-expansion RENDER_STATE_SCROLL)
                 // ScrollDistanceRemaining = font height + line spacing
-                msgBox.ScrollDistanceRemaining =
-                    MessageBoxConstants.DefaultScrollDistance + msgBox.LineSpacing;
+                msgBox.ScrollDistanceRemaining = _defaultScrollDistance + msgBox.LineSpacing;
                 msgBox.ScrollOffset = 0;
                 msgBox.IsWaitingForInput = false;
                 msgBox.State = MessageBoxRenderState.Scrolling;
@@ -617,25 +679,25 @@ namespace MonoBall.Core.Scenes.Systems
                     "GetScrollSpeed: Invalid negative textSpeed {TextSpeed}. Using instant speed.",
                     textSpeed
                 );
-                return MessageBoxConstants.ScrollSpeedInstantPixelsPerSecond;
+                return _scrollSpeedInstantPixelsPerSecond;
             }
 
             // Map text speed to scroll speed (converted from pokeemerald-expansion frame-based values)
-            if (textSpeed >= MessageBoxConstants.TextSpeedSlowSeconds)
+            if (textSpeed >= _textSpeedSlowSeconds)
             {
-                return MessageBoxConstants.ScrollSpeedSlowPixelsPerSecond;
+                return _scrollSpeedSlowPixelsPerSecond;
             }
-            else if (textSpeed >= MessageBoxConstants.TextSpeedMediumSeconds)
+            else if (textSpeed >= _textSpeedMediumSeconds)
             {
-                return MessageBoxConstants.ScrollSpeedMediumPixelsPerSecond;
+                return _scrollSpeedMediumPixelsPerSecond;
             }
-            else if (textSpeed >= MessageBoxConstants.TextSpeedFastSeconds)
+            else if (textSpeed >= _textSpeedFastSeconds)
             {
-                return MessageBoxConstants.ScrollSpeedFastPixelsPerSecond;
+                return _scrollSpeedFastPixelsPerSecond;
             }
             else
             {
-                return MessageBoxConstants.ScrollSpeedInstantPixelsPerSecond;
+                return _scrollSpeedInstantPixelsPerSecond;
             }
         }
 
@@ -774,7 +836,7 @@ namespace MonoBall.Core.Scenes.Systems
                     // Check if we've exceeded the visible area (pagination)
                     // CurrentY is the line number we're about to render TO (0-indexed from PageStartLine)
                     int visibleLineCount = msgBox.CurrentY - msgBox.PageStartLine;
-                    if (visibleLineCount >= MessageBoxConstants.MaxVisibleLines)
+                    if (visibleLineCount >= _maxVisibleLines)
                     {
                         // We've filled the visible area - wait for input before continuing
                         msgBox.State = MessageBoxRenderState.Wait;
@@ -875,7 +937,8 @@ namespace MonoBall.Core.Scenes.Systems
                     if (newSpeedFrames.HasValue)
                     {
                         // Convert frames to seconds (GBA runs at 60 FPS)
-                        msgBox.TextSpeed = newSpeedFrames.Value / MessageBoxConstants.GbaFrameRate;
+                        const float gbaFrameRate = 60.0f;
+                        msgBox.TextSpeed = newSpeedFrames.Value / gbaFrameRate;
                     }
                     msgBox.DelayCounter = msgBox.TextSpeed;
                     break;
@@ -1114,12 +1177,10 @@ namespace MonoBall.Core.Scenes.Systems
 
             // Get font for measurement (use default size from constants)
             // FontDefinition could be loaded via IModManager for custom sizes, but for now use constant
-            int fontSize = MessageBoxConstants.DefaultFontSize;
+            int fontSize = _defaultFontSize;
             var font = fontSystem.GetFont(fontSize);
 
-            float maxWidth =
-                MessageBoxConstants.MessageBoxInteriorWidth
-                - (MessageBoxConstants.TextPaddingX * 2); // Account for horizontal padding on both sides
+            float maxWidth = _messageBoxInteriorWidth - (_textPaddingX * 2); // Account for horizontal padding on both sides
             float currentWidth = 0;
             int lineStartIndex = 0;
             System.Text.StringBuilder currentLine = new System.Text.StringBuilder();
@@ -1329,7 +1390,7 @@ namespace MonoBall.Core.Scenes.Systems
                 // Calculate viewport scale factor
                 int currentScale = CameraTransformUtility.GetViewportScale(
                     camera.Value,
-                    GameConstants.GbaReferenceWidth
+                    _gbaReferenceWidth
                 );
 
                 // Render in screen space (no camera transform)
@@ -1365,7 +1426,7 @@ namespace MonoBall.Core.Scenes.Systems
                     _logger.Warning(
                         ex,
                         "Message box tilesheet definition not found: {TilesheetId}",
-                        MessageBoxConstants.MessageBoxTilesheetId
+                        _messageBoxTilesheetId
                     );
                     return;
                 }
@@ -1374,10 +1435,8 @@ namespace MonoBall.Core.Scenes.Systems
                 // Window template: tilemapLeft=2, tilemapTop=15, width=27, height=4
                 // GBA screen: 240x160 pixels, tiles are 8x8
                 int tileSize = tilesheetDef.TileWidth * currentScale;
-                int msgBoxInteriorWidth =
-                    MessageBoxConstants.MessageBoxInteriorWidth * currentScale;
-                int msgBoxInteriorHeight =
-                    MessageBoxConstants.MessageBoxInteriorHeight * currentScale;
+                int msgBoxInteriorWidth = _messageBoxInteriorWidth * currentScale;
+                int msgBoxInteriorHeight = _messageBoxInteriorHeight * currentScale;
 
                 // Position based on GBA tile coordinates, scaled to viewport
                 // tilemapLeft=2 means 2 tiles = 16 pixels from left (GBA reference)
@@ -1385,14 +1444,12 @@ namespace MonoBall.Core.Scenes.Systems
                 // Scale these positions to match the current viewport
                 int viewportWidth = _graphicsDevice.Viewport.Width;
                 int viewportHeight = _graphicsDevice.Viewport.Height;
-                const int gbaReferenceWidth = 240;
-                const int gbaReferenceHeight = 160;
+                int gbaReferenceWidth = _gbaReferenceWidth;
+                int gbaReferenceHeight = _gbaReferenceHeight;
 
                 // Calculate position in GBA reference space, then scale
-                int gbaInteriorX =
-                    MessageBoxConstants.MessageBoxInteriorTileX * tilesheetDef.TileWidth;
-                int gbaInteriorY =
-                    MessageBoxConstants.MessageBoxInteriorTileY * tilesheetDef.TileHeight;
+                int gbaInteriorX = _messageBoxInteriorTileX * tilesheetDef.TileWidth;
+                int gbaInteriorY = _messageBoxInteriorTileY * tilesheetDef.TileHeight;
 
                 // Scale to viewport (maintain aspect ratio)
                 float scaleX = (float)viewportWidth / gbaReferenceWidth;
@@ -1469,16 +1526,13 @@ namespace MonoBall.Core.Scenes.Systems
                 _logger.Warning(
                     ex,
                     "Message box tilesheet definition not found: {TilesheetId}",
-                    MessageBoxConstants.MessageBoxTilesheetId
+                    _messageBoxTilesheetId
                 );
                 return null;
             }
 
             // Load texture using same pattern as MapPopupSceneSystem
-            return LoadTextureFromDefinition(
-                MessageBoxConstants.MessageBoxTilesheetId,
-                tilesheetDef.TexturePath
-            );
+            return LoadTextureFromDefinition(_messageBoxTilesheetId, tilesheetDef.TexturePath);
         }
 
         /// <summary>
@@ -1533,7 +1587,7 @@ namespace MonoBall.Core.Scenes.Systems
             {
                 // Load texture from file system
                 var texture = Texture2D.FromFile(_graphicsDevice, fullTexturePath);
-                if (definitionId == MessageBoxConstants.MessageBoxTilesheetId)
+                if (definitionId == _messageBoxTilesheetId)
                 {
                     _messageBoxTexture = texture; // Cache message box texture
                 }
@@ -1608,7 +1662,7 @@ namespace MonoBall.Core.Scenes.Systems
                     int columns =
                         tilesheetDef.TileCount > 0
                             ? (int)Math.Sqrt(tilesheetDef.TileCount)
-                            : MessageBoxConstants.DefaultTilesheetColumns;
+                            : _constants.Get<int>("DefaultTilesheetColumns");
                     int row = tileIndex / columns;
                     int col = tileIndex % columns;
                     int tileX = col * tileWidth;
@@ -1743,7 +1797,7 @@ namespace MonoBall.Core.Scenes.Systems
             }
 
             // Use scaled font size
-            int fontSize = MessageBoxConstants.DefaultFontSize * scale;
+            int fontSize = _constants.Get<int>("DefaultFontSize") * scale;
             var font = fontSystem.GetFont(fontSize);
             if (font == null)
             {
@@ -1752,8 +1806,8 @@ namespace MonoBall.Core.Scenes.Systems
             }
 
             // Text padding from frame edges (Pokemon uses 1px top, 0px horizontal)
-            int textPaddingX = MessageBoxConstants.TextPaddingX * scale;
-            int textPaddingY = MessageBoxConstants.TextPaddingTop * scale;
+            int textPaddingX = _constants.Get<int>("TextPaddingX") * scale;
+            int textPaddingY = _constants.Get<int>("TextPaddingTop") * scale;
             int textStartX = msgBoxX + textPaddingX;
             int textStartY = msgBoxY + textPaddingY;
 
@@ -1777,7 +1831,7 @@ namespace MonoBall.Core.Scenes.Systems
             int visibleBottom = msgBoxY + msgBoxHeight;
 
             // During scroll animation, render one extra line that's scrolling into view
-            int maxLinesToRender = MessageBoxConstants.MaxVisibleLines;
+            int maxLinesToRender = _maxVisibleLines;
             if (msgBox.State == MessageBoxRenderState.Scrolling)
             {
                 maxLinesToRender++; // Render one extra line scrolling in from bottom
@@ -1888,7 +1942,7 @@ namespace MonoBall.Core.Scenes.Systems
         )
         {
             // Render shadow first (offset scales with viewport, matching map popup style)
-            int shadowOffset = GameConstants.PopupShadowOffsetY * scale;
+            int shadowOffset = _constants.Get<int>("PopupShadowOffsetY") * scale;
             font.DrawText(
                 _spriteBatch,
                 text,
@@ -1944,7 +1998,7 @@ namespace MonoBall.Core.Scenes.Systems
                 int columns =
                     tilesheetDef.TileCount > 0
                         ? (int)Math.Sqrt(tilesheetDef.TileCount)
-                        : MessageBoxConstants.DefaultTilesheetColumns;
+                        : _constants.Get<int>("DefaultTilesheetColumns");
                 int row = tileIndex / columns;
                 int col = tileIndex % columns;
                 int tileX = col * tileWidth;
@@ -1956,8 +2010,8 @@ namespace MonoBall.Core.Scenes.Systems
 
             // Animate arrow: blink every 0.5 seconds (time-based for frame-rate independence)
             // Convert frames to seconds: ArrowBlinkFrames (30) / 60 FPS = 0.5 seconds
-            double blinkIntervalSeconds =
-                MessageBoxConstants.ArrowBlinkFrames / MessageBoxConstants.GbaFrameRate;
+            int arrowBlinkFrames = _constants.Get<int>("ArrowBlinkFrames");
+            double blinkIntervalSeconds = arrowBlinkFrames / 60.0; // GBA frame rate is 60 FPS
             bool isVisible =
                 ((int)(gameTime.TotalGameTime.TotalSeconds / blinkIntervalSeconds)) % 2 == 0;
             if (!isVisible)
@@ -1967,7 +2021,7 @@ namespace MonoBall.Core.Scenes.Systems
 
             // Position at bottom-right of message box frame (inside frame, padded from edges)
             int arrowPadding =
-                MessageBoxConstants.TextPaddingTop * (tileSize / tilesheetDef.TileWidth); // Scale padding
+                _constants.Get<int>("TextPaddingTop") * (tileSize / tilesheetDef.TileWidth); // Scale padding
             int arrowX = msgBoxX + msgBoxWidth - tileSize - arrowPadding;
             int arrowY = msgBoxY + msgBoxHeight - tileSize - arrowPadding;
 

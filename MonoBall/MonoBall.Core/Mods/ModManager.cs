@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MonoBall.Core.Constants;
 using MonoBall.Core.Mods.Utilities;
 using Serilog;
 
@@ -192,18 +193,26 @@ namespace MonoBall.Core.Mods
         }
 
         /// <summary>
-        /// Gets the tile width from mod configuration.
-        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
+        /// Gets the tile width from constants service or mod configuration.
+        /// Prioritizes constants service if provided, then falls back to mod configuration.
         /// </summary>
+        /// <param name="constantsService">Optional constants service to use. If provided, uses "TileWidth" constant.</param>
         /// <returns>The tile width in pixels.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no mods have tile width configuration.</exception>
-        public int GetTileWidth()
+        /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no tile width configuration is available.</exception>
+        public int GetTileWidth(IConstantsService? constantsService = null)
         {
+            // Prioritize constants service if available
+            if (constantsService != null && constantsService.Contains("TileWidth"))
+            {
+                return constantsService.Get<int>("TileWidth");
+            }
+
+            // Fall back to mod configuration (for backward compatibility)
             if (!_isLoaded || LoadedMods.Count == 0)
             {
                 throw new InvalidOperationException(
-                    "Cannot get tile width: Mods are not loaded. "
-                        + "Ensure mods are loaded before accessing tile size configuration."
+                    "Cannot get tile width: Mods are not loaded and ConstantsService is not available. "
+                        + "Ensure mods are loaded and ConstantsService has TileWidth constant defined."
                 );
             }
 
@@ -221,24 +230,32 @@ namespace MonoBall.Core.Mods
             }
 
             throw new InvalidOperationException(
-                "Cannot get tile width: No mods have tileWidth configured. "
-                    + "Ensure at least one mod (preferably the core mod) has tileWidth specified in mod.json."
+                "Cannot get tile width: No tile width configuration available. "
+                    + "Ensure ConstantsService has TileWidth constant defined, or at least one mod has tileWidth specified in mod.json."
             );
         }
 
         /// <summary>
-        /// Gets the tile height from mod configuration.
-        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
+        /// Gets the tile height from constants service or mod configuration.
+        /// Prioritizes constants service if provided, then falls back to mod configuration.
         /// </summary>
+        /// <param name="constantsService">Optional constants service to use. If provided, uses "TileHeight" constant.</param>
         /// <returns>The tile height in pixels.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no mods have tile height configuration.</exception>
-        public int GetTileHeight()
+        /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no tile height configuration is available.</exception>
+        public int GetTileHeight(IConstantsService? constantsService = null)
         {
+            // Prioritize constants service if available
+            if (constantsService != null && constantsService.Contains("TileHeight"))
+            {
+                return constantsService.Get<int>("TileHeight");
+            }
+
+            // Fall back to mod configuration (for backward compatibility)
             if (!_isLoaded || LoadedMods.Count == 0)
             {
                 throw new InvalidOperationException(
-                    "Cannot get tile height: Mods are not loaded. "
-                        + "Ensure mods are loaded before accessing tile size configuration."
+                    "Cannot get tile height: Mods are not loaded and ConstantsService is not available. "
+                        + "Ensure mods are loaded and ConstantsService has TileHeight constant defined."
                 );
             }
 
@@ -256,8 +273,8 @@ namespace MonoBall.Core.Mods
             }
 
             throw new InvalidOperationException(
-                "Cannot get tile height: No mods have tileHeight configured. "
-                    + "Ensure at least one mod (preferably the core mod) has tileHeight specified in mod.json."
+                "Cannot get tile height: No tile height configuration available. "
+                    + "Ensure ConstantsService has TileHeight constant defined, or at least one mod has tileHeight specified in mod.json."
             );
         }
 

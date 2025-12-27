@@ -1,0 +1,48 @@
+{
+  "id": "base:constants:messagebox",
+  "constants": {
+    "ScenePriorityOffset": 20,
+    "TextSpeedSlowSeconds": 0.133333,
+    "TextSpeedMediumSeconds": 0.066667,
+    "TextSpeedFastSeconds": 0.016667,
+    "TextSpeedInstantSeconds": 0.0,
+    "TextSpeedVariableName": "player:textSpeed",
+    "DefaultTextSpeed": "medium",
+    "DefaultFontId": "base:font:game/pokemon",
+    "MessageBoxTilesheetId": "base:textwindow:tilesheet/message_box",
+    "MessageBoxInteriorWidth": 216,
+    "MessageBoxInteriorHeight": 32,
+    "MessageBoxInteriorTileX": 2,
+    "MessageBoxInteriorTileY": 15,
+    "DefaultFontSize": 16,
+    "TextPaddingTop": 1,
+    "TextPaddingX": 0,
+    "DefaultLineSpacing": 0,
+    "ArrowBlinkFrames": 30,
+    "DefaultTilesheetColumns": 7,
+    "MaxVisibleLines": 2,
+    "ScrollSpeedSlowPixelsPerSecond": 60.0,
+    "ScrollSpeedMediumPixelsPerSecond": 120.0,
+    "ScrollSpeedFastPixelsPerSecond": 240.0,
+    "ScrollSpeedInstantPixelsPerSecond": 360.0,
+    "DefaultScrollDistance": 16
+  },
+  "validationRules": {
+    "MaxVisibleLines": {
+      "min": 1,
+      "max": 10,
+      "description": "Maximum visible lines must be between 1 and 10"
+    },
+    "DefaultFontSize": {
+      "min": 8,
+      "max": 32,
+      "description": "Default font size must be between 8 and 32 pixels"
+    },
+    "ArrowBlinkFrames": {
+      "min": 1,
+      "max": 120,
+      "description": "Arrow blink frames must be between 1 and 120"
+    }
+  }
+}
+

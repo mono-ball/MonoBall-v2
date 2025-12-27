@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core;
 using MonoBall.Core.Audio;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
@@ -336,6 +337,10 @@ namespace MonoBall.Core.ECS
                 );
             }
 
+            // Get ConstantsService from Game.Services (needed for scene systems)
+            // Use helper method for consistency
+            var constantsService = GetConstantsService();
+
             // LoadingSceneSystem no longer needs LoadingSceneRendererSystem - it handles rendering internally
 
             // Create shader services and systems
@@ -483,6 +488,24 @@ namespace MonoBall.Core.ECS
         }
 
         /// <summary>
+        /// Gets the ConstantsService from Game.Services, throwing if not available.
+        /// </summary>
+        /// <returns>The ConstantsService instance.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if ConstantsService is not available.</exception>
+        private ConstantsService GetConstantsService()
+        {
+            var service = _game.Services.GetService<ConstantsService>();
+            if (service == null)
+            {
+                throw new InvalidOperationException(
+                    "ConstantsService is not available in Game.Services. "
+                        + "Ensure ConstantsService was registered after mods were loaded."
+                );
+            }
+            return service;
+        }
+
+        /// <summary>
         /// Creates game systems (map loading, player, input, movement, etc.).
         /// </summary>
         private void CreateGameSystems()
@@ -500,6 +523,9 @@ namespace MonoBall.Core.ECS
             // Create shader services and systems
             CreateShaderSystems();
 
+            // Get ConstantsService from Game.Services (needed for multiple systems)
+            var constantsService = GetConstantsService();
+
             // Create update systems
             _mapLoaderSystem = new MapLoaderSystem(
                 _world,
@@ -508,7 +534,8 @@ namespace MonoBall.Core.ECS
                 _spriteLoader,
                 _flagVariableService,
                 _variableSpriteResolver,
-                LoggerFactory.CreateLogger<MapLoaderSystem>()
+                LoggerFactory.CreateLogger<MapLoaderSystem>(),
+                constantsService // Pass ConstantsService for accessing constants
             );
             RegisterUpdateSystem(_mapLoaderSystem);
 
@@ -552,15 +579,16 @@ namespace MonoBall.Core.ECS
                 _cameraService,
                 _spriteLoader,
                 _modManager,
-                LoggerFactory.CreateLogger<PlayerSystem>()
+                LoggerFactory.CreateLogger<PlayerSystem>(),
+                constantsService // Pass ConstantsService for accessing constants
             );
             RegisterUpdateSystem(_playerSystem);
 
             // Create input and movement services
             var inputBuffer = new Services.InputBuffer(
                 LoggerFactory.CreateLogger<Services.InputBuffer>(),
-                GameConstants.InputBufferMaxSize,
-                GameConstants.InputBufferTimeoutSeconds
+                constantsService.Get<int>("InputBufferMaxSize"),
+                constantsService.Get<float>("InputBufferTimeoutSeconds")
             );
             _inputBindingService = new Services.InputBindingService(
                 LoggerFactory.CreateLogger<Services.InputBindingService>()
@@ -605,13 +633,14 @@ namespace MonoBall.Core.ECS
             );
             RegisterUpdateSystem(_cameraSystem);
 
+            var constantsServiceForCamera = GetConstantsService();
             _cameraViewportSystem = new CameraViewportSystem(
                 _world,
                 _graphicsDevice,
-                GameConstants.GbaReferenceWidth,
-                GameConstants.GbaReferenceHeight,
+                constantsServiceForCamera.Get<int>("ReferenceWidth"),
+                constantsServiceForCamera.Get<int>("ReferenceHeight"),
                 LoggerFactory.CreateLogger<CameraViewportSystem>()
-            ); // GBA resolution
+            );
             RegisterUpdateSystem(_cameraViewportSystem);
         }
 
@@ -806,6 +835,9 @@ namespace MonoBall.Core.ECS
         /// </summary>
         private void CreateSceneSpecificSystems()
         {
+            // Get ConstantsService from Game.Services (needed for scene systems)
+            var constantsService = GetConstantsService();
+
             // Get FontService from Game.Services (needed for scene systems)
             var fontService = _game.Services.GetService<Rendering.FontService>();
             if (fontService == null)
@@ -884,7 +916,8 @@ namespace MonoBall.Core.ECS
                 _spriteBatch,
                 fontService,
                 _modManager,
-                LoggerFactory.CreateLogger<Scenes.Systems.MapPopupSceneSystem>()
+                LoggerFactory.CreateLogger<Scenes.Systems.MapPopupSceneSystem>(),
+                constantsService // Pass ConstantsService for accessing constants
             );
 
             // Register MapPopupSceneSystem with SceneSystem (as ISceneSystem)
@@ -901,7 +934,8 @@ namespace MonoBall.Core.ECS
                 _cameraService, // Pass CameraService for camera queries
                 _graphicsDevice,
                 _spriteBatch,
-                LoggerFactory.CreateLogger<Scenes.Systems.MessageBoxSceneSystem>()
+                LoggerFactory.CreateLogger<Scenes.Systems.MessageBoxSceneSystem>(),
+                constantsService // Pass ConstantsService for accessing constants
             );
 
             // Register MessageBoxSceneSystem with SceneSystem (as ISceneSystem)

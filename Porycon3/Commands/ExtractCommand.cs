@@ -1,6 +1,7 @@
 using Spectre.Console;
 using Spectre.Console.Cli;
 using Porycon3.Services;
+using Porycon3.Services.Sound;
 
 namespace Porycon3.Commands;
 
@@ -42,9 +43,17 @@ public class ExtractCommand : Command<ExtractSettings>
                     AnsiConsole.MarkupLine($"[green]Extracted {interfaceCount} interface graphics[/]");
                     break;
 
+                case "sound":
+                case "audio":
+                case "music":
+                    var soundExtractor = new SoundExtractor(settings.InputPath, settings.OutputPath);
+                    soundExtractor.ExtractAll();
+                    AnsiConsole.MarkupLine($"[green]Sound extraction complete![/]");
+                    break;
+
                 default:
                     AnsiConsole.MarkupLine($"[red]Unknown asset type: {settings.Asset}[/]");
-                    AnsiConsole.MarkupLine("Available: doors, fieldeffects, fonts, interface");
+                    AnsiConsole.MarkupLine("Available: doors, fieldeffects, fonts, interface, sound");
                     return 1;
             }
 

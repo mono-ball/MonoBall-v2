@@ -2,6 +2,7 @@ using System;
 using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Logging;
@@ -242,12 +243,14 @@ namespace MonoBall.Core
         /// <param name="modManager">The mod manager for getting default tile sizes.</param>
         /// <param name="graphicsDevice">The graphics device for viewport setup.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="constants">The constants service for accessing game constants. Required.</param>
         /// <returns>The created camera entity.</returns>
         public static Entity CreateDefaultCamera(
             World world,
             IModManager modManager,
             GraphicsDevice graphicsDevice,
-            ILogger logger
+            ILogger logger,
+            IConstantsService constants
         )
         {
             if (world == null)
@@ -267,16 +270,21 @@ namespace MonoBall.Core
                 throw new ArgumentNullException(nameof(logger));
             }
 
-            // Get default tile dimensions from mod manager
-            int tileWidth = modManager.GetTileWidth();
-            int tileHeight = modManager.GetTileHeight();
+            // Get default tile dimensions from constants service
+            int tileWidth = constants.Get<int>("TileWidth");
+            int tileHeight = constants.Get<int>("TileHeight");
+
+            if (constants == null)
+            {
+                throw new ArgumentNullException(nameof(constants));
+            }
 
             // Create camera component with default settings
             var cameraComponent = new ECS.Components.CameraComponent
             {
                 Position = Vector2.Zero,
-                Zoom = GameConstants.DefaultCameraZoom,
-                Rotation = GameConstants.DefaultCameraRotation,
+                Zoom = constants.Get<float>("CameraZoom"),
+                Rotation = constants.Get<float>("CameraRotation"),
                 Viewport = new Rectangle(
                     0,
                     0,
@@ -289,15 +297,15 @@ namespace MonoBall.Core
                     graphicsDevice.Viewport.Width,
                     graphicsDevice.Viewport.Height
                 ),
-                ReferenceWidth = GameConstants.GbaReferenceWidth,
-                ReferenceHeight = GameConstants.GbaReferenceHeight,
+                ReferenceWidth = constants.Get<int>("ReferenceWidth"),
+                ReferenceHeight = constants.Get<int>("ReferenceHeight"),
                 TileWidth = tileWidth,
                 TileHeight = tileHeight,
                 MapBounds = Rectangle.Empty, // No bounds initially
                 FollowTarget = null,
                 FollowEntity = null,
                 IsFollowingLocked = false,
-                SmoothingSpeed = GameConstants.DefaultCameraSmoothingSpeed,
+                SmoothingSpeed = constants.Get<float>("CameraSmoothingSpeed"),
                 IsActive = true,
                 IsDirty = true,
             };

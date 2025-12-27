@@ -482,6 +482,14 @@ namespace MonoBall.Core.ECS.Systems
         private void SyncPositionToGrid(ref PositionComponent position)
         {
             // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
+            // World should be set by BaseSystem constructor, but add defensive check
+            if (World == null)
+            {
+                throw new InvalidOperationException(
+                    "World is null in MovementSystem. Ensure the system is properly initialized."
+                );
+            }
+
             int tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
             int tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
             position.SyncPixelsToGrid(tileWidth, tileHeight);

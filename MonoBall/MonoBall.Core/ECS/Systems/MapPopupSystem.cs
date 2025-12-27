@@ -4,6 +4,7 @@ using Arch.System;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
@@ -32,6 +33,7 @@ namespace MonoBall.Core.ECS.Systems
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
         private readonly MapPopupRendererSystem _mapPopupRendererSystem;
+        private readonly IConstantsService _constants;
         private Entity? _currentPopupEntity;
         private Entity? _currentPopupSceneEntity;
         private bool _disposed = false;
@@ -66,6 +68,7 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="fontService">The font service for text measurement.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="constants">The constants service for accessing game constants. Required.</param>
         public MapPopupSystem(
             World world,
             SceneSystem sceneSystem,
@@ -74,7 +77,8 @@ namespace MonoBall.Core.ECS.Systems
             MapPopupRendererSystem mapPopupRendererSystem,
             FontService fontService,
             IModManager modManager,
-            ILogger logger
+            ILogger logger,
+            IConstantsService constants
         )
             : base(world)
         {
@@ -88,6 +92,7 @@ namespace MonoBall.Core.ECS.Systems
             _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
             // Subscribe to events using RefAction pattern
             EventBus.Subscribe<MapPopupShowEvent>(OnMapPopupShow);
@@ -148,7 +153,7 @@ namespace MonoBall.Core.ECS.Systems
             // Calculate popup dimensions (fixed size like pokeemerald)
             // Background is always 80x24 at 1x scale, plus border tiles
             int tileSize = outlineDef.IsTileSheet ? outlineDef.TileWidth : 8;
-            float popupHeight = GameConstants.PopupBackgroundHeight + (tileSize * 2); // Background + border on top and bottom
+            float popupHeight = _constants.Get<int>("PopupBackgroundHeight") + (tileSize * 2); // Background + border on top and bottom
 
             // Create popup scene entity first (before popup entity so we can reference it)
             var sceneComponent = new SceneComponent

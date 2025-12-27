@@ -1,0 +1,27 @@
+{
+  "id": "base:constants:player",
+  "constants": {
+    "PlayerSpriteSheetId": "base:sprite:players/may/normal",
+    "PlayerInitialAnimation": "face_south",
+    "PlayerInitialMapId": "base:map:hoenn/littleroot_town",
+    "PlayerSpawnX": 10,
+    "PlayerSpawnY": 8,
+    "PlayerMovementSpeed": 4.0
+  },
+  "validationRules": {
+    "PlayerMovementSpeed": {
+      "min": 0.1,
+      "max": 20.0,
+      "description": "Player movement speed must be between 0.1 and 20.0 tiles per second"
+    },
+    "PlayerSpawnX": {
+      "min": 0,
+      "description": "Player spawn X coordinate must be non-negative"
+    },
+    "PlayerSpawnY": {
+      "min": 0,
+      "description": "Player spawn Y coordinate must be non-negative"
+    }
+  }
+}
+

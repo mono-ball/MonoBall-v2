@@ -1,7 +1,6 @@
 using System;
 using Arch.Core;
 using Microsoft.Xna.Framework;
-using MonoBall.Core;
 using MonoBall.Core.Rendering;
 
 namespace MonoBall.Core.ECS.Components
@@ -171,7 +170,7 @@ namespace MonoBall.Core.ECS.Components
             FollowTarget = null;
             FollowEntity = null;
             IsFollowingLocked = false;
-            SmoothingSpeed = GameConstants.DefaultCameraSmoothingSpeed;
+            SmoothingSpeed = 0.1f; // Default smoothing speed (matches DefaultCameraSmoothingSpeed constant)
             IsActive = true;
             IsDirty = true;
         }

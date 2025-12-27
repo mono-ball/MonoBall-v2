@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MonoBall.Core.Constants;
 using MonoBall.Core.Mods.Utilities;
 
 namespace MonoBall.Core.Mods
@@ -49,20 +50,22 @@ namespace MonoBall.Core.Mods
         DefinitionMetadata? GetDefinitionMetadata(string id);
 
         /// <summary>
-        /// Gets the tile width from mod configuration.
-        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
+        /// Gets the tile width from constants service or mod configuration.
+        /// Prioritizes constants service if provided, then falls back to mod configuration.
         /// </summary>
+        /// <param name="constantsService">Optional constants service to use. If provided, uses "TileWidth" constant.</param>
         /// <returns>The tile width in pixels.</returns>
-        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no mods have tile width configuration.</exception>
-        int GetTileWidth();
+        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no tile width configuration is available.</exception>
+        int GetTileWidth(IConstantsService? constantsService = null);
 
         /// <summary>
-        /// Gets the tile height from mod configuration.
-        /// Prioritizes the core mod (slot 0 in mod.manifest), then falls back to the first loaded mod.
+        /// Gets the tile height from constants service or mod configuration.
+        /// Prioritizes constants service if provided, then falls back to mod configuration.
         /// </summary>
+        /// <param name="constantsService">Optional constants service to use. If provided, uses "TileHeight" constant.</param>
         /// <returns>The tile height in pixels.</returns>
-        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no mods have tile height configuration.</exception>
-        int GetTileHeight();
+        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no tile height configuration is available.</exception>
+        int GetTileHeight(IConstantsService? constantsService = null);
 
         /// <summary>
         /// Gets the core mod manifest (slot 0 in mod.manifest, or first loaded mod).

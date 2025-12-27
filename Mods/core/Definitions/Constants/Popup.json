@@ -1,0 +1,16 @@
+{
+  "id": "base:constants:popup",
+  "constants": {
+    "PopupBackgroundWidth": 80,
+    "PopupBackgroundHeight": 24,
+    "PopupBaseFontSize": 12,
+    "PopupTextOffsetY": 3,
+    "PopupTextPadding": 4,
+    "PopupShadowOffsetX": 1,
+    "PopupShadowOffsetY": 1,
+    "PopupInteriorTilesX": 10,
+    "PopupInteriorTilesY": 3,
+    "PopupScreenPadding": 0
+  }
+}
+

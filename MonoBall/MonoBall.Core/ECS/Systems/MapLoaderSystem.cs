@@ -5,6 +5,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Components.Audio;
@@ -25,13 +26,14 @@ namespace MonoBall.Core.ECS.Systems
     /// </summary>
     public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
-        private const int ChunkSize = GameConstants.TileChunkSize; // 16x16 tiles per chunk
+        private readonly int _chunkSize; // 16x16 tiles per chunk (cached from constants service)
         private readonly DefinitionRegistry _registry;
         private readonly ITilesetLoaderService? _tilesetLoader;
         private readonly ISpriteLoaderService? _spriteLoader;
         private readonly Services.IFlagVariableService? _flagVariableService;
         private readonly Services.IVariableSpriteResolver? _variableSpriteResolver;
         private readonly ILogger _logger;
+        private readonly IConstantsService _constants;
         private readonly HashSet<string> _loadedMaps = new HashSet<string>();
         private readonly Dictionary<string, Entity> _mapEntities = new Dictionary<string, Entity>();
         private readonly Dictionary<string, List<Entity>> _mapChunkEntities =
@@ -58,6 +60,7 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="flagVariableService">Optional flag/variable service for checking NPC visibility flags.</param>
         /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="constants">The constants service for accessing game constants. Required.</param>
         public MapLoaderSystem(
             World world,
             DefinitionRegistry registry,
@@ -65,7 +68,8 @@ namespace MonoBall.Core.ECS.Systems
             ISpriteLoaderService? spriteLoader = null,
             Services.IFlagVariableService? flagVariableService = null,
             Services.IVariableSpriteResolver? variableSpriteResolver = null,
-            ILogger logger = null!
+            ILogger logger = null!,
+            IConstantsService? constants = null
         )
             : base(world)
         {
@@ -75,6 +79,10 @@ namespace MonoBall.Core.ECS.Systems
             _flagVariableService = flagVariableService;
             _variableSpriteResolver = variableSpriteResolver;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _constants = constants ?? throw new ArgumentNullException(nameof(constants));
+
+            // Cache chunk size from constants service (performance optimization)
+            _chunkSize = _constants.Get<int>("TileChunkSize");
         }
 
         /// <summary>
@@ -542,8 +550,8 @@ namespace MonoBall.Core.ECS.Systems
                 }
 
                 // Create chunks
-                int chunksX = (int)Math.Ceiling((double)layer.Width / ChunkSize);
-                int chunksY = (int)Math.Ceiling((double)layer.Height / ChunkSize);
+                int chunksX = (int)Math.Ceiling((double)layer.Width / _chunkSize);
+                int chunksY = (int)Math.Ceiling((double)layer.Height / _chunkSize);
 
                 _logger.Debug(
                     "Creating {ChunksX}x{ChunksY} chunks for layer {LayerId}",
@@ -557,10 +565,10 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     for (int chunkX = 0; chunkX < chunksX; chunkX++)
                     {
-                        int chunkStartX = chunkX * ChunkSize;
-                        int chunkStartY = chunkY * ChunkSize;
-                        int chunkWidth = Math.Min(ChunkSize, layer.Width - chunkStartX);
-                        int chunkHeight = Math.Min(ChunkSize, layer.Height - chunkStartY);
+                        int chunkStartX = chunkX * _chunkSize;
+                        int chunkStartY = chunkY * _chunkSize;
+                        int chunkWidth = Math.Min(_chunkSize, layer.Width - chunkStartX);
+                        int chunkHeight = Math.Min(_chunkSize, layer.Height - chunkStartY);
 
                         // Extract tile indices for this chunk
                         int[] chunkTileIndices = new int[chunkWidth * chunkHeight];

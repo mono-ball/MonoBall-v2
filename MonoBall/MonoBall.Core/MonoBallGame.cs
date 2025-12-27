@@ -7,6 +7,7 @@ using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Localization;
@@ -443,8 +444,43 @@ namespace MonoBall.Core
             );
             _logger.Debug("FontService created and registered");
 
+            // Create and register ConstantsService immediately after mods load
+            // Use factory pattern for consistency with FontService
+            var constantsService = Constants.ConstantsServiceFactory.GetOrCreateConstantsService(
+                this,
+                modManager,
+                LoggerFactory.CreateLogger<ConstantsService>()
+            );
+
+            // Validate required constants exist (fail-fast)
+            constantsService.ValidateRequiredConstants(
+                new[]
+                {
+                    "TileChunkSize",
+                    "TileWidth",
+                    "TileHeight",
+                    "PlayerSpriteSheetId",
+                    "PlayerInitialAnimation",
+                    "PlayerInitialMapId",
+                    "PlayerSpawnX",
+                    "PlayerSpawnY",
+                    "PlayerMovementSpeed",
+                    "ReferenceWidth",
+                    "ReferenceHeight",
+                    "CameraZoom",
+                    "CameraRotation",
+                    "CameraSmoothingSpeed",
+                    "ScenePriorityOffset",
+                    "DefaultFontId",
+                }
+            );
+
+            // Validate constants against validation rules (if defined)
+            constantsService.ValidateConstants();
+            _logger.Debug("ConstantsService validated");
+
             _logger.Information(
-                "All mods loaded successfully ({ModCount} mods, core mod: {CoreModId}), FontService available",
+                "All mods loaded successfully ({ModCount} mods, core mod: {CoreModId}), FontService and ConstantsService available",
                 modManager.LoadedMods.Count,
                 modManager.CoreMod?.Id ?? "unknown"
             );

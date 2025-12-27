@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Localization;
@@ -252,10 +253,20 @@ namespace MonoBall.Core
                     _logger
                 );
 
+                // Get ConstantsService for initial map and camera creation
+                var constantsService = _game.Services.GetService<ConstantsService>();
+                if (constantsService == null)
+                {
+                    throw new InvalidOperationException(
+                        "ConstantsService is not available in Game.Services. "
+                            + "Ensure ConstantsService was registered after mods were loaded."
+                    );
+                }
+
                 // Step 5: Load initial map FIRST (needed for tile dimensions and spawn position)
                 UpdateProgress(InitializationProgress.InitialMap, "Loading initial map...");
                 await Task.Yield();
-                const string initialMapId = "base:map:hoenn/littleroot_town";
+                var initialMapId = constantsService.GetString("PlayerInitialMapId");
                 systemManager.LoadMap(initialMapId);
                 _logger.Information("Initial map loaded: {MapId}", initialMapId);
 
@@ -263,11 +274,13 @@ namespace MonoBall.Core
                 UpdateProgress(InitializationProgress.Camera, "Setting up camera...");
                 await Task.Yield();
                 var world = gameServices.EcsService!.World;
+
                 var cameraEntity = GameInitializationHelper.CreateDefaultCamera(
                     world,
                     gameServices.ModManager!,
                     _graphicsDevice,
-                    _logger
+                    _logger,
+                    constantsService
                 );
 
                 // Step 7: Initialize player at default spawn position (10, 8 tiles - center-ish of map)

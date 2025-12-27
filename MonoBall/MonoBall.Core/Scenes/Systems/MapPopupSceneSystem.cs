@@ -6,6 +6,7 @@ using Arch.System;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
@@ -37,6 +38,7 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly ILogger _logger;
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
+        private readonly IConstantsService _constants;
         private Entity? _currentPopupEntity;
         private Entity? _currentPopupSceneEntity;
         private bool _disposed = false;
@@ -74,6 +76,7 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="fontService">The font service for text measurement.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="constants">The constants service for accessing game constants. Required.</param>
         public MapPopupSceneSystem(
             World world,
             ISceneManager sceneManager,
@@ -81,7 +84,8 @@ namespace MonoBall.Core.Scenes.Systems
             SpriteBatch spriteBatch,
             FontService fontService,
             IModManager modManager,
-            ILogger logger
+            ILogger logger,
+            IConstantsService constants
         )
             : base(world)
         {
@@ -92,6 +96,7 @@ namespace MonoBall.Core.Scenes.Systems
             _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
             // Subscribe to events using RefAction pattern
             EventBus.Subscribe<MapPopupShowEvent>(OnMapPopupShow);
@@ -260,7 +265,7 @@ namespace MonoBall.Core.Scenes.Systems
             // Calculate popup dimensions (fixed size like pokeemerald)
             // Background is always 80x24 at 1x scale, plus border tiles
             int tileSize = outlineDef.IsTileSheet ? outlineDef.TileWidth : 8;
-            float popupHeight = GameConstants.PopupBackgroundHeight + (tileSize * 2); // Background + border on top and bottom
+            float popupHeight = _constants.Get<int>("PopupBackgroundHeight") + (tileSize * 2); // Background + border on top and bottom
 
             // Create popup scene entity first (before popup entity so we can reference it)
             // Use unique scene ID to avoid collisions if duplicate events fire
@@ -623,22 +628,22 @@ namespace MonoBall.Core.Scenes.Systems
                 return;
             }
 
-            // Calculate viewport scale factor (from GBA reference resolution)
+            // Calculate viewport scale factor (from reference resolution)
             // Use shared utility to ensure consistency with other systems
             int currentScale = CameraTransformUtility.GetViewportScale(
                 camera,
-                GameConstants.GbaReferenceWidth
+                _constants.Get<int>("ReferenceWidth")
             );
 
             // Calculate scaled dimensions
             int tileSize = outlineDef.IsTileSheet ? outlineDef.TileWidth : 8;
             int borderThickness = tileSize * currentScale;
-            int bgWidth = GameConstants.PopupBackgroundWidth * currentScale;
-            int bgHeight = GameConstants.PopupBackgroundHeight * currentScale;
+            int bgWidth = _constants.Get<int>("PopupBackgroundWidth") * currentScale;
+            int bgHeight = _constants.Get<int>("PopupBackgroundHeight") * currentScale;
 
             // Calculate popup position in SCREEN SPACE (top-left corner)
             // CurrentY is in screen space (0 = top of screen, negative = above screen)
-            int scaledPadding = GameConstants.PopupScreenPadding * currentScale;
+            int scaledPadding = _constants.Get<int>("PopupScreenPadding") * currentScale;
             int popupX = scaledPadding; // Top-left corner
             int scaledAnimationY = (int)MathF.Round(anim.CurrentY * currentScale);
             int popupY = scaledAnimationY;
@@ -690,7 +695,7 @@ namespace MonoBall.Core.Scenes.Systems
             }
 
             // Use scaled font
-            int scaledFontSize = GameConstants.PopupBaseFontSize * currentScale;
+            int scaledFontSize = _constants.Get<int>("PopupBaseFontSize") * currentScale;
             var font = fontSystem.GetFont(scaledFontSize);
             if (font == null)
             {
@@ -702,13 +707,13 @@ namespace MonoBall.Core.Scenes.Systems
             string displayText = TruncateTextToFit(
                 font,
                 popup.MapSectionName,
-                bgWidth - (GameConstants.PopupTextPadding * 2 * currentScale)
+                bgWidth - (_constants.Get<int>("PopupTextPadding") * 2 * currentScale)
             );
 
             // Calculate text position (centered horizontally, Y offset from top)
             Vector2 textSize = font.MeasureString(displayText);
-            int textOffsetY = GameConstants.PopupTextOffsetY * currentScale;
-            int shadowOffset = GameConstants.PopupShadowOffsetX * currentScale;
+            int textOffsetY = _constants.Get<int>("PopupTextOffsetY") * currentScale;
+            int shadowOffset = _constants.Get<int>("PopupShadowOffsetX") * currentScale;
             float textX = bgX + ((bgWidth - textSize.X) / 2f); // Center horizontally
             float textY = bgY + textOffsetY;
 
@@ -717,7 +722,7 @@ namespace MonoBall.Core.Scenes.Systems
             int intTextY = (int)Math.Round(textY);
 
             // Draw text shadow first (pokeemerald uses DARK_GRAY shadow)
-            int shadowOffsetY = GameConstants.PopupShadowOffsetY * currentScale;
+            int shadowOffsetY = _constants.Get<int>("PopupShadowOffsetY") * currentScale;
             font.DrawText(
                 _spriteBatch,
                 displayText,
@@ -889,11 +894,8 @@ namespace MonoBall.Core.Scenes.Systems
             // Use LeftEdge array if available, otherwise fall back to LeftMiddle
             if (usage.LeftEdge != null && usage.LeftEdge.Count > 0)
             {
-                for (
-                    int i = 0;
-                    i < usage.LeftEdge.Count && i < GameConstants.PopupInteriorTilesY;
-                    i++
-                )
+                int popupInteriorTilesYLeftEdge = _constants.Get<int>("PopupInteriorTilesY");
+                for (int i = 0; i < usage.LeftEdge.Count && i < popupInteriorTilesYLeftEdge; i++)
                 {
                     int tileIndex = usage.LeftEdge[i];
                     DrawTile(tileIndex, interiorX - tileW, interiorY + (i * tileH));
@@ -902,7 +904,8 @@ namespace MonoBall.Core.Scenes.Systems
             else if (usage.LeftMiddle != 0)
             {
                 // Fallback to LeftMiddle for backwards compatibility
-                for (int i = 0; i < GameConstants.PopupInteriorTilesY; i++)
+                int popupInteriorTilesYLeft = _constants.Get<int>("PopupInteriorTilesY");
+                for (int i = 0; i < popupInteriorTilesYLeft; i++)
                 {
                     DrawTile(usage.LeftMiddle, interiorX - tileW, interiorY + (i * tileH));
                 }
@@ -912,16 +915,14 @@ namespace MonoBall.Core.Scenes.Systems
             // Use RightEdge array if available, otherwise fall back to RightMiddle
             if (usage.RightEdge != null && usage.RightEdge.Count > 0)
             {
-                for (
-                    int i = 0;
-                    i < usage.RightEdge.Count && i < GameConstants.PopupInteriorTilesY;
-                    i++
-                )
+                int popupInteriorTilesYRight = _constants.Get<int>("PopupInteriorTilesY");
+                int popupInteriorTilesX = _constants.Get<int>("PopupInteriorTilesX");
+                for (int i = 0; i < usage.RightEdge.Count && i < popupInteriorTilesYRight; i++)
                 {
                     int tileIndex = usage.RightEdge[i];
                     DrawTile(
                         tileIndex,
-                        interiorX + (GameConstants.PopupInteriorTilesX * tileW),
+                        interiorX + (popupInteriorTilesX * tileW),
                         interiorY + (i * tileH)
                     );
                 }
@@ -929,11 +930,12 @@ namespace MonoBall.Core.Scenes.Systems
             else if (usage.RightMiddle != 0)
             {
                 // Fallback to RightMiddle for backwards compatibility
-                for (int i = 0; i < GameConstants.PopupInteriorTilesY; i++)
+                int popupInteriorTilesY = _constants.Get<int>("PopupInteriorTilesY");
+                for (int i = 0; i < popupInteriorTilesY; i++)
                 {
                     DrawTile(
                         usage.RightMiddle,
-                        interiorX + (GameConstants.PopupInteriorTilesX * tileW),
+                        interiorX + (_constants.Get<int>("PopupInteriorTilesX") * tileW),
                         interiorY + (i * tileH)
                     );
                 }
@@ -945,7 +947,7 @@ namespace MonoBall.Core.Scenes.Systems
             {
                 int tileIndex = usage.BottomEdge[i];
                 int tileX = interiorX + ((i - 1) * tileW);
-                int tileY = interiorY + (GameConstants.PopupInteriorTilesY * tileH);
+                int tileY = interiorY + (_constants.Get<int>("PopupInteriorTilesY") * tileH);
                 DrawTile(tileIndex, tileX, tileY);
             }
         }

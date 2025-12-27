@@ -64,6 +64,15 @@ internal static class JsonElementMerger
                     merged[prop.Name] = prop.Value.Clone(); // Override for non-objects
                 }
             }
+            else if (
+                merged.ContainsKey(prop.Name)
+                && merged[prop.Name].ValueKind == JsonValueKind.Object
+                && prop.Value.ValueKind == JsonValueKind.Object
+            )
+            {
+                // For modify operation (extend=false), merge nested objects recursively
+                merged[prop.Name] = Merge(merged[prop.Name], prop.Value, false);
+            }
             else
             {
                 merged[prop.Name] = prop.Value.Clone();

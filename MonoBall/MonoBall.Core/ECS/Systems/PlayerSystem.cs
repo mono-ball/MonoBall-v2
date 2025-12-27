@@ -4,6 +4,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
@@ -24,6 +25,7 @@ namespace MonoBall.Core.ECS.Systems
         private readonly ISpriteLoaderService _spriteLoader;
         private readonly IModManager? _modManager;
         private readonly ILogger _logger;
+        private readonly IConstantsService _constants;
         private readonly QueryDescription _playerQuery;
         private Entity? _playerEntity;
         private bool _playerCreated;
@@ -41,12 +43,14 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="spriteLoader">The sprite loader service for validating sprite sheets.</param>
         /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
         /// <param name="logger">The logger for logging operations.</param>
+        /// <param name="constants">The constants service for accessing game constants. Required.</param>
         public PlayerSystem(
             World world,
             ICameraService cameraService,
             ISpriteLoaderService spriteLoader,
             IModManager? modManager = null,
-            ILogger? logger = null
+            ILogger? logger = null,
+            IConstantsService? constants = null
         )
             : base(world)
         {
@@ -55,6 +59,7 @@ namespace MonoBall.Core.ECS.Systems
             _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
             _modManager = modManager;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
             _playerQuery = new QueryDescription().WithAll<PlayerComponent>();
         }
@@ -82,9 +87,9 @@ namespace MonoBall.Core.ECS.Systems
                 return;
             }
 
-            // Use provided values or defaults from GameConstants
-            string spriteSheet = spriteSheetId ?? GameConstants.DefaultPlayerSpriteSheetId;
-            string animation = initialAnimation ?? GameConstants.DefaultPlayerInitialAnimation;
+            // Use provided values or defaults from constants service
+            string spriteSheet = spriteSheetId ?? _constants.GetString("PlayerSpriteSheetId");
+            string animation = initialAnimation ?? _constants.GetString("PlayerInitialAnimation");
 
             // Get camera component - prefer provided camera entity, fall back to querying for active camera
             CameraComponent? camera = null;
@@ -122,12 +127,13 @@ namespace MonoBall.Core.ECS.Systems
 
             // Use default spawn position instead of camera position
             // Camera starts at (0,0) but player should spawn at a reasonable map location
-            // Default spawn position is defined in GameConstants
+            // Default spawn position is defined in constants service
             int tileWidth = cameraComponent.TileWidth;
             int tileHeight = cameraComponent.TileHeight;
+
             Vector2 pixelPosition = new Vector2(
-                GameConstants.DefaultPlayerSpawnX * tileWidth,
-                GameConstants.DefaultPlayerSpawnY * tileHeight
+                _constants.Get<int>("PlayerSpawnX") * tileWidth,
+                _constants.Get<int>("PlayerSpawnY") * tileHeight
             );
 
             CreatePlayerEntity(pixelPosition, spriteSheet, animation);
@@ -234,7 +240,7 @@ namespace MonoBall.Core.ECS.Systems
                     PixelX = pixelX,
                     PixelY = pixelY,
                 },
-                new GridMovement(GameConstants.DefaultPlayerMovementSpeed)
+                new GridMovement(_constants.Get<float>("PlayerMovementSpeed"))
                 {
                     FacingDirection = Direction.South,
                     MovementDirection = Direction.South,
