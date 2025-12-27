@@ -46,10 +46,12 @@ namespace MonoBall.Core.ECS.Services
             _keyBindingsMultiple[InputAction.MoveEast] = new HashSet<Keys> { Keys.Right, Keys.D };
             _keyBindingsMultiple[InputAction.MoveWest] = new HashSet<Keys> { Keys.Left, Keys.A };
 
-            // Action buttons
-            _keyBindings[InputAction.Interact] = Keys.Space; // Also supports Enter, Z
+            // Action buttons - Interact (A button) = X key only
+            // Note: Enter/Return is reserved for Start button (Menu), NOT interaction
+            _keyBindings[InputAction.Interact] = Keys.X;
             _keyBindings[InputAction.Pause] = Keys.Escape;
-            _keyBindings[InputAction.Menu] = Keys.Tab;
+            // Menu (Start button) uses Enter/Return key
+            _keyBindings[InputAction.Menu] = Keys.Enter;
             _keyBindings[InputAction.ToggleDebugBar] = Keys.F3;
             _keyBindings[InputAction.CycleShader] = Keys.F4;
             _keyBindings[InputAction.CyclePlayerShader] = Keys.F5;

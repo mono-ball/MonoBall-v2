@@ -5,6 +5,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Scripting.Api;
 using MonoBall.Core.Scripting.Utilities;
 
 namespace MonoBall.Core.Scripting
@@ -27,6 +28,7 @@ namespace MonoBall.Core.Scripting
         private IMovementApi? _movementApi;
         private ICameraApi? _cameraApi;
         private INpcApi? _npcApi;
+        private IMessageBoxApi? _messageBoxApi;
 
         /// <summary>
         /// Initializes a new instance of the ScriptApiProvider class.
@@ -142,6 +144,21 @@ namespace MonoBall.Core.Scripting
                 }
 
                 return _npcApi;
+            }
+        }
+
+        /// <summary>
+        /// Gets the message box API.
+        /// </summary>
+        public IMessageBoxApi MessageBox
+        {
+            get
+            {
+                if (_messageBoxApi == null)
+                {
+                    _messageBoxApi = new MessageBoxApi(_world);
+                }
+                return _messageBoxApi;
             }
         }
 

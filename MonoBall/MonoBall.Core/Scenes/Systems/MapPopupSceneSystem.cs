@@ -263,9 +263,10 @@ namespace MonoBall.Core.Scenes.Systems
             float popupHeight = GameConstants.PopupBackgroundHeight + (tileSize * 2); // Background + border on top and bottom
 
             // Create popup scene entity first (before popup entity so we can reference it)
+            // Use unique scene ID to avoid collisions if duplicate events fire
             var sceneComponent = new SceneComponent
             {
-                SceneId = "map:popup",
+                SceneId = $"map:popup:{Guid.NewGuid()}",
                 Priority = ScenePriorities.GameScene + 10, // 60
                 CameraMode = SceneCameraMode.GameCamera,
                 BlocksUpdate = false,
@@ -289,12 +290,10 @@ namespace MonoBall.Core.Scenes.Systems
                     "Failed to create popup scene for {MapSectionName}",
                     evt.MapSectionName
                 );
-                // Clean up popup entity if scene creation failed
-                if (_currentPopupEntity.HasValue)
-                {
-                    World.Destroy(_currentPopupEntity.Value);
-                    _currentPopupEntity = null;
-                }
+                // Note: At this point, _currentPopupEntity has NOT been assigned yet
+                // (it's assigned at line 324 after scene creation succeeds).
+                // The old popup entity was already destroyed at line 231 if it existed.
+                // Nothing to clean up here - just return.
                 return;
             }
 

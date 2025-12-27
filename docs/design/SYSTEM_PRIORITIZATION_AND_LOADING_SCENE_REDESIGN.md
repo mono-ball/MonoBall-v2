@@ -324,3 +324,4 @@ This redesign addresses the architectural inefficiencies identified in the curre
 
 The proposed architecture aligns with oldmonoball's proven patterns while maintaining compatibility with Arch ECS and MonoGame conventions.
 
+

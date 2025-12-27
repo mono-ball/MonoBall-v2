@@ -1,5 +1,7 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Porycon3.Services;
 
@@ -9,25 +11,13 @@ public class DoorAnimationExtractor
     private readonly string _outputPath;
 
     // Frame timing: 4 game frames per animation frame (~67ms at 60fps)
-    private const int FrameDuration = 4;
-    private const int FrameDurationMs = 67;
+    private const double FrameDurationSeconds = 0.06666666666666667;
 
     public DoorAnimationExtractor(string inputPath, string outputPath)
     {
         _inputPath = inputPath;
         _outputPath = outputPath;
     }
-
-    public record DoorAnimation(
-        string Id,
-        string Name,
-        string GraphicsPath,
-        string SoundType,
-        int Size,
-        int FrameCount,
-        int FrameDurationMs,
-        string? MetatileId
-    );
 
     public int Extract()
     {
@@ -46,12 +36,7 @@ public class DoorAnimationExtractor
         // Get all PNG files
         var pngFiles = Directory.GetFiles(doorAnimPath, "*.png");
 
-        var outputGraphicsDir = Path.Combine(_outputPath, "Graphics/DoorAnimations");
-        var outputDefDir = Path.Combine(_outputPath, "Definitions/Animations/Doors");
-        Directory.CreateDirectory(outputGraphicsDir);
-        Directory.CreateDirectory(outputDefDir);
-
-        var animations = new List<DoorAnimation>();
+        var count = 0;
 
         foreach (var pngFile in pngFiles)
         {
@@ -61,88 +46,119 @@ public class DoorAnimationExtractor
             if (fileName.StartsWith("unused_"))
                 continue;
 
-            // Copy graphics
-            var destPath = Path.Combine(outputGraphicsDir, Path.GetFileName(pngFile));
-            File.Copy(pngFile, destPath, true);
-
-            // Determine frame count from image dimensions
-            var frameCount = GetFrameCount(pngFile);
+            // Convert to PascalCase for output
+            var pascalName = ToPascalCase(fileName);
 
             // Find mapping info
             var mapping = doorMappings.FirstOrDefault(m =>
                 m.TileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) ||
                 m.TileName.Replace("_", "").Equals(fileName.Replace("_", ""), StringComparison.OrdinalIgnoreCase));
 
+            // Convert sound type to sound ID
             var soundType = mapping?.SoundType ?? "normal";
-            var size = mapping?.Size ?? 1;
+            var soundId = $"base:sound:door-{soundType}";
             var metatileId = mapping?.MetatileId;
 
-            var id = $"base:door_anim:{fileName}";
-            var name = FormatName(fileName);
+            // Get frame info from the sprite sheet (detect width from image)
+            var (frameCount, frameWidth, frameHeight) = GetFrameInfo(pngFile);
+            if (frameCount == 0) continue;
 
-            animations.Add(new DoorAnimation(
-                id,
-                name,
-                $"base:graphics:door_animations/{fileName}",
-                soundType,
-                size,
-                frameCount,
-                FrameDurationMs,
-                metatileId
-            ));
-        }
+            // Copy the sprite sheet
+            var outputGraphicsDir = Path.Combine(_outputPath, "Graphics/DoorAnimations");
+            Directory.CreateDirectory(outputGraphicsDir);
+            var outputPngPath = Path.Combine(outputGraphicsDir, $"{pascalName}.png");
+            File.Copy(pngFile, outputPngPath, overwrite: true);
 
-        // Write individual definitions
-        foreach (var anim in animations)
-        {
-            var defPath = Path.Combine(outputDefDir, $"{anim.Name.ToLowerInvariant().Replace(" ", "_")}.json");
-            var json = JsonSerializer.Serialize(new
+            // Build frames array (frames are stacked vertically)
+            var frames = new List<object>();
+            for (var i = 0; i < frameCount; i++)
             {
-                id = anim.Id,
-                name = anim.Name,
-                graphicsId = anim.GraphicsPath,
-                soundType = anim.SoundType,
-                size = anim.Size,
-                frameCount = anim.FrameCount,
-                frameDurationMs = anim.FrameDurationMs,
-                metatileId = anim.MetatileId
-            }, new JsonSerializerOptions { WriteIndented = true, DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull });
+                frames.Add(new
+                {
+                    index = i,
+                    x = 0,
+                    y = i * frameHeight,
+                    width = frameWidth,
+                    height = frameHeight
+                });
+            }
+
+            // Build animations
+            var openFrameIndices = Enumerable.Range(0, frameCount).ToList();
+            var closeFrameIndices = Enumerable.Range(0, frameCount).Reverse().ToList();
+            var frameDurations = Enumerable.Repeat(FrameDurationSeconds, frameCount).ToList();
+
+            var animations = new List<object>
+            {
+                new
+                {
+                    name = "open",
+                    loop = false,
+                    frameIndices = openFrameIndices,
+                    frameDurations = frameDurations,
+                    flipHorizontal = false
+                },
+                new
+                {
+                    name = "close",
+                    loop = false,
+                    frameIndices = closeFrameIndices,
+                    frameDurations = frameDurations,
+                    flipHorizontal = false
+                }
+            };
+
+            // Create definition
+            var outputDefDir = Path.Combine(_outputPath, "Definitions/Assets/DoorAnimations");
+            Directory.CreateDirectory(outputDefDir);
+
+            var definition = new
+            {
+                id = $"base:sprite:door-animations/{fileName.Replace("_", "-")}",
+                name = FormatName(fileName),
+                type = "Sprite",
+                texturePath = $"Graphics/DoorAnimations/{pascalName}.png",
+                frameWidth,
+                frameHeight,
+                frameCount,
+                soundId,
+                metatileId,
+                frames,
+                animations
+            };
+
+            var defPath = Path.Combine(outputDefDir, $"{pascalName}.json");
+            var json = JsonSerializer.Serialize(definition, new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+            });
             File.WriteAllText(defPath, json);
+
+            count++;
         }
 
-        Console.WriteLine($"[DoorAnimationExtractor] Extracted {animations.Count} door animations");
-        return animations.Count;
+        Console.WriteLine($"[DoorAnimationExtractor] Extracted {count} door animations");
+        return count;
     }
 
-    private int GetFrameCount(string pngPath)
+    private (int frameCount, int frameWidth, int frameHeight) GetFrameInfo(string pngPath)
     {
-        // Read PNG header to get dimensions
-        using var stream = File.OpenRead(pngPath);
-        using var reader = new BinaryReader(stream);
-
-        // Skip PNG signature (8 bytes)
-        reader.ReadBytes(8);
-
-        // Read IHDR chunk
-        reader.ReadBytes(4); // length
-        reader.ReadBytes(4); // "IHDR"
-
-        // Width and height are big-endian
-        var widthBytes = reader.ReadBytes(4);
-        var heightBytes = reader.ReadBytes(4);
-
-        if (BitConverter.IsLittleEndian)
+        try
         {
-            Array.Reverse(widthBytes);
-            Array.Reverse(heightBytes);
+            using var image = Image.Load<Rgba32>(pngPath);
+
+            var frameWidth = image.Width; // 16 for single, 32 for double-wide
+            var frameHeight = 32; // 2 metatiles tall
+            var frameCount = image.Height / frameHeight;
+
+            return (frameCount, frameWidth, frameHeight);
         }
-
-        var width = BitConverter.ToInt32(widthBytes);
-        var height = BitConverter.ToInt32(heightBytes);
-
-        // Each frame is 32 pixels tall (2 metatiles of 16px each)
-        // Normal doors: 16px wide, Big doors: 32px wide
-        return height / 32;
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[DoorAnimationExtractor] Error reading {pngPath}: {ex.Message}");
+            return (0, 0, 0);
+        }
     }
 
     private record DoorMapping(string TileName, string SoundType, int Size, string? MetatileId);
@@ -152,15 +168,24 @@ public class DoorAnimationExtractor
         var content = File.ReadAllText(filePath);
         var mappings = new List<DoorMapping>();
 
-        // Parse sDoorAnimGraphicsTable entries
-        // Format: {METATILE_xxx, DOOR_SOUND_xxx, size, sDoorAnimTiles_xxx, sDoorAnimPalettes_xxx},
-        var tableMatch = Regex.Match(content,
-            @"static const struct DoorGraphics sDoorAnimGraphicsTable\[\]\s*=\s*\{([^}]+)\}",
-            RegexOptions.Singleline);
+        // Find the table start and extract until the closing };
+        var tableStartIdx = content.IndexOf("static const struct DoorGraphics sDoorAnimGraphicsTable[]");
+        if (tableStartIdx == -1) return mappings;
 
-        if (!tableMatch.Success) return mappings;
+        var braceStart = content.IndexOf('{', tableStartIdx);
+        if (braceStart == -1) return mappings;
 
-        var entries = tableMatch.Groups[1].Value;
+        // Find matching closing brace
+        var braceCount = 1;
+        var braceEnd = braceStart + 1;
+        while (braceEnd < content.Length && braceCount > 0)
+        {
+            if (content[braceEnd] == '{') braceCount++;
+            else if (content[braceEnd] == '}') braceCount--;
+            braceEnd++;
+        }
+
+        var entries = content.Substring(braceStart + 1, braceEnd - braceStart - 2);
 
         // Match each entry
         var entryPattern = new Regex(
@@ -174,7 +199,7 @@ public class DoorAnimationExtractor
             var size = int.Parse(match.Groups[3].Value);
             var tileName = match.Groups[4].Value;
 
-            // Convert tileName from CamelCase to snake_case
+            // Convert tileName from CamelCase to snake_case for matching
             var snakeCaseName = ConvertToSnakeCase(tileName);
 
             // Build metatile ID
@@ -185,7 +210,7 @@ public class DoorAnimationExtractor
                 if (parts.Length == 2)
                 {
                     var tileset = parts[0].ToLowerInvariant();
-                    var name = ConvertToSnakeCase(parts[1]);
+                    var name = ConvertToSnakeCase(parts[1]).Replace("_", "-");
                     metatileId = $"base:metatile:{tileset}/{name}";
                 }
             }
@@ -198,14 +223,18 @@ public class DoorAnimationExtractor
 
     private static string ConvertToSnakeCase(string input)
     {
-        // Insert underscore before uppercase letters and convert to lowercase
         var result = Regex.Replace(input, "([a-z])([A-Z])", "$1_$2");
         return result.ToLowerInvariant();
     }
 
+    private static string ToPascalCase(string snakeCase)
+    {
+        return string.Concat(snakeCase.Split('_')
+            .Select(w => char.ToUpperInvariant(w[0]) + w[1..].ToLowerInvariant()));
+    }
+
     private static string FormatName(string fileName)
     {
-        // Convert snake_case to Title Case
         return string.Join(" ", fileName.Split('_')
             .Select(w => char.ToUpperInvariant(w[0]) + w[1..].ToLowerInvariant()));
     }

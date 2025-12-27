@@ -81,7 +81,32 @@ public class PlayerStatisticsScript : ScriptBase
             );
             
             SaveStatistics();
+            
+            // Show statistics in message box when entering a new map
+            ShowStatisticsMessageBox();
         }
+    }
+    
+    private void ShowStatisticsMessageBox()
+    {
+        // Build statistics message demonstrating text control codes:
+        // - \n = newline (continues on same page if space available)
+        // - \l = scroll (wait, then scroll up keeping previous line visible)
+        // - \p = page break (wait, then clear and start fresh)
+        //
+        // Page 1: "Player Statistics" (title with \p = fresh page after)
+        // Page 2: Lines scroll smoothly using \l:
+        //   - "Total Steps: X" + "Maps Visited: X" (2 lines visible)
+        //   - After \l, scrolls up: "Maps Visited" stays, "Keep exploring" appears
+        var message =
+            "Player Statistics\\p" +              // Title alone, then clear
+            $"Total Steps: {_totalSteps}\\l" +    // Line 1, scroll up after
+            $"Maps Visited: {_mapsVisited}\\l" +  // Line 2 (now line 1), scroll up after
+            "Keep exploring!";                     // Line 3 (now line 2), end
+
+        // Show message box (use fast text speed for better UX)
+        // Fast speed = 1 frame at 60 FPS = 1/60 = 0.0167 seconds
+        Context.Apis.MessageBox.ShowMessage(message, textSpeedOverride: 0.017f);
     }
 
     private void SaveStatistics()

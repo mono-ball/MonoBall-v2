@@ -302,7 +302,7 @@ namespace MonoBall.Core.Scripting.Runtime
         protected Direction GetFacingDirection()
         {
             RequireEntity();
-            var direction = Context.Apis.Npc.GetFacingDirection(Context.Entity.Value);
+            var direction = Context.Apis.Npc.GetFacingDirection(Context.Entity!.Value);
             if (!direction.HasValue)
             {
                 throw new InvalidOperationException("Entity does not have GridMovement component.");
@@ -333,7 +333,7 @@ namespace MonoBall.Core.Scripting.Runtime
         protected void SetFacingDirection(Direction direction)
         {
             RequireEntity();
-            Context.Apis.Npc.FaceDirection(Context.Entity.Value, direction);
+            Context.Apis.Npc.FaceDirection(Context.Entity!.Value, direction);
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace MonoBall.Core.Scripting.Runtime
         protected (int X, int Y) GetPosition()
         {
             RequireEntity();
-            var position = Context.Apis.Npc.GetPosition(Context.Entity.Value);
+            var position = Context.Apis.Npc.GetPosition(Context.Entity!.Value);
             if (position == null)
             {
                 throw new InvalidOperationException("Entity does not have PositionComponent.");
@@ -650,7 +650,7 @@ namespace MonoBall.Core.Scripting.Runtime
         protected TEnum GetEnum<TEnum>(string key, TEnum defaultValue)
             where TEnum : struct, Enum
         {
-            var str = Get<string>(key, null);
+            string? str = Get<string>(key, null);
             if (string.IsNullOrEmpty(str))
                 return defaultValue;
 

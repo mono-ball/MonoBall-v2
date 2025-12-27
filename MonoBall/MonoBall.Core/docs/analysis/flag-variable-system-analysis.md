@@ -490,3 +490,4 @@ public bool GetEntityFlag(Entity entity, string flagId)
 5. Refactor to extract common logic between global and entity operations
 6. Add entity validation to all entity-specific methods
 
+

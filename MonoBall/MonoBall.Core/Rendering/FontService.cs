@@ -103,6 +103,11 @@ namespace MonoBall.Core.Rendering
 
             // Resolve font path
             // FontPath in definition is relative to mod root (like TexturePath in sprite definitions)
+            if (string.IsNullOrEmpty(definition.FontPath))
+            {
+                _logger.Warning("Font definition {FontId} has no FontPath", fontId);
+                return null;
+            }
             string fontPath = Path.Combine(modManifest.ModDirectory, definition.FontPath);
 
             fontPath = Path.GetFullPath(fontPath);

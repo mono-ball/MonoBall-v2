@@ -58,6 +58,7 @@ namespace MonoBall.Core.ECS
 
         // Scene-specific systems (owned by SceneSystem, not registered separately)
         private InputBindingService _inputBindingService = null!; // Initialized in Initialize()
+        private Services.IFlagVariableService _flagVariableService = null!; // Initialized in InitializeCoreServices()
         private MapTransitionDetectionSystem _mapTransitionDetectionSystem = null!; // Initialized in Initialize()
         private MapPopupOrchestratorSystem _mapPopupOrchestratorSystem = null!; // Initialized in Initialize()
         private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
@@ -413,9 +414,12 @@ namespace MonoBall.Core.ECS
                 );
             }
 
+            // Assign to field for use by other systems
+            _flagVariableService = flagVariableService;
+
             // Create VariableSpriteResolver
             _variableSpriteResolver = new Services.VariableSpriteResolver(
-                flagVariableService,
+                _flagVariableService,
                 LoggerFactory.CreateLogger<Services.VariableSpriteResolver>()
             );
 
@@ -502,7 +506,7 @@ namespace MonoBall.Core.ECS
                 _modManager.Registry,
                 _tilesetLoader,
                 _spriteLoader,
-                flagVariableService,
+                _flagVariableService,
                 _variableSpriteResolver,
                 LoggerFactory.CreateLogger<MapLoaderSystem>()
             );
@@ -561,13 +565,15 @@ namespace MonoBall.Core.ECS
             _inputBindingService = new Services.InputBindingService(
                 LoggerFactory.CreateLogger<Services.InputBindingService>()
             );
-            var nullInputBlocker = new Services.NullInputBlocker();
+            // Create scene-based input blocker (checks if any scene has BlocksInput=true)
+            // Use a lambda to get _sceneSystem lazily since it's created later in CreateSceneSpecificSystems()
+            var sceneInputBlocker = new Scenes.Systems.SceneInputBlocker(() => _sceneSystem);
             var nullCollisionService = new Services.NullCollisionService();
 
             // Create input system
             _inputSystem = new InputSystem(
                 _world,
-                nullInputBlocker,
+                sceneInputBlocker,
                 inputBuffer,
                 _inputBindingService,
                 LoggerFactory.CreateLogger<InputSystem>()
@@ -822,6 +828,12 @@ namespace MonoBall.Core.ECS
             }
 
             // Create scene-specific systems first
+            if (_spriteBatch == null)
+            {
+                throw new InvalidOperationException(
+                    "SpriteBatch must be initialized before creating scene-specific systems."
+                );
+            }
             var loadingSceneSystem = new Scenes.Systems.LoadingSceneSystem(
                 _world,
                 _graphicsDevice,
@@ -877,6 +889,26 @@ namespace MonoBall.Core.ECS
 
             // Register MapPopupSceneSystem with SceneSystem (as ISceneSystem)
             _sceneSystem.SetMapPopupSceneSystem(mapPopupSceneSystem);
+
+            // Create MessageBoxSceneSystem (needs ISceneManager, which SceneSystem implements)
+            var messageBoxSceneSystem = new Scenes.Systems.MessageBoxSceneSystem(
+                _world,
+                _sceneSystem, // Pass SceneSystem as ISceneManager
+                fontService,
+                _modManager,
+                _inputBindingService,
+                _flagVariableService,
+                _cameraService, // Pass CameraService for camera queries
+                _graphicsDevice,
+                _spriteBatch,
+                LoggerFactory.CreateLogger<Scenes.Systems.MessageBoxSceneSystem>()
+            );
+
+            // Register MessageBoxSceneSystem with SceneSystem (as ISceneSystem)
+            _sceneSystem.SetMessageBoxSceneSystem(messageBoxSceneSystem);
+
+            // Register MessageBoxSceneSystem with update systems (it implements IPrioritizedSystem)
+            RegisterUpdateSystem(messageBoxSceneSystem);
 
             // Only register SceneSystem (not scene-specific systems - they're owned by SceneSystem)
             RegisterUpdateSystem(_sceneSystem);

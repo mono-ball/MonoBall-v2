@@ -46,6 +46,7 @@ namespace MonoBall.Core.ECS
         public const int LoadingScene = 330;
         public const int DebugBarScene = 340;
         public const int MapPopupScene = 350;
+        public const int MessageBoxScene = 360;
 
         // Popups and UI
         public const int MapPopupOrchestrator = 400;

@@ -186,3 +186,4 @@ MonoBall.Core/
 3. Create initial shader examples
 4. Integrate with rendering systems
 
+

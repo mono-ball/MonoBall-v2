@@ -95,3 +95,4 @@ These are documentation files and don't affect the codebase.
 
 All G-buffer functionality has been completely removed from the codebase. The system now uses standard post-processing shader stacking without any G-buffer dependencies. The codebase is clean and ready for use.
 
+

@@ -40,6 +40,7 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly ISceneSystem? _loadingSceneSystem;
         private readonly ISceneSystem? _debugBarSceneSystem;
         private ISceneSystem? _mapPopupSceneSystem;
+        private ISceneSystem? _messageBoxSceneSystem;
 
         // Registry for mapping component types to scene systems
         private readonly Dictionary<Type, ISceneSystem> _sceneSystemRegistry =
@@ -77,6 +78,19 @@ namespace MonoBall.Core.Scenes.Systems
             _mapPopupSceneSystem =
                 mapPopupSceneSystem ?? throw new ArgumentNullException(nameof(mapPopupSceneSystem));
             RegisterSceneSystem(typeof(MapPopupSceneComponent), mapPopupSceneSystem);
+        }
+
+        /// <summary>
+        /// Sets the message box scene system.
+        /// Called by SystemManager after creating MessageBoxSceneSystem (which needs ISceneManager).
+        /// </summary>
+        /// <param name="messageBoxSceneSystem">The message box scene system.</param>
+        public void SetMessageBoxSceneSystem(ISceneSystem messageBoxSceneSystem)
+        {
+            _messageBoxSceneSystem =
+                messageBoxSceneSystem
+                ?? throw new ArgumentNullException(nameof(messageBoxSceneSystem));
+            RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem);
         }
 
         /// <summary>
@@ -124,7 +138,8 @@ namespace MonoBall.Core.Scenes.Systems
             ISceneSystem? gameSceneSystem = null,
             ISceneSystem? loadingSceneSystem = null,
             ISceneSystem? debugBarSceneSystem = null,
-            ISceneSystem? mapPopupSceneSystem = null
+            ISceneSystem? mapPopupSceneSystem = null,
+            ISceneSystem? messageBoxSceneSystem = null
         )
             : base(world)
         {
@@ -136,6 +151,7 @@ namespace MonoBall.Core.Scenes.Systems
             _loadingSceneSystem = loadingSceneSystem;
             _debugBarSceneSystem = debugBarSceneSystem;
             _mapPopupSceneSystem = mapPopupSceneSystem;
+            _messageBoxSceneSystem = messageBoxSceneSystem;
 
             // Register scene systems in registry
             if (gameSceneSystem != null)
@@ -153,6 +169,10 @@ namespace MonoBall.Core.Scenes.Systems
             if (mapPopupSceneSystem != null)
             {
                 RegisterSceneSystem(typeof(MapPopupSceneComponent), mapPopupSceneSystem);
+            }
+            if (messageBoxSceneSystem != null)
+            {
+                RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem);
             }
 
             // Subscribe to SceneMessageEvent for inter-scene communication
@@ -278,6 +298,10 @@ namespace MonoBall.Core.Scenes.Systems
                     else if (component is LoadingProgressComponent loadingProgressComp)
                     {
                         World.Add<LoadingProgressComponent>(sceneEntity, loadingProgressComp);
+                    }
+                    else if (component is MessageBoxSceneComponent messageBoxSceneComp)
+                    {
+                        World.Add<MessageBoxSceneComponent>(sceneEntity, messageBoxSceneComp);
                     }
                     // Add other component types as needed in the future
                 }
@@ -567,6 +591,15 @@ namespace MonoBall.Core.Scenes.Systems
                     ? system
                     : null;
             }
+            if (World.Has<MessageBoxSceneComponent>(sceneEntity))
+            {
+                return _sceneSystemRegistry.TryGetValue(
+                    typeof(MessageBoxSceneComponent),
+                    out var system
+                )
+                    ? system
+                    : null;
+            }
 
             return null;
         }
@@ -625,14 +658,16 @@ namespace MonoBall.Core.Scenes.Systems
             // These systems query for entities internally, so they need ProcessInternal() called
             if (isBlocked)
             {
-                // Only process loading scene (needs to process progress queue even when blocked)
+                // Only process loading scene and message box scene (they need to process even when blocked)
                 _loadingSceneSystem?.ProcessInternal(deltaTime);
+                _messageBoxSceneSystem?.ProcessInternal(deltaTime);
             }
             else
             {
                 // Process systems that need internal processing
                 _loadingSceneSystem?.ProcessInternal(deltaTime);
                 _mapPopupSceneSystem?.ProcessInternal(deltaTime);
+                _messageBoxSceneSystem?.ProcessInternal(deltaTime);
             }
         }
 

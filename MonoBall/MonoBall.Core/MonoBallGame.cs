@@ -165,6 +165,12 @@ namespace MonoBall.Core
             );
 
             // Set LoadingSceneSystem for progress updates
+            if (earlySystemManager.LoadingSceneSystem == null)
+            {
+                throw new InvalidOperationException(
+                    "LoadingSceneSystem must be initialized before setting it on GameInitializationService."
+                );
+            }
             _initializationService.SetLoadingSceneSystem(earlySystemManager.LoadingSceneSystem);
 
             // Create loading scene in main world and start async initialization

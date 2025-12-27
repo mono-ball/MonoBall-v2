@@ -1,5 +1,6 @@
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Scripting.Api;
 
 namespace MonoBall.Core.Scripting
 {
@@ -43,5 +44,10 @@ namespace MonoBall.Core.Scripting
         /// Gets the NPC API.
         /// </summary>
         INpcApi Npc { get; }
+
+        /// <summary>
+        /// Gets the message box API.
+        /// </summary>
+        IMessageBoxApi MessageBox { get; }
     }
 }

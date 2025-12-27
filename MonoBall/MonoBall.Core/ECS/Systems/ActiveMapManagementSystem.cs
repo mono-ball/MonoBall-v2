@@ -105,9 +105,28 @@ namespace MonoBall.Core.ECS.Systems
 
             foreach (var entity in entitiesToRemove)
             {
-                if (World.IsAlive(entity) && World.Has<ActiveMapEntity>(entity))
+                // Double-check entity is alive and has the component before removing
+                // This prevents memory corruption if entity was destroyed between collection and removal
+                if (!World.IsAlive(entity))
                 {
-                    World.Remove<ActiveMapEntity>(entity);
+                    continue; // Entity was destroyed, skip
+                }
+
+                if (World.Has<ActiveMapEntity>(entity))
+                {
+                    try
+                    {
+                        World.Remove<ActiveMapEntity>(entity);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log but don't crash - entity might have been destroyed concurrently
+                        _logger.Warning(
+                            ex,
+                            "Failed to remove ActiveMapEntity from entity {EntityId}. Entity may have been destroyed.",
+                            entity.Id
+                        );
+                    }
                 }
             }
 

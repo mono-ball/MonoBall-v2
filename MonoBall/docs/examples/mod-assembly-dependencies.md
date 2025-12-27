@@ -148,3 +148,4 @@ To create an assembly that other mods can use:
 - **No circular dependencies**: Mod A cannot depend on Mod B if Mod B depends on Mod A
 - **Assembly compatibility**: Assemblies must target compatible .NET versions (typically .NET 10.0 or compatible)
 
+

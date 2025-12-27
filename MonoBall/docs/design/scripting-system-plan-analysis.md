@@ -375,3 +375,4 @@ var context = new ScriptContext(
 6. **Add Error Handling**: Specify try-catch in EventSubscription wrapper
 7. **Add Parameter Building**: Fix to use EntityVariablesComponent
 
+

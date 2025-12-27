@@ -476,3 +476,4 @@ sceneSystem.Render(gameTime);  // Queries entities, handles rendering
 - Unreal Engine ECS (Mass Entity)
 - [Game Programming Patterns - Component](https://gameprogrammingpatterns.com/component.html)
 
+

@@ -724,3 +724,4 @@ namespace MyMod.Scenes
 - BackgroundColor component simplifies rendering logic
 - Enhanced events improve debugging and system communication
 
+

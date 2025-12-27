@@ -277,3 +277,4 @@ return eventEntity.Id == Context.Entity.Value.Id;
 - The biggest issue is the duplicate functionality and silent failures in NpcApiImpl
 - Script migrations look good - scripts are using the new helpers correctly
 
+

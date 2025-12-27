@@ -466,3 +466,4 @@ A: That's fine! A scene can have multiple systems querying for it. For example, 
 5. **Remove Scene classes** - Delete Scene, GameScene, etc.
 6. **Add Scene Definitions** - Data-driven scene configuration (future)
 
+
