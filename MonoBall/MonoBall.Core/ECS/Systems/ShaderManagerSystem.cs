@@ -376,6 +376,10 @@ namespace MonoBall.Core.ECS.Systems
         {
             foreach (var (effect, _, entity) in shaders)
             {
+                // Skip destroyed entities - CRITICAL: must check before ANY entity access
+                if (!_world.IsAlive(entity))
+                    continue;
+
                 // Get or create previous values dictionary for dirty tracking
                 if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
                 {

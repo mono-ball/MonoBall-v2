@@ -66,8 +66,9 @@ public class Sf2Builder
     /// <param name="name">Instrument name</param>
     /// <param name="sampleIndex">Index of the sample to use</param>
     /// <param name="envelope">ADSR envelope parameters</param>
+    /// <param name="rootKeyOverride">Override root key from voice definition (-1 to use sample's root key)</param>
     /// <returns>Instrument index for referencing in presets</returns>
-    public int AddSimpleInstrument(string name, int sampleIndex, VoiceEnvelope envelope)
+    public int AddSimpleInstrument(string name, int sampleIndex, VoiceEnvelope envelope, int rootKeyOverride = -1)
     {
         var inst = new Sf2Instrument
         {
@@ -81,7 +82,8 @@ public class Sf2Builder
                     KeyRangeHigh = 127,
                     VelRangeLow = 0,
                     VelRangeHigh = 127,
-                    Envelope = envelope
+                    Envelope = envelope,
+                    RootKeyOverride = rootKeyOverride
                 }
             }
         };
@@ -380,14 +382,10 @@ public class Sf2Builder
     /// <summary>
     /// Number of generators per instrument zone.
     /// keyRange, velRange, overridingRootKey, sampleModes, sampleID = 5
-    ///
-    /// Note: We intentionally DON'T use SF2 ADSR generators because:
-    /// 1. PSG envelopes (0-15 scale) vs DirectSound (0-255) have completely different semantics
-    /// 2. SF2 envelope model doesn't match GBA m4a hardware envelope behavior
-    /// 3. Incorrect conversion causes "wave oscillation" artifacts
-    /// The samples themselves already contain the correct amplitude characteristics.
+    /// Plus ADSR envelope: attackVolEnv, decayVolEnv, sustainVolEnv, releaseVolEnv = 4
+    /// Total = 9 generators per zone
     /// </summary>
-    private const int GeneratorsPerZone = 5;
+    private const int GeneratorsPerZone = 9;
 
     private void WriteInstrumentGenerators(BinaryWriter bw)
     {
@@ -410,17 +408,40 @@ public class Sf2Builder
                 bw.Write((byte)zone.VelRangeLow);
                 bw.Write((byte)zone.VelRangeHigh);
 
+                // ADSR Envelope generators
+                // Attack (34) - attackVolEnv in timecents
+                bw.Write((short)34);
+                bw.Write(GbaAttackToTimecents(zone.Envelope.Attack));
+
+                // Decay (36) - decayVolEnv in timecents
+                bw.Write((short)36);
+                bw.Write(GbaDecayToTimecents(zone.Envelope.Decay));
+
+                // Sustain (37) - sustainVolEnv in centibels (0 = full, 1000 = -100dB)
+                bw.Write((short)37);
+                bw.Write(GbaSustainToCentibels(zone.Envelope.Sustain));
+
+                // Release (38) - releaseVolEnv in timecents
+                bw.Write((short)38);
+                bw.Write(GbaReleaseToTimecents(zone.Envelope.Release));
+
                 // Overriding root key (58)
-                if (_samples.Count > zone.SampleIndex)
+                // Use zone's RootKeyOverride if set, otherwise fall back to sample's root key
+                int rootKey;
+                if (zone.RootKeyOverride >= 0)
                 {
-                    bw.Write((short)58);
-                    bw.Write((short)_samples[zone.SampleIndex].RootKey);
+                    rootKey = zone.RootKeyOverride;
+                }
+                else if (_samples.Count > zone.SampleIndex)
+                {
+                    rootKey = _samples[zone.SampleIndex].RootKey;
                 }
                 else
                 {
-                    bw.Write((short)58);
-                    bw.Write((short)60);
+                    rootKey = 60;
                 }
+                bw.Write((short)58);
+                bw.Write((short)rootKey);
 
                 // Sample modes (54) - 1 = loop continuously
                 bw.Write((short)54);
@@ -438,16 +459,15 @@ public class Sf2Builder
     }
 
     /// <summary>
-    /// Convert GBA attack value (0=slow, 255=instant) to SF2 timecents.
-    /// SF2 timecents: -12000 = instant, 0 = 1 second
-    /// Using simple linear mapping for predictable results.
+    /// Convert GBA attack value to SF2 timecents.
+    /// Using simple fixed values for predictable results - GBA envelope semantics
+    /// don't map cleanly to SF2, so we use sensible defaults.
     /// </summary>
     private static short GbaAttackToTimecents(int gbaAttack)
     {
-        // GBA 255 = instant (-12000), GBA 0 = ~1 second (0 timecents)
-        // Linear interpolation for simplicity
-        var clamped = Math.Clamp(gbaAttack, 0, 255);
-        return (short)(-12000 + (255 - clamped) * 12000 / 255);
+        // Fast attack for all instruments - notes start immediately
+        // -12000 = instant, -8000 = very fast, 0 = 1 second
+        return -10000; // Very fast attack (~0.01s)
     }
 
     /// <summary>
@@ -455,19 +475,19 @@ public class Sf2Builder
     /// </summary>
     private static short GbaDecayToTimecents(int gbaDecay)
     {
-        // GBA 255 = instant (-12000), GBA 0 = ~2 seconds (1200 timecents)
-        var clamped = Math.Clamp(gbaDecay, 0, 255);
-        return (short)(-12000 + (255 - clamped) * 13200 / 255);
+        // No decay - go straight to sustain level
+        // This prevents unwanted volume drops after note start
+        return -12000; // Instant (no decay phase)
     }
 
     /// <summary>
-    /// Convert GBA sustain (0=silent, 255=full) to SF2 centibels attenuation (0=full, 1000=silent).
+    /// Convert GBA sustain to SF2 centibels attenuation.
     /// </summary>
     private static short GbaSustainToCentibels(int gbaSustain)
     {
-        // GBA 255 = full volume (0 cB), GBA 0 = silent (1000 cB)
-        var clamped = Math.Clamp(gbaSustain, 0, 255);
-        return (short)((255 - clamped) * 1000 / 255);
+        // Full sustain - notes stay at full volume while held
+        // 0 = full volume, 1000 = -100dB (silent)
+        return 0; // Full volume sustain
     }
 
     /// <summary>
@@ -475,9 +495,9 @@ public class Sf2Builder
     /// </summary>
     private static short GbaReleaseToTimecents(int gbaRelease)
     {
-        // GBA 255 = instant (-12000), GBA 0 = ~1 second (0 timecents)
-        var clamped = Math.Clamp(gbaRelease, 0, 255);
-        return (short)(-12000 + (255 - clamped) * 12000 / 255);
+        // Gentle release so notes fade out naturally when key is released
+        // -12000 = instant, 0 = 1 second, 1200 = 2 seconds
+        return -3000; // ~0.15 second release for natural fade
     }
 
     /// <summary>
@@ -649,6 +669,11 @@ public class Sf2Zone
     public int VelRangeLow { get; init; } = 0;
     public int VelRangeHigh { get; init; } = 127;
     public VoiceEnvelope Envelope { get; init; } = new(0, 0, 255, 0);
+    /// <summary>
+    /// Override root key from the voice definition's BaseMidiKey.
+    /// If set (>= 0), uses this instead of the sample's root key.
+    /// </summary>
+    public int RootKeyOverride { get; init; } = -1;
 }
 
 /// <summary>

@@ -40,23 +40,46 @@ public class MidiToOggConverter
             // Parse MIDI for loop markers, resolution, and tempo map
             var parseResult = FindLoopMarkersAndResolution(midiPath);
 
+            // Preprocess MIDI to filter out GBA m4a modulation-triggered volume drops
+            var cleanedMidiPath = PreprocessMidi(midiPath);
+            var midiPathToUse = cleanedMidiPath ?? midiPath;
+
             // Load SF2 if not already loaded
             _synthesizer ??= new Synthesizer(_sf2Path, _sampleRate);
 
             // Load and sequence the MIDI
-            var midiFile = new MidiFile(midiPath);
+            var midiFile = new MidiFile(midiPathToUse);
             var sequencer = new MidiFileSequencer(_synthesizer);
 
             // Calculate total length - render to end of song
             var totalSeconds = midiFile.Length.TotalSeconds;
 
+            // Ensure we have at least 1 second of audio (some MIDI files may report 0 length)
+            if (totalSeconds < 0.1)
+            {
+                Console.WriteLine($"[MidiToOggConverter] Warning: MIDI file has very short duration ({totalSeconds}s): {midiPath}");
+                totalSeconds = 1.0; // Default to 1 second minimum
+            }
+
             var totalSamples = (int)(totalSeconds * _sampleRate);
+            if (totalSamples <= 0)
+            {
+                Console.WriteLine($"[MidiToOggConverter] Error: Invalid sample count ({totalSamples}) for {midiPath}");
+                return new ConversionResult(false, 0, 0, _sampleRate);
+            }
+
             var leftBuffer = new float[totalSamples];
             var rightBuffer = new float[totalSamples];
 
             // Render audio (play once, render once)
             sequencer.Play(midiFile, false);
             sequencer.Render(leftBuffer, rightBuffer);
+
+            // Clean up preprocessed MIDI if created
+            if (cleanedMidiPath != null && File.Exists(cleanedMidiPath))
+            {
+                try { File.Delete(cleanedMidiPath); } catch { }
+            }
 
             // Convert loop ticks to sample positions using tempo-accurate conversion
             var loopStartSample = -1; // Use -1 to indicate no loop, not 0
@@ -107,7 +130,143 @@ public class MidiToOggConverter
         catch (Exception ex)
         {
             Console.WriteLine($"[MidiToOggConverter] Error converting {midiPath}: {ex.Message}");
+            Console.WriteLine($"[MidiToOggConverter] Stack trace: {ex.StackTrace}");
             return new ConversionResult(false, 0, 0, _sampleRate);
+        }
+    }
+
+    /// <summary>
+    /// Preprocess MIDI to remove ALL CC7 (Volume) and CC1 (Modulation) changes.
+    /// Since we now have proper SF2 ADSR envelopes, the GBA m4a volume automation
+    /// in the MIDI files is no longer needed and causes conflicts (double envelope effect).
+    /// We set all channels to full volume (127) and let the SF2 envelopes handle dynamics.
+    /// </summary>
+    /// <param name="midiPath">Path to input MIDI file</param>
+    /// <returns>Path to cleaned MIDI file, or null if no changes needed</returns>
+    private string? PreprocessMidi(string midiPath)
+    {
+        try
+        {
+            using var fs = File.OpenRead(midiPath);
+            var data = new byte[fs.Length];
+            fs.Read(data, 0, data.Length);
+
+            var modified = false;
+
+            // Read header
+            if (data.Length < 14) return null;
+            var headerLen = (data[4] << 24) | (data[5] << 16) | (data[6] << 8) | data[7];
+            var pos = 8 + headerLen;
+
+            while (pos < data.Length - 8)
+            {
+                // Read track header
+                if (pos + 8 > data.Length) break;
+                var chunkType = System.Text.Encoding.ASCII.GetString(data, pos, 4);
+                var chunkLen = (data[pos + 4] << 24) | (data[pos + 5] << 16) | (data[pos + 6] << 8) | data[pos + 7];
+
+                if (chunkType != "MTrk")
+                {
+                    pos += 8 + chunkLen;
+                    continue;
+                }
+
+                var trackEnd = pos + 8 + chunkLen;
+                var p = pos + 8;
+                byte runningStatus = 0;
+
+                while (p < trackEnd)
+                {
+                    // Skip delta time
+                    byte b;
+                    do
+                    {
+                        if (p >= trackEnd) break;
+                        b = data[p++];
+                    } while ((b & 0x80) != 0);
+
+                    if (p >= trackEnd) break;
+
+                    var status = data[p];
+
+                    // Handle running status
+                    if (status < 0x80)
+                    {
+                        status = runningStatus;
+                    }
+                    else
+                    {
+                        p++;
+                        if (status < 0xF0)
+                            runningStatus = status;
+                    }
+
+                    if (status == 0xFF) // Meta event
+                    {
+                        if (p >= trackEnd) break;
+                        p++; // meta type
+                        var len = 0;
+                        do
+                        {
+                            if (p >= trackEnd) break;
+                            b = data[p++];
+                            len = (len << 7) | (b & 0x7F);
+                        } while ((b & 0x80) != 0);
+                        p += len;
+                    }
+                    else if (status == 0xF0 || status == 0xF7) // SysEx
+                    {
+                        var len = 0;
+                        do
+                        {
+                            if (p >= trackEnd) break;
+                            b = data[p++];
+                            len = (len << 7) | (b & 0x7F);
+                        } while ((b & 0x80) != 0);
+                        p += len;
+                    }
+                    else if ((status & 0xF0) == 0xB0) // Control Change
+                    {
+                        var ccNum = data[p];
+
+                        if (ccNum == 7) // Volume - set to max
+                        {
+                            data[p + 1] = 127;
+                            modified = true;
+                        }
+                        else if (ccNum == 11) // Expression - set to max
+                        {
+                            data[p + 1] = 127;
+                            modified = true;
+                        }
+                        else if (ccNum == 1) // Modulation - set to 0 (disable)
+                        {
+                            data[p + 1] = 0;
+                            modified = true;
+                        }
+                        p += 2;
+                    }
+                    else if ((status & 0xF0) >= 0x80)
+                    {
+                        var msgLen = GetMidiMessageLength(status) - 1;
+                        p += msgLen;
+                    }
+                }
+
+                pos = trackEnd;
+            }
+
+            if (!modified)
+                return null;
+
+            // Write to temp file
+            var tempPath = Path.Combine(Path.GetTempPath(), $"porycon3_midi_{Guid.NewGuid():N}.mid");
+            File.WriteAllBytes(tempPath, data);
+            return tempPath;
+        }
+        catch
+        {
+            return null; // On error, just use original file
         }
     }
 

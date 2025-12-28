@@ -7,8 +7,9 @@ namespace Porycon3.Services.Sound;
 public class PsgSampleGenerator
 {
     // Sample rate for generated PSG samples
-    // Using 22050 Hz for good quality - SF2 synth handles pitch correction via sample rate metadata
-    private const int SampleRate = 22050;
+    // Using 13379 Hz to match authentic GBA hardware sample rate
+    // This produces the characteristic "crunchy" GBA sound with proper aliasing
+    private const int SampleRate = 13379;
 
     // One second of audio for looping samples
     private const int SampleLength = SampleRate;

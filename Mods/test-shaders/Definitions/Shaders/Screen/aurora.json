@@ -1,0 +1,20 @@
+{
+  "id": "base:shader:aurora",
+  "name": "Aurora Borealis",
+  "description": "Ethereal flowing northern lights curtains with cyan, green, purple, and pink gradients",
+  "sourceFile": "Shaders/Aurora.mgfxo",
+  "layer": 2,
+  "compatibleWith": ["base:shader:fireflies", "base:shader:mysticalfog"],
+  "parameters": [
+    { "name": "Time", "type": "float", "defaultValue": 0.0 },
+    { "name": "ScreenSize", "type": "float2", "defaultValue": [1280.0, 720.0] },
+    { "name": "AuroraIntensity", "type": "float", "defaultValue": 0.35, "min": 0.0, "max": 1.0, "description": "Overall brightness of the aurora" },
+    { "name": "WaveSpeed", "type": "float", "defaultValue": 0.4, "min": 0.1, "max": 2.0, "description": "Speed of flowing wave animation" },
+    { "name": "WaveFrequency", "type": "float", "defaultValue": 3.0, "min": 1.0, "max": 8.0, "description": "Horizontal wave density" },
+    { "name": "CurtainLayers", "type": "float", "defaultValue": 4.0, "min": 1.0, "max": 6.0, "description": "Number of overlapping aurora layers" },
+    { "name": "VerticalPosition", "type": "float", "defaultValue": 0.25, "min": 0.0, "max": 0.5, "description": "Vertical position of aurora (0=top)" },
+    { "name": "VerticalSpread", "type": "float", "defaultValue": 0.35, "min": 0.1, "max": 0.6, "description": "Vertical size of aurora effect" },
+    { "name": "ColorCycleSpeed", "type": "float", "defaultValue": 0.15, "min": 0.0, "max": 1.0, "description": "Speed of color cycling" },
+    { "name": "ShimmerIntensity", "type": "float", "defaultValue": 0.3, "min": 0.0, "max": 1.0, "description": "Sparkle/shimmer amount" }
+  ]
+}

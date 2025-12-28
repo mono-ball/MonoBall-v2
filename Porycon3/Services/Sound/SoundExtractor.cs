@@ -62,6 +62,7 @@ public class SoundExtractor
 
     /// <summary>
     /// Build the SF2 soundfont from all voicegroups.
+    /// Each unique voicegroup gets its own SF2 bank for proper per-song instrument selection.
     /// </summary>
     private void BuildSoundfont(string outputPath)
     {
@@ -82,10 +83,11 @@ public class SoundExtractor
         AddPsgSamples(sf2);
 
         // Build a master voicegroup by finding the most common voice for each program
+        // This gives us the best single-bank approximation for all songs
         Console.WriteLine($"[SoundExtractor] Building master voicegroup from {allVoicegroups.Count} voicegroups...");
         var masterVoicegroup = BuildMasterVoicegroup(allVoicegroups);
 
-        // Build instruments from the master voicegroup
+        // Build instruments from the master voicegroup into bank 0
         BuildVoicegroupInstruments(sf2, masterVoicegroup, 0);
 
         // Write the SF2 file
@@ -357,8 +359,8 @@ public class SoundExtractor
         return (data, sampleRate, 60, loopStart, loopEnd);
     }
 
-    // Sample rate for PSG samples (matches PsgSampleGenerator)
-    private const int PsgSampleRate = 22050;
+    // Sample rate for PSG samples (matches PsgSampleGenerator - authentic GBA rate)
+    private const int PsgSampleRate = 13379;
 
     /// <summary>
     /// Add PSG (square wave, programmable wave, noise) samples.
@@ -374,13 +376,41 @@ public class SoundExtractor
             _sampleIndexCache[name] = index;
         }
 
-        // Add standard programmable wave samples
+        // Load actual programmable wave samples from pokeemerald PCM files
+        var waveSamplesDir = Path.Combine(_pokeemeraldPath, "sound", "programmable_wave_samples");
+        for (var i = 1; i <= 25; i++)
+        {
+            var pcmPath = Path.Combine(waveSamplesDir, $"{i:D2}.pcm");
+            if (File.Exists(pcmPath))
+            {
+                try
+                {
+                    // PCM files are 16 bytes containing two 4-bit samples per byte (32 samples total)
+                    var rawData = File.ReadAllBytes(pcmPath);
+                    var waveData = PsgSampleGenerator.ParseProgrammableWaveData(rawData);
+                    var sampleData = _psgGenerator.GenerateProgrammableWave(waveData);
+
+                    var name = $"psg_wave_{i}";
+                    var index = sf2.AddSample(name, sampleData, PsgSampleRate, 60, 0, sampleData.Length);
+                    _sampleIndexCache[name] = index;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[SoundExtractor] Warning: Failed to load wave {i}: {ex.Message}");
+                }
+            }
+        }
+
+        // Add fallback standard wave patterns (sine, triangle, etc.) for compatibility
         foreach (var (waveName, waveData) in PsgSampleGenerator.GetStandardWavePatterns())
         {
             var name = $"psg_wave_{waveName}";
-            var data = _psgGenerator.GenerateProgrammableWave(waveData);
-            var index = sf2.AddSample(name, data, PsgSampleRate, 60, 0, data.Length);
-            _sampleIndexCache[name] = index;
+            if (!_sampleIndexCache.ContainsKey(name))
+            {
+                var data = _psgGenerator.GenerateProgrammableWave(waveData);
+                var index = sf2.AddSample(name, data, PsgSampleRate, 60, 0, data.Length);
+                _sampleIndexCache[name] = index;
+            }
         }
 
         // Add noise samples
@@ -388,6 +418,26 @@ public class SoundExtractor
         var noiseLong = _psgGenerator.GenerateNoise(false);
         _sampleIndexCache["psg_noise_short"] = sf2.AddSample("psg_noise_short", noiseShort, PsgSampleRate, 60);
         _sampleIndexCache["psg_noise_long"] = sf2.AddSample("psg_noise_long", noiseLong, PsgSampleRate, 60);
+    }
+
+    /// <summary>
+    /// Map a ProgrammableWaveVoice WaveName to the corresponding sample cache key.
+    /// Handles names like "ProgrammableWaveData_3" -> "psg_wave_3"
+    /// </summary>
+    private string GetProgrammableWaveSampleName(string waveName)
+    {
+        // Try to extract the wave number from names like "ProgrammableWaveData_3"
+        if (waveName.StartsWith("ProgrammableWaveData_"))
+        {
+            var numPart = waveName["ProgrammableWaveData_".Length..];
+            if (int.TryParse(numPart, out var waveNum) && _sampleIndexCache.ContainsKey($"psg_wave_{waveNum}"))
+            {
+                return $"psg_wave_{waveNum}";
+            }
+        }
+
+        // Fall back to sine wave if not found
+        return "psg_wave_sine";
     }
 
     /// <summary>
@@ -418,7 +468,8 @@ public class SoundExtractor
             case DirectSoundVoice ds:
                 if (_sampleIndexCache.TryGetValue(ds.SampleName, out var sampleIndex))
                 {
-                    return sf2.AddSimpleInstrument(name, sampleIndex, ds.Envelope);
+                    // Use voice's BaseMidiKey for correct pitch mapping
+                    return sf2.AddSimpleInstrument(name, sampleIndex, ds.Envelope, ds.BaseMidiKey);
                 }
                 break;
 
@@ -426,7 +477,7 @@ public class SoundExtractor
                 var sq1SampleName = $"psg_square_{sq1.DutyCycle}";
                 if (_sampleIndexCache.TryGetValue(sq1SampleName, out var sq1Index))
                 {
-                    return sf2.AddSimpleInstrument(name, sq1Index, sq1.Envelope);
+                    return sf2.AddSimpleInstrument(name, sq1Index, sq1.Envelope, sq1.BaseMidiKey);
                 }
                 break;
 
@@ -434,15 +485,16 @@ public class SoundExtractor
                 var sq2SampleName = $"psg_square_{sq2.DutyCycle}";
                 if (_sampleIndexCache.TryGetValue(sq2SampleName, out var sq2Index))
                 {
-                    return sf2.AddSimpleInstrument(name, sq2Index, sq2.Envelope);
+                    return sf2.AddSimpleInstrument(name, sq2Index, sq2.Envelope, sq2.BaseMidiKey);
                 }
                 break;
 
             case ProgrammableWaveVoice pw:
-                // Use sine wave as default for now
-                if (_sampleIndexCache.TryGetValue("psg_wave_sine", out var pwIndex))
+                // Look up the actual wave pattern, fall back to sine if not found
+                var waveSampleName = GetProgrammableWaveSampleName(pw.WaveName);
+                if (_sampleIndexCache.TryGetValue(waveSampleName, out var pwIndex))
                 {
-                    return sf2.AddSimpleInstrument(name, pwIndex, pw.Envelope);
+                    return sf2.AddSimpleInstrument(name, pwIndex, pw.Envelope, pw.BaseMidiKey);
                 }
                 break;
 
@@ -450,7 +502,7 @@ public class SoundExtractor
                 var noiseSampleName = nv.Period == 1 ? "psg_noise_short" : "psg_noise_long";
                 if (_sampleIndexCache.TryGetValue(noiseSampleName, out var noiseIndex))
                 {
-                    return sf2.AddSimpleInstrument(name, noiseIndex, nv.Envelope);
+                    return sf2.AddSimpleInstrument(name, noiseIndex, nv.Envelope, nv.BaseMidiKey);
                 }
                 break;
 
@@ -498,7 +550,8 @@ public class SoundExtractor
                         SampleIndex = sampleIndex,
                         KeyRangeLow = lowKey,
                         KeyRangeHigh = entry.HighKey,
-                        Envelope = ds.Envelope
+                        Envelope = ds.Envelope,
+                        RootKeyOverride = ds.BaseMidiKey
                     });
                 }
             }
@@ -528,7 +581,8 @@ public class SoundExtractor
                         SampleIndex = sampleIndex,
                         KeyRangeLow = note,
                         KeyRangeHigh = note,
-                        Envelope = ds.Envelope
+                        Envelope = ds.Envelope,
+                        RootKeyOverride = ds.BaseMidiKey
                     });
                 }
             }
