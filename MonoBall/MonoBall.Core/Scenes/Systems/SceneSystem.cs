@@ -699,6 +699,33 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
+        /// Checks if a loading scene is currently active.
+        /// </summary>
+        /// <returns>True if a loading scene is active, false otherwise.</returns>
+        public bool IsLoadingSceneActive()
+        {
+            foreach (var sceneEntity in _sceneStack)
+            {
+                if (!World.IsAlive(sceneEntity))
+                {
+                    continue;
+                }
+
+                if (!World.Has<LoadingSceneComponent>(sceneEntity))
+                {
+                    continue;
+                }
+
+                ref var sceneComponent = ref World.Get<SceneComponent>(sceneEntity);
+                if (sceneComponent.IsActive && !sceneComponent.IsPaused)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Gets the list of scene entities that are currently blocking updates.
         /// Used by systems that need to selectively update entities belonging to blocking scenes.
         /// </summary>

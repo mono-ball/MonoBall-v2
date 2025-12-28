@@ -1,0 +1,13 @@
+{
+  "id": "base:texteffect:tiny",
+  "name": "Tiny",
+  "description": "Small whispered text",
+  "effectTypes": ["scale", "fade"],
+  "scaleFrequency": 0,
+  "scaleMin": 0.7,
+  "scaleMax": 0.7,
+  "fadeFrequency": 0,
+  "fadeMin": 0.7,
+  "fadeMax": 0.7,
+  "verticalOffset": 2.0
+}

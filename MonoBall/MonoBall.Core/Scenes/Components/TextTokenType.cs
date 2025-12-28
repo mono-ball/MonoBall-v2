@@ -63,5 +63,17 @@ namespace MonoBall.Core.Scenes.Components
         /// Reset control code - restores color, shadow, and speed to their initial defaults.
         /// </summary>
         Reset,
+
+        /// <summary>
+        /// Start text effect: {FX:effectId}
+        /// Applies animated effects to subsequent characters.
+        /// </summary>
+        EffectStart,
+
+        /// <summary>
+        /// End text effect: {/FX}
+        /// Stops applying effects to subsequent characters.
+        /// </summary>
+        EffectEnd,
     }
 }

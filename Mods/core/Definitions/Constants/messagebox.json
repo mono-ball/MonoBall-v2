@@ -25,7 +25,8 @@
     "ScrollSpeedMediumPixelsPerSecond": 120.0,
     "ScrollSpeedFastPixelsPerSecond": 240.0,
     "ScrollSpeedInstantPixelsPerSecond": 360.0,
-    "DefaultScrollDistance": 16
+    "DefaultScrollDistance": 16,
+    "TextEffectShakeIntervalSeconds": 0.05
   },
   "validationRules": {
     "MaxVisibleLines": {

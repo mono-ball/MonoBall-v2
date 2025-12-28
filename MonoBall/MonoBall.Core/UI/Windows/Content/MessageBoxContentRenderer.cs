@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.Constants;
+using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.TextEffects;
 using Serilog;
 
 namespace MonoBall.Core.UI.Windows.Content
@@ -20,6 +23,13 @@ namespace MonoBall.Core.UI.Windows.Content
         private readonly IConstantsService _constants;
         private readonly ILogger _logger;
         private readonly int _maxVisibleLines;
+        private readonly TextEffects.ITextEffectCalculator? _textEffectCalculator;
+        private readonly IModManager? _modManager;
+
+        /// <summary>
+        /// Gets whether text effects can be rendered (both calculator and mod manager are available).
+        /// </summary>
+        private bool CanRenderEffects => _textEffectCalculator != null && _modManager != null;
 
         /// <summary>
         /// Initializes a new instance of the MessageBoxContentRenderer class.
@@ -29,13 +39,17 @@ namespace MonoBall.Core.UI.Windows.Content
         /// <param name="scale">The viewport scale factor (needed for padding calculations).</param>
         /// <param name="constants">The constants service.</param>
         /// <param name="logger">The logger.</param>
+        /// <param name="textEffectCalculator">Optional text effect calculator for animated effects.</param>
+        /// <param name="modManager">Optional mod manager for loading effect definitions.</param>
         /// <exception cref="ArgumentNullException">Thrown when fontService, constants, or logger is null.</exception>
         public MessageBoxContentRenderer(
             FontService fontService,
             int scaledFontSize,
             int scale,
             IConstantsService constants,
-            ILogger logger
+            ILogger logger,
+            TextEffects.ITextEffectCalculator? textEffectCalculator = null,
+            IModManager? modManager = null
         )
         {
             _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
@@ -44,6 +58,8 @@ namespace MonoBall.Core.UI.Windows.Content
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _maxVisibleLines = constants.Get<int>("MaxVisibleLines");
+            _textEffectCalculator = textEffectCalculator;
+            _modManager = modManager;
         }
 
         /// <summary>
@@ -142,15 +158,35 @@ namespace MonoBall.Core.UI.Windows.Content
                     bool lineVisible = lineY >= visibleTop && lineY < visibleBottom;
                     if (!string.IsNullOrEmpty(line.Text) && lineVisible)
                     {
-                        RenderTextLine(
-                            font,
-                            spriteBatch,
-                            line.Text,
-                            textStartX,
-                            lineY,
-                            messageBox.TextColor,
-                            messageBox.ShadowColor
-                        );
+                        // Check if line has effects (pre-calculated during parsing) and we have effect support
+                        bool canRenderEffects =
+                            line.HasEffects && line.CharacterData != null && CanRenderEffects;
+
+                        if (canRenderEffects)
+                        {
+                            // Per-character rendering with effects
+                            RenderTextLineWithEffects(
+                                font,
+                                spriteBatch,
+                                line,
+                                textStartX,
+                                lineY,
+                                ref messageBox
+                            );
+                        }
+                        else
+                        {
+                            // Fast path: render entire line at once
+                            RenderTextLine(
+                                font,
+                                spriteBatch,
+                                line.Text,
+                                textStartX,
+                                lineY,
+                                messageBox.TextColor,
+                                messageBox.ShadowColor
+                            );
+                        }
                     }
                     // Move to next line position (even for empty/clipped lines - preserves spacing)
                     lineY += lineSpacing;
@@ -166,16 +202,37 @@ namespace MonoBall.Core.UI.Windows.Content
                     substringLength = Math.Min(substringLength, line.Text.Length);
                     if (substringLength > 0 && lineVisible)
                     {
-                        string partialText = line.Text.Substring(0, substringLength);
-                        RenderTextLine(
-                            font,
-                            spriteBatch,
-                            partialText,
-                            textStartX,
-                            lineY,
-                            messageBox.TextColor,
-                            messageBox.ShadowColor
-                        );
+                        // Check if line has effects (pre-calculated during parsing) and we have effect support
+                        bool canRenderEffects =
+                            line.HasEffects && line.CharacterData != null && CanRenderEffects;
+
+                        if (canRenderEffects)
+                        {
+                            // Per-character rendering with effects (partial line)
+                            RenderTextLineWithEffects(
+                                font,
+                                spriteBatch,
+                                line,
+                                textStartX,
+                                lineY,
+                                ref messageBox,
+                                substringLength
+                            );
+                        }
+                        else
+                        {
+                            // Fast path: render partial line at once
+                            string partialText = line.Text.Substring(0, substringLength);
+                            RenderTextLine(
+                                font,
+                                spriteBatch,
+                                partialText,
+                                textStartX,
+                                lineY,
+                                messageBox.TextColor,
+                                messageBox.ShadowColor
+                            );
+                        }
                     }
                     // Don't render lines after this one (they haven't been reached yet)
                     break;
@@ -230,6 +287,345 @@ namespace MonoBall.Core.UI.Windows.Content
 
             // Render main text on top
             font.DrawText(spriteBatch, text, new Vector2(x, y), textColor);
+        }
+
+        /// <summary>
+        /// Renders a line of text with per-character effects.
+        /// </summary>
+        /// <param name="font">The font to use.</param>
+        /// <param name="spriteBatch">The sprite batch for rendering.</param>
+        /// <param name="line">The wrapped line with character data.</param>
+        /// <param name="lineX">The X position of the line start.</param>
+        /// <param name="lineY">The Y position of the line.</param>
+        /// <param name="messageBox">The message box component (for effect state).</param>
+        /// <param name="charLimit">Optional limit on characters to render (for partial lines).</param>
+        private void RenderTextLineWithEffects(
+            DynamicSpriteFont font,
+            SpriteBatch spriteBatch,
+            WrappedLine line,
+            int lineX,
+            int lineY,
+            ref MessageBoxComponent messageBox,
+            int charLimit = -1
+        )
+        {
+            if (line.CharacterData == null || _textEffectCalculator == null || _modManager == null)
+            {
+                return;
+            }
+
+            int shadowOffset = _constants.Get<int>("PopupShadowOffsetY") * _scale;
+            int charsToRender =
+                charLimit > 0
+                    ? Math.Min(charLimit, line.CharacterData.Count)
+                    : line.CharacterData.Count;
+
+            // Cache for effect definitions (avoid repeated lookups for same effect ID)
+            string? lastEffectId = null;
+            TextEffectDefinition? effectDef = null;
+            ColorPaletteDefinition? palette = null;
+
+            // Render each character with effects
+            for (int i = 0; i < charsToRender; i++)
+            {
+                var charData = line.CharacterData[i];
+                string charStr = charData.Character.ToString();
+
+                // Look up effect definition for this character (cached if same as previous)
+                if (charData.EffectId != lastEffectId)
+                {
+                    lastEffectId = charData.EffectId;
+                    effectDef = null;
+                    palette = null;
+
+                    if (!string.IsNullOrEmpty(charData.EffectId))
+                    {
+                        effectDef = _modManager.GetDefinition<TextEffectDefinition>(
+                            charData.EffectId
+                        );
+                        if (effectDef?.ColorPaletteId != null)
+                        {
+                            palette = _modManager.GetDefinition<ColorPaletteDefinition>(
+                                effectDef.ColorPaletteId
+                            );
+                        }
+                    }
+                }
+
+                // Calculate base position (scaled)
+                float baseX = lineX + (charData.BaseX * _scale);
+                float baseY = lineY;
+
+                // Calculate position offset from effects
+                Vector2 positionOffset = Vector2.Zero;
+                if (effectDef != null)
+                {
+                    // Get shake offset for this character
+                    Vector2 shakeOffset = Vector2.Zero;
+                    if (
+                        messageBox.ShakeOffsets != null
+                        && messageBox.ShakeOffsets.TryGetValue(charData.CharIndex, out var shake)
+                    )
+                    {
+                        shakeOffset = shake * _scale; // Scale shake offset
+                    }
+
+                    positionOffset =
+                        _textEffectCalculator.CalculatePositionOffset(
+                            effectDef,
+                            charData.CharIndex,
+                            messageBox.EffectTime,
+                            shakeOffset
+                        ) * _scale; // Scale effect offsets
+                }
+
+                // Apply spacing adjustments from effect
+                float letterSpacingOffset = effectDef?.LetterSpacingOffset ?? 0f;
+                float verticalOffset = effectDef?.VerticalOffset ?? 0f;
+
+                // Calculate final position with spacing adjustments
+                float finalX = baseX + positionOffset.X + (i * letterSpacingOffset * _scale);
+                float finalY = baseY + positionOffset.Y + (verticalOffset * _scale);
+
+                // Calculate rotation, scale, and opacity for effects
+                float rotation = 0f;
+                float scale = 1f;
+                float opacity = 1f;
+                float glowOpacity = 0f;
+                if (effectDef != null)
+                {
+                    rotation = _textEffectCalculator.CalculateRotation(
+                        effectDef,
+                        charData.CharIndex,
+                        messageBox.EffectTime
+                    );
+                    scale = _textEffectCalculator.CalculateScale(
+                        effectDef,
+                        charData.CharIndex,
+                        messageBox.EffectTime
+                    );
+                    opacity = _textEffectCalculator.CalculateOpacity(
+                        effectDef,
+                        charData.CharIndex,
+                        messageBox.EffectTime
+                    );
+                    glowOpacity = _textEffectCalculator.CalculateGlowOpacity(
+                        effectDef,
+                        charData.CharIndex,
+                        messageBox.EffectTime
+                    );
+                }
+
+                // Determine text color (effect color cycling or manual/default)
+                Color textColor = charData.TextColor;
+                Color shadowColor = charData.ShadowColor;
+
+                // Pre-calculate cycle color if color cycling is active (avoid repeated calculations)
+                Color? cycleColor = null;
+                if (
+                    effectDef != null
+                    && palette != null
+                    && effectDef.EffectTypes.HasFlag(TextEffectType.ColorCycle)
+                )
+                {
+                    cycleColor = _textEffectCalculator.CalculateCycleColor(
+                        palette,
+                        effectDef,
+                        charData.CharIndex,
+                        messageBox.EffectTime,
+                        effectDef.ColorCycleSpeed
+                    );
+
+                    // Apply color cycling based on mode
+                    switch (effectDef.ColorMode)
+                    {
+                        case ColorEffectMode.Override:
+                            // Always use effect color
+                            textColor = cycleColor.Value;
+                            break;
+
+                        case ColorEffectMode.Tint:
+                            // Blend effect color with current color
+                            textColor = Color.Lerp(charData.TextColor, cycleColor.Value, 0.5f);
+                            break;
+
+                        case ColorEffectMode.Preserve:
+                            // Only apply if no manual color set
+                            if (!charData.HasManualColor)
+                            {
+                                textColor = cycleColor.Value;
+                            }
+                            break;
+                    }
+
+                    // Apply shadow mode
+                    switch (effectDef.ShadowMode)
+                    {
+                        case ShadowEffectMode.Derive:
+                            // Derive shadow from text color
+                            shadowColor = new Color(
+                                (byte)(textColor.R * effectDef.ShadowDeriveMultiplier),
+                                (byte)(textColor.G * effectDef.ShadowDeriveMultiplier),
+                                (byte)(textColor.B * effectDef.ShadowDeriveMultiplier),
+                                textColor.A
+                            );
+                            break;
+
+                        case ShadowEffectMode.Preserve:
+                            // Keep original shadow (already set from charData)
+                            break;
+                    }
+                }
+
+                // Apply opacity to colors
+                if (opacity < 1f)
+                {
+                    textColor = new Color(
+                        textColor.R,
+                        textColor.G,
+                        textColor.B,
+                        (byte)(textColor.A * opacity)
+                    );
+                    shadowColor = new Color(
+                        shadowColor.R,
+                        shadowColor.G,
+                        shadowColor.B,
+                        (byte)(shadowColor.A * opacity)
+                    );
+                }
+
+                // Calculate origin for rotation based on wobble origin setting
+                var charBounds = font.MeasureString(charStr);
+                Vector2 origin = Vector2.Zero;
+                if (rotation != 0f || scale != 1f)
+                {
+                    float originX = charBounds.X / 2f;
+                    float originY = charBounds.Y / 2f; // Default: center
+
+                    if (effectDef != null)
+                    {
+                        switch (effectDef.WobbleOrigin)
+                        {
+                            case WobbleOrigin.Top:
+                                originY = 0f;
+                                break;
+                            case WobbleOrigin.Bottom:
+                                originY = charBounds.Y;
+                                break;
+                            case WobbleOrigin.Center:
+                            default:
+                                originY = charBounds.Y / 2f;
+                                break;
+                        }
+                    }
+                    origin = new Vector2(originX, originY);
+                }
+
+                // Adjust position to account for origin offset when rotating/scaling
+                Vector2 adjustedPos =
+                    rotation != 0f || scale != 1f
+                        ? new Vector2(finalX + origin.X, finalY + origin.Y)
+                        : new Vector2(finalX, finalY);
+
+                Vector2 scaleVec = new Vector2(scale, scale);
+
+                // Render glow effect (multiple offset passes)
+                if (glowOpacity > 0f && effectDef != null)
+                {
+                    Color glowColor;
+                    if (effectDef.GlowColor != null)
+                    {
+                        glowColor = effectDef.GlowColor.ToColor();
+                    }
+                    else
+                    {
+                        // Derive glow color from text color (brighter)
+                        glowColor = new Color(
+                            Math.Min(255, textColor.R + 50),
+                            Math.Min(255, textColor.G + 50),
+                            Math.Min(255, textColor.B + 50),
+                            (byte)(255 * glowOpacity)
+                        );
+                    }
+                    glowColor = new Color(
+                        glowColor.R,
+                        glowColor.G,
+                        glowColor.B,
+                        (byte)(glowColor.A * glowOpacity)
+                    );
+
+                    int glowRadius = effectDef.GlowRadius * _scale;
+                    // Render glow in 8 directions
+                    for (int dx = -glowRadius; dx <= glowRadius; dx += glowRadius)
+                    {
+                        for (int dy = -glowRadius; dy <= glowRadius; dy += glowRadius)
+                        {
+                            if (dx == 0 && dy == 0)
+                                continue;
+                            Vector2 glowPos = adjustedPos + new Vector2(dx, dy);
+                            if (rotation != 0f || scale != 1f)
+                            {
+                                font.DrawText(
+                                    spriteBatch,
+                                    charStr,
+                                    glowPos,
+                                    glowColor,
+                                    rotation,
+                                    origin,
+                                    scaleVec,
+                                    0f
+                                );
+                            }
+                            else
+                            {
+                                font.DrawText(
+                                    spriteBatch,
+                                    charStr,
+                                    new Vector2(finalX + dx, finalY + dy),
+                                    glowColor
+                                );
+                            }
+                        }
+                    }
+                }
+
+                // Render shadow first
+                if (rotation != 0f || scale != 1f)
+                {
+                    font.DrawText(
+                        spriteBatch,
+                        charStr,
+                        adjustedPos + new Vector2(shadowOffset, shadowOffset),
+                        shadowColor,
+                        rotation,
+                        origin,
+                        scaleVec,
+                        0f
+                    );
+                    // Render main character
+                    font.DrawText(
+                        spriteBatch,
+                        charStr,
+                        adjustedPos,
+                        textColor,
+                        rotation,
+                        origin,
+                        scaleVec,
+                        0f
+                    );
+                }
+                else
+                {
+                    // Fast path: no rotation/scale
+                    font.DrawText(
+                        spriteBatch,
+                        charStr,
+                        new Vector2(finalX + shadowOffset, finalY + shadowOffset),
+                        shadowColor
+                    );
+                    font.DrawText(spriteBatch, charStr, new Vector2(finalX, finalY), textColor);
+                }
+            }
         }
     }
 }

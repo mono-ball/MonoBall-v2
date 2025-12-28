@@ -1,0 +1,13 @@
+{
+  "id": "base:shader:frozen",
+  "name": "Frozen",
+  "description": "Ice/frost effect with shimmer and sparkles",
+  "sourceFile": "Shaders/Frozen.mgfxo",
+  "parameters": [
+    { "name": "Time", "type": "float", "defaultValue": 0.0 },
+    { "name": "IceColor", "type": "float3", "defaultValue": [0.6, 0.85, 1.0] },
+    { "name": "FrostColor", "type": "float3", "defaultValue": [0.95, 0.98, 1.0] },
+    { "name": "FrostAmount", "type": "float", "defaultValue": 0.6, "min": 0.0, "max": 1.0 },
+    { "name": "ShimmerSpeed", "type": "float", "defaultValue": 3.0, "min": 0.5, "max": 6.0 }
+  ]
+}

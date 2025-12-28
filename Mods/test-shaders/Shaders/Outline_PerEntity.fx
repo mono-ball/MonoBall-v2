@@ -1,5 +1,5 @@
-// Outline.fx
-// Applies colored outline effect to individual entities
+// Outline_PerEntity.fx
+// Rainbow outline around sprite edges
 // Shader ID: PerEntityOutline
 
 #if OPENGL
@@ -29,62 +29,64 @@ struct PixelShaderInput
     float2 TextureCoordinates : TEXCOORD0;
 };
 
-float4 OutlineColor = float4(1.0, 0.0, 1.0, 1.0); // Magenta outline
-float OutlineThickness = 2.0;
-float2 ScreenSize = float2(800.0, 600.0);
+float Time = 0.0;
+float BaseThickness = 2.0;
+float PulseAmount = 1.0;
+float PulseSpeed = 3.0;
+float RainbowSpeed = 1.0;
+float2 SpriteSize = float2(32.0, 32.0);
+
+float3 hsv2rgb(float3 c)
+{
+    float4 K = float4(1.0, 2.0/3.0, 1.0/3.0, 3.0);
+    float3 p = abs(frac(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * lerp(K.xxx, saturate(p - K.xxx), c.y);
+}
 
 float4 MainPS(PixelShaderInput input) : COLOR
 {
-    float4 pixelColor = tex2D(SpriteTextureSampler, input.TextureCoordinates);
-    
-    // If current pixel is opaque, draw it normally
+    float2 uv = input.TextureCoordinates;
+    float4 pixelColor = tex2D(SpriteTextureSampler, uv);
+
+    // OPAQUE pixel - check if it's on the edge (has transparent neighbor)
     if (pixelColor.a > 0.5)
     {
-        pixelColor *= input.Color;
-        return pixelColor;
-    }
-    
-    // Current pixel is transparent - check if we should draw outline
-    // Calculate texel size for outline sampling
-    float2 texelSize = 1.0 / ScreenSize;
-    
-    // Sample surrounding pixels to detect if we're near an opaque pixel
-    float outlineAlpha = 0.0;
-    
-    // Sample 8 surrounding pixels (cardinal and diagonal directions)
-    float2 offsets[8] = {
-        float2(-1.0, 0.0),  // Left
-        float2(1.0, 0.0),   // Right
-        float2(0.0, -1.0),  // Up
-        float2(0.0, 1.0),   // Down
-        float2(-1.0, -1.0), // Top-left
-        float2(1.0, -1.0),  // Top-right
-        float2(-1.0, 1.0),  // Bottom-left
-        float2(1.0, 1.0)    // Bottom-right
-    };
-    
-    // Check if any surrounding pixel is opaque (edge detection)
-    for (int i = 0; i < 8; i++)
-    {
-        float2 sampleUV = input.TextureCoordinates + offsets[i] * texelSize * OutlineThickness;
-        float4 sampleColor = tex2D(SpriteTextureSampler, sampleUV);
-        if (sampleColor.a > 0.5)
+        float2 texelSize = 1.0 / SpriteSize;
+
+        // Sample 4 cardinal neighbors
+        float a1 = tex2D(SpriteTextureSampler, uv + float2(texelSize.x, 0)).a;
+        float a2 = tex2D(SpriteTextureSampler, uv + float2(-texelSize.x, 0)).a;
+        float a3 = tex2D(SpriteTextureSampler, uv + float2(0, texelSize.y)).a;
+        float a4 = tex2D(SpriteTextureSampler, uv + float2(0, -texelSize.y)).a;
+
+        // Count transparent neighbors
+        float edgeCount = 0.0;
+        if (a1 < 0.5) edgeCount += 1.0;
+        if (a2 < 0.5) edgeCount += 1.0;
+        if (a3 < 0.5) edgeCount += 1.0;
+        if (a4 < 0.5) edgeCount += 1.0;
+
+        // If this pixel has at least one transparent neighbor, it's on the edge
+        if (edgeCount > 0.0)
         {
-            outlineAlpha = 1.0;
-            break;
+            // Rainbow color
+            float hue = frac(uv.x * 2.0 + uv.y * 2.0 + Time * RainbowSpeed);
+            float3 rainbowColor = hsv2rgb(float3(hue, 1.0, 1.0));
+
+            // Pulsing brightness
+            float pulse = sin(Time * PulseSpeed) * 0.3 + 0.7;
+            rainbowColor *= pulse;
+
+            // Blend rainbow with original based on how many edges
+            float blendAmount = edgeCount * 0.25; // 0.25 to 1.0
+            pixelColor.rgb = lerp(pixelColor.rgb, rainbowColor, blendAmount * 0.8);
         }
+
+        return pixelColor * input.Color;
     }
-    
-    // If we're near an opaque pixel, draw outline
-    if (outlineAlpha > 0.0)
-    {
-        pixelColor = OutlineColor;
-        pixelColor.a = outlineAlpha;
-        return pixelColor;
-    }
-    
-    // No outline needed, return transparent
-    return pixelColor;
+
+    // TRANSPARENT pixel - don't draw anything
+    return float4(0, 0, 0, 0);
 }
 
 technique Outline
@@ -94,5 +96,3 @@ technique Outline
         PixelShader = compile PS_SHADERMODEL MainPS();
     }
 }
-
-

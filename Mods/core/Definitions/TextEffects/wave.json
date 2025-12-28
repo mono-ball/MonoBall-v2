@@ -1,0 +1,7 @@
+{
+  "id": "base:texteffect:wave",
+  "effectTypes": ["wave"],
+  "waveAmplitude": 2.0,
+  "waveFrequency": 4.0,
+  "wavePhaseOffset": 0.3
+}

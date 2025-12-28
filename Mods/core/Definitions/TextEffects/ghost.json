@@ -1,0 +1,10 @@
+{
+  "id": "base:texteffect:ghost",
+  "name": "Ghost",
+  "description": "Ghostly fading text effect",
+  "effectTypes": ["fade"],
+  "fadeFrequency": 2.0,
+  "fadeMin": 0.3,
+  "fadeMax": 1.0,
+  "fadePhaseOffset": 0.15
+}

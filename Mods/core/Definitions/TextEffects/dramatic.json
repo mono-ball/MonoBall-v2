@@ -1,0 +1,14 @@
+{
+  "id": "base:texteffect:dramatic",
+  "name": "Dramatic",
+  "description": "Slow, fading text for dramatic moments",
+  "effectTypes": ["fade", "scale"],
+  "fadeFrequency": 1.0,
+  "fadeMin": 0.6,
+  "fadeMax": 1.0,
+  "scaleFrequency": 0.8,
+  "scaleMin": 0.95,
+  "scaleMax": 1.05,
+  "typewriterSpeedMultiplier": 0.4,
+  "letterSpacingOffset": 1.0
+}

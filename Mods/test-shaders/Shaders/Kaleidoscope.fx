@@ -1,5 +1,5 @@
-// Kaleidoscope.fx
-// Applies kaleidoscope mirror/repeat effect
+// Kaleidoscope.fx - Enhanced with rotation animation
+// Hypnotic kaleidoscope mirror effect with smooth rotation
 // Shader ID: CombinedLayerKaleidoscope
 
 #if OPENGL
@@ -16,8 +16,8 @@ Texture2D SpriteTexture;
 sampler SpriteTextureSampler = sampler_state
 {
     Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
+    AddressU = Wrap;
+    AddressV = Wrap;
     MinFilter = Linear;
     MagFilter = Linear;
 };
@@ -29,38 +29,64 @@ struct PixelShaderInput
     float2 TextureCoordinates : TEXCOORD0;
 };
 
+// Parameters
+float Time = 0.0;
 float SegmentCount = 6.0;
+float RotationSpeed = 0.3;
+float Zoom = 1.0;
 float2 ScreenSize = float2(800.0, 600.0);
+
+#define PI 3.14159265359
 
 float4 MainPS(PixelShaderInput input) : COLOR
 {
     float2 uv = input.TextureCoordinates;
     float2 center = float2(0.5, 0.5);
-    
-    // Convert to polar coordinates
+
+    // Convert to polar coordinates centered on screen
     float2 coord = uv - center;
+
+    // Apply zoom (pulling towards/away from center)
+    coord *= Zoom;
+
     float angle = atan2(coord.y, coord.x);
     float radius = length(coord);
-    
-    // Mirror the angle to create segments
-    angle = abs(fmod(angle, 2.0 * 3.14159 / SegmentCount));
-    
-    // Convert back to cartesian
-    float2 mirroredCoord = float2(cos(angle), sin(angle)) * radius;
-    float2 mirroredUV = mirroredCoord + center;
-    
-    // Also mirror horizontally for more complex pattern
-    if (mirroredUV.x > 0.5)
+
+    // Add rotation over time
+    angle += Time * RotationSpeed;
+
+    // Calculate segment angle
+    float segmentAngle = 2.0 * PI / SegmentCount;
+
+    // Mirror within each segment for kaleidoscope effect
+    float segmentIndex = floor(angle / segmentAngle);
+    float localAngle = angle - segmentIndex * segmentAngle;
+
+    // Mirror odd segments
+    if (fmod(segmentIndex, 2.0) >= 1.0)
     {
-        mirroredUV.x = 1.0 - mirroredUV.x;
+        localAngle = segmentAngle - localAngle;
     }
-    
-    // Clamp to prevent sampling outside texture
-    mirroredUV = clamp(mirroredUV, float2(0.0, 0.0), float2(1.0, 1.0));
-    
+
+    // Convert back to cartesian with mirrored angle
+    float2 mirroredCoord = float2(cos(localAngle), sin(localAngle)) * radius;
+    float2 mirroredUV = mirroredCoord + center;
+
+    // Subtle pulsing zoom effect
+    float pulseZoom = 1.0 + sin(Time * 0.5) * 0.05;
+    mirroredUV = center + (mirroredUV - center) * pulseZoom;
+
+    // Wrap coordinates for seamless tiling
+    mirroredUV = frac(mirroredUV);
+
     float4 pixelColor = tex2D(SpriteTextureSampler, mirroredUV);
+
+    // Add subtle color shifting based on angle
+    float hueShift = sin(Time * 0.2 + radius * 3.0) * 0.1;
+    pixelColor.rgb = pixelColor.rgb * (1.0 + hueShift);
+
     pixelColor *= input.Color;
-    
+
     return pixelColor;
 }
 
@@ -71,5 +97,3 @@ technique Kaleidoscope
         PixelShader = compile PS_SHADERMODEL MainPS();
     }
 }
-
-

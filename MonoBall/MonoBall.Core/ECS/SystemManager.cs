@@ -18,6 +18,7 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes.Events;
 using MonoBall.Core.Scenes.Systems;
+using MonoBall.Core.TextEffects;
 using MonoBall.Core.UI.Windows.Animations;
 using Serilog;
 
@@ -62,7 +63,6 @@ namespace MonoBall.Core.ECS
         private InputBindingService _inputBindingService = null!; // Initialized in Initialize()
         private Services.IFlagVariableService _flagVariableService = null!; // Initialized in InitializeCoreServices()
         private MapTransitionDetectionSystem _mapTransitionDetectionSystem = null!; // Initialized in Initialize()
-        private MapPopupOrchestratorSystem _mapPopupOrchestratorSystem = null!; // Initialized in Initialize()
         private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
         private ActiveMapManagementSystem _activeMapManagementSystem = null!; // Initialized in Initialize()
         private IActiveMapFilterService _activeMapFilterService = null!; // Initialized in Initialize()
@@ -386,11 +386,11 @@ namespace MonoBall.Core.ECS
             // Create animation and visibility systems (including PerformanceStatsSystem)
             CreateAnimationAndVisibilitySystems();
 
-            // Create audio systems
-            CreateAudioSystems();
-
-            // Create scene-specific systems
+            // Create scene-specific systems (must be before audio systems since MapMusicSystem needs ISceneManager)
             CreateSceneSpecificSystems();
+
+            // Create audio systems (after scene systems since MapMusicSystem needs ISceneManager)
+            CreateAudioSystems();
 
             // Finalize initialization
             FinalizeInitialization();
@@ -803,7 +803,7 @@ namespace MonoBall.Core.ECS
             // Create audio systems
             _mapMusicSystem = new Systems.Audio.MapMusicSystem(
                 _world,
-                _modManager.Registry,
+                _sceneSystem, // Pass SceneSystem as ISceneManager
                 LoggerFactory.CreateLogger<Systems.Audio.MapMusicSystem>()
             );
             RegisterUpdateSystem(_mapMusicSystem);
@@ -933,6 +933,9 @@ namespace MonoBall.Core.ECS
             // Register MapPopupSceneSystem with SceneSystem (as ISceneSystem)
             _sceneSystem.SetMapPopupSceneSystem(mapPopupSceneSystem);
 
+            // Create TextEffectCalculator for animated text effects
+            var textEffectCalculator = new TextEffects.TextEffectCalculator();
+
             // Create MessageBoxSceneSystem (needs ISceneManager, which SceneSystem implements)
             var messageBoxSceneSystem = new Scenes.Systems.MessageBoxSceneSystem(
                 _world,
@@ -945,7 +948,8 @@ namespace MonoBall.Core.ECS
                 _graphicsDevice,
                 _spriteBatch,
                 LoggerFactory.CreateLogger<Scenes.Systems.MessageBoxSceneSystem>(),
-                constantsService // Pass ConstantsService for accessing constants
+                constantsService, // Pass ConstantsService for accessing constants
+                textEffectCalculator // Pass TextEffectCalculator for text effects
             );
 
             // Register MessageBoxSceneSystem with SceneSystem (as ISceneSystem)
@@ -960,13 +964,15 @@ namespace MonoBall.Core.ECS
             // Create scene input system (needs SceneSystem, so created after it)
             CreateSceneInputSystem();
 
-            // Create popup orchestrator system (still registered separately - triggers popup events)
-            _mapPopupOrchestratorSystem = new MapPopupOrchestratorSystem(
+            // Create map popup system (handles popup lifecycle based on map transitions)
+            var mapPopupSystem = new MapPopupSystem(
                 _world,
+                _sceneSystem, // Pass SceneSystem as ISceneManager
                 _modManager,
-                LoggerFactory.CreateLogger<MapPopupOrchestratorSystem>()
+                LoggerFactory.CreateLogger<MapPopupSystem>(),
+                constantsService // Pass ConstantsService for accessing constants
             );
-            RegisterUpdateSystem(_mapPopupOrchestratorSystem);
+            RegisterUpdateSystem(mapPopupSystem);
 
             // Create debug bar toggle system
             var debugBarToggleSystem = new Scenes.Systems.DebugBarToggleSystem(
@@ -1266,8 +1272,6 @@ namespace MonoBall.Core.ECS
             _sceneSystem = null!;
             _sceneInputSystem = null!;
             _mapTransitionDetectionSystem = null!;
-            _mapPopupOrchestratorSystem?.Dispose();
-            _mapPopupOrchestratorSystem = null!;
 
             // Dispose shader systems
             _shaderParameterAnimationSystem?.Dispose();

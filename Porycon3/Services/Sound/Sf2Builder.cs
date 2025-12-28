@@ -368,7 +368,7 @@ public class Sf2Builder
             {
                 bw.Write((short)genIndex);
                 bw.Write((short)0); // Mod index
-                genIndex += 5; // Generators per zone: keyRange, velRange, sampleID, envelope params
+                genIndex += GeneratorsPerZone; // All generators including ADSR, attenuation, pan
             }
         }
 
@@ -377,11 +377,22 @@ public class Sf2Builder
         bw.Write((short)0);
     }
 
+    /// <summary>
+    /// Number of generators per instrument zone.
+    /// keyRange, velRange, overridingRootKey, sampleModes, sampleID = 5
+    ///
+    /// Note: We intentionally DON'T use SF2 ADSR generators because:
+    /// 1. PSG envelopes (0-15 scale) vs DirectSound (0-255) have completely different semantics
+    /// 2. SF2 envelope model doesn't match GBA m4a hardware envelope behavior
+    /// 3. Incorrect conversion causes "wave oscillation" artifacts
+    /// The samples themselves already contain the correct amplitude characteristics.
+    /// </summary>
+    private const int GeneratorsPerZone = 5;
+
     private void WriteInstrumentGenerators(BinaryWriter bw)
     {
-        // Count generators: 5 per zone (keyRange, velRange, rootKey, sampleMode, sampleID) + terminal
         var totalZones = _instruments.Sum(i => i.Zones.Count);
-        var size = (totalZones * 5 + 1) * 4;
+        var size = (totalZones * GeneratorsPerZone + 1) * 4;
         bw.Write("igen"u8);
         bw.Write(size);
 
@@ -411,11 +422,11 @@ public class Sf2Builder
                     bw.Write((short)60);
                 }
 
-                // Sample modes (54) - 1 = loop
+                // Sample modes (54) - 1 = loop continuously
                 bw.Write((short)54);
                 bw.Write((short)(_samples.Count > zone.SampleIndex && _samples[zone.SampleIndex].IsLooped ? 1 : 0));
 
-                // Sample ID (53)
+                // Sample ID (53) - must be last generator
                 bw.Write((short)53);
                 bw.Write((short)zone.SampleIndex);
             }
@@ -424,6 +435,80 @@ public class Sf2Builder
         // Terminal
         bw.Write((short)0);
         bw.Write((short)0);
+    }
+
+    /// <summary>
+    /// Convert GBA attack value (0=slow, 255=instant) to SF2 timecents.
+    /// SF2 timecents: -12000 = instant, 0 = 1 second
+    /// Using simple linear mapping for predictable results.
+    /// </summary>
+    private static short GbaAttackToTimecents(int gbaAttack)
+    {
+        // GBA 255 = instant (-12000), GBA 0 = ~1 second (0 timecents)
+        // Linear interpolation for simplicity
+        var clamped = Math.Clamp(gbaAttack, 0, 255);
+        return (short)(-12000 + (255 - clamped) * 12000 / 255);
+    }
+
+    /// <summary>
+    /// Convert GBA decay value to SF2 timecents.
+    /// </summary>
+    private static short GbaDecayToTimecents(int gbaDecay)
+    {
+        // GBA 255 = instant (-12000), GBA 0 = ~2 seconds (1200 timecents)
+        var clamped = Math.Clamp(gbaDecay, 0, 255);
+        return (short)(-12000 + (255 - clamped) * 13200 / 255);
+    }
+
+    /// <summary>
+    /// Convert GBA sustain (0=silent, 255=full) to SF2 centibels attenuation (0=full, 1000=silent).
+    /// </summary>
+    private static short GbaSustainToCentibels(int gbaSustain)
+    {
+        // GBA 255 = full volume (0 cB), GBA 0 = silent (1000 cB)
+        var clamped = Math.Clamp(gbaSustain, 0, 255);
+        return (short)((255 - clamped) * 1000 / 255);
+    }
+
+    /// <summary>
+    /// Convert GBA release value to SF2 timecents.
+    /// </summary>
+    private static short GbaReleaseToTimecents(int gbaRelease)
+    {
+        // GBA 255 = instant (-12000), GBA 0 = ~1 second (0 timecents)
+        var clamped = Math.Clamp(gbaRelease, 0, 255);
+        return (short)(-12000 + (255 - clamped) * 12000 / 255);
+    }
+
+    /// <summary>
+    /// Calculate SF2 initial attenuation from GBA envelope.
+    /// GBA sustain: 0-255 (DirectSound) or 0-15 (PSG) where max = full volume
+    /// SF2 attenuation: 0 = full volume, 1000 = -100dB (centibels, 10 cB = 1 dB)
+    /// </summary>
+    private static short CalculateAttenuation(VoiceEnvelope envelope)
+    {
+        var sustain = envelope.Sustain;
+
+        // Check if this looks like a PSG envelope (sustain 0-15)
+        // PSG uses 4-bit values, so max is 15
+        if (sustain <= 15 && envelope.Attack <= 15 && envelope.Decay <= 15 && envelope.Release <= 15)
+        {
+            // Scale PSG sustain (0-15) to 0-255 range
+            sustain = sustain * 255 / 15;
+        }
+
+        // Sustain 255 = full volume (0 attenuation)
+        // Sustain 0 = silent (max attenuation, but cap at 600 cB = 60dB for usable range)
+        if (sustain >= 250)
+            return 0; // Full volume
+
+        if (sustain <= 5)
+            return 600; // Very quiet but not silent
+
+        // Linear interpolation: sustain 255->0 maps to attenuation 0->600
+        // This gives a reasonable dynamic range without complete silence
+        var attenuation = (255 - sustain) * 600 / 255;
+        return (short)Math.Clamp(attenuation, 0, 600);
     }
 
     private void WriteSampleHeaders(BinaryWriter bw)
@@ -441,14 +526,16 @@ public class Sf2Builder
 
             var sampleEnd = sampleStart + sample.Data.Length;
 
-            // Loop positions must be within sample bounds
-            var loopStart = Math.Min(sample.LoopStart, sample.Data.Length - 1);
-            var loopEnd = Math.Min(sample.LoopEnd, sample.Data.Length - 1);
+            // Loop positions: SF2 spec says loopEnd points to first sample AFTER the loop
+            // So for a loop from 0-99, loopEnd should be 100, not 99
+            var loopStart = Math.Clamp(sample.LoopStart, 0, sample.Data.Length - 1);
+            // loopEnd in SF2 is exclusive (one past the last sample), clamp to data length
+            var loopEnd = Math.Clamp(sample.LoopEnd, loopStart + 1, sample.Data.Length);
 
             bw.Write(sampleStart);                      // Start
             bw.Write(sampleEnd);                        // End (points to first terminator)
-            bw.Write(sampleStart + loopStart);          // Loop start
-            bw.Write(sampleStart + loopEnd);            // Loop end
+            bw.Write(sampleStart + loopStart);          // Loop start (first sample of loop)
+            bw.Write(sampleStart + loopEnd);            // Loop end (first sample AFTER loop)
             bw.Write(sample.SampleRate);              // Sample rate
             bw.Write((byte)sample.RootKey);           // Original pitch
             bw.Write((sbyte)0);                       // Pitch correction
@@ -506,7 +593,7 @@ public class Sf2Builder
         var instSize = (_instruments.Count + 1) * 22 + 8;
         var ibagSize = (totalZones + 1) * 4 + 8;
         var imodSize = 10 + 8;
-        var igenSize = (totalZones * 5 + 1) * 4 + 8;
+        var igenSize = (totalZones * GeneratorsPerZone + 1) * 4 + 8;
 
         var shdrSize = (_samples.Count + 1) * 46 + 8;
 
@@ -520,6 +607,7 @@ public class Sf2Builder
         for (var i = 0; i < data8Bit.Length; i++)
         {
             // Convert unsigned 8-bit (0-255) to signed 16-bit (-32768 to 32767)
+            // Use 256 to avoid overflow (max becomes 32512, close enough)
             result[i] = (short)((data8Bit[i] - 128) * 256);
         }
 

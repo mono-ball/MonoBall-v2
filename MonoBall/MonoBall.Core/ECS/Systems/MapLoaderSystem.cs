@@ -180,6 +180,41 @@ namespace MonoBall.Core.ECS.Systems
                 );
             }
 
+            // Create map section component if map section ID exists
+            if (!string.IsNullOrEmpty(mapDefinition.MapSectionId))
+            {
+                // Resolve MapSectionDefinition to get popup theme
+                var mapSectionDefinition = _registry.GetById<MapSectionDefinition>(
+                    mapDefinition.MapSectionId
+                );
+                if (
+                    mapSectionDefinition != null
+                    && !string.IsNullOrEmpty(mapSectionDefinition.PopupTheme)
+                )
+                {
+                    var mapSectionComponent = new MapSectionComponent
+                    {
+                        MapSectionId = mapDefinition.MapSectionId,
+                        PopupThemeId = mapSectionDefinition.PopupTheme,
+                    };
+                    World.Add(mapEntity, mapSectionComponent);
+                    _logger.Debug(
+                        "Added MapSectionComponent to map {MapId} with section {MapSectionId} and theme {PopupThemeId}",
+                        mapId,
+                        mapDefinition.MapSectionId,
+                        mapSectionDefinition.PopupTheme
+                    );
+                }
+                else
+                {
+                    _logger.Warning(
+                        "Map {MapId} has MapSectionId {MapSectionId} but MapSectionDefinition not found or has no PopupTheme",
+                        mapId,
+                        mapDefinition.MapSectionId
+                    );
+                }
+            }
+
             // Create tile chunks for each layer (positioned relative to map position)
             int chunksCreated = CreateTileChunks(mapEntity, mapDefinition, mapTilePosition);
             _logger.Information(

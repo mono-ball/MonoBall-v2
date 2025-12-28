@@ -1,0 +1,10 @@
+{
+  "id": "base:texteffect:big",
+  "name": "Big",
+  "description": "Large emphasized text",
+  "effectTypes": ["scale"],
+  "scaleFrequency": 0,
+  "scaleMin": 1.3,
+  "scaleMax": 1.3,
+  "verticalOffset": -2.0
+}

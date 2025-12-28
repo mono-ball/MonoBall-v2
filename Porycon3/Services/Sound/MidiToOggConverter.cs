@@ -37,8 +37,8 @@ public class MidiToOggConverter
     {
         try
         {
-            // Parse MIDI for loop markers and resolution
-            var (loopStartTick, loopEndTick, ticksPerBeat) = FindLoopMarkersAndResolution(midiPath);
+            // Parse MIDI for loop markers, resolution, and tempo map
+            var parseResult = FindLoopMarkersAndResolution(midiPath);
 
             // Load SF2 if not already loaded
             _synthesizer ??= new Synthesizer(_sf2Path, _sampleRate);
@@ -58,34 +58,35 @@ public class MidiToOggConverter
             sequencer.Play(midiFile, false);
             sequencer.Render(leftBuffer, rightBuffer);
 
-            // Convert loop ticks to sample positions
-            var loopStartSample = 0;
+            // Convert loop ticks to sample positions using tempo-accurate conversion
+            var loopStartSample = -1; // Use -1 to indicate no loop, not 0
             var loopEndSample = totalSamples;
 
-            if (loopStartTick >= 0 && loopEndTick > loopStartTick)
+            if (parseResult.LoopStartTick >= 0 && parseResult.LoopEndTick > parseResult.LoopStartTick)
             {
-                loopStartSample = TicksToSamples(loopStartTick, ticksPerBeat);
-                loopEndSample = TicksToSamples(loopEndTick, ticksPerBeat);
+                loopStartSample = TicksToSamples(parseResult.LoopStartTick, parseResult.TicksPerBeat, parseResult.TempoChanges);
+                loopEndSample = TicksToSamples(parseResult.LoopEndTick, parseResult.TicksPerBeat, parseResult.TempoChanges);
             }
 
             // Convert to 16-bit PCM
             var pcmData = ConvertToPcm16(leftBuffer, rightBuffer, totalSamples);
 
+            // Check if we have a valid loop
+            var hasLoop = loopStartSample >= 0 && loopEndSample > loopStartSample;
+            var loopLength = hasLoop ? loopEndSample - loopStartSample : 0;
+
             // Write output (WAV for now, with loop metadata sidecar)
             var wavPath = Path.ChangeExtension(outputPath, ".wav");
-            WriteWavWithLoopInfo(wavPath, pcmData, loopStartSample, loopEndSample);
-
-            var loopLength = loopEndSample - loopStartSample;
-            var hasLoop = loopStartTick >= 0 && loopEndTick > loopStartTick;
+            WriteWavWithLoopInfo(wavPath, pcmData, hasLoop ? loopStartSample : -1, loopEndSample);
 
             // Try to convert to OGG using ffmpeg
-            if (TryConvertToOgg(wavPath, outputPath, loopStartSample, loopLength))
+            if (TryConvertToOgg(wavPath, outputPath, hasLoop ? loopStartSample : -1, loopLength))
             {
                 File.Delete(wavPath); // Clean up WAV
                 return new ConversionResult(
                     true,
                     hasLoop ? loopStartSample : 0,
-                    hasLoop ? loopLength : 0,
+                    loopLength,
                     _sampleRate);
             }
 
@@ -100,7 +101,7 @@ public class MidiToOggConverter
             return new ConversionResult(
                 true,
                 hasLoop ? loopStartSample : 0,
-                hasLoop ? loopLength : 0,
+                loopLength,
                 _sampleRate);
         }
         catch (Exception ex)
@@ -111,14 +112,24 @@ public class MidiToOggConverter
     }
 
     /// <summary>
-    /// Find loop start ([) and loop end (]) markers in MIDI file.
-    /// Also returns ticks per beat (resolution) for timing calculations.
+    /// MIDI parsing result with loop markers, resolution, and tempo map.
     /// </summary>
-    private (int loopStart, int loopEnd, int ticksPerBeat) FindLoopMarkersAndResolution(string midiPath)
+    private record MidiParseResult(
+        int LoopStartTick,
+        int LoopEndTick,
+        int TicksPerBeat,
+        List<(int tick, int microsecondsPerBeat)> TempoChanges);
+
+    /// <summary>
+    /// Find loop start ([) and loop end (]) markers in MIDI file.
+    /// Also returns ticks per beat (resolution) and tempo map for accurate timing.
+    /// </summary>
+    private MidiParseResult FindLoopMarkersAndResolution(string midiPath)
     {
         var loopStart = -1;
         var loopEnd = -1;
         var ticksPerBeat = 480; // Default
+        var tempoChanges = new List<(int tick, int microsecondsPerBeat)>();
 
         try
         {
@@ -127,7 +138,8 @@ public class MidiToOggConverter
 
             // Read MIDI header
             var header = new string(br.ReadChars(4));
-            if (header != "MThd") return (loopStart, loopEnd, ticksPerBeat);
+            if (header != "MThd")
+                return new MidiParseResult(loopStart, loopEnd, ticksPerBeat, tempoChanges);
 
             var headerLength = ReadBigEndianInt32(br);
             if (headerLength >= 6)
@@ -171,12 +183,24 @@ public class MidiToOggConverter
                         var metaType = br.ReadByte();
                         var metaLength = ReadVariableLength(br);
 
-                        if (metaType == 0x06 && metaLength == 1) // Marker with 1 char
+                        if (metaType == 0x51 && metaLength == 3) // Set Tempo
                         {
-                            var marker = (char)br.ReadByte();
-                            if (marker == '[')
+                            // Tempo is 3 bytes, big-endian microseconds per beat
+                            var b1 = br.ReadByte();
+                            var b2 = br.ReadByte();
+                            var b3 = br.ReadByte();
+                            var usPerBeat = (b1 << 16) | (b2 << 8) | b3;
+                            tempoChanges.Add((currentTick, usPerBeat));
+                        }
+                        else if (metaType == 0x06) // Marker
+                        {
+                            var markerBytes = br.ReadBytes(metaLength);
+                            var marker = System.Text.Encoding.ASCII.GetString(markerBytes);
+
+                            // Check for loop markers - handle single char or text containing [ ]
+                            if (marker.Contains('[') || marker.Equals("loopStart", StringComparison.OrdinalIgnoreCase))
                                 loopStart = currentTick;
-                            else if (marker == ']')
+                            else if (marker.Contains(']') || marker.Equals("loopEnd", StringComparison.OrdinalIgnoreCase))
                                 loopEnd = currentTick;
                         }
                         else
@@ -202,17 +226,51 @@ public class MidiToOggConverter
             // Ignore parsing errors, return what we found
         }
 
-        return (loopStart, loopEnd, ticksPerBeat);
+        // Default tempo if none found
+        if (tempoChanges.Count == 0)
+            tempoChanges.Add((0, 500000)); // 120 BPM
+
+        return new MidiParseResult(loopStart, loopEnd, ticksPerBeat, tempoChanges);
     }
 
-    private int TicksToSamples(int ticks, int ticksPerBeat)
+    /// <summary>
+    /// Convert MIDI ticks to sample position using tempo map for accurate timing.
+    /// </summary>
+    private int TicksToSamples(int targetTicks, int ticksPerBeat, List<(int tick, int microsecondsPerBeat)> tempoChanges)
     {
-        // Convert MIDI ticks to samples using tempo
-        var microsecondsPerBeat = 500000; // Default 120 BPM
+        if (targetTicks <= 0) return 0;
 
-        // This is approximate - proper implementation would track tempo changes
-        var seconds = (double)ticks / ticksPerBeat * (microsecondsPerBeat / 1000000.0);
-        return (int)(seconds * _sampleRate);
+        double totalSeconds = 0;
+        var currentTick = 0;
+        var currentUsPerBeat = tempoChanges.Count > 0 ? tempoChanges[0].microsecondsPerBeat : 500000;
+        var tempoIndex = 0;
+
+        // Walk through tempo changes accumulating time
+        while (currentTick < targetTicks)
+        {
+            // Find next tempo change or target tick
+            var nextTick = targetTicks;
+            if (tempoIndex + 1 < tempoChanges.Count && tempoChanges[tempoIndex + 1].tick < targetTicks)
+            {
+                nextTick = tempoChanges[tempoIndex + 1].tick;
+            }
+
+            // Calculate time for this segment
+            var ticksInSegment = nextTick - currentTick;
+            var secondsInSegment = (double)ticksInSegment / ticksPerBeat * (currentUsPerBeat / 1_000_000.0);
+            totalSeconds += secondsInSegment;
+
+            currentTick = nextTick;
+
+            // Move to next tempo if we hit a tempo change
+            if (tempoIndex + 1 < tempoChanges.Count && currentTick >= tempoChanges[tempoIndex + 1].tick)
+            {
+                tempoIndex++;
+                currentUsPerBeat = tempoChanges[tempoIndex].microsecondsPerBeat;
+            }
+        }
+
+        return (int)(totalSeconds * _sampleRate);
     }
 
     private static short[] ConvertToPcm16(float[] left, float[] right, int samples)

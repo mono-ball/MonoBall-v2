@@ -1,0 +1,12 @@
+{
+  "id": "base:texteffect:spooky",
+  "effectTypes": ["wobble", "colorCycle"],
+  "wobbleFrequency": 4.0,
+  "wobbleAmplitude": 8.0,
+  "colorPaletteId": "base:colorpalette:poison",
+  "colorCycleSpeed": 1.5,
+  "colorMode": "override",
+  "shadowMode": "derive",
+  "shadowDeriveMultiplier": 0.25,
+  "wavePhaseOffset": 0.4
+}

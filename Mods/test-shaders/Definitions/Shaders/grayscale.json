@@ -1,8 +1,0 @@
-{
-  "id": "base:shader:grayscale",
-  "name": "Grayscale",
-  "description": "Converts entire screen to grayscale",
-  "sourceFile": "Shaders/Grayscale.mgfxo",
-  "parameters": []
-}
-

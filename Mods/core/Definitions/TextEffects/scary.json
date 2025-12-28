@@ -1,0 +1,10 @@
+{
+  "id": "base:texteffect:scary",
+  "effectTypes": ["shake", "colorCycle"],
+  "colorPaletteId": "base:colorpalette:scary",
+  "colorCycleSpeed": 1.5,
+  "colorMode": "override",
+  "shadowMode": "derive",
+  "shadowDeriveMultiplier": 0.2,
+  "shakeStrength": 1.0
+}

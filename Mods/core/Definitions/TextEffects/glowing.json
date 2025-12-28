@@ -1,0 +1,13 @@
+{
+  "id": "base:texteffect:glowing",
+  "name": "Glowing",
+  "description": "Text with a pulsing glow effect",
+  "effectTypes": ["glow", "fade"],
+  "glowColor": { "r": 255, "g": 255, "b": 100, "a": 255 },
+  "glowRadius": 2,
+  "glowOpacity": 0.6,
+  "glowPulses": true,
+  "fadeFrequency": 3.0,
+  "fadeMin": 0.4,
+  "fadeMax": 1.0
+}

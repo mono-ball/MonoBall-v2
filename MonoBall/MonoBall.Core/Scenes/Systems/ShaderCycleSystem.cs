@@ -25,26 +25,57 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly QueryDescription _combinedShaderQuery;
 
         // Available combined layer shader IDs to cycle through (F4)
+        // Use "STACK:" prefix for multi-shader presets
         private readonly List<string?> _layerShaders = new()
         {
             null, // No shader (disabled)
-            "base:shader:pixelation",
             "base:shader:crt",
-            "base:shader:wavedistortion",
+            "base:shader:spooky",
             "base:shader:kaleidoscope",
-            "base:shader:grayscale",
-            "base:shader:bloom",
+            "base:shader:wavedistortion",
+            "base:shader:glitch",
+            "base:shader:underwater",
+            "base:shader:dream",
+            "base:shader:heathaze",
+            "base:shader:noir",
+            "base:shader:neongrade",
+            "base:shader:hexgrid",
+            "base:shader:datastream",
+            "STACK:cyberpunk", // Stacked: NeonGrade + HexGrid + DataStream
         };
+
+        // Stacked shader presets - each contains shaders with render orders
+        private readonly Dictionary<
+            string,
+            List<(string ShaderId, int RenderOrder)>
+        > _shaderStacks = new()
+        {
+            {
+                "STACK:cyberpunk",
+                new List<(string, int)>
+                {
+                    ("base:shader:neongrade", 0),
+                    ("base:shader:hexgrid", 10),
+                    ("base:shader:datastream", 20),
+                }
+            },
+        };
+
+        // Track stacked shader entities for cleanup
+        private readonly List<Entity> _stackedShaderEntities = new();
 
         // Available per-entity shader IDs to cycle through (F5)
         private readonly List<string?> _entityShaders = new()
         {
             null, // No shader (disabled)
-            "base:shader:glow",
             "base:shader:outline",
-            "base:shader:rainbow",
-            "base:shader:pulsingglow",
-            "base:shader:invert",
+            "base:shader:dissolve",
+            "base:shader:hologram",
+            "base:shader:fire",
+            "base:shader:electric",
+            "base:shader:frozen",
+            "base:shader:ghost",
+            "base:shader:silhouette",
         };
 
         // Current indices for cycling
@@ -112,6 +143,9 @@ namespace MonoBall.Core.Scenes.Systems
             _currentLayerShaderIndex = (_currentLayerShaderIndex + 1) % _layerShaders.Count;
             string? nextShaderId = _layerShaders[_currentLayerShaderIndex];
 
+            // Clean up any existing stacked shader entities first
+            ClearStackedShaders();
+
             // Find existing combined layer shader entity
             Entity? existingShaderEntity = null;
             World.Query(
@@ -144,9 +178,64 @@ namespace MonoBall.Core.Scenes.Systems
                     _logger.Information("Disabled combined layer shader");
                 }
             }
+            else if (nextShaderId.StartsWith("STACK:"))
+            {
+                // Handle stacked shader preset
+                if (existingShaderEntity.HasValue)
+                {
+                    // Disable the single shader entity
+                    if (World.Has<ShaderParameterAnimationComponent>(existingShaderEntity.Value))
+                    {
+                        World.Remove<ShaderParameterAnimationComponent>(existingShaderEntity.Value);
+                    }
+                    ref var shader = ref World.Get<RenderingShaderComponent>(
+                        existingShaderEntity.Value
+                    );
+                    shader.IsEnabled = false;
+                }
+
+                // Create stacked shaders
+                if (_shaderStacks.TryGetValue(nextShaderId, out var stackDefinition))
+                {
+                    foreach (var (shaderId, renderOrder) in stackDefinition)
+                    {
+                        var shaderComponent = new RenderingShaderComponent
+                        {
+                            Layer = ShaderLayer.CombinedLayer,
+                            ShaderId = shaderId,
+                            IsEnabled = true,
+                            RenderOrder = renderOrder,
+                            Parameters = GetDefaultParametersForLayerShader(shaderId),
+                        };
+
+                        var stackedEntity = World.Create(shaderComponent);
+                        _stackedShaderEntities.Add(stackedEntity);
+
+                        // Add animation component if needed
+                        var animationComponent = GetAnimationComponentForLayerShader(shaderId);
+                        if (animationComponent.HasValue)
+                        {
+                            World.Add(stackedEntity, animationComponent.Value);
+                        }
+
+                        _logger.Debug(
+                            "Created stacked shader entity with shader {ShaderId}, RenderOrder {RenderOrder}",
+                            shaderId,
+                            renderOrder
+                        );
+                    }
+
+                    _shaderManagerSystem.MarkShadersDirty();
+                    _logger.Information(
+                        "Activated shader stack '{StackName}' with {Count} layered shaders",
+                        nextShaderId,
+                        stackDefinition.Count
+                    );
+                }
+            }
             else
             {
-                // Update or create shader entity
+                // Update or create single shader entity
                 Entity shaderEntity;
                 if (existingShaderEntity.HasValue)
                 {
@@ -201,6 +290,25 @@ namespace MonoBall.Core.Scenes.Systems
                     );
                 }
             }
+        }
+
+        /// <summary>
+        /// Clears all stacked shader entities.
+        /// </summary>
+        private void ClearStackedShaders()
+        {
+            foreach (var entity in _stackedShaderEntities)
+            {
+                if (World.IsAlive(entity))
+                {
+                    if (World.Has<ShaderParameterAnimationComponent>(entity))
+                    {
+                        World.Remove<ShaderParameterAnimationComponent>(entity);
+                    }
+                    World.Destroy(entity);
+                }
+            }
+            _stackedShaderEntities.Clear();
         }
 
         /// <summary>
@@ -295,10 +403,6 @@ namespace MonoBall.Core.Scenes.Systems
         {
             return shaderId switch
             {
-                "base:shader:pixelation" => new Dictionary<string, object>
-                {
-                    { "PixelSize", 8.0f },
-                },
                 "base:shader:crt" => new Dictionary<string, object>
                 {
                     { "Curvature", 0.1f },
@@ -308,21 +412,115 @@ namespace MonoBall.Core.Scenes.Systems
                 },
                 "base:shader:wavedistortion" => new Dictionary<string, object>
                 {
-                    { "WaveSpeed", 2.0f },
-                    { "WaveFrequency", 10.0f },
-                    { "WaveAmplitude", 0.02f },
-                    { "Time", 0.0f }, // Will be animated by ShaderParameterAnimationSystem
+                    { "Time", 0.0f },
+                    { "WaveAmplitude", 0.025f },
+                    { "WaveFrequency", 8.0f },
+                    { "TurbulenceStrength", 0.5f },
+                    { "TurbulenceScale", 4.0f },
                 },
                 "base:shader:kaleidoscope" => new Dictionary<string, object>
                 {
+                    { "Time", 0.0f },
                     { "SegmentCount", 6.0f },
+                    { "RotationSpeed", 0.3f },
+                    { "Zoom", 1.0f },
                 },
-                "base:shader:grayscale" => null, // No parameters needed
-                "base:shader:bloom" => new Dictionary<string, object>
+                "base:shader:noir" => new Dictionary<string, object>
                 {
-                    { "BloomIntensity", 1.0f },
-                    { "BloomThreshold", 0.7f },
-                    { "BloomBlurAmount", 0.005f },
+                    { "Time", 0.0f },
+                    { "Contrast", 1.8f },
+                    { "Brightness", -0.1f },
+                    { "VignetteIntensity", 0.7f },
+                    { "GrainAmount", 0.08f },
+                    { "ShadowTint", new Vector3(0.1f, 0.1f, 0.15f) },
+                    { "HighlightTint", new Vector3(1.0f, 0.98f, 0.95f) },
+                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                },
+                "base:shader:spooky" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "VignetteIntensity", 0.8f },
+                    { "VignetteRadius", 0.75f },
+                    { "VignetteSoftness", 0.45f },
+                    { "Desaturation", 0.5f },
+                    { "TintColor", new Vector3(0.7f, 0.5f, 1.0f) },
+                    { "TintStrength", 0.5f },
+                    { "ChromaticAberration", 0.003f },
+                    { "ChromaticPulse", 0.5f },
+                    { "DarknessPulseSpeed", 1.5f },
+                    { "DarknessPulseAmount", 0.15f },
+                    { "GrainIntensity", 0.08f },
+                    { "GrainSpeed", 15.0f },
+                    { "FogIntensity", 0.35f },
+                    { "FogSpeed", 0.5f },
+                    { "FogScale", 2.0f },
+                },
+                "base:shader:glitch" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "GlitchIntensity", 0.8f },
+                    { "ScanlineJitter", 0.02f },
+                    { "ColorDrift", 0.01f },
+                    { "StaticIntensity", 0.1f },
+                    { "RGBSplitAmount", 0.005f },
+                },
+                "base:shader:underwater" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "WaveStrength", 0.02f },
+                    { "WaveFrequency", 10.0f },
+                    { "CausticIntensity", 0.3f },
+                    { "CausticScale", 8.0f },
+                    { "TintColor", new Vector3(0.3f, 0.5f, 0.8f) },
+                    { "TintStrength", 0.3f },
+                    { "FogDensity", 0.2f },
+                },
+                "base:shader:dream" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "BlurAmount", 0.003f },
+                    { "GlowIntensity", 0.4f },
+                    { "VignetteStrength", 0.5f },
+                    { "ColorShift", 0.1f },
+                    { "SparkleIntensity", 0.15f },
+                    { "PulseSpeed", 1.0f },
+                },
+                "base:shader:heathaze" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "HazeStrength", 0.015f },
+                    { "RiseSpeed", 2.0f },
+                    { "WaveFrequency", 20.0f },
+                    { "DistortionScale", 3.0f },
+                },
+                "base:shader:neongrade" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "ShadowColor", new Vector3(0.1f, 0.0f, 0.2f) },
+                    { "MidColor", new Vector3(0.0f, 0.8f, 0.9f) },
+                    { "HighlightColor", new Vector3(1.0f, 0.3f, 0.8f) },
+                    { "Intensity", 0.6f },
+                    { "Saturation", 1.3f },
+                },
+                "base:shader:hexgrid" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                    { "GridScale", 40.0f },
+                    { "LineThickness", 0.08f },
+                    { "GridColor", new Vector3(0.0f, 1.0f, 0.9f) },
+                    { "GridOpacity", 0.15f },
+                    { "PulseSpeed", 2.0f },
+                },
+                "base:shader:datastream" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                    { "StreamSpeed", 1.5f },
+                    { "StreamDensity", 30.0f },
+                    { "StreamColor", new Vector3(0.0f, 1.0f, 0.5f) },
+                    { "StreamOpacity", 0.12f },
+                    { "TrailLength", 0.3f },
                 },
                 _ => null,
             };
@@ -337,34 +535,91 @@ namespace MonoBall.Core.Scenes.Systems
         {
             return shaderId switch
             {
-                "base:shader:glow" => new Dictionary<string, object>
-                {
-                    { "GlowColor", new Vector4(1.0f, 1.0f, 0.0f, 1.0f) }, // Yellow glow
-                    { "GlowIntensity", 0.5f },
-                },
                 "base:shader:outline" => new Dictionary<string, object>
                 {
-                    { "OutlineColor", new Vector4(1.0f, 0.0f, 1.0f, 1.0f) }, // Magenta outline
-                    { "OutlineThickness", 2.0f },
-                    { "ScreenSize", new Vector2(800.0f, 600.0f) }, // Will be updated dynamically
+                    { "Time", 0.0f },
+                    { "BaseThickness", 2.0f },
+                    { "PulseAmount", 1.0f },
+                    { "PulseSpeed", 3.0f },
+                    { "RainbowSpeed", 1.0f },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
                 },
-                "base:shader:rainbow" => new Dictionary<string, object>
+                "base:shader:dissolve" => new Dictionary<string, object>
                 {
-                    { "Intensity", 0.5f },
-                    { "Speed", 1.0f },
-                    { "Time", 0.0f }, // Will be animated by ShaderParameterAnimationSystem
+                    { "Time", 0.0f },
+                    { "EdgeWidth", 0.15f },
+                    { "EdgeColor", new Vector3(1.0f, 0.5f, 0.0f) },
+                    { "EdgeColor2", new Vector3(1.0f, 0.2f, 0.0f) },
+                    { "NoiseScale", 6.0f },
+                    { "CycleSpeed", 0.3f },
                 },
-                "base:shader:pulsingglow" => new Dictionary<string, object>
+                "base:shader:hologram" => new Dictionary<string, object>
                 {
-                    { "GlowColor", new Vector4(1.0f, 0.5f, 0.0f, 1.0f) }, // Orange glow
-                    { "BaseIntensity", 0.3f },
-                    { "PulseIntensity", 0.4f },
+                    { "Time", 0.0f },
+                    { "HoloColor", new Vector3(0.3f, 0.7f, 1.0f) },
+                    { "ScanlineIntensity", 0.3f },
+                    { "ScanlineSpeed", 2.0f },
+                    { "ScanlineCount", 30.0f },
+                    { "FlickerSpeed", 15.0f },
+                    { "FlickerIntensity", 0.15f },
+                    { "GlitchIntensity", 0.3f },
+                    { "Transparency", 0.7f },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
+                },
+                "base:shader:fire" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "FlameHeight", 0.15f },
+                    { "FlameSpeed", 3.0f },
+                    { "FlameIntensity", 1.0f },
+                    { "FlameColor1", new Vector3(1.0f, 0.9f, 0.3f) },
+                    { "FlameColor2", new Vector3(1.0f, 0.4f, 0.0f) },
+                    { "FlameColor3", new Vector3(0.8f, 0.1f, 0.0f) },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
+                },
+                "base:shader:electric" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "ElectricColor", new Vector3(0.5f, 0.8f, 1.0f) },
+                    { "CoreColor", new Vector3(1.0f, 1.0f, 1.0f) },
+                    { "Intensity", 1.0f },
+                    { "ArcFrequency", 8.0f },
+                    { "SparkRate", 10.0f },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
+                },
+                "base:shader:frozen" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "IceColor", new Vector3(0.7f, 0.9f, 1.0f) },
+                    { "FrostColor", new Vector3(0.9f, 0.95f, 1.0f) },
+                    { "DeepIceColor", new Vector3(0.3f, 0.5f, 0.8f) },
+                    { "FrostAmount", 0.5f },
+                    { "ShimmerSpeed", 2.0f },
+                    { "CrystalDensity", 15.0f },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
+                },
+                "base:shader:ghost" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "GhostTint", new Vector3(0.8f, 0.9f, 1.0f) },
+                    { "WispColor", new Vector3(0.6f, 0.8f, 1.0f) },
+                    { "Transparency", 0.6f },
+                    { "WaveSpeed", 2.0f },
+                    { "WaveAmount", 0.02f },
+                    { "WispSpeed", 1.5f },
+                    { "WispDensity", 5.0f },
+                    { "FlickerSpeed", 8.0f },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
+                },
+                "base:shader:silhouette" => new Dictionary<string, object>
+                {
+                    { "Time", 0.0f },
+                    { "FillColor", new Vector3(0.05f, 0.05f, 0.1f) },
+                    { "EdgeColor", new Vector3(1.0f, 0.7f, 0.2f) },
+                    { "EdgeColor2", new Vector3(1.0f, 0.3f, 0.1f) },
                     { "PulseSpeed", 2.0f },
-                    { "Time", 0.0f }, // Will be animated by ShaderParameterAnimationSystem
-                },
-                "base:shader:invert" => new Dictionary<string, object>
-                {
-                    { "Intensity", 1.0f }, // Full inversion
+                    { "WaveSpeed", 3.0f },
+                    { "SpriteSize", new Vector2(32.0f, 32.0f) },
                 },
                 _ => null,
             };
@@ -379,22 +634,39 @@ namespace MonoBall.Core.Scenes.Systems
             string shaderId
         )
         {
-            return shaderId switch
+            // All animated shaders use Time parameter with continuous linear progression
+            var animatedShaders = new[]
             {
-                "base:shader:wavedistortion" => new ShaderParameterAnimationComponent
+                "base:shader:wavedistortion",
+                "base:shader:kaleidoscope",
+                "base:shader:spooky",
+                "base:shader:glitch",
+                "base:shader:underwater",
+                "base:shader:dream",
+                "base:shader:heathaze",
+                "base:shader:noir",
+                "base:shader:neongrade",
+                "base:shader:hexgrid",
+                "base:shader:datastream",
+            };
+
+            if (Array.Exists(animatedShaders, s => s == shaderId))
+            {
+                return new ShaderParameterAnimationComponent
                 {
                     ParameterName = "Time",
                     StartValue = 0.0f,
-                    EndValue = 10000.0f, // Very large value for continuous time
-                    Duration = 10000.0f, // Very long duration (~2.7 hours) - effectively infinite for gameplay
+                    EndValue = 10000.0f,
+                    Duration = 10000.0f,
                     ElapsedTime = 0.0f,
-                    Easing = EasingFunction.Linear, // Linear interpolation for continuous time
-                    IsLooping = false, // Don't loop - Time will increase continuously
+                    Easing = EasingFunction.Linear,
+                    IsLooping = false,
                     IsEnabled = true,
                     PingPong = false,
-                },
-                _ => null, // No animation needed
-            };
+                };
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -406,34 +678,36 @@ namespace MonoBall.Core.Scenes.Systems
             string shaderId
         )
         {
-            return shaderId switch
+            // All animated entity shaders use Time parameter with continuous linear progression
+            var animatedEntityShaders = new[]
             {
-                "base:shader:rainbow" => new ShaderParameterAnimationComponent
-                {
-                    ParameterName = "Time",
-                    StartValue = 0.0f,
-                    EndValue = 10000.0f, // Very large value for continuous time
-                    Duration = 10000.0f, // Very long duration (~2.7 hours)
-                    ElapsedTime = 0.0f,
-                    Easing = EasingFunction.Linear, // Linear interpolation for continuous time
-                    IsLooping = false, // Don't loop - Time will increase continuously
-                    IsEnabled = true,
-                    PingPong = false,
-                },
-                "base:shader:pulsingglow" => new ShaderParameterAnimationComponent
-                {
-                    ParameterName = "Time",
-                    StartValue = 0.0f,
-                    EndValue = 10000.0f, // Very large value for continuous time
-                    Duration = 10000.0f, // Very long duration (~2.7 hours)
-                    ElapsedTime = 0.0f,
-                    Easing = EasingFunction.Linear, // Linear interpolation for continuous time
-                    IsLooping = false, // Don't loop - Time will increase continuously
-                    IsEnabled = true,
-                    PingPong = false,
-                },
-                _ => null, // No animation needed
+                "base:shader:outline",
+                "base:shader:dissolve",
+                "base:shader:hologram",
+                "base:shader:fire",
+                "base:shader:electric",
+                "base:shader:frozen",
+                "base:shader:ghost",
+                "base:shader:silhouette",
             };
+
+            if (Array.Exists(animatedEntityShaders, s => s == shaderId))
+            {
+                return new ShaderParameterAnimationComponent
+                {
+                    ParameterName = "Time",
+                    StartValue = 0.0f,
+                    EndValue = 10000.0f,
+                    Duration = 10000.0f,
+                    ElapsedTime = 0.0f,
+                    Easing = EasingFunction.Linear,
+                    IsLooping = false,
+                    IsEnabled = true,
+                    PingPong = false,
+                };
+            }
+
+            return null;
         }
     }
 }

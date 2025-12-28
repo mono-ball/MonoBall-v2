@@ -28,5 +28,11 @@ namespace MonoBall.Core.Scenes
         /// </summary>
         /// <param name="sceneId">The scene ID.</param>
         void DestroyScene(string sceneId);
+
+        /// <summary>
+        /// Checks if a loading scene is currently active.
+        /// </summary>
+        /// <returns>True if a loading scene is active, false otherwise.</returns>
+        bool IsLoadingSceneActive();
     }
 }

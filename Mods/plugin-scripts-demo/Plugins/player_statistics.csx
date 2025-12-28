@@ -89,20 +89,30 @@ public class PlayerStatisticsScript : ScriptBase
     
     private void ShowStatisticsMessageBox()
     {
-        // Build statistics message demonstrating text control codes:
+        // Build statistics message demonstrating text control codes and effects:
+        // Control codes:
         // - \n = newline (continues on same page if space available)
         // - \l = scroll (wait, then scroll up keeping previous line visible)
         // - \p = page break (wait, then clear and start fresh)
+        // Text effects (use full definition ID):
+        // - {FX:base:texteffect:rainbow} = rainbow color cycling
+        // - {FX:base:texteffect:wave} = wavy text animation
+        // - {FX:base:texteffect:bouncy} = bouncing text
+        // - {FX:base:texteffect:shake} = shaking text
+        // - {FX:base:texteffect:scary} = shaking + dark red cycling
+        // - {FX:base:texteffect:dizzy} = wave + sidestep combo
+        // - {/FX} = end effect
+        // Color/style codes:
+        // - {COLOR:r,g,b} = change text color
+        // - {RESET} = reset to defaults
         //
-        // Page 1: "Player Statistics" (title with \p = fresh page after)
-        // Page 2: Lines scroll smoothly using \l:
-        //   - "Total Steps: X" + "Maps Visited: X" (2 lines visible)
-        //   - After \l, scrolls up: "Maps Visited" stays, "Keep exploring" appears
+        // Page 1: Rainbow title with wave effect
+        // Page 2: Statistics with colored numbers and effects
         var message =
-            "Player Statistics\\p" +              // Title alone, then clear
-            $"Total Steps: {_totalSteps}\\l" +    // Line 1, scroll up after
-            $"Maps Visited: {_mapsVisited}\\l" +  // Line 2 (now line 1), scroll up after
-            "Keep exploring!";                     // Line 3 (now line 2), end
+            "{FX:base:texteffect:spooky}Player Statistics{/FX}\\p" +                          // Rainbow title
+            "Total Steps: {FX:base:texteffect:wave}{COLOR:50,205,50}" + _totalSteps + "{/FX}{RESET}\\l" +  // Green wavy steps
+            "Maps Visited: {FX:base:texteffect:bouncy}{COLOR:100,149,237}" + _mapsVisited + "{/FX}{RESET}\\l" +  // Blue bouncy maps
+            "{FX:base:texteffect:pulse}Keep exploring!{/FX}";                                    // Wavy encouragement
 
         // Show message box (use fast text speed for better UX)
         // Fast speed = 1 frame at 60 FPS = 1/60 = 0.0167 seconds

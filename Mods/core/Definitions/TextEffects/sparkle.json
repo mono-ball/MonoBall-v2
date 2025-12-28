@@ -1,0 +1,17 @@
+{
+  "id": "base:texteffect:sparkle",
+  "name": "Sparkle",
+  "description": "Sparkling magical text with glow and color cycling",
+  "effectTypes": ["glow", "colorCycle", "scale"],
+  "colorPaletteId": "base:colorpalette:rainbow",
+  "colorCycleSpeed": 3.0,
+  "colorMode": "override",
+  "glowRadius": 1,
+  "glowOpacity": 0.5,
+  "glowPulses": true,
+  "fadeFrequency": 8.0,
+  "scaleFrequency": 6.0,
+  "scaleMin": 0.9,
+  "scaleMax": 1.1,
+  "scalePhaseOffset": 0.3
+}

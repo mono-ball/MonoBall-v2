@@ -6,7 +6,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Components.Audio;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Events.Audio;
-using MonoBall.Core.Mods;
+using MonoBall.Core.Scenes;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems.Audio
@@ -16,8 +16,8 @@ namespace MonoBall.Core.ECS.Systems.Audio
     /// </summary>
     public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
-        private readonly DefinitionRegistry _registry;
-        private readonly QueryDescription _mapMusicQuery;
+        private readonly ISceneManager _sceneManager;
+        private readonly QueryDescription _mapQuery;
         private readonly ILogger _logger;
         private string? _currentMapMusicId;
         private bool _disposed = false;
@@ -31,21 +31,25 @@ namespace MonoBall.Core.ECS.Systems.Audio
         /// Initializes a new instance of the MapMusicSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="registry">The definition registry.</param>
+        /// <param name="sceneManager">The scene manager for checking loading scene state.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public MapMusicSystem(World world, DefinitionRegistry registry, ILogger logger)
+        public MapMusicSystem(World world, ISceneManager sceneManager, ILogger logger)
             : base(world)
         {
-            _registry = registry ?? throw new ArgumentNullException(nameof(registry));
+            _sceneManager = sceneManager ?? throw new ArgumentNullException(nameof(sceneManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Cache QueryDescription in constructor (required by .cursorrules)
-            _mapMusicQuery = new QueryDescription().WithAll<MapComponent, MusicComponent>();
+            _mapQuery = new QueryDescription().WithAll<MapComponent>();
 
             EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
             EventBus.Subscribe<GameEnteredEvent>(OnGameEntered);
         }
 
+        /// <summary>
+        /// Handles MapTransitionEvent by resolving music from map definition and playing it.
+        /// </summary>
+        /// <param name="evt">The map transition event.</param>
         private void OnMapTransition(ref MapTransitionEvent evt)
         {
             try
@@ -64,39 +68,51 @@ namespace MonoBall.Core.ECS.Systems.Audio
                     return;
                 }
 
-                // Copy event data to avoid ref parameter issues in lambda
-                string targetMapId = evt.TargetMapId;
-
-                // Query for target map's music component
-                string? musicId = null;
-                float fadeDuration = 0f;
-
-                World.Query(
-                    in _mapMusicQuery,
-                    (ref MapComponent map, ref MusicComponent music) =>
-                    {
-                        if (map.MapId == targetMapId)
-                        {
-                            musicId = music.AudioId;
-                            fadeDuration = music.FadeDuration > 0 ? music.FadeDuration : 0f;
-                        }
-                    }
-                );
-
-                if (string.IsNullOrEmpty(musicId))
+                // Don't play music if loading scene is active (game still initializing)
+                if (_sceneManager.IsLoadingSceneActive())
                 {
                     _logger.Debug(
-                        "Map {TargetMapId} has no music component, skipping music change",
-                        targetMapId
+                        "Loading scene is active, deferring music for map {TargetMapId}",
+                        evt.TargetMapId
                     );
                     return;
                 }
+
+                // Query map entity for MusicComponent (allows runtime modification)
+                Entity? mapEntity = GetMapEntity(evt.TargetMapId);
+                if (!mapEntity.HasValue)
+                {
+                    _logger.Warning("Map entity not found for {MapId}", evt.TargetMapId);
+                    return;
+                }
+
+                if (!World.Has<MusicComponent>(mapEntity.Value))
+                {
+                    _logger.Debug(
+                        "Map {TargetMapId} has no MusicComponent, skipping music change",
+                        evt.TargetMapId
+                    );
+                    return;
+                }
+
+                ref var musicComponent = ref World.Get<MusicComponent>(mapEntity.Value);
+                if (string.IsNullOrEmpty(musicComponent.AudioId))
+                {
+                    _logger.Debug(
+                        "Map {TargetMapId} has empty AudioId in MusicComponent, skipping music change",
+                        evt.TargetMapId
+                    );
+                    return;
+                }
+
+                string musicId = musicComponent.AudioId;
+                float fadeDuration = musicComponent.FadeDuration;
 
                 if (musicId == _currentMapMusicId)
                 {
                     _logger.Debug(
                         "Map {TargetMapId} already playing music {MusicId}, skipping music change",
-                        targetMapId,
+                        evt.TargetMapId,
                         musicId
                     );
                     return;
@@ -115,7 +131,7 @@ namespace MonoBall.Core.ECS.Systems.Audio
                 _logger.Information(
                     "Playing music {MusicId} for map {TargetMapId} (fade: {FadeDuration}s)",
                     musicId,
-                    targetMapId,
+                    evt.TargetMapId,
                     fadeDuration > 0 ? fadeDuration : 0f
                 );
             }
@@ -125,6 +141,10 @@ namespace MonoBall.Core.ECS.Systems.Audio
             }
         }
 
+        /// <summary>
+        /// Handles GameEnteredEvent by resolving music from initial map definition and playing it.
+        /// </summary>
+        /// <param name="evt">The game entered event.</param>
         private void OnGameEntered(ref GameEnteredEvent evt)
         {
             try
@@ -140,30 +160,53 @@ namespace MonoBall.Core.ECS.Systems.Audio
                     return;
                 }
 
-                // Copy event data to avoid ref parameter issues in lambda
-                string initialMapId = evt.InitialMapId;
-
-                // Query for initial map's music component
-                string? musicId = null;
-                float fadeDuration = 0f;
-
-                World.Query(
-                    in _mapMusicQuery,
-                    (ref MapComponent map, ref MusicComponent music) =>
-                    {
-                        if (map.MapId == initialMapId)
-                        {
-                            musicId = music.AudioId;
-                            fadeDuration = music.FadeDuration > 0 ? music.FadeDuration : 0f;
-                        }
-                    }
-                );
-
-                if (string.IsNullOrEmpty(musicId))
+                // Don't play music if loading scene is active (game still initializing)
+                if (_sceneManager.IsLoadingSceneActive())
                 {
                     _logger.Debug(
-                        "Initial map {InitialMapId} has no music component, skipping music",
-                        initialMapId
+                        "Loading scene is active, deferring music for map {InitialMapId}",
+                        evt.InitialMapId
+                    );
+                    return;
+                }
+
+                // Query map entity for MusicComponent (allows runtime modification)
+                Entity? mapEntity = GetMapEntity(evt.InitialMapId);
+                if (!mapEntity.HasValue)
+                {
+                    _logger.Warning("Map entity not found for {MapId}", evt.InitialMapId);
+                    return;
+                }
+
+                if (!World.Has<MusicComponent>(mapEntity.Value))
+                {
+                    _logger.Debug(
+                        "Initial map {InitialMapId} has no MusicComponent, skipping music",
+                        evt.InitialMapId
+                    );
+                    return;
+                }
+
+                ref var musicComponent = ref World.Get<MusicComponent>(mapEntity.Value);
+                if (string.IsNullOrEmpty(musicComponent.AudioId))
+                {
+                    _logger.Debug(
+                        "Initial map {InitialMapId} has empty AudioId in MusicComponent, skipping music",
+                        evt.InitialMapId
+                    );
+                    return;
+                }
+
+                string musicId = musicComponent.AudioId;
+                float fadeDuration = musicComponent.FadeDuration;
+
+                // Prevent duplicate playback if already playing the same track
+                if (musicId == _currentMapMusicId)
+                {
+                    _logger.Debug(
+                        "Initial map {InitialMapId} already playing music {MusicId}, skipping music change",
+                        evt.InitialMapId,
+                        musicId
                     );
                     return;
                 }
@@ -181,7 +224,7 @@ namespace MonoBall.Core.ECS.Systems.Audio
                 _logger.Information(
                     "Playing music {MusicId} for initial map {InitialMapId} (fade: {FadeDuration}s)",
                     musicId,
-                    initialMapId,
+                    evt.InitialMapId,
                     fadeDuration > 0 ? fadeDuration : 0f
                 );
             }
@@ -189,6 +232,27 @@ namespace MonoBall.Core.ECS.Systems.Audio
             {
                 _logger.Error(ex, "Error handling GameEnteredEvent");
             }
+        }
+
+        /// <summary>
+        /// Gets the map entity for the specified map ID by querying MapComponent.
+        /// </summary>
+        /// <param name="mapId">The map ID to find.</param>
+        /// <returns>The map entity if found, null otherwise.</returns>
+        private Entity? GetMapEntity(string mapId)
+        {
+            Entity? foundEntity = null;
+            World.Query(
+                in _mapQuery,
+                (Entity entity, ref MapComponent map) =>
+                {
+                    if (map.MapId == mapId)
+                    {
+                        foundEntity = entity;
+                    }
+                }
+            );
+            return foundEntity;
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace MonoBall.Core.ECS.Systems
         /// <summary>
         /// Gets the execution priority for this system.
         /// </summary>
-        public int Priority => SystemPriority.ScriptLifecycle + 1; // Run after ScriptLifecycleSystem
+        public int Priority => SystemPriority.ScriptTimer;
 
         /// <summary>
         /// Initializes a new instance of the ScriptTimerSystem class.

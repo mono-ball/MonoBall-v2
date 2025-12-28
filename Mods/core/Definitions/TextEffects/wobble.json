@@ -1,0 +1,7 @@
+{
+  "id": "base:texteffect:wobble",
+  "effectTypes": ["wobble"],
+  "wobbleFrequency": 6.0,
+  "wobbleAmplitude": 12.0,
+  "wavePhaseOffset": 0.3
+}

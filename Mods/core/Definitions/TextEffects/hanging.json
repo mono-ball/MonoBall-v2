@@ -1,0 +1,10 @@
+{
+  "id": "base:texteffect:hanging",
+  "name": "Hanging",
+  "description": "Characters swing like hanging signs",
+  "effectTypes": ["wobble"],
+  "wobbleFrequency": 3.0,
+  "wobbleAmplitude": 15.0,
+  "wobblePhaseOffset": 0.4,
+  "wobbleOrigin": "top"
+}

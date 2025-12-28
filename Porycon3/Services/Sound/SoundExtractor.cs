@@ -338,6 +338,10 @@ public class SoundExtractor
         if (data == null)
             throw new InvalidDataException($"No data chunk found in WAV file: {path}");
 
+        // Normalize DirectSound samples to target amplitude (±48 to match PSG)
+        // This ensures balanced volume between sampled instruments and PSG tones
+        data = NormalizeSampleVolume(data);
+
         // If stereo, convert to mono
         if (channels == 2)
         {
@@ -353,6 +357,9 @@ public class SoundExtractor
         return (data, sampleRate, 60, loopStart, loopEnd);
     }
 
+    // Sample rate for PSG samples (matches PsgSampleGenerator)
+    private const int PsgSampleRate = 22050;
+
     /// <summary>
     /// Add PSG (square wave, programmable wave, noise) samples.
     /// </summary>
@@ -363,7 +370,7 @@ public class SoundExtractor
         {
             var name = $"psg_square_{duty}";
             var data = _psgGenerator.GenerateSquareWave(duty);
-            var index = sf2.AddSample(name, data, 22050, 60, 0, data.Length);
+            var index = sf2.AddSample(name, data, PsgSampleRate, 60, 0, data.Length);
             _sampleIndexCache[name] = index;
         }
 
@@ -372,15 +379,15 @@ public class SoundExtractor
         {
             var name = $"psg_wave_{waveName}";
             var data = _psgGenerator.GenerateProgrammableWave(waveData);
-            var index = sf2.AddSample(name, data, 22050, 60, 0, data.Length);
+            var index = sf2.AddSample(name, data, PsgSampleRate, 60, 0, data.Length);
             _sampleIndexCache[name] = index;
         }
 
         // Add noise samples
         var noiseShort = _psgGenerator.GenerateNoise(true);
         var noiseLong = _psgGenerator.GenerateNoise(false);
-        _sampleIndexCache["psg_noise_short"] = sf2.AddSample("psg_noise_short", noiseShort, 22050, 60);
-        _sampleIndexCache["psg_noise_long"] = sf2.AddSample("psg_noise_long", noiseLong, 22050, 60);
+        _sampleIndexCache["psg_noise_short"] = sf2.AddSample("psg_noise_short", noiseShort, PsgSampleRate, 60);
+        _sampleIndexCache["psg_noise_long"] = sf2.AddSample("psg_noise_long", noiseLong, PsgSampleRate, 60);
     }
 
     /// <summary>
@@ -554,6 +561,10 @@ public class SoundExtractor
             var cleanName = StripPrefix(baseName);
             var pascalName = ToPascalCase(cleanName);
 
+            // Get song config for volume/reverb/priority settings
+            var songConfig = _midiConfigParser.GetSongConfig(baseName);
+            var volume = songConfig?.VolumeNormalized ?? 1.0f;
+
             // Determine output paths based on category
             // SFX and Phonemes go under Audio/SFX/, everything else under Audio/Music/
             var isSfx = category is "SFX" or "Phonemes";
@@ -577,9 +588,9 @@ public class SoundExtractor
             {
                 converted++;
 
-                // Generate audio definition JSON
+                // Generate audio definition JSON with parsed volume
                 var jsonPath = Path.Combine(categoryDefsDir, $"{pascalName}.json");
-                WriteAudioDefinition(jsonPath, cleanName, pascalName, category, isSfx, result);
+                WriteAudioDefinition(jsonPath, cleanName, pascalName, category, isSfx, result, volume);
 
                 if (converted % 50 == 0)
                     Console.WriteLine($"[SoundExtractor] Converted {converted}/{midiFiles.Length} songs...");
@@ -718,7 +729,7 @@ public class SoundExtractor
     /// Write an AudioDefinition JSON file for a converted track.
     /// </summary>
     private static void WriteAudioDefinition(string jsonPath, string cleanName, string pascalName,
-        string category, bool isSfx, MidiToOggConverter.ConversionResult result)
+        string category, bool isSfx, MidiToOggConverter.ConversionResult result, float volume = 1.0f)
     {
         var hasLoop = result.LoopStartSamples > 0 || result.LoopLengthSamples > 0;
 
@@ -738,12 +749,15 @@ public class SoundExtractor
             ? $",\n  \"loopStartSamples\": {result.LoopStartSamples},\n  \"loopLengthSamples\": {result.LoopLengthSamples}"
             : "";
 
+        // Format volume with 2 decimal places (e.g., 0.63 for V080)
+        var volumeStr = volume.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+
         var json = $$"""
 {
   "id": "{{id}}",
   "name": "{{FormatSongName(cleanName)}}",
   "audioPath": "{{audioPath}}",
-  "volume": 1.0,
+  "volume": {{volumeStr}},
   "loop": {{(shouldLoop ? "true" : "false")}}{{loopSection}}
 }
 """;
@@ -769,29 +783,14 @@ public class SoundExtractor
     /// </summary>
     private static string ToPascalCase(string snakeCase)
     {
+        if (string.IsNullOrEmpty(snakeCase))
+            return snakeCase ?? "";
+
         return string.Concat(
-            snakeCase.Split('_')
-                .Select(part => char.ToUpperInvariant(part[0]) + part[1..].ToLowerInvariant())
+            snakeCase.Split('_', StringSplitOptions.RemoveEmptyEntries)
+                .Where(part => part.Length > 0)
+                .Select(part => char.ToUpperInvariant(part[0]) + (part.Length > 1 ? part[1..].ToLowerInvariant() : ""))
         );
-    }
-
-    /// <summary>
-    /// Copy MIDI files to the output directory (fallback if OGG conversion not wanted).
-    /// </summary>
-    private void CopyMidiFiles(string outputDir)
-    {
-        // MIDI files are in sound/songs/midi/ directory
-        var midiSourceDir = Path.Combine(_pokeemeraldPath, "sound", "songs", "midi");
-        if (!Directory.Exists(midiSourceDir)) return;
-
-        var midiFiles = Directory.GetFiles(midiSourceDir, "*.mid");
-        Console.WriteLine($"[SoundExtractor] Found {midiFiles.Length} MIDI files");
-
-        foreach (var midiFile in midiFiles)
-        {
-            var destPath = Path.Combine(outputDir, Path.GetFileName(midiFile));
-            File.Copy(midiFile, destPath, overwrite: true);
-        }
     }
 
     /// <summary>
@@ -847,5 +846,55 @@ public class SoundExtractor
 """;
 
         File.WriteAllText(jsonPath, json);
+    }
+
+    // Minimum amplitude for normalization: ±64 from center (matching PSG samples)
+    // Samples quieter than this get boosted; louder samples are left alone
+    private const int MinAmplitude = 64;
+
+    /// <summary>
+    /// Normalize quiet 8-bit samples by boosting them to minimum amplitude.
+    /// This ensures quiet DirectSound samples can be heard alongside PSG tones.
+    /// Samples already at or above the minimum amplitude are left unchanged
+    /// to preserve their original character and dynamics.
+    /// </summary>
+    private static byte[] NormalizeSampleVolume(byte[] data)
+    {
+        if (data.Length == 0)
+            return data;
+
+        // Find the peak deviation from center (128)
+        var maxDeviation = 0;
+        foreach (var sample in data)
+        {
+            var deviation = Math.Abs(sample - 128);
+            if (deviation > maxDeviation)
+                maxDeviation = deviation;
+        }
+
+        // If sample is very quiet (near silence), leave it alone
+        if (maxDeviation < 4)
+            return data;
+
+        // Only boost quiet samples - don't reduce loud ones
+        // This preserves the original character of well-mastered samples
+        if (maxDeviation >= MinAmplitude)
+            return data;
+
+        // Calculate boost factor to reach minimum amplitude (±64)
+        var boostFactor = (double)MinAmplitude / maxDeviation;
+
+        // Cap boost to avoid extreme amplification (max 4x)
+        boostFactor = Math.Min(boostFactor, 4.0);
+
+        var result = new byte[data.Length];
+        for (var i = 0; i < data.Length; i++)
+        {
+            var centered = data[i] - 128;
+            var scaled = (int)(centered * boostFactor);
+            result[i] = (byte)Math.Clamp(scaled + 128, 0, 255);
+        }
+
+        return result;
     }
 }

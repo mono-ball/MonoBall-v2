@@ -178,5 +178,52 @@ namespace MonoBall.Core.Scenes.Components
         /// Time-based for consistent behavior across different frame rates.
         /// </summary>
         public float ScrollSpeed { get; set; }
+
+        // ============================================
+        // Text Effect Animation State
+        // ============================================
+
+        /// <summary>
+        /// Total elapsed time for effect animations (seconds).
+        /// Incremented each frame by deltaTime.
+        /// </summary>
+        public float EffectTime { get; set; }
+
+        /// <summary>
+        /// Cached shake offsets per character index.
+        /// Regenerated when shake interval elapses.
+        /// Key: character index, Value: (X, Y) offset in pixels.
+        /// </summary>
+        public Dictionary<int, Vector2>? ShakeOffsets { get; set; }
+
+        /// <summary>
+        /// Time of last shake offset regeneration.
+        /// Used to determine when to regenerate shake offsets.
+        /// </summary>
+        public float LastShakeTime { get; set; }
+
+        /// <summary>
+        /// Currently active effect ID (from {FX:effectId} tag).
+        /// Empty string means no effect active.
+        /// </summary>
+        public string CurrentEffectId { get; set; }
+
+        /// <summary>
+        /// Whether the current text color was explicitly set via {COLOR} tag.
+        /// Used for "preserve" colorMode in effects.
+        /// </summary>
+        public bool HasManualColor { get; set; }
+
+        /// <summary>
+        /// Whether the current shadow color was explicitly set via {SHADOW} tag.
+        /// Used for "preserve" shadowMode in effects.
+        /// </summary>
+        public bool HasManualShadow { get; set; }
+
+        /// <summary>
+        /// Time of last per-character sound playback (for throttling).
+        /// Used to prevent sound spam for fast text.
+        /// </summary>
+        public float LastPerCharacterSoundTime { get; set; }
     }
 }

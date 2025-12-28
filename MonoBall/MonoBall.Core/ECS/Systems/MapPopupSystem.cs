@@ -1,119 +1,282 @@
 using System;
 using Arch.Core;
 using Arch.System;
-using FontStashSharp;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
-using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
-using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.UI.Windows.Animations;
-using MonoBall.Core.UI.Windows.Animations.Events;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
 {
     /// <summary>
-    /// System responsible for managing popup lifecycle and animation state machine.
-    /// Creates popup entities and scenes, updates animation states, and handles cleanup.
+    /// System responsible for managing popup lifecycle based on map transitions.
+    /// Listens to MapTransitionEvent and GameEnteredEvent, resolves map definitions, and creates popup entities/scenes.
     /// </summary>
     public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
-        // GBA-accurate constants (pokeemerald dimensions at 1x scale)
-        // Use GameConstants for consistency across systems
-
-        private readonly SceneSystem _sceneSystem;
-        private readonly FontService _fontService;
+        private readonly ISceneManager _sceneManager;
         private readonly IModManager _modManager;
         private readonly ILogger _logger;
-        private readonly GraphicsDevice _graphicsDevice;
-        private readonly SpriteBatch _spriteBatch;
-        private readonly MapPopupRendererSystem _mapPopupRendererSystem;
         private readonly IConstantsService _constants;
         private Entity? _currentPopupEntity;
         private Entity? _currentPopupSceneEntity;
+        private string? _currentMapSectionId;
         private bool _disposed = false;
+
+        // Cached query descriptions
+        private readonly QueryDescription _mapQuery =
+            new QueryDescription().WithAll<MapComponent>();
 
         /// <summary>
         /// Gets the execution priority for this system.
         /// </summary>
         public int Priority => SystemPriority.MapPopup;
 
-        // Cached query descriptions to avoid allocations in hot paths
-        private readonly QueryDescription _mapPopupScenesQuery = new QueryDescription().WithAll<
-            SceneComponent,
-            MapPopupSceneComponent
-        >();
-
-        private readonly QueryDescription _cameraQuery =
-            new QueryDescription().WithAll<CameraComponent>();
-
         /// <summary>
         /// Initializes a new instance of the MapPopupSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="sceneSystem">The scene system for creating/destroying scenes.</param>
-        /// <param name="graphicsDevice">The graphics device.</param>
-        /// <param name="spriteBatch">The sprite batch for rendering.</param>
-        /// <param name="mapPopupRendererSystem">The map popup renderer system.</param>
-        /// <param name="fontService">The font service for text measurement.</param>
+        /// <param name="sceneManager">The scene manager for creating/destroying scenes.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        /// <param name="constants">The constants service for accessing game constants. Required.</param>
+        /// <param name="constants">The constants service for accessing game constants.</param>
         public MapPopupSystem(
             World world,
-            SceneSystem sceneSystem,
-            GraphicsDevice graphicsDevice,
-            SpriteBatch spriteBatch,
-            MapPopupRendererSystem mapPopupRendererSystem,
-            FontService fontService,
+            ISceneManager sceneManager,
             IModManager modManager,
             ILogger logger,
             IConstantsService constants
         )
             : base(world)
         {
-            _sceneSystem = sceneSystem ?? throw new ArgumentNullException(nameof(sceneSystem));
-            _graphicsDevice =
-                graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
-            _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
-            _mapPopupRendererSystem =
-                mapPopupRendererSystem
-                ?? throw new ArgumentNullException(nameof(mapPopupRendererSystem));
-            _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
+            _sceneManager = sceneManager ?? throw new ArgumentNullException(nameof(sceneManager));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
-            // Subscribe to events using RefAction pattern
-            EventBus.Subscribe<MapPopupShowEvent>(OnMapPopupShow);
-            EventBus.Subscribe<MapPopupHideEvent>(OnMapPopupHide);
-            EventBus.Subscribe<WindowAnimationCompletedEvent>(OnWindowAnimationCompleted);
-            EventBus.Subscribe<WindowAnimationDestroyEvent>(OnWindowAnimationDestroy);
+            // Subscribe to MapTransitionEvent and GameEnteredEvent directly
+            EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
+            EventBus.Subscribe<GameEnteredEvent>(OnGameEntered);
         }
 
         /// <summary>
-        /// Handles MapPopupShowEvent by creating popup entity and scene.
+        /// Handles GameEnteredEvent by showing popup for the initial map.
         /// </summary>
-        /// <param name="evt">The map popup show event.</param>
-        private void OnMapPopupShow(ref MapPopupShowEvent evt)
+        /// <param name="evt">The game entered event.</param>
+        private void OnGameEntered(ref GameEnteredEvent evt)
         {
-            if (string.IsNullOrEmpty(evt.MapSectionName))
+            try
             {
-                _logger.Warning("MapPopupShowEvent has empty MapSectionName, skipping popup");
+                _logger.Debug(
+                    "Received GameEnteredEvent for initial map {InitialMapId}",
+                    evt.InitialMapId ?? "(null)"
+                );
+
+                if (string.IsNullOrEmpty(evt.InitialMapId))
+                {
+                    _logger.Debug("GameEnteredEvent has empty InitialMapId, skipping popup");
+                    return;
+                }
+
+                // Don't show popup if loading scene is active (game still initializing)
+                if (_sceneManager.IsLoadingSceneActive())
+                {
+                    _logger.Debug(
+                        "Loading scene is active, deferring popup for map {InitialMapId}",
+                        evt.InitialMapId
+                    );
+                    return;
+                }
+
+                // Show popup for the initial map
+                ShowPopupForMap(evt.InitialMapId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error handling GameEnteredEvent");
+            }
+        }
+
+        /// <summary>
+        /// Handles MapTransitionEvent by resolving map section and theme definitions, then creating popup.
+        /// </summary>
+        /// <param name="evt">The map transition event.</param>
+        private void OnMapTransition(ref MapTransitionEvent evt)
+        {
+            try
+            {
+                _logger.Debug(
+                    "Received MapTransitionEvent from {SourceMapId} to {TargetMapId}",
+                    evt.SourceMapId ?? "(null)",
+                    evt.TargetMapId ?? "(null)"
+                );
+
+                if (string.IsNullOrEmpty(evt.TargetMapId))
+                {
+                    _logger.Debug("MapTransitionEvent has empty TargetMapId, skipping popup");
+                    return;
+                }
+
+                // Don't show popup if loading scene is active (game still initializing)
+                if (_sceneManager.IsLoadingSceneActive())
+                {
+                    _logger.Debug(
+                        "Loading scene is active, deferring popup for map {TargetMapId}",
+                        evt.TargetMapId
+                    );
+                    return;
+                }
+
+                // Show popup for the target map
+                ShowPopupForMap(evt.TargetMapId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error handling MapTransitionEvent");
+            }
+        }
+
+        /// <summary>
+        /// Gets the map entity for the specified map ID by querying MapComponent.
+        /// </summary>
+        /// <param name="mapId">The map ID to find.</param>
+        /// <returns>The map entity if found, null otherwise.</returns>
+        private Entity? GetMapEntity(string mapId)
+        {
+            Entity? foundEntity = null;
+            World.Query(
+                in _mapQuery,
+                (Entity entity, ref MapComponent map) =>
+                {
+                    if (map.MapId == mapId)
+                    {
+                        foundEntity = entity;
+                    }
+                }
+            );
+            return foundEntity;
+        }
+
+        /// <summary>
+        /// Shows a popup for the specified map by querying MapSectionComponent and resolving definitions, then creating popup entity and scene.
+        /// </summary>
+        /// <param name="mapId">The map ID to show a popup for.</param>
+        private void ShowPopupForMap(string mapId)
+        {
+            // Query map entity for MapSectionComponent (allows runtime modification)
+            Entity? mapEntity = GetMapEntity(mapId);
+            if (!mapEntity.HasValue)
+            {
+                _logger.Warning("Map entity not found for {MapId}", mapId);
+                return;
+            }
+
+            // Check if map name display is enabled (still need definition for this)
+            var mapDefinition = _modManager.GetDefinition<MapDefinition>(mapId);
+            if (mapDefinition == null)
+            {
+                _logger.Warning("Map definition not found for {MapId}", mapId);
+                return;
+            }
+
+            if (!mapDefinition.ShowMapName)
+            {
+                _logger.Debug("Map {MapId} has ShowMapName=false, skipping popup", mapId);
+                return;
+            }
+
+            // Get MapSectionId from MapSectionComponent (allows runtime modification)
+            if (!World.Has<MapSectionComponent>(mapEntity.Value))
+            {
+                _logger.Debug("Map {MapId} has no MapSectionComponent, skipping popup", mapId);
+                return;
+            }
+
+            ref var mapSectionComponent = ref World.Get<MapSectionComponent>(mapEntity.Value);
+            if (string.IsNullOrEmpty(mapSectionComponent.MapSectionId))
+            {
+                _logger.Debug(
+                    "Map {MapId} has empty MapSectionId in MapSectionComponent, skipping popup",
+                    mapId
+                );
+                return;
+            }
+
+            string mapSectionId = mapSectionComponent.MapSectionId;
+            string popupThemeId = mapSectionComponent.PopupThemeId;
+
+            // Resolve MapSectionDefinition to get display name
+            var mapSectionDefinition = _modManager.GetDefinition<MapSectionDefinition>(
+                mapSectionId
+            );
+            if (mapSectionDefinition == null)
+            {
+                _logger.Warning("MapSection definition not found for {MapSectionId}", mapSectionId);
+                return;
+            }
+
+            // Validate popup theme exists
+            if (string.IsNullOrEmpty(popupThemeId))
+            {
+                _logger.Warning(
+                    "MapSection {MapSectionId} has no PopupThemeId in component, skipping popup",
+                    mapSectionId
+                );
+                return;
+            }
+
+            var popupThemeDefinition = _modManager.GetDefinition<PopupThemeDefinition>(
+                popupThemeId
+            );
+            if (popupThemeDefinition == null)
+            {
+                _logger.Warning(
+                    "PopupTheme definition not found for {ThemeId}, skipping popup",
+                    popupThemeId
+                );
+                return;
+            }
+
+            // Prevent duplicate popup if already showing the same map section
+            if (mapSectionId == _currentMapSectionId)
+            {
+                _logger.Debug(
+                    "Map {MapId} already showing popup for map section {MapSectionId}, skipping popup",
+                    mapId,
+                    mapSectionId
+                );
+                return;
+            }
+
+            // Create popup with resolved data
+            CreatePopup(mapSectionId, mapSectionDefinition.Name, popupThemeId);
+        }
+
+        /// <summary>
+        /// Creates a popup entity and scene for the specified map section.
+        /// </summary>
+        /// <param name="mapSectionId">The map section ID.</param>
+        /// <param name="mapSectionName">The map section name to display.</param>
+        /// <param name="themeId">The popup theme ID.</param>
+        private void CreatePopup(string mapSectionId, string mapSectionName, string themeId)
+        {
+            if (string.IsNullOrEmpty(mapSectionName))
+            {
+                _logger.Warning("MapSectionName is empty, skipping popup");
                 return;
             }
 
             _logger.Debug(
-                "Showing popup for {MapSectionName} with theme {ThemeId}",
-                evt.MapSectionName,
-                evt.ThemeId
+                "Creating popup for {MapSectionName} with theme {ThemeId}",
+                mapSectionName,
+                themeId
             );
 
             // Cancel existing popup if present
@@ -124,10 +287,10 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Look up PopupThemeDefinition to get background and outline IDs
-            var popupTheme = _modManager.GetDefinition<PopupThemeDefinition>(evt.ThemeId);
+            var popupTheme = _modManager.GetDefinition<PopupThemeDefinition>(themeId);
             if (popupTheme == null)
             {
-                _logger.Warning("PopupTheme definition not found for {ThemeId}", evt.ThemeId);
+                _logger.Warning("PopupTheme definition not found for {ThemeId}", themeId);
                 return;
             }
 
@@ -139,16 +302,6 @@ namespace MonoBall.Core.ECS.Systems
                 return;
             }
 
-            // Validate font system (needed for text measurement, but not critical for popup creation)
-            var fontSystem = _fontService.GetFontSystem("base:font:game/pokemon");
-            if (fontSystem == null)
-            {
-                _logger.Warning(
-                    "Font 'base:font:game/pokemon' not found, popup will be created but text may not render correctly"
-                );
-                // Continue anyway - popup can still be created without font
-            }
-
             // Calculate popup dimensions (fixed size like pokeemerald)
             // Background is always 80x24 at 1x scale, plus border tiles
             int tileSize = outlineDef.IsTileSheet ? outlineDef.TileWidth : 8;
@@ -157,7 +310,7 @@ namespace MonoBall.Core.ECS.Systems
             // Create popup scene entity first (before popup entity so we can reference it)
             var sceneComponent = new SceneComponent
             {
-                SceneId = "map:popup",
+                SceneId = $"map:popup:{Guid.NewGuid()}",
                 Priority = ScenePriorities.GameScene + 10, // 60
                 CameraMode = SceneCameraMode.GameCamera,
                 BlocksUpdate = false,
@@ -172,21 +325,15 @@ namespace MonoBall.Core.ECS.Systems
             Entity popupSceneEntity;
             try
             {
-                popupSceneEntity = _sceneSystem.CreateScene(sceneComponent, popupSceneComponent);
+                popupSceneEntity = _sceneManager.CreateScene(sceneComponent, popupSceneComponent);
             }
             catch (Exception ex)
             {
                 _logger.Error(
                     ex,
                     "Failed to create popup scene for {MapSectionName}",
-                    evt.MapSectionName
+                    mapSectionName
                 );
-                // Clean up popup entity if scene creation failed
-                if (_currentPopupEntity.HasValue)
-                {
-                    World.Destroy(_currentPopupEntity.Value);
-                    _currentPopupEntity = null;
-                }
                 return;
             }
 
@@ -195,8 +342,8 @@ namespace MonoBall.Core.ECS.Systems
             // Create popup entity
             var popupComponent = new MapPopupComponent
             {
-                MapSectionName = evt.MapSectionName,
-                ThemeId = evt.ThemeId,
+                MapSectionName = mapSectionName,
+                ThemeId = themeId,
                 BackgroundId = popupTheme.Background,
                 OutlineId = popupTheme.Outline,
                 SceneEntity = popupSceneEntity, // Store scene entity reference
@@ -234,29 +381,16 @@ namespace MonoBall.Core.ECS.Systems
             // Add animation component to the entity
             World.Add(_currentPopupEntity.Value, windowAnim);
 
+            // Track current map section ID to prevent duplicates
+            _currentMapSectionId = mapSectionId;
+
             _logger.Information(
                 "Created popup entity {PopupEntityId} and scene entity {SceneEntityId} for {MapSectionName} (height: {Height})",
                 _currentPopupEntity.Value.Id,
                 popupSceneEntity.Id,
-                evt.MapSectionName,
+                mapSectionName,
                 popupHeight
             );
-        }
-
-        /// <summary>
-        /// Handles MapPopupHideEvent by destroying popup entity and scene.
-        /// </summary>
-        /// <param name="evt">The map popup hide event.</param>
-        private void OnMapPopupHide(ref MapPopupHideEvent evt)
-        {
-            if (!World.IsAlive(evt.PopupEntity))
-            {
-                _logger.Debug("Popup entity is not alive, skipping cleanup");
-                return;
-            }
-
-            _logger.Debug("Hiding popup");
-            DestroyPopup(evt.PopupEntity);
         }
 
         /// <summary>
@@ -298,7 +432,7 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Destroy popup scene entity first (before destroying popup entity)
-            _sceneSystem.DestroyScene(sceneEntityToDestroy);
+            _sceneManager.DestroyScene(sceneEntityToDestroy);
 
             // Destroy popup entity
             World.Destroy(popupEntity);
@@ -307,6 +441,7 @@ namespace MonoBall.Core.ECS.Systems
             if (_currentPopupEntity.HasValue && _currentPopupEntity.Value.Id == popupEntity.Id)
             {
                 _currentPopupEntity = null;
+                _currentMapSectionId = null;
             }
             if (
                 _currentPopupSceneEntity.HasValue
@@ -318,201 +453,8 @@ namespace MonoBall.Core.ECS.Systems
         }
 
         /// <summary>
-        /// Handles WindowAnimationCompletedEvent.
-        /// Animation logic is handled by WindowAnimationSystem, so this handler can be empty or log.
-        /// </summary>
-        /// <param name="evt">The window animation completed event.</param>
-        private void OnWindowAnimationCompleted(ref WindowAnimationCompletedEvent evt)
-        {
-            // Animation completed - WindowAnimationSystem handles the animation logic
-            // This handler is here for potential future use (logging, etc.)
-        }
-
-        /// <summary>
-        /// Handles WindowAnimationDestroyEvent by destroying the popup.
-        /// </summary>
-        /// <param name="evt">The window animation destroy event.</param>
-        private void OnWindowAnimationDestroy(ref WindowAnimationDestroyEvent evt)
-        {
-            if (!World.IsAlive(evt.WindowEntity))
-            {
-                _logger.Debug("Window entity is not alive, skipping cleanup");
-                return;
-            }
-
-            _logger.Debug("Destroying popup from animation destroy event");
-            DestroyPopup(evt.WindowEntity);
-        }
-
-        /// <summary>
-        /// Renders a single map popup scene. Called by SceneRendererSystem (coordinator) for a single scene.
-        /// </summary>
-        /// <param name="sceneEntity">The scene entity to render.</param>
-        /// <param name="gameTime">The game time.</param>
-        public void RenderScene(Entity sceneEntity, GameTime gameTime)
-        {
-            // Verify this is actually a map popup scene
-            if (!World.Has<MapPopupSceneComponent>(sceneEntity))
-            {
-                return;
-            }
-
-            ref var scene = ref World.Get<SceneComponent>(sceneEntity);
-            if (!scene.IsActive)
-            {
-                return;
-            }
-
-            // Determine camera based on CameraMode
-            CameraComponent? camera = null;
-
-            switch (scene.CameraMode)
-            {
-                case SceneCameraMode.GameCamera:
-                    camera = GetActiveGameCamera();
-                    break;
-
-                case SceneCameraMode.SceneCamera:
-                    if (scene.CameraEntityId.HasValue)
-                    {
-                        // Query for camera entity by ID
-                        int cameraEntityId = scene.CameraEntityId.Value;
-                        bool foundCamera = false;
-                        World.Query(
-                            in _cameraQuery,
-                            (Entity entity, ref CameraComponent cam) =>
-                            {
-                                if (entity.Id == cameraEntityId)
-                                {
-                                    camera = cam;
-                                    foundCamera = true;
-                                }
-                            }
-                        );
-
-                        if (!foundCamera)
-                        {
-                            _logger.Warning(
-                                "MapPopupScene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found or doesn't have CameraComponent",
-                                scene.SceneId,
-                                cameraEntityId
-                            );
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        _logger.Warning(
-                            "MapPopupScene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
-                            scene.SceneId
-                        );
-                        return;
-                    }
-                    break;
-
-                case SceneCameraMode.ScreenCamera:
-                    // MapPopupScene requires a camera for viewport
-                    _logger.Warning(
-                        "MapPopupScene '{SceneId}' requires a camera for viewport. Use GameCamera or SceneCamera mode.",
-                        scene.SceneId
-                    );
-                    return;
-            }
-
-            if (!camera.HasValue)
-            {
-                _logger.Warning(
-                    "MapPopupScene '{SceneId}' requires camera but none was found. Scene will not render.",
-                    scene.SceneId
-                );
-                return;
-            }
-
-            // Render the map popup scene
-            RenderMapPopupScene(sceneEntity, ref scene, gameTime, camera.Value);
-        }
-
-        /// <summary>
-        /// Renders the map popup scene using the specified camera (popups render in screen space within camera viewport).
-        /// </summary>
-        /// <param name="sceneEntity">The scene entity.</param>
-        /// <param name="scene">The scene component.</param>
-        /// <param name="gameTime">The game time.</param>
-        /// <param name="camera">The camera component.</param>
-        private void RenderMapPopupScene(
-            Entity sceneEntity,
-            ref SceneComponent scene,
-            GameTime gameTime,
-            CameraComponent camera
-        )
-        {
-            // Save original viewport
-            var savedViewport = _graphicsDevice.Viewport;
-
-            try
-            {
-                // Set viewport to camera's virtual viewport (if available) or regular viewport
-                // Popups render in screen space within this viewport
-                if (camera.VirtualViewport != Rectangle.Empty)
-                {
-                    _graphicsDevice.Viewport = new Viewport(camera.VirtualViewport);
-                }
-
-                // Render popups in SCREEN SPACE (not world space) - use Matrix.Identity
-                // Map popups are UI overlays that should stay fixed on screen
-                _spriteBatch.Begin(
-                    SpriteSortMode.Deferred,
-                    BlendState.AlphaBlend,
-                    SamplerState.PointClamp,
-                    DepthStencilState.None,
-                    RasterizerState.CullCounterClockwise,
-                    null,
-                    Matrix.Identity // Screen space - no camera transform
-                );
-
-                // Render popup (renderer handles popup rendering in screen space)
-                _mapPopupRendererSystem.Render(sceneEntity, camera, gameTime);
-
-                // End SpriteBatch
-                _spriteBatch.End();
-            }
-            finally
-            {
-                // Always restore viewport, even if rendering fails
-                _graphicsDevice.Viewport = savedViewport;
-            }
-        }
-
-        /// <summary>
-        /// Gets the active game camera (CameraComponent.IsActive == true).
-        /// </summary>
-        /// <returns>The active camera component, or null if none found.</returns>
-        private CameraComponent? GetActiveGameCamera()
-        {
-            CameraComponent? activeCamera = null;
-
-            World.Query(
-                in _cameraQuery,
-                (Entity entity, ref CameraComponent camera) =>
-                {
-                    if (camera.IsActive)
-                    {
-                        activeCamera = camera;
-                    }
-                }
-            );
-
-            return activeCamera;
-        }
-
-        /// <summary>
         /// Disposes the system and unsubscribes from events.
         /// </summary>
-        /// <remarks>
-        /// Implements IDisposable to properly clean up event subscriptions.
-        /// Uses standard dispose pattern without finalizer since only managed resources are disposed.
-        /// Uses 'new' keyword because BaseSystem may have a Dispose() method with different signature.
-        /// </remarks>
         public new void Dispose()
         {
             Dispose(true);
@@ -529,10 +471,8 @@ namespace MonoBall.Core.ECS.Systems
                 if (disposing)
                 {
                     // Unsubscribe from events using RefAction pattern
-                    EventBus.Unsubscribe<MapPopupShowEvent>(OnMapPopupShow);
-                    EventBus.Unsubscribe<MapPopupHideEvent>(OnMapPopupHide);
-                    EventBus.Unsubscribe<WindowAnimationCompletedEvent>(OnWindowAnimationCompleted);
-                    EventBus.Unsubscribe<WindowAnimationDestroyEvent>(OnWindowAnimationDestroy);
+                    EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
+                    EventBus.Unsubscribe<GameEnteredEvent>(OnGameEntered);
                 }
                 _disposed = true;
             }

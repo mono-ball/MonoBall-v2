@@ -1,0 +1,9 @@
+{
+  "id": "base:texteffect:rainbow",
+  "effectTypes": ["colorCycle"],
+  "colorPaletteId": "base:colorpalette:rainbow",
+  "colorCycleSpeed": 2.0,
+  "colorMode": "override",
+  "shadowMode": "derive",
+  "shadowDeriveMultiplier": 0.3
+}

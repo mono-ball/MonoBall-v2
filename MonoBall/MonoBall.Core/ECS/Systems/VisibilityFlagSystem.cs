@@ -54,6 +54,13 @@ namespace MonoBall.Core.ECS.Systems
                 in _queryDescription,
                 (Entity entity, ref NpcComponent npc, ref RenderableComponent render) =>
                 {
+                    // CRITICAL: Check if entity is still alive before accessing components
+                    // Entity might be destroyed or modified during query iteration (race condition)
+                    if (!World.IsAlive(entity))
+                    {
+                        return; // Entity was destroyed, skip
+                    }
+
                     if (string.IsNullOrWhiteSpace(npc.VisibilityFlag))
                         return;
 
@@ -82,10 +89,21 @@ namespace MonoBall.Core.ECS.Systems
                 in _queryDescription,
                 (Entity entity, ref NpcComponent npc, ref RenderableComponent render) =>
                 {
+                    // CRITICAL: Check if entity is still alive before accessing components
+                    // Entity might be destroyed or modified during query iteration (race condition)
+                    if (!World.IsAlive(entity))
+                    {
+                        return; // Entity was destroyed, skip
+                    }
+
                     if (npc.VisibilityFlag == flagId)
                     {
                         // Update visibility immediately
-                        render.IsVisible = newValue;
+                        // Defensive check: Ensure entity still has RenderableComponent before modifying
+                        if (World.Has<RenderableComponent>(entity))
+                        {
+                            render.IsVisible = newValue;
+                        }
                     }
                 }
             );

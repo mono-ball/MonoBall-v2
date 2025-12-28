@@ -1,0 +1,8 @@
+{
+  "id": "base:texteffect:pulse",
+  "effectTypes": ["scale"],
+  "scaleFrequency": 4.0,
+  "scaleMin": 0.8,
+  "scaleMax": 1.2,
+  "wavePhaseOffset": 0.2
+}

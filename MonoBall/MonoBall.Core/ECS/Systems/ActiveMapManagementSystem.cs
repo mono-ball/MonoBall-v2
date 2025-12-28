@@ -14,6 +14,10 @@ namespace MonoBall.Core.ECS.Systems
     /// Adds ActiveMapEntity to entities in loaded maps and removes it when maps are unloaded.
     /// This allows other systems to query only entities in active maps at the query level,
     /// avoiding iteration over entities in unloaded maps.
+    ///
+    /// This system runs with low priority (after most other systems) to reduce race conditions
+    /// with entity creation and modification. It processes entities after they have been fully
+    /// created and initialized by other systems.
     /// </summary>
     public class ActiveMapManagementSystem
         : BaseSystem<World, float>,
@@ -105,28 +109,62 @@ namespace MonoBall.Core.ECS.Systems
 
             foreach (var entity in entitiesToRemove)
             {
-                // Double-check entity is alive and has the component before removing
-                // This prevents memory corruption if entity was destroyed between collection and removal
+                // CRITICAL: Multiple validation checks to prevent memory corruption
+                // Entity might be destroyed or in the middle of structural changes between collection and removal
+
+                // Check 1: Entity must still be alive
                 if (!World.IsAlive(entity))
                 {
                     continue; // Entity was destroyed, skip
                 }
 
-                if (World.Has<ActiveMapEntity>(entity))
+                // Check 2: Entity must still have the component
+                // This check is critical - if the component was already removed by another system,
+                // attempting to remove it again can cause memory corruption
+                if (!World.Has<ActiveMapEntity>(entity))
                 {
-                    try
+                    continue; // Component already removed, skip
+                }
+
+                // Check 3: Verify entity still has NpcComponent (for NPCs) to ensure it's still valid
+                // This helps catch cases where the entity's archetype is being modified
+                if (!World.Has<NpcComponent>(entity))
+                {
+                    // Entity lost NpcComponent - might be in the middle of destruction or modification
+                    // Skip removal to avoid memory corruption
+                    continue;
+                }
+
+                // All checks passed - attempt to remove component
+                // Note: AccessViolationException typically cannot be caught in managed code,
+                // so the defensive checks above are critical to prevent it from occurring
+                try
+                {
+                    // Final validation: ensure entity is still in a valid state
+                    // This double-check helps catch race conditions where entity state changes
+                    // between the checks above and the actual removal
+                    if (
+                        !World.IsAlive(entity)
+                        || !World.Has<ActiveMapEntity>(entity)
+                        || !World.Has<NpcComponent>(entity)
+                    )
                     {
-                        World.Remove<ActiveMapEntity>(entity);
+                        // Entity state changed between checks - skip removal to avoid corruption
+                        continue;
                     }
-                    catch (Exception ex)
-                    {
-                        // Log but don't crash - entity might have been destroyed concurrently
-                        _logger.Warning(
-                            ex,
-                            "Failed to remove ActiveMapEntity from entity {EntityId}. Entity may have been destroyed.",
-                            entity.Id
-                        );
-                    }
+
+                    World.Remove<ActiveMapEntity>(entity);
+                }
+                catch (Exception ex)
+                {
+                    // Catch any exceptions (though AccessViolationException typically can't be caught)
+                    // Log and continue - entity may have been destroyed or modified concurrently
+                    _logger.Warning(
+                        ex,
+                        "Failed to remove ActiveMapEntity from entity {EntityId}. "
+                            + "Entity may have been destroyed or modified. Skipping removal.",
+                        entity.Id
+                    );
                 }
             }
 

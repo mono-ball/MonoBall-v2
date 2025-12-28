@@ -24,7 +24,9 @@
     "PopupOutlineDefinitions": "Definitions/Maps/Popups/Outlines",
     "PopupThemeDefinitions": "Definitions/Maps/Popups/Themes",
     "MapSectionDefinitions": "Definitions/Maps/Sections",
-    "TextWindowDefinitions": "Definitions/TextWindow"
+    "TextWindowDefinitions": "Definitions/TextWindow",
+    "TextEffectDefinitions": "Definitions/TextEffects",
+    "ColorPaletteDefinitions": "Definitions/ColorPalettes"
   },
   "patches": [],
   "dependencies": []

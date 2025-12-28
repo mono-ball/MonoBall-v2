@@ -99,9 +99,8 @@ namespace MonoBall.Core.Scenes.Systems
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
-            // Subscribe to events using RefAction pattern
-            EventBus.Subscribe<MapPopupShowEvent>(OnMapPopupShow);
-            EventBus.Subscribe<MapPopupHideEvent>(OnMapPopupHide);
+            // NOTE: This system only handles rendering. MapPopupSystem handles popup lifecycle.
+            // No event subscriptions needed - popups are created/destroyed by MapPopupSystem.
         }
 
         // Note: Animation updates are now handled by WindowAnimationSystem.
@@ -133,9 +132,10 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
-        /// Handles MapPopupShowEvent by creating popup entity and scene.
+        /// DEPRECATED: MapPopupSystem now handles popup creation. This method should not be called.
         /// </summary>
         /// <param name="evt">The map popup show event.</param>
+        [Obsolete("MapPopupSystem now handles popup creation. This method should not be called.")]
         private void OnMapPopupShow(ref MapPopupShowEvent evt)
         {
             if (string.IsNullOrEmpty(evt.MapSectionName))
@@ -277,9 +277,12 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
-        /// Handles MapPopupHideEvent by destroying popup entity and scene.
+        /// DEPRECATED: MapPopupSystem now handles popup destruction. This method should not be called.
         /// </summary>
         /// <param name="evt">The map popup hide event.</param>
+        [Obsolete(
+            "MapPopupSystem now handles popup destruction. This method should not be called."
+        )]
         private void OnMapPopupHide(ref MapPopupHideEvent evt)
         {
             if (!World.IsAlive(evt.PopupEntity))
@@ -1223,9 +1226,7 @@ namespace MonoBall.Core.Scenes.Systems
             {
                 if (disposing)
                 {
-                    // Unsubscribe from events using RefAction pattern
-                    EventBus.Unsubscribe<MapPopupShowEvent>(OnMapPopupShow);
-                    EventBus.Unsubscribe<MapPopupHideEvent>(OnMapPopupHide);
+                    // No event subscriptions to unsubscribe (MapPopupSystem handles lifecycle)
                 }
                 _disposed = true;
             }

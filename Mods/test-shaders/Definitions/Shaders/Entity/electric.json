@@ -1,0 +1,15 @@
+{
+  "id": "base:shader:electric",
+  "name": "Electric",
+  "description": "Crackling lightning arcs and electric sparks around sprite",
+  "sourceFile": "Shaders/Electric.mgfxo",
+  "parameters": [
+    { "name": "Time", "type": "float", "defaultValue": 0.0 },
+    { "name": "ElectricColor", "type": "float3", "defaultValue": [0.5, 0.8, 1.0] },
+    { "name": "CoreColor", "type": "float3", "defaultValue": [1.0, 1.0, 1.0] },
+    { "name": "Intensity", "type": "float", "defaultValue": 1.0, "min": 0.5, "max": 2.0 },
+    { "name": "ArcFrequency", "type": "float", "defaultValue": 8.0, "min": 2.0, "max": 20.0 },
+    { "name": "SparkRate", "type": "float", "defaultValue": 10.0, "min": 2.0, "max": 30.0 },
+    { "name": "SpriteSize", "type": "float2", "defaultValue": [32.0, 32.0] }
+  ]
+}

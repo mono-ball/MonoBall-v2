@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -7,12 +8,14 @@ using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Events.Audio;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.TextEffects;
 using MonoBall.Core.UI.Windows;
 using MonoBall.Core.UI.Windows.Backgrounds;
 using MonoBall.Core.UI.Windows.Borders;
@@ -41,6 +44,7 @@ namespace MonoBall.Core.Scenes.Systems
         private readonly SpriteBatch _spriteBatch;
         private readonly ILogger _logger;
         private readonly IConstantsService _constants;
+        private readonly ITextEffectCalculator _textEffectCalculator;
 
         // Cached constants (performance optimization - avoid lookups in Update/Render loops)
         private readonly int _scenePriorityOffset;
@@ -99,6 +103,7 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="spriteBatch">The sprite batch for rendering. Required.</param>
         /// <param name="logger">The logger for logging operations. Required.</param>
         /// <param name="constants">The constants service for accessing game constants. Required.</param>
+        /// <param name="textEffectCalculator">The text effect calculator for animated effects. Required.</param>
         public MessageBoxSceneSystem(
             World world,
             ISceneManager sceneManager,
@@ -110,7 +115,8 @@ namespace MonoBall.Core.Scenes.Systems
             GraphicsDevice graphicsDevice,
             SpriteBatch spriteBatch,
             ILogger logger,
-            IConstantsService constants
+            IConstantsService constants,
+            TextEffects.ITextEffectCalculator textEffectCalculator
         )
             : base(world)
         {
@@ -128,6 +134,9 @@ namespace MonoBall.Core.Scenes.Systems
             _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
+            _textEffectCalculator =
+                textEffectCalculator
+                ?? throw new ArgumentNullException(nameof(textEffectCalculator));
 
             // Cache constants used in Update/Render loops (performance optimization)
             _scenePriorityOffset = _constants.Get<int>("ScenePriorityOffset");
@@ -281,6 +290,15 @@ namespace MonoBall.Core.Scenes.Systems
 
                     if (msgBox.State == MessageBoxRenderState.Hidden)
                         return;
+
+                    // Update effect animation time (always, for smooth animations)
+                    msgBox.EffectTime += dt;
+
+                    // Handle shake offset regeneration if we have an active effect with shake
+                    if (!string.IsNullOrEmpty(msgBox.CurrentEffectId))
+                    {
+                        UpdateShakeOffsets(ref msgBox);
+                    }
 
                     // Handle input FIRST for speed-up (before state processing)
                     // This prevents race conditions where text finishes and closes in same frame
@@ -502,6 +520,14 @@ namespace MonoBall.Core.Scenes.Systems
                     ScrollOffset = 0,
                     ScrollDistanceRemaining = 0,
                     ScrollSpeed = GetScrollSpeed(textSpeed),
+                    // Effect animation fields (initialized for text effects)
+                    EffectTime = 0f,
+                    ShakeOffsets = null,
+                    LastShakeTime = 0f,
+                    CurrentEffectId = string.Empty,
+                    HasManualColor = false,
+                    HasManualShadow = false,
+                    LastPerCharacterSoundTime = 0f,
                 }
             );
 
@@ -669,6 +695,96 @@ namespace MonoBall.Core.Scenes.Systems
         }
 
         /// <summary>
+        /// Initializes shake offsets for the message box using the specified effect definition.
+        /// </summary>
+        /// <param name="msgBox">The message box component to update.</param>
+        /// <param name="effectDef">The text effect definition containing shake parameters.</param>
+        /// <exception cref="InvalidOperationException">Thrown when required dependencies are null.</exception>
+        private void InitializeShakeOffsets(
+            ref MessageBoxComponent msgBox,
+            TextEffectDefinition effectDef
+        )
+        {
+            if (_textEffectCalculator == null)
+            {
+                throw new InvalidOperationException(
+                    "TextEffectCalculator is required for shake effect initialization."
+                );
+            }
+
+            // Calculate actual character count from wrapped lines (more accurate than token count)
+            int charCount = 0;
+            if (msgBox.WrappedLines != null && msgBox.WrappedLines.Count > 0)
+            {
+                // Use the maximum EndIndex from all wrapped lines as total character count
+                charCount = msgBox.WrappedLines.Max(line => line.EndIndex);
+            }
+            else if (msgBox.ParsedText != null)
+            {
+                // Fallback: count character tokens if wrapped lines not available
+                charCount = msgBox.ParsedText.Count(token => token.TokenType == TextTokenType.Char);
+            }
+
+            // Calculate seed: use deterministic seed if configured, otherwise use time-based seed
+            int seed;
+            if (effectDef.DeterministicShake)
+            {
+                // Use configured seed, combine with effect time for variation over time
+                seed = effectDef.ShakeRandomSeed + (int)(msgBox.EffectTime * 1000);
+            }
+            else
+            {
+                // Use EffectTime as seed for reproducible randomness per regeneration
+                seed = (int)(msgBox.EffectTime * 1000);
+            }
+
+            msgBox.ShakeOffsets = _textEffectCalculator.GenerateShakeOffsets(
+                effectDef,
+                charCount,
+                seed
+            );
+            msgBox.LastShakeTime = msgBox.EffectTime;
+        }
+
+        /// <summary>
+        /// Updates shake offsets if the shake interval has elapsed.
+        /// </summary>
+        /// <param name="msgBox">The message box component to update.</param>
+        /// <exception cref="InvalidOperationException">Thrown when required dependencies are null.</exception>
+        private void UpdateShakeOffsets(ref MessageBoxComponent msgBox)
+        {
+            if (_modManager == null)
+            {
+                throw new InvalidOperationException(
+                    "ModManager is required for shake effect updates."
+                );
+            }
+            if (_textEffectCalculator == null)
+            {
+                throw new InvalidOperationException(
+                    "TextEffectCalculator is required for shake effect updates."
+                );
+            }
+
+            // Get effect definition to check if it has shake
+            var effectDef = _modManager.GetDefinition<TextEffectDefinition>(msgBox.CurrentEffectId);
+            if (effectDef == null || !effectDef.EffectTypes.HasFlag(TextEffectType.Shake))
+            {
+                return; // No effect or no shake component
+            }
+
+            // Check if we need to regenerate shake offsets using effect definition's interval
+            float timeSinceLastShake = msgBox.EffectTime - msgBox.LastShakeTime;
+            if (timeSinceLastShake < effectDef.ShakeIntervalSeconds)
+            {
+                return; // Not time to regenerate yet
+            }
+
+            // Regenerate shake offsets
+            InitializeShakeOffsets(ref msgBox, effectDef);
+        }
+
+        /// <summary>
         /// Gets the scroll speed in pixels per second based on text speed setting.
         /// Time-based for consistent behavior across different frame rates.
         /// </summary>
@@ -827,6 +943,33 @@ namespace MonoBall.Core.Scenes.Systems
                     // Advance to next character
                     msgBox.CurrentTokenIndex++;
                     msgBox.CurrentCharIndex++;
+
+                    // Play per-character sound effect if configured (with throttling)
+                    if (!string.IsNullOrEmpty(msgBox.CurrentEffectId))
+                    {
+                        var effectDef = _modManager.GetDefinition<TextEffectDefinition>(
+                            msgBox.CurrentEffectId
+                        );
+                        if (effectDef != null && !string.IsNullOrEmpty(effectDef.PerCharacterSound))
+                        {
+                            // Check if enough time has passed since last per-character sound
+                            float timeSinceLastSound =
+                                msgBox.EffectTime - msgBox.LastPerCharacterSoundTime;
+                            if (timeSinceLastSound >= effectDef.PerCharacterSoundInterval)
+                            {
+                                var soundEvent = new PlaySoundEffectEvent
+                                {
+                                    AudioId = effectDef.PerCharacterSound,
+                                    Volume = -1f, // Use definition default
+                                    Pitch = 0f,
+                                    Pan = 0f,
+                                };
+                                EventBus.Send(ref soundEvent);
+                                msgBox.LastPerCharacterSoundTime = msgBox.EffectTime;
+                            }
+                        }
+                    }
+
                     msgBox.DelayCounter = msgBox.TextSpeed; // Reset delay for next character
                     break;
 
@@ -919,6 +1062,7 @@ namespace MonoBall.Core.Scenes.Systems
                     if (newColor.HasValue)
                     {
                         msgBox.TextColor = newColor.Value;
+                        msgBox.HasManualColor = true; // Mark color as manually set
                     }
                     msgBox.DelayCounter = msgBox.TextSpeed;
                     break;
@@ -930,6 +1074,7 @@ namespace MonoBall.Core.Scenes.Systems
                     if (newShadowColor.HasValue)
                     {
                         msgBox.ShadowColor = newShadowColor.Value;
+                        msgBox.HasManualShadow = true; // Mark shadow as manually set
                     }
                     msgBox.DelayCounter = msgBox.TextSpeed;
                     break;
@@ -962,6 +1107,71 @@ namespace MonoBall.Core.Scenes.Systems
                     msgBox.ShadowColor = msgBox.DefaultShadowColor;
                     msgBox.TextSpeed = msgBox.DefaultTextSpeed;
                     msgBox.ScrollSpeed = GetScrollSpeed(msgBox.DefaultTextSpeed);
+                    // Also reset effect and manual color/shadow flags
+                    msgBox.CurrentEffectId = string.Empty;
+                    msgBox.HasManualColor = false;
+                    msgBox.HasManualShadow = false;
+                    msgBox.DelayCounter = msgBox.TextSpeed;
+                    break;
+
+                case TextTokenType.EffectStart:
+                    // Start applying text effect to subsequent characters
+                    msgBox.CurrentTokenIndex++;
+                    string? effectId = token.GetEffectId();
+                    if (!string.IsNullOrEmpty(effectId))
+                    {
+                        msgBox.CurrentEffectId = effectId;
+                        // Initialize shake offsets if effect has shake component
+                        var effectDef = _modManager.GetDefinition<TextEffectDefinition>(effectId);
+                        if (effectDef != null)
+                        {
+                            if (effectDef.EffectTypes.HasFlag(TextEffectType.Shake))
+                            {
+                                InitializeShakeOffsets(ref msgBox, effectDef);
+                            }
+
+                            // Play on-start sound effect if configured
+                            if (!string.IsNullOrEmpty(effectDef.OnStartSound))
+                            {
+                                var soundEvent = new PlaySoundEffectEvent
+                                {
+                                    AudioId = effectDef.OnStartSound,
+                                    Volume = -1f, // Use definition default
+                                    Pitch = 0f,
+                                    Pan = 0f,
+                                };
+                                EventBus.Send(ref soundEvent);
+                            }
+                        }
+                    }
+                    msgBox.DelayCounter = msgBox.TextSpeed;
+                    break;
+
+                case TextTokenType.EffectEnd:
+                    // Stop applying text effect
+                    msgBox.CurrentTokenIndex++;
+
+                    // Play on-end sound effect if configured
+                    if (!string.IsNullOrEmpty(msgBox.CurrentEffectId))
+                    {
+                        var effectDef = _modManager.GetDefinition<TextEffectDefinition>(
+                            msgBox.CurrentEffectId
+                        );
+                        if (effectDef != null && !string.IsNullOrEmpty(effectDef.OnEndSound))
+                        {
+                            var soundEvent = new PlaySoundEffectEvent
+                            {
+                                AudioId = effectDef.OnEndSound,
+                                Volume = -1f, // Use definition default
+                                Pitch = 0f,
+                                Pan = 0f,
+                            };
+                            EventBus.Send(ref soundEvent);
+                        }
+                    }
+
+                    msgBox.CurrentEffectId = string.Empty;
+                    msgBox.ShakeOffsets = null;
                     msgBox.DelayCounter = msgBox.TextSpeed;
                     break;
             }
@@ -1160,6 +1370,7 @@ namespace MonoBall.Core.Scenes.Systems
 
         /// <summary>
         /// Wraps text into lines based on message box width.
+        /// Builds CharacterRenderData for lines with effects.
         /// </summary>
         /// <param name="parsedText">The parsed text tokens.</param>
         /// <param name="fontId">The font ID to use for measurement.</param>
@@ -1190,6 +1401,17 @@ namespace MonoBall.Core.Scenes.Systems
             System.Text.StringBuilder currentLine = new System.Text.StringBuilder();
             int charIndex = 0; // Track character index in original text
 
+            // Effect state tracking for CharacterRenderData
+            string currentEffectId = string.Empty;
+            Color currentTextColor = new Color(98, 98, 98, 255); // Default dark gray
+            Color currentShadowColor = new Color(213, 213, 205, 255); // Default light gray
+            bool hasManualColor = false;
+            bool hasManualShadow = false;
+            bool lineHasEffects = false;
+
+            // Per-line character data (only populated if line has effects)
+            var currentLineCharData = new System.Collections.Generic.List<CharacterRenderData>();
+
             for (int i = 0; i < parsedText.Count; i++)
             {
                 var token = parsedText[i];
@@ -1214,14 +1436,37 @@ namespace MonoBall.Core.Scenes.Systems
                                 StartIndex = lineStartIndex,
                                 EndIndex = charIndex,
                                 Width = currentWidth,
+                                HasEffects = lineHasEffects,
+                                CharacterData = lineHasEffects
+                                    ? new System.Collections.Generic.List<CharacterRenderData>(
+                                        currentLineCharData
+                                    )
+                                    : null,
                             }
                         );
 
                         // Start new line
                         currentLine.Clear();
+                        currentLineCharData.Clear();
                         currentWidth = 0;
                         lineStartIndex = charIndex;
+                        lineHasEffects = !string.IsNullOrEmpty(currentEffectId); // New line inherits effect state
                     }
+
+                    // Build character render data
+                    currentLineCharData.Add(
+                        new CharacterRenderData
+                        {
+                            Character = ch,
+                            BaseX = currentWidth,
+                            CharIndex = charIndex,
+                            TextColor = currentTextColor,
+                            ShadowColor = currentShadowColor,
+                            EffectId = currentEffectId,
+                            HasManualColor = hasManualColor,
+                            HasManualShadow = hasManualShadow,
+                        }
+                    );
 
                     currentLine.Append(ch);
                     currentWidth += charWidth;
@@ -1244,6 +1489,12 @@ namespace MonoBall.Core.Scenes.Systems
                             StartIndex = lineStartIndex,
                             EndIndex = charIndex + 1, // Include the newline/page break character in this line's range
                             Width = currentWidth,
+                            HasEffects = lineHasEffects,
+                            CharacterData = lineHasEffects
+                                ? new System.Collections.Generic.List<CharacterRenderData>(
+                                    currentLineCharData
+                                )
+                                : null,
                         }
                     );
 
@@ -1252,8 +1503,10 @@ namespace MonoBall.Core.Scenes.Systems
 
                     // Start new line
                     currentLine.Clear();
+                    currentLineCharData.Clear();
                     currentWidth = 0;
                     lineStartIndex = charIndex; // New line starts after the newline/page break character
+                    lineHasEffects = !string.IsNullOrEmpty(currentEffectId); // New line inherits effect state
                 }
                 else if (token.TokenType == TextTokenType.Clear)
                 {
@@ -1267,18 +1520,69 @@ namespace MonoBall.Core.Scenes.Systems
                                 StartIndex = lineStartIndex,
                                 EndIndex = charIndex,
                                 Width = currentWidth,
+                                HasEffects = lineHasEffects,
+                                CharacterData = lineHasEffects
+                                    ? new System.Collections.Generic.List<CharacterRenderData>(
+                                        currentLineCharData
+                                    )
+                                    : null,
                             }
                         );
                     }
 
                     // Start new line
                     currentLine.Clear();
+                    currentLineCharData.Clear();
                     currentWidth = 0;
                     lineStartIndex = charIndex;
+                    lineHasEffects = !string.IsNullOrEmpty(currentEffectId);
                     // Don't increment charIndex for Clear (it's not a visible character)
                 }
-                // Control codes (Pause, PauseUntilPress, Color, Speed) don't affect wrapping
-                // They're preserved in the token list but don't contribute to line width
+                else if (token.TokenType == TextTokenType.Color)
+                {
+                    // Track color change for CharacterRenderData
+                    Color? newColor = token.GetColor();
+                    if (newColor.HasValue)
+                    {
+                        currentTextColor = newColor.Value;
+                        hasManualColor = true;
+                    }
+                }
+                else if (token.TokenType == TextTokenType.Shadow)
+                {
+                    // Track shadow change for CharacterRenderData
+                    Color? newShadow = token.GetShadowColor();
+                    if (newShadow.HasValue)
+                    {
+                        currentShadowColor = newShadow.Value;
+                        hasManualShadow = true;
+                    }
+                }
+                else if (token.TokenType == TextTokenType.EffectStart)
+                {
+                    // Track effect start
+                    string? effectId = token.GetEffectId();
+                    if (!string.IsNullOrEmpty(effectId))
+                    {
+                        currentEffectId = effectId;
+                        lineHasEffects = true;
+                    }
+                }
+                else if (token.TokenType == TextTokenType.EffectEnd)
+                {
+                    // Track effect end
+                    currentEffectId = string.Empty;
+                }
+                else if (token.TokenType == TextTokenType.Reset)
+                {
+                    // Reset state
+                    currentTextColor = new Color(98, 98, 98, 255);
+                    currentShadowColor = new Color(213, 213, 205, 255);
+                    hasManualColor = false;
+                    hasManualShadow = false;
+                    currentEffectId = string.Empty;
+                }
+                // Other control codes (Pause, PauseUntilPress, Speed) don't affect wrapping or character data
             }
 
             // Add final line if there's remaining text
@@ -1291,6 +1595,12 @@ namespace MonoBall.Core.Scenes.Systems
                         StartIndex = lineStartIndex,
                         EndIndex = charIndex,
                         Width = currentWidth,
+                        HasEffects = lineHasEffects,
+                        CharacterData = lineHasEffects
+                            ? new System.Collections.Generic.List<CharacterRenderData>(
+                                currentLineCharData
+                            )
+                            : null,
                     }
                 );
             }
@@ -1486,7 +1796,9 @@ namespace MonoBall.Core.Scenes.Systems
                     scaledFontSize,
                     currentScale,
                     _constants,
-                    _logger
+                    _logger,
+                    _textEffectCalculator,
+                    _modManager
                 );
 
                 // Render background

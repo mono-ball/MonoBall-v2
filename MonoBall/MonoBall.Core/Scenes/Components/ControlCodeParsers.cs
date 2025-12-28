@@ -36,6 +36,8 @@ namespace MonoBall.Core.Scenes.Components
             Register(new ColorParser());
             Register(new ShadowParser());
             Register(new SpeedParser());
+            Register(new EffectStartParser());
+            Register(new EffectEndParser());
         }
 
         /// <summary>
@@ -350,6 +352,64 @@ namespace MonoBall.Core.Scenes.Components
             {
                 TokenType = TextTokenType.Speed,
                 Value = speed,
+                OriginalPosition = originalPosition,
+            };
+        }
+    }
+
+    /// <summary>
+    /// Parser for FX:effectId control code.
+    /// Starts applying a text effect to subsequent characters.
+    /// </summary>
+    internal class EffectStartParser : IControlCodeParser
+    {
+        public string ControlCodeName => "FX";
+        public bool IsParameterized => true;
+
+        public TextToken Parse(string controlCode, int originalPosition)
+        {
+            if (!controlCode.StartsWith("FX:", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new FormatException($"Expected 'FX:effectId', got '{controlCode}'");
+            }
+
+            string effectId = controlCode.Substring(3); // Skip "FX:"
+            if (string.IsNullOrWhiteSpace(effectId))
+            {
+                throw new FormatException(
+                    $"Invalid effect ID: '{controlCode}'. Expected non-empty effect ID."
+                );
+            }
+
+            return new TextToken
+            {
+                TokenType = TextTokenType.EffectStart,
+                Value = effectId.Trim(),
+                OriginalPosition = originalPosition,
+            };
+        }
+    }
+
+    /// <summary>
+    /// Parser for /FX control code.
+    /// Stops applying text effects to subsequent characters.
+    /// </summary>
+    internal class EffectEndParser : IControlCodeParser
+    {
+        public string ControlCodeName => "/FX";
+        public bool IsParameterized => false;
+
+        public TextToken Parse(string controlCode, int originalPosition)
+        {
+            if (!controlCode.Equals("/FX", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new FormatException($"Expected '/FX', got '{controlCode}'");
+            }
+
+            return new TextToken
+            {
+                TokenType = TextTokenType.EffectEnd,
+                Value = null,
                 OriginalPosition = originalPosition,
             };
         }

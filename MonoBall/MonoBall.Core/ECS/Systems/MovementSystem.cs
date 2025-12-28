@@ -130,6 +130,13 @@ namespace MonoBall.Core.ECS.Systems
                     ref MovementRequest request
                 ) =>
                 {
+                    // CRITICAL: Check if entity is still alive before processing
+                    // Entity might be destroyed or modified during query iteration (race condition)
+                    if (!World.IsAlive(entity))
+                    {
+                        return; // Entity was destroyed, skip
+                    }
+
                     if (!request.Active || movement.IsMoving || movement.MovementLocked)
                     {
                         return;
@@ -253,12 +260,27 @@ namespace MonoBall.Core.ECS.Systems
                 in _movementQueryWithActiveMap,
                 (Entity entity, ref PositionComponent position, ref GridMovement movement) =>
                 {
+                    // CRITICAL: Check if entity is still alive before accessing components
+                    // Entity might be destroyed or modified during query iteration (race condition)
+                    if (!World.IsAlive(entity))
+                    {
+                        return; // Entity was destroyed, skip
+                    }
+
                     // Performance optimization: Skip stationary NPCs that aren't moving and have no movement request
                     // Only process entities that are:
                     // 1. Moving (IsMoving = true)
                     // 2. Have a movement request (will start moving soon)
                     // 3. Are the player (always process player for input responsiveness)
                     // 4. Are turning in place (RunningState = TurnDirection)
+
+                    // Defensive checks: Verify entity still has required components before accessing
+                    // This prevents NullReferenceException if entity is being modified concurrently
+                    if (!World.Has<PositionComponent>(entity) || !World.Has<GridMovement>(entity))
+                    {
+                        return; // Entity lost required components, skip
+                    }
+
                     bool isPlayer = World.TryGet<PlayerComponent>(entity, out _);
                     bool hasMovementRequest = World.TryGet<MovementRequest>(entity, out _);
                     bool isMoving = movement.IsMoving;
@@ -271,7 +293,11 @@ namespace MonoBall.Core.ECS.Systems
                     }
 
                     // Check for optional SpriteAnimationComponent
-                    if (World.TryGet<SpriteAnimationComponent>(entity, out var animation))
+                    // Defensive check: Verify entity is still alive before accessing optional component
+                    if (
+                        World.IsAlive(entity)
+                        && World.TryGet<SpriteAnimationComponent>(entity, out var animation)
+                    )
                     {
                         ProcessMovementWithAnimation(
                             entity,
@@ -283,9 +309,13 @@ namespace MonoBall.Core.ECS.Systems
 
                         // CRITICAL: Write modified animation back to entity
                         // TryGet returns a COPY of the struct, so changes must be written back
-                        World.Set(entity, animation);
+                        // Final check: Ensure entity is still alive before writing back
+                        if (World.IsAlive(entity) && World.Has<SpriteAnimationComponent>(entity))
+                        {
+                            World.Set(entity, animation);
+                        }
                     }
-                    else
+                    else if (World.IsAlive(entity))
                     {
                         ProcessMovementNoAnimation(entity, ref position, ref movement, deltaTime);
                     }

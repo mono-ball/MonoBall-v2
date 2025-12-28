@@ -1,0 +1,9 @@
+{
+  "id": "base:texteffect:dizzy",
+  "effectTypes": ["sideStep", "wave"],
+  "waveAmplitude": 1.5,
+  "waveFrequency": 3.0,
+  "sideStepAmplitude": 1.5,
+  "sideStepFrequency": 4.0,
+  "wavePhaseOffset": 0.25
+}

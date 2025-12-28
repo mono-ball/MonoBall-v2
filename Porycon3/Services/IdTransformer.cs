@@ -144,7 +144,8 @@ public static class IdTransformer
 
     /// <summary>
     /// Transform music constant to unified format.
-    /// MUS_LITTLEROOT -> base:audio:music/towns/mus_littleroot
+    /// MUS_LITTLEROOT -> base:audio:music/towns/littleroot
+    /// SE_DOOR -> base:audio:music/sfx/door
     /// </summary>
     public static string AudioId(string pokeemeraldMusic)
     {
@@ -152,6 +153,15 @@ public static class IdTransformer
             return "";
 
         var name = Normalize(pokeemeraldMusic);
+
+        // Strip audio prefixes to match SoundExtractor output
+        if (name.StartsWith("mus_"))
+            name = name[4..];
+        else if (name.StartsWith("se_"))
+            name = name[3..];
+        else if (name.StartsWith("ph_"))
+            name = name[3..];
+
         var subcategory = CategorizeMusic(name);
 
         return CreateId("audio", "music", name, subcategory);

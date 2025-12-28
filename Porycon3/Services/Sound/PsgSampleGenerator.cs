@@ -6,7 +6,8 @@ namespace Porycon3.Services.Sound;
 /// </summary>
 public class PsgSampleGenerator
 {
-    // Standard sample rate for generated PSG samples
+    // Sample rate for generated PSG samples
+    // Using 22050 Hz for good quality - SF2 synth handles pitch correction via sample rate metadata
     private const int SampleRate = 22050;
 
     // One second of audio for looping samples
@@ -18,6 +19,12 @@ public class PsgSampleGenerator
     /// <param name="dutyCycle">The duty cycle (12.5%, 25%, 50%, 75%)</param>
     /// <param name="frequency">Base frequency in Hz (default 440 = A4)</param>
     /// <returns>8-bit unsigned PCM sample data</returns>
+    // PSG amplitude: ±64 from center (64-192 range)
+    // This matches the natural GBA PSG output level (4-bit volume = ~1/4 of 8-bit range)
+    // DirectSound samples are normalized to match this level for balanced mixing
+    private const byte PsgHigh = 192;
+    private const byte PsgLow = 64;
+
     public byte[] GenerateSquareWave(DutyCycle dutyCycle, double frequency = 440.0)
     {
         var samples = new byte[SampleLength];
@@ -28,8 +35,7 @@ public class PsgSampleGenerator
         {
             var positionInCycle = (i % samplesPerCycle) / samplesPerCycle;
             // GBA square waves are harsh digital: either high or low
-            // 8-bit unsigned: 0 = low, 255 = high, center at 128
-            samples[i] = positionInCycle < dutyCycleRatio ? (byte)192 : (byte)64;
+            samples[i] = positionInCycle < dutyCycleRatio ? PsgHigh : PsgLow;
         }
 
         return samples;
@@ -88,7 +94,7 @@ public class PsgSampleGenerator
         for (var i = 0; i < SampleLength; i++)
         {
             // Output based on bit 0 of LFSR
-            samples[i] = (lfsr & 1) == 1 ? (byte)192 : (byte)64;
+            samples[i] = (lfsr & 1) == 1 ? PsgHigh : PsgLow;
 
             if (i % stepInterval == 0)
             {

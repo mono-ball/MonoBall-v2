@@ -1,0 +1,7 @@
+{
+  "id": "base:texteffect:bouncy",
+  "effectTypes": ["hang"],
+  "hangAmplitude": 3.0,
+  "hangFrequency": 5.0,
+  "wavePhaseOffset": 0.2
+}
