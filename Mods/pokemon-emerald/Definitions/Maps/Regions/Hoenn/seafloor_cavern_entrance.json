@@ -119,7 +119,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/seafloor_cavern_entrance_event_script_grunt",
+      "interactionId": "base:behavior:interaction/seafloor_cavern_entrance_event_script_grunt",
       "visibilityFlag": "base:flag:visibility/seafloor_cavern_entrance_aqua_grunt",
       "direction": "up",
       "rangeX": 0,

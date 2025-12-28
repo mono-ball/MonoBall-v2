@@ -228,7 +228,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep",
       "elevation": 0
     },
     {
@@ -240,7 +240,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep",
       "elevation": 0
     },
     {
@@ -252,7 +252,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep",
       "elevation": 0
     },
     {
@@ -264,7 +264,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_VisitedMossdeep",
       "elevation": 0
     },
     {
@@ -276,7 +276,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MOSSDEEP_CITY_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter",
       "elevation": 5
     },
     {
@@ -288,7 +288,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MOSSDEEP_CITY_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter",
       "elevation": 5
     },
     {
@@ -300,7 +300,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MOSSDEEP_CITY_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter",
       "elevation": 5
     },
     {
@@ -312,7 +312,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MOSSDEEP_CITY_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter",
       "elevation": 5
     },
     {
@@ -324,7 +324,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MOSSDEEP_CITY_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter",
       "elevation": 5
     },
     {
@@ -336,7 +336,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MOSSDEEP_CITY_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter",
       "elevation": 5
     }
   ],
@@ -348,7 +348,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_EventScript_CitySign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_EventScript_CitySign",
       "elevation": 0
     },
     {
@@ -358,7 +358,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_EventScript_GymSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_EventScript_GymSign",
       "elevation": 0
     },
     {
@@ -368,7 +368,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -378,7 +378,7 @@
       "y": 288,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -388,7 +388,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_EventScript_SpaceCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_EventScript_SpaceCenterSign",
       "elevation": 0
     },
     {
@@ -398,7 +398,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -408,7 +408,7 @@
       "y": 288,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -418,7 +418,7 @@
       "y": 336,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_EventScript_WhiteRock.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_EventScript_WhiteRock",
       "elevation": 7
     }
   ],
@@ -430,7 +430,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/sailor",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_sailor",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_sailor",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -444,7 +444,7 @@
       "y": 544,
       "spriteId": "base:sprite:npcs/generic/expert_m",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_expert_m",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_expert_m",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -458,7 +458,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/pokefan_f",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_pokefan_f",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_pokefan_f",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -472,7 +472,7 @@
       "y": 336,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/wander_vertical",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_ninja_boy",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_ninja_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -486,7 +486,7 @@
       "y": 288,
       "spriteId": "base:sprite:npcs/generic/girl_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_girl",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_girl",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -500,7 +500,7 @@
       "y": 560,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_item_net_ball",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_item_net_ball",
       "visibilityFlag": "base:flag:item/mossdeep_city_net_ball",
       "direction": null,
       "rangeX": 0,
@@ -514,7 +514,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_man",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_man",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -528,7 +528,7 @@
       "y": 336,
       "spriteId": "base:sprite:npcs/generic/woman_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_woman",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_woman",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -542,7 +542,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/boy_2",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_kings_rock_boy",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_kings_rock_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -556,7 +556,7 @@
       "y": 368,
       "spriteId": "base:sprite:npcs/team_magma/magma_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mossdeep_city_team_magma",
       "direction": "down",
       "rangeX": 0,
@@ -570,7 +570,7 @@
       "y": 384,
       "spriteId": "base:sprite:npcs/team_magma/magma_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mossdeep_city_team_magma",
       "direction": "up",
       "rangeX": 0,
@@ -584,7 +584,7 @@
       "y": 400,
       "spriteId": "base:sprite:npcs/team_magma/magma_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mossdeep_city_team_magma",
       "direction": "down",
       "rangeX": 0,
@@ -598,7 +598,7 @@
       "y": 416,
       "spriteId": "base:sprite:npcs/team_magma/magma_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mossdeep_city_team_magma",
       "direction": "up",
       "rangeX": 0,
@@ -612,7 +612,7 @@
       "y": 400,
       "spriteId": "base:sprite:npcs/team_magma/maxie",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mossdeep_city_team_magma",
       "direction": "left",
       "rangeX": 0,
@@ -626,7 +626,7 @@
       "y": 400,
       "spriteId": "base:sprite:npcs/generic/black_belt",
       "behaviorId": "base:behavior:movement/walk_in_place",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_dynamic_punch_tutor",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_dynamic_punch_tutor",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -640,7 +640,7 @@
       "y": 464,
       "spriteId": "base:sprite:npcs/generic/scott",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_scott",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_scott",
       "visibilityFlag": "base:flag:visibility/mossdeep_city_scott",
       "direction": null,
       "rangeX": 0,
@@ -654,7 +654,7 @@
       "y": 464,
       "spriteId": "base:sprite:npcs/generic/black_belt",
       "behaviorId": "base:behavior:movement/walk_in_place",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_event_script_black_belt",
+      "interactionId": "base:behavior:interaction/mossdeep_city_event_script_black_belt",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,

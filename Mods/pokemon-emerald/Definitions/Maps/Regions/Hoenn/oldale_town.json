@@ -156,7 +156,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_OLDALE_TOWN_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_BlockedPath.csx",
+      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_BlockedPath",
       "elevation": 3
     },
     {
@@ -168,7 +168,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_OLDALE_RIVAL_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_RivalTrigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_RivalTrigger1",
       "elevation": 3
     },
     {
@@ -180,7 +180,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_OLDALE_RIVAL_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_RivalTrigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_RivalTrigger2",
       "elevation": 3
     },
     {
@@ -192,7 +192,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_OLDALE_RIVAL_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_RivalTrigger3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/OldaleTown_EventScript_RivalTrigger3",
       "elevation": 3
     }
   ],
@@ -204,7 +204,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/OldaleTown_EventScript_TownSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/OldaleTown_EventScript_TownSign",
       "elevation": 0
     },
     {
@@ -214,7 +214,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -224,7 +224,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -234,7 +234,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -244,7 +244,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     }
   ],
@@ -256,7 +256,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/girl_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/oldale_town_event_script_girl",
+      "interactionId": "base:behavior:interaction/oldale_town_event_script_girl",
       "visibilityFlag": null,
       "direction": "left",
       "elevation": 3
@@ -268,7 +268,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/mart_employee",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/oldale_town_event_script_mart_employee",
+      "interactionId": "base:behavior:interaction/oldale_town_event_script_mart_employee",
       "visibilityFlag": null,
       "direction": "down",
       "elevation": 3
@@ -280,7 +280,7 @@
       "y": 144,
       "spriteId": "base:sprite:npcs/generic/maniac",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/oldale_town_event_script_footprints_man",
+      "interactionId": "base:behavior:interaction/oldale_town_event_script_footprints_man",
       "visibilityFlag": null,
       "direction": "right",
       "elevation": 3
@@ -292,7 +292,7 @@
       "y": 304,
       "spriteId": "base:sprite:npcs/generic/var_0",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/oldale_town_event_script_rival",
+      "interactionId": "base:behavior:interaction/oldale_town_event_script_rival",
       "visibilityFlag": "base:flag:visibility/oldale_town_rival",
       "direction": "up",
       "elevation": 3

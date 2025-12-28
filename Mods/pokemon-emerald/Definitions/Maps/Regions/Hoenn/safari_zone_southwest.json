@@ -115,7 +115,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SafariZone_Southwest_EventScript_RestHouseSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/SafariZone_Southwest_EventScript_RestHouseSign",
       "elevation": 3
     }
   ],
@@ -127,7 +127,7 @@
       "y": 144,
       "spriteId": "base:sprite:npcs/generic/woman_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/safari_zone_southwest_event_script_woman",
+      "interactionId": "base:behavior:interaction/safari_zone_southwest_event_script_woman",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -141,7 +141,7 @@
       "y": 592,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/safari_zone_southwest_event_script_item_max_revive",
+      "interactionId": "base:behavior:interaction/safari_zone_southwest_event_script_item_max_revive",
       "visibilityFlag": "base:flag:item/safari_zone_south_west_max_revive",
       "direction": null,
       "rangeX": 0,

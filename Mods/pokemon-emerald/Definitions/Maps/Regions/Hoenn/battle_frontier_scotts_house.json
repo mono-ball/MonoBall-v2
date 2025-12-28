@@ -119,7 +119,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/scott",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/battle_frontier_scotts_house_event_script_scott",
+      "interactionId": "base:behavior:interaction/battle_frontier_scotts_house_event_script_scott",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,

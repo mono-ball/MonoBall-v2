@@ -94,7 +94,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/link_receptionist",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

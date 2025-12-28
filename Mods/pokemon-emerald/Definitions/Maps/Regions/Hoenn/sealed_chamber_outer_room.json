@@ -106,7 +106,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleABC.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleABC",
       "elevation": 0
     },
     {
@@ -116,7 +116,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleGHI.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleGHI",
       "elevation": 0
     },
     {
@@ -126,7 +126,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleMNO.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleMNO",
       "elevation": 0
     },
     {
@@ -136,7 +136,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleTUV.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleTUV",
       "elevation": 0
     },
     {
@@ -146,7 +146,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDEF.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDEF",
       "elevation": 0
     },
     {
@@ -156,7 +156,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleJKL.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleJKL",
       "elevation": 0
     },
     {
@@ -166,7 +166,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePQRS.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePQRS",
       "elevation": 0
     },
     {
@@ -176,7 +176,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleWXYZ.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
       "elevation": 0
     },
     {
@@ -186,7 +186,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePeriod.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePeriod",
       "elevation": 0
     },
     {
@@ -196,7 +196,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleComma.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleComma",
       "elevation": 0
     },
     {
@@ -206,7 +206,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_InnerRoomEntranceWall.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_InnerRoomEntranceWall",
       "elevation": 0
     },
     {
@@ -216,7 +216,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleABC.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleABC",
       "elevation": 0
     },
     {
@@ -226,7 +226,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleABC.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleABC",
       "elevation": 0
     },
     {
@@ -236,7 +236,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleGHI.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleGHI",
       "elevation": 0
     },
     {
@@ -246,7 +246,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleGHI.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleGHI",
       "elevation": 0
     },
     {
@@ -256,7 +256,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleMNO.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleMNO",
       "elevation": 0
     },
     {
@@ -266,7 +266,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleMNO.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleMNO",
       "elevation": 0
     },
     {
@@ -276,7 +276,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleTUV.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleTUV",
       "elevation": 0
     },
     {
@@ -286,7 +286,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleTUV.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleTUV",
       "elevation": 0
     },
     {
@@ -296,7 +296,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDEF.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDEF",
       "elevation": 0
     },
     {
@@ -306,7 +306,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDEF.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDEF",
       "elevation": 0
     },
     {
@@ -316,7 +316,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleJKL.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleJKL",
       "elevation": 0
     },
     {
@@ -326,7 +326,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleJKL.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleJKL",
       "elevation": 0
     },
     {
@@ -336,7 +336,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePQRS.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePQRS",
       "elevation": 0
     },
     {
@@ -346,7 +346,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePQRS.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BraillePQRS",
       "elevation": 0
     },
     {
@@ -356,7 +356,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleWXYZ.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
       "elevation": 0
     },
     {
@@ -366,7 +366,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleWXYZ.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
       "elevation": 0
     },
     {
@@ -376,7 +376,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDigHere.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDigHere",
       "elevation": 0
     },
     {
@@ -386,7 +386,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDigHere.csx",
+      "interactionId": "base:script:hoenn/Interactions/SealedChamber_OuterRoom_EventScript_BrailleDigHere",
       "elevation": 0
     }
   ],

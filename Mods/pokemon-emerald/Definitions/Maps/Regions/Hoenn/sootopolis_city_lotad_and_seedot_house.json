@@ -118,7 +118,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SootopolisCity_LotadAndSeedotHouse_EventScript_SeedotSizeRecord.csx",
+      "interactionId": "base:script:hoenn/Interactions/SootopolisCity_LotadAndSeedotHouse_EventScript_SeedotSizeRecord",
       "elevation": 0
     },
     {
@@ -128,7 +128,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SootopolisCity_LotadAndSeedotHouse_EventScript_LotadSizeRecord.csx",
+      "interactionId": "base:script:hoenn/Interactions/SootopolisCity_LotadAndSeedotHouse_EventScript_LotadSizeRecord",
       "elevation": 0
     }
   ],
@@ -140,7 +140,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/fisherman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/sootopolis_city_lotad_and_seedot_house_event_script_lotad_brother",
+      "interactionId": "base:behavior:interaction/sootopolis_city_lotad_and_seedot_house_event_script_lotad_brother",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -154,7 +154,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/sootopolis_city_lotad_and_seedot_house_event_script_seedot_brother",
+      "interactionId": "base:behavior:interaction/sootopolis_city_lotad_and_seedot_house_event_script_seedot_brother",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,

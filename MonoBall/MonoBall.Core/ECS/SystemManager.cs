@@ -594,6 +594,16 @@ namespace MonoBall.Core.ECS
             _inputBindingService = new Services.InputBindingService(
                 LoggerFactory.CreateLogger<Services.InputBindingService>()
             );
+
+            // Create interaction system (after player system and input binding service)
+            var interactionSystem = new Systems.InteractionSystem(
+                _world,
+                _inputBindingService,
+                _modManager.Registry,
+                constantsService,
+                LoggerFactory.CreateLogger<Systems.InteractionSystem>()
+            );
+            RegisterUpdateSystem(interactionSystem);
             // Create scene-based input blocker (checks if any scene has BlocksInput=true)
             // Use a lambda to get _sceneSystem lazily since it's created later in CreateSceneSpecificSystems()
             var sceneInputBlocker = new Scenes.Systems.SceneInputBlocker(() => _sceneSystem);

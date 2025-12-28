@@ -1036,6 +1036,7 @@ namespace MonoBall.Core.ECS.Systems
                     ),
                 Elevation = npcDef.Elevation,
                 VisibilityFlag = npcDef.VisibilityFlag,
+                BehaviorId = npcDef.BehaviorId,
             };
 
             var components = new List<object>
@@ -1110,42 +1111,86 @@ namespace MonoBall.Core.ECS.Systems
                 mergedParameters = MergeScriptParameters(scriptDef, behaviorDef, npcDef);
                 scriptDefForVariables = scriptDef;
 
-                // Step 6: Create ScriptAttachmentComponent
-                // Get mod ID from definition metadata (same approach as ScriptLoaderService)
-                var scriptDefMetadata = _registry.GetById(scriptDef.Id);
-                if (scriptDefMetadata == null)
-                {
-                    throw new InvalidOperationException(
-                        $"Script definition metadata not found for script definition {scriptDef.Id}. Cannot attach script to NPC {npcDef.NpcId}."
-                    );
-                }
-                var modId = scriptDefMetadata.OriginalModId;
-
-                components.Add(
-                    new Components.ScriptAttachmentComponent
-                    {
-                        ScriptDefinitionId = scriptDef.Id,
-                        Priority = scriptDef.Priority,
-                        IsActive = true,
-                        ModId = modId,
-                        IsInitialized = false,
-                    }
-                );
-
                 _logger.Debug(
-                    "Attached script {ScriptId} to NPC {NpcId} via BehaviorDefinition {BehaviorId}",
+                    "Prepared behavior script {ScriptId} for NPC {NpcId} via BehaviorDefinition {BehaviorId}",
                     scriptDef.Id,
                     npcDef.NpcId,
                     npcDef.BehaviorId
                 );
             }
 
+            // Store behavior script ID for later use in entity creation
+            string? behaviorScriptId = null;
+            if (mergedParameters != null && scriptDefForVariables != null)
+            {
+                behaviorScriptId = scriptDefForVariables.Id;
+            }
+
+            // Prepare interaction script data if it exists (before entity creation)
+            Components.ScriptAttachmentData? interactionScriptData = null;
+            Components.InteractionComponent? interactionComponent = null;
+
+            if (!string.IsNullOrWhiteSpace(npcDef.InteractionId))
+            {
+                // Validate ScriptDefinition exists (fail fast)
+                var interactionScriptDef = _registry.GetById<Mods.Definitions.ScriptDefinition>(
+                    npcDef.InteractionId
+                );
+                if (interactionScriptDef == null)
+                {
+                    throw new InvalidOperationException(
+                        $"ScriptDefinition '{npcDef.InteractionId}' not found for NPC '{npcDef.NpcId}' interaction. "
+                            + "Ensure the script definition exists and is loaded."
+                    );
+                }
+
+                // Create InteractionComponent
+                interactionComponent = new Components.InteractionComponent
+                {
+                    InteractionId = npcDef.NpcId,
+                    ScriptDefinitionId = interactionScriptDef.Id,
+                    Width = 1, // 1 tile
+                    Height = 1, // 1 tile
+                    Elevation = npcDef.Elevation,
+                    RequiredFacing = null, // No facing requirement by default
+                    IsEnabled = true,
+                };
+
+                // Create ScriptAttachmentData for interaction script
+                interactionScriptData = CreateScriptAttachmentData(
+                    interactionScriptDef.Id,
+                    npcDef.NpcId,
+                    "interaction"
+                );
+            }
+
+            // Create ScriptAttachmentComponent with collection of scripts
+            bool hasBehaviorScript = !string.IsNullOrEmpty(behaviorScriptId);
+            bool hasInteractionScript = interactionScriptData.HasValue;
+
             // Create entity with all components at once (matching PlayerSystem pattern)
             // Use World.Create() with individual component arguments, not array
             // This matches how PlayerSystem creates entities and avoids Arch.Core array issues
+            // Note: ScriptAttachmentComponent is now created separately and added if scripts exist
             Entity npcEntity;
-            if (components.Count == 7) // Has ScriptAttachmentComponent
+            if (hasBehaviorScript && hasInteractionScript)
             {
+                // Has both behavior and interaction scripts - create component with both
+                var scriptComp = new Components.ScriptAttachmentComponent();
+                scriptComp.Scripts = new Dictionary<string, Components.ScriptAttachmentData>();
+
+                // Add behavior script
+                var behaviorData = CreateScriptAttachmentData(
+                    behaviorScriptId!,
+                    npcDef.NpcId,
+                    "behavior"
+                );
+                scriptComp.Scripts[behaviorScriptId!] = behaviorData;
+
+                // Add interaction script
+                scriptComp.Scripts[interactionScriptData!.Value.ScriptDefinitionId] =
+                    interactionScriptData.Value;
+
                 npcEntity = World.Create(
                     npcComponent,
                     (Components.SpriteAnimationComponent)components[1],
@@ -1153,7 +1198,49 @@ namespace MonoBall.Core.ECS.Systems
                     (Components.RenderableComponent)components[3],
                     (Components.GridMovement)components[4],
                     (Components.ActiveMapEntity)components[5],
-                    (Components.ScriptAttachmentComponent)components[6]
+                    scriptComp,
+                    interactionComponent!.Value
+                );
+            }
+            else if (hasBehaviorScript) // Has only behavior script
+            {
+                var scriptComp = new Components.ScriptAttachmentComponent();
+                scriptComp.Scripts = new Dictionary<string, Components.ScriptAttachmentData>();
+
+                // Add behavior script
+                var behaviorData = CreateScriptAttachmentData(
+                    behaviorScriptId!,
+                    npcDef.NpcId,
+                    "behavior"
+                );
+                scriptComp.Scripts[behaviorScriptId!] = behaviorData;
+
+                npcEntity = World.Create(
+                    npcComponent,
+                    (Components.SpriteAnimationComponent)components[1],
+                    (Components.PositionComponent)components[2],
+                    (Components.RenderableComponent)components[3],
+                    (Components.GridMovement)components[4],
+                    (Components.ActiveMapEntity)components[5],
+                    scriptComp
+                );
+            }
+            else if (hasInteractionScript) // Has only interaction script
+            {
+                var scriptComp = new Components.ScriptAttachmentComponent();
+                scriptComp.Scripts = new Dictionary<string, Components.ScriptAttachmentData>();
+                scriptComp.Scripts[interactionScriptData!.Value.ScriptDefinitionId] =
+                    interactionScriptData.Value;
+
+                npcEntity = World.Create(
+                    npcComponent,
+                    (Components.SpriteAnimationComponent)components[1],
+                    (Components.PositionComponent)components[2],
+                    (Components.RenderableComponent)components[3],
+                    (Components.GridMovement)components[4],
+                    (Components.ActiveMapEntity)components[5],
+                    scriptComp,
+                    interactionComponent!.Value
                 );
             }
             else // No ScriptAttachmentComponent
@@ -1196,6 +1283,18 @@ namespace MonoBall.Core.ECS.Systems
                 World.Add(npcEntity, variablesComponent);
             }
 
+            // Log interaction script attachment (components were added during entity creation)
+            if (interactionScriptData.HasValue)
+            {
+                _logger.Debug(
+                    "Attached interaction script {ScriptId} to NPC {NpcId} (entity {EntityId}) during entity creation, IsActive={IsActive}",
+                    interactionScriptData.Value.ScriptDefinitionId,
+                    npcDef.NpcId,
+                    npcEntity.Id,
+                    interactionScriptData.Value.IsActive
+                );
+            }
+
             // Preload sprite texture
             _spriteLoader.GetSpriteTexture(actualSpriteId);
 
@@ -1209,6 +1308,54 @@ namespace MonoBall.Core.ECS.Systems
             EventBus.Send(ref loadedEvent);
 
             return npcEntity;
+        }
+
+        /// <summary>
+        /// Creates a ScriptAttachmentData for a script definition.
+        /// Validates that the script definition exists and gets mod ID from metadata.
+        /// </summary>
+        /// <param name="scriptDefinitionId">The script definition ID to attach.</param>
+        /// <param name="npcId">The NPC ID (for error messages).</param>
+        /// <param name="context">The context string ("behavior" or "interaction") for error messages.</param>
+        /// <returns>The created ScriptAttachmentData.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if script definition or metadata not found.</exception>
+        private Components.ScriptAttachmentData CreateScriptAttachmentData(
+            string scriptDefinitionId,
+            string npcId,
+            string context
+        )
+        {
+            // Get script definition to access priority
+            var scriptDef = _registry.GetById<Mods.Definitions.ScriptDefinition>(
+                scriptDefinitionId
+            );
+            if (scriptDef == null)
+            {
+                throw new InvalidOperationException(
+                    $"ScriptDefinition '{scriptDefinitionId}' not found for NPC '{npcId}' {context}. "
+                        + "Ensure the script definition exists and is loaded."
+                );
+            }
+
+            // Get mod ID from definition metadata (same approach as ScriptLoaderService)
+            var scriptDefMetadata = _registry.GetById(scriptDefinitionId);
+            if (scriptDefMetadata == null)
+            {
+                throw new InvalidOperationException(
+                    $"Script definition metadata not found for {context} script definition {scriptDefinitionId}. "
+                        + $"Cannot attach {context} script to NPC {npcId}."
+                );
+            }
+            var modId = scriptDefMetadata.OriginalModId;
+
+            return new Components.ScriptAttachmentData
+            {
+                ScriptDefinitionId = scriptDefinitionId,
+                Priority = scriptDef.Priority,
+                IsActive = true,
+                ModId = modId,
+                IsInitialized = false,
+            };
         }
 
         /// <summary>

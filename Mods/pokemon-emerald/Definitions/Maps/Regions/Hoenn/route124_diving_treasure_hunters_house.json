@@ -118,7 +118,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route124_DivingTreasureHuntersHouse_EventScript_ShardTradeBoard.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route124_DivingTreasureHuntersHouse_EventScript_ShardTradeBoard",
       "elevation": 0
     }
   ],
@@ -130,7 +130,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/man_5",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route124_diving_treasure_hunters_house_event_script_treasure_hunter",
+      "interactionId": "base:behavior:interaction/route124_diving_treasure_hunters_house_event_script_treasure_hunter",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,

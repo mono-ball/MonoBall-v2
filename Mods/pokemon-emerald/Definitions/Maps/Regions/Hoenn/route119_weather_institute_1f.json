@@ -130,7 +130,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed",
       "elevation": 0
     },
     {
@@ -160,7 +160,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route119_WeatherInstitute_1F_EventScript_Bed",
       "elevation": 0
     }
   ],
@@ -172,7 +172,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_grunt1",
+      "interactionId": "base:behavior:interaction/route119_weather_institute_1f_event_script_grunt1",
       "visibilityFlag": "base:flag:visibility/route_119_team_aqua",
       "direction": "left",
       "rangeX": 0,
@@ -186,7 +186,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_grunt4",
+      "interactionId": "base:behavior:interaction/route119_weather_institute_1f_event_script_grunt4",
       "visibilityFlag": "base:flag:visibility/route_119_team_aqua",
       "direction": "down",
       "rangeX": 0,
@@ -200,7 +200,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/man_4",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_institute_worker2",
+      "interactionId": "base:behavior:interaction/route119_weather_institute_1f_event_script_institute_worker2",
       "visibilityFlag": "base:flag:visibility/weather_institute_1f_workers",
       "direction": "down",
       "rangeX": 0,
@@ -214,7 +214,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/man_4",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_institute_worker1",
+      "interactionId": "base:behavior:interaction/route119_weather_institute_1f_event_script_institute_worker1",
       "visibilityFlag": "base:flag:visibility/weather_institute_1f_workers",
       "direction": null,
       "rangeX": 0,
@@ -228,7 +228,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/route119_weather_institute_1f_event_script_little_boy",
+      "interactionId": "base:behavior:interaction/route119_weather_institute_1f_event_script_little_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,

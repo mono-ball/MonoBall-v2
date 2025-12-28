@@ -355,6 +355,148 @@ namespace MonoBall.Core.Scripting.Runtime
         }
 
         /// <summary>
+        /// Gets the tile position of this script's entity as a tuple.
+        /// Returns null if this is a plugin script or entity doesn't have PositionComponent.
+        /// </summary>
+        /// <returns>The tile position as (X, Y), or null if not available.</returns>
+        protected (int X, int Y)? GetTilePosition()
+        {
+            if (!Context.Entity.HasValue)
+            {
+                return null;
+            }
+
+            var position = Context.Apis.Npc.GetPosition(Context.Entity.Value);
+            if (position == null)
+            {
+                return null;
+            }
+
+            return (position.Value.X, position.Value.Y);
+        }
+
+        /// <summary>
+        /// Subscribes to InteractionTriggeredEvent with automatic entity filtering.
+        /// The handler will only be called when the interaction is for this script's entity.
+        /// No need to manually check IsEventForThisEntity().
+        /// </summary>
+        /// <param name="handler">The event handler that will be called when this entity is interacted with.</param>
+        protected void OnInteraction(Action<InteractionTriggeredEvent> handler)
+        {
+            if (handler == null)
+            {
+                throw new ArgumentNullException(nameof(handler));
+            }
+
+            if (!Context.Entity.HasValue)
+            {
+                Context.Logger.Warning(
+                    "OnInteraction called but script has no entity (plugin script). Interaction events require an entity."
+                );
+            }
+            else
+            {
+                Context.Logger.Debug(
+                    "OnInteraction: Subscribing to InteractionTriggeredEvent for entity {EntityId}, ScriptDefinitionId={ScriptDefinitionId}",
+                    Context.Entity.Value.Id,
+                    _scriptDefinitionId
+                );
+            }
+
+            On<InteractionTriggeredEvent>(evt =>
+            {
+                // InteractionTriggeredEvent uses InteractionEntity property, not Entity
+                // Check if this event is for our entity
+                if (!Context.Entity.HasValue)
+                {
+                    Context.Logger.Debug(
+                        "Interaction script received InteractionTriggeredEvent but script has no entity (plugin script)"
+                    );
+                    return; // Plugin script, can't handle entity-specific events
+                }
+
+                Context.Logger.Debug(
+                    "Interaction script received InteractionTriggeredEvent: EventInteractionEntity={EventEntityId}, ScriptEntity={ScriptEntityId}, Match={Match}",
+                    evt.InteractionEntity.Id,
+                    Context.Entity.Value.Id,
+                    evt.InteractionEntity.Id == Context.Entity.Value.Id
+                );
+
+                if (evt.InteractionEntity.Id == Context.Entity.Value.Id)
+                {
+                    Context.Logger.Debug(
+                        "Interaction script matched entity {EntityId}, calling handler",
+                        Context.Entity.Value.Id
+                    );
+                    handler(evt);
+                }
+                else
+                {
+                    Context.Logger.Debug(
+                        "Interaction script entity mismatch: EventInteractionEntity={EventEntityId} != ScriptEntity={ScriptEntityId}, handler not called",
+                        evt.InteractionEntity.Id,
+                        Context.Entity.Value.Id
+                    );
+                }
+            });
+        }
+
+        /// <summary>
+        /// Makes this entity face toward the player entity.
+        /// Convenience wrapper that delegates to Context.Apis.Npc.FaceEntity().
+        /// </summary>
+        /// <param name="playerEntity">The player entity to face toward.</param>
+        /// <exception cref="InvalidOperationException">Thrown if this is a plugin script (no entity).</exception>
+        protected void FacePlayer(Entity playerEntity)
+        {
+            RequireEntity();
+            Context.Apis.Npc.FaceEntity(Context.Entity!.Value, playerEntity);
+        }
+
+        /// <summary>
+        /// Gets the number of times this entity has been interacted with.
+        /// Uses entity state storage to persist across hot-reloads.
+        /// </summary>
+        /// <returns>The interaction count, or 0 if never interacted with.</returns>
+        protected int GetInteractionCount()
+        {
+            return Get("interaction_count", 0);
+        }
+
+        /// <summary>
+        /// Increments and returns the interaction count for this entity.
+        /// Uses entity state storage to persist across hot-reloads.
+        /// </summary>
+        /// <returns>The new interaction count after incrementing.</returns>
+        protected int IncrementInteractionCount()
+        {
+            int count = GetInteractionCount();
+            count++;
+            Set("interaction_count", count);
+            return count;
+        }
+
+        /// <summary>
+        /// Shows dialogue based on interaction count.
+        /// Automatically increments the count and selects the appropriate message.
+        /// Combines state tracking with message display.
+        /// </summary>
+        /// <param name="first">The message to show on the first interaction.</param>
+        /// <param name="second">The message to show on the second interaction.</param>
+        /// <param name="defaultMessage">The message to show on subsequent interactions.</param>
+        protected void ShowDialogueByCount(string first, string second, string defaultMessage)
+        {
+            int count = IncrementInteractionCount();
+            string message = count switch
+            {
+                1 => first,
+                2 => second,
+                _ => defaultMessage,
+            };
+            Context.Apis.MessageBox.ShowMessage(message);
+        }
+
+        /// <summary>
         /// Starts a timer that will fire TimerElapsedEvent when it expires.
         /// Only works for entity-attached scripts (not plugin scripts).
         /// </summary>
@@ -650,7 +792,7 @@ namespace MonoBall.Core.Scripting.Runtime
         protected TEnum GetEnum<TEnum>(string key, TEnum defaultValue)
             where TEnum : struct, Enum
         {
-            string? str = Get<string>(key, null);
+            string? str = Get<string>(key, (string?)null);
             if (string.IsNullOrEmpty(str))
                 return defaultValue;
 

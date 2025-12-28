@@ -130,7 +130,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_1F_EventScript_RocksMetalDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_1F_EventScript_RocksMetalDisplay",
       "elevation": 0
     }
   ],
@@ -152,7 +152,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/devon_employee",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/rustboro_city_devon_corp_1f_event_script_employee",
+      "interactionId": "base:behavior:interaction/rustboro_city_devon_corp_1f_event_script_employee",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -166,7 +166,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/devon_employee",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/rustboro_city_devon_corp_1f_event_script_stair_guard",
+      "interactionId": "base:behavior:interaction/rustboro_city_devon_corp_1f_event_script_stair_guard",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 2,
@@ -180,7 +180,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/woman_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/rustboro_city_devon_corp_1f_event_script_greeter",
+      "interactionId": "base:behavior:interaction/rustboro_city_devon_corp_1f_event_script_greeter",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

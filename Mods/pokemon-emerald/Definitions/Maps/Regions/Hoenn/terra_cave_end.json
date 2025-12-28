@@ -107,7 +107,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/TerraCave_End_EventScript_Groudon.csx",
+      "triggerScript": "base:script:hoenn/Triggers/TerraCave_End_EventScript_Groudon",
       "elevation": 3
     }
   ],
@@ -120,7 +120,7 @@
       "y": 352,
       "spriteId": "base:sprite:npcs/generic/groudon_front",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/terra_cave_groudon",
       "direction": "down",
       "rangeX": 0,

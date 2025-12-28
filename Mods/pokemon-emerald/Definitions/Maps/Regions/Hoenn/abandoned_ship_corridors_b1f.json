@@ -190,7 +190,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AbandonedShip_Corridors_B1F_EventScript_StorageRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/AbandonedShip_Corridors_B1F_EventScript_StorageRoomDoor",
       "elevation": 3
     }
   ],
@@ -202,7 +202,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/tuber_m",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/abandoned_ship_corridors_b1f_event_script_tuber_m",
+      "interactionId": "base:behavior:interaction/abandoned_ship_corridors_b1f_event_script_tuber_m",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -216,7 +216,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/sailor",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/abandoned_ship_corridors_b1f_event_script_duncan",
+      "interactionId": "base:behavior:interaction/abandoned_ship_corridors_b1f_event_script_duncan",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,

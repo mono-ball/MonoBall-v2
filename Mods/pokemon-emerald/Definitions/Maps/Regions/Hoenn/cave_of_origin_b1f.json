@@ -107,7 +107,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/wallace",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/cave_of_origin_b1f_event_script_wallace",
+      "interactionId": "base:behavior:interaction/cave_of_origin_b1f_event_script_wallace",
       "visibilityFlag": "base:flag:visibility/cave_of_origin_b1f_wallace",
       "direction": "up",
       "rangeX": 0,

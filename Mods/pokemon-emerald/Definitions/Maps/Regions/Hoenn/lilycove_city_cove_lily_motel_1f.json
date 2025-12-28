@@ -131,7 +131,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/LilycoveCity_CoveLilyMotel_1F_EventScript_BlockingTV.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LilycoveCity_CoveLilyMotel_1F_EventScript_BlockingTV",
       "elevation": 3
     }
   ],
@@ -144,7 +144,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_cove_lily_motel_1f_event_script_motel_owner",
+      "interactionId": "base:behavior:interaction/lilycove_city_cove_lily_motel_1f_event_script_motel_owner",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,

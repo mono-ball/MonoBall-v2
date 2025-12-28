@@ -119,7 +119,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/elite_four/glacia",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/ever_grande_city_glacias_room_event_script_glacia",
+      "interactionId": "base:behavior:interaction/ever_grande_city_glacias_room_event_script_glacia",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

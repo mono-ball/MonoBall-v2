@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_Exit.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_Exit",
       "elevation": 3
     },
     {
@@ -106,7 +106,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -118,7 +118,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -130,7 +130,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -142,7 +142,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack",
       "elevation": 3
     },
     {
@@ -154,7 +154,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack",
       "elevation": 3
     },
     {
@@ -166,7 +166,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack",
       "elevation": 3
     }
   ],

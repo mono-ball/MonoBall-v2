@@ -107,7 +107,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/MarineCave_End_EventScript_Kyogre.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MarineCave_End_EventScript_Kyogre",
       "elevation": 3
     }
   ],
@@ -120,7 +120,7 @@
       "y": 352,
       "spriteId": "base:sprite:npcs/generic/kyogre_front",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/marine_cave_kyogre",
       "direction": "down",
       "rangeX": 0,

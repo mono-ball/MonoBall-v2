@@ -131,7 +131,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_INTRO_STATE",
       "value": 4,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_GoSeeRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_GoSeeRoom",
       "elevation": 0
     },
     {
@@ -143,7 +143,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_RIVAL_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_MeetRival0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_MeetRival0",
       "elevation": 0
     },
     {
@@ -155,7 +155,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_RIVAL_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_MeetRival1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_MeetRival1",
       "elevation": 0
     },
     {
@@ -167,7 +167,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_RIVAL_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_MeetRival2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_BrendansHouse_1F_EventScript_MeetRival2",
       "elevation": 0
     }
   ],
@@ -180,7 +180,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/mom",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/players_house_1f_event_script_mom",
+      "interactionId": "base:behavior:interaction/players_house_1f_event_script_mom",
       "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_mom",
       "direction": "right",
       "rangeX": 0,
@@ -194,7 +194,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/vigoroth_carrying_box",
       "behaviorId": "base:behavior:movement/patrol",
-      "interactionScript": "base:behavior:interaction/players_house_1f_event_script_vigoroth2",
+      "interactionId": "base:behavior:interaction/players_house_1f_event_script_vigoroth2",
       "visibilityFlag": "base:flag:visibility/littleroot_town_players_house_vigoroth_2",
       "direction": null,
       "rangeX": 0,
@@ -208,7 +208,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/vigoroth_facing_away",
       "behaviorId": "base:behavior:movement/walk_in_place",
-      "interactionScript": "base:behavior:interaction/players_house_1f_event_script_vigoroth1",
+      "interactionId": "base:behavior:interaction/players_house_1f_event_script_vigoroth1",
       "visibilityFlag": "base:flag:visibility/littleroot_town_players_house_vigoroth_1",
       "direction": null,
       "rangeX": 0,
@@ -222,7 +222,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/woman_4",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/rivals_house_1f_event_script_rival_mom",
+      "interactionId": "base:behavior:interaction/rivals_house_1f_event_script_rival_mom",
       "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_rival_mom",
       "direction": "right",
       "rangeX": 0,
@@ -236,7 +236,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/gym_leaders/norman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/players_house_dad",
       "direction": "left",
       "rangeX": 0,
@@ -250,7 +250,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/rivals_house_1f_event_script_rival_sibling",
+      "interactionId": "base:behavior:interaction/rivals_house_1f_event_script_rival_sibling",
       "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_rival_sibling",
       "direction": null,
       "rangeX": 1,
@@ -264,7 +264,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/rival_brendan_normal",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_brendan",
       "direction": "up",
       "rangeX": 0,

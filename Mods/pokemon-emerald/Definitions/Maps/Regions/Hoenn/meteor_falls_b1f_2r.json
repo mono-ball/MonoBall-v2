@@ -107,7 +107,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/meteor_falls_b1f_2r_event_script_item_tm_dragon_claw",
+      "interactionId": "base:behavior:interaction/meteor_falls_b1f_2r_event_script_item_tm_dragon_claw",
       "visibilityFlag": "base:flag:item/meteor_falls_b1f_2r_tm_dragon_claw",
       "direction": null,
       "rangeX": 0,

@@ -130,7 +130,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/DesertRuins_EventScript_CaveEntranceMiddle.csx",
+      "interactionId": "base:script:hoenn/Interactions/DesertRuins_EventScript_CaveEntranceMiddle",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/DesertRuins_EventScript_CaveEntranceSide.csx",
+      "interactionId": "base:script:hoenn/Interactions/DesertRuins_EventScript_CaveEntranceSide",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/DesertRuins_EventScript_CaveEntranceSide.csx",
+      "interactionId": "base:script:hoenn/Interactions/DesertRuins_EventScript_CaveEntranceSide",
       "elevation": 0
     }
   ],
@@ -162,7 +162,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/regirock",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/desert_ruins_event_script_regirock",
+      "interactionId": "base:behavior:interaction/desert_ruins_event_script_regirock",
       "visibilityFlag": "base:flag:visibility/regirock",
       "direction": "down",
       "rangeX": 0,

@@ -107,7 +107,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/steven",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/granite_cave_stevens_room_event_script_steven",
+      "interactionId": "base:behavior:interaction/granite_cave_stevens_room_event_script_steven",
       "visibilityFlag": "base:flag:visibility/granite_cave_steven",
       "direction": null,
       "rangeX": 0,

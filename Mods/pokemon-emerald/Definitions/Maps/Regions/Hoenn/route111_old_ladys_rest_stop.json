@@ -119,7 +119,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/expert_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_old_ladys_rest_stop_event_script_old_lady",
+      "interactionId": "base:behavior:interaction/route111_old_ladys_rest_stop_event_script_old_lady",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,

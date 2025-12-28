@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePyramidTop_EventScript_BattleBrandon.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePyramidTop_EventScript_BattleBrandon",
       "elevation": 4
     }
   ],
@@ -107,7 +107,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pyramid_top_event_script_attendant",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pyramid_top_event_script_attendant",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -121,7 +121,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/frontier_brains/brandon",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,

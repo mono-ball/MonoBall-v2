@@ -176,7 +176,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_PETALBURG_CITY_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer0",
       "elevation": 3
     },
     {
@@ -188,7 +188,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_PETALBURG_CITY_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer1",
       "elevation": 3
     },
     {
@@ -200,7 +200,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_PETALBURG_CITY_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer2",
       "elevation": 3
     },
     {
@@ -212,7 +212,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_PETALBURG_CITY_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_ShowGymToPlayer3",
       "elevation": 3
     },
     {
@@ -224,7 +224,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_SCOTT_PETALBURG_ENCOUNTER",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott0",
       "elevation": 3
     },
     {
@@ -236,7 +236,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_SCOTT_PETALBURG_ENCOUNTER",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott1",
       "elevation": 3
     },
     {
@@ -248,7 +248,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_SCOTT_PETALBURG_ENCOUNTER",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott2",
       "elevation": 3
     },
     {
@@ -260,7 +260,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_SCOTT_PETALBURG_ENCOUNTER",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/PetalburgCity_EventScript_Scott3",
       "elevation": 3
     }
   ],
@@ -272,7 +272,7 @@
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_EventScript_GymSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_EventScript_GymSign",
       "elevation": 0
     },
     {
@@ -282,7 +282,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -292,7 +292,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -302,7 +302,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_EventScript_CitySign.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_EventScript_CitySign",
       "elevation": 0
     },
     {
@@ -312,7 +312,7 @@
       "y": 256,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -322,7 +322,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -332,7 +332,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_EventScript_WallyHouseSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_EventScript_WallyHouseSign",
       "elevation": 0
     }
   ],
@@ -344,7 +344,7 @@
       "y": 288,
       "spriteId": "base:sprite:npcs/generic/woman_4",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/petalburg_city_event_script_wallys_mom",
+      "interactionId": "base:behavior:interaction/petalburg_city_event_script_wallys_mom",
       "visibilityFlag": "base:flag:visibility/petalburg_city_wallys_mom",
       "direction": null,
       "rangeX": 1,
@@ -358,7 +358,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/wally",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/petalburg_city_wally",
       "direction": "up",
       "rangeX": 0,
@@ -372,7 +372,7 @@
       "y": 352,
       "spriteId": "base:sprite:npcs/generic/boy_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_event_script_boy",
+      "interactionId": "base:behavior:interaction/petalburg_city_event_script_boy",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -386,7 +386,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/gentleman",
       "behaviorId": "base:behavior:movement/wander_vertical",
-      "interactionScript": "base:behavior:interaction/petalburg_city_event_script_gentleman",
+      "interactionId": "base:behavior:interaction/petalburg_city_event_script_gentleman",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -400,7 +400,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/pokefan_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/petalburg_city_wallys_dad",
       "direction": "up",
       "rangeX": 0,
@@ -414,7 +414,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/petalburg_city_event_script_item_max_revive",
+      "interactionId": "base:behavior:interaction/petalburg_city_event_script_item_max_revive",
       "visibilityFlag": "base:flag:item/petalburg_city_max_revive",
       "direction": null,
       "rangeX": 0,
@@ -428,7 +428,7 @@
       "y": 448,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/petalburg_city_event_script_item_ether",
+      "interactionId": "base:behavior:interaction/petalburg_city_event_script_item_ether",
       "visibilityFlag": "base:flag:item/petalburg_city_ether",
       "direction": null,
       "rangeX": 0,
@@ -442,7 +442,7 @@
       "y": 240,
       "spriteId": "base:sprite:npcs/generic/boy_2",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/petalburg_city_event_script_gym_boy",
+      "interactionId": "base:behavior:interaction/petalburg_city_event_script_gym_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -456,7 +456,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/scott",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/petalburg_city_scott",
       "direction": null,
       "rangeX": 0,

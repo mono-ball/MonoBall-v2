@@ -34,5 +34,11 @@ namespace MonoBall.Core.ECS.Components
         /// The visibility flag for conditional visibility (null if always visible).
         /// </summary>
         public string? VisibilityFlag { get; set; }
+
+        /// <summary>
+        /// The behavior definition ID for this NPC (e.g., "base:behavior:movement/wander").
+        /// References a BehaviorDefinition that contains the behavior script.
+        /// </summary>
+        public string? BehaviorId { get; set; }
     }
 }

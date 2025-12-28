@@ -118,7 +118,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "elevation": 0
     },
     {
@@ -128,7 +128,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "elevation": 0
     },
     {
@@ -138,7 +138,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "elevation": 3
     },
     {
@@ -148,7 +148,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "elevation": 3
     }
   ],
@@ -160,7 +160,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/steven",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_stevens_house_event_script_steven",
+      "interactionId": "base:behavior:interaction/mossdeep_city_stevens_house_event_script_steven",
       "visibilityFlag": "base:flag:visibility/mossdeep_city_stevens_house_steven",
       "direction": "right",
       "rangeX": 0,
@@ -174,7 +174,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_stevens_house_event_script_beldum_pokeball",
+      "interactionId": "base:behavior:interaction/mossdeep_city_stevens_house_event_script_beldum_pokeball",
       "visibilityFlag": "base:flag:visibility/mossdeep_city_stevens_house_beldum_pokeball",
       "direction": null,
       "rangeX": 0,
@@ -188,7 +188,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/hidden",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_stevens_house_event_script_letter",
+      "interactionId": "base:behavior:interaction/mossdeep_city_stevens_house_event_script_letter",
       "visibilityFlag": "base:flag:visibility/mossdeep_city_stevens_house_invisible_ninja_boy",
       "direction": null,
       "rangeX": 0,

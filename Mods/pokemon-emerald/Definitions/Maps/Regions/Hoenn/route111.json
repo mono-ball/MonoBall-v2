@@ -164,7 +164,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -176,7 +176,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown",
       "elevation": 3
     },
     {
@@ -188,7 +188,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown",
       "elevation": 3
     },
     {
@@ -200,7 +200,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown",
       "elevation": 3
     },
     {
@@ -212,7 +212,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -224,7 +224,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft",
       "elevation": 3
     },
     {
@@ -236,7 +236,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft",
       "elevation": 3
     },
     {
@@ -248,7 +248,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft",
       "elevation": 3
     },
     {
@@ -260,7 +260,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft",
       "elevation": 3
     },
     {
@@ -272,7 +272,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerDown",
       "elevation": 3
     },
     {
@@ -284,7 +284,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -296,7 +296,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -308,7 +308,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -320,7 +320,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -332,7 +332,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft",
       "elevation": 3
     },
     {
@@ -344,7 +344,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_ViciousSandstormTriggerLeft",
       "elevation": 3
     },
     {
@@ -356,7 +356,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -368,7 +368,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -380,7 +380,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -392,7 +392,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -404,7 +404,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -416,7 +416,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -428,7 +428,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SunTrigger",
       "elevation": 3
     },
     {
@@ -440,7 +440,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -452,7 +452,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -464,7 +464,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -476,7 +476,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -488,7 +488,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -500,7 +500,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -512,7 +512,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -524,7 +524,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -536,7 +536,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -548,7 +548,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     },
     {
@@ -560,7 +560,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/TRIGGER_RUN_IMMEDIATELY",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route111_EventScript_SandstormTrigger",
       "elevation": 3
     }
   ],
@@ -572,7 +572,7 @@
       "y": 1824,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_WinstrateHouseSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_WinstrateHouseSign",
       "elevation": 0
     },
     {
@@ -582,7 +582,7 @@
       "y": 2016,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_RouteSignMauville.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_RouteSignMauville",
       "elevation": 0
     },
     {
@@ -592,7 +592,7 @@
       "y": 1056,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_RouteSign112.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_RouteSign112",
       "elevation": 0
     },
     {
@@ -602,7 +602,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_RouteSign113.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_RouteSign113",
       "elevation": 0
     },
     {
@@ -612,7 +612,7 @@
       "y": 304,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_OldLadysRestStopSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_OldLadysRestStopSign",
       "elevation": 0
     },
     {
@@ -622,7 +622,7 @@
       "y": 1344,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_TrainerTipsSpAtkSpDef.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_TrainerTipsSpAtkSpDef",
       "elevation": 3
     },
     {
@@ -632,7 +632,7 @@
       "y": 1856,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route111_EventScript_TrainerHillSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route111_EventScript_TrainerHillSign",
       "elevation": 0
     }
   ],
@@ -644,7 +644,7 @@
       "y": 1824,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_victor",
+      "interactionId": "base:behavior:interaction/route111_event_script_victor",
       "visibilityFlag": "base:flag:visibility/route_111_victor_winstrate",
       "direction": "down",
       "rangeX": 0,
@@ -658,7 +658,7 @@
       "y": 1808,
       "spriteId": "base:sprite:npcs/generic/pokefan_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_111_victoria_winstrate",
       "direction": "down",
       "rangeX": 0,
@@ -672,7 +672,7 @@
       "y": 1808,
       "spriteId": "base:sprite:npcs/generic/lass",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_111_vivi_winstrate",
       "direction": "down",
       "rangeX": 0,
@@ -686,7 +686,7 @@
       "y": 1808,
       "spriteId": "base:sprite:npcs/generic/expert_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_111_vicky_winstrate",
       "direction": "down",
       "rangeX": 0,
@@ -700,7 +700,7 @@
       "y": 816,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_heidi",
+      "interactionId": "base:behavior:interaction/route111_event_script_heidi",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -714,7 +714,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/berry_tree",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/berry_tree_script",
+      "interactionId": "base:behavior:interaction/berry_tree_script",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -728,7 +728,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/berry_tree",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/berry_tree_script",
+      "interactionId": "base:behavior:interaction/berry_tree_script",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -742,7 +742,7 @@
       "y": 1456,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/route111_event_script_man1",
+      "interactionId": "base:behavior:interaction/route111_event_script_man1",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -756,7 +756,7 @@
       "y": 592,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_drew",
+      "interactionId": "base:behavior:interaction/route111_event_script_drew",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -770,7 +770,7 @@
       "y": 1104,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/patrol",
-      "interactionScript": "base:behavior:interaction/route111_event_script_dusty",
+      "interactionId": "base:behavior:interaction/route111_event_script_dusty",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -784,7 +784,7 @@
       "y": 752,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_beau",
+      "interactionId": "base:behavior:interaction/route111_event_script_beau",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -798,7 +798,7 @@
       "y": 1056,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/rotate_clockwise",
-      "interactionScript": "base:behavior:interaction/route111_event_script_becky",
+      "interactionId": "base:behavior:interaction/route111_event_script_becky",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -812,7 +812,7 @@
       "y": 1376,
       "spriteId": "base:sprite:npcs/generic/cameraman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/gabby_and_ty_event_script_ty_battle1",
+      "interactionId": "base:behavior:interaction/gabby_and_ty_event_script_ty_battle1",
       "visibilityFlag": "base:flag:visibility/route_111_gabby_and_ty_1",
       "direction": "down",
       "rangeX": 0,
@@ -826,7 +826,7 @@
       "y": 1376,
       "spriteId": "base:sprite:npcs/generic/reporter_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/gabby_and_ty_event_script_gabby_battle1",
+      "interactionId": "base:behavior:interaction/gabby_and_ty_event_script_gabby_battle1",
       "visibilityFlag": "base:flag:visibility/route_111_gabby_and_ty_1",
       "direction": "down",
       "rangeX": 0,
@@ -840,7 +840,7 @@
       "y": 1616,
       "spriteId": "base:sprite:npcs/generic/breakable_rock",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/event_script_rock_smash",
+      "interactionId": "base:behavior:interaction/event_script_rock_smash",
       "visibilityFlag": "base:flag:temporary/11",
       "direction": null,
       "rangeX": 0,
@@ -854,7 +854,7 @@
       "y": 1600,
       "spriteId": "base:sprite:npcs/generic/breakable_rock",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/event_script_rock_smash",
+      "interactionId": "base:behavior:interaction/event_script_rock_smash",
       "visibilityFlag": "base:flag:temporary/12",
       "direction": null,
       "rangeX": 0,
@@ -868,7 +868,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/girl_1",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/route111_event_script_girl",
+      "interactionId": "base:behavior:interaction/route111_event_script_girl",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -882,7 +882,7 @@
       "y": 1664,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route111_event_script_item_tm_sandstorm",
+      "interactionId": "base:behavior:interaction/route111_event_script_item_tm_sandstorm",
       "visibilityFlag": "base:flag:item/route_111_tm_sandstorm",
       "direction": null,
       "rangeX": 0,
@@ -896,7 +896,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/berry_tree",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/berry_tree_script",
+      "interactionId": "base:behavior:interaction/berry_tree_script",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -910,7 +910,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/berry_tree",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/berry_tree_script",
+      "interactionId": "base:behavior:interaction/berry_tree_script",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -924,7 +924,7 @@
       "y": 1376,
       "spriteId": "base:sprite:npcs/generic/reporter_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/gabby_and_ty_event_script_gabby_battle4",
+      "interactionId": "base:behavior:interaction/gabby_and_ty_event_script_gabby_battle4",
       "visibilityFlag": "base:flag:visibility/route_111_gabby_and_ty_2",
       "direction": "down",
       "rangeX": 0,
@@ -938,7 +938,7 @@
       "y": 1376,
       "spriteId": "base:sprite:npcs/generic/cameraman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/gabby_and_ty_event_script_ty_battle4",
+      "interactionId": "base:behavior:interaction/gabby_and_ty_event_script_ty_battle4",
       "visibilityFlag": "base:flag:visibility/route_111_gabby_and_ty_2",
       "direction": "down",
       "rangeX": 0,
@@ -952,7 +952,7 @@
       "y": 1376,
       "spriteId": "base:sprite:npcs/generic/reporter_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/gabby_and_ty_event_script_gabby_battle6",
+      "interactionId": "base:behavior:interaction/gabby_and_ty_event_script_gabby_battle6",
       "visibilityFlag": "base:flag:visibility/route_111_gabby_and_ty_3",
       "direction": "down",
       "rangeX": 0,
@@ -966,7 +966,7 @@
       "y": 1376,
       "spriteId": "base:sprite:npcs/generic/cameraman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/gabby_and_ty_event_script_ty_battle6",
+      "interactionId": "base:behavior:interaction/gabby_and_ty_event_script_ty_battle6",
       "visibilityFlag": "base:flag:visibility/route_111_gabby_and_ty_3",
       "direction": "down",
       "rangeX": 0,
@@ -980,7 +980,7 @@
       "y": 864,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route111_event_script_item_stardust",
+      "interactionId": "base:behavior:interaction/route111_event_script_item_stardust",
       "visibilityFlag": "base:flag:item/route_111_stardust",
       "direction": null,
       "rangeX": 0,
@@ -994,7 +994,7 @@
       "y": 1824,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route111_event_script_item_hp_up",
+      "interactionId": "base:behavior:interaction/route111_event_script_item_hp_up",
       "visibilityFlag": "base:flag:item/route_111_hp_up",
       "direction": null,
       "rangeX": 0,
@@ -1008,7 +1008,7 @@
       "y": 336,
       "spriteId": "base:sprite:npcs/generic/cuttable_tree",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/event_script_cut_tree",
+      "interactionId": "base:behavior:interaction/event_script_cut_tree",
       "visibilityFlag": "base:flag:temporary/13",
       "direction": null,
       "rangeX": 0,
@@ -1022,7 +1022,7 @@
       "y": 1312,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_irene",
+      "interactionId": "base:behavior:interaction/route111_event_script_irene",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -1036,7 +1036,7 @@
       "y": 1136,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_travis",
+      "interactionId": "base:behavior:interaction/route111_event_script_travis",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -1050,7 +1050,7 @@
       "y": 464,
       "spriteId": "base:sprite:npcs/generic/black_belt",
       "behaviorId": "base:behavior:movement/patrol",
-      "interactionScript": "base:behavior:interaction/route111_event_script_daisuke",
+      "interactionId": "base:behavior:interaction/route111_event_script_daisuke",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -1064,7 +1064,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/woman_5",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_brooke",
+      "interactionId": "base:behavior:interaction/route111_event_script_brooke",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -1078,7 +1078,7 @@
       "y": 432,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_wilton",
+      "interactionId": "base:behavior:interaction/route111_event_script_wilton",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -1092,7 +1092,7 @@
       "y": 320,
       "spriteId": "base:sprite:npcs/generic/boy_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_secret_power_man",
+      "interactionId": "base:behavior:interaction/route111_event_script_secret_power_man",
       "visibilityFlag": "base:flag:visibility/route_111_secret_power_man",
       "direction": "up",
       "rangeX": 0,
@@ -1106,7 +1106,7 @@
       "y": 1824,
       "spriteId": "base:sprite:npcs/generic/man_4",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/route111_event_script_man2",
+      "interactionId": "base:behavior:interaction/route111_event_script_man2",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -1120,7 +1120,7 @@
       "y": 2112,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_tyron",
+      "interactionId": "base:behavior:interaction/route111_event_script_tyron",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -1134,7 +1134,7 @@
       "y": 2112,
       "spriteId": "base:sprite:npcs/generic/woman_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_celina",
+      "interactionId": "base:behavior:interaction/route111_event_script_celina",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -1148,7 +1148,7 @@
       "y": 1936,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_bianca",
+      "interactionId": "base:behavior:interaction/route111_event_script_bianca",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -1162,7 +1162,7 @@
       "y": 1904,
       "spriteId": "base:sprite:npcs/generic/man_5",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_hayden",
+      "interactionId": "base:behavior:interaction/route111_event_script_hayden",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -1176,7 +1176,7 @@
       "y": 1232,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_bryan",
+      "interactionId": "base:behavior:interaction/route111_event_script_bryan",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -1190,7 +1190,7 @@
       "y": 1232,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_celia",
+      "interactionId": "base:behavior:interaction/route111_event_script_celia",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -1204,7 +1204,7 @@
       "y": 1232,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_branden",
+      "interactionId": "base:behavior:interaction/route111_event_script_branden",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -1218,7 +1218,7 @@
       "y": 1888,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route111_event_script_item_elixir",
+      "interactionId": "base:behavior:interaction/route111_event_script_item_elixir",
       "visibilityFlag": "base:flag:item/route_111_elixir",
       "direction": null,
       "rangeX": 0,
@@ -1232,7 +1232,7 @@
       "y": 896,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/route111_event_script_hiker",
+      "interactionId": "base:behavior:interaction/route111_event_script_hiker",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -1246,7 +1246,7 @@
       "y": 848,
       "spriteId": "base:sprite:npcs/generic/fossil",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_111_desert_fossil",
       "direction": "down",
       "rangeX": 0,
@@ -1260,7 +1260,7 @@
       "y": 848,
       "spriteId": "base:sprite:npcs/generic/var_0",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_111_player_descent",
       "direction": "down",
       "rangeX": 0,
@@ -1274,7 +1274,7 @@
       "y": 1616,
       "spriteId": "base:sprite:npcs/generic/fat_man",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route111_event_script_rock_smash_tip_fat_man",
+      "interactionId": "base:behavior:interaction/route111_event_script_rock_smash_tip_fat_man",
       "visibilityFlag": "base:flag:visibility/route_111_rock_smash_tip_guy",
       "direction": "up",
       "rangeX": 0,

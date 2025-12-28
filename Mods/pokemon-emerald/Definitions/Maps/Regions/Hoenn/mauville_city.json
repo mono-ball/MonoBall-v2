@@ -195,7 +195,7 @@
       "y": 80,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -205,7 +205,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MauvilleCity_EventScript_GymSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MauvilleCity_EventScript_GymSign",
       "elevation": 3
     },
     {
@@ -215,7 +215,7 @@
       "y": 224,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -225,7 +225,7 @@
       "y": 224,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -235,7 +235,7 @@
       "y": 80,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -245,7 +245,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MauvilleCity_EventScript_CitySign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MauvilleCity_EventScript_CitySign",
       "elevation": 0
     },
     {
@@ -255,7 +255,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MauvilleCity_EventScript_BikeShopSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MauvilleCity_EventScript_BikeShopSign",
       "elevation": 0
     },
     {
@@ -265,7 +265,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MauvilleCity_EventScript_GameCornerSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/MauvilleCity_EventScript_GameCornerSign",
       "elevation": 0
     }
   ],
@@ -277,7 +277,7 @@
       "y": 256,
       "spriteId": "base:sprite:npcs/generic/boy_3",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_boy",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -291,7 +291,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/rich_boy",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_rich_boy",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_rich_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -305,7 +305,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/maniac",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_maniac",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_maniac",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -319,7 +319,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/woman_4",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_woman",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_woman",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -333,7 +333,7 @@
       "y": 224,
       "spriteId": "base:sprite:npcs/generic/school_kid_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_school_kid_m",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_school_kid_m",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -347,7 +347,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/wally",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_wally",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_wally",
       "visibilityFlag": "base:flag:visibility/mauville_city_wally",
       "direction": "up",
       "rangeX": 0,
@@ -361,7 +361,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/pokefan_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_wallys_uncle",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_wallys_uncle",
       "visibilityFlag": "base:flag:visibility/mauville_city_wallys_uncle",
       "direction": "left",
       "rangeX": 0,
@@ -375,7 +375,7 @@
       "y": 144,
       "spriteId": "base:sprite:npcs/gym_leaders/wattson",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_wattson",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_wattson",
       "visibilityFlag": "base:flag:visibility/mauville_city_wattson",
       "direction": null,
       "rangeX": 0,
@@ -389,7 +389,7 @@
       "y": 304,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_item_x_speed",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_item_x_speed",
       "visibilityFlag": "base:flag:item/mauville_city_x_speed",
       "direction": null,
       "rangeX": 0,
@@ -403,7 +403,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/fat_man",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_event_script_rollout_tutor",
+      "interactionId": "base:behavior:interaction/mauville_city_event_script_rollout_tutor",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -417,7 +417,7 @@
       "y": 224,
       "spriteId": "base:sprite:npcs/generic/scott",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mauville_city_scott",
       "direction": "up",
       "rangeX": 0,

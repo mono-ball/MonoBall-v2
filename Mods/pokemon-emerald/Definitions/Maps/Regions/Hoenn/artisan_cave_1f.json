@@ -119,7 +119,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/artisan_cave_1f_event_script_item_carbos",
+      "interactionId": "base:behavior:interaction/artisan_cave_1f_event_script_item_carbos",
       "visibilityFlag": "base:flag:item/artisan_cave_1f_carbos",
       "direction": null,
       "rangeX": 0,

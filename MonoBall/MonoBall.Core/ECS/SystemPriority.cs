@@ -67,6 +67,12 @@ namespace MonoBall.Core.ECS
         /// </summary>
         public const int Input = 40;
 
+        /// <summary>
+        /// Interaction system - handles player interactions with NPCs and objects.
+        /// Runs after Input to process interaction button presses.
+        /// </summary>
+        public const int Interaction = 50;
+
         // ============================================
         // Phase 4: Entity Processing (100-200)
         // ============================================

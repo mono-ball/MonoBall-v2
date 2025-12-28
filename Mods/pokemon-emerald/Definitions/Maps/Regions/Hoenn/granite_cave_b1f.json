@@ -179,7 +179,7 @@
       "y": 336,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/granite_cave_b1f_event_script_item_poke_ball",
+      "interactionId": "base:behavior:interaction/granite_cave_b1f_event_script_item_poke_ball",
       "visibilityFlag": "base:flag:item/granite_cave_b1f_poke_ball",
       "direction": null,
       "rangeX": 0,

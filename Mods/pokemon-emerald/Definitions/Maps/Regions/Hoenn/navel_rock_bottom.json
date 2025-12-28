@@ -107,7 +107,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/lugia",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/navel_rock_bottom_event_script_lugia",
+      "interactionId": "base:behavior:interaction/navel_rock_bottom_event_script_lugia",
       "visibilityFlag": "base:flag:visibility/lugia",
       "direction": "down",
       "rangeX": 0,

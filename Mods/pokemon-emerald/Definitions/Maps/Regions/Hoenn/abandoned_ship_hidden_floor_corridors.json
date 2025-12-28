@@ -166,7 +166,7 @@
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room1Door.csx",
+      "interactionId": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room1Door",
       "elevation": 3
     },
     {
@@ -176,7 +176,7 @@
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room2Door.csx",
+      "interactionId": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room2Door",
       "elevation": 3
     },
     {
@@ -186,7 +186,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room4Door.csx",
+      "interactionId": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room4Door",
       "elevation": 0
     },
     {
@@ -196,7 +196,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room6Door.csx",
+      "interactionId": "base:script:hoenn/Interactions/AbandonedShip_HiddenFloorCorridors_EventScript_Room6Door",
       "elevation": 0
     }
   ],

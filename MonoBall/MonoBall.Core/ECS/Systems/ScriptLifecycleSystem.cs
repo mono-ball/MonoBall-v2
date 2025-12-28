@@ -79,20 +79,61 @@ namespace MonoBall.Core.ECS.Systems
             // Query entities with ScriptAttachmentComponent
             World.Query(
                 in _queryDescription,
-                (Entity entity, ref ScriptAttachmentComponent attachment) =>
+                (Entity entity, ref ScriptAttachmentComponent component) =>
                 {
-                    if (!attachment.IsActive)
+                    // Ensure Scripts dictionary is initialized
+                    if (component.Scripts == null)
                     {
-                        return; // Skip inactive scripts
+                        component.Scripts = new Dictionary<string, ScriptAttachmentData>();
+                        World.Set(entity, component);
                     }
 
-                    var key = (entity, attachment.ScriptDefinitionId);
-                    currentAttachments.Add(key);
-
-                    // Check if script needs initialization
-                    if (!_initializedScripts.Contains(key))
+                    // Iterate over all scripts in the collection
+                    foreach (var kvp in component.Scripts)
                     {
-                        InitializeScript(entity, attachment);
+                        var scriptDefinitionId = kvp.Key;
+                        var attachment = kvp.Value;
+                        var key = (entity, scriptDefinitionId);
+
+                        // Log all scripts found (for debugging)
+                        _logger.Debug(
+                            "ScriptLifecycleSystem: Found script {ScriptDefinitionId} on entity {EntityId}, IsActive={IsActive}, IsInitialized={IsInitialized}",
+                            scriptDefinitionId,
+                            entity.Id,
+                            attachment.IsActive,
+                            attachment.IsInitialized
+                        );
+
+                        if (!attachment.IsActive)
+                        {
+                            _logger.Debug(
+                                "Skipping inactive script {ScriptDefinitionId} on entity {EntityId}",
+                                scriptDefinitionId,
+                                entity.Id
+                            );
+                            continue; // Skip inactive scripts
+                        }
+
+                        currentAttachments.Add(key);
+
+                        // Check if script needs initialization
+                        if (!_initializedScripts.Contains(key))
+                        {
+                            _logger.Debug(
+                                "Initializing script {ScriptDefinitionId} on entity {EntityId}",
+                                scriptDefinitionId,
+                                entity.Id
+                            );
+                            InitializeScript(entity, attachment);
+                        }
+                        else
+                        {
+                            _logger.Debug(
+                                "Script {ScriptDefinitionId} on entity {EntityId} already initialized",
+                                scriptDefinitionId,
+                                entity.Id
+                            );
+                        }
                     }
                 }
             );
@@ -123,7 +164,7 @@ namespace MonoBall.Core.ECS.Systems
         /// <summary>
         /// Initializes a script for an entity.
         /// </summary>
-        private void InitializeScript(Entity entity, ScriptAttachmentComponent attachment)
+        private void InitializeScript(Entity entity, ScriptAttachmentData attachment)
         {
             try
             {
@@ -167,8 +208,23 @@ namespace MonoBall.Core.ECS.Systems
                 );
 
                 // Initialize script
+                _logger.Debug(
+                    "Calling Initialize and RegisterEventHandlers for script {ScriptDefinitionId} on entity {EntityId}",
+                    attachment.ScriptDefinitionId,
+                    entity.Id
+                );
                 scriptInstance.Initialize(context);
+                _logger.Debug(
+                    "Completed Initialize for script {ScriptDefinitionId} on entity {EntityId}, now calling RegisterEventHandlers",
+                    attachment.ScriptDefinitionId,
+                    entity.Id
+                );
                 scriptInstance.RegisterEventHandlers(context);
+                _logger.Debug(
+                    "Completed Initialize and RegisterEventHandlers for script {ScriptDefinitionId} on entity {EntityId}",
+                    attachment.ScriptDefinitionId,
+                    entity.Id
+                );
 
                 // Store instance
                 var key = (entity, attachment.ScriptDefinitionId);
@@ -176,8 +232,21 @@ namespace MonoBall.Core.ECS.Systems
                 _initializedScripts.Add(key);
 
                 // Mark as initialized in component (internal flag)
-                attachment.IsInitialized = true;
-                World.Set(entity, attachment);
+                // Need to update the component's Scripts dictionary
+                if (World.Has<ScriptAttachmentComponent>(entity))
+                {
+                    ref var component = ref World.Get<ScriptAttachmentComponent>(entity);
+                    if (
+                        component.Scripts != null
+                        && component.Scripts.ContainsKey(attachment.ScriptDefinitionId)
+                    )
+                    {
+                        var updatedAttachment = component.Scripts[attachment.ScriptDefinitionId];
+                        updatedAttachment.IsInitialized = true;
+                        component.Scripts[attachment.ScriptDefinitionId] = updatedAttachment;
+                        World.Set(entity, component);
+                    }
+                }
 
                 // Fire ScriptLoadedEvent
                 var loadedEvent = new ScriptLoadedEvent

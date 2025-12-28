@@ -131,7 +131,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button1",
       "elevation": 3
     },
     {
@@ -143,7 +143,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button2",
       "elevation": 0
     },
     {
@@ -155,7 +155,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button3",
       "elevation": 3
     },
     {
@@ -167,7 +167,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_4",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button4.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle2_EventScript_Button4",
       "elevation": 3
     }
   ],
@@ -179,7 +179,7 @@
       "y": 224,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route110_TrickHousePuzzle2_EventScript_Scroll.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route110_TrickHousePuzzle2_EventScript_Scroll",
       "elevation": 0
     }
   ],
@@ -191,7 +191,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/school_kid_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_ted",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_ted",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -205,7 +205,7 @@
       "y": 272,
       "spriteId": "base:sprite:npcs/generic/school_kid_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_paul",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_paul",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -219,7 +219,7 @@
       "y": 144,
       "spriteId": "base:sprite:npcs/generic/girl_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_georgia",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_georgia",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -233,7 +233,7 @@
       "y": 272,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_item_wave_mail",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_item_wave_mail",
       "visibilityFlag": "base:flag:item/trick_house_puzzle_2_wave_mail",
       "direction": null,
       "rangeX": 0,
@@ -247,7 +247,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_item_harbor_mail",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle2_event_script_item_harbor_mail",
       "visibilityFlag": "base:flag:item/trick_house_puzzle_2_harbor_mail",
       "direction": null,
       "rangeX": 0,

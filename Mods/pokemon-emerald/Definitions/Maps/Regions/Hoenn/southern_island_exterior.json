@@ -118,7 +118,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SouthernIsland_Exterior_EventScript_Sign.csx",
+      "interactionId": "base:script:hoenn/Interactions/SouthernIsland_Exterior_EventScript_Sign",
       "elevation": 3
     }
   ],
@@ -130,7 +130,7 @@
       "y": 368,
       "spriteId": "base:sprite:npcs/generic/sailor",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/southern_island_exterior_event_script_sailor",
+      "interactionId": "base:behavior:interaction/southern_island_exterior_event_script_sailor",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -144,7 +144,7 @@
       "y": 400,
       "spriteId": "base:sprite:npcs/generic/ss_tidal",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,

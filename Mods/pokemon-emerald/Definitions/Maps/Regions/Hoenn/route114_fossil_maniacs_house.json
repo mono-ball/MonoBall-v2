@@ -130,7 +130,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_RockDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_RockDisplay",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_RockDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_RockDisplay",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_Bookshelf.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_Bookshelf",
       "elevation": 0
     },
     {
@@ -160,7 +160,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_Bookshelf.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route114_FossilManiacsHouse_EventScript_Bookshelf",
       "elevation": 0
     }
   ],
@@ -172,7 +172,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route114_fossil_maniacs_house_event_script_fossil_maniacs_brother",
+      "interactionId": "base:behavior:interaction/route114_fossil_maniacs_house_event_script_fossil_maniacs_brother",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

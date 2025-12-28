@@ -119,7 +119,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/elite_four/phoebe",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/ever_grande_city_phoebes_room_event_script_phoebe",
+      "interactionId": "base:behavior:interaction/ever_grande_city_phoebes_room_event_script_phoebe",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

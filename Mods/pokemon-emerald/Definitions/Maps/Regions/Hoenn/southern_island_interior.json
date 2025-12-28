@@ -118,7 +118,7 @@
       "y": 176,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SouthernIsland_Interior_EventScript_TryLatiEncounter.csx",
+      "interactionId": "base:script:hoenn/Interactions/SouthernIsland_Interior_EventScript_TryLatiEncounter",
       "elevation": 3
     }
   ],
@@ -130,7 +130,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/var_0",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/southern_island_eon_stone",
       "direction": "up",
       "rangeX": 0,
@@ -144,7 +144,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/var_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/southern_island_unchosen_eon_duo_mon",
       "direction": "down",
       "rangeX": 0,

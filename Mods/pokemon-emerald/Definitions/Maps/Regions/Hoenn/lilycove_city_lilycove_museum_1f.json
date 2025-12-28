@@ -130,7 +130,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_FantasyPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_FantasyPainting",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_FantasyPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_FantasyPainting",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_BerryPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_BerryPainting",
       "elevation": 0
     },
     {
@@ -160,7 +160,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_BerryPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_BerryPainting",
       "elevation": 0
     },
     {
@@ -170,7 +170,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_OldPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_OldPainting",
       "elevation": 0
     },
     {
@@ -180,7 +180,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_WomanPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_WomanPainting",
       "elevation": 0
     },
     {
@@ -190,7 +190,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_WomanPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_WomanPainting",
       "elevation": 0
     },
     {
@@ -200,7 +200,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture",
       "elevation": 0
     },
     {
@@ -210,7 +210,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_OldPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_OldPainting",
       "elevation": 0
     },
     {
@@ -220,7 +220,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_GrassPokemonPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_GrassPokemonPainting",
       "elevation": 0
     },
     {
@@ -230,7 +230,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet",
       "elevation": 0
     },
     {
@@ -240,7 +240,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_LegendaryPokemonPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_LegendaryPokemonPainting",
       "elevation": 0
     },
     {
@@ -250,7 +250,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_LegendaryPokemonPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_LegendaryPokemonPainting",
       "elevation": 0
     },
     {
@@ -260,7 +260,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet",
       "elevation": 0
     },
     {
@@ -270,7 +270,7 @@
       "y": 176,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_PokeBallSculpture.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_PokeBallSculpture",
       "elevation": 0
     },
     {
@@ -280,7 +280,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_1F_EventScript_StoneTablet",
       "elevation": 0
     }
   ],
@@ -292,7 +292,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/beauty",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_greeter",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_greeter",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -306,7 +306,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/gentleman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_curator",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_curator",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_curator",
       "direction": "down",
       "rangeX": 0,
@@ -320,7 +320,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/school_kid_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_school_kid_m",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_school_kid_m",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -334,7 +334,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/artist",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_artist1",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_artist1",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 2,
@@ -348,7 +348,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_ninja_boy",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_ninja_boy",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -362,7 +362,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/woman_4",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_woman1",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_woman1",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -376,7 +376,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/woman_2",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_woman2",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_woman2",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_patron_1",
       "direction": null,
       "rangeX": 1,
@@ -390,7 +390,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/artist",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_artist2",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_artist2",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_patron_4",
       "direction": "up",
       "rangeX": 0,
@@ -404,7 +404,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/fat_man",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_fat_man",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_fat_man",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_tourists",
       "direction": null,
       "rangeX": 2,
@@ -418,7 +418,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/psychic_m",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_psychic_m",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_1f_event_script_psychic_m",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_patron_3",
       "direction": null,
       "rangeX": 1,

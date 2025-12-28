@@ -550,7 +550,7 @@
       "y": 1680,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_SpeedRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_SpeedRoomDoor",
       "elevation": 3
     },
     {
@@ -560,7 +560,7 @@
       "y": 1680,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_AccuracyRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_AccuracyRoomDoor",
       "elevation": 3
     },
     {
@@ -570,7 +570,7 @@
       "y": 1264,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_ConfusionRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_ConfusionRoomDoor",
       "elevation": 3
     },
     {
@@ -580,7 +580,7 @@
       "y": 1264,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftDefenseRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftDefenseRoomDoor",
       "elevation": 3
     },
     {
@@ -590,7 +590,7 @@
       "y": 1472,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightDefenseRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightDefenseRoomDoor",
       "elevation": 3
     },
     {
@@ -600,7 +600,7 @@
       "y": 1472,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RecoveryRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RecoveryRoomDoor",
       "elevation": 3
     },
     {
@@ -610,7 +610,7 @@
       "y": 640,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor",
       "elevation": 3
     },
     {
@@ -620,7 +620,7 @@
       "y": 848,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightStrengthRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightStrengthRoomDoor",
       "elevation": 3
     },
     {
@@ -630,7 +630,7 @@
       "y": 848,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftOHKORoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftOHKORoomDoor",
       "elevation": 3
     },
     {
@@ -640,7 +640,7 @@
       "y": 1056,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightOHKORoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightOHKORoomDoor",
       "elevation": 3
     },
     {
@@ -650,7 +650,7 @@
       "y": 224,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftGymLeadersRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftGymLeadersRoomDoor",
       "elevation": 3
     },
     {
@@ -660,7 +660,7 @@
       "y": 432,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightGymLeadersRoomDoor.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightGymLeadersRoomDoor",
       "elevation": 3
     },
     {
@@ -670,7 +670,7 @@
       "y": 1760,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftGymStatue.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_LeftGymStatue",
       "elevation": 3
     },
     {
@@ -680,7 +680,7 @@
       "y": 1760,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightGymStatue.csx",
+      "interactionId": "base:script:hoenn/Interactions/PetalburgCity_Gym_EventScript_RightGymStatue",
       "elevation": 3
     }
   ],
@@ -692,7 +692,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/gym_leaders/norman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_norman",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_norman",
       "visibilityFlag": "base:flag:visibility/petalburg_gym_norman",
       "direction": "down",
       "rangeX": 0,
@@ -706,7 +706,7 @@
       "y": 1504,
       "spriteId": "base:sprite:npcs/generic/woman_5",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_mary",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_mary",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -720,7 +720,7 @@
       "y": 1296,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_randall",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_randall",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -734,7 +734,7 @@
       "y": 672,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_parker",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_parker",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -748,7 +748,7 @@
       "y": 880,
       "spriteId": "base:sprite:npcs/generic/woman_5",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_alexia",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_alexia",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -762,7 +762,7 @@
       "y": 1088,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_george",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_george",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -776,7 +776,7 @@
       "y": 256,
       "spriteId": "base:sprite:npcs/generic/woman_5",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_jody",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_jody",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -790,7 +790,7 @@
       "y": 464,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_berke",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_berke",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -804,7 +804,7 @@
       "y": 1744,
       "spriteId": "base:sprite:npcs/generic/man_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/petalburg_city_gym_event_script_gym_guide",
+      "interactionId": "base:behavior:interaction/petalburg_city_gym_event_script_gym_guide",
       "visibilityFlag": "base:flag:visibility/petalburg_gym_greeter",
       "direction": "down",
       "rangeX": 0,
@@ -818,7 +818,7 @@
       "y": 1776,
       "spriteId": "base:sprite:npcs/generic/wally",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/petalburg_gym_wally",
       "direction": "up",
       "rangeX": 0,
@@ -832,7 +832,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/pokefan_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/petalburg_gym_wallys_dad",
       "direction": "up",
       "rangeX": 0,

@@ -195,10 +195,11 @@ namespace MonoBall.Core.Maps
         public string? BehaviorId { get; set; }
 
         /// <summary>
-        /// The interaction script ID for this NPC.
+        /// The interaction script definition ID for this NPC.
+        /// References a ScriptDefinition that contains the interaction script.
         /// </summary>
-        [JsonPropertyName("interactionScript")]
-        public string? InteractionScript { get; set; }
+        [JsonPropertyName("interactionId")]
+        public string? InteractionId { get; set; }
 
         /// <summary>
         /// The visibility flag for this NPC (null if always visible).

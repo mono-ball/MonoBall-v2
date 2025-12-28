@@ -6,7 +6,8 @@
     "PlayerInitialMapId": "base:map:hoenn/littleroot_town",
     "PlayerSpawnX": 10,
     "PlayerSpawnY": 8,
-    "PlayerMovementSpeed": 4.0
+    "PlayerMovementSpeed": 4.0,
+    "PlayerElevation": 3
   },
   "validationRules": {
     "PlayerMovementSpeed": {
@@ -21,6 +22,11 @@
     "PlayerSpawnY": {
       "min": 0,
       "description": "Player spawn Y coordinate must be non-negative"
+    },
+    "PlayerElevation": {
+      "min": 0,
+      "max": 15,
+      "description": "Player elevation must be between 0 and 15 (matches Pokemon Emerald elevation system)"
     }
   }
 }

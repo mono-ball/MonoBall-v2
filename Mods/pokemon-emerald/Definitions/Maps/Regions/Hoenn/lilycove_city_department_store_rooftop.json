@@ -106,7 +106,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine",
       "elevation": 0
     },
     {
@@ -116,7 +116,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine",
       "elevation": 0
     }
   ],
@@ -128,7 +128,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/man_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_man",
+      "interactionId": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_man",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -142,7 +142,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/man_3",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_thirsty_man",
+      "interactionId": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_thirsty_man",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -156,7 +156,7 @@
       "y": 16,
       "spriteId": "base:sprite:npcs/generic/rooftop_sale_woman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_sale_woman",
+      "interactionId": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_sale_woman",
       "visibilityFlag": "base:flag:visibility/lilycove_department_store_rooftop_sale_woman",
       "direction": "down",
       "rangeX": 0,
@@ -170,7 +170,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/woman_3",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_substitute_tutor",
+      "interactionId": "base:behavior:interaction/lilycove_city_department_store_rooftop_event_script_substitute_tutor",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

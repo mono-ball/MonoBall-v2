@@ -118,7 +118,7 @@
       "y": 176,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideStairsRoom_EventScript_ShoalSalt3.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideStairsRoom_EventScript_ShoalSalt3",
       "elevation": 3
     }
   ],
@@ -130,7 +130,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/shoal_cave_low_tide_stairs_room_event_script_item_ice_heal",
+      "interactionId": "base:behavior:interaction/shoal_cave_low_tide_stairs_room_event_script_item_ice_heal",
       "visibilityFlag": "base:flag:item/shoal_cave_stairs_room_ice_heal",
       "direction": null,
       "rangeX": 0,

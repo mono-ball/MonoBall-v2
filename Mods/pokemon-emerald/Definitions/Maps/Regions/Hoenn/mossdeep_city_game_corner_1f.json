@@ -130,7 +130,7 @@
       "y": 0,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/RS_MysteryEventsHouse_EventScript_Door.csx",
+      "interactionId": "base:script:hoenn/Interactions/RS_MysteryEventsHouse_EventScript_Door",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_GameCorner_1F_EventScript_DodrioBerryPickingRecords.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_GameCorner_1F_EventScript_DodrioBerryPickingRecords",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MossdeepCity_GameCorner_1F_EventScript_PokemonJumpRecords.csx",
+      "interactionId": "base:script:hoenn/Interactions/MossdeepCity_GameCorner_1F_EventScript_PokemonJumpRecords",
       "elevation": 0
     }
   ],
@@ -162,7 +162,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/expert_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_game_corner_1f_event_script_old_man",
+      "interactionId": "base:behavior:interaction/mossdeep_city_game_corner_1f_event_script_old_man",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -176,7 +176,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/man_4",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mossdeep_city_game_corner_1f_event_script_info_man",
+      "interactionId": "base:behavior:interaction/mossdeep_city_game_corner_1f_event_script_info_man",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

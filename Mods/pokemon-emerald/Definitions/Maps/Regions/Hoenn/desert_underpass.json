@@ -107,7 +107,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/fossil",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/desert_underpass_event_script_fossil",
+      "interactionId": "base:behavior:interaction/desert_underpass_event_script_fossil",
       "visibilityFlag": "base:flag:visibility/desert_underpass_fossil",
       "direction": "down",
       "rangeX": 0,

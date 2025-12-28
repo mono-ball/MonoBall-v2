@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_LeftRoomWarp.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_LeftRoomWarp",
       "elevation": 3
     },
     {
@@ -106,7 +106,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_CenterRoomWarp.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_CenterRoomWarp",
       "elevation": 3
     },
     {
@@ -118,7 +118,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_RightRoomWarp.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_RightRoomWarp",
       "elevation": 3
     },
     {
@@ -130,7 +130,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_NoTurningBack",
       "elevation": 0
     },
     {
@@ -142,7 +142,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_NoTurningBack",
       "elevation": 0
     },
     {
@@ -154,7 +154,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -166,7 +166,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -178,7 +178,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -190,7 +190,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeThreePathRoom_EventScript_NoTurningBack",
       "elevation": 0
     }
   ],
@@ -203,7 +203,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/link_receptionist",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pike_three_path_room_event_script_attendant",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pike_three_path_room_event_script_attendant",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -217,7 +217,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/link_receptionist",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pike_three_path_room_event_script_hint_giver",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pike_three_path_room_event_script_hint_giver",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

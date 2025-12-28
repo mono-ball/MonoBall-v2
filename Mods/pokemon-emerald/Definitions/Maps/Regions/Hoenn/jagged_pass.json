@@ -155,7 +155,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_JAGGED_PASS_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout.csx",
+      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout",
       "elevation": 3
     },
     {
@@ -167,7 +167,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_JAGGED_PASS_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout.csx",
+      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout",
       "elevation": 3
     },
     {
@@ -179,7 +179,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_JAGGED_PASS_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout.csx",
+      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout",
       "elevation": 3
     },
     {
@@ -191,7 +191,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_JAGGED_PASS_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout.csx",
+      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout",
       "elevation": 3
     },
     {
@@ -203,7 +203,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_JAGGED_PASS_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout.csx",
+      "triggerScript": "base:script:hoenn/Triggers/JaggedPass_EventScript_OpenMagmaHideout",
       "elevation": 3
     }
   ],
@@ -216,7 +216,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_eric",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_eric",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -230,7 +230,7 @@
       "y": 560,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_ethan",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_ethan",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -244,7 +244,7 @@
       "y": 384,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_item_burn_heal",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_item_burn_heal",
       "visibilityFlag": "base:flag:item/jagged_pass_burn_heal",
       "direction": null,
       "rangeX": 0,
@@ -258,7 +258,7 @@
       "y": 336,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/look_two_ways",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_diana",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_diana",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -272,7 +272,7 @@
       "y": 304,
       "spriteId": "base:sprite:npcs/team_magma/magma_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_magma_hideout_guard",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_magma_hideout_guard",
       "visibilityFlag": "base:flag:visibility/jagged_pass_magma_guard",
       "direction": "up",
       "rangeX": 0,
@@ -286,7 +286,7 @@
       "y": 400,
       "spriteId": "base:sprite:npcs/generic/picnicker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_autumn",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_autumn",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -300,7 +300,7 @@
       "y": 400,
       "spriteId": "base:sprite:npcs/generic/cycling_triathlete_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/jagged_pass_event_script_julio",
+      "interactionId": "base:behavior:interaction/jagged_pass_event_script_julio",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,

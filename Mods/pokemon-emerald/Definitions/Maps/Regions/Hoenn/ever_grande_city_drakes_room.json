@@ -119,7 +119,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/elite_four/drake",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/ever_grande_city_drakes_room_event_script_drake",
+      "interactionId": "base:behavior:interaction/ever_grande_city_drakes_room_event_script_drake",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

@@ -190,7 +190,7 @@
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalSalt1.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalSalt1",
       "elevation": 5
     },
     {
@@ -200,7 +200,7 @@
       "y": 416,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalSalt2.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalSalt2",
       "elevation": 3
     },
     {
@@ -210,7 +210,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell1.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell1",
       "elevation": 5
     },
     {
@@ -220,7 +220,7 @@
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell2.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell2",
       "elevation": 5
     },
     {
@@ -230,7 +230,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell3.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell3",
       "elevation": 3
     },
     {
@@ -240,7 +240,7 @@
       "y": 208,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell4.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideInnerRoom_EventScript_ShoalShell4",
       "elevation": 5
     }
   ],
@@ -252,7 +252,7 @@
       "y": 224,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/shoal_cave_low_tide_inner_room_event_script_item_rare_candy",
+      "interactionId": "base:behavior:interaction/shoal_cave_low_tide_inner_room_event_script_item_rare_candy",
       "visibilityFlag": "base:flag:item/shoal_cave_inner_room_rare_candy",
       "direction": null,
       "rangeX": 0,

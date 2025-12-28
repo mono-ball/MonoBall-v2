@@ -106,7 +106,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample1.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample1",
       "elevation": 0
     },
     {
@@ -116,7 +116,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample2.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample2",
       "elevation": 0
     },
     {
@@ -126,7 +126,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmersibleReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmersibleReplica",
       "elevation": 0
     },
     {
@@ -136,7 +136,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmersibleReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmersibleReplica",
       "elevation": 0
     },
     {
@@ -146,7 +146,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica",
       "elevation": 0
     },
     {
@@ -156,7 +156,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica",
       "elevation": 0
     },
     {
@@ -166,7 +166,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SubmarineReplica",
       "elevation": 0
     },
     {
@@ -176,7 +176,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica",
       "elevation": 0
     },
     {
@@ -186,7 +186,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica",
       "elevation": 0
     },
     {
@@ -196,7 +196,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica",
       "elevation": 0
     },
     {
@@ -206,7 +206,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSAnneReplica",
       "elevation": 3
     },
     {
@@ -216,7 +216,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SurfaceSeawaterDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SurfaceSeawaterDisplay",
       "elevation": 0
     },
     {
@@ -226,7 +226,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SurfaceSeawaterDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SurfaceSeawaterDisplay",
       "elevation": 0
     },
     {
@@ -236,7 +236,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_DeepSeawaterDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_DeepSeawaterDisplay",
       "elevation": 0
     },
     {
@@ -246,7 +246,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_DeepSeawaterDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_DeepSeawaterDisplay",
       "elevation": 0
     },
     {
@@ -256,7 +256,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_HoennModel.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_HoennModel",
       "elevation": 0
     },
     {
@@ -266,7 +266,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_HoennModel.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_HoennModel",
       "elevation": 0
     },
     {
@@ -276,7 +276,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment",
       "elevation": 0
     },
     {
@@ -286,7 +286,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment",
       "elevation": 0
     },
     {
@@ -296,7 +296,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica",
       "elevation": 0
     },
     {
@@ -306,7 +306,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica.csx",
+      "interactionId": "base:script:hoenn/Interactions/SlateportCity_OceanicMuseum_2F_EventScript_SSTidalReplica",
       "elevation": 0
     }
   ],
@@ -318,7 +318,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/scientist_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_capt_stern",
+      "interactionId": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_capt_stern",
       "visibilityFlag": "base:flag:visibility/slateport_city_oceanic_museum_2f_captain_stern",
       "direction": "down",
       "rangeX": 0,
@@ -332,7 +332,7 @@
       "y": 16,
       "spriteId": "base:sprite:npcs/team_aqua/archie",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/slateport_city_oceanic_museum_2f_archie",
       "direction": "down",
       "rangeX": 0,
@@ -346,7 +346,7 @@
       "y": 16,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/slateport_city_oceanic_museum_2f_aqua_grunt_1",
       "direction": "down",
       "rangeX": 0,
@@ -360,7 +360,7 @@
       "y": 16,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/slateport_city_oceanic_museum_2f_aqua_grunt_2",
       "direction": "down",
       "rangeX": 0,
@@ -374,7 +374,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/old_man",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_museum_patron1",
+      "interactionId": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_museum_patron1",
       "visibilityFlag": "base:flag:visibility/slateport_museum_population",
       "direction": "right",
       "rangeX": 0,
@@ -388,7 +388,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/pokefan_f",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_museum_patron2",
+      "interactionId": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_museum_patron2",
       "visibilityFlag": "base:flag:visibility/slateport_museum_population",
       "direction": null,
       "rangeX": 0,
@@ -402,7 +402,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/ninja_boy",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_museum_patron3",
+      "interactionId": "base:behavior:interaction/slateport_city_oceanic_museum_2f_event_script_museum_patron3",
       "visibilityFlag": "base:flag:visibility/slateport_museum_population",
       "direction": "right",
       "rangeX": 0,

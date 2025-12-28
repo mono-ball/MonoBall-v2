@@ -106,7 +106,7 @@
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CutePainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CutePainting",
       "elevation": 0
     },
     {
@@ -116,7 +116,7 @@
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CutePainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CutePainting",
       "elevation": 0
     },
     {
@@ -126,7 +126,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_ToughPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_ToughPainting",
       "elevation": 0
     },
     {
@@ -136,7 +136,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_ToughPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_ToughPainting",
       "elevation": 0
     },
     {
@@ -146,7 +146,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CoolPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CoolPainting",
       "elevation": 0
     },
     {
@@ -156,7 +156,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CoolPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_CoolPainting",
       "elevation": 0
     },
     {
@@ -166,7 +166,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_BeautyPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_BeautyPainting",
       "elevation": 0
     },
     {
@@ -176,7 +176,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_BeautyPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_BeautyPainting",
       "elevation": 0
     },
     {
@@ -186,7 +186,7 @@
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_SmartPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_SmartPainting",
       "elevation": 0
     },
     {
@@ -196,7 +196,7 @@
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_SmartPainting.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_2F_EventScript_SmartPainting",
       "elevation": 0
     },
     {
@@ -206,7 +206,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture",
       "elevation": 0
     },
     {
@@ -216,7 +216,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture.csx",
+      "interactionId": "base:script:hoenn/Interactions/LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture",
       "elevation": 0
     }
   ],
@@ -228,7 +228,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/gentleman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_curator",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_curator",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -242,7 +242,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/girl_2",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_girl",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_girl",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_patron_2",
       "direction": null,
       "rangeX": 1,
@@ -256,7 +256,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/expert_m",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_expert_m",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_expert_m",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_tourists",
       "direction": null,
       "rangeX": 1,
@@ -270,7 +270,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/rich_boy",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_rich_boy",
+      "interactionId": "base:behavior:interaction/lilycove_city_lilycove_museum_2f_event_script_rich_boy",
       "visibilityFlag": "base:flag:visibility/lilycove_museum_tourists",
       "direction": null,
       "rangeX": 1,

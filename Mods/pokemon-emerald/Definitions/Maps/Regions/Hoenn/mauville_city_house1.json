@@ -119,7 +119,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/scientist_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_house1_event_script_rock_smash_dude",
+      "interactionId": "base:behavior:interaction/mauville_city_house1_event_script_rock_smash_dude",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,

@@ -103,7 +103,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_StartBirchRescue.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_StartBirchRescue",
       "elevation": 3
     },
     {
@@ -115,7 +115,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_StartBirchRescue.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_StartBirchRescue",
       "elevation": 3
     },
     {
@@ -127,7 +127,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitSouth.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitSouth",
       "elevation": 3
     },
     {
@@ -139,7 +139,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitSouth.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitSouth",
       "elevation": 3
     },
     {
@@ -151,7 +151,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest",
       "elevation": 3
     },
     {
@@ -163,7 +163,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest",
       "elevation": 3
     },
     {
@@ -175,7 +175,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest",
       "elevation": 3
     },
     {
@@ -187,7 +187,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitWest",
       "elevation": 3
     },
     {
@@ -199,7 +199,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_ROUTE101_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitNorth.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route101_EventScript_PreventExitNorth",
       "elevation": 3
     }
   ],
@@ -211,7 +211,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route101_EventScript_RouteSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route101_EventScript_RouteSign",
       "elevation": 0
     }
   ],
@@ -223,7 +223,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/youngster",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route101_event_script_youngster",
+      "interactionId": "base:behavior:interaction/route101_event_script_youngster",
       "visibilityFlag": null,
       "direction": null,
       "elevation": 3
@@ -235,7 +235,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/prof_birch",
       "behaviorId": "base:behavior:movement/walk_in_place",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_101_birch_zigzagoon_battle",
       "direction": null,
       "elevation": 0
@@ -247,7 +247,7 @@
       "y": 224,
       "spriteId": "base:sprite:npcs/generic/birchs_bag",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/route101_event_script_birchs_bag",
+      "interactionId": "base:behavior:interaction/route101_event_script_birchs_bag",
       "visibilityFlag": "base:flag:visibility/route_101_birch_starters_bag",
       "direction": null,
       "elevation": 3
@@ -259,7 +259,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/zigzagoon_1",
       "behaviorId": "base:behavior:movement/walk_in_place",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/route_101_zigzagoon",
       "direction": null,
       "elevation": 0
@@ -271,7 +271,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/prof_birch",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/prof_birch_event_script_rate_pokedex_or_register",
+      "interactionId": "base:behavior:interaction/prof_birch_event_script_rate_pokedex_or_register",
       "visibilityFlag": "base:flag:visibility/route_101_birch",
       "direction": null,
       "elevation": 3
@@ -287,7 +287,7 @@
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionScript": "base:behavior:interaction/route101_event_script_boy",
+      "interactionId": "base:behavior:interaction/route101_event_script_boy",
       "visibilityFlag": "base:flag:visibility/route_101_boy",
       "direction": null,
       "elevation": 3

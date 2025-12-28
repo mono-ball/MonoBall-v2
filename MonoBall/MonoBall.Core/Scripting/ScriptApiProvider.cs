@@ -442,7 +442,14 @@ namespace MonoBall.Core.Scripting
                 }
 
                 ref var movement = ref _world.Get<GridMovement>(npc);
-                movement.FacingDirection = direction;
+
+                // Only trigger turn animation if direction is different
+                if (movement.FacingDirection != direction)
+                {
+                    // Use StartTurnInPlace to trigger the turn animation
+                    movement.StartTurnInPlace(direction);
+                }
+                // If already facing that direction, no need to do anything
             }
 
             public Direction? GetFacingDirection(Entity npc)

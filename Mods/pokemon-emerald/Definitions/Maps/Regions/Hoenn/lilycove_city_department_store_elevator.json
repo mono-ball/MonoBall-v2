@@ -94,7 +94,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/teala",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/lilycove_city_department_store_elevator_event_script_attendant",
+      "interactionId": "base:behavior:interaction/lilycove_city_department_store_elevator_event_script_attendant",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

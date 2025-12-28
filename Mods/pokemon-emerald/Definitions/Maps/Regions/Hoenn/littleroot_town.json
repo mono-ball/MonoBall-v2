@@ -136,7 +136,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_NeedPokemonTriggerLeft.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_NeedPokemonTriggerLeft",
       "elevation": 3
     },
     {
@@ -148,7 +148,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_NeedPokemonTriggerRight.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_NeedPokemonTriggerRight",
       "elevation": 3
     },
     {
@@ -160,7 +160,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GoSaveBirchTrigger.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GoSaveBirchTrigger",
       "elevation": 3
     },
     {
@@ -172,7 +172,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 3,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger4.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger4",
       "elevation": 3
     },
     {
@@ -184,7 +184,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 3,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger5.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger5",
       "elevation": 3
     },
     {
@@ -196,7 +196,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 3,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger2",
       "elevation": 3
     },
     {
@@ -208,7 +208,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 3,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger3",
       "elevation": 3
     },
     {
@@ -220,7 +220,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 3,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger0",
       "elevation": 3
     },
     {
@@ -232,49 +232,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_TOWN_STATE",
       "value": 3,
-      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger1.csx",
-      "elevation": 3
-    }
-  ],
-  "interactions": [
-    {
-      "interactionId": "base:interaction:hoenn/littleroot_town/sign_littleroottown_eventscript_townsign",
-      "name": "Sign: LittlerootTown_EventScript_TownSign",
-      "x": 240,
-      "y": 208,
-      "width": 16,
-      "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LittlerootTown_EventScript_TownSign.csx",
-      "elevation": 0
-    },
-    {
-      "interactionId": "base:interaction:hoenn/littleroot_town/sign_littleroottown_eventscript_birchslabsign",
-      "name": "Sign: LittlerootTown_EventScript_BirchsLabSign",
-      "x": 96,
-      "y": 272,
-      "width": 16,
-      "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LittlerootTown_EventScript_BirchsLabSign.csx",
-      "elevation": 0
-    },
-    {
-      "interactionId": "base:interaction:hoenn/littleroot_town/sign_littleroottown_eventscript_brendanshousesign",
-      "name": "Sign: LittlerootTown_EventScript_BrendansHouseSign",
-      "x": 112,
-      "y": 128,
-      "width": 16,
-      "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LittlerootTown_EventScript_BrendansHouseSign.csx",
-      "elevation": 3
-    },
-    {
-      "interactionId": "base:interaction:hoenn/littleroot_town/sign_littleroottown_eventscript_mayshousesign",
-      "name": "Sign: LittlerootTown_EventScript_MaysHouseSign",
-      "x": 192,
-      "y": 128,
-      "width": 16,
-      "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/LittlerootTown_EventScript_MaysHouseSign.csx",
+      "triggerScript": "base:script:hoenn/Triggers/LittlerootTown_EventScript_GiveRunningShoesTrigger1",
       "elevation": 3
     }
   ],
@@ -290,7 +248,7 @@
         "rangeX": 1,
         "rangeY": 2
       },
-      "interactionScript": "base:behavior:interaction/littleroot_town_event_script_twin",
+      "interactionId": "base:script:interaction/littleroot_town_event_script_twin",
       "visibilityFlag": null,
       "direction": null,
       "elevation": 3
@@ -306,7 +264,7 @@
         "rangeX": 2,
         "rangeY": 1
       },
-      "interactionScript": "base:behavior:interaction/littleroot_town_event_script_fat_man",
+      "interactionId": "base:script:interaction/littleroot_town_event_script_fat_man",
       "visibilityFlag": "base:flag:visibility/littleroot_town_fat_man",
       "direction": null,
       "elevation": 3
@@ -322,7 +280,7 @@
         "rangeX": 2,
         "rangeY": 1
       },
-      "interactionScript": "base:behavior:interaction/littleroot_town_event_script_boy",
+      "interactionId": "base:script:interaction/littleroot_town_event_script_boy",
       "visibilityFlag": null,
       "direction": null,
       "elevation": 3
@@ -334,7 +292,7 @@
       "y": 128,
       "spriteId": "base:sprite:npcs/generic/mom",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/littleroot_town_event_script_mom",
+      "interactionId": "base:script:interaction/littleroot_town_event_script_mom",
       "visibilityFlag": "base:flag:visibility/littleroot_town_mom_outside",
       "direction": "up",
       "elevation": 3
@@ -346,7 +304,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/truck",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_brendans_house_truck",
       "direction": "right",
       "elevation": 4
@@ -358,7 +316,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/truck",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_mays_house_truck",
       "direction": "right",
       "elevation": 4
@@ -370,7 +328,7 @@
       "y": 160,
       "spriteId": "{base:sprite:npcs/generic/var_rival}",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_rival",
       "direction": "up",
       "elevation": 3
@@ -382,7 +340,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/prof_birch",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/littleroot_town_birch",
       "direction": "up",
       "elevation": 3

@@ -106,7 +106,7 @@
       "y": 688,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Underwater_SealedChamber_EventScript_Braille.csx",
+      "interactionId": "base:script:hoenn/Interactions/Underwater_SealedChamber_EventScript_Braille",
       "elevation": 0
     }
   ],

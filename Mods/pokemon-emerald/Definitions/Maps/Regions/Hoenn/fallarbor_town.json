@@ -163,7 +163,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -173,7 +173,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -183,7 +183,7 @@
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/FallarborTown_EventScript_BattleTentSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/FallarborTown_EventScript_BattleTentSign",
       "elevation": 0
     },
     {
@@ -193,7 +193,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -203,7 +203,7 @@
       "y": 176,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/FallarborTown_EventScript_TownSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/FallarborTown_EventScript_TownSign",
       "elevation": 0
     },
     {
@@ -213,7 +213,7 @@
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -223,7 +223,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/FallarborTown_EventScript_MoveTutorSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/FallarborTown_EventScript_MoveTutorSign",
       "elevation": 0
     }
   ],
@@ -235,7 +235,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/girl_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/fallarbor_town_event_script_girl",
+      "interactionId": "base:behavior:interaction/fallarbor_town_event_script_girl",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -249,7 +249,7 @@
       "y": 144,
       "spriteId": "base:sprite:npcs/generic/expert_m",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/fallarbor_town_event_script_expert_m",
+      "interactionId": "base:behavior:interaction/fallarbor_town_event_script_expert_m",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -263,7 +263,7 @@
       "y": 240,
       "spriteId": "base:sprite:npcs/generic/gentleman",
       "behaviorId": "base:behavior:movement/wander_vertical",
-      "interactionScript": "base:behavior:interaction/fallarbor_town_event_script_gentleman",
+      "interactionId": "base:behavior:interaction/fallarbor_town_event_script_gentleman",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -277,7 +277,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/azurill",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/fallarbor_town_event_script_azurill",
+      "interactionId": "base:behavior:interaction/fallarbor_town_event_script_azurill",
       "visibilityFlag": "base:flag:visibility/fallarbor_azurill",
       "direction": null,
       "rangeX": 0,

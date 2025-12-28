@@ -107,7 +107,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/steven",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/meteor_falls_stevens_cave_event_script_steven",
+      "interactionId": "base:behavior:interaction/meteor_falls_stevens_cave_event_script_steven",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,

@@ -187,7 +187,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -197,7 +197,7 @@
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_TownSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_TownSign",
       "elevation": 0
     },
     {
@@ -207,7 +207,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -217,7 +217,7 @@
       "y": 224,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_WandasHouseSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_WandasHouseSign",
       "elevation": 0
     },
     {
@@ -227,7 +227,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemartSign",
       "elevation": 0
     },
     {
@@ -237,7 +237,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/Common_EventScript_ShowPokemonCenterSign",
       "elevation": 0
     },
     {
@@ -247,7 +247,7 @@
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_BattleTentSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_BattleTentSign",
       "elevation": 0
     },
     {
@@ -257,7 +257,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_RusturfTunnelSign.csx",
+      "interactionId": "base:script:hoenn/Interactions/VerdanturfTown_EventScript_RusturfTunnelSign",
       "elevation": 0
     }
   ],
@@ -269,7 +269,7 @@
       "y": 272,
       "spriteId": "base:sprite:npcs/generic/man_2",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/verdanturf_town_event_script_man",
+      "interactionId": "base:behavior:interaction/verdanturf_town_event_script_man",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -283,7 +283,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/twin",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/verdanturf_town_event_script_twin",
+      "interactionId": "base:behavior:interaction/verdanturf_town_event_script_twin",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -297,7 +297,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/boy_1",
       "behaviorId": "base:behavior:movement/wander_vertical",
-      "interactionScript": "base:behavior:interaction/verdanturf_town_event_script_boy",
+      "interactionId": "base:behavior:interaction/verdanturf_town_event_script_boy",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -311,7 +311,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/camper",
       "behaviorId": "base:behavior:movement/wander_horizontal",
-      "interactionScript": "base:behavior:interaction/verdanturf_town_event_script_camper",
+      "interactionId": "base:behavior:interaction/verdanturf_town_event_script_camper",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,

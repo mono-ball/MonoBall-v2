@@ -107,7 +107,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/SkyPillar_Top_EventScript_AwakenRayquaza.csx",
+      "triggerScript": "base:script:hoenn/Triggers/SkyPillar_Top_EventScript_AwakenRayquaza",
       "elevation": 3
     }
   ],
@@ -120,7 +120,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/rayquaza",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/sky_pillar_top_rayquaza",
       "direction": "down",
       "rangeX": 0,
@@ -134,7 +134,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/rayquaza_still",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/sky_pillar_top_event_script_rayquaza",
+      "interactionId": "base:behavior:interaction/sky_pillar_top_event_script_rayquaza",
       "visibilityFlag": "base:flag:visibility/sky_pillar_top_rayquaza_still",
       "direction": "down",
       "rangeX": 0,

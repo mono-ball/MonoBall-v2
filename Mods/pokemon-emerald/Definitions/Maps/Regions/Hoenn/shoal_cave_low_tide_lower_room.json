@@ -142,7 +142,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/ShoalCave_LowTideLowerRoom_EventScript_ShoalSalt4.csx",
+      "interactionId": "base:script:hoenn/Interactions/ShoalCave_LowTideLowerRoom_EventScript_ShoalSalt4",
       "elevation": 3
     }
   ],
@@ -154,7 +154,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/pushable_boulder",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/event_script_strength_boulder",
+      "interactionId": "base:behavior:interaction/event_script_strength_boulder",
       "visibilityFlag": "base:flag:temporary/11",
       "direction": null,
       "rangeX": 0,
@@ -168,7 +168,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/black_belt",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/shoal_cave_low_tide_lower_room_event_script_black_belt",
+      "interactionId": "base:behavior:interaction/shoal_cave_low_tide_lower_room_event_script_black_belt",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,

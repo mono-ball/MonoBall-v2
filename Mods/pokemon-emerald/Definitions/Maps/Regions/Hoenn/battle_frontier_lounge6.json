@@ -107,7 +107,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/beauty",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_lounge6_event_script_trader",
+      "interactionId": "base:behavior:interaction/battle_frontier_lounge6_event_script_trader",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,

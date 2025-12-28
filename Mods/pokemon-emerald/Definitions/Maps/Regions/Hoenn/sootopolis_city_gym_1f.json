@@ -130,7 +130,7 @@
       "y": 384,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SootopolisCity_Gym_1F_EventScript_LeftGymStatue.csx",
+      "interactionId": "base:script:hoenn/Interactions/SootopolisCity_Gym_1F_EventScript_LeftGymStatue",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 384,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SootopolisCity_Gym_1F_EventScript_RightGymStatue.csx",
+      "interactionId": "base:script:hoenn/Interactions/SootopolisCity_Gym_1F_EventScript_RightGymStatue",
       "elevation": 0
     }
   ],
@@ -152,7 +152,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/gym_leaders/juan",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/sootopolis_city_gym_1f_event_script_juan",
+      "interactionId": "base:behavior:interaction/sootopolis_city_gym_1f_event_script_juan",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -166,7 +166,7 @@
       "y": 384,
       "spriteId": "base:sprite:npcs/generic/man_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/sootopolis_city_gym_1f_event_script_gym_guide",
+      "interactionId": "base:behavior:interaction/sootopolis_city_gym_1f_event_script_gym_guide",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

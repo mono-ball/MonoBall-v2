@@ -118,7 +118,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MauvilleCity_BikeShop_EventScript_MachBikeHandbook.csx",
+      "interactionId": "base:script:hoenn/Interactions/MauvilleCity_BikeShop_EventScript_MachBikeHandbook",
       "elevation": 0
     },
     {
@@ -128,7 +128,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/MauvilleCity_BikeShop_EventScript_AcroBikeHandbook.csx",
+      "interactionId": "base:script:hoenn/Interactions/MauvilleCity_BikeShop_EventScript_AcroBikeHandbook",
       "elevation": 0
     }
   ],
@@ -140,7 +140,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/man_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mauville_city_bike_shop_event_script_rydel",
+      "interactionId": "base:behavior:interaction/mauville_city_bike_shop_event_script_rydel",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -154,7 +154,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/generic/man_5",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/mauville_city_bike_shop_event_script_assistant",
+      "interactionId": "base:behavior:interaction/mauville_city_bike_shop_event_script_assistant",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,

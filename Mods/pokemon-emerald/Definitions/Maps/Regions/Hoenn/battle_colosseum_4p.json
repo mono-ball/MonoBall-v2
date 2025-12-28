@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot0",
       "elevation": 3
     },
     {
@@ -106,7 +106,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot2",
       "elevation": 3
     },
     {
@@ -118,7 +118,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot1",
       "elevation": 3
     },
     {
@@ -130,7 +130,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_BattleColosseum_4P_PlayerSpot3",
       "elevation": 3
     }
   ],

@@ -131,7 +131,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MT_PYRE_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_TeamAquaTrigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_TeamAquaTrigger0",
       "elevation": 3
     },
     {
@@ -143,7 +143,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MT_PYRE_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_TeamAquaTrigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_TeamAquaTrigger1",
       "elevation": 3
     },
     {
@@ -155,7 +155,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MT_PYRE_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_TeamAquaTrigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_TeamAquaTrigger2",
       "elevation": 3
     },
     {
@@ -167,7 +167,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MT_PYRE_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_ArchieMaxieTrigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_ArchieMaxieTrigger0",
       "elevation": 3
     },
     {
@@ -179,7 +179,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MT_PYRE_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_ArchieMaxieTrigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_ArchieMaxieTrigger1",
       "elevation": 3
     },
     {
@@ -191,7 +191,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_MT_PYRE_STATE",
       "value": 2,
-      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_ArchieMaxieTrigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/MtPyre_Summit_EventScript_ArchieMaxieTrigger2",
       "elevation": 3
     }
   ],
@@ -204,7 +204,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/old_man",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mt_pyre_summit_event_script_old_man",
+      "interactionId": "base:behavior:interaction/mt_pyre_summit_event_script_old_man",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -218,7 +218,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/team_aqua/archie",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mt_pyre_summit_archie",
       "direction": "up",
       "rangeX": 0,
@@ -232,7 +232,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/expert_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mt_pyre_summit_event_script_old_lady",
+      "interactionId": "base:behavior:interaction/mt_pyre_summit_event_script_old_lady",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -246,7 +246,7 @@
       "y": 240,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mt_pyre_summit_event_script_grunt1",
+      "interactionId": "base:behavior:interaction/mt_pyre_summit_event_script_grunt1",
       "visibilityFlag": "base:flag:visibility/mt_pyre_summit_team_aqua",
       "direction": "right",
       "rangeX": 0,
@@ -260,7 +260,7 @@
       "y": 288,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mt_pyre_summit_event_script_grunt2",
+      "interactionId": "base:behavior:interaction/mt_pyre_summit_event_script_grunt2",
       "visibilityFlag": "base:flag:visibility/mt_pyre_summit_team_aqua",
       "direction": "left",
       "rangeX": 0,
@@ -274,7 +274,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mt_pyre_summit_event_script_grunt3",
+      "interactionId": "base:behavior:interaction/mt_pyre_summit_event_script_grunt3",
       "visibilityFlag": "base:flag:visibility/mt_pyre_summit_team_aqua",
       "direction": "right",
       "rangeX": 0,
@@ -288,7 +288,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/team_aqua/aqua_member_f",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/mt_pyre_summit_event_script_grunt4",
+      "interactionId": "base:behavior:interaction/mt_pyre_summit_event_script_grunt4",
       "visibilityFlag": "base:flag:visibility/mt_pyre_summit_team_aqua",
       "direction": "left",
       "rangeX": 0,
@@ -302,7 +302,7 @@
       "y": 96,
       "spriteId": "base:sprite:npcs/team_magma/maxie",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/mt_pyre_summit_maxie",
       "direction": "up",
       "rangeX": 0,

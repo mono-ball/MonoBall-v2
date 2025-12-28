@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot0",
       "elevation": 3
     },
     {
@@ -106,7 +106,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot2",
       "elevation": 3
     },
     {
@@ -118,7 +118,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot1",
       "elevation": 3
     },
     {
@@ -130,7 +130,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_0",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/EventScript_RecordCenter_Spot3",
       "elevation": 3
     }
   ],
@@ -143,7 +143,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/link_receptionist",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/record_corner_event_script_attendant",
+      "interactionId": "base:behavior:interaction/record_corner_event_script_attendant",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

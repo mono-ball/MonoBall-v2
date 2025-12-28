@@ -106,7 +106,7 @@
       "y": 80,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay",
       "elevation": 3
     },
     {
@@ -116,7 +116,7 @@
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay.csx",
+      "interactionId": "base:script:hoenn/Interactions/RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay",
       "elevation": 3
     }
   ],
@@ -128,7 +128,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/gentleman",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/rustboro_city_devon_corp_3f_event_script_mr_stone",
+      "interactionId": "base:behavior:interaction/rustboro_city_devon_corp_3f_event_script_mr_stone",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -142,7 +142,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/man_2",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/rustboro_city_devon_corp_3f_event_script_employee",
+      "interactionId": "base:behavior:interaction/rustboro_city_devon_corp_3f_event_script_employee",
       "visibilityFlag": "base:flag:visibility/rustboro_city_devon_corp_3f_employee",
       "direction": "right",
       "rangeX": 0,
@@ -156,7 +156,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/gentleman",
       "behaviorId": "base:behavior:movement/hidden",
-      "interactionScript": "base:behavior:interaction/rustboro_city_devon_corp_3f_event_script_mr_stone",
+      "interactionId": "base:behavior:interaction/rustboro_city_devon_corp_3f_event_script_mr_stone",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,

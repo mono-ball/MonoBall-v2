@@ -131,7 +131,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger0",
       "elevation": 3
     },
     {
@@ -143,7 +143,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger1",
       "elevation": 3
     },
     {
@@ -155,7 +155,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger2",
       "elevation": 3
     },
     {
@@ -167,7 +167,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger3",
       "elevation": 3
     },
     {
@@ -179,7 +179,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger0",
       "elevation": 3
     },
     {
@@ -191,7 +191,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger1",
       "elevation": 3
     },
     {
@@ -203,7 +203,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger0",
       "elevation": 3
     },
     {
@@ -215,7 +215,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger1",
       "elevation": 3
     },
     {
@@ -227,7 +227,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger2",
       "elevation": 3
     },
     {
@@ -239,7 +239,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_4",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger0",
       "elevation": 3
     },
     {
@@ -251,7 +251,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_4",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger1.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger1",
       "elevation": 3
     },
     {
@@ -263,7 +263,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_5",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll5Trigger0.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll5Trigger0",
       "elevation": 3
     },
     {
@@ -275,7 +275,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger4.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll1Trigger4",
       "elevation": 3
     },
     {
@@ -287,7 +287,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger2",
       "elevation": 3
     },
     {
@@ -299,7 +299,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger3",
       "elevation": 3
     },
     {
@@ -311,7 +311,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger4.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger4",
       "elevation": 3
     },
     {
@@ -323,7 +323,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger5.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll2Trigger5",
       "elevation": 3
     },
     {
@@ -335,7 +335,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger3",
       "elevation": 3
     },
     {
@@ -347,7 +347,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger4.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll3Trigger4",
       "elevation": 3
     },
     {
@@ -359,7 +359,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_4",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger2.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger2",
       "elevation": 3
     },
     {
@@ -371,7 +371,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_4",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger3.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger3",
       "elevation": 3
     },
     {
@@ -383,7 +383,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_4",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger4.csx",
+      "triggerScript": "base:script:hoenn/Triggers/Route110_TrickHousePuzzle5_EventScript_Mechadoll4Trigger4",
       "elevation": 3
     }
   ],
@@ -395,7 +395,7 @@
       "y": 336,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/Route110_TrickHousePuzzle5_EventScript_Scroll.csx",
+      "interactionId": "base:script:hoenn/Interactions/Route110_TrickHousePuzzle5_EventScript_Scroll",
       "elevation": 0
     }
   ],
@@ -407,7 +407,7 @@
       "y": 272,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll1",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll1",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -421,7 +421,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll2",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll2",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,
@@ -435,7 +435,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll3",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll3",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -449,7 +449,7 @@
       "y": 304,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll4",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll4",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -463,7 +463,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/man_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll5",
+      "interactionId": "base:behavior:interaction/route110_trick_house_puzzle5_event_script_mechadoll5",
       "visibilityFlag": null,
       "direction": "right",
       "rangeX": 0,

@@ -107,7 +107,7 @@
       "y": 80,
       "spriteId": "base:sprite:npcs/generic/item_ball",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/scorched_slab_event_script_item_tm_sunny_day",
+      "interactionId": "base:behavior:interaction/scorched_slab_event_script_item_tm_sunny_day",
       "visibilityFlag": "base:flag:item/scorched_slab_tm_sunny_day",
       "direction": null,
       "rangeX": 0,

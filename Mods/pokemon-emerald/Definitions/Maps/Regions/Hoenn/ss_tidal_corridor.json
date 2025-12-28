@@ -202,7 +202,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -212,7 +212,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -222,7 +222,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -232,7 +232,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -242,7 +242,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -252,7 +252,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -262,7 +262,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -272,7 +272,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Porthole",
       "elevation": 0
     },
     {
@@ -282,7 +282,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin1Sign.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin1Sign",
       "elevation": 0
     },
     {
@@ -292,7 +292,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin2Sign.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin2Sign",
       "elevation": 0
     },
     {
@@ -302,7 +302,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin3Sign.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin3Sign",
       "elevation": 0
     },
     {
@@ -312,7 +312,7 @@
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin4Sign.csx",
+      "interactionId": "base:script:hoenn/Interactions/SSTidalCorridor_EventScript_Cabin4Sign",
       "elevation": 0
     }
   ],
@@ -324,7 +324,7 @@
       "y": 176,
       "spriteId": "base:sprite:npcs/generic/sailor",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/ss_tidal_corridor_event_script_exit_sailor",
+      "interactionId": "base:behavior:interaction/ss_tidal_corridor_event_script_exit_sailor",
       "visibilityFlag": null,
       "direction": "up",
       "rangeX": 0,
@@ -338,7 +338,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/sailor",
       "behaviorId": "base:behavior:movement/wander_vertical",
-      "interactionScript": "base:behavior:interaction/ss_tidal_corridor_event_script_sailor",
+      "interactionId": "base:behavior:interaction/ss_tidal_corridor_event_script_sailor",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 0,
@@ -352,7 +352,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/expert_m",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/ss_tidal_corridor_event_script_briney",
+      "interactionId": "base:behavior:interaction/ss_tidal_corridor_event_script_briney",
       "visibilityFlag": "base:flag:visibility/ss_tidal_corridor_mr_briney",
       "direction": "down",
       "rangeX": 0,
@@ -366,7 +366,7 @@
       "y": 32,
       "spriteId": "base:sprite:npcs/generic/wingull",
       "behaviorId": "base:behavior:movement/look_around",
-      "interactionScript": "base:behavior:interaction/ss_tidal_corridor_event_script_peeko",
+      "interactionId": "base:behavior:interaction/ss_tidal_corridor_event_script_peeko",
       "visibilityFlag": "base:flag:visibility/ss_tidal_corridor_mr_briney",
       "direction": null,
       "rangeX": 0,
@@ -380,7 +380,7 @@
       "y": 160,
       "spriteId": "base:sprite:npcs/generic/scott",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": null,
+      "interactionId": null,
       "visibilityFlag": "base:flag:visibility/ss_tidal_corridor_scott",
       "direction": "left",
       "rangeX": 0,

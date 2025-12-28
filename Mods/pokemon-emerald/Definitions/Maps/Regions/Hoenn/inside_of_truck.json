@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_INTRO_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/InsideOfTruck_EventScript_SetIntroFlags.csx",
+      "triggerScript": "base:script:hoenn/Triggers/InsideOfTruck_EventScript_SetIntroFlags",
       "elevation": 3
     },
     {
@@ -106,7 +106,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_INTRO_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/InsideOfTruck_EventScript_SetIntroFlags.csx",
+      "triggerScript": "base:script:hoenn/Triggers/InsideOfTruck_EventScript_SetIntroFlags",
       "elevation": 3
     },
     {
@@ -118,7 +118,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_LITTLEROOT_INTRO_STATE",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/InsideOfTruck_EventScript_SetIntroFlags.csx",
+      "triggerScript": "base:script:hoenn/Triggers/InsideOfTruck_EventScript_SetIntroFlags",
       "elevation": 3
     }
   ],
@@ -130,7 +130,7 @@
       "y": 0,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox.csx",
+      "interactionId": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox.csx",
+      "interactionId": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox.csx",
+      "interactionId": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox",
       "elevation": 0
     },
     {
@@ -160,7 +160,7 @@
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox.csx",
+      "interactionId": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox",
       "elevation": 0
     },
     {
@@ -170,7 +170,7 @@
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox.csx",
+      "interactionId": "base:script:hoenn/Interactions/InsideOfTruck_EventScript_MovingBox",
       "elevation": 0
     }
   ],
@@ -182,7 +182,7 @@
       "y": 0,
       "spriteId": "base:sprite:npcs/generic/moving_box",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/inside_of_truck_event_script_moving_box",
+      "interactionId": "base:behavior:interaction/inside_of_truck_event_script_moving_box",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -196,7 +196,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/moving_box",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/inside_of_truck_event_script_moving_box",
+      "interactionId": "base:behavior:interaction/inside_of_truck_event_script_moving_box",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -210,7 +210,7 @@
       "y": 48,
       "spriteId": "base:sprite:npcs/generic/moving_box",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/inside_of_truck_event_script_moving_box",
+      "interactionId": "base:behavior:interaction/inside_of_truck_event_script_moving_box",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

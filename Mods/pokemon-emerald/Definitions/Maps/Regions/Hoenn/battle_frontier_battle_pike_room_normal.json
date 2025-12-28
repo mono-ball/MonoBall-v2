@@ -94,7 +94,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_1",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_Exit.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_Exit",
       "elevation": 3
     },
     {
@@ -106,7 +106,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -118,7 +118,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_NoTurningBack",
       "elevation": 3
     },
     {
@@ -130,7 +130,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -142,7 +142,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_2",
       "value": 0,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_SetEnteredRoom.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_SetEnteredRoom",
       "elevation": 3
     },
     {
@@ -154,7 +154,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_NoTurningBack",
       "elevation": 3
     },
     {
@@ -166,7 +166,7 @@
       "height": 16,
       "variable": "base:variable:hoenn/VAR_TEMP_3",
       "value": 1,
-      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_NoTurningBack.csx",
+      "triggerScript": "base:script:hoenn/Triggers/BattleFrontier_BattlePikeRoomNormal_EventScript_NoTurningBack",
       "elevation": 3
     }
   ],
@@ -179,7 +179,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/var_0",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pike_room_normal_event_script_npc",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pike_room_normal_event_script_npc",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -193,7 +193,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/var_1",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pike_room_normal_event_script_status_mon",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pike_room_normal_event_script_status_mon",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,

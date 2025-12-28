@@ -57,8 +57,13 @@ namespace MonoBall.Core.Scripting.Services
 
             // Load entity-attached scripts from definitions
             var scriptDefinitionIds = _registry.GetByType("Script");
+            _logger.Debug(
+                "Found {Count} script definitions to preload",
+                scriptDefinitionIds.Count()
+            );
             foreach (var scriptDefId in scriptDefinitionIds)
             {
+                _logger.Debug("Preloading script definition: {ScriptId}", scriptDefId);
                 var scriptDef = _registry.GetById<ScriptDefinition>(scriptDefId);
                 if (scriptDef == null)
                 {
@@ -96,8 +101,14 @@ namespace MonoBall.Core.Scripting.Services
         /// <returns>A new script instance, or null if not found or creation failed.</returns>
         public ScriptBase? CreateScriptInstance(string definitionId)
         {
+            _logger.Debug("CreateScriptInstance called for {DefinitionId}", definitionId);
             if (!_compiledScriptTypes.TryGetValue(definitionId, out var scriptType))
             {
+                _logger.Warning(
+                    "Script type not found in cache for {DefinitionId}. Available scripts: {AvailableScripts}",
+                    definitionId,
+                    string.Join(", ", _compiledScriptTypes.Keys)
+                );
                 _logger.Warning(
                     "Script type not found for definition: {DefinitionId}",
                     definitionId
@@ -277,6 +288,14 @@ namespace MonoBall.Core.Scripting.Services
             {
                 _compiledScriptTypes[scriptDef.Id] = compiledType;
                 _logger.Debug("Cached script type for definition: {ScriptId}", scriptDef.Id);
+            }
+            else
+            {
+                _logger.Warning(
+                    "Failed to compile script for definition {ScriptId} from path {ScriptPath}",
+                    scriptDef.Id,
+                    scriptFilePath
+                );
             }
         }
 

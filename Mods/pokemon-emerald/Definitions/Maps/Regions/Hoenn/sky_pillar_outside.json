@@ -119,7 +119,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/wallace",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/sky_pillar_outside_event_script_wallace",
+      "interactionId": "base:behavior:interaction/sky_pillar_outside_event_script_wallace",
       "visibilityFlag": "base:flag:visibility/sky_pillar_wallace",
       "direction": "down",
       "rangeX": 0,

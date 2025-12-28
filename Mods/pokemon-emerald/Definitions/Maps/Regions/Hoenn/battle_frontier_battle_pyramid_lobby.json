@@ -106,7 +106,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattlePyramidLobby_EventScript_ShowResults.csx",
+      "interactionId": "base:script:hoenn/Interactions/BattleFrontier_BattlePyramidLobby_EventScript_ShowResults",
       "elevation": 0
     },
     {
@@ -116,7 +116,7 @@
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/BattleFrontier_BattlePyramidLobby_EventScript_RulesBoard.csx",
+      "interactionId": "base:script:hoenn/Interactions/BattleFrontier_BattlePyramidLobby_EventScript_RulesBoard",
       "elevation": 0
     }
   ],
@@ -128,7 +128,7 @@
       "y": 192,
       "spriteId": "base:sprite:npcs/generic/hiker",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_attendant",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_attendant",
       "visibilityFlag": null,
       "direction": "down",
       "rangeX": 0,
@@ -142,7 +142,7 @@
       "y": 208,
       "spriteId": "base:sprite:npcs/generic/hex_maniac",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_hint_giver",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_hint_giver",
       "visibilityFlag": null,
       "direction": "left",
       "rangeX": 0,
@@ -156,7 +156,7 @@
       "y": 240,
       "spriteId": "base:sprite:npcs/generic/woman_3",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_woman",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_woman",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,
@@ -170,7 +170,7 @@
       "y": 256,
       "spriteId": "base:sprite:npcs/generic/fat_man",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_fat_man",
+      "interactionId": "base:behavior:interaction/battle_frontier_battle_pyramid_lobby_event_script_fat_man",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,

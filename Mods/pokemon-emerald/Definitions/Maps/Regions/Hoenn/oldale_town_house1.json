@@ -119,7 +119,7 @@
       "y": 64,
       "spriteId": "base:sprite:npcs/generic/woman_2",
       "behaviorId": "base:behavior:movement/wander",
-      "interactionScript": "base:behavior:interaction/oldale_town_house1_event_script_woman",
+      "interactionId": "base:behavior:interaction/oldale_town_house1_event_script_woman",
       "visibilityFlag": null,
       "direction": null,
       "rangeX": 1,

@@ -130,7 +130,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AncientTomb_EventScript_CaveEntranceMiddle.csx",
+      "interactionId": "base:script:hoenn/Interactions/AncientTomb_EventScript_CaveEntranceMiddle",
       "elevation": 0
     },
     {
@@ -140,7 +140,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AncientTomb_EventScript_CaveEntranceSide.csx",
+      "interactionId": "base:script:hoenn/Interactions/AncientTomb_EventScript_CaveEntranceSide",
       "elevation": 0
     },
     {
@@ -150,7 +150,7 @@
       "y": 320,
       "width": 16,
       "height": 16,
-      "interactionScript": "base:script:hoenn/Interactions/AncientTomb_EventScript_CaveEntranceSide.csx",
+      "interactionId": "base:script:hoenn/Interactions/AncientTomb_EventScript_CaveEntranceSide",
       "elevation": 0
     }
   ],
@@ -162,7 +162,7 @@
       "y": 112,
       "spriteId": "base:sprite:npcs/generic/registeel",
       "behaviorId": "base:behavior:movement/stationary",
-      "interactionScript": "base:behavior:interaction/ancient_tomb_event_script_registeel",
+      "interactionId": "base:behavior:interaction/ancient_tomb_event_script_registeel",
       "visibilityFlag": "base:flag:visibility/registeel",
       "direction": "down",
       "rangeX": 0,

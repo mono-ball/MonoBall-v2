@@ -570,6 +570,11 @@ namespace MonoBall.Core.Scenes.Systems
                     {
                         _sceneManager.DestroyScene(entity);
                         _logger.Debug("Destroyed message box scene {SceneId}", entity.Id);
+
+                        // Fire MessageBoxClosedEvent after scene is destroyed
+                        // This event is used by InteractionSystem to resume behavior scripts
+                        var closedEvent = new MessageBoxClosedEvent { MessageBoxEntity = entity };
+                        EventBus.Send(ref closedEvent);
                     }
                     else
                     {
