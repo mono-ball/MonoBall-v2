@@ -11,6 +11,7 @@ using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -22,7 +23,7 @@ namespace MonoBall.Core.ECS.Systems
     public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly ICameraService _cameraService;
-        private readonly ISpriteLoaderService _spriteLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly IModManager? _modManager;
         private readonly ILogger _logger;
         private readonly IConstantsService _constants;
@@ -40,14 +41,14 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="cameraService">The camera service for getting camera position.</param>
-        /// <param name="spriteLoader">The sprite loader service for validating sprite sheets.</param>
+        /// <param name="resourceManager">The resource manager for validating sprite sheets.</param>
         /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
         /// <param name="logger">The logger for logging operations.</param>
         /// <param name="constants">The constants service for accessing game constants. Required.</param>
         public PlayerSystem(
             World world,
             ICameraService cameraService,
-            ISpriteLoaderService spriteLoader,
+            IResourceManager resourceManager,
             IModManager? modManager = null,
             ILogger? logger = null,
             IConstantsService? constants = null
@@ -56,7 +57,8 @@ namespace MonoBall.Core.ECS.Systems
         {
             _cameraService =
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
-            _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _modManager = modManager;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
@@ -200,7 +202,7 @@ namespace MonoBall.Core.ECS.Systems
             // Note: Player creation uses strict validation (throws on invalid) because player is critical
             // This differs from NPC creation which uses forgiving validation (logs warning, uses default)
             SpriteValidationHelper.ValidateSpriteAndAnimation(
-                _spriteLoader,
+                _resourceManager,
                 _logger,
                 initialSpriteSheetId,
                 initialAnimation,

@@ -16,6 +16,7 @@ using MonoBall.Core.Logging;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Events;
 using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.TextEffects;
@@ -32,10 +33,9 @@ namespace MonoBall.Core.ECS
         private readonly World _world;
         private readonly GraphicsDevice _graphicsDevice;
         private readonly IModManager _modManager;
-        private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly Game _game;
         private readonly ILogger _logger;
-        private ISpriteLoaderService _spriteLoader = null!; // Initialized in Initialize()
         private ICameraService _cameraService = null!; // Initialized in Initialize()
         private Services.IVariableSpriteResolver? _variableSpriteResolver; // Initialized in Initialize()
         private MonoBall.Core.Audio.IAudioEngine _audioEngine = null!; // Initialized in Initialize()
@@ -97,14 +97,14 @@ namespace MonoBall.Core.ECS
         /// <param name="world">The ECS world.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="modManager">The mod manager.</param>
-        /// <param name="tilesetLoader">The tileset loader service.</param>
+        /// <param name="resourceManager">The resource manager service.</param>
         /// <param name="game">The game instance for accessing services.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public SystemManager(
             World world,
             GraphicsDevice graphicsDevice,
             IModManager modManager,
-            ITilesetLoaderService tilesetLoader,
+            Resources.IResourceManager resourceManager,
             Game game,
             ILogger logger
         )
@@ -113,8 +113,8 @@ namespace MonoBall.Core.ECS
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
-            _tilesetLoader =
-                tilesetLoader ?? throw new ArgumentNullException(nameof(tilesetLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _game = game ?? throw new ArgumentNullException(nameof(game));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
@@ -333,15 +333,7 @@ namespace MonoBall.Core.ECS
             EventBus.Subscribe<ScenePausedEvent>(OnScenePaused);
             EventBus.Subscribe<SceneResumedEvent>(OnSceneResumed);
 
-            // Get FontService from Game.Services (needed for scene systems)
-            var fontService = _game.Services.GetService<Rendering.FontService>();
-            if (fontService == null)
-            {
-                throw new InvalidOperationException(
-                    "FontService is not available in Game.Services. "
-                        + "Ensure GameServices.Initialize() was called and mods were loaded successfully."
-                );
-            }
+            // ResourceManager is already available from constructor (no need to get FontService)
 
             // Get ConstantsService from Game.Services (needed for scene systems)
             // Use helper method for consistency
@@ -434,13 +426,19 @@ namespace MonoBall.Core.ECS
                 LoggerFactory.CreateLogger<Services.VariableSpriteResolver>()
             );
 
-            // Create services
-            _spriteLoader = new SpriteLoaderService(
-                _graphicsDevice,
-                _modManager,
-                _variableSpriteResolver,
-                LoggerFactory.CreateLogger<SpriteLoaderService>()
-            );
+            // Get ResourceManager from Game.Services (should already be registered)
+            var resourceManager = _game.Services.GetService<Resources.IResourceManager>();
+            if (resourceManager == null)
+            {
+                throw new InvalidOperationException(
+                    "IResourceManager is not available in Game.Services. "
+                        + "Ensure ResourceManager was created and registered before SystemManager initialization."
+                );
+            }
+
+            // Note: ResourceManager is passed via constructor, but we also need it from Game.Services
+            // for systems that access it directly. The constructor parameter is the primary source.
+
             _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
 
             // Create active map filter service (used by multiple systems for filtering entities by active maps)
@@ -472,9 +470,11 @@ namespace MonoBall.Core.ECS
                 _modManager.Registry
             );
 
-            // Create audio engine (AudioEngine creates AudioContentLoader internally)
+            // Create audio engine (AudioEngine needs ResourceManager)
+            // Use the ResourceManager passed to constructor
             _audioEngine = new Audio.AudioEngine(
                 _modManager,
+                _resourceManager,
                 LoggerFactory.CreateLogger<Audio.AudioEngine>()
             );
         }
@@ -536,8 +536,7 @@ namespace MonoBall.Core.ECS
             _mapLoaderSystem = new MapLoaderSystem(
                 _world,
                 _modManager.Registry,
-                _tilesetLoader,
-                _spriteLoader,
+                _resourceManager,
                 _flagVariableService,
                 _variableSpriteResolver,
                 LoggerFactory.CreateLogger<MapLoaderSystem>(),
@@ -583,7 +582,7 @@ namespace MonoBall.Core.ECS
             _playerSystem = new PlayerSystem(
                 _world,
                 _cameraService,
-                _spriteLoader,
+                _resourceManager,
                 _modManager,
                 LoggerFactory.CreateLogger<PlayerSystem>(),
                 constantsService // Pass ConstantsService for accessing constants
@@ -644,7 +643,7 @@ namespace MonoBall.Core.ECS
 
             _cameraSystem = new CameraSystem(
                 _world,
-                _spriteLoader,
+                _resourceManager,
                 LoggerFactory.CreateLogger<CameraSystem>()
             );
             RegisterUpdateSystem(_cameraSystem);
@@ -749,7 +748,7 @@ namespace MonoBall.Core.ECS
             _mapRendererSystem = new MapRendererSystem(
                 _world,
                 _graphicsDevice,
-                _tilesetLoader,
+                _resourceManager,
                 _cameraService,
                 LoggerFactory.CreateLogger<MapRendererSystem>(),
                 _shaderManagerSystem,
@@ -766,7 +765,7 @@ namespace MonoBall.Core.ECS
             _mapBorderRendererSystem = new MapBorderRendererSystem(
                 _world,
                 _graphicsDevice,
-                _tilesetLoader,
+                _resourceManager,
                 _cameraService,
                 _activeMapFilterService,
                 LoggerFactory.CreateLogger<MapBorderRendererSystem>()
@@ -775,7 +774,7 @@ namespace MonoBall.Core.ECS
             _spriteRendererSystem = new SpriteRendererSystem(
                 _world,
                 _graphicsDevice,
-                _spriteLoader,
+                _resourceManager,
                 _cameraService,
                 LoggerFactory.CreateLogger<SpriteRendererSystem>(),
                 _shaderManagerSystem,
@@ -794,7 +793,7 @@ namespace MonoBall.Core.ECS
             // Create animated tile system
             _animatedTileSystem = new AnimatedTileSystem(
                 _world,
-                _tilesetLoader,
+                _resourceManager,
                 LoggerFactory.CreateLogger<AnimatedTileSystem>()
             );
             RegisterUpdateSystem(_animatedTileSystem);
@@ -802,7 +801,7 @@ namespace MonoBall.Core.ECS
             // Create sprite animation system
             _spriteAnimationSystem = new SpriteAnimationSystem(
                 _world,
-                _spriteLoader,
+                _resourceManager,
                 LoggerFactory.CreateLogger<SpriteAnimationSystem>()
             );
             RegisterUpdateSystem(_spriteAnimationSystem);
@@ -810,7 +809,7 @@ namespace MonoBall.Core.ECS
             // Create sprite sheet system
             _spriteSheetSystem = new SpriteSheetSystem(
                 _world,
-                _spriteLoader,
+                _resourceManager,
                 LoggerFactory.CreateLogger<SpriteSheetSystem>()
             );
             RegisterUpdateSystem(_spriteSheetSystem);
@@ -901,15 +900,7 @@ namespace MonoBall.Core.ECS
             // Get ConstantsService from Game.Services (needed for scene systems)
             var constantsService = GetConstantsService();
 
-            // Get FontService from Game.Services (needed for scene systems)
-            var fontService = _game.Services.GetService<Rendering.FontService>();
-            if (fontService == null)
-            {
-                throw new InvalidOperationException(
-                    "FontService is not available in Game.Services. "
-                        + "Ensure GameServices.Initialize() was called and mods were loaded successfully."
-                );
-            }
+            // ResourceManager is already available from constructor (no need to get FontService)
 
             // Get performance stats system (needed for debug bar)
             var performanceStatsSystem = _registeredUpdateSystems
@@ -954,7 +945,7 @@ namespace MonoBall.Core.ECS
                 _world,
                 _graphicsDevice,
                 _spriteBatch,
-                fontService,
+                _resourceManager,
                 performanceStatsSystem,
                 LoggerFactory.CreateLogger<Scenes.Systems.DebugBarSceneSystem>()
             );
@@ -977,10 +968,10 @@ namespace MonoBall.Core.ECS
                 _sceneSystem, // Pass SceneSystem as ISceneManager
                 _graphicsDevice,
                 _spriteBatch,
-                fontService,
                 _modManager,
                 LoggerFactory.CreateLogger<Scenes.Systems.MapPopupSceneSystem>(),
-                constantsService // Pass ConstantsService for accessing constants
+                constantsService, // Pass ConstantsService for accessing constants
+                _resourceManager // Pass ResourceManager for loading textures and fonts
             );
 
             // Register MapPopupSceneSystem with SceneSystem (as ISceneSystem)
@@ -993,7 +984,6 @@ namespace MonoBall.Core.ECS
             var messageBoxSceneSystem = new Scenes.Systems.MessageBoxSceneSystem(
                 _world,
                 _sceneSystem, // Pass SceneSystem as ISceneManager
-                fontService,
                 _modManager,
                 _inputBindingService,
                 _flagVariableService,
@@ -1002,7 +992,8 @@ namespace MonoBall.Core.ECS
                 _spriteBatch,
                 LoggerFactory.CreateLogger<Scenes.Systems.MessageBoxSceneSystem>(),
                 constantsService, // Pass ConstantsService for accessing constants
-                textEffectCalculator // Pass TextEffectCalculator for text effects
+                textEffectCalculator, // Pass TextEffectCalculator for text effects
+                _resourceManager // Pass ResourceManager for loading textures and fonts
             );
 
             // Register MessageBoxSceneSystem with SceneSystem (as ISceneSystem)

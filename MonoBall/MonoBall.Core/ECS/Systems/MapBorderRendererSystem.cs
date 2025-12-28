@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -18,7 +19,7 @@ namespace MonoBall.Core.ECS.Systems
     public class MapBorderRendererSystem : BaseSystem<World, float>
     {
         private readonly GraphicsDevice _graphicsDevice;
-        private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly ICameraService _cameraService;
         private readonly IActiveMapFilterService _activeMapFilterService;
         private readonly ILogger _logger;
@@ -111,14 +112,14 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
-        /// <param name="tilesetLoader">The tileset loader service.</param>
+        /// <param name="resourceManager">The resource manager for loading tileset textures and definitions.</param>
         /// <param name="cameraService">The camera service.</param>
         /// <param name="activeMapFilterService">The active map filter service.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public MapBorderRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
-            ITilesetLoaderService tilesetLoader,
+            IResourceManager resourceManager,
             ICameraService cameraService,
             IActiveMapFilterService activeMapFilterService,
             ILogger logger
@@ -127,8 +128,8 @@ namespace MonoBall.Core.ECS.Systems
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
-            _tilesetLoader =
-                tilesetLoader ?? throw new ArgumentNullException(nameof(tilesetLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _cameraService =
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _activeMapFilterService =
@@ -280,10 +281,15 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get tileset texture
-            Texture2D? tilesetTexture = _tilesetLoader.GetTilesetTexture(border.Border.TilesetId);
-            if (tilesetTexture == null)
+            Texture2D tilesetTexture;
+            try
+            {
+                tilesetTexture = _resourceManager.LoadTexture(border.Border.TilesetId);
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "Tileset texture not found for border: {TilesetId}",
                     border.Border.TilesetId
                 );

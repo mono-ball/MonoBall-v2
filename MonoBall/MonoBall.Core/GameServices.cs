@@ -9,6 +9,7 @@ using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Utilities;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core
@@ -34,9 +35,9 @@ namespace MonoBall.Core
         public EcsService? EcsService { get; private set; }
 
         /// <summary>
-        /// Gets the tileset loader service. Will be null until LoadContent() is called.
+        /// Gets the resource manager. Will be null until LoadContent() is called.
         /// </summary>
-        public TilesetLoaderService? TilesetLoaderService { get; private set; }
+        public IResourceManager? ResourceManager { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether services have been initialized.
@@ -89,7 +90,7 @@ namespace MonoBall.Core
         }
 
         /// <summary>
-        /// Loads content services (tileset loader). Should be called from Game.LoadContent().
+        /// Loads content services (ResourceManager, ShaderService). Should be called from Game.LoadContent().
         /// </summary>
         public void LoadContent()
         {
@@ -99,7 +100,7 @@ namespace MonoBall.Core
                 return;
             }
 
-            if (TilesetLoaderService != null)
+            if (ResourceManager != null)
             {
                 _logger.Warning("Content services already loaded");
                 return;
@@ -109,54 +110,74 @@ namespace MonoBall.Core
 
             if (ModManager == null)
             {
-                _logger.Warning("ModManager is null, cannot create TilesetLoaderService");
+                _logger.Warning("ModManager is null, cannot create ResourceManager");
                 return;
             }
 
-            // Create tileset loader service (only if not already registered)
-            if (ModManager != null)
-            {
-                TilesetLoaderService = GameInitializationHelper.EnsureTilesetLoaderService(
-                    _game,
-                    _graphicsDevice,
-                    ModManager,
-                    _logger
-                );
-            }
-
-            // Create shader loader
-            var shaderLoader = new Rendering.ShaderLoader(
-                _graphicsDevice,
-                LoggerFactory.CreateLogger<Rendering.ShaderLoader>()
+            // Create ResourcePathResolver
+            var pathResolver = new ResourcePathResolver(
+                ModManager,
+                LoggerFactory.CreateLogger<ResourcePathResolver>()
             );
+            _game.Services.AddService(typeof(IResourcePathResolver), pathResolver);
+            _logger.Debug("ResourcePathResolver registered");
 
-            // Create shader service
-            if (ModManager == null)
-            {
-                throw new InvalidOperationException(
-                    "ModManager is null. Ensure Initialize() was called successfully."
-                );
-            }
-            var shaderService = new Rendering.ShaderService(
+            // Create ResourceManager (needed early for SystemManager)
+            ResourceManager = new ResourceManager(
                 _graphicsDevice,
                 ModManager,
-                shaderLoader,
-                LoggerFactory.CreateLogger<Rendering.ShaderService>()
+                pathResolver,
+                LoggerFactory.CreateLogger<ResourceManager>()
             );
-            _game.Services.AddService(typeof(Rendering.IShaderService), shaderService);
-            _logger.Debug("ShaderService registered");
+            _game.Services.AddService(typeof(IResourceManager), ResourceManager);
+            _logger.Debug("ResourceManager registered");
 
-            // Create shader parameter validator
-            var shaderParameterValidator = new Rendering.ShaderParameterValidator(
-                shaderService,
-                LoggerFactory.CreateLogger<Rendering.ShaderParameterValidator>(),
-                ModManager
-            );
-            _game.Services.AddService(
-                typeof(Rendering.IShaderParameterValidator),
-                shaderParameterValidator
-            );
-            _logger.Debug("ShaderParameterValidator registered");
+            // Create shader service (depends on ResourceManager) - check if already exists
+            var existingShaderService = _game.Services.GetService<Rendering.IShaderService>();
+            if (existingShaderService == null)
+            {
+                var shaderService = new Rendering.ShaderService(
+                    _graphicsDevice,
+                    ModManager,
+                    ResourceManager,
+                    LoggerFactory.CreateLogger<Rendering.ShaderService>()
+                );
+                _game.Services.AddService(typeof(Rendering.IShaderService), shaderService);
+                _logger.Debug("ShaderService registered");
+            }
+            else
+            {
+                _logger.Debug("ShaderService already exists, reusing");
+            }
+
+            // Create shader parameter validator - check if already exists
+            var existingValidator =
+                _game.Services.GetService<Rendering.IShaderParameterValidator>();
+            if (existingValidator == null)
+            {
+                var shaderService = _game.Services.GetService<Rendering.IShaderService>();
+                if (shaderService == null)
+                {
+                    throw new InvalidOperationException(
+                        "ShaderService must exist before creating ShaderParameterValidator"
+                    );
+                }
+
+                var shaderParameterValidator = new Rendering.ShaderParameterValidator(
+                    shaderService,
+                    LoggerFactory.CreateLogger<Rendering.ShaderParameterValidator>(),
+                    ModManager
+                );
+                _game.Services.AddService(
+                    typeof(Rendering.IShaderParameterValidator),
+                    shaderParameterValidator
+                );
+                _logger.Debug("ShaderParameterValidator registered");
+            }
+            else
+            {
+                _logger.Debug("ShaderParameterValidator already exists, reusing");
+            }
 
             _logger.Information("Content services loaded");
         }
@@ -174,18 +195,13 @@ namespace MonoBall.Core
                 _logger.Information("Reusing existing ModManager from Game.Services");
                 ModManager = existingModManager;
 
-                // Ensure FontService exists (should already exist from LoadModsSynchronously)
-                // Use factory method to get or create FontService (preserves existing instance if present)
-                var fontService = Mods.Utilities.FontServiceFactory.GetOrCreateFontService(
-                    _game,
-                    existingModManager,
-                    _graphicsDevice,
-                    LoggerFactory.CreateLogger<Rendering.FontService>()
-                );
-                _logger.Debug(
-                    "FontService available (existing: {IsExisting})",
-                    _game.Services.GetService<Rendering.FontService>() == fontService
-                );
+                // Ensure ResourceManager exists (should already exist from LoadModsSynchronously)
+                var existingResourceManager = _game.Services.GetService<IResourceManager>();
+                if (existingResourceManager != null)
+                {
+                    ResourceManager = existingResourceManager;
+                    _logger.Debug("ResourceManager already available from Game.Services");
+                }
                 return;
             }
 
@@ -238,15 +254,31 @@ namespace MonoBall.Core
                     _logger.Debug("ModManager registered");
                 }
 
-                // Create and register FontService immediately after mods load (if not already registered)
-                // This ensures fonts are available for the loading screen
-                // Uses factory method to prevent duplicate registration and preserve cached fonts
-                Mods.Utilities.FontServiceFactory.GetOrCreateFontService(
-                    _game,
-                    ModManager,
-                    _graphicsDevice,
-                    LoggerFactory.CreateLogger<Rendering.FontService>()
-                );
+                // Create and register ResourceManager immediately after mods load (if not already registered)
+                // This ensures resources are available for the loading screen
+                var existingResourceManager = _game.Services.GetService<IResourceManager>();
+                if (existingResourceManager == null)
+                {
+                    var pathResolver = new ResourcePathResolver(
+                        ModManager,
+                        LoggerFactory.CreateLogger<ResourcePathResolver>()
+                    );
+                    _game.Services.AddService(typeof(IResourcePathResolver), pathResolver);
+
+                    ResourceManager = new ResourceManager(
+                        _graphicsDevice,
+                        ModManager,
+                        pathResolver,
+                        LoggerFactory.CreateLogger<ResourceManager>()
+                    );
+                    _game.Services.AddService(typeof(IResourceManager), ResourceManager);
+                    _logger.Debug("ResourceManager created and registered for loading screen");
+                }
+                else
+                {
+                    ResourceManager = existingResourceManager;
+                    _logger.Debug("ResourceManager already registered");
+                }
             }
             else
             {

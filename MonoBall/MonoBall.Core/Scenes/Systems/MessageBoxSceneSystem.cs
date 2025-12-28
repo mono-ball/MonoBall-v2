@@ -13,6 +13,7 @@ using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.TextEffects;
@@ -35,8 +36,8 @@ namespace MonoBall.Core.Scenes.Systems
             ISceneSystem
     {
         private readonly ISceneManager _sceneManager;
-        private readonly FontService _fontService;
         private readonly IModManager _modManager;
+        private readonly IResourceManager _resourceManager;
         private readonly IInputBindingService _inputBindingService;
         private readonly IFlagVariableService _flagVariableService;
         private readonly ICameraService _cameraService;
@@ -94,7 +95,6 @@ namespace MonoBall.Core.Scenes.Systems
         /// </summary>
         /// <param name="world">The ECS world. Required.</param>
         /// <param name="sceneManager">The scene manager for creating/destroying scenes. Required.</param>
-        /// <param name="fontService">The font service for text rendering. Required.</param>
         /// <param name="modManager">The mod manager for accessing definitions. Required.</param>
         /// <param name="inputBindingService">The input binding service for button detection. Required.</param>
         /// <param name="flagVariableService">The flag/variable service for text speed preference. Required.</param>
@@ -104,10 +104,10 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="logger">The logger for logging operations. Required.</param>
         /// <param name="constants">The constants service for accessing game constants. Required.</param>
         /// <param name="textEffectCalculator">The text effect calculator for animated effects. Required.</param>
+        /// <param name="resourceManager">The resource manager for loading textures and fonts. Required.</param>
         public MessageBoxSceneSystem(
             World world,
             ISceneManager sceneManager,
-            FontService fontService,
             IModManager modManager,
             IInputBindingService inputBindingService,
             IFlagVariableService flagVariableService,
@@ -116,13 +116,15 @@ namespace MonoBall.Core.Scenes.Systems
             SpriteBatch spriteBatch,
             ILogger logger,
             IConstantsService constants,
-            TextEffects.ITextEffectCalculator textEffectCalculator
+            TextEffects.ITextEffectCalculator textEffectCalculator,
+            IResourceManager resourceManager
         )
             : base(world)
         {
             _sceneManager = sceneManager ?? throw new ArgumentNullException(nameof(sceneManager));
-            _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _inputBindingService =
                 inputBindingService ?? throw new ArgumentNullException(nameof(inputBindingService));
             _flagVariableService =
@@ -195,15 +197,18 @@ namespace MonoBall.Core.Scenes.Systems
         /// <exception cref="InvalidOperationException">Thrown if font is not found.</exception>
         private FontStashSharp.FontSystem ValidateAndGetFont(string fontId)
         {
-            var fontSystem = _fontService.GetFontSystem(fontId);
-            if (fontSystem == null)
+            try
+            {
+                return _resourceManager.LoadFont(fontId);
+            }
+            catch (Exception ex)
             {
                 throw new InvalidOperationException(
                     $"Font '{fontId}' not found. Cannot create message box without valid font. "
-                        + $"Font must exist in mod registry."
+                        + $"Font must exist in mod registry.",
+                    ex
                 );
             }
-            return fontSystem;
         }
 
         /// <summary>
@@ -1797,7 +1802,7 @@ namespace MonoBall.Core.Scenes.Systems
                 );
 
                 var contentRenderer = new MessageBoxContentRenderer(
-                    _fontService,
+                    _resourceManager,
                     scaledFontSize,
                     currentScale,
                     _constants,
@@ -1893,80 +1898,17 @@ namespace MonoBall.Core.Scenes.Systems
                 return null;
             }
 
-            // Load texture using same pattern as MapPopupSceneSystem
-            return LoadTextureFromDefinition(_messageBoxTilesheetId, tilesheetDef.TexturePath);
-        }
-
-        /// <summary>
-        /// Loads a texture from a texture path, resolving it through mod manifests.
-        /// </summary>
-        /// <param name="definitionId">The definition ID (for logging and caching).</param>
-        /// <param name="texturePath">The texture path relative to mod root.</param>
-        /// <returns>The loaded texture, or null if loading failed.</returns>
-        private Texture2D? LoadTextureFromDefinition(string definitionId, string texturePath)
-        {
-            if (string.IsNullOrEmpty(texturePath))
-            {
-                _logger.Warning("Definition {DefinitionId} has no TexturePath", definitionId);
-                return null;
-            }
-
-            // Get metadata
-            var metadata = _modManager.GetDefinitionMetadata(definitionId);
-            if (metadata == null)
-            {
-                _logger.Warning("Metadata not found for {DefinitionId}", definitionId);
-                return null;
-            }
-
-            // Get mod manifest
-            var modManifest = _modManager.GetModManifest(metadata.OriginalModId);
-            if (modManifest == null)
-            {
-                _logger.Warning(
-                    "Mod manifest not found for {DefinitionId} (mod: {ModId})",
-                    definitionId,
-                    metadata.OriginalModId
-                );
-                return null;
-            }
-
-            // Resolve texture path
-            string fullTexturePath = System.IO.Path.Combine(modManifest.ModDirectory, texturePath);
-            fullTexturePath = System.IO.Path.GetFullPath(fullTexturePath);
-
-            if (!System.IO.File.Exists(fullTexturePath))
-            {
-                _logger.Warning(
-                    "Texture file not found: {TexturePath} (definition: {DefinitionId})",
-                    fullTexturePath,
-                    definitionId
-                );
-                return null;
-            }
-
+            // Load texture using ResourceManager
             try
             {
-                // Load texture from file system
-                var texture = Texture2D.FromFile(_graphicsDevice, fullTexturePath);
-                if (definitionId == _messageBoxTilesheetId)
-                {
-                    _messageBoxTexture = texture; // Cache message box texture
-                }
-                _logger.Debug(
-                    "Loaded texture: {DefinitionId} from {TexturePath}",
-                    definitionId,
-                    fullTexturePath
-                );
-                return texture;
+                return _resourceManager.LoadTexture(_messageBoxTilesheetId);
             }
             catch (Exception ex)
             {
-                _logger.Error(
+                _logger.Warning(
                     ex,
-                    "Failed to load texture: {DefinitionId} from {TexturePath}",
-                    definitionId,
-                    fullTexturePath
+                    "Failed to load message box tilesheet texture: {TilesheetId}",
+                    _messageBoxTilesheetId
                 );
                 return null;
             }

@@ -434,33 +434,7 @@ namespace MonoBall.Core.Mods
 
             var sourceFile = sourceFileElement.GetString()!;
 
-            // Validate shader ID format
-            if (!id.Contains(":shader:", StringComparison.OrdinalIgnoreCase))
-            {
-                issues.Add(
-                    new ValidationIssue
-                    {
-                        Severity = ValidationSeverity.Error,
-                        Message =
-                            $"Shader ID '{id}' does not match required format. Expected: {{namespace}}:shader:{{name}} (all lowercase)",
-                        ModId = string.Empty,
-                        FilePath = definitionPath,
-                    }
-                );
-            }
-
-            if (id != id.ToLowerInvariant())
-            {
-                issues.Add(
-                    new ValidationIssue
-                    {
-                        Severity = ValidationSeverity.Error,
-                        Message = $"Shader ID '{id}' must be all lowercase",
-                        ModId = string.Empty,
-                        FilePath = definitionPath,
-                    }
-                );
-            }
+            // ID format validation removed - IDs are for convenience, not enforced
 
             // Validate sourceFile has .mgfxo extension
             if (!sourceFile.EndsWith(".mgfxo", StringComparison.OrdinalIgnoreCase))

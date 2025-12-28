@@ -1,0 +1,21 @@
+{
+  "id": "base:shader:scanpulse",
+  "name": "Scan Pulse",
+  "description": "Diagonal scan beams with circular ripple pulses from random points. Stack Layer 2.",
+  "sourceFile": "Shaders/ScanPulse.mgfxo",
+  "parameters": [
+    { "name": "Time", "type": "float", "defaultValue": 0.0 },
+    { "name": "ScreenSize", "type": "float2", "defaultValue": [1280.0, 720.0] },
+    { "name": "ScanlineCount", "type": "float", "defaultValue": 180.0, "min": 50.0, "max": 400.0 },
+    { "name": "ScanlineIntensity", "type": "float", "defaultValue": 0.12, "min": 0.0, "max": 0.5 },
+    { "name": "ScanlineSpeed", "type": "float", "defaultValue": 0.0, "min": -2.0, "max": 2.0 },
+    { "name": "PulseSpeed", "type": "float", "defaultValue": 1.2, "min": 0.2, "max": 3.0 },
+    { "name": "PulseWidth", "type": "float", "defaultValue": 0.08, "min": 0.02, "max": 0.2 },
+    { "name": "PulseGlow", "type": "float", "defaultValue": 0.5, "min": 0.0, "max": 1.0 },
+    { "name": "PulseColor", "type": "float3", "defaultValue": [1.0, 0.3, 0.8] },
+    { "name": "WaveSpeed", "type": "float", "defaultValue": 0.8, "min": 0.1, "max": 2.0 },
+    { "name": "WaveIntensity", "type": "float", "defaultValue": 0.15, "min": 0.0, "max": 0.5 },
+    { "name": "WaveColor", "type": "float3", "defaultValue": [0.3, 1.0, 1.0] },
+    { "name": "DistortionAmount", "type": "float", "defaultValue": 0.004, "min": 0.0, "max": 0.02 }
+  ]
+}

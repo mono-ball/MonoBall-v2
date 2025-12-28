@@ -6,6 +6,7 @@ using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -15,7 +16,7 @@ namespace MonoBall.Core.ECS.Systems
     /// </summary>
     public class SpriteAnimationSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
-        private readonly ISpriteLoaderService _spriteLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly QueryDescription _npcQuery;
         private readonly QueryDescription _playerQuery;
 
@@ -38,12 +39,13 @@ namespace MonoBall.Core.ECS.Systems
         /// Initializes a new instance of the SpriteAnimationSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="spriteLoader">The sprite loader service for accessing animation frame cache.</param>
+        /// <param name="resourceManager">The resource manager for accessing animation frame cache.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public SpriteAnimationSystem(World world, ISpriteLoaderService spriteLoader, ILogger logger)
+        public SpriteAnimationSystem(World world, IResourceManager resourceManager, ILogger logger)
             : base(world)
         {
-            _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
@@ -86,13 +88,13 @@ namespace MonoBall.Core.ECS.Systems
                         entity,
                         anim.CurrentAnimationName
                     );
-                    bool animationLoops = _spriteLoader.GetAnimationLoops(
+                    bool animationLoops = _resourceManager.GetAnimationLoops(
                         npc.SpriteId,
                         anim.CurrentAnimationName
                     );
 
                     // Set FlipHorizontal from animation manifest (matches oldmonoball line 130)
-                    anim.FlipHorizontal = _spriteLoader.GetAnimationFlipHorizontal(
+                    anim.FlipHorizontal = _resourceManager.GetAnimationFlipHorizontal(
                         npc.SpriteId,
                         anim.CurrentAnimationName
                     );
@@ -121,13 +123,13 @@ namespace MonoBall.Core.ECS.Systems
                         entity,
                         anim.CurrentAnimationName
                     );
-                    bool animationLoops = _spriteLoader.GetAnimationLoops(
+                    bool animationLoops = _resourceManager.GetAnimationLoops(
                         spriteSheet.CurrentSpriteSheetId,
                         anim.CurrentAnimationName
                     );
 
                     // Set FlipHorizontal from animation manifest (matches oldmonoball line 130)
-                    anim.FlipHorizontal = _spriteLoader.GetAnimationFlipHorizontal(
+                    anim.FlipHorizontal = _resourceManager.GetAnimationFlipHorizontal(
                         spriteSheet.CurrentSpriteSheetId,
                         anim.CurrentAnimationName
                     );
@@ -227,7 +229,7 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get animation frames from cache
-            var frames = _spriteLoader.GetAnimationFrames(spriteId, anim.CurrentAnimationName);
+            var frames = _resourceManager.GetAnimationFrames(spriteId, anim.CurrentAnimationName);
 
             if (frames == null || frames.Count == 0)
             {

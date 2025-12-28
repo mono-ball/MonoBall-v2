@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.Constants;
 using MonoBall.Core.Mods;
-using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.TextEffects;
 using Serilog;
@@ -17,7 +17,7 @@ namespace MonoBall.Core.UI.Windows.Content
     /// </summary>
     public class MessageBoxContentRenderer : IMessageBoxContentRenderer
     {
-        private readonly FontService _fontService;
+        private readonly IResourceManager _resourceManager;
         private readonly int _scaledFontSize;
         private readonly int _scale;
         private readonly IConstantsService _constants;
@@ -34,16 +34,16 @@ namespace MonoBall.Core.UI.Windows.Content
         /// <summary>
         /// Initializes a new instance of the MessageBoxContentRenderer class.
         /// </summary>
-        /// <param name="fontService">The font service for loading fonts.</param>
+        /// <param name="resourceManager">The resource manager for loading fonts.</param>
         /// <param name="scaledFontSize">The scaled font size in pixels.</param>
         /// <param name="scale">The viewport scale factor (needed for padding calculations).</param>
         /// <param name="constants">The constants service.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="textEffectCalculator">Optional text effect calculator for animated effects.</param>
         /// <param name="modManager">Optional mod manager for loading effect definitions.</param>
-        /// <exception cref="ArgumentNullException">Thrown when fontService, constants, or logger is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when resourceManager, constants, or logger is null.</exception>
         public MessageBoxContentRenderer(
-            FontService fontService,
+            IResourceManager resourceManager,
             int scaledFontSize,
             int scale,
             IConstantsService constants,
@@ -52,7 +52,8 @@ namespace MonoBall.Core.UI.Windows.Content
             IModManager? modManager = null
         )
         {
-            _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _scaledFontSize = scaledFontSize;
             _scale = scale;
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
@@ -85,10 +86,18 @@ namespace MonoBall.Core.UI.Windows.Content
         )
         {
             // Get font
-            var fontSystem = _fontService.GetFontSystem(messageBox.FontId);
-            if (fontSystem == null)
+            FontSystem fontSystem;
+            try
             {
-                _logger.Warning("Font '{FontId}' not found, cannot render text", messageBox.FontId);
+                fontSystem = _resourceManager.LoadFont(messageBox.FontId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(
+                    ex,
+                    "Font '{FontId}' not found, cannot render text",
+                    messageBox.FontId
+                );
                 return;
             }
 

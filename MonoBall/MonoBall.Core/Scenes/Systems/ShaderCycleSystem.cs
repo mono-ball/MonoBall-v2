@@ -42,14 +42,10 @@ namespace MonoBall.Core.Scenes.Systems
             "base:shader:hexgrid",
             "base:shader:datastream",
             "STACK:cyberpunk", // Stacked: NeonGrade + HexGrid + DataStream
-            "base:shader:synthsun",
-            "base:shader:retrogrid",
-            "base:shader:chromascan",
-            "STACK:synthwave", // Stacked: SynthSun + RetroGrid + ChromaScan
-            "base:shader:aurora",
-            "base:shader:fireflies",
-            "base:shader:mysticalfog",
-            "STACK:mysticforest", // Stacked: MysticalFog + Fireflies + Aurora
+            "base:shader:prismgrade",
+            "base:shader:scanpulse",
+            "base:shader:pixelrain",
+            "STACK:vaporwave", // Stacked: PrismGrade + ScanPulse + PixelRain
         };
 
         // Stacked shader presets - each contains shaders with render orders
@@ -68,21 +64,12 @@ namespace MonoBall.Core.Scenes.Systems
                 }
             },
             {
-                "STACK:synthwave",
+                "STACK:vaporwave",
                 new List<(string, int)>
                 {
-                    ("base:shader:synthsun", 0),
-                    ("base:shader:retrogrid", 10),
-                    ("base:shader:chromascan", 20),
-                }
-            },
-            {
-                "STACK:mysticforest",
-                new List<(string, int)>
-                {
-                    ("base:shader:mysticalfog", 0), // Ground fog base layer
-                    ("base:shader:fireflies", 10), // Floating particles mid layer
-                    ("base:shader:aurora", 20), // Aurora sky effect top layer
+                    ("base:shader:prismgrade", 0), // Color grading base layer
+                    ("base:shader:scanpulse", 10), // Scan lines and pulses mid layer
+                    ("base:shader:pixelrain", 20), // Pixel rain overlay top layer
                 }
             },
         };
@@ -548,91 +535,47 @@ namespace MonoBall.Core.Scenes.Systems
                     { "StreamOpacity", 0.12f },
                     { "TrailLength", 0.3f },
                 },
-                "base:shader:synthsun" => new Dictionary<string, object>
+                "base:shader:prismgrade" => new Dictionary<string, object>
                 {
                     { "Time", 0.0f },
-                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
-                    { "SunSize", 0.25f },
-                    { "SunPosition", new Vector2(0.5f, 0.4f) },
-                    { "SunColor1", new Vector3(1.0f, 0.2f, 0.5f) },
-                    { "SunColor2", new Vector3(1.0f, 0.6f, 0.1f) },
-                    { "SkyTop", new Vector3(0.1f, 0.0f, 0.2f) },
-                    { "SkyBottom", new Vector3(0.3f, 0.0f, 0.3f) },
-                    { "HorizonLine", 0.65f },
-                    { "GlowIntensity", 0.5f },
+                    { "ShadowColor", new Vector3(0.15f, 0.0f, 0.25f) },
+                    { "MidColor", new Vector3(1.0f, 0.4f, 0.8f) },
+                    { "HighlightColor", new Vector3(0.4f, 1.0f, 1.0f) },
+                    { "GradeIntensity", 0.65f },
+                    { "PrismStrength", 0.008f },
+                    { "ChromaShift", 0.003f },
+                    { "Saturation", 1.4f },
+                    { "GlowAmount", 0.25f },
                 },
-                "base:shader:retrogrid" => new Dictionary<string, object>
+                "base:shader:scanpulse" => new Dictionary<string, object>
                 {
                     { "Time", 0.0f },
                     { "ScreenSize", new Vector2(1280.0f, 720.0f) },
-                    { "GridSpeed", 1.0f },
-                    { "GridDensity", 15.0f },
-                    { "GridColor", new Vector3(0.0f, 1.0f, 1.0f) },
-                    { "GridOpacity", 0.6f },
-                    { "HorizonY", 0.55f },
-                    { "Perspective", 2.0f },
+                    { "ScanlineCount", 180.0f },
+                    { "ScanlineIntensity", 0.12f },
+                    { "ScanlineSpeed", 0.0f },
+                    { "PulseSpeed", 1.2f },
+                    { "PulseWidth", 0.08f },
+                    { "PulseGlow", 0.5f },
+                    { "PulseColor", new Vector3(1.0f, 0.3f, 0.8f) },
+                    { "WaveSpeed", 0.8f },
+                    { "WaveIntensity", 0.15f },
+                    { "WaveColor", new Vector3(0.3f, 1.0f, 1.0f) },
+                    { "DistortionAmount", 0.004f },
                 },
-                "base:shader:chromascan" => new Dictionary<string, object>
+                "base:shader:pixelrain" => new Dictionary<string, object>
                 {
                     { "Time", 0.0f },
                     { "ScreenSize", new Vector2(1280.0f, 720.0f) },
-                    { "ScanlineCount", 300.0f },
-                    { "ScanlineIntensity", 0.15f },
-                    { "ChromaOffset", 0.003f },
-                    { "ChromaPulse", 0.5f },
-                    { "Distortion", 0.001f },
-                    { "TintColor", new Vector3(1.0f, 0.95f, 1.05f) },
-                },
-                "base:shader:aurora" => new Dictionary<string, object>
-                {
-                    { "Time", 0.0f },
-                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
-                    { "AuroraIntensity", 0.35f },
-                    { "WaveSpeed", 0.4f },
-                    { "WaveFrequency", 3.0f },
-                    { "CurtainLayers", 4.0f },
-                    { "VerticalPosition", 0.25f },
-                    { "VerticalSpread", 0.35f },
-                    { "ColorCycleSpeed", 0.15f },
-                    { "ShimmerIntensity", 0.3f },
-                },
-                "base:shader:fireflies" => new Dictionary<string, object>
-                {
-                    { "Time", 0.0f },
-                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
-                    { "ParticleDensity", 40.0f },
-                    { "FloatSpeed", 0.15f },
-                    { "DriftAmount", 0.03f },
-                    { "DriftSpeed", 1.2f },
-                    { "ParticleSize", 0.012f },
-                    { "SizeVariation", 0.6f },
-                    { "GlowFalloff", 2.5f },
-                    { "GlowIntensity", 0.8f },
-                    { "TwinkleSpeed", 3.0f },
-                    { "TwinkleAmount", 0.5f },
-                    { "BaseColor", new Vector3(1.0f, 0.95f, 0.4f) },
-                    { "AccentColor1", new Vector3(1.0f, 0.8f, 0.2f) },
-                    { "AccentColor2", new Vector3(0.4f, 1.0f, 0.7f) },
-                    { "OverlayOpacity", 0.7f },
-                },
-                "base:shader:mysticalfog" => new Dictionary<string, object>
-                {
-                    { "Time", 0.0f },
-                    { "ScreenSize", new Vector2(1280.0f, 720.0f) },
-                    { "FogHeight", 0.4f },
-                    { "FogDensity", 0.6f },
-                    { "FogFalloff", 2.5f },
-                    { "FlowSpeed", 0.15f },
-                    { "SwirleSpeed", 0.8f },
-                    { "WispSpeed", 0.25f },
-                    { "NoiseScale", 3.0f },
-                    { "WispScale", 8.0f },
-                    { "WispIntensity", 0.4f },
-                    { "FogColorPrimary", new Vector3(0.75f, 0.82f, 0.95f) },
-                    { "FogColorSecondary", new Vector3(0.6f, 0.55f, 0.85f) },
-                    { "ColorVariation", 0.3f },
-                    { "DepthVariation", 0.35f },
-                    { "BlendMode", 0.0f },
+                    { "PixelDensity", 45.0f },
+                    { "FallSpeed", 1.8f },
+                    { "TrailLength", 0.35f },
+                    { "PrimaryColor", new Vector3(1.0f, 0.4f, 0.9f) },
+                    { "SecondaryColor", new Vector3(0.4f, 1.0f, 1.0f) },
+                    { "AccentColor", new Vector3(0.9f, 0.9f, 1.0f) },
+                    { "RainOpacity", 0.18f },
+                    { "GlowIntensity", 0.6f },
+                    { "Sparkle", 0.4f },
                 },
                 _ => null,
             };
@@ -760,12 +703,9 @@ namespace MonoBall.Core.Scenes.Systems
                 "base:shader:neongrade",
                 "base:shader:hexgrid",
                 "base:shader:datastream",
-                "base:shader:synthsun",
-                "base:shader:retrogrid",
-                "base:shader:chromascan",
-                "base:shader:aurora",
-                "base:shader:fireflies",
-                "base:shader:mysticalfog",
+                "base:shader:prismgrade",
+                "base:shader:scanpulse",
+                "base:shader:pixelrain",
             };
 
             if (Array.Exists(animatedShaders, s => s == shaderId))

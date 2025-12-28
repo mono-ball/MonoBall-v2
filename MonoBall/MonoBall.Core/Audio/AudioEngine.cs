@@ -4,6 +4,7 @@ using System.Linq;
 using MonoBall.Core.Audio.Core;
 using MonoBall.Core.Audio.Internal;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.Audio
@@ -30,7 +31,7 @@ namespace MonoBall.Core.Audio
         private const int TargetSampleRate = 44100;
 
         private readonly IModManager _modManager;
-        private readonly IAudioContentLoader _contentLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly ILogger _logger;
         private readonly object _lock = new();
 
@@ -44,14 +45,14 @@ namespace MonoBall.Core.Audio
         /// Initializes a new instance of the AudioEngine.
         /// </summary>
         /// <param name="modManager">The mod manager for registry and mod manifest access.</param>
+        /// <param name="resourceManager">The resource manager for loading audio readers.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public AudioEngine(IModManager modManager, ILogger logger)
+        public AudioEngine(IModManager modManager, IResourceManager resourceManager, ILogger logger)
         {
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-
-            // Create AudioContentLoader internally
-            _contentLoader = new AudioContentLoader(_modManager, logger);
 
             // Initialize managers
             _musicManager = new MusicPlaybackManager(logger);
@@ -60,176 +61,162 @@ namespace MonoBall.Core.Audio
 
         /// <summary>
         /// Plays a sound effect.
+        /// Throws exceptions on failure (fail fast per .cursorrules).
         /// </summary>
         /// <param name="audioId">The audio definition ID.</param>
         /// <param name="volume">Volume (0.0 - 1.0).</param>
         /// <param name="pitch">Pitch adjustment (-1.0 to 1.0).</param>
         /// <param name="pan">Pan adjustment (-1.0 left to 1.0 right).</param>
-        /// <returns>The sound effect instance, or null if playback failed.</returns>
-        public ISoundEffectInstance? PlaySound(string audioId, float volume, float pitch, float pan)
+        /// <returns>The sound effect instance.</returns>
+        /// <exception cref="ObjectDisposedException">Thrown when AudioEngine is disposed.</exception>
+        /// <exception cref="ArgumentException">Thrown when audioId is null/empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when audio definition not found or audio loading fails.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when audio file not found.</exception>
+        public ISoundEffectInstance PlaySound(string audioId, float volume, float pitch, float pan)
         {
-            if (_disposed || string.IsNullOrEmpty(audioId))
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(AudioEngine));
+
+            if (string.IsNullOrEmpty(audioId))
             {
-                return null;
+                throw new ArgumentException("Audio ID cannot be null or empty.", nameof(audioId));
             }
 
-            try
-            {
-                // Get definition and manifest
-                var (definition, modManifest) = GetAudioDefinitionAndManifest(audioId);
-                if (definition == null || modManifest == null)
-                {
-                    return null;
-                }
+            // Load VorbisReader from ResourceManager (handles definition lookup and caching)
+            // Fail fast - let exceptions propagate
+            VorbisReader vorbisReader = _resourceManager.LoadAudioReader(audioId);
 
-                // Load VorbisReader
-                var vorbisReader = _contentLoader.CreateVorbisReader(
-                    audioId,
-                    definition,
-                    modManifest
+            // Get definition for volume and other properties
+            var definition = _modManager.GetDefinition<AudioDefinition>(audioId);
+            if (definition == null)
+            {
+                throw new InvalidOperationException(
+                    $"Audio definition not found: {audioId}. "
+                        + "Ensure the audio is defined in a loaded mod."
                 );
-                if (vorbisReader == null)
-                {
-                    return null;
-                }
-
-                // Validate sample rate
-                if (vorbisReader.Format.SampleRate != TargetSampleRate)
-                {
-                    _logger.Warning(
-                        "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
-                            + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
-                        audioId,
-                        vorbisReader.Format.SampleRate,
-                        TargetSampleRate
-                    );
-                }
-
-                // Create playback state
-                float finalVolume = CalculateSoundEffectVolume(volume);
-                var volumeProvider = new VolumeSampleProvider(vorbisReader)
-                {
-                    Volume = finalVolume,
-                };
-
-                // Create output (each sound effect gets its own output for simplicity)
-                // Note: In a more optimized implementation, we could use a mixer for all sound effects
-                var output = new PortAudioOutput(volumeProvider);
-                output.Play();
-
-                var instance = new SoundEffectInstance(volume, pitch, pan); // Store original values, not final volume
-                var playbackState = new SoundEffectPlaybackState
-                {
-                    AudioId = audioId,
-                    VorbisReader = vorbisReader,
-                    Output = output,
-                    Instance = instance,
-                    VolumeProvider = volumeProvider,
-                    BaseVolume = volume, // Store original volume before multipliers
-                };
-
-                lock (_lock)
-                {
-                    instance.IsPlaying = true;
-                    _soundEffectManager.AddInstance(instance, playbackState);
-                }
-
-                _logger.Debug("Started sound effect: {AudioId}", audioId);
-                return instance;
             }
-            catch (Exception ex)
+
+            // Validate sample rate
+            if (vorbisReader.Format.SampleRate != TargetSampleRate)
             {
-                _logger.Error(ex, "Error playing sound effect: {AudioId}", audioId);
-                return null;
+                _logger.Warning(
+                    "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
+                        + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
+                    audioId,
+                    vorbisReader.Format.SampleRate,
+                    TargetSampleRate
+                );
             }
+
+            // Create playback state
+            float finalVolume = CalculateSoundEffectVolume(volume);
+            var volumeProvider = new VolumeSampleProvider(vorbisReader) { Volume = finalVolume };
+
+            // Create output (each sound effect gets its own output for simplicity)
+            // Note: In a more optimized implementation, we could use a mixer for all sound effects
+            var output = new PortAudioOutput(volumeProvider);
+            output.Play();
+
+            var instance = new SoundEffectInstance(volume, pitch, pan); // Store original values, not final volume
+            var playbackState = new SoundEffectPlaybackState
+            {
+                AudioId = audioId,
+                VorbisReader = vorbisReader,
+                Output = output,
+                Instance = instance,
+                VolumeProvider = volumeProvider,
+                BaseVolume = volume, // Store original volume before multipliers
+            };
+
+            lock (_lock)
+            {
+                instance.IsPlaying = true;
+                _soundEffectManager.AddInstance(instance, playbackState);
+            }
+
+            _logger.Debug("Started sound effect: {AudioId}", audioId);
+            return instance;
         }
 
         /// <summary>
         /// Plays a looping sound effect.
+        /// Throws exceptions on failure (fail fast per .cursorrules).
         /// </summary>
         /// <param name="audioId">The audio definition ID.</param>
         /// <param name="volume">Volume (0.0 - 1.0).</param>
-        /// <returns>The sound effect instance, or null if playback failed.</returns>
-        public ISoundEffectInstance? PlayLoopingSound(string audioId, float volume)
+        /// <returns>The sound effect instance.</returns>
+        /// <exception cref="ObjectDisposedException">Thrown when AudioEngine is disposed.</exception>
+        /// <exception cref="ArgumentException">Thrown when audioId is null/empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when audio definition not found or audio loading fails.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when audio file not found.</exception>
+        public ISoundEffectInstance PlayLoopingSound(string audioId, float volume)
         {
-            if (_disposed || string.IsNullOrEmpty(audioId))
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(AudioEngine));
+
+            if (string.IsNullOrEmpty(audioId))
             {
-                return null;
+                throw new ArgumentException("Audio ID cannot be null or empty.", nameof(audioId));
             }
 
-            try
-            {
-                // Get definition and manifest
-                var (definition, modManifest) = GetAudioDefinitionAndManifest(audioId);
-                if (definition == null || modManifest == null)
-                {
-                    return null;
-                }
+            // Load VorbisReader from ResourceManager (handles definition lookup and caching)
+            // Fail fast - let exceptions propagate
+            VorbisReader vorbisReader = _resourceManager.LoadAudioReader(audioId);
 
-                // Load VorbisReader
-                var vorbisReader = _contentLoader.CreateVorbisReader(
-                    audioId,
-                    definition,
-                    modManifest
+            // Get definition for volume and other properties
+            var definition = _modManager.GetDefinition<AudioDefinition>(audioId);
+            if (definition == null)
+            {
+                throw new InvalidOperationException(
+                    $"Audio definition not found: {audioId}. "
+                        + "Ensure the audio is defined in a loaded mod."
                 );
-                if (vorbisReader == null)
-                {
-                    return null;
-                }
-
-                // Validate sample rate
-                if (vorbisReader.Format.SampleRate != TargetSampleRate)
-                {
-                    _logger.Warning(
-                        "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
-                            + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
-                        audioId,
-                        vorbisReader.Format.SampleRate,
-                        TargetSampleRate
-                    );
-                }
-
-                // Create looping provider
-                var (loopStart, loopEnd) = CalculateLoopPoints(definition);
-                var loopingProvider = new LoopingSampleProvider(vorbisReader, loopStart, loopEnd);
-
-                // Create playback state
-                float finalVolume = CalculateSoundEffectVolume(volume);
-                var volumeProvider = new VolumeSampleProvider(loopingProvider)
-                {
-                    Volume = finalVolume,
-                };
-
-                // Create output
-                var output = new PortAudioOutput(volumeProvider);
-                output.Play();
-
-                var instance = new SoundEffectInstance(volume, 0f, 0f); // Store original values
-                var playbackState = new SoundEffectPlaybackState
-                {
-                    AudioId = audioId,
-                    VorbisReader = vorbisReader,
-                    Output = output,
-                    Instance = instance,
-                    VolumeProvider = volumeProvider,
-                    BaseVolume = volume, // Store original volume before multipliers
-                    IsLooping = true,
-                };
-
-                lock (_lock)
-                {
-                    instance.IsPlaying = true;
-                    _soundEffectManager.AddInstance(instance, playbackState);
-                }
-
-                _logger.Debug("Started looping sound effect: {AudioId}", audioId);
-                return instance;
             }
-            catch (Exception ex)
+
+            // Validate sample rate
+            if (vorbisReader.Format.SampleRate != TargetSampleRate)
             {
-                _logger.Error(ex, "Error playing looping sound effect: {AudioId}", audioId);
-                return null;
+                _logger.Warning(
+                    "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
+                        + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
+                    audioId,
+                    vorbisReader.Format.SampleRate,
+                    TargetSampleRate
+                );
             }
+
+            // Create looping provider
+            var (loopStart, loopEnd) = CalculateLoopPoints(definition);
+            var loopingProvider = new LoopingSampleProvider(vorbisReader, loopStart, loopEnd);
+
+            // Create playback state
+            float finalVolume = CalculateSoundEffectVolume(volume);
+            var volumeProvider = new VolumeSampleProvider(loopingProvider) { Volume = finalVolume };
+
+            // Create output
+            var output = new PortAudioOutput(volumeProvider);
+            output.Play();
+
+            var instance = new SoundEffectInstance(volume, 0f, 0f); // Store original values
+            var playbackState = new SoundEffectPlaybackState
+            {
+                AudioId = audioId,
+                VorbisReader = vorbisReader,
+                Output = output,
+                Instance = instance,
+                VolumeProvider = volumeProvider,
+                BaseVolume = volume, // Store original volume before multipliers
+                IsLooping = true,
+            };
+
+            lock (_lock)
+            {
+                instance.IsPlaying = true;
+                _soundEffectManager.AddInstance(instance, playbackState);
+            }
+
+            _logger.Debug("Started looping sound effect: {AudioId}", audioId);
+            return instance;
         }
 
         /// <summary>
@@ -464,134 +451,131 @@ namespace MonoBall.Core.Audio
 
         /// <summary>
         /// Plays background music.
+        /// Throws exceptions on failure (fail fast per .cursorrules).
         /// </summary>
         /// <param name="audioId">The audio definition ID.</param>
         /// <param name="loop">Whether the music should loop.</param>
         /// <param name="fadeInDuration">Fade-in duration in seconds (0 = instant).</param>
+        /// <exception cref="ObjectDisposedException">Thrown when AudioEngine is disposed.</exception>
+        /// <exception cref="ArgumentException">Thrown when audioId is null/empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when audio definition not found or audio loading fails.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when audio file not found.</exception>
         public void PlayMusic(string audioId, bool loop, float fadeInDuration)
         {
-            if (_disposed || string.IsNullOrEmpty(audioId))
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(AudioEngine));
+
+            if (string.IsNullOrEmpty(audioId))
             {
-                return;
+                throw new ArgumentException("Audio ID cannot be null or empty.", nameof(audioId));
             }
 
-            try
+            // Load VorbisReader from ResourceManager (handles definition lookup and caching)
+            // Fail fast - let exceptions propagate
+            VorbisReader vorbisReader = _resourceManager.LoadAudioReader(audioId);
+
+            // Get definition for volume and other properties
+            var definition = _modManager.GetDefinition<AudioDefinition>(audioId);
+            if (definition == null)
             {
-                // Get definition and manifest
-                var (definition, modManifest) = GetAudioDefinitionAndManifest(audioId);
-                if (definition == null || modManifest == null)
-                {
-                    return;
-                }
-
-                // Load VorbisReader
-                var vorbisReader = _contentLoader.CreateVorbisReader(
-                    audioId,
-                    definition,
-                    modManifest
+                throw new InvalidOperationException(
+                    $"Audio definition not found: {audioId}. "
+                        + "Ensure the audio is defined in a loaded mod."
                 );
-                if (vorbisReader == null)
-                {
-                    return;
-                }
+            }
 
-                // Validate sample rate
-                if (vorbisReader.Format.SampleRate != TargetSampleRate)
+            // Validate sample rate
+            if (vorbisReader.Format.SampleRate != TargetSampleRate)
+            {
+                _logger.Warning(
+                    "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
+                        + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
+                    audioId,
+                    vorbisReader.Format.SampleRate,
+                    TargetSampleRate
+                );
+            }
+
+            // Create sample provider chain
+            ISampleProvider provider = vorbisReader;
+
+            // Add looping if needed
+            if (loop)
+            {
+                var (loopStart, loopEnd) = CalculateLoopPoints(definition);
+                provider = new LoopingSampleProvider(vorbisReader, loopStart, loopEnd);
+            }
+
+            // Apply volume
+            float finalVolume = CalculateMusicVolume(definition.Volume);
+            var volumeProvider = new VolumeSampleProvider(provider) { Volume = finalVolume };
+
+            // Create playback state
+            var musicState = new MusicPlaybackState
+            {
+                AudioId = audioId,
+                VorbisReader = vorbisReader,
+                VolumeProvider = volumeProvider,
+                BaseVolume = definition.Volume, // Store original volume before multipliers
+                TargetVolume = finalVolume,
+                CurrentVolume = fadeInDuration > 0 ? 0f : finalVolume,
+                FadeInDuration = fadeInDuration,
+                FadeInTimer = 0f,
+                FadeOutDuration = definition.FadeOut, // Store fade-out from definition
+            };
+
+            lock (_lock)
+            {
+                var currentMusic = _musicManager.CurrentMusic;
+                // If music is already playing and we have a fade duration, do sequential fade
+                // (fade out old track, then fade in new track - like oldmonoball's FadeOutAndPlay)
+                if (
+                    currentMusic != null
+                    && _musicManager.PlaybackState == PlaybackState.Playing
+                    && fadeInDuration > 0f
+                )
                 {
-                    _logger.Warning(
-                        "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
-                            + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
+                    // Store pending track info
+                    _musicManager.SetPendingMusic(musicState);
+                    musicState.FadeInDuration = fadeInDuration; // Use fade-in duration for new track
+
+                    // Get fade-out duration from current music (use its stored FadeOutDuration, or fallback to fade-in)
+                    float fadeOutDuration =
+                        currentMusic.FadeOutDuration > 0
+                            ? currentMusic.FadeOutDuration
+                            : fadeInDuration; // Fallback to fade-in duration if no fade-out specified
+                    currentMusic.FadeOutDuration = fadeOutDuration;
+                    currentMusic.FadeOutTimer = 0f;
+                    currentMusic.IsFadingOut = true;
+                    currentMusic.StartVolume = currentMusic.CurrentVolume;
+
+                    _logger.Debug(
+                        "Starting sequential fade: fade out {OldAudioId} ({FadeOut}s), then fade in {NewAudioId} ({FadeIn}s)",
+                        currentMusic.AudioId,
+                        fadeOutDuration,
                         audioId,
-                        vorbisReader.Format.SampleRate,
-                        TargetSampleRate
+                        fadeInDuration
                     );
                 }
-
-                // Create sample provider chain
-                ISampleProvider provider = vorbisReader;
-
-                // Add looping if needed
-                if (loop)
+                else
                 {
-                    var (loopStart, loopEnd) = CalculateLoopPoints(definition);
-                    provider = new LoopingSampleProvider(vorbisReader, loopStart, loopEnd);
+                    // Stop current music immediately (or if no music playing)
+                    StopMusicInternal(0f);
+
+                    // Initialize mixer and output if needed
+                    _musicManager.EnsureMixerAndOutput(volumeProvider.Format);
+
+                    // Add to mixer
+                    _musicManager.AddToMixer(musicState, musicState.CurrentVolume);
+                    _musicManager.SetCurrentMusic(musicState);
+
+                    _logger.Debug(
+                        "Started music: {AudioId} (Loop: {Loop}, FadeIn: {FadeIn}s)",
+                        audioId,
+                        loop,
+                        fadeInDuration
+                    );
                 }
-
-                // Apply volume
-                float finalVolume = CalculateMusicVolume(definition.Volume);
-                var volumeProvider = new VolumeSampleProvider(provider) { Volume = finalVolume };
-
-                // Create playback state
-                var musicState = new MusicPlaybackState
-                {
-                    AudioId = audioId,
-                    VorbisReader = vorbisReader,
-                    VolumeProvider = volumeProvider,
-                    BaseVolume = definition.Volume, // Store original volume before multipliers
-                    TargetVolume = finalVolume,
-                    CurrentVolume = fadeInDuration > 0 ? 0f : finalVolume,
-                    FadeInDuration = fadeInDuration,
-                    FadeInTimer = 0f,
-                    FadeOutDuration = definition.FadeOut, // Store fade-out from definition
-                };
-
-                lock (_lock)
-                {
-                    var currentMusic = _musicManager.CurrentMusic;
-                    // If music is already playing and we have a fade duration, do sequential fade
-                    // (fade out old track, then fade in new track - like oldmonoball's FadeOutAndPlay)
-                    if (
-                        currentMusic != null
-                        && _musicManager.PlaybackState == PlaybackState.Playing
-                        && fadeInDuration > 0f
-                    )
-                    {
-                        // Store pending track info
-                        _musicManager.SetPendingMusic(musicState);
-                        musicState.FadeInDuration = fadeInDuration; // Use fade-in duration for new track
-
-                        // Get fade-out duration from current music (use its stored FadeOutDuration, or fallback to fade-in)
-                        float fadeOutDuration =
-                            currentMusic.FadeOutDuration > 0
-                                ? currentMusic.FadeOutDuration
-                                : fadeInDuration; // Fallback to fade-in duration if no fade-out specified
-                        currentMusic.FadeOutDuration = fadeOutDuration;
-                        currentMusic.FadeOutTimer = 0f;
-                        currentMusic.IsFadingOut = true;
-                        currentMusic.StartVolume = currentMusic.CurrentVolume;
-
-                        _logger.Debug(
-                            "Starting sequential fade: fade out {OldAudioId} ({FadeOut}s), then fade in {NewAudioId} ({FadeIn}s)",
-                            currentMusic.AudioId,
-                            fadeOutDuration,
-                            audioId,
-                            fadeInDuration
-                        );
-                    }
-                    else
-                    {
-                        // Stop current music immediately (or if no music playing)
-                        StopMusicInternal(0f);
-
-                        // Initialize mixer and output if needed
-                        _musicManager.EnsureMixerAndOutput(volumeProvider.Format);
-
-                        // Add to mixer
-                        _musicManager.AddToMixer(musicState, musicState.CurrentVolume);
-                        _musicManager.SetCurrentMusic(musicState);
-
-                        _logger.Debug(
-                            "Started music: {AudioId} (Loop: {Loop}, FadeIn: {FadeIn}s)",
-                            audioId,
-                            loop,
-                            fadeInDuration
-                        );
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error playing music: {AudioId}", audioId);
             }
         }
 
@@ -703,97 +687,76 @@ namespace MonoBall.Core.Audio
                 }
 
                 // Start crossfade
-                VorbisReader? vorbisReader = null;
-                VolumeSampleProvider? volumeProvider = null;
-                MusicPlaybackState? crossfadeState = null;
+                // Load VorbisReader from ResourceManager (handles definition lookup and caching)
+                // Fail fast - let exceptions propagate
+                VorbisReader vorbisReader = _resourceManager.LoadAudioReader(newAudioId);
 
-                try
+                // Get definition for volume and other properties
+                var definition = _modManager.GetDefinition<AudioDefinition>(newAudioId);
+                if (definition == null)
                 {
-                    // Get definition and manifest
-                    var (definition, modManifest) = GetAudioDefinitionAndManifest(newAudioId);
-                    if (definition == null || modManifest == null)
-                    {
-                        return;
-                    }
-
-                    vorbisReader = _contentLoader.CreateVorbisReader(
-                        newAudioId,
-                        definition,
-                        modManifest
-                    );
-                    if (vorbisReader == null)
-                    {
-                        return;
-                    }
-
-                    // Validate sample rate
-                    if (vorbisReader.Format.SampleRate != TargetSampleRate)
-                    {
-                        _logger.Warning(
-                            "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
-                                + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
-                            newAudioId,
-                            vorbisReader.Format.SampleRate,
-                            TargetSampleRate
-                        );
-                    }
-
-                    // Create sample provider chain for new track
-                    ISampleProvider provider = vorbisReader;
-                    if (loop)
-                    {
-                        var (loopStart, loopEnd) = CalculateLoopPoints(definition);
-                        provider = new LoopingSampleProvider(vorbisReader, loopStart, loopEnd);
-                    }
-
-                    float finalVolume = CalculateMusicVolume(definition.Volume);
-                    volumeProvider = new VolumeSampleProvider(provider) { Volume = 0f }; // Start at 0
-
-                    // Create crossfade state
-                    crossfadeState = new MusicPlaybackState
-                    {
-                        AudioId = newAudioId,
-                        VorbisReader = vorbisReader,
-                        VolumeProvider = volumeProvider,
-                        BaseVolume = definition.Volume, // Store original volume before multipliers
-                        TargetVolume = finalVolume,
-                        CurrentVolume = 0f,
-                        FadeInDuration = crossfadeDuration,
-                        FadeInTimer = 0f,
-                        IsCrossfading = true,
-                    };
-
-                    // Start fading out current music
-                    currentMusic.FadeOutDuration = crossfadeDuration;
-                    currentMusic.FadeOutTimer = 0f;
-                    currentMusic.IsFadingOut = true;
-                    currentMusic.StartVolume = currentMusic.CurrentVolume;
-
-                    // Ensure mixer exists
-                    _musicManager.EnsureMixerAndOutput(volumeProvider.Format);
-
-                    // Add crossfade track to mixer
-                    _musicManager.AddToMixer(crossfadeState, 0f);
-                    _musicManager.SetCrossfadeMusic(crossfadeState);
-
-                    _logger.Debug(
-                        "Started crossfade from {OldAudioId} to {NewAudioId} (duration: {Duration}s)",
-                        currentMusic.AudioId,
-                        newAudioId,
-                        crossfadeDuration
+                    throw new InvalidOperationException(
+                        $"Audio definition not found: {newAudioId}. "
+                            + "Ensure the audio is defined in a loaded mod."
                     );
                 }
-                catch (Exception ex)
+
+                // Validate sample rate
+                if (vorbisReader.Format.SampleRate != TargetSampleRate)
                 {
-                    // Dispose resources on error
-                    if (crossfadeState != null)
-                    {
-                        _musicManager.RemoveFromMixer(crossfadeState);
-                    }
-                    // Note: VolumeSampleProvider doesn't need disposal (it just wraps another provider)
-                    vorbisReader?.Dispose();
-                    _logger.Error(ex, "Error during crossfade to: {AudioId}", newAudioId);
+                    _logger.Warning(
+                        "Audio file {AudioId} has sample rate {SampleRate} Hz, expected {TargetSampleRate} Hz. "
+                            + "Audio may play at wrong speed/pitch. Resampling not yet implemented.",
+                        newAudioId,
+                        vorbisReader.Format.SampleRate,
+                        TargetSampleRate
+                    );
                 }
+
+                // Create sample provider chain for new track
+                ISampleProvider provider = vorbisReader;
+                if (loop)
+                {
+                    var (loopStart, loopEnd) = CalculateLoopPoints(definition);
+                    provider = new LoopingSampleProvider(vorbisReader, loopStart, loopEnd);
+                }
+
+                float finalVolume = CalculateMusicVolume(definition.Volume);
+                var volumeProvider = new VolumeSampleProvider(provider) { Volume = 0f }; // Start at 0
+
+                // Create crossfade state
+                var crossfadeState = new MusicPlaybackState
+                {
+                    AudioId = newAudioId,
+                    VorbisReader = vorbisReader,
+                    VolumeProvider = volumeProvider,
+                    BaseVolume = definition.Volume, // Store original volume before multipliers
+                    TargetVolume = finalVolume,
+                    CurrentVolume = 0f,
+                    FadeInDuration = crossfadeDuration,
+                    FadeInTimer = 0f,
+                    IsCrossfading = true,
+                };
+
+                // Start fading out current music
+                currentMusic.FadeOutDuration = crossfadeDuration;
+                currentMusic.FadeOutTimer = 0f;
+                currentMusic.IsFadingOut = true;
+                currentMusic.StartVolume = currentMusic.CurrentVolume;
+
+                // Ensure mixer exists
+                _musicManager.EnsureMixerAndOutput(volumeProvider.Format);
+
+                // Add crossfade track to mixer
+                _musicManager.AddToMixer(crossfadeState, 0f);
+                _musicManager.SetCrossfadeMusic(crossfadeState);
+
+                _logger.Debug(
+                    "Started crossfade from {OldAudioId} to {NewAudioId} (duration: {Duration}s)",
+                    currentMusic.AudioId,
+                    newAudioId,
+                    crossfadeDuration
+                );
             }
         }
 
@@ -937,31 +900,7 @@ namespace MonoBall.Core.Audio
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>
-        /// Gets the audio definition and mod manifest for the specified audio ID.
-        /// </summary>
-        /// <param name="audioId">The audio definition ID.</param>
-        /// <returns>A tuple containing the definition and manifest, or (null, null) if not found.</returns>
-        private (AudioDefinition? definition, ModManifest? manifest) GetAudioDefinitionAndManifest(
-            string audioId
-        )
-        {
-            var definition = _modManager.Registry.GetById<AudioDefinition>(audioId);
-            if (definition == null)
-            {
-                _logger.Warning("Audio definition not found: {AudioId}", audioId);
-                return (null, null);
-            }
-
-            var modManifest = _modManager.GetModManifestByDefinitionId(audioId);
-            if (modManifest == null)
-            {
-                _logger.Warning("Mod manifest not found for audio: {AudioId}", audioId);
-                return (null, null);
-            }
-
-            return (definition, modManifest);
-        }
+        // GetAudioDefinitionAndManifest removed - ResourceManager handles definition lookup internally
 
         /// <summary>
         /// Calculates loop points from an audio definition.

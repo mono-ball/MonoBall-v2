@@ -69,11 +69,22 @@ namespace MonoBall.Core.Rendering
                 return false;
             }
 
-            // Get shader to validate parameter exists
-            Effect? effect = _shaderService.GetShader(shaderId);
-            if (effect == null)
+            // Check if shader exists first
+            if (!_shaderService.HasShader(shaderId))
             {
-                error = $"Shader '{shaderId}' not found or failed to load.";
+                error = $"Shader '{shaderId}' not found.";
+                return false;
+            }
+
+            // Get shader to validate parameter exists (fail fast if loading fails)
+            Effect effect;
+            try
+            {
+                effect = _shaderService.GetShader(shaderId);
+            }
+            catch (Exception ex)
+            {
+                error = $"Shader '{shaderId}' failed to load: {ex.Message}";
                 return false;
             }
 

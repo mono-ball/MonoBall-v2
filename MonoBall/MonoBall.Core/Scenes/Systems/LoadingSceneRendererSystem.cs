@@ -6,6 +6,7 @@ using Arch.System;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Components;
 using Serilog;
 
@@ -132,23 +133,27 @@ namespace MonoBall.Core.Scenes.Systems
         /// <exception cref="InvalidOperationException">Thrown if FontService is not available or font cannot be loaded.</exception>
         private void LoadFonts()
         {
-            var fontService = _game.Services.GetService<MonoBall.Core.Rendering.FontService>();
-            if (fontService == null)
+            var resourceManager = _game.Services.GetService<IResourceManager>();
+            if (resourceManager == null)
             {
                 throw new InvalidOperationException(
-                    "FontService is not available. Cannot load fonts for loading screen. "
-                        + "Ensure core mod (slot 0 in mod.manifest) is loaded and FontService is registered in Game.Services."
+                    "IResourceManager is not available. Cannot load fonts for loading screen. "
+                        + "Ensure GameServices.LoadContent() was called and ResourceManager is registered in Game.Services."
                 );
             }
 
-            _logger.Debug("Loading fonts for loading screen via FontService");
+            _logger.Debug("Loading fonts for loading screen via ResourceManager");
 
-            _fontSystem = fontService.GetFontSystem("base:font:game/pokemon");
-            if (_fontSystem == null)
+            try
+            {
+                _fontSystem = resourceManager.LoadFont("base:font:game/pokemon");
+            }
+            catch (Exception ex)
             {
                 throw new InvalidOperationException(
-                    "FontService could not load font 'base:font:game/pokemon'. "
-                        + "Ensure core mod (slot 0 in mod.manifest) is loaded and contains the font definition."
+                    "ResourceManager could not load font 'base:font:game/pokemon'. "
+                        + "Ensure core mod (slot 0 in mod.manifest) is loaded and contains the font definition.",
+                    ex
                 );
             }
 

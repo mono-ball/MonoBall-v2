@@ -579,17 +579,28 @@ namespace MonoBall.Core.ECS.Systems
             // Load all shaders
             foreach (var (entity, shaderComp) in shaders)
             {
-                _logger.Debug(
-                    "ShaderManagerSystem: Loading shader {ShaderId} for layer {Layer}",
-                    shaderComp.ShaderId,
-                    layer
-                );
-
-                Effect? effect = _shaderService.GetShader(shaderComp.ShaderId);
-                if (effect == null)
+                // Check if shader exists first (optional shader support)
+                if (!_shaderService.HasShader(shaderComp.ShaderId))
                 {
                     _logger.Warning(
-                        "Shader {ShaderId} failed to load for layer {Layer}",
+                        "Shader {ShaderId} not found for layer {Layer}, skipping",
+                        shaderComp.ShaderId,
+                        layer
+                    );
+                    continue; // Skip missing shader, continue with others
+                }
+
+                // Load shader (fail fast if loading fails)
+                Effect effect;
+                try
+                {
+                    effect = _shaderService.GetShader(shaderComp.ShaderId);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Warning(
+                        ex,
+                        "Shader {ShaderId} failed to load for layer {Layer}, skipping",
                         shaderComp.ShaderId,
                         layer
                     );
@@ -665,6 +676,10 @@ namespace MonoBall.Core.ECS.Systems
 
         private void UpdateShaderParametersForEntity(Entity entity, Effect effect)
         {
+            // CRITICAL: Check entity is alive before accessing components
+            if (!_world.IsAlive(entity))
+                return;
+
             if (!_world.Has<RenderingShaderComponent>(entity))
                 return;
 

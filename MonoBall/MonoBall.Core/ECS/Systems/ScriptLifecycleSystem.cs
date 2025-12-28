@@ -81,11 +81,18 @@ namespace MonoBall.Core.ECS.Systems
                 in _queryDescription,
                 (Entity entity, ref ScriptAttachmentComponent component) =>
                 {
+                    // Ensure entity is still alive before modifying component
+                    if (!World.IsAlive(entity))
+                    {
+                        return;
+                    }
+
                     // Ensure Scripts dictionary is initialized
+                    // Since component is passed by ref, modifications persist automatically
                     if (component.Scripts == null)
                     {
                         component.Scripts = new Dictionary<string, ScriptAttachmentData>();
-                        World.Set(entity, component);
+                        // No need to call World.Set() - ref parameter modifications persist automatically
                     }
 
                     // Iterate over all scripts in the collection
@@ -233,7 +240,7 @@ namespace MonoBall.Core.ECS.Systems
 
                 // Mark as initialized in component (internal flag)
                 // Need to update the component's Scripts dictionary
-                if (World.Has<ScriptAttachmentComponent>(entity))
+                if (World.IsAlive(entity) && World.Has<ScriptAttachmentComponent>(entity))
                 {
                     ref var component = ref World.Get<ScriptAttachmentComponent>(entity);
                     if (
@@ -244,7 +251,7 @@ namespace MonoBall.Core.ECS.Systems
                         var updatedAttachment = component.Scripts[attachment.ScriptDefinitionId];
                         updatedAttachment.IsInitialized = true;
                         component.Scripts[attachment.ScriptDefinitionId] = updatedAttachment;
-                        World.Set(entity, component);
+                        // No need to call World.Set() - ref parameter modifications persist automatically
                     }
                 }
 

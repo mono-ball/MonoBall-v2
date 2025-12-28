@@ -1,5 +1,6 @@
 using System;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Utilities
@@ -12,7 +13,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// <summary>
         /// Validates that a sprite definition exists and an animation exists within it.
         /// </summary>
-        /// <param name="spriteLoader">The sprite loader service.</param>
+        /// <param name="resourceManager">The resource manager.</param>
         /// <param name="logger">The logger instance for logging validation warnings.</param>
         /// <param name="spriteId">The sprite definition ID to validate.</param>
         /// <param name="animationName">The animation name to validate.</param>
@@ -22,7 +23,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// <returns>True if valid, false if invalid (only when throwOnInvalid is false).</returns>
         /// <exception cref="ArgumentException">Thrown if throwOnInvalid is true and validation fails.</exception>
         public static bool ValidateSpriteAndAnimation(
-            ISpriteLoaderService spriteLoader,
+            IResourceManager resourceManager,
             ILogger logger,
             string spriteId,
             string animationName,
@@ -37,7 +38,7 @@ namespace MonoBall.Core.ECS.Utilities
             }
 
             // Validate sprite definition exists
-            if (!spriteLoader.ValidateSpriteDefinition(spriteId))
+            if (!resourceManager.ValidateSpriteDefinition(spriteId))
             {
                 string message =
                     $"{entityType} '{entityId}': Sprite definition not found: {spriteId}";
@@ -51,7 +52,7 @@ namespace MonoBall.Core.ECS.Utilities
             }
 
             // Validate animation exists
-            if (!spriteLoader.ValidateAnimation(spriteId, animationName))
+            if (!resourceManager.ValidateAnimation(spriteId, animationName))
             {
                 string message =
                     $"{entityType} '{entityId}': Animation '{animationName}' not found in sprite sheet '{spriteId}'";
@@ -70,7 +71,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// <summary>
         /// Validates that a sprite definition exists.
         /// </summary>
-        /// <param name="spriteLoader">The sprite loader service.</param>
+        /// <param name="resourceManager">The resource manager.</param>
         /// <param name="logger">The logger instance for logging validation warnings.</param>
         /// <param name="spriteId">The sprite definition ID to validate.</param>
         /// <param name="entityType">The type of entity (e.g., "Player", "NPC") for logging purposes.</param>
@@ -79,7 +80,7 @@ namespace MonoBall.Core.ECS.Utilities
         /// <returns>True if valid, false if invalid (only when throwOnInvalid is false).</returns>
         /// <exception cref="ArgumentException">Thrown if throwOnInvalid is true and validation fails.</exception>
         public static bool ValidateSpriteDefinition(
-            ISpriteLoaderService spriteLoader,
+            IResourceManager resourceManager,
             ILogger logger,
             string spriteId,
             string entityType,
@@ -92,7 +93,7 @@ namespace MonoBall.Core.ECS.Utilities
                 throw new ArgumentNullException(nameof(logger));
             }
 
-            if (!spriteLoader.ValidateSpriteDefinition(spriteId))
+            if (!resourceManager.ValidateSpriteDefinition(spriteId))
             {
                 string message =
                     $"{entityType} '{entityId}': Sprite definition not found: {spriteId}";

@@ -94,57 +94,6 @@ namespace MonoBall.Core
         }
 
         /// <summary>
-        /// Ensures TilesetLoaderService exists in Game.Services, creating it if necessary.
-        /// </summary>
-        /// <param name="game">The game instance.</param>
-        /// <param name="graphicsDevice">The graphics device.</param>
-        /// <param name="modManager">The mod manager.</param>
-        /// <param name="logger">The logger for logging operations.</param>
-        /// <returns>The TilesetLoaderService instance.</returns>
-        public static TilesetLoaderService EnsureTilesetLoaderService(
-            Game game,
-            GraphicsDevice graphicsDevice,
-            IModManager modManager,
-            ILogger logger
-        )
-        {
-            if (game == null)
-            {
-                throw new ArgumentNullException(nameof(game));
-            }
-            if (graphicsDevice == null)
-            {
-                throw new ArgumentNullException(nameof(graphicsDevice));
-            }
-            if (modManager == null)
-            {
-                throw new ArgumentNullException(nameof(modManager));
-            }
-            if (logger == null)
-            {
-                throw new ArgumentNullException(nameof(logger));
-            }
-
-            var existingTilesetLoader = game.Services.GetService<TilesetLoaderService>();
-            if (existingTilesetLoader == null)
-            {
-                var tilesetLoaderService = new TilesetLoaderService(
-                    graphicsDevice,
-                    modManager,
-                    LoggerFactory.CreateLogger<TilesetLoaderService>()
-                );
-                game.Services.AddService(typeof(TilesetLoaderService), tilesetLoaderService);
-                logger.Debug("TilesetLoaderService created and registered");
-                return tilesetLoaderService;
-            }
-            else
-            {
-                logger.Debug("Reusing existing TilesetLoaderService from Game.Services");
-                return existingTilesetLoader;
-            }
-        }
-
-        /// <summary>
         /// Initializes core services (mods, ECS world). Should be called from Game.Initialize().
         /// </summary>
         /// <param name="game">The game instance.</param>
@@ -216,10 +165,11 @@ namespace MonoBall.Core
                 );
             }
 
-            if (gameServices.TilesetLoaderService == null)
+            var resourceManager = gameServices.ResourceManager;
+            if (resourceManager == null)
             {
                 throw new InvalidOperationException(
-                    "GameServices.TilesetLoaderService is null. Ensure GameServices.LoadContent() was called."
+                    "GameServices.ResourceManager is null. Ensure GameServices.LoadContent() was called."
                 );
             }
 
@@ -227,7 +177,7 @@ namespace MonoBall.Core
                 gameServices.EcsService!.World,
                 graphicsDevice,
                 gameServices.ModManager,
-                gameServices.TilesetLoaderService,
+                resourceManager,
                 game,
                 LoggerFactory.CreateLogger<SystemManager>()
             );

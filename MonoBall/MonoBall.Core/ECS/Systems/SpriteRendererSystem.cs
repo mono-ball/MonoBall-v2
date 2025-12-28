@@ -8,6 +8,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -18,7 +19,7 @@ namespace MonoBall.Core.ECS.Systems
     public class SpriteRendererSystem : BaseSystem<World, float>
     {
         private readonly GraphicsDevice _graphicsDevice;
-        private readonly ISpriteLoaderService _spriteLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly ICameraService _cameraService;
         private readonly ShaderManagerSystem? _shaderManagerSystem;
         private readonly ShaderRendererSystem? _shaderRendererSystem;
@@ -53,7 +54,7 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="graphicsDevice">The graphics device for rendering.</param>
-        /// <param name="spriteLoader">The sprite loader service.</param>
+        /// <param name="resourceManager">The resource manager for loading sprite textures and definitions.</param>
         /// <param name="cameraService">The camera service for querying active camera.</param>
         /// <param name="logger">The logger for logging operations.</param>
         /// <param name="shaderManagerSystem">The shader manager system for sprite layer shaders (optional).</param>
@@ -63,7 +64,7 @@ namespace MonoBall.Core.ECS.Systems
         public SpriteRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
-            ISpriteLoaderService spriteLoader,
+            IResourceManager resourceManager,
             ICameraService cameraService,
             ILogger logger,
             ShaderManagerSystem? shaderManagerSystem = null,
@@ -75,7 +76,8 @@ namespace MonoBall.Core.ECS.Systems
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
-            _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _cameraService =
                 cameraService ?? throw new ArgumentNullException(nameof(cameraService));
@@ -218,7 +220,7 @@ namespace MonoBall.Core.ECS.Systems
                     // Get sprite definition for frame dimensions
                     // Note: Sprite definitions are validated at entity creation time, so we assume they exist here
                     // However, we still check for null as a safety measure (e.g., if sprite definitions are removed after entity creation)
-                    var spriteDef = _spriteLoader.GetSpriteDefinition(npc.SpriteId);
+                    var spriteDef = _resourceManager.GetSpriteDefinition(npc.SpriteId);
                     if (spriteDef == null)
                     {
                         return; // Skip rendering if sprite definition is missing (should not happen in normal operation)
@@ -259,7 +261,7 @@ namespace MonoBall.Core.ECS.Systems
                     // Get sprite definition for frame dimensions
                     // Note: Sprite definitions are validated at entity creation time, so we assume they exist here
                     // However, we still check for null as a safety measure (e.g., if sprite definitions are removed after entity creation)
-                    var spriteDef = _spriteLoader.GetSpriteDefinition(
+                    var spriteDef = _resourceManager.GetSpriteDefinition(
                         spriteSheet.CurrentSpriteSheetId
                     );
                     if (spriteDef == null)
@@ -631,10 +633,29 @@ namespace MonoBall.Core.ECS.Systems
             if (!shaderComp.IsEnabled)
                 return null;
 
-            Effect? shader = _shaderService.GetShader(shaderComp.ShaderId);
-            if (shader == null)
+            // Check if shader exists first (optional shader support)
+            if (!_shaderService.HasShader(shaderComp.ShaderId))
             {
-                _logger.Warning("Failed to load per-entity shader {ShaderId}", shaderComp.ShaderId);
+                _logger.Warning(
+                    "Per-entity shader {ShaderId} not found, skipping",
+                    shaderComp.ShaderId
+                );
+                return null;
+            }
+
+            // Load shader (fail fast if loading fails)
+            Effect shader;
+            try
+            {
+                shader = _shaderService.GetShader(shaderComp.ShaderId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(
+                    ex,
+                    "Failed to load per-entity shader {ShaderId}, skipping",
+                    shaderComp.ShaderId
+                );
                 return null;
             }
 
@@ -704,10 +725,15 @@ namespace MonoBall.Core.ECS.Systems
         )
         {
             // Get sprite texture
-            var spriteTexture = _spriteLoader.GetSpriteTexture(spriteId);
-            if (spriteTexture == null)
+            Texture2D spriteTexture;
+            try
+            {
+                spriteTexture = _resourceManager.LoadTexture(spriteId);
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "SpriteRendererSystem.RenderSingleSprite: Failed to get sprite texture for {SpriteId}",
                     spriteId
                 );
@@ -715,14 +741,19 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get current frame rectangle
-            var frameRect = _spriteLoader.GetAnimationFrameRectangle(
-                spriteId,
-                anim.CurrentAnimationName,
-                anim.CurrentFrameIndex
-            );
-            if (!frameRect.HasValue)
+            Rectangle frameRect;
+            try
+            {
+                frameRect = _resourceManager.GetAnimationFrameRectangle(
+                    spriteId,
+                    anim.CurrentAnimationName,
+                    anim.CurrentFrameIndex
+                );
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "SpriteRendererSystem.RenderSingleSprite: Failed to get frame rectangle for sprite {SpriteId}, animation {AnimationName}, frame {FrameIndex}",
                     spriteId,
                     anim.CurrentAnimationName,
@@ -746,7 +777,7 @@ namespace MonoBall.Core.ECS.Systems
             _spriteBatch!.Draw(
                 spriteTexture,
                 pos.Position,
-                frameRect.Value,
+                frameRect,
                 color,
                 0.0f,
                 Vector2.Zero,

@@ -4,6 +4,7 @@ using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -14,7 +15,7 @@ namespace MonoBall.Core.ECS.Systems
     public class CameraSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
         private readonly QueryDescription _queryDescription;
-        private readonly ISpriteLoaderService _spriteLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -26,13 +27,14 @@ namespace MonoBall.Core.ECS.Systems
         /// Initializes a new instance of the CameraSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="spriteLoader">Sprite loader service required for calculating sprite centers when following entities.</param>
+        /// <param name="resourceManager">Resource manager required for calculating sprite centers when following entities.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public CameraSystem(World world, ISpriteLoaderService spriteLoader, ILogger logger)
+        public CameraSystem(World world, IResourceManager resourceManager, ILogger logger)
             : base(world)
         {
             _queryDescription = new QueryDescription().WithAll<CameraComponent>();
-            _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -81,25 +83,29 @@ namespace MonoBall.Core.ECS.Systems
             ref var spriteSheet = ref World.Get<SpriteSheetComponent>(entity);
             ref var animation = ref World.Get<SpriteAnimationComponent>(entity);
 
-            // Get current frame rectangle
-            var frameRect = _spriteLoader.GetAnimationFrameRectangle(
-                spriteSheet.CurrentSpriteSheetId,
-                animation.CurrentAnimationName,
-                animation.CurrentFrameIndex
-            );
-
-            if (!frameRect.HasValue)
+            // Get current frame rectangle - will throw if not found (fail-fast)
+            Rectangle frameRect;
+            try
+            {
+                frameRect = _resourceManager.GetAnimationFrameRectangle(
+                    spriteSheet.CurrentSpriteSheetId,
+                    animation.CurrentAnimationName,
+                    animation.CurrentFrameIndex
+                );
+            }
+            catch (Exception ex)
             {
                 throw new InvalidOperationException(
                     $"CameraSystem.CalculateEntityCenter: Failed to get frame rectangle for entity {entity.Id}, "
-                        + $"sprite {spriteSheet.CurrentSpriteSheetId}, animation {animation.CurrentAnimationName}, frame {animation.CurrentFrameIndex}."
+                        + $"sprite {spriteSheet.CurrentSpriteSheetId}, animation {animation.CurrentAnimationName}, frame {animation.CurrentFrameIndex}.",
+                    ex
                 );
             }
 
             // Calculate center: position (top-left) + half frame dimensions
             return new Vector2(
-                position.X + frameRect.Value.Width / 2f,
-                position.Y + frameRect.Value.Height / 2f
+                position.X + frameRect.Width / 2f,
+                position.Y + frameRect.Height / 2f
             );
         }
 
@@ -231,6 +237,15 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="clampToBounds">Whether to clamp the position to map bounds. Set to false for cutscenes or transitions that need to position outside bounds.</param>
         public void SetCameraPosition(Entity cameraEntity, Vector2 position, bool clampToBounds)
         {
+            if (!World.IsAlive(cameraEntity))
+            {
+                _logger.Warning(
+                    "CameraSystem.SetCameraPosition: Entity {EntityId} is not alive",
+                    cameraEntity.Id
+                );
+                return;
+            }
+
             if (!World.Has<CameraComponent>(cameraEntity))
             {
                 _logger.Warning(
@@ -259,6 +274,15 @@ namespace MonoBall.Core.ECS.Systems
         /// <param name="targetPosition">The target position in tile coordinates.</param>
         public void SetCameraTarget(Entity cameraEntity, Vector2 targetPosition)
         {
+            if (!World.IsAlive(cameraEntity))
+            {
+                _logger.Warning(
+                    "CameraSystem.SetCameraTarget: Entity {EntityId} is not alive",
+                    cameraEntity.Id
+                );
+                return;
+            }
+
             if (!World.Has<CameraComponent>(cameraEntity))
             {
                 _logger.Warning(
@@ -282,11 +306,29 @@ namespace MonoBall.Core.ECS.Systems
         /// <exception cref="InvalidOperationException">Thrown if target entity lacks PositionComponent, SpriteSheetComponent, or SpriteAnimationComponent.</exception>
         public void SetCameraFollowEntity(Entity cameraEntity, Entity targetEntity)
         {
+            if (!World.IsAlive(cameraEntity))
+            {
+                _logger.Warning(
+                    "CameraSystem.SetCameraFollowEntity: Camera entity {EntityId} is not alive",
+                    cameraEntity.Id
+                );
+                return;
+            }
+
             if (!World.Has<CameraComponent>(cameraEntity))
             {
                 _logger.Warning(
                     "CameraSystem.SetCameraFollowEntity: Entity {EntityId} does not have CameraComponent",
                     cameraEntity.Id
+                );
+                return;
+            }
+
+            if (!World.IsAlive(targetEntity))
+            {
+                _logger.Warning(
+                    "CameraSystem.SetCameraFollowEntity: Target entity {EntityId} is not alive",
+                    targetEntity.Id
                 );
                 return;
             }

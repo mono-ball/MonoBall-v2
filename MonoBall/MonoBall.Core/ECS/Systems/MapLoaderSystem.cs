@@ -15,6 +15,7 @@ using MonoBall.Core.Maps;
 using MonoBall.Core.Maps.Utilities;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scripting.Services;
 using MonoBall.Core.Scripting.Utilities;
 using Serilog;
@@ -28,8 +29,7 @@ namespace MonoBall.Core.ECS.Systems
     {
         private readonly int _chunkSize; // 16x16 tiles per chunk (cached from constants service)
         private readonly DefinitionRegistry _registry;
-        private readonly ITilesetLoaderService? _tilesetLoader;
-        private readonly ISpriteLoaderService? _spriteLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly Services.IFlagVariableService? _flagVariableService;
         private readonly Services.IVariableSpriteResolver? _variableSpriteResolver;
         private readonly ILogger _logger;
@@ -55,8 +55,7 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="registry">The definition registry.</param>
-        /// <param name="tilesetLoader">Optional tileset loader service for preloading tilesets.</param>
-        /// <param name="spriteLoader">Optional sprite loader service for loading NPC sprites.</param>
+        /// <param name="resourceManager">The resource manager for loading textures and validating sprites.</param>
         /// <param name="flagVariableService">Optional flag/variable service for checking NPC visibility flags.</param>
         /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
         /// <param name="logger">The logger for logging operations.</param>
@@ -64,8 +63,7 @@ namespace MonoBall.Core.ECS.Systems
         public MapLoaderSystem(
             World world,
             DefinitionRegistry registry,
-            ITilesetLoaderService? tilesetLoader = null,
-            ISpriteLoaderService? spriteLoader = null,
+            IResourceManager resourceManager,
             Services.IFlagVariableService? flagVariableService = null,
             Services.IVariableSpriteResolver? variableSpriteResolver = null,
             ILogger logger = null!,
@@ -74,8 +72,8 @@ namespace MonoBall.Core.ECS.Systems
             : base(world)
         {
             _registry = registry ?? throw new ArgumentNullException(nameof(registry));
-            _tilesetLoader = tilesetLoader;
-            _spriteLoader = spriteLoader;
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _flagVariableService = flagVariableService;
             _variableSpriteResolver = variableSpriteResolver;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -415,12 +413,6 @@ namespace MonoBall.Core.ECS.Systems
 
         private void PreloadTilesets(MapDefinition mapDefinition)
         {
-            if (_tilesetLoader == null)
-            {
-                _logger.Warning("TilesetLoader is null, cannot preload tilesets");
-                return;
-            }
-
             if (mapDefinition.TilesetRefs == null || mapDefinition.TilesetRefs.Count == 0)
             {
                 _logger.Warning("Map {MapId} has no tileset references", mapDefinition.Id);
@@ -439,17 +431,17 @@ namespace MonoBall.Core.ECS.Systems
                     tilesetRef.TilesetId,
                     tilesetRef.FirstGid
                 );
-                var texture = _tilesetLoader.LoadTileset(tilesetRef.TilesetId);
-                if (texture == null)
+                try
                 {
-                    _logger.Warning("Failed to load tileset {TilesetId}", tilesetRef.TilesetId);
-                }
-                else
-                {
+                    var texture = _resourceManager.LoadTexture(tilesetRef.TilesetId);
                     _logger.Information(
                         "Successfully loaded tileset {TilesetId}",
                         tilesetRef.TilesetId
                     );
+                }
+                catch (Exception ex)
+                {
+                    _logger.Warning(ex, "Failed to load tileset {TilesetId}", tilesetRef.TilesetId);
                 }
             }
         }
@@ -625,7 +617,7 @@ namespace MonoBall.Core.ECS.Systems
                         >();
                         bool hasAnimatedTiles = false;
 
-                        if (_tilesetLoader != null)
+                        // Check for animated tiles using ResourceManager
                         {
                             for (int i = 0; i < chunkTileIndices.Length; i++)
                             {
@@ -635,21 +627,28 @@ namespace MonoBall.Core.ECS.Systems
                                     int localTileId = gid - firstGid;
                                     if (localTileId >= 0)
                                     {
-                                        var animation = _tilesetLoader.GetTileAnimation(
-                                            tilesetId,
-                                            localTileId
-                                        );
-                                        if (animation != null && animation.Count > 0)
+                                        try
                                         {
-                                            var animState = new Components.TileAnimationState
+                                            var animation = _resourceManager.GetTileAnimation(
+                                                tilesetId,
+                                                localTileId
+                                            );
+                                            if (animation != null && animation.Count > 0)
                                             {
-                                                AnimationTilesetId = tilesetId,
-                                                AnimationLocalTileId = localTileId,
-                                                CurrentFrameIndex = 0,
-                                                ElapsedTime = 0.0f,
-                                            };
-                                            animatedTiles[i] = animState;
-                                            hasAnimatedTiles = true;
+                                                var animState = new Components.TileAnimationState
+                                                {
+                                                    AnimationTilesetId = tilesetId,
+                                                    AnimationLocalTileId = localTileId,
+                                                    CurrentFrameIndex = 0,
+                                                    ElapsedTime = 0.0f,
+                                                };
+                                                animatedTiles[i] = animState;
+                                                hasAnimatedTiles = true;
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            // Tile animation not found, skip
                                         }
                                     }
                                 }
@@ -841,14 +840,7 @@ namespace MonoBall.Core.ECS.Systems
                 return 0;
             }
 
-            if (_spriteLoader == null)
-            {
-                _logger.Warning(
-                    "SpriteLoader is null, cannot create NPCs for map {MapId}",
-                    mapDefinition.Id
-                );
-                return 0;
-            }
+            // ResourceManager is always available (required parameter)
 
             int npcsCreated = 0;
 
@@ -904,12 +896,7 @@ namespace MonoBall.Core.ECS.Systems
                 throw new ArgumentNullException(nameof(mapDefinition));
             }
 
-            if (_spriteLoader == null)
-            {
-                throw new InvalidOperationException(
-                    "SpriteLoader is required to create NPCs. Ensure SpriteLoader is provided in MapLoaderSystem constructor."
-                );
-            }
+            // ResourceManager is always available (required parameter)
 
             // CRITICAL: Resolve variable sprite FIRST, before validation
             // Variable sprite IDs like {base:sprite:npcs/generic/var_rival} are not valid sprite definitions
@@ -956,7 +943,7 @@ namespace MonoBall.Core.ECS.Systems
             // CRITICAL: Always validate the RESOLVED sprite ID, never the variable sprite ID
             // Variable sprite IDs like {base:sprite:npcs/generic/var_rival} are not valid sprite definitions
             SpriteValidationHelper.ValidateSpriteDefinition(
-                _spriteLoader,
+                _resourceManager,
                 _logger,
                 actualSpriteId, // Always a real sprite ID, never a variable sprite ID
                 "NPC",
@@ -974,7 +961,7 @@ namespace MonoBall.Core.ECS.Systems
             // Note: NPCs use forgiving validation (logs warning, defaults to face_south) for resilience
             // This differs from Player creation which uses strict validation (throws on invalid)
             // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
-            if (!_spriteLoader.ValidateAnimation(actualSpriteId, animationName))
+            if (!_resourceManager.ValidateAnimation(actualSpriteId, animationName))
             {
                 _logger.Warning(
                     "Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
@@ -987,7 +974,7 @@ namespace MonoBall.Core.ECS.Systems
 
             // Get sprite definition and animation to determine initial flip state
             // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
-            var spriteDefinition = _spriteLoader.GetSpriteDefinition(actualSpriteId);
+            var spriteDefinition = _resourceManager.GetSpriteDefinition(actualSpriteId);
             var animation = spriteDefinition?.Animations?.FirstOrDefault(a =>
                 a.Name == animationName
             );
@@ -1296,7 +1283,7 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Preload sprite texture
-            _spriteLoader.GetSpriteTexture(actualSpriteId);
+            _resourceManager.LoadTexture(actualSpriteId);
 
             // Fire NpcLoadedEvent
             var loadedEvent = new Events.NpcLoadedEvent
@@ -1509,26 +1496,15 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get tileset definition
-            if (_tilesetLoader == null)
+            TilesetDefinition tilesetDefinition;
+            try
             {
-                _logger.Warning(
-                    "TilesetLoader is null, cannot create border component for map {MapId}",
-                    mapDefinition.Id
-                );
-                return new MapBorderComponent
-                {
-                    BottomLayerGids = Array.Empty<int>(),
-                    TopLayerGids = Array.Empty<int>(),
-                    TilesetId = string.Empty,
-                    BottomSourceRects = Array.Empty<Rectangle>(),
-                    TopSourceRects = Array.Empty<Rectangle>(),
-                };
+                tilesetDefinition = _resourceManager.GetTilesetDefinition(border.TilesetId);
             }
-
-            var tilesetDefinition = _tilesetLoader.GetTilesetDefinition(border.TilesetId);
-            if (tilesetDefinition == null)
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "Tileset {TilesetId} not found for border in map {MapId}",
                     border.TilesetId,
                     mapDefinition.Id
@@ -1573,12 +1549,20 @@ namespace MonoBall.Core.ECS.Systems
                 {
                     // Convert local tile ID to global GID
                     int globalGid = localTileId + firstGid - 1;
-                    var sourceRect = _tilesetLoader.CalculateSourceRectangle(
-                        border.TilesetId,
-                        globalGid,
-                        firstGid
-                    );
-                    bottomSourceRects[i] = sourceRect ?? Rectangle.Empty;
+                    try
+                    {
+                        var sourceRect = _resourceManager.CalculateTilesetSourceRectangle(
+                            border.TilesetId,
+                            globalGid,
+                            firstGid
+                        );
+                        bottomSourceRects[i] = sourceRect;
+                    }
+                    catch (Exception)
+                    {
+                        // Invalid source rectangle - use empty
+                        bottomSourceRects[i] = Rectangle.Empty;
+                    }
                 }
                 else
                 {
@@ -1597,12 +1581,20 @@ namespace MonoBall.Core.ECS.Systems
                     {
                         // Convert local tile ID to global GID
                         int globalGid = localTileId + firstGid - 1;
-                        var sourceRect = _tilesetLoader.CalculateSourceRectangle(
-                            border.TilesetId,
-                            globalGid,
-                            firstGid
-                        );
-                        topSourceRects[i] = sourceRect ?? Rectangle.Empty;
+                        try
+                        {
+                            var sourceRect = _resourceManager.CalculateTilesetSourceRectangle(
+                                border.TilesetId,
+                                globalGid,
+                                firstGid
+                            );
+                            topSourceRects[i] = sourceRect;
+                        }
+                        catch (Exception)
+                        {
+                            // Invalid source rectangle - use empty
+                            topSourceRects[i] = Rectangle.Empty;
+                        }
                     }
                     else
                     {

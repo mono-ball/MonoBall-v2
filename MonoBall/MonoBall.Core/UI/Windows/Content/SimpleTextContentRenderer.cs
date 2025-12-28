@@ -3,7 +3,7 @@ using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.Constants;
-using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.UI.Windows.Content
@@ -13,7 +13,7 @@ namespace MonoBall.Core.UI.Windows.Content
     /// </summary>
     public class SimpleTextContentRenderer : IContentRenderer
     {
-        private readonly FontService _fontService;
+        private readonly IResourceManager _resourceManager;
         private readonly string _fontId;
         private readonly string _text;
         private readonly Color _textColor;
@@ -26,7 +26,7 @@ namespace MonoBall.Core.UI.Windows.Content
         /// <summary>
         /// Initializes a new instance of the SimpleTextContentRenderer class.
         /// </summary>
-        /// <param name="fontService">The font service for loading fonts.</param>
+        /// <param name="resourceManager">The resource manager for loading fonts.</param>
         /// <param name="fontId">The font identifier.</param>
         /// <param name="text">The text to render.</param>
         /// <param name="textColor">The text color.</param>
@@ -35,10 +35,10 @@ namespace MonoBall.Core.UI.Windows.Content
         /// <param name="scale">The viewport scale factor (needed for padding calculations).</param>
         /// <param name="constants">The constants service.</param>
         /// <param name="logger">The logger.</param>
-        /// <exception cref="ArgumentNullException">Thrown when fontService, fontId, constants, or logger is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when resourceManager, fontId, constants, or logger is null.</exception>
         /// <exception cref="InvalidOperationException">Thrown when font is not found.</exception>
         public SimpleTextContentRenderer(
-            FontService fontService,
+            IResourceManager resourceManager,
             string fontId,
             string text,
             Color textColor,
@@ -49,7 +49,8 @@ namespace MonoBall.Core.UI.Windows.Content
             ILogger logger
         )
         {
-            _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _fontId = fontId ?? throw new ArgumentNullException(nameof(fontId));
             _text = text ?? throw new ArgumentNullException(nameof(text));
             _textColor = textColor;
@@ -60,11 +61,16 @@ namespace MonoBall.Core.UI.Windows.Content
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Validate font exists
-            var fontSystem = _fontService.GetFontSystem(_fontId);
-            if (fontSystem == null)
+            try
+            {
+                var fontSystem = _resourceManager.LoadFont(_fontId);
+                // Font loaded successfully
+            }
+            catch (Exception ex)
             {
                 throw new InvalidOperationException(
-                    $"Font '{_fontId}' not found. Cannot create content renderer without valid font."
+                    $"Font '{_fontId}' not found. Cannot create content renderer without valid font.",
+                    ex
                 );
             }
         }
@@ -84,10 +90,14 @@ namespace MonoBall.Core.UI.Windows.Content
         public void RenderContent(SpriteBatch spriteBatch, int x, int y, int width, int height)
         {
             // Get font (validated in constructor, but font system may change at runtime)
-            var fontSystem = _fontService.GetFontSystem(_fontId);
-            if (fontSystem == null)
+            FontSystem fontSystem;
+            try
             {
-                _logger.Warning("Font '{FontId}' not found, cannot render text", _fontId);
+                fontSystem = _resourceManager.LoadFont(_fontId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(ex, "Font '{FontId}' not found, cannot render text", _fontId);
                 return;
             }
 

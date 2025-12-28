@@ -7,21 +7,29 @@ namespace MonoBall.Core.Audio
     {
         /// <summary>
         /// Plays a sound effect.
+        /// Throws exceptions on failure (fail fast per .cursorrules).
         /// </summary>
         /// <param name="audioId">The audio definition ID.</param>
         /// <param name="volume">Volume (0.0 - 1.0).</param>
         /// <param name="pitch">Pitch adjustment (-1.0 to 1.0).</param>
         /// <param name="pan">Pan adjustment (-1.0 left to 1.0 right).</param>
-        /// <returns>The sound effect instance, or null if playback failed.</returns>
-        ISoundEffectInstance? PlaySound(string audioId, float volume, float pitch, float pan);
+        /// <returns>The sound effect instance.</returns>
+        /// <exception cref="ArgumentException">Thrown when audioId is null/empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when audio definition not found or audio loading fails.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when audio file not found.</exception>
+        ISoundEffectInstance PlaySound(string audioId, float volume, float pitch, float pan);
 
         /// <summary>
         /// Plays a looping sound effect.
+        /// Throws exceptions on failure (fail fast per .cursorrules).
         /// </summary>
         /// <param name="audioId">The audio definition ID.</param>
         /// <param name="volume">Volume (0.0 - 1.0).</param>
-        /// <returns>The sound effect instance, or null if playback failed.</returns>
-        ISoundEffectInstance? PlayLoopingSound(string audioId, float volume);
+        /// <returns>The sound effect instance.</returns>
+        /// <exception cref="ArgumentException">Thrown when audioId is null/empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when audio definition not found or audio loading fails.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when audio file not found.</exception>
+        ISoundEffectInstance PlayLoopingSound(string audioId, float volume);
 
         /// <summary>
         /// Stops a sound effect instance.

@@ -73,10 +73,19 @@ namespace MonoBall.Core.ECS.Systems.Audio
                         }
 
                         float volume = ambient.Volume >= 0 ? ambient.Volume : definition.Volume;
-                        var instance = _audioEngine.PlayLoopingSound(ambient.AudioId, volume);
-                        if (instance != null)
+                        try
                         {
+                            var instance = _audioEngine.PlayLoopingSound(ambient.AudioId, volume);
                             _ambientInstances[entity] = instance;
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.Warning(
+                                ex,
+                                "Failed to play looping sound effect {AudioId} for entity {EntityId}, skipping",
+                                ambient.AudioId,
+                                entity.Id
+                            );
                         }
                     }
                     else

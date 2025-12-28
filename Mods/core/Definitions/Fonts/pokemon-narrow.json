@@ -1,0 +1,14 @@
+{
+  "id": "base:font:game/pokemon-narrow",
+  "name": "Pokemon Narrow Font",
+  "description": "Narrow variant of the Pokemon font for dialogue and menus",
+  "fontPath": "Fonts/pokemon-narrow.ttf",
+  "category": "game",
+  "defaultSize": 16,
+  "lineSpacing": 1.0,
+  "characterSpacing": 0.0,
+  "supportsUnicode": false,
+  "isMonospace": false,
+  "version": "1.0.0"
+}
+

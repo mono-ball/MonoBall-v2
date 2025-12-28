@@ -14,6 +14,7 @@ using MonoBall.Core.Localization;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Systems;
@@ -137,12 +138,15 @@ namespace MonoBall.Core
                 ecsService,
                 _logger
             );
-            var tilesetLoaderService = GameInitializationHelper.EnsureTilesetLoaderService(
-                this,
-                GraphicsDevice,
-                modManager,
-                _logger
-            );
+
+            // Get ResourceManager from Game.Services (should already exist from LoadModsSynchronously)
+            var resourceManager = Services.GetService<Resources.IResourceManager>();
+            if (resourceManager == null)
+            {
+                throw new InvalidOperationException(
+                    "ResourceManager not found in Game.Services. Ensure LoadModsSynchronously() created it."
+                );
+            }
 
             // Create sprite batch for early systems
             var loadingSpriteBatch = new SpriteBatch(GraphicsDevice);
@@ -152,7 +156,7 @@ namespace MonoBall.Core
                 mainWorld,
                 GraphicsDevice,
                 modManager,
-                tilesetLoaderService,
+                resourceManager,
                 this,
                 LoggerFactory.CreateLogger<SystemManager>()
             );
@@ -434,15 +438,44 @@ namespace MonoBall.Core
                 modManager.LoadedMods.Count
             );
 
-            // Create and register FontService immediately after mods load
-            // This ensures fonts are available for the loading screen
-            Mods.Utilities.FontServiceFactory.GetOrCreateFontService(
-                this,
+            // Create and register ResourceManager immediately after mods load
+            // This ensures resources (fonts, etc.) are available for the loading screen
+            var pathResolver = new Resources.ResourcePathResolver(
                 modManager,
-                GraphicsDevice,
-                LoggerFactory.CreateLogger<Rendering.FontService>()
+                LoggerFactory.CreateLogger<Resources.ResourcePathResolver>()
             );
-            _logger.Debug("FontService created and registered");
+            Services.AddService(typeof(Resources.IResourcePathResolver), pathResolver);
+
+            var resourceManager = new Resources.ResourceManager(
+                GraphicsDevice,
+                modManager,
+                pathResolver,
+                LoggerFactory.CreateLogger<Resources.ResourceManager>()
+            );
+            Services.AddService(typeof(Resources.IResourceManager), resourceManager);
+            _logger.Debug("ResourceManager created and registered");
+
+            // Create shader service (depends on ResourceManager)
+            var shaderService = new Rendering.ShaderService(
+                GraphicsDevice,
+                modManager,
+                resourceManager,
+                LoggerFactory.CreateLogger<Rendering.ShaderService>()
+            );
+            Services.AddService(typeof(Rendering.IShaderService), shaderService);
+            _logger.Debug("ShaderService created and registered");
+
+            // Create shader parameter validator
+            var shaderParameterValidator = new Rendering.ShaderParameterValidator(
+                shaderService,
+                LoggerFactory.CreateLogger<Rendering.ShaderParameterValidator>(),
+                modManager
+            );
+            Services.AddService(
+                typeof(Rendering.IShaderParameterValidator),
+                shaderParameterValidator
+            );
+            _logger.Debug("ShaderParameterValidator created and registered");
 
             // Create and register ConstantsService immediately after mods load
             // Use factory pattern for consistency with FontService
@@ -496,6 +529,14 @@ namespace MonoBall.Core
             {
                 systemManager?.Dispose();
                 spriteBatch?.Dispose();
+
+                // Dispose ResourceManager to clean up cached resources
+                var resourceManager = Services.GetService<Resources.IResourceManager>();
+                if (resourceManager is IDisposable resourceManagerDisposable)
+                {
+                    resourceManagerDisposable.Dispose();
+                }
+
                 EcsWorld.Reset();
 
                 _logger.Information("Shutting down MonoBall game");

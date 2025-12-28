@@ -8,6 +8,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -18,7 +19,7 @@ namespace MonoBall.Core.ECS.Systems
     public class MapRendererSystem : BaseSystem<World, float>
     {
         private readonly GraphicsDevice _graphicsDevice;
-        private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly ICameraService _cameraService;
         private readonly ShaderManagerSystem? _shaderManagerSystem;
         private readonly ShaderRendererSystem? _shaderRendererSystem;
@@ -51,7 +52,7 @@ namespace MonoBall.Core.ECS.Systems
         /// </summary>
         /// <param name="world">The ECS world.</param>
         /// <param name="graphicsDevice">The graphics device for rendering.</param>
-        /// <param name="tilesetLoader">The tileset loader service.</param>
+        /// <param name="resourceManager">The resource manager for loading tileset textures and definitions.</param>
         /// <param name="cameraService">The camera service for querying active camera.</param>
         /// <param name="logger">The logger for logging operations.</param>
         /// <param name="shaderManagerSystem">The shader manager system for tile layer shaders (optional).</param>
@@ -60,7 +61,7 @@ namespace MonoBall.Core.ECS.Systems
         public MapRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
-            ITilesetLoaderService tilesetLoader,
+            IResourceManager resourceManager,
             ICameraService cameraService,
             ILogger logger,
             ShaderManagerSystem? shaderManagerSystem = null,
@@ -71,8 +72,8 @@ namespace MonoBall.Core.ECS.Systems
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new System.ArgumentNullException(nameof(graphicsDevice));
-            _tilesetLoader =
-                tilesetLoader ?? throw new System.ArgumentNullException(nameof(tilesetLoader));
+            _resourceManager =
+                resourceManager ?? throw new System.ArgumentNullException(nameof(resourceManager));
             _cameraService =
                 cameraService ?? throw new System.ArgumentNullException(nameof(cameraService));
             _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
@@ -172,9 +173,23 @@ namespace MonoBall.Core.ECS.Systems
                     }
 
                     // Get tile dimensions from tileset for accurate culling
-                    var tilesetDef = _tilesetLoader.GetTilesetDefinition(dataComp.TilesetId);
-                    int tileWidth = tilesetDef?.TileWidth ?? 16; // Default to 16 if not found
-                    int tileHeight = tilesetDef?.TileHeight ?? 16;
+                    int tileWidth = 16; // Default fallback
+                    int tileHeight = 16;
+                    try
+                    {
+                        var tilesetDef = _resourceManager.GetTilesetDefinition(dataComp.TilesetId);
+                        tileWidth = tilesetDef.TileWidth;
+                        tileHeight = tilesetDef.TileHeight;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log but continue with defaults (culling will be less accurate)
+                        _logger.Warning(
+                            ex,
+                            "MapRendererSystem: Failed to get tileset definition for culling, using defaults. TilesetId: {TilesetId}",
+                            dataComp.TilesetId
+                        );
+                    }
 
                     // Cull chunks outside visible bounds (chunks are positioned in pixels)
                     Rectangle chunkBounds = new Rectangle(
@@ -427,10 +442,15 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get tileset texture
-            var tilesetTexture = _tilesetLoader.GetTilesetTexture(data.TilesetId);
-            if (tilesetTexture == null)
+            Texture2D tilesetTexture;
+            try
+            {
+                tilesetTexture = _resourceManager.LoadTexture(data.TilesetId);
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "MapRendererSystem.RenderChunk: Failed to get tileset texture for {TilesetId} at chunk ({X}, {Y})",
                     data.TilesetId,
                     pos.Position.X,
@@ -440,10 +460,15 @@ namespace MonoBall.Core.ECS.Systems
             }
 
             // Get tileset definition for tile dimensions
-            var tilesetDefinition = _tilesetLoader.GetTilesetDefinition(data.TilesetId);
-            if (tilesetDefinition == null)
+            TilesetDefinition tilesetDefinition;
+            try
+            {
+                tilesetDefinition = _resourceManager.GetTilesetDefinition(data.TilesetId);
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "MapRendererSystem.RenderChunk: Failed to get tileset definition for {TilesetId} at chunk ({X}, {Y})",
                     data.TilesetId,
                     pos.Position.X,
@@ -483,12 +508,16 @@ namespace MonoBall.Core.ECS.Systems
                         }
 
                         // Calculate source rectangle for this tile
-                        var sourceRect = _tilesetLoader.CalculateSourceRectangle(
-                            data.TilesetId,
-                            gid,
-                            data.FirstGid
-                        );
-                        if (sourceRect == null)
+                        Rectangle sourceRect;
+                        try
+                        {
+                            sourceRect = _resourceManager.CalculateTilesetSourceRectangle(
+                                data.TilesetId,
+                                gid,
+                                data.FirstGid
+                            );
+                        }
+                        catch (Exception)
                         {
                             invalidGids++;
                             // Invalid source rectangle - skip tile (no logging needed, happens frequently)
@@ -502,7 +531,7 @@ namespace MonoBall.Core.ECS.Systems
                         );
 
                         // Draw the tile
-                        _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect.Value, color);
+                        _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect, color);
 
                         tilesRendered++;
                     }
@@ -511,6 +540,12 @@ namespace MonoBall.Core.ECS.Systems
             else
             {
                 // Slower path: check for animated tiles
+                // CRITICAL: Check entity is alive before accessing components
+                if (!World.IsAlive(chunkEntity))
+                {
+                    return 0;
+                }
+
                 // Defensive check: ensure component exists (should always exist if HasAnimatedTiles is true)
                 if (!World.Has<AnimatedTileDataComponent>(chunkEntity))
                 {
@@ -552,7 +587,7 @@ namespace MonoBall.Core.ECS.Systems
                         )
                         {
                             // Get animation frames from cache
-                            var frames = _tilesetLoader.GetCachedAnimation(
+                            var frames = _resourceManager.GetCachedTileAnimation(
                                 animState.AnimationTilesetId,
                                 animState.AnimationLocalTileId
                             );
@@ -570,12 +605,16 @@ namespace MonoBall.Core.ECS.Systems
                         }
 
                         // Calculate source rectangle for this tile
-                        var sourceRect = _tilesetLoader.CalculateSourceRectangle(
-                            data.TilesetId,
-                            renderGid,
-                            data.FirstGid
-                        );
-                        if (sourceRect == null)
+                        Rectangle sourceRect;
+                        try
+                        {
+                            sourceRect = _resourceManager.CalculateTilesetSourceRectangle(
+                                data.TilesetId,
+                                renderGid,
+                                data.FirstGid
+                            );
+                        }
+                        catch (Exception)
                         {
                             invalidGids++;
                             // Invalid source rectangle - skip tile (no logging needed, happens frequently)
@@ -589,7 +628,7 @@ namespace MonoBall.Core.ECS.Systems
                         );
 
                         // Draw the tile
-                        _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect.Value, color);
+                        _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect, color);
 
                         tilesRendered++;
                     }

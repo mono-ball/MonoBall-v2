@@ -108,10 +108,10 @@ public class LittlerootTownEventScriptTwin : ScriptBase
                 // Town state is not 0 - twin wants player to investigate
                 Context.Apis.MessageBox.ShowMessage(
                     "Um, hi!\\p" +
-                    "There are scary POKéMON outside!\\l" +
+                    "There are scary \ue0a7\ue0a8 outside!\\l" +
                     "I can hear their cries!\\p" +
                     "I want to go see what's going on,\\l" +
-                    "but I don't have any POKéMON…\\p" +
+                    "but I don't have any \ue0a7\ue0a8…\\p" +
                     "Can you go see what's happening\\l" +
                     "for me?"
                 );
@@ -125,7 +125,7 @@ public class LittlerootTownEventScriptTwin : ScriptBase
                 Context.Apis.MessageBox.ShowMessage(
                     "Um, um, um!\\p" +
                     "If you go outside and go in the grass,\\l" +
-                    "wild POKéMON will jump out!"
+                    "wild \ue0a7\ue0a8 will jump out!"
                 );
             }
         }

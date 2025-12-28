@@ -4,6 +4,7 @@ using Arch.System;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -13,7 +14,7 @@ namespace MonoBall.Core.ECS.Systems
     /// </summary>
     public class AnimatedTileSystem : BaseSystem<World, float>, IPrioritizedSystem
     {
-        private readonly ITilesetLoaderService _tilesetLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly QueryDescription _queryDescription;
 
         // Reusable collection to avoid allocations in hot paths
@@ -30,13 +31,13 @@ namespace MonoBall.Core.ECS.Systems
         /// Initializes a new instance of the AnimatedTileSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="tilesetLoader">The tileset loader service for accessing animation frame cache.</param>
+        /// <param name="resourceManager">The resource manager for accessing tile animation frame cache.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public AnimatedTileSystem(World world, ITilesetLoaderService tilesetLoader, ILogger logger)
+        public AnimatedTileSystem(World world, IResourceManager resourceManager, ILogger logger)
             : base(world)
         {
-            _tilesetLoader =
-                tilesetLoader ?? throw new System.ArgumentNullException(nameof(tilesetLoader));
+            _resourceManager =
+                resourceManager ?? throw new System.ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
             _queryDescription = new QueryDescription().WithAll<
                 AnimatedTileDataComponent,
@@ -87,7 +88,7 @@ namespace MonoBall.Core.ECS.Systems
                 var animState = animData.AnimatedTiles[tileIndex];
 
                 // Get animation frames from cache
-                var frames = _tilesetLoader.GetCachedAnimation(
+                var frames = _resourceManager.GetCachedTileAnimation(
                     animState.AnimationTilesetId,
                     animState.AnimationLocalTileId
                 );

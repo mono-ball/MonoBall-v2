@@ -12,6 +12,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.UI.Windows.Animations;
@@ -34,8 +35,8 @@ namespace MonoBall.Core.Scenes.Systems
         // Use GameConstants for consistency across systems
 
         private readonly ISceneManager _sceneManager;
-        private readonly FontService _fontService;
         private readonly IModManager _modManager;
+        private readonly IResourceManager _resourceManager;
         private readonly ILogger _logger;
         private readonly GraphicsDevice _graphicsDevice;
         private readonly SpriteBatch _spriteBatch;
@@ -43,10 +44,6 @@ namespace MonoBall.Core.Scenes.Systems
         private Entity? _currentPopupEntity;
         private Entity? _currentPopupSceneEntity;
         private bool _disposed = false;
-
-        // Texture cache keyed by definition ID
-        private readonly Dictionary<string, Texture2D> _textureCache =
-            new Dictionary<string, Texture2D>();
 
         /// <summary>
         /// Gets the execution priority for this system.
@@ -74,19 +71,19 @@ namespace MonoBall.Core.Scenes.Systems
         /// <param name="sceneManager">The scene manager for creating/destroying scenes.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
         /// <param name="spriteBatch">The sprite batch for rendering.</param>
-        /// <param name="fontService">The font service for text measurement.</param>
         /// <param name="modManager">The mod manager for accessing definitions.</param>
         /// <param name="logger">The logger for logging operations.</param>
         /// <param name="constants">The constants service for accessing game constants. Required.</param>
+        /// <param name="resourceManager">The resource manager for loading textures and fonts. Required.</param>
         public MapPopupSceneSystem(
             World world,
             ISceneManager sceneManager,
             GraphicsDevice graphicsDevice,
             SpriteBatch spriteBatch,
-            FontService fontService,
             IModManager modManager,
             ILogger logger,
-            IConstantsService constants
+            IConstantsService constants,
+            IResourceManager resourceManager
         )
             : base(world)
         {
@@ -94,8 +91,9 @@ namespace MonoBall.Core.Scenes.Systems
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
             _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
-            _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
@@ -174,10 +172,15 @@ namespace MonoBall.Core.Scenes.Systems
             }
 
             // Validate font system (needed for text measurement, but not critical for popup creation)
-            var fontSystem = _fontService.GetFontSystem("base:font:game/pokemon");
-            if (fontSystem == null)
+            try
+            {
+                var fontSystem = _resourceManager.LoadFont("base:font:game/pokemon");
+                // Font loaded successfully
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
+                    ex,
                     "Font 'base:font:game/pokemon' not found, popup will be created but text may not render correctly"
                 );
                 // Continue anyway - popup can still be created without font
@@ -654,10 +657,14 @@ namespace MonoBall.Core.Scenes.Systems
             }
 
             // Load font and render text
-            var fontSystem = _fontService.GetFontSystem("base:font:game/pokemon");
-            if (fontSystem == null)
+            FontSystem fontSystem;
+            try
             {
-                _logger.Warning("Font 'base:font:game/pokemon' not found, cannot render text");
+                fontSystem = _resourceManager.LoadFont("base:font:game/pokemon");
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(ex, "Font 'base:font:game/pokemon' not found, cannot render text");
                 return;
             }
 
@@ -1059,12 +1066,7 @@ namespace MonoBall.Core.Scenes.Systems
                 return null;
             }
 
-            // Check cache first
-            if (_textureCache.TryGetValue(definitionId, out var cachedTexture))
-            {
-                return cachedTexture;
-            }
-
+            // Load texture using ResourceManager (handles caching internally)
             _logger.Debug("Loading background texture for definition {DefinitionId}", definitionId);
 
             // Get definition
@@ -1075,7 +1077,20 @@ namespace MonoBall.Core.Scenes.Systems
                 return null;
             }
 
-            return LoadTextureFromDefinition(definitionId, definition.TexturePath);
+            // Load texture using ResourceManager
+            try
+            {
+                return _resourceManager.LoadTexture(definitionId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(
+                    ex,
+                    "Failed to load background texture: {DefinitionId}",
+                    definitionId
+                );
+                return null;
+            }
         }
 
         /// <summary>
@@ -1090,93 +1105,14 @@ namespace MonoBall.Core.Scenes.Systems
                 return null;
             }
 
-            // Check cache first
-            if (_textureCache.TryGetValue(definitionId, out var cachedTexture))
-            {
-                return cachedTexture;
-            }
-
-            _logger.Debug("Loading outline texture for definition {DefinitionId}", definitionId);
-
-            // Get definition
-            var definition = _modManager.GetDefinition<PopupOutlineDefinition>(definitionId);
-            if (definition == null)
-            {
-                _logger.Warning("Outline definition not found: {DefinitionId}", definitionId);
-                return null;
-            }
-
-            return LoadTextureFromDefinition(definitionId, definition.TexturePath);
-        }
-
-        /// <summary>
-        /// Loads a texture from a texture path, resolving it through mod manifests.
-        /// </summary>
-        /// <param name="definitionId">The definition ID (for logging and caching).</param>
-        /// <param name="texturePath">The texture path relative to mod root.</param>
-        /// <returns>The loaded texture, or null if loading failed.</returns>
-        private Texture2D? LoadTextureFromDefinition(string definitionId, string texturePath)
-        {
-            if (string.IsNullOrEmpty(texturePath))
-            {
-                _logger.Warning("Definition {DefinitionId} has no TexturePath", definitionId);
-                return null;
-            }
-
-            // Get metadata
-            var metadata = _modManager.GetDefinitionMetadata(definitionId);
-            if (metadata == null)
-            {
-                _logger.Warning("Metadata not found for {DefinitionId}", definitionId);
-                return null;
-            }
-
-            // Get mod manifest
-            var modManifest = _modManager.GetModManifest(metadata.OriginalModId);
-            if (modManifest == null)
-            {
-                _logger.Warning(
-                    "Mod manifest not found for {DefinitionId} (mod: {ModId})",
-                    definitionId,
-                    metadata.OriginalModId
-                );
-                return null;
-            }
-
-            // Resolve texture path
-            string fullTexturePath = Path.Combine(modManifest.ModDirectory, texturePath);
-            fullTexturePath = Path.GetFullPath(fullTexturePath);
-
-            if (!File.Exists(fullTexturePath))
-            {
-                _logger.Warning(
-                    "Texture file not found: {TexturePath} (definition: {DefinitionId})",
-                    fullTexturePath,
-                    definitionId
-                );
-                return null;
-            }
-
+            // Load texture using ResourceManager (handles caching internally)
             try
             {
-                // Load texture from file system
-                var texture = Texture2D.FromFile(_graphicsDevice, fullTexturePath);
-                _textureCache[definitionId] = texture;
-                _logger.Debug(
-                    "Loaded texture: {DefinitionId} from {TexturePath}",
-                    definitionId,
-                    fullTexturePath
-                );
-                return texture;
+                return _resourceManager.LoadTexture(definitionId);
             }
             catch (Exception ex)
             {
-                _logger.Error(
-                    ex,
-                    "Failed to load texture: {DefinitionId} from {TexturePath}",
-                    definitionId,
-                    fullTexturePath
-                );
+                _logger.Warning(ex, "Failed to load outline texture: {DefinitionId}", definitionId);
                 return null;
             }
         }

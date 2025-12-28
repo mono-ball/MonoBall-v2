@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Systems;
-using MonoBall.Core.Rendering;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.Scenes.Systems
@@ -23,7 +23,7 @@ namespace MonoBall.Core.Scenes.Systems
         private const int Padding = 8;
         private const int Spacing = 16;
         private readonly GraphicsDevice _graphicsDevice;
-        private readonly FontService _fontService;
+        private readonly IResourceManager _resourceManager;
         private readonly PerformanceStatsSystem _performanceStatsSystem;
         private readonly SpriteBatch _spriteBatch;
         private readonly ILogger _logger;
@@ -46,14 +46,14 @@ namespace MonoBall.Core.Scenes.Systems
         /// </summary>
         /// <param name="world">The ECS world for querying player and map entities.</param>
         /// <param name="graphicsDevice">The graphics device.</param>
-        /// <param name="fontService">The font service for loading fonts.</param>
+        /// <param name="resourceManager">The resource manager for loading fonts.</param>
         /// <param name="performanceStatsSystem">The performance stats system for reading stats.</param>
         /// <param name="spriteBatch">The sprite batch for rendering.</param>
         /// <param name="logger">The logger for logging operations.</param>
         public DebugBarRendererSystem(
             World world,
             GraphicsDevice graphicsDevice,
-            FontService fontService,
+            IResourceManager resourceManager,
             PerformanceStatsSystem performanceStatsSystem,
             SpriteBatch spriteBatch,
             ILogger logger
@@ -62,7 +62,8 @@ namespace MonoBall.Core.Scenes.Systems
         {
             _graphicsDevice =
                 graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
-            _fontService = fontService ?? throw new ArgumentNullException(nameof(fontService));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _performanceStatsSystem =
                 performanceStatsSystem
                 ?? throw new ArgumentNullException(nameof(performanceStatsSystem));
@@ -79,10 +80,14 @@ namespace MonoBall.Core.Scenes.Systems
             // Load font if not already loaded
             if (_debugFont == null)
             {
-                _debugFont = _fontService.GetFontSystem("base:font:debug/mono");
-                if (_debugFont == null)
+                try
+                {
+                    _debugFont = _resourceManager.LoadFont("base:font:debug/mono");
+                }
+                catch (Exception ex)
                 {
                     _logger.Warning(
+                        ex,
                         "Debug font 'base:font:debug/mono' not found. Debug bar will not render."
                     );
                     return;

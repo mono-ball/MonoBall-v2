@@ -6,6 +6,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems
@@ -16,7 +17,7 @@ namespace MonoBall.Core.ECS.Systems
     /// </summary>
     public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
     {
-        private readonly ISpriteLoaderService _spriteLoader;
+        private readonly IResourceManager _resourceManager;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -28,12 +29,13 @@ namespace MonoBall.Core.ECS.Systems
         /// Initializes a new instance of the SpriteSheetSystem.
         /// </summary>
         /// <param name="world">The ECS world.</param>
-        /// <param name="spriteLoader">The sprite loader service for validating sprite sheets.</param>
+        /// <param name="resourceManager">The resource manager for validating sprite sheets.</param>
         /// <param name="logger">The logger for logging operations.</param>
-        public SpriteSheetSystem(World world, ISpriteLoaderService spriteLoader, ILogger logger)
+        public SpriteSheetSystem(World world, IResourceManager resourceManager, ILogger logger)
             : base(world)
         {
-            _spriteLoader = spriteLoader ?? throw new ArgumentNullException(nameof(spriteLoader));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             // Subscribe to sprite sheet change requests
@@ -74,7 +76,7 @@ namespace MonoBall.Core.ECS.Systems
             string entityType = DetermineEntityType(evt.Entity);
             if (
                 !SpriteValidationHelper.ValidateSpriteAndAnimation(
-                    _spriteLoader,
+                    _resourceManager,
                     _logger,
                     evt.NewSpriteSheetId,
                     evt.AnimationName,
