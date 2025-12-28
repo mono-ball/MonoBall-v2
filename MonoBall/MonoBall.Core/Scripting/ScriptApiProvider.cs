@@ -7,6 +7,7 @@ using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Scripting.Api;
 using MonoBall.Core.Scripting.Utilities;
+using ShaderApiImpl = MonoBall.Core.Scripting.Api.ShaderApiImpl;
 
 namespace MonoBall.Core.Scripting
 {
@@ -29,6 +30,14 @@ namespace MonoBall.Core.Scripting
         private ICameraApi? _cameraApi;
         private INpcApi? _npcApi;
         private IMessageBoxApi? _messageBoxApi;
+        private IShaderApi? _shaderApi;
+
+        // Shader system references (updated via UpdateShaderSystems)
+        private ShaderManagerSystem? _shaderManagerSystem;
+        private ShaderTransitionSystem? _shaderTransitionSystem;
+        private ShaderMultiParameterAnimationSystem? _shaderMultiAnimSystem;
+        private ShaderAnimationChainSystem? _shaderChainSystem;
+        private IShaderPresetService? _shaderPresetService;
 
         /// <summary>
         /// Initializes a new instance of the ScriptApiProvider class.
@@ -163,6 +172,29 @@ namespace MonoBall.Core.Scripting
         }
 
         /// <summary>
+        /// Gets the shader API for controlling shader effects.
+        /// </summary>
+        public IShaderApi Shader
+        {
+            get
+            {
+                if (_shaderApi == null)
+                {
+                    _shaderApi = new ShaderApiImpl(
+                        _world,
+                        _definitionRegistry,
+                        _shaderManagerSystem,
+                        _shaderTransitionSystem,
+                        _shaderMultiAnimSystem,
+                        _shaderChainSystem,
+                        _shaderPresetService
+                    );
+                }
+                return _shaderApi;
+            }
+        }
+
+        /// <summary>
         /// Updates the system references. Called after systems are fully initialized.
         /// </summary>
         /// <param name="playerSystem">The player system.</param>
@@ -181,6 +213,31 @@ namespace MonoBall.Core.Scripting
             _playerApi = null;
             _mapApi = null;
             _movementApi = null;
+        }
+
+        /// <summary>
+        /// Updates shader system references. Called after shader systems are fully initialized.
+        /// </summary>
+        /// <param name="shaderManagerSystem">The shader manager system.</param>
+        /// <param name="transitionSystem">The shader transition system.</param>
+        /// <param name="multiAnimSystem">The multi-parameter animation system.</param>
+        /// <param name="chainSystem">The animation chain system.</param>
+        /// <param name="presetService">The shader preset service.</param>
+        public void UpdateShaderSystems(
+            ShaderManagerSystem? shaderManagerSystem,
+            ShaderTransitionSystem? transitionSystem = null,
+            ShaderMultiParameterAnimationSystem? multiAnimSystem = null,
+            ShaderAnimationChainSystem? chainSystem = null,
+            IShaderPresetService? presetService = null
+        )
+        {
+            _shaderManagerSystem = shaderManagerSystem;
+            _shaderTransitionSystem = transitionSystem;
+            _shaderMultiAnimSystem = multiAnimSystem;
+            _shaderChainSystem = chainSystem;
+            _shaderPresetService = presetService;
+            // Clear cached shader API so it's recreated with new system references
+            _shaderApi = null;
         }
 
         // API implementations

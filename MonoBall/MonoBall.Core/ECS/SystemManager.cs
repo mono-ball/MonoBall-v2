@@ -71,6 +71,11 @@ namespace MonoBall.Core.ECS
         private ShaderRendererSystem? _shaderRendererSystem; // Initialized in Initialize(), may be null
         private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
         private ShaderTemplateSystem? _shaderTemplateSystem; // Initialized in Initialize(), may be null
+        private ShaderTransitionSystem? _shaderTransitionSystem; // Initialized in Initialize(), may be null
+        private ShaderMultiParameterAnimationSystem? _shaderMultiAnimSystem; // Initialized in Initialize(), may be null
+        private ShaderAnimationChainSystem? _shaderChainSystem; // Initialized in Initialize(), may be null
+        private ShaderRegionDetectionSystem? _shaderRegionSystem; // Initialized in Initialize(), may be null
+        private Services.IShaderPresetService? _shaderPresetService; // Initialized in Initialize(), may be null
         private Systems.Audio.MapMusicSystem _mapMusicSystem = null!; // Initialized in Initialize()
         private Systems.Audio.MusicPlaybackSystem _musicPlaybackSystem = null!; // Initialized in Initialize()
         private Systems.Audio.SoundEffectSystem _soundEffectSystem = null!; // Initialized in Initialize()
@@ -691,6 +696,44 @@ namespace MonoBall.Core.ECS
                     _modManager,
                     LoggerFactory.CreateLogger<Rendering.ShaderTemplateSystem>()
                 );
+
+                // Create shader transition system
+                _shaderTransitionSystem = new ShaderTransitionSystem(
+                    _world,
+                    _shaderManagerSystem,
+                    LoggerFactory.CreateLogger<ShaderTransitionSystem>()
+                );
+                RegisterUpdateSystem(_shaderTransitionSystem);
+
+                // Create multi-parameter animation system
+                _shaderMultiAnimSystem = new ShaderMultiParameterAnimationSystem(
+                    _world,
+                    _shaderManagerSystem,
+                    LoggerFactory.CreateLogger<ShaderMultiParameterAnimationSystem>()
+                );
+                RegisterUpdateSystem(_shaderMultiAnimSystem);
+
+                // Create animation chain system
+                _shaderChainSystem = new ShaderAnimationChainSystem(
+                    _world,
+                    _shaderManagerSystem,
+                    LoggerFactory.CreateLogger<ShaderAnimationChainSystem>()
+                );
+                RegisterUpdateSystem(_shaderChainSystem);
+
+                // Create shader region detection system
+                _shaderRegionSystem = new ShaderRegionDetectionSystem(
+                    _world,
+                    _shaderTransitionSystem,
+                    LoggerFactory.CreateLogger<ShaderRegionDetectionSystem>()
+                );
+                RegisterUpdateSystem(_shaderRegionSystem);
+
+                // Create shader preset service
+                _shaderPresetService = new Services.ShaderPresetService(
+                    _modManager.Registry,
+                    LoggerFactory.CreateLogger<Services.ShaderPresetService>()
+                );
             }
         }
 
@@ -1038,6 +1081,15 @@ namespace MonoBall.Core.ECS
                 // Update API provider with actual system references
                 _scriptApiProvider.UpdateSystems(_playerSystem, _mapLoaderSystem, _movementSystem);
 
+                // Update shader system references
+                _scriptApiProvider.UpdateShaderSystems(
+                    _shaderManagerSystem,
+                    _shaderTransitionSystem,
+                    _shaderMultiAnimSystem,
+                    _shaderChainSystem,
+                    _shaderPresetService
+                );
+
                 // Initialize plugin scripts (after all systems are ready)
                 _scriptLoaderService.InitializePluginScripts(
                     _scriptApiProvider,
@@ -1286,6 +1338,15 @@ namespace MonoBall.Core.ECS
             // Dispose shader systems
             _shaderParameterAnimationSystem?.Dispose();
             _shaderParameterAnimationSystem = null;
+            _shaderTransitionSystem?.Dispose();
+            _shaderTransitionSystem = null;
+            _shaderMultiAnimSystem?.Dispose();
+            _shaderMultiAnimSystem = null;
+            _shaderChainSystem?.Dispose();
+            _shaderChainSystem = null;
+            _shaderRegionSystem?.Dispose();
+            _shaderRegionSystem = null;
+            _shaderPresetService = null; // Service doesn't implement IDisposable
             _renderTargetManager?.Dispose();
             _renderTargetManager = null;
             // ShaderManagerSystem doesn't need disposal (no managed resources)

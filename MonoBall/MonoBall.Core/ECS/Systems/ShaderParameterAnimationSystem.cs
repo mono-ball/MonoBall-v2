@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -12,13 +13,19 @@ namespace MonoBall.Core.ECS.Systems
     /// <summary>
     /// System that animates shader parameters over time.
     /// Updates shader component parameters based on animation components.
+    /// Fires ShaderAnimationCompletedEvent when non-looping animations complete.
     /// </summary>
-    public class ShaderParameterAnimationSystem : BaseSystem<World, float>, IPrioritizedSystem
+    public class ShaderParameterAnimationSystem
+        : BaseSystem<World, float>,
+            IPrioritizedSystem,
+            IDisposable
     {
         private readonly ShaderManagerSystem? _shaderManagerSystem;
         private readonly ILogger _logger;
         private readonly QueryDescription _entityShaderAnimationQuery;
         private readonly QueryDescription _layerShaderAnimationQuery;
+        private readonly List<ShaderAnimationCompletedEvent> _completedEvents = new();
+        private readonly List<Entity> _entitiesToRemoveAnimation = new();
 
         /// <summary>
         /// Gets the execution priority for this system.
@@ -54,6 +61,8 @@ namespace MonoBall.Core.ECS.Systems
         public override void Update(in float deltaTime)
         {
             float dt = deltaTime;
+            _completedEvents.Clear();
+            _entitiesToRemoveAnimation.Clear();
 
             // Animate per-entity shader parameters
             World.Query(
@@ -100,6 +109,22 @@ namespace MonoBall.Core.ECS.Systems
                     );
                 }
             );
+
+            // Remove animation components from completed entities (Arch ECS constraint: after query)
+            foreach (var entity in _entitiesToRemoveAnimation)
+            {
+                if (World.IsAlive(entity) && World.Has<ShaderParameterAnimationComponent>(entity))
+                {
+                    World.Remove<ShaderParameterAnimationComponent>(entity);
+                }
+            }
+
+            // Fire completion events AFTER query (Arch ECS constraint)
+            foreach (var evt in _completedEvents)
+            {
+                var e = evt;
+                EventBus.Send(ref e);
+            }
         }
 
         private void UpdateAnimation(
@@ -237,7 +262,7 @@ namespace MonoBall.Core.ECS.Systems
             // Update parameter
             parameters[animation.ParameterName] = interpolatedValue;
 
-            // Fire event
+            // Fire parameter changed event
             var evt = new ShaderParameterChangedEvent
             {
                 Layer = layer,
@@ -249,8 +274,28 @@ namespace MonoBall.Core.ECS.Systems
             };
             EventBus.Send(ref evt);
 
-            // Note: Looping is now handled above using modulo, so no need to reset here
-            // This prevents ElapsedTime from accumulating indefinitely
+            // Check for completion (non-looping, non-pingpong animations only)
+            if (
+                !animation.IsLooping
+                && !animation.PingPong
+                && animation.ElapsedTime >= animation.Duration
+            )
+            {
+                // Queue completion event (fired after query per Arch ECS constraint)
+                _completedEvents.Add(
+                    new ShaderAnimationCompletedEvent
+                    {
+                        Entity = entity,
+                        ParameterName = animation.ParameterName,
+                        ShaderId = shaderId,
+                        Layer = layer,
+                        FinalValue = interpolatedValue,
+                    }
+                );
+
+                // Queue entity for animation component removal
+                _entitiesToRemoveAnimation.Add(entity);
+            }
 
             // Mark shaders dirty to ensure changes apply
             _shaderManagerSystem?.MarkShadersDirty();
@@ -285,6 +330,15 @@ namespace MonoBall.Core.ECS.Systems
                 (Color start, Color end) => Color.Lerp(start, end, t),
                 _ => null,
             };
+        }
+
+        /// <summary>
+        /// Disposes of system resources.
+        /// </summary>
+        public new void Dispose()
+        {
+            _completedEvents.Clear();
+            _entitiesToRemoveAnimation.Clear();
         }
     }
 }

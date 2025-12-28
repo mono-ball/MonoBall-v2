@@ -93,6 +93,12 @@ namespace MonoBall.Core.ECS
         public const int MapTransitionDetection = 110;
 
         /// <summary>
+        /// Shader region detection - detects when player enters/exits shader regions.
+        /// Runs after MapTransitionDetection to apply region shaders.
+        /// </summary>
+        public const int ShaderRegionDetection = 115;
+
+        /// <summary>
         /// Camera system - updates camera position based on player/movement.
         /// Runs after Movement to follow entities after they've moved.
         /// </summary>
@@ -212,6 +218,24 @@ namespace MonoBall.Core.ECS
         /// Runs after rendering systems to animate shader effects.
         /// </summary>
         public const int ShaderParameterAnimation = 500;
+
+        /// <summary>
+        /// Shader multi-parameter animation system - animates multiple parameters simultaneously.
+        /// Runs after ShaderParameterAnimation to handle multi-param animations.
+        /// </summary>
+        public const int ShaderMultiParameterAnimation = 502;
+
+        /// <summary>
+        /// Shader transition system - handles crossfade transitions between shaders.
+        /// Runs after animations to handle shader transitions.
+        /// </summary>
+        public const int ShaderTransition = 504;
+
+        /// <summary>
+        /// Shader animation chain system - handles sequenced animation phases.
+        /// Runs after transitions to handle animation chains.
+        /// </summary>
+        public const int ShaderAnimationChain = 506;
 
         /// <summary>
         /// Shader cycle system - cycles through shader effects.

@@ -49,5 +49,10 @@ namespace MonoBall.Core.Scripting
         /// Gets the message box API.
         /// </summary>
         IMessageBoxApi MessageBox { get; }
+
+        /// <summary>
+        /// Gets the shader API for controlling shader effects.
+        /// </summary>
+        IShaderApi Shader { get; }
     }
 }

@@ -35,6 +35,13 @@ namespace MonoBall.Core.Mods.Definitions
         public string ScriptId { get; set; } = string.Empty;
 
         /// <summary>
+        /// Gets or sets the parameter definitions for this behavior.
+        /// These define what parameters the behavior accepts and their defaults.
+        /// </summary>
+        [JsonPropertyName("parameters")]
+        public List<ScriptParameterDefinition>? Parameters { get; set; }
+
+        /// <summary>
         /// Gets or sets the optional parameter overrides for the referenced script.
         /// These override the default parameter values from ScriptDefinition.
         /// </summary>
