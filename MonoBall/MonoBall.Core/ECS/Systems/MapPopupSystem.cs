@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -28,6 +29,7 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
 
     private readonly IModManager _modManager;
     private readonly ISceneManager _sceneManager;
+    private readonly List<IDisposable> _subscriptions = new();
     private string? _currentMapSectionId;
     private Entity? _currentPopupEntity;
     private Entity? _currentPopupSceneEntity;
@@ -56,8 +58,8 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
         // Subscribe to MapTransitionEvent and GameEnteredEvent directly
-        EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
-        EventBus.Subscribe<GameEnteredEvent>(OnGameEntered);
+        _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>(OnMapTransition));
+        _subscriptions.Add(EventBus.Subscribe<GameEnteredEvent>(OnGameEntered));
     }
 
     /// <summary>
@@ -451,11 +453,8 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         if (!_disposed)
         {
             if (disposing)
-            {
-                // Unsubscribe from events using RefAction pattern
-                EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
-                EventBus.Unsubscribe<GameEnteredEvent>(OnGameEntered);
-            }
+                foreach (var subscription in _subscriptions)
+                    subscription.Dispose();
 
             _disposed = true;
         }

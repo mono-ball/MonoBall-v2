@@ -13,15 +13,16 @@ public readonly record struct TilesetPairKey(string PrimaryTileset, string Secon
 
 /// <summary>
 /// Result of processing a metatile: GID for bottom and top layers, with flip flags encoded.
+/// Also includes which tileset the metatile belongs to for separate output.
 /// </summary>
-public readonly record struct MetatileGidResult(uint BottomGid, uint TopGid);
+public readonly record struct MetatileGidResult(uint BottomGid, uint TopGid, bool IsSecondary);
 
 /// <summary>
-/// Builds shared tilesets at the 16x16 metatile level with flip-aware deduplication.
-/// One tileset is created per primary+secondary tileset pair, shared across all maps using that pair.
+/// Coordinates metatile processing between primary and secondary tilesets.
+/// Delegates actual tile storage to IndividualTilesetBuilder instances.
 ///
 /// Key optimizations:
-/// 1. Shared across maps - same tileset pair = same tileset output
+/// 1. Separate primary and secondary tilesets - minimizes duplication
 /// 2. Flip-aware deduplication - flipped metatiles reference base tile + flip flags
 /// 3. Per-layer deduplication - bottom and top layers deduplicated independently
 /// </summary>
@@ -30,7 +31,7 @@ public class SharedTilesetBuilder : IDisposable
     private const int TileSize = 8;
     private const int MetatileSize = 16;
     private const int TilesPerRow = 16;
-    private const int NumTilesInPrimaryVram = 512;
+    private const int NumMetatilesInPrimary = 512;
 
     // Tiled flip flags
     private const uint FLIP_H = 0x80000000;
@@ -40,34 +41,53 @@ public class SharedTilesetBuilder : IDisposable
     private readonly MetatileRenderer _renderer;
     private readonly AnimationScanner _animScanner;
 
-    // Unique metatile images (canonical, non-flipped versions)
-    private readonly List<Image<Rgba32>> _uniqueImages = new();
+    // Individual builders for primary and secondary tilesets
+    private readonly IndividualTilesetBuilder _primaryBuilder;
+    private readonly IndividualTilesetBuilder _secondaryBuilder;
+    private readonly bool _ownsBuilders;
 
-    // Hash to GID mapping (for deduplication)
-    private readonly Dictionary<ulong, int> _imageHashToGid = new();
-
-    // All variant hashes: hash → (GID, flipH, flipV)
-    private readonly Dictionary<ulong, (int Gid, bool FlipH, bool FlipV)> _variantLookup = new();
-
-    // Track processed metatiles: key → (bottomGid with flags, topGid with flags)
+    // Track processed metatiles: key → result
     private readonly Dictionary<(int MetatileId, string Tileset, MetatileLayerType LayerType), MetatileGidResult> _processedMetatiles = new();
 
     // Animation tracking
     private readonly Dictionary<(string Tileset, string AnimName), HashSet<int>> _animatedGids = new();
     private readonly Dictionary<(string Tileset, string AnimName, int FrameIdx), int> _animationFrameGids = new();
-    private readonly List<TileAnimation> _animations = new();
 
-    private int _nextGid = 1; // Tiled uses 1-based GIDs
-    private readonly object _lock = new(); // Thread safety for parallel map processing
+    private readonly object _lock = new();
 
     public TilesetPairKey TilesetPair { get; }
 
+    /// <summary>
+    /// Create with shared IndividualTilesetBuilder instances (from registry).
+    /// </summary>
+    public SharedTilesetBuilder(
+        string pokeemeraldPath,
+        string primaryTileset,
+        string secondaryTileset,
+        IndividualTilesetBuilder primaryBuilder,
+        IndividualTilesetBuilder secondaryBuilder)
+    {
+        _pokeemeraldPath = pokeemeraldPath;
+        _renderer = new MetatileRenderer(pokeemeraldPath);
+        _animScanner = new AnimationScanner(pokeemeraldPath);
+        TilesetPair = new TilesetPairKey(primaryTileset, secondaryTileset);
+        _primaryBuilder = primaryBuilder;
+        _secondaryBuilder = secondaryBuilder;
+        _ownsBuilders = false;
+    }
+
+    /// <summary>
+    /// Create with own IndividualTilesetBuilder instances (legacy mode).
+    /// </summary>
     public SharedTilesetBuilder(string pokeemeraldPath, string primaryTileset, string secondaryTileset)
     {
         _pokeemeraldPath = pokeemeraldPath;
         _renderer = new MetatileRenderer(pokeemeraldPath);
         _animScanner = new AnimationScanner(pokeemeraldPath);
         TilesetPair = new TilesetPairKey(primaryTileset, secondaryTileset);
+        _primaryBuilder = new IndividualTilesetBuilder(pokeemeraldPath, primaryTileset);
+        _secondaryBuilder = new IndividualTilesetBuilder(pokeemeraldPath, secondaryTileset);
+        _ownsBuilders = true;
     }
 
     /// <summary>
@@ -87,6 +107,14 @@ public class SharedTilesetBuilder : IDisposable
                 return existing;
         }
 
+        // Determine if this metatile is from primary or secondary based on metatile ID
+        // Metatiles 0-511 are from primary, 512+ are from secondary
+        var isSecondary = metatileId >= NumMetatilesInPrimary;
+        var builder = isSecondary ? _secondaryBuilder : _primaryBuilder;
+
+        // Use local metatile ID for secondary (offset by 512)
+        var localMetatileId = isSecondary ? metatileId - NumMetatilesInPrimary : metatileId;
+
         // Render the metatile (outside lock - rendering is expensive)
         var (bottomImage, topImage) = _renderer.RenderMetatile(
             metatile,
@@ -103,130 +131,29 @@ public class SharedTilesetBuilder : IDisposable
                 return existing;
             }
 
-            // Assign GIDs with flip-aware deduplication
-            var bottomGid = AssignGidWithFlipDetection(bottomImage);
-            var topGid = AssignGidWithFlipDetection(topImage);
+            // Assign GIDs using the appropriate individual builder
+            var bottomGid = builder.ProcessMetatileImage(localMetatileId * 2, bottomImage);
+            var topGid = builder.ProcessMetatileImage(localMetatileId * 2 + 1, topImage);
+
+            // Track tile properties (behavior, terrain) for each GID
+            // Only the base GID matters (flip flags stripped), properties are per unique image
+            var bottomBaseGid = (int)(bottomGid & 0x0FFFFFFF);
+            var topBaseGid = (int)(topGid & 0x0FFFFFFF);
+            builder.TrackTileProperty(bottomBaseGid, metatile.Behavior, metatile.TerrainType);
+            builder.TrackTileProperty(topBaseGid, metatile.Behavior, metatile.TerrainType);
 
             // Track animations
-            TrackAnimatedMetatile(metatile, tilesetName, (int)(bottomGid & 0x0FFFFFFF), (int)(topGid & 0x0FFFFFFF));
+            TrackAnimatedMetatile(metatile, tilesetName, bottomBaseGid, topBaseGid);
 
-            var result = new MetatileGidResult(bottomGid, topGid);
+            var result = new MetatileGidResult(bottomGid, topGid, isSecondary);
             _processedMetatiles[key] = result;
 
-            // Dispose rendered images (we keep clones in _uniqueImages)
+            // Dispose rendered images
             bottomImage.Dispose();
             topImage.Dispose();
 
             return result;
         }
-    }
-
-    /// <summary>
-    /// Assign a GID to an image, checking for flipped variants.
-    /// Returns GID with flip flags encoded in high bits.
-    /// </summary>
-    private uint AssignGidWithFlipDetection(Image<Rgba32> image)
-    {
-        var hash = ComputeImageHash(image);
-
-        // Check if exact match or variant exists
-        if (_variantLookup.TryGetValue(hash, out var existing))
-        {
-            uint gid = (uint)existing.Gid;
-            if (existing.FlipH) gid |= FLIP_H;
-            if (existing.FlipV) gid |= FLIP_V;
-            return gid;
-        }
-
-        // Generate flipped variants and check
-        using var flipH = image.Clone();
-        flipH.Mutate(x => x.Flip(FlipMode.Horizontal));
-        var hashH = ComputeImageHash(flipH);
-
-        if (_variantLookup.TryGetValue(hashH, out var matchH))
-        {
-            // This image is the H-flip of an existing tile
-            // So we reference that tile with H flip flag
-            uint gid = (uint)matchH.Gid;
-            bool finalFlipH = !matchH.FlipH; // XOR with H
-            bool finalFlipV = matchH.FlipV;
-            if (finalFlipH) gid |= FLIP_H;
-            if (finalFlipV) gid |= FLIP_V;
-
-            // Cache this variant
-            _variantLookup[hash] = ((int)(gid & 0x0FFFFFFF), finalFlipH, finalFlipV);
-            return gid;
-        }
-
-        using var flipV = image.Clone();
-        flipV.Mutate(x => x.Flip(FlipMode.Vertical));
-        var hashV = ComputeImageHash(flipV);
-
-        if (_variantLookup.TryGetValue(hashV, out var matchV))
-        {
-            uint gid = (uint)matchV.Gid;
-            bool finalFlipH = matchV.FlipH;
-            bool finalFlipV = !matchV.FlipV; // XOR with V
-            if (finalFlipH) gid |= FLIP_H;
-            if (finalFlipV) gid |= FLIP_V;
-
-            _variantLookup[hash] = ((int)(gid & 0x0FFFFFFF), finalFlipH, finalFlipV);
-            return gid;
-        }
-
-        using var flipHV = flipH.Clone();
-        flipHV.Mutate(x => x.Flip(FlipMode.Vertical));
-        var hashHV = ComputeImageHash(flipHV);
-
-        if (_variantLookup.TryGetValue(hashHV, out var matchHV))
-        {
-            uint gid = (uint)matchHV.Gid;
-            bool finalFlipH = !matchHV.FlipH; // XOR with H
-            bool finalFlipV = !matchHV.FlipV; // XOR with V
-            if (finalFlipH) gid |= FLIP_H;
-            if (finalFlipV) gid |= FLIP_V;
-
-            _variantLookup[hash] = ((int)(gid & 0x0FFFFFFF), finalFlipH, finalFlipV);
-            return gid;
-        }
-
-        // New unique image - add as canonical
-        var newGid = _nextGid++;
-        _uniqueImages.Add(image.Clone());
-        _imageHashToGid[hash] = newGid;
-
-        // Register all variants
-        _variantLookup[hash] = (newGid, false, false);
-        _variantLookup[hashH] = (newGid, true, false);
-        _variantLookup[hashV] = (newGid, false, true);
-        _variantLookup[hashHV] = (newGid, true, true);
-
-        return (uint)newGid;
-    }
-
-    /// <summary>
-    /// Compute a hash from image pixel data using FNV-1a.
-    /// </summary>
-    private static ulong ComputeImageHash(Image<Rgba32> image)
-    {
-        ulong hash = 14695981039346656037UL;
-
-        image.ProcessPixelRows(accessor =>
-        {
-            for (int y = 0; y < accessor.Height; y++)
-            {
-                var row = accessor.GetRowSpan(y);
-                foreach (var pixel in row)
-                {
-                    hash ^= pixel.R; hash *= 1099511628211UL;
-                    hash ^= pixel.G; hash *= 1099511628211UL;
-                    hash ^= pixel.B; hash *= 1099511628211UL;
-                    hash ^= pixel.A; hash *= 1099511628211UL;
-                }
-            }
-        });
-
-        return hash;
     }
 
     /// <summary>
@@ -302,7 +229,7 @@ public class SharedTilesetBuilder : IDisposable
 
             if (frames[0].Width == 16 && frames[0].Height == 16)
             {
-                ProcessMetatileAnimation(tilesetName, animDef, frames, frameSequence, gidsToAnimate);
+                ProcessMetatileAnimation(tilesetName, animDef, frames, frameSequence, gidsToAnimate, isSecondary);
             }
 
             foreach (var frame in frames)
@@ -315,15 +242,17 @@ public class SharedTilesetBuilder : IDisposable
         AnimationDefinition animDef,
         List<Image<Rgba32>> frames,
         int[] frameSequence,
-        HashSet<int> gidsToAnimate)
+        HashSet<int> gidsToAnimate,
+        bool isSecondary)
     {
+        var builder = isSecondary ? _secondaryBuilder : _primaryBuilder;
         var frameGids = new int[frames.Count];
 
         for (int i = 0; i < frames.Count; i++)
         {
-            // Animation frames go through same deduplication
-            var gid = AssignGidWithFlipDetection(frames[i]);
-            frameGids[i] = (int)(gid & 0x0FFFFFFF); // Strip flip flags for animation frames
+            // Animation frames go through same deduplication via the individual builder
+            var gid = builder.ProcessMetatileImage(1000000 + i, frames[i]); // Use high ID for animation frames
+            frameGids[i] = (int)(gid & 0x0FFFFFFF);
             _animationFrameGids[(tilesetName, animDef.Name, i)] = frameGids[i];
         }
 
@@ -338,42 +267,78 @@ public class SharedTilesetBuilder : IDisposable
 
         foreach (var gid in gidsToAnimate)
         {
-            _animations.Add(new TileAnimation(gid - 1, animFrames.ToArray()));
+            builder.AddAnimation(new TileAnimation(gid - 1, animFrames.ToArray()));
         }
     }
 
     /// <summary>
-    /// Build the final tilesheet image.
+    /// Build the final tilesheet image (legacy - returns primary builder's sheet).
+    /// Use BuildAllTilesheets() for separated primary/secondary output.
     /// </summary>
     public Image<Rgba32> BuildTilesheetImage()
     {
-        if (_uniqueImages.Count == 0)
-            return new Image<Rgba32>(MetatileSize, MetatileSize);
+        // For legacy compatibility, combine both sheets
+        var primaryImage = _primaryBuilder.BuildTilesheetImage();
+        var secondaryImage = _secondaryBuilder.BuildTilesheetImage();
 
-        var cols = Math.Min(TilesPerRow, _uniqueImages.Count);
-        var rows = (_uniqueImages.Count + cols - 1) / cols;
+        if (_secondaryBuilder.UniqueTileCount == 0)
+            return primaryImage;
 
-        var tilesheet = new Image<Rgba32>(cols * MetatileSize, rows * MetatileSize);
+        if (_primaryBuilder.UniqueTileCount == 0)
+            return secondaryImage;
 
-        for (int i = 0; i < _uniqueImages.Count; i++)
+        // Combine both sheets vertically
+        var combinedHeight = primaryImage.Height + secondaryImage.Height;
+        var combinedWidth = Math.Max(primaryImage.Width, secondaryImage.Width);
+        var combined = new Image<Rgba32>(combinedWidth, combinedHeight);
+
+        combined.ProcessPixelRows(accessor =>
         {
-            var x = (i % cols) * MetatileSize;
-            var y = (i / cols) * MetatileSize;
-            tilesheet.Mutate(ctx => ctx.DrawImage(_uniqueImages[i], new Point(x, y), 1f));
-        }
+            var transparent = new Rgba32(0, 0, 0, 0);
+            for (int y = 0; y < accessor.Height; y++)
+                accessor.GetRowSpan(y).Fill(transparent);
+        });
 
-        return tilesheet;
+        combined.Mutate(ctx =>
+        {
+            ctx.DrawImage(primaryImage, new Point(0, 0), 1f);
+            ctx.DrawImage(secondaryImage, new Point(0, primaryImage.Height), 1f);
+        });
+
+        primaryImage.Dispose();
+        secondaryImage.Dispose();
+
+        return combined;
     }
 
-    public int UniqueTileCount => _uniqueImages.Count;
-    public int Columns => Math.Min(TilesPerRow, Math.Max(1, _uniqueImages.Count));
-    public List<TileAnimation> GetAnimations() => _animations;
+    /// <summary>
+    /// Build separate tilesheet images for primary and secondary.
+    /// </summary>
+    public (Image<Rgba32> Primary, Image<Rgba32> Secondary) BuildAllTilesheets()
+    {
+        return (_primaryBuilder.BuildTilesheetImage(), _secondaryBuilder.BuildTilesheetImage());
+    }
+
+    public int UniqueTileCount => _primaryBuilder.UniqueTileCount + _secondaryBuilder.UniqueTileCount;
+    public int PrimaryTileCount => _primaryBuilder.UniqueTileCount;
+    public int SecondaryTileCount => _secondaryBuilder.UniqueTileCount;
+    public int Columns => Math.Min(TilesPerRow, Math.Max(1, UniqueTileCount));
+
+    public List<TileAnimation> GetAnimations()
+    {
+        var all = new List<TileAnimation>();
+        all.AddRange(_primaryBuilder.GetAnimations());
+        all.AddRange(_secondaryBuilder.GetAnimations());
+        return all;
+    }
 
     public void Dispose()
     {
-        foreach (var img in _uniqueImages)
-            img.Dispose();
-        _uniqueImages.Clear();
         _renderer.Dispose();
+        if (_ownsBuilders)
+        {
+            _primaryBuilder.Dispose();
+            _secondaryBuilder.Dispose();
+        }
     }
 }

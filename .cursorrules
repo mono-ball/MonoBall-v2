@@ -23,7 +23,8 @@ This document defines coding standards and best practices for the MonoBall proje
 - **Framework**: MonoGame 3.8+ with .NET 10.0
 - **Language**: C# with nullable reference types enabled
 - **Architecture**: Mod-based game engine with ECS (Entity Component System) architecture
-- **ECS Library**: Arch ECS (Arch.Core, Arch.System, Arch.EventBus)
+- **ECS Library**: Arch ECS (Arch.Core, Arch.System)
+- **Event System**: Custom `EventBus` static class in `MonoBall.Core.ECS` namespace
 - **Code Style**: Clean, SOLID, DRY principles
 
 ---
@@ -94,6 +95,7 @@ private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
 - **Use `Dictionary<TKey, TValue>`** for key-value lookups
 - **Avoid allocations** in Update/Draw loops (object pooling for frequently created objects)
 - **Pre-size collections** when size is known (`new List<T>(capacity)`)
+- **Reuse collections in hot paths**: Cache `List<T>` or other collections as instance fields, clear and reuse them instead of allocating new ones in Update/Render methods
 
 ---
 
@@ -149,12 +151,28 @@ MonoBall.Core/
 ├── ECS/               # Entity Component System
 │   ├── Components/    # ECS components (value types)
 │   ├── Systems/       # ECS systems (behavior/logic)
-│   ├── Events/        # Event definitions
+│   ├── Events/        # ECS event definitions
+│   ├── Services/      # ECS-related services
+│   ├── EventBus.cs    # Custom event bus implementation
 │   ├── EcsService.cs  # ECS service wrapper
 │   └── EcsWorld.cs    # ECS world singleton
+├── Scenes/            # Scene system (pure ECS)
+│   ├── Components/   # Scene components
+│   ├── Systems/       # Scene-specific systems
+│   └── Events/        # Scene event definitions
+├── Scripting/         # Scripting system
+│   ├── Api/           # Script API interfaces
+│   ├── Runtime/       # Script runtime classes
+│   ├── Services/      # Script loading/compilation services
+│   └── Utilities/     # Script utilities
+├── Rendering/         # Rendering services (shaders, render targets)
+├── Resources/         # Resource management
+├── Audio/             # Audio engine and services
+├── Constants/         # Constants system
+├── TextEffects/       # Text effect system
+├── UI/                # UI windows and components
 ├── Mods/              # Mod system classes
-├── Maps/              # Map-related classes
-└── [Feature Areas]/   # Other feature-specific folders
+└── Maps/              # Map-related classes
 ```
 
 ### File Naming & Code Organization
@@ -209,31 +227,37 @@ MonoBall.Core/
 - **Naming**: End system names with `System` suffix (e.g., `MapLoaderSystem`)
 - **Location**: `ECS/Systems/` directory, namespace `MonoBall.Core.ECS.Systems`
 - **Inject dependencies** through constructor (World, services, managers)
-- **Separate concerns**: Keep update logic separate from render logic
+- **Optional dependencies**: Use nullable types for optional dependencies (e.g., `ShaderManagerSystem?`), check for null before use, document in XML comments
+- **Separate update and render methods**: Systems can have both `Update()` and `Render()` methods, but keep the logic separated - update logic in `Update()`, render logic in `Render()`
+- **Reusable collections**: Cache collections as instance fields (e.g., `List<T>`) to avoid allocations in hot paths - clear and reuse them in Update/Render methods
 
 ### System Organization
 - **Use `Group<T>`** to organize related systems (e.g., "MapSystems", "RenderSystems")
 - **Call lifecycle methods**: `BeforeUpdate()`, `Update()`, `AfterUpdate()` in that order
 - **Update systems in `Game.Update()`**: Pass deltaTime as `(float)gameTime.ElapsedGameTime.TotalSeconds`
 - **Render systems separately**: Call render methods from `Game.Draw()`, not through Group
+- **Systems with both Update and Render**: It's acceptable for a system to have both `Update()` and `Render()` methods - they are separate methods with separate responsibilities
 
 ### System Disposal (IDisposable)
 - **Implement `IDisposable`** only when system has managed resources (event subscriptions, cached collections)
 - **Event subscriptions require disposal**: If subscribing to events, MUST implement `IDisposable` and unsubscribe in `Dispose()`
 - **Use standard dispose pattern** with protected `Dispose(bool disposing)` method
 - **Use `new` keyword** on public `Dispose()` if `BaseSystem` has a `Dispose()` method
-- **Do NOT call `GC.SuppressFinalize(this)`** unless you have a finalizer (systems typically don't)
+- **Call `GC.SuppressFinalize(this)`** when implementing the standard dispose pattern with `Dispose(bool disposing)` - this is correct even without a finalizer
 - **Always check `_disposed` flag** to prevent multiple disposals
 
 #### Dispose Pattern Template
 ```csharp
 public class MySystem : BaseSystem<World, float>, IDisposable
 {
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed = false;
 
     public MySystem(World world) : base(world)
     {
-        EventBus.Subscribe<SomeEvent>(OnSomeEvent);
+        // Store IDisposable subscriptions for automatic cleanup
+        _subscriptions.Add(EventBus.Subscribe<SomeEvent>(OnSomeEvent));
+        _subscriptions.Add(EventBus.Subscribe<OtherEvent>(OnOtherEvent));
     }
 
     public new void Dispose() => Dispose(true);
@@ -242,7 +266,9 @@ public class MySystem : BaseSystem<World, float>, IDisposable
     {
         if (!_disposed && disposing)
         {
-            EventBus.Unsubscribe<SomeEvent>(OnSomeEvent);
+            // Dispose all subscriptions (thread-safe, idempotent)
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
             // Clear cached collections, dispose other resources
         }
         _disposed = true;
@@ -252,9 +278,33 @@ public class MySystem : BaseSystem<World, float>, IDisposable
 
 ### Query Performance
 - **Cache QueryDescription**: Create in constructor, store as instance field or static readonly
+- **Multiple queries per system**: Systems can have multiple cached queries (e.g., `_npcQuery`, `_playerQuery`) for different entity types
 - **Use appropriate filters**: `WithAll` for AND, `WithAny` for OR, `WithNone` for exclusion
 - **Single-pass queries**: Get all needed components in one query pass
 - **Avoid allocations** in hot path queries - reuse collections or use stack allocation
+
+#### QueryDescription Caching Examples
+```csharp
+// Instance field (most common)
+public class SpriteRendererSystem : BaseSystem<World, float>
+{
+    private readonly QueryDescription _npcQuery;
+    private readonly QueryDescription _playerQuery;
+    
+    public SpriteRendererSystem(World world) : base(world)
+    {
+        _npcQuery = new QueryDescription().WithAll<NpcComponent, SpriteAnimationComponent>();
+        _playerQuery = new QueryDescription().WithAll<PlayerComponent, SpriteSheetComponent>();
+    }
+}
+
+// Static readonly (when shared across instances)
+public class SomeSystem : BaseSystem<World, float>
+{
+    private static readonly QueryDescription SharedQuery = new QueryDescription()
+        .WithAll<SomeComponent>();
+}
+```
 
 ### Entity Management
 - **Create entities** with `World.Create()` and pass initial components
@@ -278,29 +328,52 @@ namespace MonoBall.Core.ECS.Components
 }
 ```
 
-### Example: System with Manual Query
+### Example: System with Manual Query and Reusable Collections
 ```csharp
 public class MapRendererSystem : BaseSystem<World, float>
 {
     private readonly GraphicsDevice _graphicsDevice;
     private readonly QueryDescription _queryDescription;
     
-    public MapRendererSystem(World world, GraphicsDevice graphicsDevice) : base(world)
+    // Reusable collection to avoid allocations in hot path
+    private readonly List<(
+        Entity entity,
+        TileChunkComponent chunk,
+        PositionComponent pos,
+        RenderableComponent render
+    )> _chunkList = new();
+    
+    public MapRendererSystem(
+        World world,
+        GraphicsDevice graphicsDevice,
+        ShaderManagerSystem? shaderManagerSystem = null  // Optional dependency
+    ) : base(world)
     {
         _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+        _shaderManagerSystem = shaderManagerSystem;  // Nullable, check before use
         _queryDescription = new QueryDescription()
             .WithAll<TileChunkComponent, PositionComponent, RenderableComponent>();
     }
     
     public override void Update(in float deltaTime)
     {
+        // Clear reusable collection instead of allocating new one
+        _chunkList.Clear();
+        
         World.Query(in _queryDescription, (ref TileChunkComponent chunk, ref PositionComponent pos, ref RenderableComponent render) =>
         {
             if (render.IsVisible)
             {
-                // Update logic
+                // Collect entities for processing
+                _chunkList.Add((entity, chunk, pos, render));
             }
         });
+        
+        // Process collected entities
+        foreach (var (entity, chunk, pos, render) in _chunkList)
+        {
+            // Update logic
+        }
     }
 }
 ```
@@ -310,24 +383,39 @@ public class MapRendererSystem : BaseSystem<World, float>
 ## Event System Best Practices
 
 ### Event Architecture
-- **Use Arch.EventBus** for decoupled event communication
+- **Use custom `EventBus`** static class in `MonoBall.Core.ECS` namespace for decoupled event communication
+- **Thread-safe**: Uses `ConcurrentDictionary` for handler storage, lock-free publish path
+- **IDisposable subscriptions**: Subscribe returns `IDisposable` for safe, automatic cleanup
 - **Events are value types** (`struct`) - lightweight data containers
-- **Naming**: End event names with `Event` suffix (e.g., `MapLoadedEvent`)
-- **Location**: `ECS/Events/` directory, namespace `MonoBall.Core.ECS.Events`
+- **Naming**: End event names with `Event` suffix (e.g., `MapLoadedEvent`, `SceneCreatedEvent`)
+- **Location**: Events can be in feature-specific directories:
+  - `ECS/Events/` - General ECS events, namespace `MonoBall.Core.ECS.Events`
+  - `Scenes/Events/` - Scene-specific events, namespace `MonoBall.Core.Scenes.Events`
+  - Other feature areas can have their own `Events/` subdirectories
 - **Events carry context**: Include relevant entity references, IDs, and state data
+
+### EventBus API
+- **`EventBus.Subscribe<T>(Action<T>)`** - Subscribe with copy handler, returns `IDisposable`
+- **`EventBus.Subscribe<T>(RefAction<T>)`** - Subscribe with ref handler, returns `IDisposable`
+- **`EventBus.Send<T>(ref T)`** - Broadcast event to all subscribers (pass by ref)
+- **`EventBus.SendOnMainThread<T>(T)`** - Queue event for main thread dispatch (thread-safe)
+- **`EventBus.ProcessMainThreadQueue()`** - Process queued events (call in Game.Update)
+- **`EventBus.Initialize()`** - Set main thread reference (call once at startup)
+- **`EventBus.SetErrorHandler(Action<string, Exception>)`** - Custom error handling
 
 ### Event Design & Publishing
 - **Keep events focused** - represent a single occurrence or state change
 - **Make events immutable** - use `readonly` properties or init-only setters
 - **Document events** with XML comments explaining when they're fired
-- **Use EventBus.Send()** to broadcast events (takes ref parameter for struct events)
+- **Use `EventBus.Send(ref evt)`** to broadcast events (takes ref parameter)
 - **Fire events after state changes** are complete and valid
 
 ### Event Subscription
 - **Subscribe to events** in systems that need to react to state changes
-- **Use EventBus.Subscribe()** for subscription
-- **MUST unsubscribe** when systems are disposed to prevent memory leaks
+- **Store IDisposable subscriptions** in a `List<IDisposable>` field
+- **Dispose subscriptions in `Dispose()`** to prevent memory leaks
 - **Keep event handlers focused** - delegate to other methods if logic is complex
+- **Use `ref` parameters** in handlers for zero-allocation struct events
 
 ### Example: Event Definition
 ```csharp
@@ -344,17 +432,242 @@ namespace MonoBall.Core.ECS.Events
 }
 ```
 
-### Example: Publishing & Subscribing
+### Example: Publishing & Subscribing (Custom EventBus)
 ```csharp
-// Publishing
+using MonoBall.Core.ECS;
+
+// Publishing (pass by ref for struct events)
 var loadedEvent = new MapLoadedEvent { MapId = mapId, MapEntity = mapEntity };
 EventBus.Send(ref loadedEvent);
 
 // Subscribing (in system constructor)
-EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
+public class MySystem : BaseSystem<World, float>, IDisposable
+{
+    private readonly List<IDisposable> _subscriptions = new();
+    private bool _disposed;
 
-// Unsubscribing (in Dispose)
-EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
+    public MySystem(World world) : base(world)
+    {
+        // Store subscriptions for cleanup
+        _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>(OnMapTransition));
+        _subscriptions.Add(EventBus.Subscribe<MapLoadedEvent>(OnMapLoaded));
+    }
+
+    private void OnMapTransition(MapTransitionEvent evt)
+    {
+        // Handler logic (copy of event)
+    }
+
+    // Ref handler for modifying event data
+    private void OnMapLoaded(ref MapLoadedEvent evt)
+    {
+        // Handler logic (ref to event)
+    }
+
+    public new void Dispose() => Dispose(true);
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed && disposing)
+        {
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
+        }
+        _disposed = true;
+    }
+}
+```
+
+### Scene Events
+- **Scene events** follow the same patterns as ECS events
+- **Naming**: Scene events typically start with `Scene` prefix (e.g., `SceneCreatedEvent`, `SceneActivatedEvent`)
+- **Location**: `Scenes/Events/` directory, namespace `MonoBall.Core.Scenes.Events`
+- **Usage**: Scene systems publish events for lifecycle changes (create, activate, pause, destroy)
+
+---
+
+## Scene System Best Practices
+
+### Scene Architecture (Pure ECS)
+- **Scenes are entities with components** - no OOP scene classes, pure ECS approach
+- **Scene components**: Scenes use marker components to identify type (e.g., `GameSceneComponent`, `LoadingSceneComponent`)
+- **SceneSystem**: Manages scene lifecycle only (create, destroy, activate, pause) - does NOT handle update/render
+- **Scene-specific systems**: Each scene type has its own system that implements `ISceneSystem`
+- **Scene stack**: Scenes are managed in a priority stack by `SceneSystem`
+
+### Scene System Pattern
+- **Implement `ISceneSystem`** for scene-specific behavior
+- **Query for scene entities** by their marker component type
+- **Handle update and render** in the scene-specific system, not in `SceneSystem`
+- **SceneSystem coordinates** but doesn't know about scene types
+
+### Example: Scene-Specific System
+```csharp
+public class GameSceneSystem : BaseSystem<World, float>, ISceneSystem
+{
+    private readonly QueryDescription _sceneQuery;
+    
+    public GameSceneSystem(World world) : base(world)
+    {
+        _sceneQuery = new QueryDescription()
+            .WithAll<SceneComponent, GameSceneComponent>();
+    }
+    
+    public override void Update(in float deltaTime)
+    {
+        // Process all game scenes
+        World.Query(in _sceneQuery, (ref SceneComponent scene) =>
+        {
+            if (scene.IsActive && !scene.IsPaused)
+            {
+                // Update logic
+            }
+        });
+    }
+    
+    public void Update(Entity sceneEntity, float deltaTime)
+    {
+        // Per-scene update (called by SceneSystem)
+    }
+    
+    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    {
+        // Per-scene render (called by SceneSystem)
+    }
+    
+    public void ProcessInternal(float deltaTime)
+    {
+        // Internal processing if needed
+    }
+}
+```
+
+### Scene Events
+- **Scene lifecycle events**: `SceneCreatedEvent`, `SceneActivatedEvent`, `ScenePausedEvent`, `SceneDestroyedEvent`
+- **Publish events** after state changes are complete
+- **Subscribe to events** in systems that need to react to scene changes
+
+---
+
+## Service Naming Conventions
+
+### Service Classes
+- **End with `Service` suffix**: `ScriptLoaderService`, `ResourceManager`, `CameraService`
+- **Specialized services**:
+  - `*LoaderService` - Loads resources/definitions (e.g., `ScriptLoaderService`)
+  - `*CompilerService` - Compiles code (e.g., `ScriptCompilerService`)
+  - `*Manager` - Manages lifecycle/collections (e.g., `ModManager`, `ResourceManager`)
+  - `*Registry` - Manages registrations/lookups (e.g., `DefinitionRegistry`)
+  - `*Factory` - Creates instances (e.g., `ConstantsServiceFactory`)
+
+### Service Interfaces
+- **Prefix with `I`**: `IScriptApiProvider`, `ICameraService`, `IResourceManager`
+- **Match implementing class name**: `ICameraService` → `CameraService`
+- **Define clear contracts**: Interfaces should be focused and not "fat"
+
+### Service Location
+- **Feature-specific services**: In feature directory (e.g., `Scripting/Services/`, `Rendering/`)
+- **ECS services**: In `ECS/Services/` directory
+- **Core services**: At root level or appropriate feature directory
+
+---
+
+## Scripting System Best Practices
+
+### Script Architecture
+- **Scripts inherit from `ScriptBase`**: Single unified base class for all script types
+- **Event-driven**: Scripts subscribe to events via `On<T>()` method, no polling
+- **ECS-first**: Scripts operate on entities/components, not OOP classes
+- **Composable**: Multiple scripts can be attached to the same entity
+- **Hot-reload safe**: Scripts automatically reload during development
+
+### Script Organization
+- **Script definitions**: JSON files in `Definitions/Scripts/` directory
+- **Script files**: C# script files (`.csx`) in `Scripts/` directory
+- **Script categories**: Organize by category (e.g., `Scripts/Behaviors/`, `Scripts/tile/`)
+- **Auto-loaded**: Scripts are automatically discovered and loaded from mod directories
+
+### Script APIs
+- **APIs via `IScriptApiProvider`**: Scripts access game systems through provided APIs
+- **API separation**: 
+  - `ScriptBase` - Entity-specific convenience methods
+  - `IScriptApiProvider` - Game system operations and cross-entity interactions
+  - Utilities - Pure functions and parsing helpers
+- **No direct system access**: Scripts should not directly access ECS systems
+
+### Example: Script Definition
+```json
+{
+  "id": "base:script:behaviors/wander",
+  "name": "Wander Behavior",
+  "scriptPath": "Scripts/Behaviors/wander_behavior.csx",
+  "parameters": {
+    "rangeX": 5,
+    "rangeY": 5,
+    "speed": 1.0
+  }
+}
+```
+
+### Example: Script Implementation
+```csharp
+public class WanderBehavior : ScriptBase
+{
+    protected override void OnStart()
+    {
+        // Subscribe to events
+        On<MovementCompletedEvent>(OnMovementCompleted);
+    }
+    
+    private void OnMovementCompleted(ref MovementCompletedEvent evt)
+    {
+        // Event-driven behavior logic
+        var randomDirection = GetRandomDirection();
+        Api.Movement.Move(Context.Entity, randomDirection);
+    }
+}
+```
+
+---
+
+## System Interfaces
+
+### When to Use System Interfaces
+- **Loose coupling**: Use interfaces when systems need to interact without tight coupling
+- **Testability**: Interfaces enable easier mocking and testing
+- **Flexibility**: Allows swapping implementations without changing dependent code
+
+### Common System Interfaces
+- **`ISceneSystem`**: For scene-specific systems that handle update/render for scene types
+- **`IPrioritizedSystem`**: For systems that need priority ordering in update loops
+- **`ISceneManager`**: For systems that manage scene lifecycle
+
+### Example: System Interface Usage
+```csharp
+// Define interface
+public interface ISceneSystem
+{
+    void Update(Entity sceneEntity, float deltaTime);
+    void RenderScene(Entity sceneEntity, GameTime gameTime);
+    void ProcessInternal(float deltaTime);
+}
+
+// Implement in scene-specific system
+public class GameSceneSystem : BaseSystem<World, float>, ISceneSystem
+{
+    // Implementation
+}
+
+// Use interface for loose coupling
+public class SceneSystem : BaseSystem<World, float>
+{
+    private readonly Dictionary<Type, ISceneSystem> _sceneSystemRegistry;
+    
+    public void RegisterSceneSystem(Type componentType, ISceneSystem system)
+    {
+        _sceneSystemRegistry[componentType] = system;
+    }
+}
 ```
 
 ---
@@ -390,8 +703,10 @@ EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
 - ❌ **Creating QueryDescription in hot paths** - always cache them
 - ❌ **Double querying** - get all needed components in one pass
 - ❌ **Allocations in queries** - reuse collections or use stack allocation
-- ❌ **Mixing update and render logic** - separate into different systems/methods
+- ❌ **Mixing update and render logic in the same method** - keep update logic in `Update()` and render logic in `Render()` (systems can have both methods, but logic must be separated)
 - ❌ **Not disposing event subscriptions** - unsubscribe in Dispose() to prevent leaks
+- ❌ **Allocating new collections in Update/Render** - reuse cached collections instead
+- ❌ **Scene classes with behavior** - scenes are entities with components, systems handle behavior
 
 ### Event-Specific
 - ❌ **Events with side effects** - events carry data, not behavior
@@ -432,5 +747,60 @@ public void Register(DefinitionMetadata metadata)
     }
     
     // Registration logic
+}
+```
+
+### Good: Optional Dependencies
+```csharp
+public class SpriteRendererSystem : BaseSystem<World, float>
+{
+    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    
+    /// <summary>
+    /// Initializes a new instance of the SpriteRendererSystem.
+    /// </summary>
+    /// <param name="shaderManagerSystem">Optional shader manager system for sprite layer shaders.</param>
+    public SpriteRendererSystem(
+        World world,
+        ShaderManagerSystem? shaderManagerSystem = null
+    ) : base(world)
+    {
+        _shaderManagerSystem = shaderManagerSystem;
+    }
+    
+    public override void Update(in float deltaTime)
+    {
+        // Check for null before using optional dependency
+        if (_shaderManagerSystem != null)
+        {
+            // Use shader system
+        }
+    }
+}
+```
+
+### Good: Reusable Collections Pattern
+```csharp
+public class SpriteRendererSystem : BaseSystem<World, float>
+{
+    // Cache collection as instance field
+    private readonly List<(Entity entity, SpriteAnimationComponent anim, PositionComponent pos)> _spriteList = new();
+    
+    public override void Update(in float deltaTime)
+    {
+        // Clear instead of allocating new list
+        _spriteList.Clear();
+        
+        World.Query(in _queryDescription, (ref SpriteAnimationComponent anim, ref PositionComponent pos) =>
+        {
+            _spriteList.Add((entity, anim, pos));
+        });
+        
+        // Process collected sprites
+        foreach (var (entity, anim, pos) in _spriteList)
+        {
+            // Process sprite
+        }
+    }
 }
 ```

@@ -65,6 +65,13 @@ public class MonoBallGame : Game
         _logger = LoggerFactory.CreateLogger<MonoBallGame>();
         _logger.Information("Initializing MonoBall game");
 
+        // Initialize EventBus with main thread reference (must be done early on main thread)
+        EventBus.Initialize();
+        EventBus.SetErrorHandler(
+            (eventType, ex) =>
+                _logger.Error(ex, "EventBus handler error for {EventType}", eventType)
+        );
+
         graphicsDeviceManager = new GraphicsDeviceManager(this);
 
         // Set default window resolution
@@ -192,6 +199,9 @@ public class MonoBallGame : Game
     /// </param>
     protected override void Update(GameTime gameTime)
     {
+        // Process any cross-thread events queued from background tasks
+        EventBus.ProcessMainThreadQueue();
+
         // Exit the game if the Back button (GamePad) or Escape key (Keyboard) is pressed.
         if (
             GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed

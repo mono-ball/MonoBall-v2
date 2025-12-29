@@ -121,7 +121,7 @@ public class BehaviorExtractor
 
         return new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:script:behavior/{behavior.Id}",
+            ["id"] = $"{IdTransformer.Namespace}:script:behavior:npcs/{behavior.Id}",
             ["name"] = $"{behavior.Name} Behavior Script",
             ["description"] = behavior.Description,
             ["scriptPath"] = $"Scripts/Behaviors/{behavior.Id}.csx",
@@ -151,10 +151,10 @@ public class BehaviorExtractor
 
         var result = new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:behavior:{behavior.Id}",
+            ["id"] = $"{IdTransformer.Namespace}:behavior:npcs/{behavior.Id}",
             ["name"] = $"{behavior.Name} Behavior",
             ["description"] = behavior.Description,
-            ["scriptId"] = $"{IdTransformer.Namespace}:script:behavior/{behavior.Id}",
+            ["scriptId"] = $"{IdTransformer.Namespace}:script:behavior:npcs/{behavior.Id}",
             ["category"] = behavior.Id
         };
 

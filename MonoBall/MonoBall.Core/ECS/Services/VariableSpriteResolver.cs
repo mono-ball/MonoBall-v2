@@ -32,6 +32,7 @@ public class VariableSpriteResolver : IVariableSpriteResolver, IDisposable
     // Cache per variable sprite ID (shared across all entities using same variable sprite)
     // More efficient than per-entity caching since multiple NPCs may use same variable sprite
     private readonly Dictionary<string, string> _resolutionCache = new();
+    private readonly List<IDisposable> _subscriptions = new();
 
     private bool _disposed;
 
@@ -48,7 +49,7 @@ public class VariableSpriteResolver : IVariableSpriteResolver, IDisposable
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         // Subscribe to variable change events to invalidate cache
-        EventBus.Subscribe<VariableChangedEvent>(OnVariableChanged);
+        _subscriptions.Add(EventBus.Subscribe<VariableChangedEvent>(OnVariableChanged));
     }
 
     /// <summary>
@@ -176,7 +177,8 @@ public class VariableSpriteResolver : IVariableSpriteResolver, IDisposable
     {
         if (!_disposed && disposing)
             // Unsubscribe from events to prevent memory leaks
-            EventBus.Unsubscribe<VariableChangedEvent>(OnVariableChanged);
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
         _disposed = true;
     }
 

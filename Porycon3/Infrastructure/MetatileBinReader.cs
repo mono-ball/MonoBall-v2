@@ -55,25 +55,22 @@ public class MetatileBinReader
                 topTiles[t] = TileData.FromRaw(rawTop);
             }
 
-            // Read attributes (behavior, terrain type)
-            // In pokeemerald-expansion, attributes are 4 bytes per metatile
+            // Read attributes (behavior + layer type)
+            // Format: 16-bit value with behavior (bits 0-7) and layer type (bits 12-15)
+            // Note: There is no terrain type in metatile attributes; terrain is derived from behavior
             int behavior = 0, terrainType = 0;
             if (attributeBytes != null)
             {
-                // Try 4-byte format first (newer pokeemerald-expansion)
-                if (i * 4 + 3 < attributeBytes.Length)
-                {
-                    var attrOffset = i * 4;
-                    // 4-byte format: behavior (2 bytes) + encounter type (1 byte) + terrain (1 byte)
-                    behavior = BitConverter.ToUInt16(attributeBytes, attrOffset);
-                    terrainType = attributeBytes[attrOffset + 3];
-                }
-                // Fallback to 2-byte format (older)
-                else if (i * 2 + 1 < attributeBytes.Length)
+                // Detect format based on file size vs metatile count
+                var attrBytesPerMetatile = attributeBytes.Length / metatileCount;
+
+                if (attrBytesPerMetatile >= 2 && i * 2 + 1 < attributeBytes.Length)
                 {
                     var attrOffset = i * 2;
-                    behavior = attributeBytes[attrOffset];
-                    terrainType = attributeBytes[attrOffset + 1];
+                    // Read 16-bit attribute value containing behavior (0-7) and layer type (12-15)
+                    behavior = BitConverter.ToUInt16(attributeBytes, attrOffset);
+                    // Derive terrain from behavior (e.g., tall_grass -> grass, water behaviors -> water)
+                    terrainType = DeriveTerrain(behavior & 0xFF);
                 }
             }
 
@@ -136,5 +133,41 @@ public class MetatileBinReader
         }
 
         return name.ToLowerInvariant();
+    }
+
+    /// <summary>
+    /// Derive terrain type from behavior.
+    /// Maps behavior values to terrain categories for encounter/footstep purposes.
+    /// </summary>
+    private static int DeriveTerrain(int behavior)
+    {
+        return behavior switch
+        {
+            // Grass-related behaviors -> grass terrain (1)
+            0x01 => 1, // MB_TALL_GRASS
+            0x02 => 1, // MB_VERY_TALL_GRASS
+            0x14 => 1, // MB_ASH_GRASS
+
+            // Water-related behaviors -> water terrain (2)
+            0x04 => 2, // MB_SHORE_WATER
+            0x05 => 2, // MB_DEEP_WATER
+            0x07 => 2, // MB_OCEAN_WATER
+            0x08 => 2, // MB_POND_WATER
+            0x09 => 2, // MB_PUDDLE
+            0x81 => 2, // MB_DEEP_WATER_2
+
+            // Waterfall -> waterfall terrain (3)
+            0x06 => 3, // MB_WATERFALL
+
+            // Sand-related behaviors -> sand terrain (6)
+            0x13 => 6, // MB_SAND
+            0x15 => 6, // MB_SAND_CAVE
+
+            // Mountain-related behaviors -> mountain terrain (7)
+            0x0C => 7, // MB_MOUNTAIN
+
+            // Default -> normal terrain (0)
+            _ => 0
+        };
     }
 }

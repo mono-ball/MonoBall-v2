@@ -15,6 +15,7 @@ internal class EventSubscription<T> : IDisposable
     private readonly Entity? _entity;
     private readonly Action<T> _handler;
     private readonly string _scriptDefinitionId;
+    private readonly IDisposable _subscription;
     private bool _disposed;
 
     /// <summary>
@@ -29,7 +30,7 @@ internal class EventSubscription<T> : IDisposable
         _scriptDefinitionId =
             scriptDefinitionId ?? throw new ArgumentNullException(nameof(scriptDefinitionId));
         _entity = entity;
-        EventBus.Subscribe<T>(OnEvent);
+        _subscription = EventBus.Subscribe<T>(OnEvent);
     }
 
     /// <summary>
@@ -39,7 +40,7 @@ internal class EventSubscription<T> : IDisposable
     {
         if (!_disposed)
         {
-            EventBus.Unsubscribe<T>(OnEvent);
+            _subscription.Dispose();
             _disposed = true;
         }
     }
@@ -76,6 +77,7 @@ internal class RefEventSubscription<T> : IDisposable
     private readonly Entity? _entity;
     private readonly EventBus.RefAction<T> _handler;
     private readonly string _scriptDefinitionId;
+    private readonly IDisposable _subscription;
     private bool _disposed;
 
     /// <summary>
@@ -94,7 +96,7 @@ internal class RefEventSubscription<T> : IDisposable
         _scriptDefinitionId =
             scriptDefinitionId ?? throw new ArgumentNullException(nameof(scriptDefinitionId));
         _entity = entity;
-        EventBus.Subscribe<T>(OnEvent);
+        _subscription = EventBus.Subscribe<T>(OnEvent);
     }
 
     /// <summary>
@@ -104,7 +106,7 @@ internal class RefEventSubscription<T> : IDisposable
     {
         if (!_disposed)
         {
-            EventBus.Unsubscribe<T>(OnEvent);
+            _subscription.Dispose();
             _disposed = true;
         }
     }

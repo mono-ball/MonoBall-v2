@@ -30,6 +30,7 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
     private readonly QueryDescription _playerQuery;
     private readonly QueryDescription _playerStateQuery;
     private readonly DefinitionRegistry _registry;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     /// <summary>
@@ -76,8 +77,8 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         >();
 
         // Subscribe to events (using RefAction for ref parameter support)
-        EventBus.Subscribe<InteractionEndedEvent>(OnInteractionEnded);
-        EventBus.Subscribe<MessageBoxClosedEvent>(OnMessageBoxClosed);
+        _subscriptions.Add(EventBus.Subscribe<InteractionEndedEvent>(OnInteractionEnded));
+        _subscriptions.Add(EventBus.Subscribe<MessageBoxClosedEvent>(OnMessageBoxClosed));
     }
 
     /// <summary>
@@ -424,10 +425,8 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
     protected virtual void Dispose(bool disposing)
     {
         if (!_disposed && disposing)
-        {
-            EventBus.Unsubscribe<InteractionEndedEvent>(OnInteractionEnded);
-            EventBus.Unsubscribe<MessageBoxClosedEvent>(OnMessageBoxClosed);
-        }
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
 
         _disposed = true;
     }

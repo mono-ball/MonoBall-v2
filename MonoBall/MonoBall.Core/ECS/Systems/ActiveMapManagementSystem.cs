@@ -24,6 +24,7 @@ public class ActiveMapManagementSystem : BaseSystem<World, float>, IPrioritizedS
     private readonly ILogger _logger;
     private readonly QueryDescription _npcQuery;
     private readonly QueryDescription _playerQuery;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     /// <summary>
@@ -48,8 +49,8 @@ public class ActiveMapManagementSystem : BaseSystem<World, float>, IPrioritizedS
         _playerQuery = new QueryDescription().WithAll<PlayerComponent>();
 
         // Subscribe to map load/unload events
-        EventBus.Subscribe<MapLoadedEvent>(OnMapLoaded);
-        EventBus.Subscribe<MapUnloadedEvent>(OnMapUnloaded);
+        _subscriptions.Add(EventBus.Subscribe<MapLoadedEvent>(OnMapLoaded));
+        _subscriptions.Add(EventBus.Subscribe<MapUnloadedEvent>(OnMapUnloaded));
     }
 
     /// <summary>
@@ -204,10 +205,8 @@ public class ActiveMapManagementSystem : BaseSystem<World, float>, IPrioritizedS
     protected virtual void Dispose(bool disposing)
     {
         if (!_disposed && disposing)
-        {
-            EventBus.Unsubscribe<MapLoadedEvent>(OnMapLoaded);
-            EventBus.Unsubscribe<MapUnloadedEvent>(OnMapUnloaded);
-        }
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
 
         _disposed = true;
     }

@@ -20,7 +20,6 @@
     <PackageReference Include="Arch" Version="2.1.0" />
     <PackageReference Include="Arch.System" Version="1.1.0" />
     <PackageReference Include="Arch.System.SourceGenerator" Version="2.1.0" />
-    <PackageReference Include="Arch.EventBus" Version="1.0.2" />
     <PackageReference Include="CSharpier.MSBuild" Version="1.2.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

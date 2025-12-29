@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
@@ -17,6 +18,7 @@ public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, I
 {
     private readonly ILogger _logger;
     private readonly IResourceManager _resourceManager;
+    private readonly List<IDisposable> _subscriptions = new();
 
     private bool _disposed;
 
@@ -34,7 +36,9 @@ public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         // Subscribe to sprite sheet change requests
-        EventBus.Subscribe<SpriteSheetChangeRequestEvent>(OnSpriteSheetChangeRequest);
+        _subscriptions.Add(
+            EventBus.Subscribe<SpriteSheetChangeRequestEvent>(OnSpriteSheetChangeRequest)
+        );
     }
 
     /// <summary>
@@ -167,7 +171,8 @@ public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         if (!_disposed)
         {
             if (disposing)
-                EventBus.Unsubscribe<SpriteSheetChangeRequestEvent>(OnSpriteSheetChangeRequest);
+                foreach (var subscription in _subscriptions)
+                    subscription.Dispose();
             _disposed = true;
         }
     }

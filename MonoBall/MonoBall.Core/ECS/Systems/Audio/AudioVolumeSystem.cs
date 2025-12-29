@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.Audio;
@@ -14,6 +15,7 @@ public class AudioVolumeSystem : BaseSystem<World, float>, IPrioritizedSystem, I
 {
     private readonly IAudioEngine _audioEngine;
     private readonly ILogger _logger;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     /// <summary>
@@ -28,9 +30,11 @@ public class AudioVolumeSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         _audioEngine = audioEngine ?? throw new ArgumentNullException(nameof(audioEngine));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-        EventBus.Subscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged);
-        EventBus.Subscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged);
-        EventBus.Subscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged);
+        _subscriptions.Add(EventBus.Subscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged));
+        _subscriptions.Add(EventBus.Subscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged));
+        _subscriptions.Add(
+            EventBus.Subscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged)
+        );
     }
 
     /// <summary>
@@ -102,11 +106,8 @@ public class AudioVolumeSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         if (!_disposed)
         {
             if (disposing)
-            {
-                EventBus.Unsubscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged);
-                EventBus.Unsubscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged);
-                EventBus.Unsubscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged);
-            }
+                foreach (var subscription in _subscriptions)
+                    subscription.Dispose();
 
             _disposed = true;
         }

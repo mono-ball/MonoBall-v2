@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
@@ -17,6 +18,7 @@ public class VisibilityFlagSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly IFlagVariableService _flagVariableService;
     private readonly ILogger _logger;
     private readonly QueryDescription _queryDescription;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     public VisibilityFlagSystem(
@@ -37,7 +39,7 @@ public class VisibilityFlagSystem : BaseSystem<World, float>, IPrioritizedSystem
         >();
 
         // Subscribe to flag changes using RefAction delegate
-        EventBus.Subscribe<FlagChangedEvent>(OnFlagChanged);
+        _subscriptions.Add(EventBus.Subscribe<FlagChangedEvent>(OnFlagChanged));
     }
 
     public new void Dispose()
@@ -107,7 +109,8 @@ public class VisibilityFlagSystem : BaseSystem<World, float>, IPrioritizedSystem
     protected virtual void Dispose(bool disposing)
     {
         if (!_disposed && disposing)
-            EventBus.Unsubscribe<FlagChangedEvent>(OnFlagChanged);
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
         _disposed = true;
     }
 }

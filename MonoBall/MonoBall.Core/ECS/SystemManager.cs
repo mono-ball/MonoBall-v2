@@ -37,6 +37,7 @@ public class SystemManager : IDisposable
     private readonly IModManager _modManager;
     private readonly List<BaseSystem<World, float>> _registeredUpdateSystems = new();
     private readonly IResourceManager _resourceManager;
+    private readonly List<IDisposable> _subscriptions = new();
     private readonly World _world;
     private IActiveMapFilterService _activeMapFilterService = null!; // Initialized in Initialize()
     private ActiveMapManagementSystem _activeMapManagementSystem = null!; // Initialized in Initialize()
@@ -243,12 +244,8 @@ public class SystemManager : IDisposable
 
         // Unsubscribe from events FIRST (before disposing systems)
         // This prevents memory leaks from event handlers holding references to SystemManager
-        EventBus.Unsubscribe<SceneCreatedEvent>(OnSceneCreated);
-        EventBus.Unsubscribe<SceneDestroyedEvent>(OnSceneDestroyed);
-        EventBus.Unsubscribe<SceneActivatedEvent>(OnSceneActivated);
-        EventBus.Unsubscribe<SceneDeactivatedEvent>(OnSceneDeactivated);
-        EventBus.Unsubscribe<ScenePausedEvent>(OnScenePaused);
-        EventBus.Unsubscribe<SceneResumedEvent>(OnSceneResumed);
+        foreach (var subscription in _subscriptions)
+            subscription.Dispose();
 
         if (_isInitialized)
         {
@@ -390,12 +387,12 @@ public class SystemManager : IDisposable
         InitializeCoreServices();
 
         // Subscribe to scene events to invalidate update blocking cache
-        EventBus.Subscribe<SceneCreatedEvent>(OnSceneCreated);
-        EventBus.Subscribe<SceneDestroyedEvent>(OnSceneDestroyed);
-        EventBus.Subscribe<SceneActivatedEvent>(OnSceneActivated);
-        EventBus.Subscribe<SceneDeactivatedEvent>(OnSceneDeactivated);
-        EventBus.Subscribe<ScenePausedEvent>(OnScenePaused);
-        EventBus.Subscribe<SceneResumedEvent>(OnSceneResumed);
+        _subscriptions.Add(EventBus.Subscribe<SceneCreatedEvent>(OnSceneCreated));
+        _subscriptions.Add(EventBus.Subscribe<SceneDestroyedEvent>(OnSceneDestroyed));
+        _subscriptions.Add(EventBus.Subscribe<SceneActivatedEvent>(OnSceneActivated));
+        _subscriptions.Add(EventBus.Subscribe<SceneDeactivatedEvent>(OnSceneDeactivated));
+        _subscriptions.Add(EventBus.Subscribe<ScenePausedEvent>(OnScenePaused));
+        _subscriptions.Add(EventBus.Subscribe<SceneResumedEvent>(OnSceneResumed));
 
         // ResourceManager is already available from constructor (no need to get FontService)
 

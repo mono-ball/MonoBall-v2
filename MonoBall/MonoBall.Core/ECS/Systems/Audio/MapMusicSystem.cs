@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
@@ -18,6 +19,7 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
     private readonly ILogger _logger;
     private readonly QueryDescription _mapQuery;
     private readonly ISceneManager _sceneManager;
+    private readonly List<IDisposable> _subscriptions = new();
     private string? _currentMapMusicId;
     private bool _disposed;
 
@@ -36,8 +38,8 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         // Cache QueryDescription in constructor (required by .cursorrules)
         _mapQuery = new QueryDescription().WithAll<MapComponent>();
 
-        EventBus.Subscribe<MapTransitionEvent>(OnMapTransition);
-        EventBus.Subscribe<GameEnteredEvent>(OnGameEntered);
+        _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>(OnMapTransition));
+        _subscriptions.Add(EventBus.Subscribe<GameEnteredEvent>(OnGameEntered));
     }
 
     /// <summary>
@@ -272,10 +274,8 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         if (!_disposed)
         {
             if (disposing)
-            {
-                EventBus.Unsubscribe<MapTransitionEvent>(OnMapTransition);
-                EventBus.Unsubscribe<GameEnteredEvent>(OnGameEntered);
-            }
+                foreach (var subscription in _subscriptions)
+                    subscription.Dispose();
 
             _disposed = true;
         }

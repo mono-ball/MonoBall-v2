@@ -41,6 +41,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     private readonly Dictionary<Type, ISceneSystem> _sceneSystemRegistry = new();
 
     private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
     private ISceneSystem? _mapPopupSceneSystem;
     private ISceneSystem? _messageBoxSceneSystem;
@@ -102,7 +103,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
             RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem);
 
         // Subscribe to SceneMessageEvent for inter-scene communication
-        EventBus.Subscribe<SceneMessageEvent>(OnSceneMessage);
+        _subscriptions.Add(EventBus.Subscribe<SceneMessageEvent>(OnSceneMessage));
         _cameraQueryDescription = new QueryDescription().WithAll<CameraComponent>();
     }
 
@@ -934,7 +935,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     {
         if (!_disposed && disposing)
         {
-            EventBus.Unsubscribe<SceneMessageEvent>(OnSceneMessage);
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
 
             _sceneStack.Clear();
             _sceneIds.Clear();

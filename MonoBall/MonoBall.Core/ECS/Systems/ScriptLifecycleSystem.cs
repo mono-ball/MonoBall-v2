@@ -38,6 +38,7 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
     > _scriptInstances = new();
 
     private readonly ScriptLoaderService _scriptLoader;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     /// <summary>
@@ -66,7 +67,7 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
         _queryDescription = new QueryDescription().WithAll<ScriptAttachmentComponent>();
 
         // Subscribe to EntityDestroyedEvent
-        EventBus.Subscribe<EntityDestroyedEvent>(OnEntityDestroyed);
+        _subscriptions.Add(EventBus.Subscribe<EntityDestroyedEvent>(OnEntityDestroyed));
     }
 
     /// <summary>
@@ -384,7 +385,8 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
         if (!_disposed && disposing)
         {
             // Unsubscribe from events
-            EventBus.Unsubscribe<EntityDestroyedEvent>(OnEntityDestroyed);
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
 
             // Cleanup all scripts
             foreach (var scriptInstance in _scriptInstances.Values)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.Audio;
@@ -16,6 +17,7 @@ public class MusicPlaybackSystem : BaseSystem<World, float>, IPrioritizedSystem,
     private readonly IAudioEngine _audioEngine;
     private readonly ILogger _logger;
     private readonly DefinitionRegistry _registry;
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     /// <summary>
@@ -37,8 +39,8 @@ public class MusicPlaybackSystem : BaseSystem<World, float>, IPrioritizedSystem,
         _audioEngine = audioEngine ?? throw new ArgumentNullException(nameof(audioEngine));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-        EventBus.Subscribe<PlayMusicEvent>(OnPlayMusic);
-        EventBus.Subscribe<StopMusicEvent>(OnStopMusic);
+        _subscriptions.Add(EventBus.Subscribe<PlayMusicEvent>(OnPlayMusic));
+        _subscriptions.Add(EventBus.Subscribe<StopMusicEvent>(OnStopMusic));
     }
 
     /// <summary>
@@ -113,10 +115,8 @@ public class MusicPlaybackSystem : BaseSystem<World, float>, IPrioritizedSystem,
         if (!_disposed)
         {
             if (disposing)
-            {
-                EventBus.Unsubscribe<PlayMusicEvent>(OnPlayMusic);
-                EventBus.Unsubscribe<StopMusicEvent>(OnStopMusic);
-            }
+                foreach (var subscription in _subscriptions)
+                    subscription.Dispose();
 
             _disposed = true;
         }

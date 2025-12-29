@@ -81,6 +81,7 @@ public class MessageBoxSceneSystem
     // Track active message box scene entity (enforce single message box)
     private Entity? _activeMessageBoxSceneEntity;
 
+    private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     // Texture cache for message box tilesheet
@@ -173,9 +174,9 @@ public class MessageBoxSceneSystem
         _cameraQuery = new QueryDescription().WithAll<CameraComponent>();
 
         // Subscribe to events (must unsubscribe in Dispose)
-        EventBus.Subscribe<MessageBoxShowEvent>(OnMessageBoxShow);
-        EventBus.Subscribe<MessageBoxHideEvent>(OnMessageBoxHide);
-        EventBus.Subscribe<MessageBoxTextAdvanceEvent>(OnMessageBoxTextAdvance);
+        _subscriptions.Add(EventBus.Subscribe<MessageBoxShowEvent>(OnMessageBoxShow));
+        _subscriptions.Add(EventBus.Subscribe<MessageBoxHideEvent>(OnMessageBoxHide));
+        _subscriptions.Add(EventBus.Subscribe<MessageBoxTextAdvanceEvent>(OnMessageBoxTextAdvance));
     }
 
     /// <summary>
@@ -1902,9 +1903,8 @@ public class MessageBoxSceneSystem
         if (!_disposed && disposing)
         {
             // Unsubscribe from events to prevent memory leaks
-            EventBus.Unsubscribe<MessageBoxShowEvent>(OnMessageBoxShow);
-            EventBus.Unsubscribe<MessageBoxHideEvent>(OnMessageBoxHide);
-            EventBus.Unsubscribe<MessageBoxTextAdvanceEvent>(OnMessageBoxTextAdvance);
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
 
             // Dispose cached texture to prevent memory leak
             _messageBoxTexture?.Dispose();

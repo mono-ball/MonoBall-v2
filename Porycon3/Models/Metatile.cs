@@ -13,9 +13,14 @@ public sealed class Metatile
 
     /// <summary>
     /// Layer type determines how metatile layers map to BG layers.
-    /// Extracted from behavior: (behavior >> 5) & 0x3
+    /// Extracted from bits 12-15 of the raw attribute value.
     /// </summary>
-    public MetatileLayerType LayerType => (MetatileLayerType)((Behavior >> 5) & 0x3);
+    public MetatileLayerType LayerType => (MetatileLayerType)((Behavior >> 12) & 0xF);
+
+    /// <summary>
+    /// The actual behavior value (bits 0-7 only).
+    /// </summary>
+    public int PureBehavior => Behavior & 0xFF;
 }
 
 public enum MetatileLayerType

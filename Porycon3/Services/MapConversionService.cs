@@ -389,22 +389,22 @@ public class MapConversionService
 
     private static string TransformBehaviorId(string movementType)
     {
-        if (string.IsNullOrEmpty(movementType)) return $"{IdTransformer.Namespace}:behavior:stationary";
+        if (string.IsNullOrEmpty(movementType)) return $"{IdTransformer.Namespace}:behavior:npcs/stationary";
         var name = movementType.StartsWith("MOVEMENT_TYPE_") ? movementType[14..].ToLowerInvariant() : movementType.ToLowerInvariant();
 
         // Categorize movement types
-        if (name.StartsWith("walk_sequence_")) return $"{IdTransformer.Namespace}:behavior:patrol";
-        if (name.Contains("wander")) return $"{IdTransformer.Namespace}:behavior:wander";
-        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around")) return $"{IdTransformer.Namespace}:behavior:stationary";
-        if (name.Contains("walk") || name.Contains("pace")) return $"{IdTransformer.Namespace}:behavior:walk";
-        if (name.Contains("jog") || name.Contains("run")) return $"{IdTransformer.Namespace}:behavior:jog";
-        if (name.Contains("copy_player") || name.Contains("follow")) return $"{IdTransformer.Namespace}:behavior:follow";
-        if (name.Contains("invisible")) return $"{IdTransformer.Namespace}:behavior:invisible";
-        if (name.Contains("buried")) return $"{IdTransformer.Namespace}:behavior:buried";
-        if (name.Contains("tree_disguise")) return $"{IdTransformer.Namespace}:behavior:disguise_tree";
-        if (name.Contains("rock_disguise")) return $"{IdTransformer.Namespace}:behavior:disguise_rock";
+        if (name.StartsWith("walk_sequence_")) return $"{IdTransformer.Namespace}:behavior:npcs/patrol";
+        if (name.Contains("wander")) return $"{IdTransformer.Namespace}:behavior:npcs/wander";
+        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around")) return $"{IdTransformer.Namespace}:behavior:npcs/stationary";
+        if (name.Contains("walk") || name.Contains("pace")) return $"{IdTransformer.Namespace}:behavior:npcs/walk";
+        if (name.Contains("jog") || name.Contains("run")) return $"{IdTransformer.Namespace}:behavior:npcs/jog";
+        if (name.Contains("copy_player") || name.Contains("follow")) return $"{IdTransformer.Namespace}:behavior:npcs/follow";
+        if (name.Contains("invisible")) return $"{IdTransformer.Namespace}:behavior:npcs/invisible";
+        if (name.Contains("buried")) return $"{IdTransformer.Namespace}:behavior:npcs/buried";
+        if (name.Contains("tree_disguise")) return $"{IdTransformer.Namespace}:behavior:npcs/disguise_tree";
+        if (name.Contains("rock_disguise")) return $"{IdTransformer.Namespace}:behavior:npcs/disguise_rock";
 
-        return $"{IdTransformer.Namespace}:behavior:{name}";
+        return $"{IdTransformer.Namespace}:behavior:npcs/{name}";
     }
 
     private static object? BuildBehaviorParameters(string movementType, int startX, int startY, int? rangeX, int? rangeY)
@@ -562,6 +562,7 @@ public class MapConversionService
         var resolver = new TilesetPathResolver(_inputPath);
         int count = 0;
 
+        // Process animations for each tileset pair
         foreach (var pair in _tilesetRegistry.GetAllTilesetPairs())
         {
             var builder = _tilesetRegistry.GetBuilder(pair);
@@ -571,12 +572,14 @@ public class MapConversionService
             var primaryPalettes = LoadPalettes(resolver, pair.PrimaryTileset);
             var secondaryPalettes = LoadPalettes(resolver, pair.SecondaryTileset);
             builder.ProcessAnimations(primaryPalettes, secondaryPalettes);
+        }
 
-            // Build and save the tilesheet
-            using var image = builder.BuildTilesheetImage();
-            var animations = builder.GetAnimations();
+        // Build and save individual tilesets (organized by primary/secondary)
+        foreach (var result in _tilesetRegistry.BuildAllTilesets())
+        {
+            if (result.TileCount == 0) continue;
 
-            SaveSharedTilesheet(pair, image, builder.UniqueTileCount, builder.Columns, animations);
+            SaveIndividualTilesheet(result);
             count++;
         }
 
@@ -587,63 +590,104 @@ public class MapConversionService
     }
 
     /// <summary>
-    /// Save shared tilesheet image and JSON definition.
+    /// Save individual tilesheet image and JSON definition (organized by primary/secondary).
     /// </summary>
-    private void SaveSharedTilesheet(TilesetPairKey pair, Image<Rgba32> image, int tileCount, int columns, List<TileAnimation> animations)
+    private void SaveIndividualTilesheet(SharedTilesetResult result)
     {
-        var tilesetName = SharedTilesetRegistry.GenerateTilesetName(pair);
-        var tilesetId = SharedTilesetRegistry.GenerateTilesetId(pair);
-
-        // Save to Graphics/Tilesets/Shared/
-        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Tilesets", "Shared");
+        // Save to Graphics/Tilesets/{Primary|Secondary}/{name}.png
+        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Tilesets",
+            result.TilesetType == "primary" ? "Primary" : "Secondary");
         Directory.CreateDirectory(graphicsDir);
-        var imagePath = Path.Combine(graphicsDir, $"{tilesetName}.png");
-        image.SaveAsPng(imagePath);
+        var imagePath = Path.Combine(graphicsDir, $"{result.TilesetName}.png");
+        result.TilesheetImage.SaveAsPng(imagePath);
 
-        // Save JSON to Definitions/Assets/Tilesets/shared/
-        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", "shared");
+        // Save JSON to Definitions/Assets/Tilesets/{primary|secondary}/{name}.json
+        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", result.TilesetType);
         Directory.CreateDirectory(defsDir);
 
-        // Build tiles array with animations
+        // Build animation lookup by localTileId (use first animation if duplicates exist)
+        var animationsByTile = result.Animations
+            .GroupBy(a => a.LocalTileId)
+            .ToDictionary(g => g.Key, g => g.First());
+
+        // Build tiles array combining properties with animations
         object[]? tilesArray = null;
-        if (animations.Count > 0)
+        if (result.TileProperties.Count > 0 || result.Animations.Count > 0)
         {
-            tilesArray = animations.Select(a => (object)new
+            var tiles = new List<object>();
+
+            // Add all tile properties
+            foreach (var prop in result.TileProperties)
             {
-                localTileId = a.LocalTileId,
-                type = (string?)null,
-                tileBehaviorId = (string?)null,
-                animation = a.Frames.Select(f => new
+                // Check if this tile has an animation
+                object? animation = null;
+                if (animationsByTile.TryGetValue(prop.LocalTileId, out var anim))
                 {
-                    tileId = f.TileId,
-                    durationMs = f.DurationMs
-                })
-            }).ToArray();
+                    animation = anim.Frames.Select(f => new
+                    {
+                        tileId = f.TileId,
+                        durationMs = f.DurationMs
+                    });
+                }
+
+                tiles.Add(new
+                {
+                    localTileId = prop.LocalTileId,
+                    behaviorId = prop.BehaviorId,
+                    terrainId = prop.TerrainId,
+                    collisionId = prop.CollisionId,
+                    animation = animation
+                });
+            }
+
+            // Add any animations that don't have properties (animation-only tiles)
+            var propertyTileIds = result.TileProperties.Select(p => p.LocalTileId).ToHashSet();
+            foreach (var anim in result.Animations.Where(a => !propertyTileIds.Contains(a.LocalTileId)))
+            {
+                tiles.Add(new
+                {
+                    localTileId = anim.LocalTileId,
+                    behaviorId = (string?)null,
+                    terrainId = (string?)null,
+                    collisionId = (string?)null,
+                    animation = anim.Frames.Select(f => new
+                    {
+                        tileId = f.TileId,
+                        durationMs = f.DurationMs
+                    })
+                });
+            }
+
+            tilesArray = tiles.OrderBy(t => ((dynamic)t).localTileId).ToArray();
         }
 
+        var texturePath = $"Graphics/Tilesets/{(result.TilesetType == "primary" ? "Primary" : "Secondary")}/{result.TilesetName}.png";
         var tilesetJson = new
         {
-            id = tilesetId,
-            name = tilesetName,
-            texturePath = $"Graphics/Tilesets/Shared/{tilesetName}.png",
+            id = result.TilesetId,
+            name = result.TilesetName,
+            type = result.TilesetType,
+            texturePath = texturePath,
             tileWidth = MetatileSize,
             tileHeight = MetatileSize,
-            tileCount = tileCount,
-            columns = columns,
-            imageWidth = image.Width,
-            imageHeight = image.Height,
+            tileCount = result.TileCount,
+            columns = result.Columns,
+            imageWidth = result.TilesheetImage.Width,
+            imageHeight = result.TilesheetImage.Height,
             spacing = 0,
             margin = 0,
             tiles = tilesArray
         };
 
-        var jsonPath = Path.Combine(defsDir, $"{tilesetName}.json");
+        var jsonPath = Path.Combine(defsDir, $"{result.TilesetName}.json");
         var json = System.Text.Json.JsonSerializer.Serialize(tilesetJson, new System.Text.Json.JsonSerializerOptions
         {
             WriteIndented = true,
             DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
         });
         File.WriteAllText(jsonPath, json);
+
+        result.TilesheetImage.Dispose();
     }
 
     /// <summary>

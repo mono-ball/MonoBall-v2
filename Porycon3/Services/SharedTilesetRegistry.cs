@@ -1,6 +1,7 @@
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using Porycon3.Models;
+using Porycon3.Infrastructure;
 
 namespace Porycon3.Services;
 
@@ -10,74 +11,135 @@ namespace Porycon3.Services;
 public record SharedTilesetResult(
     string TilesetId,
     string TilesetName,
+    string TilesetType, // "primary" or "secondary"
     Image<Rgba32> TilesheetImage,
     int TileCount,
-    int Columns
+    int Columns,
+    List<TileAnimation> Animations,
+    List<TileProperty> TileProperties
 );
 
 /// <summary>
 /// Registry that manages shared tilesets across multiple maps.
-/// Caches SharedTilesetBuilder instances per tileset pair.
+/// Now keys by individual tileset (primary OR secondary) to minimize duplication.
 /// </summary>
 public class SharedTilesetRegistry : IDisposable
 {
     private readonly string _pokeemeraldPath;
-    private readonly Dictionary<TilesetPairKey, SharedTilesetBuilder> _builders = new();
-    private readonly Dictionary<TilesetPairKey, List<string>> _mapsUsingTileset = new();
+    private readonly TilesetPathResolver _resolver;
+
+    // Key by individual tileset name (not pairs) for better deduplication
+    private readonly Dictionary<string, IndividualTilesetBuilder> _builders = new();
+    private readonly Dictionary<string, List<string>> _mapsUsingTileset = new();
+
+    // Still track pairs for compatibility with existing map processing
+    private readonly Dictionary<TilesetPairKey, (string Primary, string Secondary)> _pairToIndividual = new();
+
+    // Cache SharedTilesetBuilder instances to preserve animation tracking state
+    private readonly Dictionary<TilesetPairKey, SharedTilesetBuilder> _sharedBuilders = new();
+
     private readonly object _lock = new();
 
     public SharedTilesetRegistry(string pokeemeraldPath)
     {
         _pokeemeraldPath = pokeemeraldPath;
+        _resolver = new TilesetPathResolver(pokeemeraldPath);
     }
 
     /// <summary>
-    /// Get or create a shared tileset builder for a tileset pair (thread-safe).
+    /// Get or create builders for a tileset pair.
+    /// Returns a wrapper that delegates to individual primary and secondary builders.
+    /// The wrapper is cached to preserve animation tracking state.
     /// </summary>
     public SharedTilesetBuilder GetOrCreateBuilder(string primaryTileset, string secondaryTileset)
     {
-        var key = new TilesetPairKey(primaryTileset, secondaryTileset);
+        var pairKey = new TilesetPairKey(primaryTileset, secondaryTileset);
 
         lock (_lock)
         {
-            if (_builders.TryGetValue(key, out var existing))
-                return existing;
+            // Return cached builder if it exists
+            if (_sharedBuilders.TryGetValue(pairKey, out var cached))
+                return cached;
 
-            var builder = new SharedTilesetBuilder(_pokeemeraldPath, primaryTileset, secondaryTileset);
-            _builders[key] = builder;
-            _mapsUsingTileset[key] = new List<string>();
+            // Get or create individual builders for each tileset
+            var primaryBuilder = GetOrCreateIndividualBuilder(primaryTileset);
+            var secondaryBuilder = GetOrCreateIndividualBuilder(secondaryTileset);
 
-            return builder;
+            _pairToIndividual[pairKey] = (primaryTileset, secondaryTileset);
+
+            // Create and cache the wrapper that coordinates both builders
+            var sharedBuilder = new SharedTilesetBuilder(_pokeemeraldPath, primaryTileset, secondaryTileset,
+                primaryBuilder, secondaryBuilder);
+            _sharedBuilders[pairKey] = sharedBuilder;
+
+            return sharedBuilder;
         }
     }
 
     /// <summary>
-    /// Register that a map uses a specific tileset pair (thread-safe).
+    /// Get or create an individual tileset builder.
+    /// </summary>
+    private IndividualTilesetBuilder GetOrCreateIndividualBuilder(string tilesetName)
+    {
+        var normalized = NormalizeTilesetName(tilesetName);
+        if (_builders.TryGetValue(normalized, out var existing))
+            return existing;
+
+        var builder = new IndividualTilesetBuilder(_pokeemeraldPath, tilesetName);
+        _builders[normalized] = builder;
+        _mapsUsingTileset[normalized] = new List<string>();
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Register that a map uses a specific tileset pair.
     /// </summary>
     public void RegisterMapUsage(string mapName, string primaryTileset, string secondaryTileset)
     {
-        var key = new TilesetPairKey(primaryTileset, secondaryTileset);
         lock (_lock)
         {
-            if (!_mapsUsingTileset.ContainsKey(key))
-                _mapsUsingTileset[key] = new List<string>();
+            var primaryNorm = NormalizeTilesetName(primaryTileset);
+            var secondaryNorm = NormalizeTilesetName(secondaryTileset);
 
-            if (!_mapsUsingTileset[key].Contains(mapName))
-                _mapsUsingTileset[key].Add(mapName);
+            if (!_mapsUsingTileset.ContainsKey(primaryNorm))
+                _mapsUsingTileset[primaryNorm] = new List<string>();
+            if (!_mapsUsingTileset[primaryNorm].Contains(mapName))
+                _mapsUsingTileset[primaryNorm].Add(mapName);
+
+            if (!_mapsUsingTileset.ContainsKey(secondaryNorm))
+                _mapsUsingTileset[secondaryNorm] = new List<string>();
+            if (!_mapsUsingTileset[secondaryNorm].Contains(mapName))
+                _mapsUsingTileset[secondaryNorm].Add(mapName);
         }
     }
 
     /// <summary>
     /// Get all tileset pairs that have been used.
     /// </summary>
-    public IEnumerable<TilesetPairKey> GetAllTilesetPairs() => _builders.Keys;
+    public IEnumerable<TilesetPairKey> GetAllTilesetPairs() => _pairToIndividual.Keys;
 
     /// <summary>
-    /// Get the builder for a specific tileset pair.
+    /// Get the cached builder for a specific tileset pair.
+    /// Returns the same instance that was used during map processing to preserve animation tracking.
     /// </summary>
     public SharedTilesetBuilder? GetBuilder(TilesetPairKey key)
     {
-        return _builders.TryGetValue(key, out var builder) ? builder : null;
+        lock (_lock)
+        {
+            return _sharedBuilders.TryGetValue(key, out var builder) ? builder : null;
+        }
+    }
+
+    /// <summary>
+    /// Get all individual tilesets that have been used.
+    /// </summary>
+    public IEnumerable<string> GetAllIndividualTilesets()
+    {
+        lock (_lock)
+        {
+            return _builders.Keys.ToList();
+        }
     }
 
     /// <summary>
@@ -85,32 +147,40 @@ public class SharedTilesetRegistry : IDisposable
     /// </summary>
     public IReadOnlyList<string> GetMapsUsingTileset(TilesetPairKey key)
     {
-        return _mapsUsingTileset.TryGetValue(key, out var maps) ? maps : Array.Empty<string>();
+        if (!_pairToIndividual.TryGetValue(key, out var pair))
+            return Array.Empty<string>();
+
+        var secondaryNorm = NormalizeTilesetName(pair.Secondary);
+        return _mapsUsingTileset.TryGetValue(secondaryNorm, out var maps) ? maps : Array.Empty<string>();
     }
 
     /// <summary>
-    /// Build all shared tilesets and return results.
+    /// Build all individual tilesets and return results.
+    /// Each tileset is output separately (primary/* or secondary/*).
     /// </summary>
     public IEnumerable<SharedTilesetResult> BuildAllTilesets()
     {
-        foreach (var (key, builder) in _builders)
+        foreach (var (normalizedName, builder) in _builders)
         {
-            var tilesetName = GenerateTilesetName(key);
-            var tilesetId = GenerateTilesetId(key);
+            var tilesetType = builder.TilesetType;
+            var tilesetId = IdTransformer.TilesetId(normalizedName, tilesetType);
             var image = builder.BuildTilesheetImage();
 
             yield return new SharedTilesetResult(
                 tilesetId,
-                tilesetName,
+                normalizedName,
+                tilesetType,
                 image,
                 builder.UniqueTileCount,
-                builder.Columns
+                builder.Columns,
+                builder.GetAnimations(),
+                builder.GetTileProperties()
             );
         }
     }
 
     /// <summary>
-    /// Generate a consistent name for a tileset pair.
+    /// Generate tileset name for a pair (legacy compatibility).
     /// </summary>
     public static string GenerateTilesetName(TilesetPairKey key)
     {
@@ -120,7 +190,7 @@ public class SharedTilesetRegistry : IDisposable
     }
 
     /// <summary>
-    /// Generate a tileset ID for a tileset pair.
+    /// Generate tileset ID for a pair (legacy compatibility).
     /// </summary>
     public static string GenerateTilesetId(TilesetPairKey key)
     {
@@ -131,7 +201,7 @@ public class SharedTilesetRegistry : IDisposable
     /// <summary>
     /// Normalize tileset name (remove gTileset_ prefix, lowercase).
     /// </summary>
-    private static string NormalizeTilesetName(string tilesetName)
+    public static string NormalizeTilesetName(string tilesetName)
     {
         var name = tilesetName;
         if (name.StartsWith("gTileset_", StringComparison.OrdinalIgnoreCase))
@@ -141,11 +211,20 @@ public class SharedTilesetRegistry : IDisposable
 
     public void Dispose()
     {
+        // Dispose shared builders (which will dispose their MetatileRenderer)
+        foreach (var builder in _sharedBuilders.Values)
+        {
+            builder.Dispose();
+        }
+        _sharedBuilders.Clear();
+
+        // Dispose individual builders
         foreach (var builder in _builders.Values)
         {
             builder.Dispose();
         }
         _builders.Clear();
         _mapsUsingTileset.Clear();
+        _pairToIndividual.Clear();
     }
 }

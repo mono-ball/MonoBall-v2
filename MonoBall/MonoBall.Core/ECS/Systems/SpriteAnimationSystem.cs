@@ -26,6 +26,7 @@ public class SpriteAnimationSystem : BaseSystem<World, float>, IPrioritizedSyste
     private readonly Dictionary<Entity, string> _previousAnimationNames = new();
 
     private readonly IResourceManager _resourceManager;
+    private readonly List<IDisposable> _subscriptions = new();
 
     private bool _disposed;
 
@@ -57,7 +58,7 @@ public class SpriteAnimationSystem : BaseSystem<World, float>, IPrioritizedSyste
         >();
 
         // Subscribe to animation change events to reset animation state
-        EventBus.Subscribe<SpriteAnimationChangedEvent>(OnAnimationChanged);
+        _subscriptions.Add(EventBus.Subscribe<SpriteAnimationChangedEvent>(OnAnimationChanged));
     }
 
     /// <summary>
@@ -333,7 +334,8 @@ public class SpriteAnimationSystem : BaseSystem<World, float>, IPrioritizedSyste
         {
             if (disposing)
             {
-                EventBus.Unsubscribe<SpriteAnimationChangedEvent>(OnAnimationChanged);
+                foreach (var subscription in _subscriptions)
+                    subscription.Dispose();
                 _previousAnimationNames.Clear();
             }
 
