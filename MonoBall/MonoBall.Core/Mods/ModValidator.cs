@@ -52,90 +52,88 @@ namespace MonoBall.Core.Mods
                 return issues;
             }
 
-            var modDirectories = Directory.GetDirectories(_modsDirectory);
-            _logger.Debug("Found {ModCount} mod directories", modDirectories.Length);
             var modManifests = new Dictionary<string, ModManifest>();
             var definitionIds = new Dictionary<string, List<DefinitionLocation>>();
 
             // First pass: Load all manifests and collect definition IDs
-            foreach (var modDir in modDirectories)
+            try
             {
-                var modJsonPath = Path.Combine(modDir, "mod.json");
-                if (!File.Exists(modJsonPath))
+                var modSources = ModDiscovery.DiscoverModSources(_modsDirectory);
+                _logger.Debug("Found mod sources for validation");
+
+                foreach (var modSource in modSources)
                 {
-                    issues.Add(
-                        new ValidationIssue
+                    try
+                    {
+                        if (!modSource.FileExists("mod.json"))
                         {
-                            Severity = ValidationSeverity.Warning,
-                            Message =
-                                $"Mod directory '{Path.GetFileName(modDir)}' does not contain mod.json",
-                            ModId = string.Empty,
-                            FilePath = modDir,
+                            issues.Add(
+                                new ValidationIssue
+                                {
+                                    Severity = ValidationSeverity.Warning,
+                                    Message =
+                                        $"Mod source '{modSource.SourcePath}' does not contain mod.json",
+                                    ModId = string.Empty,
+                                    FilePath = modSource.SourcePath,
+                                }
+                            );
+                            continue;
                         }
-                    );
-                    continue;
-                }
 
-                try
-                {
-                    var jsonContent = File.ReadAllText(modJsonPath);
-                    var manifest = JsonSerializer.Deserialize<ModManifest>(
-                        jsonContent,
-                        JsonSerializerOptionsFactory.ForManifests
-                    );
+                        var manifest = modSource.GetManifest();
 
-                    if (manifest == null)
+                        // Validate manifest fields
+                        ValidateManifest(manifest, modSource.SourcePath, issues);
+
+                        if (!string.IsNullOrEmpty(manifest.Id))
+                        {
+                            if (modManifests.ContainsKey(manifest.Id))
+                            {
+                                issues.Add(
+                                    new ValidationIssue
+                                    {
+                                        Severity = ValidationSeverity.Error,
+                                        Message = $"Duplicate mod ID '{manifest.Id}'",
+                                        ModId = manifest.Id,
+                                        FilePath = modSource.SourcePath,
+                                    }
+                                );
+                            }
+                            else
+                            {
+                                modManifests[manifest.Id] = manifest;
+                            }
+                        }
+
+                        // Collect definition IDs
+                        CollectDefinitionIds(manifest, modSource, definitionIds, issues);
+                    }
+                    catch (Exception ex)
                     {
                         issues.Add(
                             new ValidationIssue
                             {
                                 Severity = ValidationSeverity.Error,
-                                Message = $"Failed to deserialize mod.json",
+                                Message =
+                                    $"Error reading mod.json from '{modSource.SourcePath}': {ex.Message}",
                                 ModId = string.Empty,
-                                FilePath = modJsonPath,
+                                FilePath = modSource.SourcePath,
                             }
                         );
-                        continue;
                     }
-
-                    // Validate manifest fields
-                    ValidateManifest(manifest, modJsonPath, issues);
-
-                    if (!string.IsNullOrEmpty(manifest.Id))
+                }
+            }
+            catch (Exception ex)
+            {
+                issues.Add(
+                    new ValidationIssue
                     {
-                        if (modManifests.ContainsKey(manifest.Id))
-                        {
-                            issues.Add(
-                                new ValidationIssue
-                                {
-                                    Severity = ValidationSeverity.Error,
-                                    Message = $"Duplicate mod ID '{manifest.Id}'",
-                                    ModId = manifest.Id,
-                                    FilePath = modJsonPath,
-                                }
-                            );
-                        }
-                        else
-                        {
-                            modManifests[manifest.Id] = manifest;
-                        }
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Error during mod discovery: {ex.Message}",
+                        ModId = string.Empty,
+                        FilePath = _modsDirectory,
                     }
-
-                    // Collect definition IDs
-                    CollectDefinitionIds(manifest, modDir, definitionIds, issues);
-                }
-                catch (Exception ex)
-                {
-                    issues.Add(
-                        new ValidationIssue
-                        {
-                            Severity = ValidationSeverity.Error,
-                            Message = $"Error reading mod.json: {ex.Message}",
-                            ModId = string.Empty,
-                            FilePath = modJsonPath,
-                        }
-                    );
-                }
+                );
             }
 
             // Check for duplicate definition IDs
@@ -247,11 +245,25 @@ namespace MonoBall.Core.Mods
 
         private void CollectDefinitionIds(
             ModManifest manifest,
-            string modDir,
+            IModSource modSource,
             Dictionary<string, List<DefinitionLocation>> definitionIds,
             List<ValidationIssue> issues
         )
         {
+            if (modSource == null)
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Mod '{manifest.Id}' has no ModSource",
+                        ModId = manifest.Id,
+                        FilePath = string.Empty,
+                    }
+                );
+                return;
+            }
+
             foreach (var (folderType, relativePath) in manifest.ContentFolders)
             {
                 if (string.IsNullOrEmpty(relativePath))
@@ -259,22 +271,17 @@ namespace MonoBall.Core.Mods
                     continue;
                 }
 
-                var definitionsPath = Path.Combine(modDir, relativePath);
-                if (!Directory.Exists(definitionsPath))
-                {
-                    continue;
-                }
-
-                var jsonFiles = Directory.GetFiles(
-                    definitionsPath,
-                    "*.json",
-                    SearchOption.AllDirectories
+                var normalizedPath = ModPathNormalizer.Normalize(relativePath);
+                var jsonFiles = ModPathFilter.FilterByContentFolder(
+                    modSource.EnumerateFiles("*.json", SearchOption.AllDirectories),
+                    normalizedPath
                 );
+
                 foreach (var jsonFile in jsonFiles)
                 {
                     try
                     {
-                        var jsonContent = File.ReadAllText(jsonFile);
+                        var jsonContent = modSource.ReadTextFile(jsonFile);
                         var jsonDoc = JsonDocument.Parse(jsonContent);
 
                         if (jsonDoc.RootElement.TryGetProperty("id", out var idElement))
@@ -292,7 +299,7 @@ namespace MonoBall.Core.Mods
                                         new DefinitionLocation
                                         {
                                             ModId = manifest.Id,
-                                            FilePath = jsonFile,
+                                            FilePath = jsonFile, // Store relative path
                                         }
                                     );
                             }
@@ -301,7 +308,7 @@ namespace MonoBall.Core.Mods
                         // Validate shader definitions
                         if (folderType == "Shaders")
                         {
-                            ValidateShaderDefinition(jsonFile, jsonDoc, modDir, issues);
+                            ValidateShaderDefinition(jsonFile, jsonDoc, modSource, issues);
                         }
                     }
                     catch (JsonException ex)
@@ -366,14 +373,14 @@ namespace MonoBall.Core.Mods
         /// <summary>
         /// Validates a shader definition file.
         /// </summary>
-        /// <param name="definitionPath">Path to the shader definition JSON file.</param>
+        /// <param name="definitionPath">Path to the shader definition JSON file (relative).</param>
         /// <param name="jsonDoc">The parsed JSON document.</param>
-        /// <param name="modDir">The mod directory root.</param>
+        /// <param name="modSource">The mod source.</param>
         /// <param name="issues">List to add validation issues to.</param>
         private void ValidateShaderDefinition(
             string definitionPath,
             JsonDocument jsonDoc,
-            string modDir,
+            IModSource modSource,
             List<ValidationIssue> issues
         )
         {
@@ -451,16 +458,14 @@ namespace MonoBall.Core.Mods
             }
 
             // Validate .mgfxo file exists relative to mod root
-            var mgfxoPath = Path.Combine(modDir, sourceFile);
-            mgfxoPath = Path.GetFullPath(mgfxoPath);
-            if (!File.Exists(mgfxoPath))
+            if (!modSource.FileExists(sourceFile))
             {
                 issues.Add(
                     new ValidationIssue
                     {
                         Severity = ValidationSeverity.Error,
                         Message =
-                            $"Shader compiled file not found: {mgfxoPath}. Ensure shaders are compiled during build.",
+                            $"Shader compiled file not found: {sourceFile}. Ensure shaders are compiled during build.",
                         ModId = string.Empty,
                         FilePath = definitionPath,
                     }

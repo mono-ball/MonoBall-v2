@@ -187,18 +187,24 @@ namespace MonoBall.Core.ECS.Systems
                     return;
                 }
 
-                // Create script instance
-                var scriptInstance = _scriptLoader.CreateScriptInstance(
-                    attachment.ScriptDefinitionId
-                );
-                if (scriptInstance == null)
+                // Create script instance (throws exception on failure - fail-fast)
+                ScriptBase scriptInstance;
+                try
                 {
-                    _logger.Warning(
+                    scriptInstance = _scriptLoader.CreateScriptInstance(
+                        attachment.ScriptDefinitionId
+                    );
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error(
+                        ex,
                         "Failed to create script instance for {ScriptDefinitionId} on entity {EntityId}",
                         attachment.ScriptDefinitionId,
                         entity.Id
                     );
-                    return;
+                    // Re-throw to fail fast (no fallback)
+                    throw;
                 }
 
                 // Build parameters from definition and EntityVariablesComponent

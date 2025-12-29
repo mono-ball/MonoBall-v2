@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using Arch.Core;
 using Microsoft.CodeAnalysis;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scripting.Runtime;
 using Serilog;
 
@@ -18,12 +20,13 @@ namespace MonoBall.Core.Scripting.Services
     /// </summary>
     public class ScriptLoaderService : IDisposable
     {
-        private readonly Dictionary<string, Type> _compiledScriptTypes = new();
-        private readonly Dictionary<string, Type> _pluginScriptTypes = new();
-        private readonly Dictionary<string, List<ScriptBase>> _pluginScriptsByMod = new();
+        private readonly ConcurrentDictionary<string, Type> _compiledScriptTypes = new();
+        private readonly ConcurrentDictionary<string, Type> _pluginScriptTypes = new();
+        private readonly ConcurrentDictionary<string, List<ScriptBase>> _pluginScriptsByMod = new();
         private readonly ScriptCompilerService _compiler;
         private readonly DefinitionRegistry _registry;
         private readonly ModManager _modManager;
+        private readonly IResourceManager _resourceManager;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -32,17 +35,21 @@ namespace MonoBall.Core.Scripting.Services
         /// <param name="compiler">The script compiler service.</param>
         /// <param name="registry">The definition registry.</param>
         /// <param name="modManager">The mod manager.</param>
+        /// <param name="resourceManager">The resource manager for loading script files.</param>
         /// <param name="logger">The logger instance.</param>
         public ScriptLoaderService(
             ScriptCompilerService compiler,
             DefinitionRegistry registry,
             ModManager modManager,
+            IResourceManager resourceManager,
             ILogger logger
         )
         {
             _compiler = compiler ?? throw new ArgumentNullException(nameof(compiler));
             _registry = registry ?? throw new ArgumentNullException(nameof(registry));
             _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
+            _resourceManager =
+                resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -71,7 +78,19 @@ namespace MonoBall.Core.Scripting.Services
                     continue;
                 }
 
-                LoadScriptFromDefinition(scriptDef);
+                try
+                {
+                    LoadScriptFromDefinition(scriptDef);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error(
+                        ex,
+                        "Failed to preload script definition {ScriptId}. Continuing with other scripts.",
+                        scriptDefId
+                    );
+                    // Continue loading other scripts even if one fails
+                }
             }
 
             // Load plugin scripts from mod manifests
@@ -81,7 +100,20 @@ namespace MonoBall.Core.Scripting.Services
                 {
                     foreach (var scriptPath in mod.Plugins)
                     {
-                        LoadPluginScript(mod.Id, scriptPath, mod.ModDirectory);
+                        try
+                        {
+                            LoadPluginScript(mod.Id, scriptPath, mod.ModDirectory);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.Error(
+                                ex,
+                                "Failed to preload plugin script {ScriptPath} for mod {ModId}. Continuing with other scripts.",
+                                scriptPath,
+                                mod.Id
+                            );
+                            // Continue loading other scripts even if one fails
+                        }
                     }
                 }
             }
@@ -98,22 +130,33 @@ namespace MonoBall.Core.Scripting.Services
         /// Each entity gets its own instance.
         /// </summary>
         /// <param name="definitionId">The script definition ID.</param>
-        /// <returns>A new script instance, or null if not found or creation failed.</returns>
-        public ScriptBase? CreateScriptInstance(string definitionId)
+        /// <returns>A new script instance.</returns>
+        /// <exception cref="ArgumentException">Thrown when definition ID is null or empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when script type is not found in cache or instance creation fails.</exception>
+        public ScriptBase CreateScriptInstance(string definitionId)
         {
+            if (string.IsNullOrWhiteSpace(definitionId))
+            {
+                throw new ArgumentException(
+                    "Definition ID cannot be null or empty",
+                    nameof(definitionId)
+                );
+            }
+
             _logger.Debug("CreateScriptInstance called for {DefinitionId}", definitionId);
             if (!_compiledScriptTypes.TryGetValue(definitionId, out var scriptType))
             {
-                _logger.Warning(
+                var availableScripts = string.Join(", ", _compiledScriptTypes.Keys);
+                var errorMessage =
+                    $"Script type not found in cache for definition '{definitionId}'. "
+                    + $"Available scripts: {availableScripts}. "
+                    + "Ensure the script was pre-loaded during mod loading phase.";
+                _logger.Error(
                     "Script type not found in cache for {DefinitionId}. Available scripts: {AvailableScripts}",
                     definitionId,
-                    string.Join(", ", _compiledScriptTypes.Keys)
+                    availableScripts
                 );
-                _logger.Warning(
-                    "Script type not found for definition: {DefinitionId}",
-                    definitionId
-                );
-                return null;
+                throw new InvalidOperationException(errorMessage);
             }
 
             try
@@ -121,23 +164,29 @@ namespace MonoBall.Core.Scripting.Services
                 var instance = Activator.CreateInstance(scriptType) as ScriptBase;
                 if (instance == null)
                 {
+                    var errorMessage =
+                        $"Failed to create script instance for '{definitionId}': "
+                        + "Type does not inherit from ScriptBase. "
+                        + "This indicates a compilation issue - script type should inherit from ScriptBase.";
                     _logger.Error(
                         "Failed to create script instance for {DefinitionId}: Type does not inherit from ScriptBase",
                         definitionId
                     );
-                    return null;
+                    throw new InvalidOperationException(errorMessage);
                 }
 
                 return instance;
             }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.Error(
-                    ex,
-                    "Failed to create script instance for {DefinitionId}",
-                    definitionId
+                throw new InvalidOperationException(
+                    $"Failed to create script instance for '{definitionId}': {ex.Message}",
+                    ex
                 );
-                return null;
             }
         }
 
@@ -162,10 +211,7 @@ namespace MonoBall.Core.Scripting.Services
                     .ToDictionary(g => g.Key, g => g.ToList())
             )
             {
-                if (!_pluginScriptsByMod.ContainsKey(modId))
-                {
-                    _pluginScriptsByMod[modId] = new List<ScriptBase>();
-                }
+                _pluginScriptsByMod.TryAdd(modId, new List<ScriptBase>());
 
                 foreach (var scriptTypeKvp in scriptTypes)
                 {
@@ -174,10 +220,14 @@ namespace MonoBall.Core.Scripting.Services
                         var instance = Activator.CreateInstance(scriptTypeKvp.Value) as ScriptBase;
                         if (instance == null)
                         {
-                            _logger.Warning(
+                            var errorMessage =
+                                $"Failed to create plugin script instance for '{scriptTypeKvp.Key}': "
+                                + "Type does not inherit from ScriptBase. "
+                                + "This indicates a compilation issue - script type should inherit from ScriptBase.";
+                            _logger.Error(
                                 "Failed to create plugin script instance: Type does not inherit from ScriptBase"
                             );
-                            continue;
+                            throw new InvalidOperationException(errorMessage);
                         }
 
                         // Create context with null entity (plugin script)
@@ -219,7 +269,7 @@ namespace MonoBall.Core.Scripting.Services
         /// <param name="modId">The mod ID.</param>
         public void UnloadModScripts(string modId)
         {
-            if (_pluginScriptsByMod.TryGetValue(modId, out var scripts))
+            if (_pluginScriptsByMod.TryRemove(modId, out var scripts))
             {
                 foreach (var script in scripts)
                 {
@@ -232,7 +282,6 @@ namespace MonoBall.Core.Scripting.Services
                         _logger.Error(ex, "Error unloading plugin script for mod {ModId}", modId);
                     }
                 }
-                _pluginScriptsByMod.Remove(modId);
                 _logger.Debug(
                     "Unloaded {Count} plugin scripts for mod {ModId}",
                     scripts.Count,
@@ -269,13 +318,19 @@ namespace MonoBall.Core.Scripting.Services
                 return;
             }
 
-            var scriptFilePath = Path.Combine(modManifest.ModDirectory, scriptDef.ScriptPath);
-            if (!File.Exists(scriptFilePath))
+            // Use ResourceManager to load script file (works for both directory and compressed mods)
+            string scriptContent;
+            try
+            {
+                scriptContent = _resourceManager.LoadTextFile(scriptDef.Id, scriptDef.ScriptPath);
+            }
+            catch (Exception ex)
             {
                 _logger.Warning(
-                    "Script file not found for definition {ScriptId}: {ScriptPath}",
+                    ex,
+                    "Failed to load script file for definition {ScriptId}: {ScriptPath}",
                     scriptDef.Id,
-                    scriptFilePath
+                    scriptDef.ScriptPath
                 );
                 return;
             }
@@ -283,19 +338,28 @@ namespace MonoBall.Core.Scripting.Services
             // Resolve dependency assemblies for this mod
             var dependencyReferences = ResolveDependencyAssemblies(modManifest);
 
-            var compiledType = _compiler.CompileScript(scriptFilePath, dependencyReferences);
-            if (compiledType != null)
+            // Compile script content directly (works for compressed mods)
+            // CompileScriptContent throws exceptions on failure (fail-fast)
+            try
             {
+                var compiledType = _compiler.CompileScriptContent(
+                    scriptContent,
+                    scriptDef.ScriptPath,
+                    dependencyReferences
+                );
                 _compiledScriptTypes[scriptDef.Id] = compiledType;
                 _logger.Debug("Cached script type for definition: {ScriptId}", scriptDef.Id);
             }
-            else
+            catch (Exception ex)
             {
-                _logger.Warning(
+                _logger.Error(
+                    ex,
                     "Failed to compile script for definition {ScriptId} from path {ScriptPath}",
                     scriptDef.Id,
-                    scriptFilePath
+                    scriptDef.ScriptPath
                 );
+                // Re-throw to fail fast (no fallback)
+                throw;
             }
         }
 
@@ -304,18 +368,7 @@ namespace MonoBall.Core.Scripting.Services
         /// </summary>
         private void LoadPluginScript(string modId, string scriptPath, string modDirectory)
         {
-            var fullScriptPath = Path.Combine(modDirectory, scriptPath);
-            if (!File.Exists(fullScriptPath))
-            {
-                _logger.Warning(
-                    "Plugin script file not found: {ScriptPath} (mod: {ModId})",
-                    fullScriptPath,
-                    modId
-                );
-                return;
-            }
-
-            // Get mod manifest to resolve dependencies
+            // Get mod manifest to resolve dependencies and ModSource
             var modManifest = _modManager.GetModManifest(modId);
             if (modManifest == null)
             {
@@ -323,15 +376,70 @@ namespace MonoBall.Core.Scripting.Services
                 return;
             }
 
+            // Plugin scripts don't have definitions, so we use ModSource directly
+            // (ResourceManager.LoadTextFile requires a resource ID from a definition)
+            if (modManifest.ModSource == null)
+            {
+                _logger.Warning(
+                    "ModSource is null for mod {ModId} (plugin script: {ScriptPath})",
+                    modId,
+                    scriptPath
+                );
+                return;
+            }
+
+            if (!modManifest.ModSource.FileExists(scriptPath))
+            {
+                _logger.Warning(
+                    "Plugin script file not found: {ScriptPath} (mod: {ModId})",
+                    scriptPath,
+                    modId
+                );
+                return;
+            }
+
+            string scriptContent;
+            try
+            {
+                scriptContent = modManifest.ModSource.ReadTextFile(scriptPath);
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(
+                    ex,
+                    "Failed to load plugin script file: {ScriptPath} (mod: {ModId})",
+                    scriptPath,
+                    modId
+                );
+                return;
+            }
+
             // Resolve dependency assemblies for this mod
             var dependencyReferences = ResolveDependencyAssemblies(modManifest);
 
-            var compiledType = _compiler.CompileScript(fullScriptPath, dependencyReferences);
-            if (compiledType != null)
+            // Compile script content directly (works for compressed mods)
+            // CompileScriptContent throws exceptions on failure (fail-fast)
+            try
             {
+                var compiledType = _compiler.CompileScriptContent(
+                    scriptContent,
+                    scriptPath,
+                    dependencyReferences
+                );
                 var key = $"{modId}:{scriptPath}";
                 _pluginScriptTypes[key] = compiledType;
                 _logger.Debug("Cached plugin script type: {Key}", key);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(
+                    ex,
+                    "Failed to compile plugin script: {ScriptPath} (mod: {ModId})",
+                    scriptPath,
+                    modId
+                );
+                // Re-throw to fail fast (no fallback)
+                throw;
             }
         }
 
@@ -438,12 +546,28 @@ namespace MonoBall.Core.Scripting.Services
         }
 
         /// <summary>
+        /// Parses a plugin script type key into mod ID and script path.
+        /// Key format: "modId:scriptPath"
+        /// </summary>
+        /// <param name="key">The plugin script type key.</param>
+        /// <returns>A tuple containing the mod ID and script path.</returns>
+        private (string modId, string scriptPath) ParsePluginScriptKey(string key)
+        {
+            var colonIndex = key.IndexOf(':');
+            if (colonIndex > 0)
+            {
+                return (key.Substring(0, colonIndex), key.Substring(colonIndex + 1));
+            }
+            // Fallback: treat entire key as modId (shouldn't happen in normal operation)
+            return (key, key);
+        }
+
+        /// <summary>
         /// Extracts mod ID from plugin script type key.
         /// </summary>
         private string ExtractModIdFromKey(string key)
         {
-            var colonIndex = key.IndexOf(':');
-            return colonIndex > 0 ? key.Substring(0, colonIndex) : key;
+            return ParsePluginScriptKey(key).modId;
         }
 
         /// <summary>
@@ -451,8 +575,7 @@ namespace MonoBall.Core.Scripting.Services
         /// </summary>
         private string ExtractScriptPathFromKey(string key)
         {
-            var colonIndex = key.IndexOf(':');
-            return colonIndex > 0 ? key.Substring(colonIndex + 1) : key;
+            return ParsePluginScriptKey(key).scriptPath;
         }
 
         /// <summary>

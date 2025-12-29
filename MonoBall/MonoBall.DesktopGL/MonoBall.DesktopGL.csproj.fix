@@ -46,15 +46,23 @@
   </Target>
 
   <!-- 
-    Compress all mod directories to .monoball archives.
-    Runs before CopyMods to ensure compressed archives are available when mods are copied.
+    Compress core mod to .monoball archive.
+    Runs before CopyMods to ensure compressed archive is available when mods are copied.
     Requires MonoBall.ArchiveTool to be built first.
   -->
-  <Target Name="CompressAllMods" BeforeTargets="CopyMods" DependsOnTargets="CompileModShaders">
+  <Target Name="CompressCoreMod" BeforeTargets="CopyMods" DependsOnTargets="Build">
     <PropertyGroup>
-      <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
-      <ArchiveToolProjectPath>$(MSBuildProjectDirectory)\..\MonoBall.ArchiveTool\MonoBall.ArchiveTool.csproj</ArchiveToolProjectPath>
+      <ModsSourcePath>$(MSBuildProjectDirectory)/../../Mods</ModsSourcePath>
+      <CoreModSourcePath>$([System.IO.Path]::Combine($(ModsSourcePath), 'core'))</CoreModSourcePath>
+      <CoreModArchivePath>$([System.IO.Path]::Combine($(ModsSourcePath), 'core.monoball'))</CoreModArchivePath>
+      <ArchiveToolProjectPath>$(MSBuildProjectDirectory)/../MonoBall.ArchiveTool/MonoBall.ArchiveTool.csproj</ArchiveToolProjectPath>
     </PropertyGroup>
+
+    <!-- Check if core mod directory exists -->
+    <Error
+      Condition="!Exists('$(CoreModSourcePath)')"
+      Text="Core mod directory not found: $(CoreModSourcePath)"
+    />
 
     <!-- Check if ArchiveTool project exists -->
     <Error
@@ -62,50 +70,15 @@
       Text="ArchiveTool project not found: $(ArchiveToolProjectPath)"
     />
 
-    <!-- Build ArchiveTool if needed (should already be built, but ensure it's available) -->
-    <MSBuild
-      Projects="$(ArchiveToolProjectPath)"
-      Targets="Build"
-      Properties="Configuration=$(Configuration)"
-      ContinueOnError="false"
-    />
-
-    <!-- Wait a moment to ensure shader compilation is complete -->
-    <Message Text="Starting mod compression (shaders should be compiled)..." Importance="High" />
-
-    <!-- Get all mod directories using Get-ChildItem PowerShell command -->
-    <Exec
-      Command="powershell -NoProfile -Command &quot;Get-ChildItem -Path '$(ModsSourcePath)' -Directory | ForEach-Object { $_.FullName } | Out-File -FilePath '$(MSBuildProjectDirectory)\moddirs.txt' -Encoding ASCII&quot;"
-      ContinueOnError="false"
-    />
-    <!-- Read directories from file and create items -->
-    <ReadLinesFromFile File="$(MSBuildProjectDirectory)\moddirs.txt">
-      <Output TaskParameter="Lines" ItemName="ModDirectories" />
-    </ReadLinesFromFile>
-    <!-- Clean up temp file -->
-    <Delete Files="$(MSBuildProjectDirectory)\moddirs.txt" ContinueOnError="true" />
+    <!-- Compress core mod using dotnet run (cross-platform) -->
     <Message
-      Text="Found @(ModDirectories->Count()) mod directory(ies) to compress: @(ModDirectories)"
+      Text="Compressing core mod to $(CoreModArchivePath)..."
       Importance="High"
-      Condition="'@(ModDirectories)' != ''"
     />
-    <!-- Add archive path metadata to each directory -->
-    <ItemGroup>
-      <ModDirectories>
-        <ArchiveName>$([System.IO.Path]::GetFileName('%(Identity)')).monoball</ArchiveName>
-      </ModDirectories>
-    </ItemGroup>
-    <!-- Compress each directory - Exec batches over ModDirectories items -->
     <Exec
-      Command="dotnet run --project &quot;$(ArchiveToolProjectPath)&quot; -- pack &quot;%(ModDirectories.Identity)&quot; --output &quot;$(ModsSourcePath)\%(ModDirectories.ArchiveName)&quot; --compression-level 1"
+      Command="dotnet run --project &quot;$(ArchiveToolProjectPath)&quot; -- pack &quot;$(CoreModSourcePath)&quot; --output &quot;$(CoreModArchivePath)&quot; --compression-level 1"
       ContinueOnError="false"
-      Condition="'@(ModDirectories)' != ''"
       WorkingDirectory="$(MSBuildProjectDirectory)"
-    />
-    <Message
-      Text="Compressed %(ModDirectories.Identity) to $(ModsSourcePath)\%(ModDirectories.ArchiveName)"
-      Importance="High"
-      Condition="'@(ModDirectories)' != ''"
     />
   </Target>
 
@@ -137,11 +110,6 @@
       WorkingDirectory="$(MSBuildProjectDirectory)"
       IgnoreStandardErrorWarningFormat="false"
     />
-    <Message
-      Text="Shader compilation complete. Compiled @(ShaderFxFiles->Count()) shader(s)."
-      Importance="High"
-      Condition="'@(ShaderFxFiles)' != ''"
-    />
   </Target>
 
   <!-- 
@@ -149,7 +117,7 @@
     The Mods folder is located at the solution root (../../Mods relative to this project).
     This ensures mods are available when running the game from the output directory.
     Deletes the old Mods directory first to prevent stale files from causing issues.
-    Copies compressed .monoball archives and mod.manifest file.
+    Copies compressed .monoball archives and uncompressed mod directories.
     -->
   <Target Name="CopyMods" AfterTargets="Build">
     <PropertyGroup>
@@ -187,13 +155,35 @@
       SkipUnchangedFiles="false"
       Condition="'@(CompressedMods)' != ''"
     />
+
+    <!-- Copy uncompressed mod directories (excluding core, which is now compressed) -->
+    <ItemGroup>
+      <ModDirectories Include="$(ModsSourcePath)\*" />
+      <ModDirectories Remove="$(ModsSourcePath)\core" />
+      <ModDirectories Remove="$(ModsSourcePath)\*.monoball" />
+      <ModDirectories Remove="$(ModsSourcePath)\mod.manifest" />
+    </ItemGroup>
+    <Message
+      Text="Copying uncompressed mod directories..."
+      Importance="High"
+      Condition="'@(ModDirectories)' != ''"
+    />
+    <ItemGroup>
+      <UncompressedModFiles Include="%(ModDirectories.Identity)\**\*.*" Condition="Exists('%(ModDirectories.Identity)')" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(UncompressedModFiles)"
+      DestinationFiles="@(UncompressedModFiles->'$(ModsDestinationPath)\%(RecursiveDir)%(Filename)%(Extension)')"
+      SkipUnchangedFiles="false"
+      Condition="'@(UncompressedModFiles)' != ''"
+    />
   </Target>
 
   <!-- 
     Copy Mods directory to publish directory when publishing the application.
     This ensures mods are included in published builds.
     Deletes the old Mods directory first to prevent stale files from causing issues.
-    Copies compressed .monoball archives and mod.manifest file.
+    Copies compressed .monoball archives and uncompressed mod directories.
     -->
   <Target Name="CopyModsToPublish" AfterTargets="Publish">
     <PropertyGroup>
@@ -231,5 +221,28 @@
       SkipUnchangedFiles="false"
       Condition="'@(CompressedMods)' != ''"
     />
+
+    <!-- Copy uncompressed mod directories (excluding core, which is now compressed) -->
+    <ItemGroup>
+      <ModDirectories Include="$(ModsSourcePath)\*" />
+      <ModDirectories Remove="$(ModsSourcePath)\core" />
+      <ModDirectories Remove="$(ModsSourcePath)\*.monoball" />
+      <ModDirectories Remove="$(ModsSourcePath)\mod.manifest" />
+    </ItemGroup>
+    <Message
+      Text="Copying uncompressed mod directories to publish output..."
+      Importance="High"
+      Condition="'@(ModDirectories)' != ''"
+    />
+    <ItemGroup>
+      <UncompressedModFiles Include="%(ModDirectories.Identity)\**\*.*" Condition="Exists('%(ModDirectories.Identity)')" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(UncompressedModFiles)"
+      DestinationFiles="@(UncompressedModFiles->'$(ModsDestinationPath)\%(RecursiveDir)%(Filename)%(Extension)')"
+      SkipUnchangedFiles="false"
+      Condition="'@(UncompressedModFiles)' != ''"
+    />
   </Target>
 </Project>
+

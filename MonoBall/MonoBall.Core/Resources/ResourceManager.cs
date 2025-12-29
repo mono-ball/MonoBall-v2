@@ -11,6 +11,7 @@ using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Mods.Utilities;
 using Serilog;
 
 namespace MonoBall.Core.Resources
@@ -111,8 +112,20 @@ namespace MonoBall.Core.Resources
 
             // Slow path: load file OUTSIDE lock (file I/O should not block other threads)
             string relativePath = ExtractTexturePath(resourceId);
-            string fullPath = _pathResolver.ResolveResourcePath(resourceId, relativePath);
-            var texture = Texture2D.FromFile(_graphicsDevice, fullPath);
+            string virtualPath = _pathResolver.ResolveResourcePath(resourceId, relativePath);
+
+            // Parse mod:// path and read from ModSource
+            var (modId, actualRelativePath) = ModPathParser.ParseModPath(virtualPath);
+            var modManifest = _modManager.GetModManifest(modId);
+            if (modManifest?.ModSource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Mod '{modId}' not found or has no ModSource for resource '{resourceId}'"
+                );
+            }
+
+            byte[] fileData = modManifest.ModSource.ReadFile(actualRelativePath);
+            var texture = Texture2D.FromStream(_graphicsDevice, new MemoryStream(fileData));
 
             // Update cache (acquire lock again)
             lock (_lock)
@@ -208,8 +221,19 @@ namespace MonoBall.Core.Resources
                 );
             }
 
-            string fullPath = _pathResolver.ResolveResourcePath(resourceId, fontDef.FontPath);
-            byte[] fontData = File.ReadAllBytes(fullPath);
+            string virtualPath = _pathResolver.ResolveResourcePath(resourceId, fontDef.FontPath);
+
+            // Parse mod:// path and read from ModSource
+            var (modId, actualRelativePath) = ModPathParser.ParseModPath(virtualPath);
+            var modManifest = _modManager.GetModManifest(modId);
+            if (modManifest?.ModSource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Mod '{modId}' not found or has no ModSource for resource '{resourceId}'"
+                );
+            }
+
+            byte[] fontData = modManifest.ModSource.ReadFile(actualRelativePath);
 
             // Create font system and verify
             var fontSystem = new FontSystem();
@@ -266,8 +290,20 @@ namespace MonoBall.Core.Resources
                 );
             }
 
-            string fullPath = _pathResolver.ResolveResourcePath(resourceId, audioDef.AudioPath);
-            var reader = new VorbisReader(fullPath);
+            string virtualPath = _pathResolver.ResolveResourcePath(resourceId, audioDef.AudioPath);
+
+            // Parse mod:// path and read from ModSource
+            var (modId, actualRelativePath) = ModPathParser.ParseModPath(virtualPath);
+            var modManifest = _modManager.GetModManifest(modId);
+            if (modManifest?.ModSource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Mod '{modId}' not found or has no ModSource for resource '{resourceId}'"
+                );
+            }
+
+            byte[] audioData = modManifest.ModSource.ReadFile(actualRelativePath);
+            var reader = new VorbisReader(new MemoryStream(audioData));
 
             _logger.Debug("Created new audio reader: {ResourceId}", resourceId);
             return reader;
@@ -307,8 +343,22 @@ namespace MonoBall.Core.Resources
                 );
             }
 
-            string fullPath = _pathResolver.ResolveResourcePath(resourceId, shaderDef.SourceFile);
-            byte[] bytecode = File.ReadAllBytes(fullPath);
+            string virtualPath = _pathResolver.ResolveResourcePath(
+                resourceId,
+                shaderDef.SourceFile
+            );
+
+            // Parse mod:// path and read from ModSource
+            var (modId, actualRelativePath) = ModPathParser.ParseModPath(virtualPath);
+            var modManifest = _modManager.GetModManifest(modId);
+            if (modManifest?.ModSource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Mod '{modId}' not found or has no ModSource for resource '{resourceId}'"
+                );
+            }
+
+            byte[] bytecode = modManifest.ModSource.ReadFile(actualRelativePath);
             var effect = new Effect(_graphicsDevice, bytecode);
 
             // Update cache (acquire lock again)
@@ -847,6 +897,51 @@ namespace MonoBall.Core.Resources
             }
 
             return new Rectangle(sourceX, sourceY, definition.TileWidth, definition.TileHeight);
+        }
+
+        public string LoadTextFile(string resourceId, string relativePath)
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(ResourceManager));
+
+            if (string.IsNullOrEmpty(resourceId))
+            {
+                throw new ArgumentException(
+                    "Resource ID cannot be null or empty.",
+                    nameof(resourceId)
+                );
+            }
+
+            if (string.IsNullOrEmpty(relativePath))
+            {
+                throw new ArgumentException(
+                    "Relative path cannot be null or empty.",
+                    nameof(relativePath)
+                );
+            }
+
+            // Resolve path using ResourcePathResolver (validates file exists)
+            string virtualPath = _pathResolver.ResolveResourcePath(resourceId, relativePath);
+
+            // Parse mod:// path and read from ModSource
+            var (modId, actualRelativePath) = ModPathParser.ParseModPath(virtualPath);
+            var modManifest = _modManager.GetModManifest(modId);
+            if (modManifest?.ModSource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Mod '{modId}' not found or has no ModSource for resource '{resourceId}'"
+                );
+            }
+
+            string textContent = modManifest.ModSource.ReadTextFile(actualRelativePath);
+
+            _logger.Debug(
+                "Loaded text file: {ResourceId} -> {RelativePath}",
+                resourceId,
+                relativePath
+            );
+
+            return textContent;
         }
 
         public T? GetDefinition<T>(string resourceId)

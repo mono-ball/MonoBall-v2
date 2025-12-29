@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using Porycon3.Models;
@@ -176,30 +177,29 @@ public class AnimationScanner
     public List<Image<Rgba32>> ExtractAnimationFrames(
         string tilesetName,
         AnimationDefinition animDef,
-        Rgba32[]?[]? palettes)
+        Rgba32[]?[]? palettes,
+        int paletteIndex = 0)
     {
         var frames = new List<Image<Rgba32>>();
         var framePaths = ScanAnimationFrames(tilesetName, animDef.AnimFolder, animDef.IsSecondary);
 
         if (framePaths.Count == 0) return frames;
 
+        // Select the appropriate palette
+        Rgba32[]? palette = null;
+        if (palettes != null && paletteIndex >= 0 && paletteIndex < palettes.Length)
+        {
+            palette = palettes[paletteIndex];
+        }
+        palette ??= palettes?.FirstOrDefault(p => p != null);
+
         foreach (var framePath in framePaths)
         {
             try
             {
-                using var image = Image.Load<Rgba32>(framePath);
-
-                // Check if this is a 16x16 metatile frame
-                if (image.Width == 16 && image.Height == 16)
+                var processed = LoadAndApplyPaletteToFrame(framePath, palette);
+                if (processed != null)
                 {
-                    // Apply palette and transparency
-                    var processed = ApplyPaletteToFrame(image, palettes);
-                    frames.Add(processed);
-                }
-                else
-                {
-                    // This is a tile strip - apply palette to entire image
-                    var processed = ApplyPaletteToFrame(image, palettes);
                     frames.Add(processed);
                 }
             }
@@ -213,26 +213,119 @@ public class AnimationScanner
     }
 
     /// <summary>
-    /// Apply palette to an animation frame image.
-    /// Animation frames are indexed PNGs like tileset tiles.
+    /// Load an animation frame PNG and apply palette.
+    /// Prefers the PNG's embedded palette over external palette.
     /// </summary>
-    private Image<Rgba32> ApplyPaletteToFrame(Image<Rgba32> sourceImage, Rgba32[]?[]? palettes)
+    private Image<Rgba32>? LoadAndApplyPaletteToFrame(string framePath, Rgba32[]? externalPalette)
     {
-        var result = new Image<Rgba32>(sourceImage.Width, sourceImage.Height);
+        var pngBytes = File.ReadAllBytes(framePath);
 
-        // Get the first available palette (animation frames typically use palette 0)
-        Rgba32[]? palette = null;
-        if (palettes != null)
+        // Extract embedded palette from PNG (animation frames typically have their own colors)
+        var embeddedPalette = ExtractPngPalette(pngBytes);
+        var (width, height, bitDepth, indices) = ExtractPngIndices(pngBytes);
+
+        if (indices == null || width == 0 || height == 0)
         {
-            foreach (var p in palettes)
+            // Fallback: load as RGBA (already has colors applied)
+            using var image = Image.Load<Rgba32>(framePath);
+            // Apply transparency to index 0 equivalent
+            var result = image.Clone();
+            result.ProcessPixelRows(accessor =>
             {
-                if (p != null)
+                for (int y = 0; y < accessor.Height; y++)
                 {
-                    palette = p;
-                    break;
+                    var row = accessor.GetRowSpan(y);
+                    for (int x = 0; x < row.Length; x++)
+                    {
+                        // Check if this is the background color (first pixel or white)
+                        if (row[x].R == 255 && row[x].G == 255 && row[x].B == 255)
+                        {
+                            row[x] = new Rgba32(0, 0, 0, 0);
+                        }
+                    }
+                }
+            });
+            return result;
+        }
+
+        // Prefer embedded palette over external palette
+        var palette = embeddedPalette ?? externalPalette;
+
+        var resultImage = new Image<Rgba32>(width, height);
+
+        resultImage.ProcessPixelRows(accessor =>
+        {
+            for (int y = 0; y < height; y++)
+            {
+                var row = accessor.GetRowSpan(y);
+                for (int x = 0; x < width; x++)
+                {
+                    var colorIndex = indices[y * width + x];
+
+                    if (colorIndex == 0)
+                    {
+                        row[x] = new Rgba32(0, 0, 0, 0);
+                    }
+                    else if (palette != null && colorIndex < palette.Length)
+                    {
+                        row[x] = palette[colorIndex];
+                    }
+                    else
+                    {
+                        var gray = (byte)(colorIndex * 17);
+                        row[x] = new Rgba32(gray, gray, gray, 255);
+                    }
                 }
             }
+        });
+
+        return resultImage;
+    }
+
+    /// <summary>
+    /// Extract RGB palette from PNG PLTE chunk.
+    /// </summary>
+    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
+    {
+        var pos = 8; // Skip PNG signature
+
+        while (pos < pngData.Length - 12)
+        {
+            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
+                         (pngData[pos + 2] << 8) | pngData[pos + 3];
+            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
+
+            if (type == "PLTE")
+            {
+                var colorCount = length / 3;
+                var palette = new Rgba32[colorCount];
+
+                for (var i = 0; i < colorCount; i++)
+                {
+                    var offset = pos + 8 + i * 3;
+                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
+                }
+
+                return palette;
+            }
+            else if (type == "IDAT" || type == "IEND")
+            {
+                // PLTE must come before IDAT
+                break;
+            }
+
+            pos += 12 + length;
         }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Fallback palette application for non-indexed images.
+    /// </summary>
+    private Image<Rgba32> ApplyPaletteToFrameFallback(Image<Rgba32> sourceImage, Rgba32[]? palette)
+    {
+        var result = new Image<Rgba32>(sourceImage.Width, sourceImage.Height);
 
         sourceImage.ProcessPixelRows(result, (srcAccessor, dstAccessor) =>
         {
@@ -244,11 +337,8 @@ public class AnimationScanner
                 for (int x = 0; x < srcAccessor.Width; x++)
                 {
                     var pixel = srcRow[x];
-
-                    // Extract palette index from grayscale (inverted: white=0, black=15)
                     var colorIndex = (byte)(15 - (pixel.R + 8) / 17);
 
-                    // Color index 0 is always transparent
                     if (colorIndex == 0)
                     {
                         dstRow[x] = new Rgba32(0, 0, 0, 0);
@@ -259,7 +349,6 @@ public class AnimationScanner
                     }
                     else
                     {
-                        // Fallback to grayscale
                         var gray = (byte)(colorIndex * 17);
                         dstRow[x] = new Rgba32(gray, gray, gray, 255);
                     }
@@ -268,6 +357,123 @@ public class AnimationScanner
         });
 
         return result;
+    }
+
+    /// <summary>
+    /// Extract raw palette indices from PNG IDAT chunks.
+    /// </summary>
+    private static (int Width, int Height, int BitDepth, byte[]? Indices) ExtractPngIndices(byte[] pngData)
+    {
+        int width = 0, height = 0, bitDepth = 0, colorType = 0;
+        var idatChunks = new List<byte[]>();
+        var pos = 8;
+
+        while (pos < pngData.Length - 12)
+        {
+            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
+                         (pngData[pos + 2] << 8) | pngData[pos + 3];
+            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
+
+            if (type == "IHDR")
+            {
+                var dataStart = pos + 8;
+                width = (pngData[dataStart] << 24) | (pngData[dataStart + 1] << 16) |
+                        (pngData[dataStart + 2] << 8) | pngData[dataStart + 3];
+                height = (pngData[dataStart + 4] << 24) | (pngData[dataStart + 5] << 16) |
+                         (pngData[dataStart + 6] << 8) | pngData[dataStart + 7];
+                bitDepth = pngData[dataStart + 8];
+                colorType = pngData[dataStart + 9];
+            }
+            else if (type == "IDAT")
+            {
+                var chunk = new byte[length];
+                Array.Copy(pngData, pos + 8, chunk, 0, length);
+                idatChunks.Add(chunk);
+            }
+            else if (type == "IEND") break;
+
+            pos += 12 + length;
+        }
+
+        if (colorType != 3 || width == 0 || height == 0)
+            return (width, height, bitDepth, null);
+
+        var totalLength = idatChunks.Sum(c => c.Length);
+        var compressedData = new byte[totalLength];
+        var offset = 0;
+        foreach (var chunk in idatChunks)
+        {
+            Array.Copy(chunk, 0, compressedData, offset, chunk.Length);
+            offset += chunk.Length;
+        }
+
+        byte[] decompressedData;
+        try
+        {
+            using var compressedStream = new MemoryStream(compressedData, 2, compressedData.Length - 2);
+            using var deflateStream = new DeflateStream(compressedStream, CompressionMode.Decompress);
+            using var decompressedStream = new MemoryStream();
+            deflateStream.CopyTo(decompressedStream);
+            decompressedData = decompressedStream.ToArray();
+        }
+        catch { return (width, height, bitDepth, null); }
+
+        var pixelsPerByte = 8 / bitDepth;
+        var bytesPerRow = (width + pixelsPerByte - 1) / pixelsPerByte;
+        var rowSize = bytesPerRow + 1;
+
+        var indices = new byte[width * height];
+        var prevRow = new byte[bytesPerRow];
+
+        for (var y = 0; y < height; y++)
+        {
+            var rowStart = y * rowSize;
+            if (rowStart >= decompressedData.Length) break;
+
+            var filterType = decompressedData[rowStart];
+            var currentRow = new byte[bytesPerRow];
+            var dataStart = rowStart + 1;
+            var copyLen = Math.Min(bytesPerRow, decompressedData.Length - dataStart);
+            if (copyLen > 0) Array.Copy(decompressedData, dataStart, currentRow, 0, copyLen);
+
+            switch (filterType)
+            {
+                case 0: break;
+                case 1: for (var i = 1; i < bytesPerRow; i++) currentRow[i] = (byte)(currentRow[i] + currentRow[i - 1]); break;
+                case 2: for (var i = 0; i < bytesPerRow; i++) currentRow[i] = (byte)(currentRow[i] + prevRow[i]); break;
+                case 3: for (var i = 0; i < bytesPerRow; i++) { var left = i > 0 ? currentRow[i - 1] : 0; currentRow[i] = (byte)(currentRow[i] + (left + prevRow[i]) / 2); } break;
+                case 4: for (var i = 0; i < bytesPerRow; i++) { var a = i > 0 ? currentRow[i - 1] : 0; var b = prevRow[i]; var c = i > 0 ? prevRow[i - 1] : 0; currentRow[i] = (byte)(currentRow[i] + PaethPredictor(a, b, c)); } break;
+            }
+
+            for (var x = 0; x < width; x++)
+            {
+                int index;
+                if (bitDepth == 8) { index = x < currentRow.Length ? currentRow[x] : 0; }
+                else if (bitDepth == 4)
+                {
+                    var byteIndex = x / 2;
+                    var nibble = x % 2;
+                    index = byteIndex < currentRow.Length
+                        ? (nibble == 0 ? (currentRow[byteIndex] >> 4) & 0x0F : currentRow[byteIndex] & 0x0F)
+                        : 0;
+                }
+                else if (bitDepth == 2) { var byteIndex = x / 4; var shift = 6 - (x % 4) * 2; index = byteIndex < currentRow.Length ? (currentRow[byteIndex] >> shift) & 0x03 : 0; }
+                else if (bitDepth == 1) { var byteIndex = x / 8; var shift = 7 - (x % 8); index = byteIndex < currentRow.Length ? (currentRow[byteIndex] >> shift) & 0x01 : 0; }
+                else index = 0;
+                indices[y * width + x] = (byte)index;
+            }
+            Array.Copy(currentRow, prevRow, bytesPerRow);
+        }
+        return (width, height, bitDepth, indices);
+    }
+
+    private static int PaethPredictor(int a, int b, int c)
+    {
+        var p = a + b - c;
+        var pa = Math.Abs(p - a); var pb = Math.Abs(p - b); var pc = Math.Abs(p - c);
+        if (pa <= pb && pa <= pc) return a;
+        if (pb <= pc) return b;
+        return c;
     }
 
     /// <summary>

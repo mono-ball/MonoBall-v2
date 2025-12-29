@@ -11,7 +11,7 @@ namespace MonoBall.Core.Mods
     /// <summary>
     /// Loads mods from the Mods directory, resolves dependencies, and loads definitions.
     /// </summary>
-    public class ModLoader
+    public class ModLoader : IDisposable
     {
         private readonly string _modsDirectory;
         private readonly DefinitionRegistry _registry;
@@ -19,6 +19,7 @@ namespace MonoBall.Core.Mods
         private readonly List<ModManifest> _loadedMods = new List<ModManifest>();
         private readonly Dictionary<string, ModManifest> _modsById =
             new Dictionary<string, ModManifest>();
+        private readonly List<IModSource> _modSources = new List<IModSource>();
         private ModManifest? _coreMod;
 
         /// <summary>
@@ -192,76 +193,112 @@ namespace MonoBall.Core.Mods
                 return mods;
             }
 
-            var modDirectories = Directory.GetDirectories(_modsDirectory);
-            _logger.Debug("Scanning {DirectoryCount} directories for mods", modDirectories.Length);
-            foreach (var modDir in modDirectories)
+            try
             {
-                var modJsonPath = Path.Combine(modDir, "mod.json");
-                if (!File.Exists(modJsonPath))
-                {
-                    errors.Add(
-                        $"Mod directory '{Path.GetFileName(modDir)}' does not contain mod.json"
-                    );
-                    continue;
-                }
+                var modSources = ModDiscovery.DiscoverModSources(_modsDirectory);
+                _logger.Debug("Scanning mod sources for mods");
 
-                try
+                foreach (var modSource in modSources)
                 {
-                    var jsonContent = File.ReadAllText(modJsonPath);
-                    var manifest = JsonSerializer.Deserialize<ModManifest>(
-                        jsonContent,
-                        JsonSerializerOptionsFactory.ForManifests
-                    );
-                    if (manifest == null)
+                    // Force TOC load for archives during discovery for early validation
+                    if (modSource.IsCompressed && modSource is ArchiveModSource archiveSource)
                     {
-                        errors.Add(
-                            $"Failed to deserialize mod.json in '{Path.GetFileName(modDir)}'"
-                        );
-                        continue;
+                        try
+                        {
+                            archiveSource.GetTOC(); // This validates archive integrity
+                        }
+                        catch (Exception ex)
+                        {
+                            errors.Add(
+                                $"Archive validation failed for '{modSource.SourcePath}': {ex.Message}"
+                            );
+                            continue;
+                        }
                     }
 
-                    // Validate required fields
-                    if (string.IsNullOrEmpty(manifest.Id))
+                    if (TryLoadModSource(modSource, errors, out var manifest))
                     {
-                        errors.Add(
-                            $"Mod in '{Path.GetFileName(modDir)}' has missing or empty 'id' field"
+                        mods.Add(manifest);
+                        _modsById[manifest.Id] = manifest;
+                        _modSources.Add(modSource); // Track for disposal
+                        _logger.Debug(
+                            "Discovered mod: {ModId} ({ModName}) from {SourceType}",
+                            manifest.Id,
+                            manifest.Name,
+                            modSource.IsCompressed ? "archive" : "directory"
                         );
-                        continue;
                     }
-
-                    if (_modsById.ContainsKey(manifest.Id))
+                    else
                     {
-                        errors.Add(
-                            $"Duplicate mod ID '{manifest.Id}' found in '{Path.GetFileName(modDir)}'"
-                        );
-                        continue;
+                        // Dispose failed mod source
+                        modSource.Dispose();
                     }
-
-                    manifest.ModDirectory = modDir;
-                    mods.Add(manifest);
-                    _modsById[manifest.Id] = manifest;
-                    _logger.Debug(
-                        "Discovered mod: {ModId} ({ModName})",
-                        manifest.Id,
-                        manifest.Name
-                    );
                 }
-                catch (JsonException ex)
-                {
-                    errors.Add(
-                        $"JSON error in mod.json for '{Path.GetFileName(modDir)}': {ex.Message}"
-                    );
-                }
-                catch (Exception ex)
-                {
-                    errors.Add(
-                        $"Error loading mod from '{Path.GetFileName(modDir)}': {ex.Message}"
-                    );
-                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add($"Error during mod discovery: {ex.Message}");
             }
 
             _logger.Debug("Discovery completed: {ModCount} mods found", mods.Count);
             return mods;
+        }
+
+        /// <summary>
+        /// Attempts to load a mod from a mod source.
+        /// </summary>
+        /// <param name="modSource">The mod source to load.</param>
+        /// <param name="errors">List to populate with errors.</param>
+        /// <param name="manifest">The loaded manifest, if successful.</param>
+        /// <returns>True if the mod was loaded successfully.</returns>
+        private bool TryLoadModSource(
+            IModSource modSource,
+            List<string> errors,
+            out ModManifest manifest
+        )
+        {
+            manifest = null!;
+
+            try
+            {
+                if (!modSource.FileExists("mod.json"))
+                {
+                    errors.Add($"Mod source '{modSource.SourcePath}' does not contain mod.json");
+                    return false;
+                }
+
+                manifest = modSource.GetManifest();
+
+                // Validate required fields
+                if (string.IsNullOrEmpty(manifest.Id))
+                {
+                    errors.Add($"Mod in '{modSource.SourcePath}' has missing or empty 'id' field");
+                    return false;
+                }
+
+                if (_modsById.ContainsKey(manifest.Id))
+                {
+                    errors.Add(
+                        $"Duplicate mod ID '{manifest.Id}' found in '{modSource.SourcePath}'"
+                    );
+                    return false;
+                }
+
+                // Set ModDirectory for backward compatibility
+                manifest.ModDirectory = modSource.SourcePath;
+
+                return true;
+            }
+            catch (JsonException ex)
+            {
+                errors.Add($"JSON error in mod.json for '{modSource.SourcePath}': {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errors.Add($"Error loading mod from '{modSource.SourcePath}': {ex.Message}");
+                return false;
+            }
         }
 
         /// <summary>
@@ -435,11 +472,19 @@ namespace MonoBall.Core.Mods
         /// </summary>
         private void LoadModDefinitions(ModManifest mod, List<string> errors)
         {
+            if (mod.ModSource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Mod '{mod.Id}' has no ModSource. Mods must have a valid ModSource to load definitions."
+                );
+            }
+
             _logger.Debug(
                 "Loading definitions for mod {ModId} from {ContentFolderCount} content folders",
                 mod.Id,
                 mod.ContentFolders.Count
             );
+
             // Load definitions from each content folder type
             foreach (var (folderType, relativePath) in mod.ContentFolders)
             {
@@ -448,39 +493,51 @@ namespace MonoBall.Core.Mods
                     continue;
                 }
 
-                var definitionsPath = Path.Combine(mod.ModDirectory, relativePath);
-                if (!Directory.Exists(definitionsPath))
-                {
-                    continue; // Not an error, mod might not have all content types
-                }
+                var normalizedPath = ModPathNormalizer.Normalize(relativePath);
+                var jsonFiles = ModPathFilter.FilterByContentFolder(
+                    mod.ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories),
+                    normalizedPath
+                );
 
-                LoadDefinitionsFromDirectory(definitionsPath, folderType, mod, errors);
+                foreach (var jsonFile in jsonFiles)
+                {
+                    LoadDefinitionFromFile(mod.ModSource, jsonFile, folderType, mod, errors);
+                }
             }
 
             // Load script definitions from Definitions/Scripts/ subdirectories
-            var scriptDefinitionsPath = Path.Combine(mod.ModDirectory, "Definitions", "Scripts");
-            if (Directory.Exists(scriptDefinitionsPath))
+            var scriptJsonFiles = mod
+                .ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories)
+                .Where(p =>
+                    p.StartsWith("Definitions/Scripts/", StringComparison.Ordinal)
+                    || p.StartsWith("Definitions\\Scripts\\", StringComparison.Ordinal)
+                );
+
+            foreach (var jsonFile in scriptJsonFiles)
             {
-                LoadDefinitionsFromDirectory(scriptDefinitionsPath, "Script", mod, errors);
+                LoadDefinitionFromFile(mod.ModSource, jsonFile, "Script", mod, errors);
             }
 
             // Load behavior definitions from Definitions/Behaviors/ subdirectories
-            var behaviorDefinitionsPath = Path.Combine(
-                mod.ModDirectory,
-                "Definitions",
-                "Behaviors"
-            );
-            if (Directory.Exists(behaviorDefinitionsPath))
+            var behaviorJsonFiles = mod
+                .ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories)
+                .Where(p =>
+                    p.StartsWith("Definitions/Behaviors/", StringComparison.Ordinal)
+                    || p.StartsWith("Definitions\\Behaviors\\", StringComparison.Ordinal)
+                );
+
+            foreach (var jsonFile in behaviorJsonFiles)
             {
-                LoadDefinitionsFromDirectory(behaviorDefinitionsPath, "Behavior", mod, errors);
+                LoadDefinitionFromFile(mod.ModSource, jsonFile, "Behavior", mod, errors);
             }
         }
 
         /// <summary>
-        /// Recursively loads all JSON definition files from a directory.
+        /// Loads a single definition from a file.
         /// </summary>
-        private void LoadDefinitionsFromDirectory(
-            string directory,
+        private void LoadDefinitionFromFile(
+            IModSource modSource,
+            string relativePath,
             string definitionType,
             ModManifest mod,
             List<string> errors
@@ -488,113 +545,96 @@ namespace MonoBall.Core.Mods
         {
             try
             {
-                var jsonFiles = Directory.GetFiles(
-                    directory,
-                    "*.json",
-                    SearchOption.AllDirectories
-                );
-                foreach (var jsonFile in jsonFiles)
+                var jsonContent = modSource.ReadTextFile(relativePath);
+                var jsonDoc = JsonDocument.Parse(jsonContent);
+
+                if (!jsonDoc.RootElement.TryGetProperty("id", out var idElement))
                 {
-                    try
-                    {
-                        var jsonContent = File.ReadAllText(jsonFile);
-                        var jsonDoc = JsonDocument.Parse(jsonContent);
-
-                        if (!jsonDoc.RootElement.TryGetProperty("id", out var idElement))
-                        {
-                            errors.Add($"Definition file '{jsonFile}' is missing 'id' field");
-                            continue;
-                        }
-
-                        var id = idElement.GetString();
-                        if (string.IsNullOrEmpty(id))
-                        {
-                            errors.Add($"Definition file '{jsonFile}' has empty 'id' field");
-                            continue;
-                        }
-
-                        // Determine operation type (defaults to Create, but can be specified)
-                        var operation = DefinitionOperation.Create;
-                        if (jsonDoc.RootElement.TryGetProperty("$operation", out var opElement))
-                        {
-                            var opString = opElement.GetString()?.ToLowerInvariant();
-                            operation = opString switch
-                            {
-                                "modify" => DefinitionOperation.Modify,
-                                "extend" => DefinitionOperation.Extend,
-                                "replace" => DefinitionOperation.Replace,
-                                _ => DefinitionOperation.Create,
-                            };
-                        }
-
-                        // Check if definition already exists
-                        var existing = _registry.GetById(id);
-                        if (existing != null)
-                        {
-                            // Apply operation
-                            var finalData = jsonDoc.RootElement;
-                            if (
-                                operation == DefinitionOperation.Modify
-                                || operation == DefinitionOperation.Extend
-                            )
-                            {
-                                finalData = JsonElementMerger.Merge(
-                                    existing.Data,
-                                    jsonDoc.RootElement,
-                                    operation == DefinitionOperation.Extend
-                                );
-                            }
-                            // For Replace, use the new data as-is
-
-                            var metadata = new DefinitionMetadata
-                            {
-                                Id = id,
-                                OriginalModId = existing.OriginalModId,
-                                LastModifiedByModId = mod.Id,
-                                Operation = operation,
-                                DefinitionType = definitionType,
-                                Data = finalData,
-                                SourcePath = Path.GetRelativePath(mod.ModDirectory, jsonFile),
-                            };
-
-                            _registry.Register(metadata);
-                        }
-                        else
-                        {
-                            // New definition
-                            var metadata = new DefinitionMetadata
-                            {
-                                Id = id,
-                                OriginalModId = mod.Id,
-                                LastModifiedByModId = mod.Id,
-                                Operation = DefinitionOperation.Create,
-                                DefinitionType = definitionType,
-                                Data = jsonDoc.RootElement,
-                                SourcePath = Path.GetRelativePath(mod.ModDirectory, jsonFile),
-                            };
-
-                            _registry.Register(metadata);
-                        }
-                    }
-                    catch (JsonException ex)
-                    {
-                        var errorMessage =
-                            $"JSON error in definition file '{jsonFile}': {ex.Message}";
-                        _logger.Error(ex, errorMessage);
-                        errors.Add(errorMessage);
-                    }
-                    catch (Exception ex)
-                    {
-                        var errorMessage =
-                            $"Error loading definition from '{jsonFile}': {ex.Message}";
-                        _logger.Error(ex, errorMessage);
-                        errors.Add(errorMessage);
-                    }
+                    errors.Add($"Definition file '{relativePath}' is missing 'id' field");
+                    return;
                 }
+
+                var id = idElement.GetString();
+                if (string.IsNullOrEmpty(id))
+                {
+                    errors.Add($"Definition file '{relativePath}' has empty 'id' field");
+                    return;
+                }
+
+                // Determine operation type (defaults to Create, but can be specified)
+                var operation = DefinitionOperation.Create;
+                if (jsonDoc.RootElement.TryGetProperty("$operation", out var opElement))
+                {
+                    var opString = opElement.GetString()?.ToLowerInvariant();
+                    operation = opString switch
+                    {
+                        "modify" => DefinitionOperation.Modify,
+                        "extend" => DefinitionOperation.Extend,
+                        "replace" => DefinitionOperation.Replace,
+                        _ => DefinitionOperation.Create,
+                    };
+                }
+
+                // Check if definition already exists
+                var existing = _registry.GetById(id);
+                if (existing != null)
+                {
+                    // Apply operation
+                    var finalData = jsonDoc.RootElement;
+                    if (
+                        operation == DefinitionOperation.Modify
+                        || operation == DefinitionOperation.Extend
+                    )
+                    {
+                        finalData = JsonElementMerger.Merge(
+                            existing.Data,
+                            jsonDoc.RootElement,
+                            operation == DefinitionOperation.Extend
+                        );
+                    }
+                    // For Replace, use the new data as-is
+
+                    var metadata = new DefinitionMetadata
+                    {
+                        Id = id,
+                        OriginalModId = existing.OriginalModId,
+                        LastModifiedByModId = mod.Id,
+                        Operation = operation,
+                        DefinitionType = definitionType,
+                        Data = finalData,
+                        SourcePath = relativePath, // Already relative, no conversion needed
+                    };
+
+                    _registry.Register(metadata);
+                }
+                else
+                {
+                    // New definition
+                    var metadata = new DefinitionMetadata
+                    {
+                        Id = id,
+                        OriginalModId = mod.Id,
+                        LastModifiedByModId = mod.Id,
+                        Operation = DefinitionOperation.Create,
+                        DefinitionType = definitionType,
+                        Data = jsonDoc.RootElement,
+                        SourcePath = relativePath, // Already relative, no conversion needed
+                    };
+
+                    _registry.Register(metadata);
+                }
+            }
+            catch (JsonException ex)
+            {
+                var errorMessage = $"JSON error in definition file '{relativePath}': {ex.Message}";
+                _logger.Error(ex, errorMessage);
+                errors.Add(errorMessage);
             }
             catch (Exception ex)
             {
-                errors.Add($"Error scanning directory '{directory}': {ex.Message}");
+                var errorMessage = $"Error loading definition from '{relativePath}': {ex.Message}";
+                _logger.Error(ex, errorMessage);
+                errors.Add(errorMessage);
             }
         }
 
@@ -886,6 +926,29 @@ namespace MonoBall.Core.Mods
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Disposes all mod sources.
+        /// </summary>
+        public void Dispose()
+        {
+            foreach (var modSource in _modSources)
+            {
+                try
+                {
+                    modSource?.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    _logger.Warning(
+                        ex,
+                        "Error disposing mod source: {SourcePath}",
+                        modSource?.SourcePath
+                    );
+                }
+            }
+            _modSources.Clear();
         }
     }
 }

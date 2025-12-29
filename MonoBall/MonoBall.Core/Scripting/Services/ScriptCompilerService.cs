@@ -46,29 +46,89 @@ namespace MonoBall.Core.Scripting.Services
         /// </summary>
         /// <param name="scriptPath">Path to the .csx script file.</param>
         /// <param name="additionalReferences">Optional additional metadata references (e.g., from mod dependencies).</param>
-        /// <returns>The compiled script type, or null if compilation failed.</returns>
-        public Type? CompileScript(
+        /// <returns>The compiled script type.</returns>
+        /// <exception cref="ArgumentException">Thrown when script path is null or empty.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when script file is not found.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when script compilation fails or unexpected error occurs.</exception>
+        public Type CompileScript(
             string scriptPath,
             IEnumerable<MetadataReference>? additionalReferences = null
         )
         {
             if (string.IsNullOrWhiteSpace(scriptPath))
             {
-                _logger.Error("Script path cannot be null or empty");
-                return null;
+                throw new ArgumentException(
+                    "Script path cannot be null or empty",
+                    nameof(scriptPath)
+                );
             }
 
             if (!File.Exists(scriptPath))
             {
-                _logger.Error("Script file not found: {ScriptPath}", scriptPath);
-                return null;
+                throw new FileNotFoundException($"Script file not found: {scriptPath}", scriptPath);
             }
 
             try
             {
                 // Read script content
                 string scriptContent = File.ReadAllText(scriptPath);
+                return CompileScriptContent(scriptContent, scriptPath, additionalReferences);
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (FileNotFoundException)
+            {
+                throw;
+            }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(
+                    $"Unexpected error reading script file: {scriptPath}",
+                    ex
+                );
+            }
+        }
 
+        /// <summary>
+        /// Compiles script content directly and returns the compiled type.
+        /// Used for compressed mods where files are read from archives.
+        /// </summary>
+        /// <param name="scriptContent">The script content as a string.</param>
+        /// <param name="scriptPath">The logical path to the script (for error messages and assembly naming).</param>
+        /// <param name="additionalReferences">Optional additional metadata references (e.g., from mod dependencies).</param>
+        /// <returns>The compiled script type.</returns>
+        /// <exception cref="ArgumentException">Thrown when script content or path is null or empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when script compilation fails or no valid ScriptBase-derived class is found.</exception>
+        public Type CompileScriptContent(
+            string scriptContent,
+            string scriptPath,
+            IEnumerable<MetadataReference>? additionalReferences = null
+        )
+        {
+            if (string.IsNullOrWhiteSpace(scriptContent))
+            {
+                throw new ArgumentException(
+                    "Script content cannot be null or empty",
+                    nameof(scriptContent)
+                );
+            }
+
+            if (string.IsNullOrWhiteSpace(scriptPath))
+            {
+                throw new ArgumentException(
+                    "Script path cannot be null or empty",
+                    nameof(scriptPath)
+                );
+            }
+
+            try
+            {
                 // Prepare script with global usings and class wrapper
                 string fullScript = PrepareScriptWithUsings(scriptContent);
 
@@ -114,6 +174,10 @@ namespace MonoBall.Core.Scripting.Services
                         .Select(d => d.GetMessage())
                         .ToList();
 
+                    var errorMessage =
+                        $"Script compilation failed for {scriptPath} with {errors.Count} error(s): "
+                        + string.Join("; ", errors);
+
                     _logger.Error(
                         "Script compilation failed for {ScriptPath} with {ErrorCount} errors",
                         scriptPath,
@@ -125,7 +189,7 @@ namespace MonoBall.Core.Scripting.Services
                         _logger.Error("  {Error}", error);
                     }
 
-                    return null;
+                    throw new InvalidOperationException(errorMessage);
                 }
 
                 // Load assembly and extract type
@@ -137,11 +201,14 @@ namespace MonoBall.Core.Scripting.Services
 
                 if (compiledType == null)
                 {
+                    var errorMessage =
+                        $"No valid ScriptBase-derived class found in {scriptPath}. "
+                        + "Script must contain a public, non-abstract class that inherits from ScriptBase.";
                     _logger.Error(
                         "No valid ScriptBase-derived class found in {ScriptPath}",
                         scriptPath
                     );
-                    return null;
+                    throw new InvalidOperationException(errorMessage);
                 }
 
                 _logger.Debug(
@@ -152,10 +219,20 @@ namespace MonoBall.Core.Scripting.Services
 
                 return compiledType;
             }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Unexpected error compiling script: {ScriptPath}", scriptPath);
-                return null;
+                throw new InvalidOperationException(
+                    $"Unexpected error compiling script: {scriptPath}",
+                    ex
+                );
             }
         }
 

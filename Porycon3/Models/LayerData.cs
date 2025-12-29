@@ -1,6 +1,20 @@
 namespace Porycon3.Models;
 
 /// <summary>
+/// Layer data with uint GIDs to preserve Tiled flip flags in high bits.
+/// Bit 31 (0x80000000): Horizontal flip
+/// Bit 30 (0x40000000): Vertical flip
+/// </summary>
+public class SharedLayerData
+{
+    public required string Name { get; init; }
+    public int Width { get; init; }
+    public int Height { get; init; }
+    public uint[] Data { get; init; } = Array.Empty<uint>();
+    public int Elevation { get; init; } = 0;
+}
+
+/// <summary>
 /// Represents a single tile layer in the output map.
 /// Compatible with Tiled map format.
 /// </summary>

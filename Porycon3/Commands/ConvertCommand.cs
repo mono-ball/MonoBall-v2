@@ -71,6 +71,10 @@ public class ConvertCommand : Command<ConvertSettings>
                 }
             });
 
+        // Finalize shared tilesets
+        var sharedTilesets = converter.FinalizeSharedTilesets();
+        AnsiConsole.MarkupLine($"[blue]Generated {sharedTilesets} shared tileset(s)[/]");
+
         // Generate additional definitions (Weather, BattleScenes, Region, Graphics)
         converter.GenerateDefinitions();
     }
@@ -111,6 +115,15 @@ public class ConvertCommand : Command<ConvertSettings>
                         }
                         task.Increment(1);
                     });
+            });
+
+        // Finalize shared tilesets (after all maps processed)
+        AnsiConsole.Status()
+            .Spinner(Spinner.Known.Dots)
+            .Start("Finalizing shared tilesets...", ctx =>
+            {
+                var sharedTilesets = converter.FinalizeSharedTilesets();
+                AnsiConsole.MarkupLine($"[blue]Generated {sharedTilesets} shared tileset(s)[/]");
             });
 
         // Generate additional definitions (Weather, BattleScenes, Region)

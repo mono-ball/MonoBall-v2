@@ -34,6 +34,9 @@ public class MapConversionService
     private readonly BehaviorExtractor _behaviorExtractor;
     private readonly ScriptExtractor _scriptExtractor;
 
+    // Shared tileset registry - reuses tilesets across maps with same tileset pair
+    private readonly SharedTilesetRegistry _tilesetRegistry;
+
     public MapConversionService(
         string inputPath,
         string outputPath,
@@ -61,6 +64,7 @@ public class MapConversionService
         _doorAnimExtractor = new DoorAnimationExtractor(inputPath, outputPath);
         _behaviorExtractor = new BehaviorExtractor(inputPath, outputPath, verbose);
         _scriptExtractor = new ScriptExtractor(inputPath, outputPath, verbose);
+        _tilesetRegistry = new SharedTilesetRegistry(inputPath);
     }
 
     public List<string> ScanMaps()
@@ -96,10 +100,13 @@ public class MapConversionService
                 mapData.Layout.Height,
                 mapData.Layout.BlockdataPath);
 
-            // 4. Build per-map tilesheet and layer data using rendered metatiles
-            using var tilesheetBuilder = new MapTilesheetBuilder(_inputPath);
+            // 4. Get or create shared tileset builder for this tileset pair
+            var sharedBuilder = _tilesetRegistry.GetOrCreateBuilder(
+                mapData.Layout.PrimaryTileset,
+                mapData.Layout.SecondaryTileset);
+            _tilesetRegistry.RegisterMapUsage(mapName, mapData.Layout.PrimaryTileset, mapData.Layout.SecondaryTileset);
 
-            var (layers, tileCount) = ProcessMapWithMetatiles(
+            var layers = ProcessMapWithSharedTileset(
                 mapBin,
                 primaryMetatiles,
                 secondaryMetatiles,
@@ -107,25 +114,12 @@ public class MapConversionService
                 mapData.Layout.SecondaryTileset,
                 mapData.Layout.Width,
                 mapData.Layout.Height,
-                tilesheetBuilder);
+                sharedBuilder);
 
-            // 4.5. Process animations - load palettes and add animation frames
-            var resolver = new TilesetPathResolver(_inputPath);
-            var primaryPalettes = LoadPalettes(resolver, mapData.Layout.PrimaryTileset);
-            var secondaryPalettes = LoadPalettes(resolver, mapData.Layout.SecondaryTileset);
-            tilesheetBuilder.ProcessAnimations(
-                mapData.Layout.PrimaryTileset,
-                mapData.Layout.SecondaryTileset,
-                primaryPalettes,
-                secondaryPalettes);
+            // Note: Tilesheet is built after all maps are processed via FinalizeSharedTilesets()
 
-            // 5. Build and save tilesheet
-            using var tilesheetImage = tilesheetBuilder.BuildTilesheetImage();
-            var animations = tilesheetBuilder.GetAnimations();
-            SaveTilesheet(mapName, tilesheetImage, tilesheetBuilder.TileCount, animations);
-
-            // 6. Write map output
-            WriteOutput(mapName, mapData, layers);
+            // 5. Write map output (references shared tileset)
+            WriteOutput(mapName, mapData, layers, sharedBuilder.TilesetPair);
 
             sw.Stop();
             return new ConversionResult
@@ -149,11 +143,10 @@ public class MapConversionService
     }
 
     /// <summary>
-    /// Process map using rendered 16x16 metatile images.
-    /// Creates layer data with GIDs referencing the per-map tilesheet.
-    /// Also extracts elevation data for each tile position.
+    /// Process map using shared tileset with flip-aware deduplication.
+    /// Creates layer data with GIDs (including flip flags in high bits) referencing the shared tilesheet.
     /// </summary>
-    private (List<LayerData> Layers, int TileCount) ProcessMapWithMetatiles(
+    private List<SharedLayerData> ProcessMapWithSharedTileset(
         ushort[] mapBin,
         List<Metatile> primaryMetatiles,
         List<Metatile> secondaryMetatiles,
@@ -161,15 +154,15 @@ public class MapConversionService
         string secondaryTileset,
         int width,
         int height,
-        MapTilesheetBuilder builder)
+        SharedTilesetBuilder builder)
     {
         // Combine metatiles (primary 0-511, secondary 512+)
         var allMetatiles = primaryMetatiles.Concat(secondaryMetatiles).ToList();
 
-        // Layer data: each cell is one metatile (16x16), not individual tiles
-        var bg3Data = new int[width * height];
-        var bg2Data = new int[width * height];
-        var bg1Data = new int[width * height];
+        // Layer data: each cell is one metatile (16x16), stored as uint to preserve flip flags
+        var bg3Data = new uint[width * height];
+        var bg2Data = new uint[width * height];
+        var bg1Data = new uint[width * height];
 
         // Process each metatile position
         for (int y = 0; y < height; y++)
@@ -187,43 +180,35 @@ public class MapConversionService
                 // Determine which tileset this metatile belongs to
                 var isSecondaryMetatile = metatileId >= primaryMetatiles.Count;
                 var metatileTileset = isSecondaryMetatile ? secondaryTileset : primaryTileset;
-                var actualMetatileId = isSecondaryMetatile
-                    ? metatileId - primaryMetatiles.Count
-                    : metatileId;
 
-                // Render metatile and get GIDs
-                var (bottomGid, topGid) = builder.ProcessMetatile(
-                    metatile,
-                    actualMetatileId,
-                    metatileTileset,
-                    primaryTileset,
-                    secondaryTileset);
+                // Render metatile and get GIDs with flip flags encoded
+                var result = builder.ProcessMetatile(metatile, metatileId, metatileTileset);
 
                 // Distribute GIDs to layers based on layer type
                 switch (metatile.LayerType)
                 {
                     case MetatileLayerType.Normal:
                         // NORMAL: Bottom -> Bg2, Top -> Bg1
-                        bg2Data[mapIndex] = bottomGid;
-                        bg1Data[mapIndex] = topGid;
+                        bg2Data[mapIndex] = result.BottomGid;
+                        bg1Data[mapIndex] = result.TopGid;
                         break;
 
                     case MetatileLayerType.Covered:
                         // COVERED: Bottom -> Bg3, Top -> Bg2
-                        bg3Data[mapIndex] = bottomGid;
-                        bg2Data[mapIndex] = topGid;
+                        bg3Data[mapIndex] = result.BottomGid;
+                        bg2Data[mapIndex] = result.TopGid;
                         break;
 
                     case MetatileLayerType.Split:
                         // SPLIT: Bottom -> Bg3, Top -> Bg1
-                        bg3Data[mapIndex] = bottomGid;
-                        bg1Data[mapIndex] = topGid;
+                        bg3Data[mapIndex] = result.BottomGid;
+                        bg1Data[mapIndex] = result.TopGid;
                         break;
 
                     default:
                         // Default to NORMAL behavior
-                        bg2Data[mapIndex] = bottomGid;
-                        bg1Data[mapIndex] = topGid;
+                        bg2Data[mapIndex] = result.BottomGid;
+                        bg1Data[mapIndex] = result.TopGid;
                         break;
                 }
             }
@@ -233,14 +218,12 @@ public class MapConversionService
         // Ground (bg3) = elevation 0 (below player)
         // Objects (bg2) = elevation 3 (player level, where NPCs walk)
         // Overhead (bg1) = elevation 15 (above player, like bridges/tree canopy)
-        var layers = new List<LayerData>
+        return new List<SharedLayerData>
         {
             new() { Name = "Ground", Width = width, Height = height, Data = bg3Data, Elevation = 0 },
             new() { Name = "Objects", Width = width, Height = height, Data = bg2Data, Elevation = 3 },
             new() { Name = "Overhead", Width = width, Height = height, Data = bg1Data, Elevation = 15 }
         };
-
-        return (layers, builder.TileCount);
     }
 
     /// <summary>
@@ -253,71 +236,7 @@ public class MapConversionService
         return PaletteLoader.LoadTilesetPalettes(result.Value.Path);
     }
 
-    /// <summary>
-    /// Save tilesheet image and JSON definition.
-    /// </summary>
-    private void SaveTilesheet(string mapName, Image<Rgba32> image, int tileCount, List<TileAnimation> animations)
-    {
-        var normalizedName = IdTransformer.Normalize(mapName);
-
-        // Format region name properly (e.g., "hoenn" -> "Hoenn")
-        var regionFormatted = _region.ToUpperInvariant()[0] + _region[1..].ToLowerInvariant();
-
-        // Save to Graphics/Tilesets/{Region}/ for image (filename matches map)
-        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Tilesets", regionFormatted);
-        Directory.CreateDirectory(graphicsDir);
-        var imagePath = Path.Combine(graphicsDir, $"{mapName}.png");
-        image.SaveAsPng(imagePath);
-
-        // Save JSON to Definitions/Assets/Tilesets/{region}/ (filename matches map)
-        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", _region);
-        Directory.CreateDirectory(defsDir);
-
-        var cols = Math.Min(TilesPerRow, Math.Max(1, tileCount));
-
-        // Build tiles array with animations
-        object[]? tilesArray = null;
-        if (animations.Count > 0)
-        {
-            tilesArray = animations.Select(a => (object)new
-            {
-                localTileId = a.LocalTileId,
-                type = (string?)null,
-                tileBehaviorId = (string?)null,
-                animation = a.Frames.Select(f => new
-                {
-                    tileId = f.TileId,
-                    durationMs = f.DurationMs
-                })
-            }).ToArray();
-        }
-
-        var tilesetJson = new
-        {
-            id = $"{IdTransformer.Namespace}:tileset:{_region}/{normalizedName}",
-            name = mapName,
-            texturePath = $"Graphics/Tilesets/{regionFormatted}/{mapName}.png",
-            tileWidth = MetatileSize,
-            tileHeight = MetatileSize,
-            tileCount = tileCount,
-            columns = cols,
-            imageWidth = image.Width,
-            imageHeight = image.Height,
-            spacing = 0,
-            margin = 0,
-            tiles = tilesArray
-        };
-
-        var jsonPath = Path.Combine(defsDir, $"{mapName}.json");
-        var json = System.Text.Json.JsonSerializer.Serialize(tilesetJson, new System.Text.Json.JsonSerializerOptions
-        {
-            WriteIndented = true,
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-        });
-        File.WriteAllText(jsonPath, json);
-    }
-
-    private void WriteOutput(string mapName, MapData mapData, List<LayerData> layers)
+    private void WriteOutput(string mapName, MapData mapData, List<SharedLayerData> layers, TilesetPairKey tilesetPair)
     {
         var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "Maps", _region);
         Directory.CreateDirectory(outputDir);
@@ -367,12 +286,12 @@ public class MapConversionService
                 opacity = 1,
                 offsetX = 0,
                 offsetY = 0,
-                tileData = EncodeTileData(l.Data),
+                tileData = EncodeTileDataUint(l.Data),
                 imagePath = (string?)null
             }),
             tilesets = new[]
             {
-                new { firstGid = 1, tilesetId = $"{IdTransformer.Namespace}:tileset:{_region}/{normalizedName}" }
+                new { firstGid = 1, tilesetId = SharedTilesetRegistry.GenerateTilesetId(tilesetPair) }
             },
             warps = mapData.Warps.Select((w, idx) =>
             {
@@ -618,6 +537,113 @@ public class MapConversionService
             Buffer.BlockCopy(tileBytes, 0, bytes, i * 4, 4);
         }
         return Convert.ToBase64String(bytes);
+    }
+
+    /// <summary>
+    /// Encode uint tile data (preserves flip flags in high bits) to base64.
+    /// </summary>
+    private static string EncodeTileDataUint(uint[] data)
+    {
+        var bytes = new byte[data.Length * 4];
+        for (int i = 0; i < data.Length; i++)
+        {
+            var tileBytes = BitConverter.GetBytes(data[i]);
+            Buffer.BlockCopy(tileBytes, 0, bytes, i * 4, 4);
+        }
+        return Convert.ToBase64String(bytes);
+    }
+
+    /// <summary>
+    /// Finalize shared tilesets: process animations and save tilesheet images/definitions.
+    /// Call this after all maps have been converted.
+    /// </summary>
+    public int FinalizeSharedTilesets()
+    {
+        var resolver = new TilesetPathResolver(_inputPath);
+        int count = 0;
+
+        foreach (var pair in _tilesetRegistry.GetAllTilesetPairs())
+        {
+            var builder = _tilesetRegistry.GetBuilder(pair);
+            if (builder == null) continue;
+
+            // Load palettes for animation processing
+            var primaryPalettes = LoadPalettes(resolver, pair.PrimaryTileset);
+            var secondaryPalettes = LoadPalettes(resolver, pair.SecondaryTileset);
+            builder.ProcessAnimations(primaryPalettes, secondaryPalettes);
+
+            // Build and save the tilesheet
+            using var image = builder.BuildTilesheetImage();
+            var animations = builder.GetAnimations();
+
+            SaveSharedTilesheet(pair, image, builder.UniqueTileCount, builder.Columns, animations);
+            count++;
+        }
+
+        // Dispose the registry (cleans up all builders)
+        _tilesetRegistry.Dispose();
+
+        return count;
+    }
+
+    /// <summary>
+    /// Save shared tilesheet image and JSON definition.
+    /// </summary>
+    private void SaveSharedTilesheet(TilesetPairKey pair, Image<Rgba32> image, int tileCount, int columns, List<TileAnimation> animations)
+    {
+        var tilesetName = SharedTilesetRegistry.GenerateTilesetName(pair);
+        var tilesetId = SharedTilesetRegistry.GenerateTilesetId(pair);
+
+        // Save to Graphics/Tilesets/Shared/
+        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Tilesets", "Shared");
+        Directory.CreateDirectory(graphicsDir);
+        var imagePath = Path.Combine(graphicsDir, $"{tilesetName}.png");
+        image.SaveAsPng(imagePath);
+
+        // Save JSON to Definitions/Assets/Tilesets/shared/
+        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", "shared");
+        Directory.CreateDirectory(defsDir);
+
+        // Build tiles array with animations
+        object[]? tilesArray = null;
+        if (animations.Count > 0)
+        {
+            tilesArray = animations.Select(a => (object)new
+            {
+                localTileId = a.LocalTileId,
+                type = (string?)null,
+                tileBehaviorId = (string?)null,
+                animation = a.Frames.Select(f => new
+                {
+                    tileId = f.TileId,
+                    durationMs = f.DurationMs
+                })
+            }).ToArray();
+        }
+
+        var tilesetJson = new
+        {
+            id = tilesetId,
+            name = tilesetName,
+            texturePath = $"Graphics/Tilesets/Shared/{tilesetName}.png",
+            tileWidth = MetatileSize,
+            tileHeight = MetatileSize,
+            tileCount = tileCount,
+            columns = columns,
+            imageWidth = image.Width,
+            imageHeight = image.Height,
+            spacing = 0,
+            margin = 0,
+            tiles = tilesArray
+        };
+
+        var jsonPath = Path.Combine(defsDir, $"{tilesetName}.json");
+        var json = System.Text.Json.JsonSerializer.Serialize(tilesetJson, new System.Text.Json.JsonSerializerOptions
+        {
+            WriteIndented = true,
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+        });
+        File.WriteAllText(jsonPath, json);
     }
 
     /// <summary>

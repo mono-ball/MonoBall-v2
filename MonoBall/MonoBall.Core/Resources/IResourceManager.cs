@@ -232,6 +232,19 @@ namespace MonoBall.Core.Resources
         /// <returns>True if the animation should be flipped, false otherwise.</returns>
         bool GetAnimationFlipHorizontal(string spriteId, string animationName);
 
+        // Text File Loading
+        /// <summary>
+        /// Loads a text file for the specified resource definition.
+        /// Used for loading source code files (e.g., scripts) and other text-based resources.
+        /// </summary>
+        /// <param name="resourceId">The resource definition ID (e.g., script definition ID).</param>
+        /// <param name="relativePath">The relative path from the definition (e.g., ScriptPath).</param>
+        /// <returns>The file contents as a string (UTF-8).</returns>
+        /// <exception cref="ArgumentException">Thrown when resourceId or relativePath is null/empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when mod manifest cannot be found or ModSource is null.</exception>
+        /// <exception cref="FileNotFoundException">Thrown when text file not found.</exception>
+        string LoadTextFile(string resourceId, string relativePath);
+
         // Generic Definition Access
         /// <summary>
         /// Gets a definition of the specified type by resource ID.

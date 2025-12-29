@@ -97,8 +97,15 @@ namespace MonoBall.Core.Mods
 
         /// <summary>
         /// Full path to the mod directory. Set by the loader.
+        /// Kept for backward compatibility.
         /// </summary>
         [JsonIgnore]
         public string ModDirectory { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The mod source (directory or archive) that provides this mod's content.
+        /// </summary>
+        [JsonIgnore]
+        public IModSource? ModSource { get; set; }
     }
 }

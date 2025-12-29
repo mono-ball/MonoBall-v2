@@ -27,14 +27,14 @@ namespace MonoBall.Core.Resources
         }
 
         /// <summary>
-        /// Resolves the full file path for a resource definition.
+        /// Resolves the virtual mod:// path for a resource definition.
         /// Fails fast with exceptions per .cursorrules (no fallback code).
         /// </summary>
         /// <param name="resourceId">The resource definition ID.</param>
         /// <param name="relativePath">The relative path from the definition (e.g., TexturePath, FontPath).</param>
-        /// <returns>The full absolute path.</returns>
+        /// <returns>The virtual mod:// path in format mod://{modId}/{relativePath}.</returns>
         /// <exception cref="ArgumentException">Thrown when resourceId or relativePath is null/empty.</exception>
-        /// <exception cref="InvalidOperationException">Thrown when mod manifest cannot be found.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when mod manifest cannot be found or ModSource is null.</exception>
         /// <exception cref="FileNotFoundException">Thrown when resolved file does not exist.</exception>
         public string ResolveResourcePath(string resourceId, string relativePath)
         {
@@ -57,26 +57,32 @@ namespace MonoBall.Core.Resources
             // Get mod manifest - fail fast if not found (no fallback code per .cursorrules)
             var modManifest = GetResourceModManifest(resourceId);
 
-            // Resolve path
-            string fullPath = Path.Combine(modManifest.ModDirectory, relativePath);
-            fullPath = Path.GetFullPath(fullPath);
-
-            // Fail fast if file doesn't exist
-            if (!File.Exists(fullPath))
+            // Fail fast if ModSource is null
+            if (modManifest.ModSource == null)
             {
-                throw new FileNotFoundException(
-                    $"Resource file not found: {fullPath} (resource: {resourceId})",
-                    fullPath
+                throw new InvalidOperationException(
+                    $"Mod '{modManifest.Id}' has no ModSource. Cannot resolve resource path for '{resourceId}'."
                 );
             }
 
+            // Fail fast if file doesn't exist
+            if (!modManifest.ModSource.FileExists(relativePath))
+            {
+                throw new FileNotFoundException(
+                    $"Resource file not found: {relativePath} (resource: {resourceId}, mod: {modManifest.Id})"
+                );
+            }
+
+            // Return virtual mod:// path
+            var virtualPath = $"mod://{modManifest.Id}/{relativePath}";
+
             _logger.Debug(
-                "Resolved resource path: {ResourceId} -> {FullPath}",
+                "Resolved resource path: {ResourceId} -> {VirtualPath}",
                 resourceId,
-                fullPath
+                virtualPath
             );
 
-            return fullPath;
+            return virtualPath;
         }
 
         /// <summary>

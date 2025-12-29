@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
@@ -22,6 +23,7 @@ public class MetatileRenderer : IDisposable
     // Cache indexed tile data (palette indices) and dimensions
     private readonly Dictionary<string, (byte[] IndexedPixels, int Width, int Height)?> _tilesetCache = new();
     private readonly Dictionary<string, Rgba32[]?[]> _paletteCache = new();
+    private readonly object _cacheLock = new(); // Thread safety for cache access
 
     public MetatileRenderer(string pokeemeraldPath)
     {
@@ -135,76 +137,98 @@ public class MetatileRenderer : IDisposable
     }
 
     /// <summary>
-    /// Load tileset as indexed pixel data (palette indices 0-15).
+    /// Load tileset as indexed pixel data (palette indices 0-15). Thread-safe.
     /// </summary>
     private (byte[] IndexedPixels, int Width, int Height)? LoadIndexedTileset(string tilesetName)
     {
-        if (_tilesetCache.TryGetValue(tilesetName, out var cached))
-            return cached;
+        lock (_cacheLock)
+        {
+            if (_tilesetCache.TryGetValue(tilesetName, out var cached))
+                return cached;
+        }
 
         var imagePath = _resolver.FindTilesetImagePath(tilesetName);
         if (imagePath == null)
         {
-            _tilesetCache[tilesetName] = null;
+            lock (_cacheLock)
+            {
+                _tilesetCache[tilesetName] = null;
+            }
             return null;
         }
 
         try
         {
-            // Load the image - pokeemerald tiles.png files are indexed color PNGs
-            using var image = Image.Load<Rgba32>(imagePath);
-            var width = image.Width;
-            var height = image.Height;
+            // Load the PNG file and extract raw palette indices
+            var pngBytes = File.ReadAllBytes(imagePath);
+            var (width, height, bitDepth, indexedPixels) = ExtractPngIndices(pngBytes);
 
-            // Extract indexed color values from the image
-            // In indexed PNGs loaded by ImageSharp, we need to look at pixel values
-            // The grayscale values represent palette indices (0-15 mapped to grayscale)
-            var indexedPixels = new byte[width * height];
-
-            image.ProcessPixelRows(accessor =>
+            if (indexedPixels == null || width == 0 || height == 0)
             {
-                for (int y = 0; y < height; y++)
+                // Fallback: PNG is not indexed, try to use RGBA with grayscale heuristic
+                using var image = Image.Load<Rgba32>(imagePath);
+                width = image.Width;
+                height = image.Height;
+                indexedPixels = new byte[width * height];
+
+                image.ProcessPixelRows(accessor =>
                 {
-                    var row = accessor.GetRowSpan(y);
-                    for (int x = 0; x < width; x++)
+                    for (int y = 0; y < height; y++)
                     {
-                        var pixel = row[x];
-                        // pokeemerald tiles.png are 4bpp indexed images with inverted grayscale:
-                        // Index 0 = white (R=255), Index 15 = black (R=0)
-                        // Formula: 15 - round(R/17) with +8 for rounding
-                        indexedPixels[y * width + x] = (byte)(15 - (pixel.R + 8) / 17);
+                        var row = accessor.GetRowSpan(y);
+                        for (int x = 0; x < width; x++)
+                        {
+                            var pixel = row[x];
+                            // Fallback for non-indexed: use grayscale heuristic
+                            indexedPixels[y * width + x] = (byte)(15 - (pixel.R + 8) / 17);
+                        }
                     }
-                }
-            });
+                });
+            }
 
             var result = (indexedPixels, width, height);
-            _tilesetCache[tilesetName] = result;
+            lock (_cacheLock)
+            {
+                _tilesetCache[tilesetName] = result;
+            }
             return result;
         }
         catch
         {
-            _tilesetCache[tilesetName] = null;
+            lock (_cacheLock)
+            {
+                _tilesetCache[tilesetName] = null;
+            }
             return null;
         }
     }
 
     /// <summary>
-    /// Load palettes for a tileset with caching.
+    /// Load palettes for a tileset with caching. Thread-safe.
     /// </summary>
     private Rgba32[]?[]? LoadPalettes(string tilesetName)
     {
-        if (_paletteCache.TryGetValue(tilesetName, out var cached))
-            return cached;
+        lock (_cacheLock)
+        {
+            if (_paletteCache.TryGetValue(tilesetName, out var cached))
+                return cached;
+        }
 
         var result = _resolver.FindTilesetPath(tilesetName);
         if (result == null)
         {
-            _paletteCache[tilesetName] = Array.Empty<Rgba32[]?>();
+            lock (_cacheLock)
+            {
+                _paletteCache[tilesetName] = Array.Empty<Rgba32[]?>();
+            }
             return null;
         }
 
         var palettes = PaletteLoader.LoadTilesetPalettes(result.Value.Path);
-        _paletteCache[tilesetName] = palettes;
+        lock (_cacheLock)
+        {
+            _paletteCache[tilesetName] = palettes;
+        }
         return palettes;
     }
 
@@ -273,6 +297,198 @@ public class MetatileRenderer : IDisposable
                 }
             }
         });
+    }
+
+    /// <summary>
+    /// Extract raw palette indices from PNG IDAT chunks.
+    /// Handles PNG decompression and filtering to get actual palette indices.
+    /// </summary>
+    private static (int Width, int Height, int BitDepth, byte[]? Indices) ExtractPngIndices(byte[] pngData)
+    {
+        int width = 0, height = 0, bitDepth = 0, colorType = 0;
+        var idatChunks = new List<byte[]>();
+        var pos = 8; // Skip PNG signature
+
+        // Parse chunks to get IHDR and IDAT data
+        while (pos < pngData.Length - 12)
+        {
+            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
+                         (pngData[pos + 2] << 8) | pngData[pos + 3];
+            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
+
+            if (type == "IHDR")
+            {
+                var dataStart = pos + 8;
+                width = (pngData[dataStart] << 24) | (pngData[dataStart + 1] << 16) |
+                        (pngData[dataStart + 2] << 8) | pngData[dataStart + 3];
+                height = (pngData[dataStart + 4] << 24) | (pngData[dataStart + 5] << 16) |
+                         (pngData[dataStart + 6] << 8) | pngData[dataStart + 7];
+                bitDepth = pngData[dataStart + 8];
+                colorType = pngData[dataStart + 9];
+            }
+            else if (type == "IDAT")
+            {
+                var chunk = new byte[length];
+                Array.Copy(pngData, pos + 8, chunk, 0, length);
+                idatChunks.Add(chunk);
+            }
+            else if (type == "IEND")
+            {
+                break;
+            }
+
+            pos += 12 + length;
+        }
+
+        // Only handle indexed color (colorType 3)
+        if (colorType != 3 || width == 0 || height == 0)
+        {
+            return (width, height, bitDepth, null);
+        }
+
+        // Combine all IDAT chunks
+        var totalLength = idatChunks.Sum(c => c.Length);
+        var compressedData = new byte[totalLength];
+        var offset = 0;
+        foreach (var chunk in idatChunks)
+        {
+            Array.Copy(chunk, 0, compressedData, offset, chunk.Length);
+            offset += chunk.Length;
+        }
+
+        // Decompress zlib data (skip first 2 bytes - zlib header)
+        byte[] decompressedData;
+        try
+        {
+            using var compressedStream = new MemoryStream(compressedData, 2, compressedData.Length - 2);
+            using var deflateStream = new DeflateStream(compressedStream, CompressionMode.Decompress);
+            using var decompressedStream = new MemoryStream();
+            deflateStream.CopyTo(decompressedStream);
+            decompressedData = decompressedStream.ToArray();
+        }
+        catch
+        {
+            return (width, height, bitDepth, null);
+        }
+
+        // Calculate bytes per row (including filter byte)
+        var pixelsPerByte = 8 / bitDepth;
+        var bytesPerRow = (width + pixelsPerByte - 1) / pixelsPerByte;
+        var rowSize = bytesPerRow + 1; // +1 for filter byte
+
+        // Un-filter and extract palette indices
+        var indices = new byte[width * height];
+        var prevRow = new byte[bytesPerRow];
+
+        for (var y = 0; y < height; y++)
+        {
+            var rowStart = y * rowSize;
+            if (rowStart >= decompressedData.Length) break;
+
+            var filterType = decompressedData[rowStart];
+            var currentRow = new byte[bytesPerRow];
+
+            // Copy row data
+            var dataStart = rowStart + 1;
+            var copyLen = Math.Min(bytesPerRow, decompressedData.Length - dataStart);
+            if (copyLen > 0)
+            {
+                Array.Copy(decompressedData, dataStart, currentRow, 0, copyLen);
+            }
+
+            // Apply PNG filter
+            switch (filterType)
+            {
+                case 0: // None
+                    break;
+                case 1: // Sub
+                    for (var i = 1; i < bytesPerRow; i++)
+                        currentRow[i] = (byte)(currentRow[i] + currentRow[i - 1]);
+                    break;
+                case 2: // Up
+                    for (var i = 0; i < bytesPerRow; i++)
+                        currentRow[i] = (byte)(currentRow[i] + prevRow[i]);
+                    break;
+                case 3: // Average
+                    for (var i = 0; i < bytesPerRow; i++)
+                    {
+                        var left = i > 0 ? currentRow[i - 1] : 0;
+                        currentRow[i] = (byte)(currentRow[i] + (left + prevRow[i]) / 2);
+                    }
+                    break;
+                case 4: // Paeth
+                    for (var i = 0; i < bytesPerRow; i++)
+                    {
+                        var a = i > 0 ? currentRow[i - 1] : 0;
+                        var b = prevRow[i];
+                        var c = i > 0 ? prevRow[i - 1] : 0;
+                        currentRow[i] = (byte)(currentRow[i] + PaethPredictor(a, b, c));
+                    }
+                    break;
+            }
+
+            // Extract palette indices from row
+            for (var x = 0; x < width; x++)
+            {
+                int index;
+                if (bitDepth == 8)
+                {
+                    index = x < currentRow.Length ? currentRow[x] : 0;
+                }
+                else if (bitDepth == 4)
+                {
+                    var byteIndex = x / 2;
+                    var nibble = x % 2;
+                    if (byteIndex < currentRow.Length)
+                    {
+                        index = nibble == 0
+                            ? (currentRow[byteIndex] >> 4) & 0x0F
+                            : currentRow[byteIndex] & 0x0F;
+                    }
+                    else
+                    {
+                        index = 0;
+                    }
+                }
+                else if (bitDepth == 2)
+                {
+                    var byteIndex = x / 4;
+                    var shift = 6 - (x % 4) * 2;
+                    index = byteIndex < currentRow.Length ? (currentRow[byteIndex] >> shift) & 0x03 : 0;
+                }
+                else if (bitDepth == 1)
+                {
+                    var byteIndex = x / 8;
+                    var shift = 7 - (x % 8);
+                    index = byteIndex < currentRow.Length ? (currentRow[byteIndex] >> shift) & 0x01 : 0;
+                }
+                else
+                {
+                    index = 0;
+                }
+
+                indices[y * width + x] = (byte)index;
+            }
+
+            Array.Copy(currentRow, prevRow, bytesPerRow);
+        }
+
+        return (width, height, bitDepth, indices);
+    }
+
+    /// <summary>
+    /// Paeth predictor for PNG filtering.
+    /// </summary>
+    private static int PaethPredictor(int a, int b, int c)
+    {
+        var p = a + b - c;
+        var pa = Math.Abs(p - a);
+        var pb = Math.Abs(p - b);
+        var pc = Math.Abs(p - c);
+
+        if (pa <= pb && pa <= pc) return a;
+        if (pb <= pc) return b;
+        return c;
     }
 
     public void Dispose()

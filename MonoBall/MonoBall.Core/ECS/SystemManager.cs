@@ -453,6 +453,7 @@ namespace MonoBall.Core.ECS
                 _scriptCompilerService,
                 _modManager.Registry,
                 (ModManager)_modManager, // Cast to concrete type as ModManager is internal
+                _resourceManager,
                 LoggerFactory.CreateLogger<Scripting.Services.ScriptLoaderService>()
             );
 

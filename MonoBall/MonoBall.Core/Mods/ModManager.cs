@@ -11,7 +11,7 @@ namespace MonoBall.Core.Mods
     /// <summary>
     /// Main entry point for the mod system. Manages mod loading and provides access to definitions.
     /// </summary>
-    public class ModManager : IModManager
+    public class ModManager : IModManager, IDisposable
     {
         private readonly DefinitionRegistry _registry;
         private readonly ModLoader _loader;
@@ -348,6 +348,14 @@ namespace MonoBall.Core.Mods
             }
 
             return _loader.GetModManifest(metadata.OriginalModId);
+        }
+
+        /// <summary>
+        /// Disposes the ModManager and all mod sources.
+        /// </summary>
+        public void Dispose()
+        {
+            _loader?.Dispose();
         }
     }
 }
