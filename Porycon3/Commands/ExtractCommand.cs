@@ -11,6 +11,9 @@ public class ExtractCommand : Command<ExtractSettings>
     {
         try
         {
+            // Set the ID namespace from command line
+            IdTransformer.Namespace = settings.Namespace;
+
             Directory.CreateDirectory(settings.OutputPath);
 
             switch (settings.Asset.ToLowerInvariant())
@@ -51,9 +54,22 @@ public class ExtractCommand : Command<ExtractSettings>
                     AnsiConsole.MarkupLine($"[green]Sound extraction complete![/]");
                     break;
 
+                case "behaviors":
+                case "behaviour":
+                    var behaviorExtractor = new BehaviorExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    var (behaviors, behaviorScripts) = behaviorExtractor.ExtractAll();
+                    AnsiConsole.MarkupLine($"[green]Extracted {behaviors} behavior definitions and {behaviorScripts} behavior scripts[/]");
+                    break;
+
+                case "scripts":
+                    var scriptExtractor = new ScriptExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    var (interactions, triggers, signs, totalScripts) = scriptExtractor.ExtractAll();
+                    AnsiConsole.MarkupLine($"[green]Extracted {totalScripts} script definitions ({interactions} interactions, {triggers} triggers, {signs} signs)[/]");
+                    break;
+
                 default:
                     AnsiConsole.MarkupLine($"[red]Unknown asset type: {settings.Asset}[/]");
-                    AnsiConsole.MarkupLine("Available: doors, fieldeffects, fonts, interface, sound");
+                    AnsiConsole.MarkupLine("Available: doors, fieldeffects, fonts, interface, sound, behaviors, scripts");
                     return 1;
             }
 
@@ -77,4 +93,13 @@ public class ExtractSettings : CommandSettings
 
     [CommandArgument(2, "<ASSET>")]
     public string Asset { get; set; } = "";
+
+    [CommandOption("-n|--namespace <NAMESPACE>")]
+    [System.ComponentModel.Description("ID namespace/prefix for generated definitions (default: base)")]
+    [System.ComponentModel.DefaultValue("base")]
+    public string Namespace { get; set; } = "base";
+
+    [CommandOption("-v|--verbose")]
+    [System.ComponentModel.Description("Show verbose output")]
+    public bool Verbose { get; set; }
 }

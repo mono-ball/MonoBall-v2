@@ -252,7 +252,7 @@ public class FieldEffectExtractor
         // Create definition with frames array
         var definition = new SpriteFieldEffectDefinition
         {
-            Id = $"base:field_effect:{id}",
+            Id = $"{IdTransformer.Namespace}:field_effect:{id}",
             Name = FormatDisplayName(name),
             FrameWidth = info.Width,
             FrameHeight = info.Height,
@@ -280,7 +280,7 @@ public class FieldEffectExtractor
         // Create definition
         var definition = new FieldEffectDefinition
         {
-            Id = $"base:field_effect:{id}",
+            Id = $"{IdTransformer.Namespace}:field_effect:{id}",
             Name = FormatDisplayName(name),
             Graphic = $"Graphics/FieldEffects/{pascalName}.png",
             Width = img.Width,
@@ -328,7 +328,7 @@ public class FieldEffectExtractor
         // Create definition with frames array
         var definition = new SpriteFieldEffectDefinition
         {
-            Id = $"base:field_effect:{id}",
+            Id = $"{IdTransformer.Namespace}:field_effect:{id}",
             Name = FormatDisplayName(name),
             FrameWidth = frameWidth,
             FrameHeight = frameHeight,

@@ -197,7 +197,7 @@ public class BattleEnvironmentExtractor
         // Create environment definition as Bitmap (pre-rendered background)
         var definition = new Dictionary<string, object?>
         {
-            ["id"] = $"base:battle:environment/{envName}",
+            ["id"] = $"{IdTransformer.Namespace}:battle:environment/{envName}",
             ["name"] = FormatDisplayName(envName),
             ["type"] = "Bitmap",
             ["texturePath"] = $"Graphics/Battle/{pascalName}/{pascalName}.png",
@@ -272,13 +272,13 @@ public class BattleEnvironmentExtractor
 
         var definition = new Dictionary<string, object?>
         {
-            ["id"] = $"base:battle:environment/{variantName}",
+            ["id"] = $"{IdTransformer.Namespace}:battle:environment/{variantName}",
             ["name"] = variant.DisplayName,
             ["type"] = "Bitmap",
             ["texturePath"] = $"Graphics/Battle/{pascalName}/{pascalName}.png",
             ["width"] = width,
             ["height"] = height,
-            ["baseEnvironment"] = $"base:battle:environment/{baseEnv}",
+            ["baseEnvironment"] = $"{IdTransformer.Namespace}:battle:environment/{baseEnv}",
             ["description"] = $"Battle environment background for {variant.DisplayName}"
         };
 

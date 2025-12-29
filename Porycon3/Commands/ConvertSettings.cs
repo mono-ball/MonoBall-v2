@@ -40,6 +40,11 @@ public class ConvertSettings : CommandSettings
     [Description("Show debug information")]
     public bool Debug { get; set; }
 
+    [CommandOption("-n|--namespace <NAMESPACE>")]
+    [Description("ID namespace/prefix for generated definitions (default: base)")]
+    [DefaultValue("base")]
+    public string Namespace { get; set; } = "base";
+
     public override ValidationResult Validate()
     {
         if (string.IsNullOrWhiteSpace(InputPath))

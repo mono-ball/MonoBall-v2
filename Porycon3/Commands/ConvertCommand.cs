@@ -19,6 +19,9 @@ public class ConvertCommand : Command<ConvertSettings>
 
         try
         {
+            // Set the ID namespace from command line
+            IdTransformer.Namespace = settings.Namespace;
+
             // Ensure output directory exists
             Directory.CreateDirectory(settings.OutputPath);
 
@@ -117,7 +120,7 @@ public class ConvertCommand : Command<ConvertSettings>
         DisplaySummary(results, definitions);
     }
 
-    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations) definitions = default)
+    private void DisplaySummary(List<ConversionResult> results, (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations, int Behaviors, int Scripts) definitions = default)
     {
         var successful = results.Count(r => r.Success);
         var failed = results.Count(r => !r.Success);
@@ -144,7 +147,8 @@ public class ConvertCommand : Command<ConvertSettings>
                             definitions.WeatherGraphics > 0 || definitions.BattleEnvironments > 0 ||
                             definitions.Sprites > 0 || definitions.TextWindows > 0 ||
                             definitions.Pokemon > 0 || definitions.Species > 0 ||
-                            definitions.FieldEffects > 0 || definitions.DoorAnimations > 0;
+                            definitions.FieldEffects > 0 || definitions.DoorAnimations > 0 ||
+                            definitions.Behaviors > 0 || definitions.Scripts > 0;
         if (hasDefinitions)
         {
             table.AddEmptyRow();
@@ -165,6 +169,8 @@ public class ConvertCommand : Command<ConvertSettings>
             table.AddRow("[blue]Text Windows[/]", definitions.TextWindows.ToString());
             table.AddRow("[blue]Field Effects[/]", definitions.FieldEffects.ToString());
             table.AddRow("[blue]Door Animations[/]", definitions.DoorAnimations.ToString());
+            table.AddRow("[blue]Behavior Definitions[/]", definitions.Behaviors.ToString());
+            table.AddRow("[blue]Script Definitions[/]", definitions.Scripts.ToString());
         }
 
         AnsiConsole.Write(table);

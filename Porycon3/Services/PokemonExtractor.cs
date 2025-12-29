@@ -504,7 +504,7 @@ public class PokemonExtractor
 
             var spriteDefinition = new
             {
-                id = $"base:pokemon:sprite/{normalizedName}/{spriteName.ToLowerInvariant()}",
+                id = $"{IdTransformer.Namespace}:pokemon:sprite/{normalizedName}/{spriteName.ToLowerInvariant()}",
                 name = FormatDisplayName(spriteName),
                 type = "Sprite",
                 texturePath = $"Graphics/Pokemon/{pascalName}/{spriteName}.png",

@@ -348,7 +348,7 @@ public class SpriteExtractor
         var idPath = $"{baseFolder}/{relativePath}".ToLowerInvariant();
         var manifest = new SpriteManifest
         {
-            Id = $"base:sprite:{idPath}",
+            Id = $"{IdTransformer.Namespace}:sprite:{idPath}",
             Name = FormatDisplayName(spriteName),
             Type = "Sprite",
             TexturePath = texturePath,
@@ -456,7 +456,7 @@ public class SpriteExtractor
         var idPath = $"{baseFolder}/{outputRelativePath}".ToLowerInvariant();
         var manifest = new SpriteManifest
         {
-            Id = $"base:sprite:{idPath}",
+            Id = $"{IdTransformer.Namespace}:sprite:{idPath}",
             Name = FormatDisplayName(spriteName),
             Type = "Sprite",
             TexturePath = texturePath,

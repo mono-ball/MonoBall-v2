@@ -179,14 +179,14 @@ public class FontExtractor
             // Create font definition
             var definition = new
             {
-                id = $"base:font:{fileName.Replace("_", "-")}",
+                id = $"{IdTransformer.Namespace}:font:{fileName.Replace("_", "-")}",
                 name = $"Latin {displayName}",
                 type = "Font",
                 texturePath = $"Graphics/Fonts/{pascalName}.png",
                 glyphWidth,
                 glyphHeight,
                 glyphsPerRow,
-                characterMapId = "base:charmap:latin",
+                characterMapId = $"{IdTransformer.Namespace}:charmap:latin",
                 glyphWidths = widths,
                 lineHeight = glyphHeight - 2,
                 baseline = glyphHeight - 4
@@ -247,14 +247,14 @@ public class FontExtractor
 
             var definition = new
             {
-                id = $"base:font:{fileName.Replace("_", "-")}",
+                id = $"{IdTransformer.Namespace}:font:{fileName.Replace("_", "-")}",
                 name = $"Japanese {displayName}",
                 type = "Font",
                 texturePath = $"Graphics/Fonts/{pascalName}.png",
                 glyphWidth,
                 glyphHeight,
                 glyphsPerRow,
-                characterMapId = "base:charmap:japanese",
+                characterMapId = $"{IdTransformer.Namespace}:charmap:japanese",
                 glyphWidths = widths,
                 lineHeight = glyphHeight - 2,
                 baseline = glyphHeight - 4
@@ -333,7 +333,7 @@ public class FontExtractor
 
             var definition = new
             {
-                id = $"base:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
                 name = displayName,
                 type = "Sprite",
                 texturePath = $"Graphics/UI/Interface/{pascalName}.png",
@@ -383,14 +383,14 @@ public class FontExtractor
 
         var definition = new
         {
-            id = "base:font:braille",
+            id = $"{IdTransformer.Namespace}:font:braille",
             name = "Braille",
             type = "Font",
             texturePath = "Graphics/Fonts/Braille.png",
             glyphWidth = 8,
             glyphHeight = 16,
             glyphsPerRow = 32,
-            characterMapId = "base:charmap:latin",
+            characterMapId = $"{IdTransformer.Namespace}:charmap:latin",
             lineHeight = 16,
             baseline = 14
         };
@@ -418,7 +418,7 @@ public class FontExtractor
 
         var definition = new
         {
-            id = "base:sprite:ui/interface/keypad-icons",
+            id = $"{IdTransformer.Namespace}:sprite:ui/interface/keypad-icons",
             name = "Keypad Icons",
             type = "Sprite",
             texturePath = "Graphics/UI/Interface/KeypadIcons.png",
@@ -598,7 +598,7 @@ public class FontExtractor
         // Use integers directly as glyph indices
         var latinDef = new
         {
-            id = "base:charmap:latin",
+            id = $"{IdTransformer.Namespace}:charmap:latin",
             name = "Latin Character Map",
             type = "CharacterMap",
             mappings = charMap.LatinMappings,
@@ -617,7 +617,7 @@ public class FontExtractor
 
         var japaneseDef = new
         {
-            id = "base:charmap:japanese",
+            id = $"{IdTransformer.Namespace}:charmap:japanese",
             name = "Japanese Character Map",
             type = "CharacterMap",
             mappings = japaneseMappings

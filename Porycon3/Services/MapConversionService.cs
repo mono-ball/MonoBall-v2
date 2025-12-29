@@ -31,6 +31,8 @@ public class MapConversionService
     private readonly SpeciesExtractor _speciesExtractor;
     private readonly FieldEffectExtractor _fieldEffectExtractor;
     private readonly DoorAnimationExtractor _doorAnimExtractor;
+    private readonly BehaviorExtractor _behaviorExtractor;
+    private readonly ScriptExtractor _scriptExtractor;
 
     public MapConversionService(
         string inputPath,
@@ -57,6 +59,8 @@ public class MapConversionService
         _speciesExtractor = new SpeciesExtractor(inputPath, outputPath, verbose);
         _fieldEffectExtractor = new FieldEffectExtractor(inputPath, outputPath, verbose);
         _doorAnimExtractor = new DoorAnimationExtractor(inputPath, outputPath);
+        _behaviorExtractor = new BehaviorExtractor(inputPath, outputPath, verbose);
+        _scriptExtractor = new ScriptExtractor(inputPath, outputPath, verbose);
     }
 
     public List<string> ScanMaps()
@@ -290,7 +294,7 @@ public class MapConversionService
 
         var tilesetJson = new
         {
-            id = $"base:tileset:{_region}/{normalizedName}",
+            id = $"{IdTransformer.Namespace}:tileset:{_region}/{normalizedName}",
             name = mapName,
             texturePath = $"Graphics/Tilesets/{regionFormatted}/{mapName}.png",
             tileWidth = MetatileSize,
@@ -332,7 +336,7 @@ public class MapConversionService
             id = IdTransformer.MapIdFromName(mapName, _region),
             name = mapData.Name,
             description = "",
-            regionId = $"base:region:{_region}",
+            regionId = $"{IdTransformer.Namespace}:region:{_region}",
             mapTypeId = IdTransformer.MapTypeId(mapData.Metadata.MapType),
             width = mapData.Layout.Width,
             height = mapData.Layout.Height,
@@ -353,7 +357,7 @@ public class MapConversionService
             customPropertiesJson = (string?)null,
             layers = layers.Select((l, idx) => new
             {
-                id = $"base:layer:{_region}/{normalizedName}/{l.Name.ToLowerInvariant()}",
+                id = $"{IdTransformer.Namespace}:layer:{_region}/{normalizedName}/{l.Name.ToLowerInvariant()}",
                 name = l.Name,
                 type = "tilelayer",
                 width = l.Width,
@@ -368,7 +372,7 @@ public class MapConversionService
             }),
             tilesets = new[]
             {
-                new { firstGid = 1, tilesetId = $"base:tileset:{_region}/{normalizedName}" }
+                new { firstGid = 1, tilesetId = $"{IdTransformer.Namespace}:tileset:{_region}/{normalizedName}" }
             },
             warps = mapData.Warps.Select((w, idx) =>
             {
@@ -379,7 +383,7 @@ public class MapConversionService
                 var destNormalized = IdTransformer.Normalize(destMapName);
                 return new
                 {
-                    id = $"base:warp:{_region}/{normalizedName}/warp_to_{destNormalized}",
+                    id = $"{IdTransformer.Namespace}:warp:{_region}/{normalizedName}/warp_to_{destNormalized}",
                     name = $"Warp to {destNormalized}",
                     x = w.X * MetatileSize,
                     y = w.Y * MetatileSize,
@@ -397,13 +401,13 @@ public class MapConversionService
                 var value = int.TryParse(c.VarValue, out var v) ? v : 0;
                 return new
                 {
-                    id = $"base:trigger:{_region}/{normalizedName}/trigger_{varNormalized}_{value}",
+                    id = $"{IdTransformer.Namespace}:trigger:{_region}/{normalizedName}/trigger_{varNormalized}_{value}",
                     name = $"Trigger: {c.Var} == {c.VarValue}",
                     x = c.X * MetatileSize,
                     y = c.Y * MetatileSize,
                     width = MetatileSize,
                     height = MetatileSize,
-                    variable = $"base:variable:{_region}/{c.Var.ToLowerInvariant()}",
+                    variable = $"{IdTransformer.Namespace}:variable:{_region}/{c.Var.ToLowerInvariant()}",
                     value,
                     triggerId = TransformTriggerId(c.Script),
                     elevation = c.Elevation
@@ -415,7 +419,7 @@ public class MapConversionService
                 var typeDisplay = char.ToUpper(b.Type[0]) + b.Type[1..].ToLowerInvariant();
                 return new
                 {
-                    id = $"base:interaction:{_region}/{normalizedName}/{b.Type.ToLowerInvariant()}_{scriptNormalized}",
+                    id = $"{IdTransformer.Namespace}:interaction:{_region}/{normalizedName}/{b.Type.ToLowerInvariant()}_{scriptNormalized}",
                     name = $"{typeDisplay}: {b.Script}",
                     x = b.X * MetatileSize,
                     y = b.Y * MetatileSize,
@@ -427,7 +431,7 @@ public class MapConversionService
             }),
             npcs = mapData.ObjectEvents.Select((o, idx) => new
             {
-                id = $"base:npc:{_region}/{normalizedName}/{(o.LocalId ?? $"npc_{idx}").ToLowerInvariant()}",
+                id = $"{IdTransformer.Namespace}:npc:{_region}/{normalizedName}/{(o.LocalId ?? $"npc_{idx}").ToLowerInvariant()}",
                 name = o.LocalId ?? $"NPC_{idx}",
                 x = o.X * MetatileSize,
                 y = o.Y * MetatileSize,
@@ -452,36 +456,36 @@ public class MapConversionService
 
     private static string TransformWeatherId(string weather)
     {
-        if (string.IsNullOrEmpty(weather)) return "base:weather:outdoor/sunny";
+        if (string.IsNullOrEmpty(weather)) return $"{IdTransformer.Namespace}:weather:outdoor/sunny";
         var name = weather.StartsWith("WEATHER_") ? weather[8..].ToLowerInvariant() : weather.ToLowerInvariant();
-        return $"base:weather:outdoor/{name}";
+        return $"{IdTransformer.Namespace}:weather:outdoor/{name}";
     }
 
     private static string TransformBattleSceneId(string battleScene)
     {
-        if (string.IsNullOrEmpty(battleScene)) return "base:battlescene:normal/normal";
+        if (string.IsNullOrEmpty(battleScene)) return $"{IdTransformer.Namespace}:battlescene:normal/normal";
         var name = battleScene.StartsWith("MAP_BATTLE_SCENE_") ? battleScene[17..].ToLowerInvariant() : battleScene.ToLowerInvariant();
-        return $"base:battlescene:normal/{name}";
+        return $"{IdTransformer.Namespace}:battlescene:normal/{name}";
     }
 
     private static string TransformBehaviorId(string movementType)
     {
-        if (string.IsNullOrEmpty(movementType)) return "base:behavior:stationary";
+        if (string.IsNullOrEmpty(movementType)) return $"{IdTransformer.Namespace}:behavior:stationary";
         var name = movementType.StartsWith("MOVEMENT_TYPE_") ? movementType[14..].ToLowerInvariant() : movementType.ToLowerInvariant();
 
         // Categorize movement types
-        if (name.StartsWith("walk_sequence_")) return "base:behavior:patrol";
-        if (name.Contains("wander")) return "base:behavior:wander";
-        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around")) return "base:behavior:stationary";
-        if (name.Contains("walk") || name.Contains("pace")) return "base:behavior:walk";
-        if (name.Contains("jog") || name.Contains("run")) return "base:behavior:jog";
-        if (name.Contains("copy_player") || name.Contains("follow")) return "base:behavior:follow";
-        if (name.Contains("invisible")) return "base:behavior:invisible";
-        if (name.Contains("buried")) return "base:behavior:buried";
-        if (name.Contains("tree_disguise")) return "base:behavior:disguise_tree";
-        if (name.Contains("rock_disguise")) return "base:behavior:disguise_rock";
+        if (name.StartsWith("walk_sequence_")) return $"{IdTransformer.Namespace}:behavior:patrol";
+        if (name.Contains("wander")) return $"{IdTransformer.Namespace}:behavior:wander";
+        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around")) return $"{IdTransformer.Namespace}:behavior:stationary";
+        if (name.Contains("walk") || name.Contains("pace")) return $"{IdTransformer.Namespace}:behavior:walk";
+        if (name.Contains("jog") || name.Contains("run")) return $"{IdTransformer.Namespace}:behavior:jog";
+        if (name.Contains("copy_player") || name.Contains("follow")) return $"{IdTransformer.Namespace}:behavior:follow";
+        if (name.Contains("invisible")) return $"{IdTransformer.Namespace}:behavior:invisible";
+        if (name.Contains("buried")) return $"{IdTransformer.Namespace}:behavior:buried";
+        if (name.Contains("tree_disguise")) return $"{IdTransformer.Namespace}:behavior:disguise_tree";
+        if (name.Contains("rock_disguise")) return $"{IdTransformer.Namespace}:behavior:disguise_rock";
 
-        return $"base:behavior:{name}";
+        return $"{IdTransformer.Namespace}:behavior:{name}";
     }
 
     private static object? BuildBehaviorParameters(string movementType, int startX, int startY, int? rangeX, int? rangeY)
@@ -573,13 +577,13 @@ public class MapConversionService
     private static string? TransformTriggerId(string script)
     {
         if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL") return null;
-        return $"base:script:trigger/{IdTransformer.Normalize(script)}";
+        return $"{IdTransformer.Namespace}:script:trigger/{IdTransformer.Normalize(script)}";
     }
 
     private static string? TransformInteractionId(string script)
     {
         if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL" || script == "0") return null;
-        return $"base:script:interaction/{IdTransformer.Normalize(script)}";
+        return $"{IdTransformer.Namespace}:script:interaction/{IdTransformer.Normalize(script)}";
     }
 
     private object BuildConnections(List<Models.MapConnection> connections)
@@ -620,7 +624,7 @@ public class MapConversionService
     /// Generate additional definitions (Weather, BattleScenes, Region, Sprites, Pokemon, Species) based on IDs
     /// referenced by converted maps. Call this after all maps have been converted.
     /// </summary>
-    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations) GenerateDefinitions()
+    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations, int Behaviors, int Scripts) GenerateDefinitions()
     {
         var (weather, battleScenes, region) = _definitionGenerator.GenerateAll();
         var (sections, themes) = _sectionExtractor.ExtractAll();
@@ -633,6 +637,8 @@ public class MapConversionService
         var (species, speciesForms) = _speciesExtractor.ExtractAll();
         var fieldEffects = _fieldEffectExtractor.ExtractAll();
         var doorAnims = _doorAnimExtractor.Extract();
-        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs, sprites, textWindows, pokemon, pokemonSprites, species, speciesForms, fieldEffects, doorAnims);
+        var (behaviors, behaviorScripts) = _behaviorExtractor.ExtractAll();
+        var (interactionScripts, triggerScripts, signScripts, totalScripts) = _scriptExtractor.ExtractAll();
+        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs, sprites, textWindows, pokemon, pokemonSprites, species, speciesForms, fieldEffects, doorAnims, behaviors, totalScripts);
     }
 }

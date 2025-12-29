@@ -74,7 +74,7 @@ public class TilesetGenerationService
         IEnumerable<TileKey> usedTiles)
     {
         var normalizedName = IdTransformer.Normalize(mapName);
-        var tilesetId = $"base:tileset:{_region}/{normalizedName}";
+        var tilesetId = $"{IdTransformer.Namespace}:tileset:{_region}/{normalizedName}";
 
         var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", _region);
         Directory.CreateDirectory(tilesetDir);
@@ -152,7 +152,7 @@ public class TilesetGenerationService
 
         var tileset = new
         {
-            id = $"base:tileset:{_region}/{tilesetName}",
+            id = $"{IdTransformer.Namespace}:tileset:{_region}/{tilesetName}",
             name = tilesetName,
             type = "tileset",
             columns,

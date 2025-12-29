@@ -150,11 +150,11 @@ public class MapSectionExtractor
         {
             // Transform to unified ID format: base:section:hoenn/name
             var sectionName = sectionId.ToLowerInvariant().Replace("mapsec_", "");
-            var unifiedId = $"base:section:{_region}/{sectionName}";
+            var unifiedId = $"{IdTransformer.Namespace}:section:{_region}/{sectionName}";
 
             // Get theme from mapping or default to wood
             var themeName = themeMapping.GetValueOrDefault(sectionId, "wood");
-            var unifiedTheme = $"base:theme:popup/{themeName}";
+            var unifiedTheme = $"{IdTransformer.Namespace}:theme:popup/{themeName}";
 
             // Get display name
             string? displayName = null;
@@ -192,9 +192,9 @@ public class MapSectionExtractor
                 var sectionName = sectionId.ToLowerInvariant().Replace("mapsec_", "");
                 merged[sectionId] = new MapSectionData
                 {
-                    Id = $"base:section:{_region}/{sectionName}",
+                    Id = $"{IdTransformer.Namespace}:section:{_region}/{sectionName}",
                     Name = FormatDisplayName(sectionName),
-                    Theme = $"base:theme:popup/{theme}"
+                    Theme = $"{IdTransformer.Namespace}:theme:popup/{theme}"
                 };
             }
         }
@@ -246,11 +246,11 @@ public class MapSectionExtractor
 
             var definition = new
             {
-                id = $"base:theme:popup/{themeName}",
+                id = $"{IdTransformer.Namespace}:theme:popup/{themeName}",
                 name = displayName,
                 description,
-                background = $"base:popup:background/{themeName}",
-                outline = $"base:popup:outline/{themeName}"
+                background = $"{IdTransformer.Namespace}:popup:background/{themeName}",
+                outline = $"{IdTransformer.Namespace}:popup:outline/{themeName}"
             };
 
             // Use PascalCase filename (e.g., "Wood.json", "BwDefault.json")

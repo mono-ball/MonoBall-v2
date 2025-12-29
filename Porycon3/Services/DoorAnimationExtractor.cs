@@ -56,7 +56,7 @@ public class DoorAnimationExtractor
 
             // Convert sound type to sound ID
             var soundType = mapping?.SoundType ?? "normal";
-            var soundId = $"base:sound:door-{soundType}";
+            var soundId = $"{IdTransformer.Namespace}:sound:door-{soundType}";
             var metatileId = mapping?.MetatileId;
 
             // Get frame info from the sprite sheet (detect width from image)
@@ -114,7 +114,7 @@ public class DoorAnimationExtractor
 
             var definition = new
             {
-                id = $"base:sprite:door-animations/{fileName.Replace("_", "-")}",
+                id = $"{IdTransformer.Namespace}:sprite:door-animations/{fileName.Replace("_", "-")}",
                 name = FormatName(fileName),
                 type = "Sprite",
                 texturePath = $"Graphics/DoorAnimations/{pascalName}.png",
@@ -211,7 +211,7 @@ public class DoorAnimationExtractor
                 {
                     var tileset = parts[0].ToLowerInvariant();
                     var name = ConvertToSnakeCase(parts[1]).Replace("_", "-");
-                    metatileId = $"base:metatile:{tileset}/{name}";
+                    metatileId = $"{IdTransformer.Namespace}:metatile:{tileset}/{name}";
                 }
             }
 

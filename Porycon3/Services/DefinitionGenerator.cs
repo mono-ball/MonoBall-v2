@@ -25,18 +25,18 @@ public class DefinitionGenerator
     private static readonly Dictionary<string, WeatherConfig> WeatherConfigs = new()
     {
         ["sunny"] = new(1.0, true, "#FFD700", 0.1),
-        ["sunny_clouds"] = new(1.0, false, EffectScriptId: "base:script:weather/clouds"),
-        ["rain"] = new(1.0, true, EffectScriptId: "base:script:weather/rain", AmbientSoundId: "base:audio:sfx/ambient/rain"),
-        ["rain_thunderstorm"] = new(1.5, true, EffectScriptId: "base:script:weather/thunderstorm", AmbientSoundId: "base:audio:sfx/ambient/thunder", ReducesVisibility: true, VisibilityRange: 6),
-        ["downpour"] = new(2.0, true, EffectScriptId: "base:script:weather/downpour", AmbientSoundId: "base:audio:sfx/ambient/heavy_rain", ReducesVisibility: true, VisibilityRange: 4),
-        ["snow"] = new(1.0, true, EffectScriptId: "base:script:weather/snow"),
-        ["sandstorm"] = new(1.0, true, EffectScriptId: "base:script:weather/sandstorm", ReducesVisibility: true, VisibilityRange: 5),
-        ["fog_horizontal"] = new(0.8, false, EffectScriptId: "base:script:weather/fog_horizontal", ReducesVisibility: true, VisibilityRange: 4),
-        ["fog_diagonal"] = new(0.8, false, EffectScriptId: "base:script:weather/fog_diagonal", ReducesVisibility: true, VisibilityRange: 5),
-        ["volcanic_ash"] = new(1.0, false, "#808080", 0.3, EffectScriptId: "base:script:weather/ash"),
-        ["underwater_bubbles"] = new(0.5, false, "#0066CC", 0.2, EffectScriptId: "base:script:weather/bubbles"),
+        ["sunny_clouds"] = new(1.0, false, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/clouds"),
+        ["rain"] = new(1.0, true, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/rain", AmbientSoundId: $"{IdTransformer.Namespace}:audio:sfx/ambient/rain"),
+        ["rain_thunderstorm"] = new(1.5, true, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/thunderstorm", AmbientSoundId: $"{IdTransformer.Namespace}:audio:sfx/ambient/thunder", ReducesVisibility: true, VisibilityRange: 6),
+        ["downpour"] = new(2.0, true, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/downpour", AmbientSoundId: $"{IdTransformer.Namespace}:audio:sfx/ambient/heavy_rain", ReducesVisibility: true, VisibilityRange: 4),
+        ["snow"] = new(1.0, true, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/snow"),
+        ["sandstorm"] = new(1.0, true, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/sandstorm", ReducesVisibility: true, VisibilityRange: 5),
+        ["fog_horizontal"] = new(0.8, false, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/fog_horizontal", ReducesVisibility: true, VisibilityRange: 4),
+        ["fog_diagonal"] = new(0.8, false, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/fog_diagonal", ReducesVisibility: true, VisibilityRange: 5),
+        ["volcanic_ash"] = new(1.0, false, "#808080", 0.3, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/ash"),
+        ["underwater_bubbles"] = new(0.5, false, "#0066CC", 0.2, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/bubbles"),
         ["shade"] = new(0.7, false, "#404040", 0.2),
-        ["drought"] = new(2.0, true, "#FF6600", 0.15, EffectScriptId: "base:script:weather/drought"),
+        ["drought"] = new(2.0, true, "#FF6600", 0.15, EffectScriptId: $"{IdTransformer.Namespace}:script:weather/drought"),
         ["none"] = new(0.0, false)
     };
 
@@ -52,15 +52,15 @@ public class DefinitionGenerator
         ["cave"] = new("normal", "cave"),
         ["rock"] = new("normal", "rock"),
         ["building"] = new("indoor", "building"),
-        ["gym"] = new("gym", "building", PaletteId: "base:texture:battle/palette/gym"),
-        ["frontier"] = new("frontier", "building", PaletteId: "base:texture:battle/palette/frontier"),
-        ["aqua"] = new("team", "stadium", PaletteId: "base:texture:battle/palette/aqua"),
-        ["magma"] = new("team", "stadium", PaletteId: "base:texture:battle/palette/magma"),
-        ["sidney"] = new("elite_four", "stadium", PaletteId: "base:texture:battle/palette/elite_sidney", DefaultMusicId: "base:audio:music/battle/elite_four"),
-        ["phoebe"] = new("elite_four", "stadium", PaletteId: "base:texture:battle/palette/elite_phoebe", DefaultMusicId: "base:audio:music/battle/elite_four"),
-        ["glacia"] = new("elite_four", "stadium", PaletteId: "base:texture:battle/palette/elite_glacia", DefaultMusicId: "base:audio:music/battle/elite_four"),
-        ["drake"] = new("elite_four", "stadium", PaletteId: "base:texture:battle/palette/elite_drake", DefaultMusicId: "base:audio:music/battle/elite_four"),
-        ["champion"] = new("champion", "stadium", PaletteId: "base:texture:battle/palette/champion", DefaultMusicId: "base:audio:music/battle/champion")
+        ["gym"] = new("gym", "building", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/gym"),
+        ["frontier"] = new("frontier", "building", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/frontier"),
+        ["aqua"] = new("team", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/aqua"),
+        ["magma"] = new("team", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/magma"),
+        ["sidney"] = new("elite_four", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/elite_sidney", DefaultMusicId: $"{IdTransformer.Namespace}:audio:music/battle/elite_four"),
+        ["phoebe"] = new("elite_four", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/elite_phoebe", DefaultMusicId: $"{IdTransformer.Namespace}:audio:music/battle/elite_four"),
+        ["glacia"] = new("elite_four", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/elite_glacia", DefaultMusicId: $"{IdTransformer.Namespace}:audio:music/battle/elite_four"),
+        ["drake"] = new("elite_four", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/elite_drake", DefaultMusicId: $"{IdTransformer.Namespace}:audio:music/battle/elite_four"),
+        ["champion"] = new("champion", "stadium", PaletteId: $"{IdTransformer.Namespace}:texture:battle/palette/champion", DefaultMusicId: $"{IdTransformer.Namespace}:audio:music/battle/champion")
     };
 
     public DefinitionGenerator(string inputPath, string outputPath, string region)
@@ -121,19 +121,19 @@ public class DefinitionGenerator
             if (weatherName == "none") continue; // Skip "none" weather
 
             var category = "outdoor";
-            var weatherId = $"base:weather:{category}/{weatherName}";
+            var weatherId = $"{IdTransformer.Namespace}:weather:{category}/{weatherName}";
 
             // Determine graphics ID if this weather type has associated graphics
             string? graphicsId = weatherName switch
             {
-                "rain" or "rain_thunderstorm" or "downpour" => "base:weather:graphics/rain",
-                "snow" => "base:weather:graphics/snow",
-                "sandstorm" => "base:weather:graphics/sandstorm",
-                "fog_horizontal" => "base:weather:graphics/fog_horizontal",
-                "fog_diagonal" => "base:weather:graphics/fog_diagonal",
-                "volcanic_ash" => "base:weather:graphics/volcanic_ash",
-                "underwater_bubbles" => "base:weather:graphics/underwater_bubbles",
-                "sunny_clouds" => "base:weather:graphics/clouds",
+                "rain" or "rain_thunderstorm" or "downpour" => $"{IdTransformer.Namespace}:weather:graphics/rain",
+                "snow" => $"{IdTransformer.Namespace}:weather:graphics/snow",
+                "sandstorm" => $"{IdTransformer.Namespace}:weather:graphics/sandstorm",
+                "fog_horizontal" => $"{IdTransformer.Namespace}:weather:graphics/fog_horizontal",
+                "fog_diagonal" => $"{IdTransformer.Namespace}:weather:graphics/fog_diagonal",
+                "volcanic_ash" => $"{IdTransformer.Namespace}:weather:graphics/volcanic_ash",
+                "underwater_bubbles" => $"{IdTransformer.Namespace}:weather:graphics/underwater_bubbles",
+                "sunny_clouds" => $"{IdTransformer.Namespace}:weather:graphics/clouds",
                 _ => null
             };
 
@@ -201,9 +201,9 @@ public class DefinitionGenerator
 
                 // Battle scene properties
                 category = config.Category,
-                backgroundTextureId = $"base:texture:battle/background/{bgName}",
-                playerPlatformTextureId = $"base:texture:battle/platform/{bgName}_player",
-                enemyPlatformTextureId = $"base:texture:battle/platform/{bgName}_enemy",
+                backgroundTextureId = $"{IdTransformer.Namespace}:texture:battle/background/{bgName}",
+                playerPlatformTextureId = $"{IdTransformer.Namespace}:texture:battle/platform/{bgName}_player",
+                enemyPlatformTextureId = $"{IdTransformer.Namespace}:texture:battle/platform/{bgName}_enemy",
                 paletteId = config.PaletteId,
                 defaultMusicId = config.DefaultMusicId,
                 hasAnimatedBackground = config.HasAnimatedBackground,
@@ -234,7 +234,7 @@ public class DefinitionGenerator
         var definition = new
         {
             // Primary key
-            regionId = $"base:region:{_region}",
+            regionId = $"{IdTransformer.Namespace}:region:{_region}",
 
             // BaseEntity fields
             name = regionFormatted,
@@ -242,15 +242,15 @@ public class DefinitionGenerator
             description = $"The {regionFormatted} region",
 
             // Region properties
-            regionMapTextureId = $"base:texture:region/map/{_region}",
-            startingMapId = $"base:map:{_region}/littleroot_town",
+            regionMapTextureId = $"{IdTransformer.Namespace}:texture:region/map/{_region}",
+            startingMapId = $"{IdTransformer.Namespace}:map:{_region}/littleroot_town",
             startingX = 5,
             startingY = 8,
             startingDirection = "down",
-            defaultFlyMapId = $"base:map:{_region}/littleroot_town",
+            defaultFlyMapId = $"{IdTransformer.Namespace}:map:{_region}/littleroot_town",
             defaultFlyX = 5,
             defaultFlyY = 8,
-            regionalDexId = $"base:pokedex:{_region}/regional",
+            regionalDexId = $"{IdTransformer.Namespace}:pokedex:{_region}/regional",
             sortOrder = _region == "hoenn" ? 3 : 1,
             isPlayable = true
         };

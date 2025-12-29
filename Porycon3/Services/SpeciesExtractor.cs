@@ -203,7 +203,7 @@ public class SpeciesExtractor
 
         return new PokemonFormDto
         {
-            Id = $"base:pokemon_form:{baseName}/{formKey}",
+            Id = $"{IdTransformer.Namespace}:pokemon_form:{baseName}/{formKey}",
             Name = form.Name,
             FormKey = formKey,
             BaseStats = form.BaseStats,
@@ -220,29 +220,29 @@ public class SpeciesExtractor
     {
         // Check for transformation forms
         if (form.IsMegaEvolution == true)
-            return ("base:form_type:mega", null, "base:transform_method:mega_evolution");
+            return ($"{IdTransformer.Namespace}:form_type:mega", null, $"{IdTransformer.Namespace}:transform_method:mega_evolution");
         if (form.IsGigantamax == true)
-            return ("base:form_type:gigantamax", null, "base:transform_method:gigantamax");
+            return ($"{IdTransformer.Namespace}:form_type:gigantamax", null, $"{IdTransformer.Namespace}:transform_method:gigantamax");
         if (form.IsPrimalReversion == true)
-            return ("base:form_type:primal", null, "base:transform_method:primal_reversion");
+            return ($"{IdTransformer.Namespace}:form_type:primal", null, $"{IdTransformer.Namespace}:transform_method:primal_reversion");
         if (form.IsUltraBurst == true)
-            return ("base:form_type:ultra_burst", null, "base:transform_method:ultra_burst");
+            return ($"{IdTransformer.Namespace}:form_type:ultra_burst", null, $"{IdTransformer.Namespace}:transform_method:ultra_burst");
         if (form.IsTeraForm == true)
-            return ("base:form_type:tera", null, "base:transform_method:terastallization");
+            return ($"{IdTransformer.Namespace}:form_type:tera", null, $"{IdTransformer.Namespace}:transform_method:terastallization");
 
         // Check for regional variants
         if (form.IsAlolanForm == true)
-            return ("base:form_type:regional", "base:region:alola", null);
+            return ($"{IdTransformer.Namespace}:form_type:regional", $"{IdTransformer.Namespace}:region:alola", null);
         if (form.IsGalarianForm == true)
-            return ("base:form_type:regional", "base:region:galar", null);
+            return ($"{IdTransformer.Namespace}:form_type:regional", $"{IdTransformer.Namespace}:region:galar", null);
         if (form.IsHisuianForm == true)
-            return ("base:form_type:regional", "base:region:hisui", null);
+            return ($"{IdTransformer.Namespace}:form_type:regional", $"{IdTransformer.Namespace}:region:hisui", null);
         if (form.IsPaldeanForm == true)
-            return ("base:form_type:regional", "base:region:paldea", null);
+            return ($"{IdTransformer.Namespace}:form_type:regional", $"{IdTransformer.Namespace}:region:paldea", null);
 
         // Check for totem forms
         if (form.IsTotem == true)
-            return ("base:form_type:totem", null, null);
+            return ($"{IdTransformer.Namespace}:form_type:totem", null, null);
 
         // No special form type detected
         return (null, null, null);
@@ -327,7 +327,7 @@ public class SpeciesExtractor
 
         var species = new SpeciesData
         {
-            Id = $"base:pokemon:{normalizedName}",
+            Id = $"{IdTransformer.Namespace}:pokemon:{normalizedName}",
             Name = ParseSpeciesName(blockContent) ?? FormatDisplayName(speciesName),
             OriginalSpeciesName = speciesName
         };
@@ -414,18 +414,18 @@ public class SpeciesExtractor
             species.LevelUpMoves = levelUp.Select(m => new LevelUpMoveDto
             {
                 Level = m.Level,
-                MoveId = $"base:move:{m.Move.ToLowerInvariant()}"
+                MoveId = $"{IdTransformer.Namespace}:move:{m.Move.ToLowerInvariant()}"
             }).ToList();
         }
 
         if (teachableLearnsets.TryGetValue(learnsetKey, out var teachable))
         {
-            species.TeachableMoves = teachable.Select(m => $"base:move:{m.ToLowerInvariant()}").ToList();
+            species.TeachableMoves = teachable.Select(m => $"{IdTransformer.Namespace}:move:{m.ToLowerInvariant()}").ToList();
         }
 
         if (eggMoveLearnsets.TryGetValue(learnsetKey, out var eggMoves))
         {
-            species.EggMoves = eggMoves.Select(m => $"base:move:{m.ToLowerInvariant()}").ToList();
+            species.EggMoves = eggMoves.Select(m => $"{IdTransformer.Namespace}:move:{m.ToLowerInvariant()}").ToList();
         }
 
         return species;
@@ -497,10 +497,10 @@ public class SpeciesExtractor
         var match = TypesRegex.Match(content);
         if (!match.Success) return null;
 
-        var types = new List<string> { $"base:type:{match.Groups[1].Value.ToLowerInvariant()}" };
+        var types = new List<string> { $"{IdTransformer.Namespace}:type:{match.Groups[1].Value.ToLowerInvariant()}" };
         if (match.Groups[2].Success && !string.IsNullOrEmpty(match.Groups[2].Value))
         {
-            types.Add($"base:type:{match.Groups[2].Value.ToLowerInvariant()}");
+            types.Add($"{IdTransformer.Namespace}:type:{match.Groups[2].Value.ToLowerInvariant()}");
         }
         return types;
     }
@@ -510,10 +510,10 @@ public class SpeciesExtractor
         var match = EggGroupsRegex.Match(content);
         if (!match.Success) return null;
 
-        var groups = new List<string> { $"base:egg_group:{match.Groups[1].Value.ToLowerInvariant()}" };
+        var groups = new List<string> { $"{IdTransformer.Namespace}:egg_group:{match.Groups[1].Value.ToLowerInvariant()}" };
         if (match.Groups[2].Success && !string.IsNullOrEmpty(match.Groups[2].Value))
         {
-            groups.Add($"base:egg_group:{match.Groups[2].Value.ToLowerInvariant()}");
+            groups.Add($"{IdTransformer.Namespace}:egg_group:{match.Groups[2].Value.ToLowerInvariant()}");
         }
         return groups;
     }
@@ -530,7 +530,7 @@ public class SpeciesExtractor
             if (ability == "NONE")
                 abilities.Add(null);
             else
-                abilities.Add($"base:ability:{ability.ToLowerInvariant()}");
+                abilities.Add($"{IdTransformer.Namespace}:ability:{ability.ToLowerInvariant()}");
         }
         return abilities;
     }
@@ -567,7 +567,7 @@ public class SpeciesExtractor
     {
         var match = Regex.Match(content, @"\.growthRate\s*=\s*GROWTH_(\w+)");
         if (match.Success)
-            return $"base:growth_rate:{match.Groups[1].Value.ToLowerInvariant()}";
+            return $"{IdTransformer.Namespace}:growth_rate:{match.Groups[1].Value.ToLowerInvariant()}";
         return null;
     }
 
@@ -575,7 +575,7 @@ public class SpeciesExtractor
     {
         var match = Regex.Match(content, @"\.bodyColor\s*=\s*BODY_COLOR_(\w+)");
         if (match.Success)
-            return $"base:body_color:{match.Groups[1].Value.ToLowerInvariant()}";
+            return $"{IdTransformer.Namespace}:body_color:{match.Groups[1].Value.ToLowerInvariant()}";
         return null;
     }
 
@@ -597,7 +597,7 @@ public class SpeciesExtractor
             .ToLowerInvariant()
             .Replace(" ", "_")
             .Replace("'", "");
-        return $"base:category:{categoryName}";
+        return $"{IdTransformer.Namespace}:category:{categoryName}";
     }
 
     private string? ParseDescription(string content)
@@ -652,10 +652,10 @@ public class SpeciesExtractor
 
             evolutions.Add(new EvolutionDto
             {
-                Method = $"base:evolution_method:{method.Substring(4).ToLowerInvariant()}", // Remove EVO_ prefix
+                Method = $"{IdTransformer.Namespace}:evolution_method:{method.Substring(4).ToLowerInvariant()}", // Remove EVO_ prefix
                 Parameter = ParseEvolutionParameter(param),
                 ParameterName = IsNumeric(param) ? null : param,
-                TargetSpeciesId = $"base:pokemon:{target.ToLowerInvariant().Replace("_", "-")}"
+                TargetSpeciesId = $"{IdTransformer.Namespace}:pokemon:{target.ToLowerInvariant().Replace("_", "-")}"
             });
         }
 
@@ -821,7 +821,7 @@ public class SpeciesExtractor
                 if (!string.IsNullOrEmpty(item))
                 {
                     var itemName = item.Replace("ITEM_", "").ToLowerInvariant();
-                    itemId = $"base:item:{itemName}";
+                    itemId = $"{IdTransformer.Namespace}:item:{itemName}";
                 }
 
                 formChanges[speciesName] = (itemId, changeType);
@@ -889,17 +889,17 @@ public class SpeciesExtractor
 
         var sprites = new SpriteReferences
         {
-            Front = $"base:pokemon:sprite/{speciesLower}/{spriteName}front",
-            FrontShiny = $"base:pokemon:sprite/{speciesLower}/{spriteName}frontshiny",
-            FrontFemale = hasFrontFemale ? $"base:pokemon:sprite/{speciesLower}/{spriteName}frontfemale" : null,
-            FrontFemaleShiny = hasFrontFemale ? $"base:pokemon:sprite/{speciesLower}/{spriteName}frontfemaleshiny" : null,
-            Back = $"base:pokemon:sprite/{speciesLower}/{spriteName}back",
-            BackShiny = $"base:pokemon:sprite/{speciesLower}/{spriteName}backshiny",
-            BackFemale = hasBackFemale ? $"base:pokemon:sprite/{speciesLower}/{spriteName}backfemale" : null,
-            BackFemaleShiny = hasBackFemale ? $"base:pokemon:sprite/{speciesLower}/{spriteName}backfemaleshiny" : null,
-            Icon = $"base:pokemon:sprite/{speciesLower}/{spriteName}icon",
-            Overworld = $"base:pokemon:sprite/{speciesLower}/{spriteName}overworld",
-            OverworldShiny = $"base:pokemon:sprite/{speciesLower}/{spriteName}overworldshiny"
+            Front = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}front",
+            FrontShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}frontshiny",
+            FrontFemale = hasFrontFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}frontfemale" : null,
+            FrontFemaleShiny = hasFrontFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}frontfemaleshiny" : null,
+            Back = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}back",
+            BackShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}backshiny",
+            BackFemale = hasBackFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}backfemale" : null,
+            BackFemaleShiny = hasBackFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}backfemaleshiny" : null,
+            Icon = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}icon",
+            Overworld = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}overworld",
+            OverworldShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}overworldshiny"
         };
 
         return (sprites, hasGenderDifferences);
@@ -923,7 +923,7 @@ public class SpeciesExtractor
             if (File.Exists(formCryPath))
             {
                 var kebabName = ToKebabCase($"{pascalPokemon}{formSuffix}");
-                return $"base:audio:sfx/cries/{kebabName}";
+                return $"{IdTransformer.Namespace}:audio:sfx/cries/{kebabName}";
             }
         }
 
@@ -932,7 +932,7 @@ public class SpeciesExtractor
         if (File.Exists(baseCryPath))
         {
             var kebabBaseName = ToKebabCase(pascalPokemon);
-            return $"base:audio:sfx/cries/{kebabBaseName}";
+            return $"{IdTransformer.Namespace}:audio:sfx/cries/{kebabBaseName}";
         }
 
         return null;

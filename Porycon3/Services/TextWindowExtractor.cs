@@ -119,7 +119,7 @@ public class TextWindowExtractor
             }
 
             // Create JSON definition - using TileSheet format
-            var unifiedId = $"base:textwindow:tilesheet/{IdTransformer.Normalize(filename)}";
+            var unifiedId = $"{IdTransformer.Namespace}:textwindow:tilesheet/{IdTransformer.Normalize(filename)}";
             var jsonDef = new
             {
                 id = unifiedId,

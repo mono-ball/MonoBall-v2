@@ -11,14 +11,30 @@ public class SoundExtractor
     private readonly VoicegroupParser _voicegroupParser;
     private readonly MidiConfigParser _midiConfigParser;
     private readonly PsgSampleGenerator _psgGenerator;
+    private readonly string _idPrefix;
 
     // Sample cache to avoid loading duplicates
     private readonly Dictionary<string, int> _sampleIndexCache = new();
 
+    /// <summary>
+    /// Create a SoundExtractor with default "base:" ID prefix.
+    /// </summary>
     public SoundExtractor(string pokeemeraldPath, string outputPath)
+        : this(pokeemeraldPath, outputPath, "base")
+    {
+    }
+
+    /// <summary>
+    /// Create a SoundExtractor with a custom ID prefix for audio definitions.
+    /// </summary>
+    /// <param name="pokeemeraldPath">Path to pokeemerald decompilation</param>
+    /// <param name="outputPath">Base output path</param>
+    /// <param name="idPrefix">ID prefix for audio definitions (e.g., "emerald-audio" produces "emerald-audio:audio:...")</param>
+    public SoundExtractor(string pokeemeraldPath, string outputPath, string idPrefix)
     {
         _pokeemeraldPath = pokeemeraldPath;
         _outputPath = outputPath;
+        _idPrefix = idPrefix + ":";
         _voicegroupParser = new VoicegroupParser(pokeemeraldPath);
         _midiConfigParser = new MidiConfigParser(pokeemeraldPath);
         _psgGenerator = new PsgSampleGenerator();
@@ -782,16 +798,16 @@ public class SoundExtractor
     /// <summary>
     /// Write an AudioDefinition JSON file for a converted track.
     /// </summary>
-    private static void WriteAudioDefinition(string jsonPath, string cleanName, string pascalName,
+    private void WriteAudioDefinition(string jsonPath, string cleanName, string pascalName,
         string category, bool isSfx, MidiToOggConverter.ConversionResult result, float volume = 1.0f)
     {
         var hasLoop = result.LoopStartSamples > 0 || result.LoopLengthSamples > 0;
 
-        // ID format: base:audio:{music|sfx}/{category}/{kebab-name}
+        // ID format: {prefix}audio:{music|sfx}/{category}/{kebab-name}
         var kebabName = cleanName.Replace('_', '-');
         var categoryKebab = category.ToLowerInvariant();
         var audioType = isSfx ? "sfx" : "music";
-        var id = $"base:audio:{audioType}/{categoryKebab}/{kebabName}";
+        var id = $"{_idPrefix}audio:{audioType}/{categoryKebab}/{kebabName}";
 
         // Audio path: Audio/{Music|SFX}/{Category}/{PascalName}.ogg
         var audioDir = isSfx ? "SFX" : "Music";
@@ -884,10 +900,10 @@ public class SoundExtractor
     /// <summary>
     /// Write a cry definition JSON file.
     /// </summary>
-    private static void WriteCryDefinition(string jsonPath, string baseName, string pascalName)
+    private void WriteCryDefinition(string jsonPath, string baseName, string pascalName)
     {
         var kebabName = baseName.Replace('_', '-');
-        var id = $"base:audio:sfx/cries/{kebabName}";
+        var id = $"{_idPrefix}audio:sfx/cries/{kebabName}";
 
         var json = $$"""
 {

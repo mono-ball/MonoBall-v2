@@ -99,7 +99,7 @@ public class InterfaceExtractor
             {
                 definition = new
                 {
-                    id = $"base:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                    id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
                     name = displayName,
                     type = "Sprite",
                     texturePath = $"Graphics/UI/Interface/{pascalName}.png",
@@ -114,7 +114,7 @@ public class InterfaceExtractor
             {
                 definition = new
                 {
-                    id = $"base:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                    id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
                     name = displayName,
                     type = "Sprite",
                     texturePath = $"Graphics/UI/Interface/{pascalName}.png",

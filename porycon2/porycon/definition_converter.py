@@ -517,11 +517,11 @@ class DefinitionConverter:
         """Convert Tiled interaction object to MapInteraction format."""
         sign_data = self._get_class_property(obj, "sign")
         if sign_data:
-            # Try new property name first, fallback to old for backward compatibility
-            interaction_id = sign_data.get("interactionId", sign_data.get("interactionScript", ""))
+            # Get interactionId (no fallback - fail if missing)
+            interaction_id = sign_data.get("interactionId", "")
         else:
-            # Try new property name first, fallback to old for backward compatibility
-            interaction_id = self._get_property_value(obj, "interactionId", self._get_property_value(obj, "interactionScript", ""))
+            # Get interactionId (no fallback - fail if missing)
+            interaction_id = self._get_property_value(obj, "interactionId", "")
 
         if not interaction_id:
             return None
@@ -585,8 +585,8 @@ class DefinitionConverter:
             # No namespace, assume it's just the behavior name
             behavior = f"base:script:behavior/{behavior_id}"
 
-        # Try new property name first, fallback to old for backward compatibility
-        interaction_id = self._get_property_value(obj, "interactionId", self._get_property_value(obj, "interactionScript", None))
+        # Get interactionId (no fallback - fail if missing)
+        interaction_id = self._get_property_value(obj, "interactionId", None)
         interaction_id_formatted = None
         if interaction_id:
             # Normalize: remove .csx extension if present

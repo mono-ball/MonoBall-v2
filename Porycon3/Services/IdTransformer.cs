@@ -8,8 +8,18 @@ namespace Porycon3.Services;
 /// </summary>
 public static class IdTransformer
 {
-    private const string Namespace = "base";
+    private static string _namespace = "base";
     private const string DefaultRegion = "hoenn";
+
+    /// <summary>
+    /// The namespace prefix for all generated IDs (e.g., "base", "emerald-audio").
+    /// Default is "base".
+    /// </summary>
+    public static string Namespace
+    {
+        get => _namespace;
+        set => _namespace = value ?? "base";
+    }
 
     #region Normalization
 
@@ -300,7 +310,7 @@ public static class IdTransformer
     /// OBJ_EVENT_GFX_MAY_NORMAL -> base:sprite:players/may/normal
     /// OBJ_EVENT_GFX_PIKACHU_DOLL -> base:sprite:objects/dolls/pikachudoll
     /// OBJ_EVENT_GFX_ITEM_BALL -> base:sprite:objects/misc/itemball
-    /// OBJ_EVENT_GFX_VAR_0 -> {base:sprite:npcs/var_rival} (variable sprite)
+    /// OBJ_EVENT_GFX_VAR_0 -> base:sprite:npcs/{var_rival} (variable sprite)
     /// </summary>
     public static string SpriteId(string graphicsId)
     {
@@ -326,11 +336,11 @@ public static class IdTransformer
         }
 
         // Handle variable sprites (VAR_0 through VAR_F)
-        // These are wrapped in curly braces to indicate runtime resolution
+        // Only the variable name is wrapped in curly braces to indicate runtime resolution
         if (name.StartsWith("var_"))
         {
             var varName = VariableSpriteNames.TryGetValue(name, out var mapped) ? mapped : name;
-            return $"{{{Namespace}:sprite:npcs/{varName}}}";
+            return $"{Namespace}:sprite:npcs/{{{varName}}}";
         }
 
         // Player characters: brendan_acro_bike -> base:sprite:players/brendan/acrobike

@@ -179,7 +179,7 @@ public class PopupExtractor
         }
 
         // Create JSON definition for background bitmap with unified ID
-        var unifiedId = $"base:popup:background/{styleName}";
+        var unifiedId = $"{IdTransformer.Namespace}:popup:background/{styleName}";
         var jsonDef = new
         {
             id = unifiedId,
@@ -268,7 +268,7 @@ public class PopupExtractor
         }
 
         // Create JSON definition with unified ID (no _outline suffix)
-        var unifiedId = $"base:popup:outline/{styleName}";
+        var unifiedId = $"{IdTransformer.Namespace}:popup:outline/{styleName}";
         var jsonDef = new
         {
             id = unifiedId,
