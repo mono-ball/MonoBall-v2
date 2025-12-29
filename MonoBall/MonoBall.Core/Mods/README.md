@@ -1,10 +1,12 @@
 # Mod Loading System
 
-This mod loading system provides a comprehensive solution for loading, managing, and querying mod definitions in MonoBall.
+This mod loading system provides a comprehensive solution for loading, managing, and querying mod definitions in
+MonoBall.
 
 ## Overview
 
 The mod system supports:
+
 - **Load Order Resolution**: Determines mod load order from root `mod.manifest` or priority/dependencies
 - **Definition Management**: Loads definitions with support for modify/extend/replace operations
 - **Collision Resolution**: Handles duplicate definition IDs across mods
@@ -113,6 +115,7 @@ Definition files are JSON files with an `id` field. They can specify an operatio
 ```
 
 **Operations:**
+
 - **Create** (default): Creates a new definition
 - **Modify**: Updates existing properties, keeps unspecified properties
 - **Extend**: Adds new properties, merges nested objects
@@ -124,14 +127,15 @@ When multiple mods define the same definition ID:
 
 1. Definitions are loaded in mod load order
 2. If a definition with the same ID already exists:
-   - **Modify**: Merges properties, new values override old ones
-   - **Extend**: Adds new properties, merges nested objects
-   - **Replace**: Completely replaces the old definition
+    - **Modify**: Merges properties, new values override old ones
+    - **Extend**: Adds new properties, merges nested objects
+    - **Replace**: Completely replaces the old definition
 3. The registry tracks which mod originally created and last modified each definition
 
 ## Storage Design
 
 The `DefinitionRegistry` provides:
+
 - **Read-only after load**: Locked after initial load to prevent modifications
 - **Efficient lookups**: Dictionary-based storage for O(1) ID lookups
 - **Type indexing**: Secondary index by definition type for type-based queries
@@ -140,6 +144,7 @@ The `DefinitionRegistry` provides:
 ## Validation
 
 The validator checks for:
+
 - Missing or invalid `mod.json` files
 - Duplicate mod IDs
 - Duplicate definition IDs (warnings)
@@ -151,11 +156,12 @@ The validator checks for:
 
 The current mod structure has these inconsistencies:
 
-1. **Duplicate Definition IDs**: 
-   - `base:font:debug/mono` is defined in both `core` and `pokemon-emerald` mods
-   - `base:font:game/pokemon` is defined in both mods
+1. **Duplicate Definition IDs**:
+    - `base:font:debug/mono` is defined in both `core` and `pokemon-emerald` mods
+    - `base:font:game/pokemon` is defined in both mods
 
 These should be resolved by:
+
 - Removing duplicates from one mod
 - Using modify/extend operations if intentional
 - Or ensuring only one mod defines base definitions

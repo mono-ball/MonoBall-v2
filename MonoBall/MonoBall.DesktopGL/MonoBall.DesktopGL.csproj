@@ -46,10 +46,10 @@
   </Target>
 
   <!-- 
-    Compress all mod directories to .monoball archives.
-    Runs before CopyMods to ensure compressed archives are available when mods are copied.
-    Requires MonoBall.ArchiveTool to be built first.
-  -->
+      Compress all mod directories to .monoball archives.
+      Runs before CopyMods to ensure compressed archives are available when mods are copied.
+      Requires MonoBall.ArchiveTool to be built first.
+    -->
   <Target Name="CompressAllMods" BeforeTargets="CopyMods" DependsOnTargets="CompileModShaders">
     <PropertyGroup>
       <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
@@ -110,10 +110,10 @@
   </Target>
 
   <!-- 
-    Compile mod shaders from .fx to .mgfxo files.
-    Runs before CopyMods to ensure compiled shaders are available when mods are copied.
-    Uses MonoGame's MGFXC tool. Requires dotnet-mgfxc to be installed (via dotnet tool restore).
-  -->
+      Compile mod shaders from .fx to .mgfxo files.
+      Runs before CopyMods to ensure compiled shaders are available when mods are copied.
+      Uses MonoGame's MGFXC tool. Requires dotnet-mgfxc to be installed (via dotnet tool restore).
+    -->
   <Target Name="CompileModShaders" BeforeTargets="CopyMods" DependsOnTargets="RestoreDotnetTools">
     <PropertyGroup>
       <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
@@ -145,12 +145,12 @@
   </Target>
 
   <!-- 
-    Copy Mods directory to output directory after build.
-    The Mods folder is located at the solution root (../../Mods relative to this project).
-    This ensures mods are available when running the game from the output directory.
-    Deletes the old Mods directory first to prevent stale files from causing issues.
-    Copies compressed .monoball archives and mod.manifest file.
-    -->
+      Copy Mods directory to output directory after build.
+      The Mods folder is located at the solution root (../../Mods relative to this project).
+      This ensures mods are available when running the game from the output directory.
+      Deletes the old Mods directory first to prevent stale files from causing issues.
+      Copies compressed .monoball archives and mod.manifest file.
+      -->
   <Target Name="CopyMods" AfterTargets="Build">
     <PropertyGroup>
       <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>
@@ -190,11 +190,11 @@
   </Target>
 
   <!-- 
-    Copy Mods directory to publish directory when publishing the application.
-    This ensures mods are included in published builds.
-    Deletes the old Mods directory first to prevent stale files from causing issues.
-    Copies compressed .monoball archives and mod.manifest file.
-    -->
+      Copy Mods directory to publish directory when publishing the application.
+      This ensures mods are included in published builds.
+      Deletes the old Mods directory first to prevent stale files from causing issues.
+      Copies compressed .monoball archives and mod.manifest file.
+      -->
   <Target Name="CopyModsToPublish" AfterTargets="Publish">
     <PropertyGroup>
       <ModsSourcePath>$(MSBuildProjectDirectory)\..\..\Mods</ModsSourcePath>

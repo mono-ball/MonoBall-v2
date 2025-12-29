@@ -60,6 +60,17 @@ public class MetatileRenderer : IDisposable
     {
         var gridImage = new Image<Rgba32>(MetatileSize, MetatileSize);
 
+        // Initialize with transparent pixels (ImageSharp defaults to black)
+        gridImage.ProcessPixelRows(accessor =>
+        {
+            var transparent = new Rgba32(0, 0, 0, 0);
+            for (int y = 0; y < accessor.Height; y++)
+            {
+                var row = accessor.GetRowSpan(y);
+                row.Fill(transparent);
+            }
+        });
+
         // Positions for 4 tiles: TL, TR, BL, BR
         var positions = new[] { (0, 0), (TileSize, 0), (0, TileSize), (TileSize, TileSize) };
 

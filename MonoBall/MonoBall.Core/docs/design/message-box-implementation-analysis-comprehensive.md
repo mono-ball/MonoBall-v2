@@ -2,7 +2,8 @@
 
 ## Executive Summary
 
-The message box implementation has a **fundamental design flaw** in how `CurrentCharIndex` tracks progress through text. This causes rendering to fail when newlines are encountered, leading to text not advancing to the next line.
+The message box implementation has a **fundamental design flaw** in how `CurrentCharIndex` tracks progress through text.
+This causes rendering to fail when newlines are encountered, leading to text not advancing to the next line.
 
 ## Critical Bugs
 
@@ -11,11 +12,14 @@ The message box implementation has a **fundamental design flaw** in how `Current
 **Location**: `MessageBoxSceneSystem.ProcessCharacter()` line 502-508
 
 **Problem**:
+
 - When a `Newline` token is processed, `CurrentTokenIndex` advances but `CurrentCharIndex` does NOT advance
 - This causes `CurrentCharIndex` to remain at the same value as the previous line's `EndIndex`
-- When the next line starts at the same `StartIndex`, rendering logic cannot distinguish between "finished previous line" and "starting next line"
+- When the next line starts at the same `StartIndex`, rendering logic cannot distinguish between "finished previous
+  line" and "starting next line"
 
 **Example**:
+
 ```
 Text: "Player Statistics\n\nTotal Steps: 0"
 After wrapping:
@@ -35,7 +39,9 @@ Rendering with CurrentCharIndex=17:
   - Line 2: 17 == 17 && 17 < 32 → tries to render but substringLength = 0 → nothing renders ✗
 ```
 
-**Root Cause**: The design assumes `CurrentCharIndex` represents "characters processed", but newlines aren't characters, so they don't advance the index. However, the rendering logic needs `CurrentCharIndex` to represent "position in the text stream" including newlines.
+**Root Cause**: The design assumes `CurrentCharIndex` represents "characters processed", but newlines aren't characters,
+so they don't advance the index. However, the rendering logic needs `CurrentCharIndex` to represent "position in the
+text stream" including newlines.
 
 **Impact**: Text stops rendering after the first line when newlines are present.
 
@@ -44,11 +50,13 @@ Rendering with CurrentCharIndex=17:
 **Location**: `MessageBoxSceneSystem.RenderText()` lines 1429-1505
 
 **Problem**:
+
 - Multiple nested conditions trying to handle edge cases
 - Logic tries to handle empty lines, partial lines, complete lines, and boundary conditions
 - The conditions are hard to reason about and have subtle bugs
 
 **Issues**:
+
 1. Empty lines (`StartIndex == EndIndex`) are handled inconsistently
 2. Boundary condition when `CurrentCharIndex == StartIndex == EndIndex` is ambiguous
 3. The logic tries to render lines "past" the current position, which is conceptually wrong
@@ -58,6 +66,7 @@ Rendering with CurrentCharIndex=17:
 **Location**: `MessageBoxSceneSystem.WrapText()` vs `RenderText()`
 
 **Problem**:
+
 - `WrapText()` uses `charIndex` that doesn't increment for newlines (correct for wrapping)
 - `RenderText()` uses `CurrentCharIndex` that also doesn't increment for newlines
 - But rendering needs to know "which line are we on" not "which character index"
@@ -71,6 +80,7 @@ Rendering with CurrentCharIndex=17:
 **Location**: `MessageBoxSceneSystem._activeMessageBoxSceneEntity` + query-based approach
 
 **Problem**:
+
 - System tracks `_activeMessageBoxSceneEntity` for single-message-box policy
 - But `ProcessInternal()` queries for ALL message box scenes
 - This creates potential inconsistency if multiple scenes exist
@@ -82,11 +92,13 @@ Rendering with CurrentCharIndex=17:
 **Location**: Throughout `MessageBoxComponent` and processing logic
 
 **Problem**:
+
 - `CurrentTokenIndex` tracks position in token list (correct)
 - `CurrentCharIndex` tracks position in character stream (incorrect for rendering)
 - Rendering uses `CurrentCharIndex` to determine which lines to show, but this doesn't work for newlines
 
-**Recommendation**: 
+**Recommendation**:
+
 - Option A: Make `CurrentCharIndex` advance for newlines (treat newlines as "characters" for rendering purposes)
 - Option B: Track "current line index" separately from character index
 - Option C: Use `CurrentTokenIndex` to determine rendering state instead of `CurrentCharIndex`
@@ -96,11 +108,14 @@ Rendering with CurrentCharIndex=17:
 **Location**: `RenderText()` method
 
 **Problem**:
+
 - Rendering tries to use `CurrentCharIndex` to determine which lines to render
-- But `CurrentCharIndex` doesn't advance for newlines, so it can't accurately represent "how much text has been processed"
+- But `CurrentCharIndex` doesn't advance for newlines, so it can't accurately represent "how much text has been
+  processed"
 - Should instead use `CurrentTokenIndex` to determine which tokens have been processed, then render corresponding lines
 
 **Recommendation**: Refactor rendering to be token-based:
+
 1. Determine which tokens have been processed using `CurrentTokenIndex`
 2. Map tokens to lines (pre-compute this during wrapping)
 3. Render lines based on token processing state
@@ -112,6 +127,7 @@ Rendering with CurrentCharIndex=17:
 **Location**: `MessageBoxSceneSystem` constructor line 101-103
 
 **Status**: ✅ CORRECT
+
 - Events are subscribed in constructor
 - Unsubscribed in `Dispose()`
 - Follows `.cursorrules` requirement
@@ -121,6 +137,7 @@ Rendering with CurrentCharIndex=17:
 **Location**: `MessageBoxSceneSystem` constructor line 93-97
 
 **Status**: ✅ CORRECT
+
 - `_messageBoxScenesQuery` is cached in constructor
 - Never created in hot paths
 - Follows `.cursorrules` requirement
@@ -128,6 +145,7 @@ Rendering with CurrentCharIndex=17:
 ### Issue #3: Event-Driven Architecture
 
 **Status**: ✅ CORRECT
+
 - `MessageBoxShowEvent` → creates scene
 - `MessageBoxHideEvent` → destroys scene
 - `MessageBoxTextAdvanceEvent` → advances text
@@ -140,11 +158,13 @@ Rendering with CurrentCharIndex=17:
 **Location**: `RenderText()` lines 1435-1505
 
 **Problem**:
+
 - Multiple conditions checking `CurrentCharIndex` vs `line.EndIndex`/`line.StartIndex`
 - Similar logic repeated for different cases
 - Hard to maintain and test
 
 **Recommendation**: Extract rendering decision logic into separate method:
+
 ```csharp
 private bool ShouldRenderLine(WrappedLine line, int currentCharIndex, out bool isComplete, out bool isPartial)
 ```
@@ -154,11 +174,13 @@ private bool ShouldRenderLine(WrappedLine line, int currentCharIndex, out bool i
 **Location**: `ProcessCharacter()`, `WrapText()`, `RenderText()`
 
 **Problem**:
+
 - Text processing logic is spread across multiple methods
 - Hard to understand the flow
 - Changes in one place can break others
 
 **Recommendation**: Create a `TextProcessor` class that handles:
+
 - Token parsing
 - Text wrapping
 - Rendering state calculation
@@ -169,6 +191,7 @@ private bool ShouldRenderLine(WrappedLine line, int currentCharIndex, out bool i
 **Location**: Various rendering methods
 
 **Status**: ✅ MOSTLY GOOD
+
 - Uses `MessageBoxConstants` for most values
 - Some hardcoded values in `DrawDialogueFrame` (tile indices)
 
@@ -197,6 +220,7 @@ private bool ShouldRenderLine(WrappedLine line, int currentCharIndex, out bool i
 ### Fix #1: Make CurrentCharIndex Advance for Newlines (SIMPLEST)
 
 **Change**: In `ProcessCharacter()`, when processing a `Newline` token, increment `CurrentCharIndex`:
+
 ```csharp
 case TextTokenType.Newline:
     msgBox.CurrentTokenIndex++;
@@ -207,16 +231,19 @@ case TextTokenType.Newline:
     break;
 ```
 
-**Rationale**: 
+**Rationale**:
+
 - Treats newlines as "characters" for rendering purposes
 - Makes `CurrentCharIndex` accurately represent "position in text stream"
 - Simplifies rendering logic
 
-**Trade-off**: `CurrentCharIndex` no longer represents "visible characters only", but this is acceptable since it's used for rendering, not character counting.
+**Trade-off**: `CurrentCharIndex` no longer represents "visible characters only", but this is acceptable since it's used
+for rendering, not character counting.
 
 ### Fix #2: Simplify Rendering Logic
 
 **Change**: After Fix #1, simplify rendering to:
+
 ```csharp
 foreach (var line in msgBox.WrappedLines)
 {
@@ -252,6 +279,7 @@ foreach (var line in msgBox.WrappedLines)
 ### Fix #3: Update WrapText to Match
 
 **Change**: In `WrapText()`, increment `charIndex` for newlines:
+
 ```csharp
 else if (token.TokenType == TextTokenType.Newline)
 {
@@ -263,32 +291,35 @@ else if (token.TokenType == TextTokenType.Newline)
 }
 ```
 
-**Rationale**: Makes wrapping consistent with processing - newlines are part of the character stream for indexing purposes.
+**Rationale**: Makes wrapping consistent with processing - newlines are part of the character stream for indexing
+purposes.
 
 ## Testing Recommendations
 
 1. **Test Case 1**: Single line text
-   - Input: `"Hello"`
-   - Expected: Renders correctly
+    - Input: `"Hello"`
+    - Expected: Renders correctly
 
 2. **Test Case 2**: Text with newline
-   - Input: `"Line 1\nLine 2"`
-   - Expected: Both lines render
+    - Input: `"Line 1\nLine 2"`
+    - Expected: Both lines render
 
 3. **Test Case 3**: Text with consecutive newlines
-   - Input: `"Line 1\n\nLine 3"`
-   - Expected: Line 1, empty line (spacing), Line 3
+    - Input: `"Line 1\n\nLine 3"`
+    - Expected: Line 1, empty line (spacing), Line 3
 
 4. **Test Case 4**: Text with newline at start
-   - Input: `"\nLine 2"`
-   - Expected: Empty line, then Line 2
+    - Input: `"\nLine 2"`
+    - Expected: Empty line, then Line 2
 
 5. **Test Case 5**: Text with newline at end
-   - Input: `"Line 1\n"`
-   - Expected: Line 1, then empty line
+    - Input: `"Line 1\n"`
+    - Expected: Line 1, then empty line
 
 ## Conclusion
 
-The core issue is that `CurrentCharIndex` doesn't advance for newlines, causing rendering to fail. The fix is simple: treat newlines as "characters" for indexing purposes, even though they're not visible characters. This aligns the indexing scheme between wrapping, processing, and rendering.
+The core issue is that `CurrentCharIndex` doesn't advance for newlines, causing rendering to fail. The fix is simple:
+treat newlines as "characters" for indexing purposes, even though they're not visible characters. This aligns the
+indexing scheme between wrapping, processing, and rendering.
 
 

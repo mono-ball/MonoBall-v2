@@ -1,13 +1,12 @@
-namespace MonoBall.Core.ECS.Events.Audio
+namespace MonoBall.Core.ECS.Events.Audio;
+
+/// <summary>
+///     Event fired to change master volume.
+/// </summary>
+public struct SetMasterVolumeEvent
 {
     /// <summary>
-    /// Event fired to change master volume.
+    ///     Master volume (0-1).
     /// </summary>
-    public struct SetMasterVolumeEvent
-    {
-        /// <summary>
-        /// Master volume (0-1).
-        /// </summary>
-        public float Volume { get; set; }
-    }
+    public float Volume { get; set; }
 }

@@ -2,14 +2,17 @@
 
 ## Executive Summary
 
-This design moves hardcoded constants from C# static classes into mod JSON definitions, enabling mods to customize game behavior without code changes. Constants are loaded through the existing mod system and accessed via a type-safe service interface.
+This design moves hardcoded constants from C# static classes into mod JSON definitions, enabling mods to customize game
+behavior without code changes. Constants are loaded through the existing mod system and accessed via a type-safe service
+interface.
 
 ### Key Decisions
 
 - **Location**: Constants defined in **core mod** (`base:monoball-core`) at `Mods/core/Definitions/Constants/`
 - **Storage**: Constants stored as JSON definitions with type `"ConstantsDefinitions"` in mod files
 - **Access**: Type-safe service interface (`IConstantsService`) with generic methods
-- **Override**: Other mods can modify/extend/replace constants using existing definition operations (core mod loads first)
+- **Override**: Other mods can modify/extend/replace constants using existing definition operations (core mod loads
+  first)
 - **Naming**: Flat, descriptive names (e.g., `DefaultPlayerMovementSpeed`) rather than grouped
 - **Pre-calculated Values**: All constants are pre-calculated and stored directly in JSON (no runtime computation)
 - **Validation**: Fail-fast with clear exceptions if constants are missing
@@ -25,7 +28,9 @@ This design moves hardcoded constants from C# static classes into mod JSON defin
 
 ## Overview
 
-This design proposes a system to move hardcoded constants from C# files into mod definitions, allowing mods to customize game behavior without code changes. Constants will be loaded from mod JSON files and accessed through a centralized service.
+This design proposes a system to move hardcoded constants from C# files into mod definitions, allowing mods to customize
+game behavior without code changes. Constants will be loaded from mod JSON files and accessed through a centralized
+service.
 
 ## Goals
 
@@ -47,9 +52,11 @@ This design proposes a system to move hardcoded constants from C# files into mod
 
 ### Definition Structure
 
-Constants will be defined in JSON files within the **core mod** (`base:monoball-core`), following the existing definition pattern. The core mod will contain default constants that can be overridden by other mods.
+Constants will be defined in JSON files within the **core mod** (`base:monoball-core`), following the existing
+definition pattern. The core mod will contain default constants that can be overridden by other mods.
 
 **Core Mod Structure:**
+
 ```
 Mods/core/
 ├── mod.json
@@ -152,10 +159,12 @@ Mods/core/
 
 ### Mod Integration
 
-Constants will be loaded as definitions with type `"ConstantsDefinitions"` (consistent with other definition types like `"FontDefinitions"`). The core mod (`base:monoball-core`) defines the default constants. Other mods can:
+Constants will be loaded as definitions with type `"ConstantsDefinitions"` (consistent with other definition types like
+`"FontDefinitions"`). The core mod (`base:monoball-core`) defines the default constants. Other mods can:
 
 - **Create**: Define new constant groups
-- **Modify**: Override specific constants in existing groups (loaded after core mod) - **nested objects merge recursively**
+- **Modify**: Override specific constants in existing groups (loaded after core mod) - **nested objects merge
+  recursively**
 - **Replace**: Completely replace a constant group
 
 **Core Mod `mod.json` Update:**
@@ -176,7 +185,8 @@ The core mod's `mod.json` must include the Constants folder:
 
 **Example Mod Override:**
 
-Other mods can override individual constants by creating a definition file with the same ID. The `modify` operation merges nested objects recursively, so you only need to specify the constants you want to change:
+Other mods can override individual constants by creating a definition file with the same ID. The `modify` operation
+merges nested objects recursively, so you only need to specify the constants you want to change:
 
 ```json
 {
@@ -190,6 +200,7 @@ Other mods can override individual constants by creating a definition file with 
 ```
 
 **How It Works:**
+
 - The `modify` operation merges the `constants` dictionary recursively
 - Only the specified constants are overridden; all other constants remain unchanged
 - This is a system-wide improvement to `JsonElementMerger` - nested objects merge recursively for `modify` operations
@@ -658,28 +669,34 @@ namespace MonoBall.Core.Constants
 ## Migration Strategy
 
 ### Phase 1: Create Constants System
+
 1. Ensure `<Nullable>enable</Nullable>` is set in the project file
-2. **Update `JsonElementMerger.Merge()`** to merge nested objects recursively for `modify` operations (system-wide improvement)
+2. **Update `JsonElementMerger.Merge()`** to merge nested objects recursively for `modify` operations (system-wide
+   improvement)
 3. Create `IConstantsService` interface
 4. Create `ConstantsService` implementation (with caching and validation)
-5. Create `ConstantDefinition` and `ConstantValidationRule` models (following ScriptParameterDefinition/ShaderParameterDefinition pattern)
+5. Create `ConstantDefinition` and `ConstantValidationRule` models (following
+   ScriptParameterDefinition/ShaderParameterDefinition pattern)
 6. Register service in `MonoBallGame.LoadModsSynchronously()` **after** mods are loaded
 7. Call `ValidateRequiredConstants()` with critical constant keys
 8. Call `ValidateConstants()` to validate all constants against their validation rules
 
 ### Phase 2: Create Default Constants Definitions in Core Mod
+
 1. Create `Mods/core/Definitions/Constants/` folder
 2. Create `game.json` with all `GameConstants` values (ID: `base:constants:game`)
 3. Create `messagebox.json` with all `MessageBoxConstants` values (ID: `base:constants:messagebox`)
 4. Update `Mods/core/mod.json` to include `"ConstantsDefinitions": "Definitions/Constants"` in `contentFolders`
 
 ### Phase 3: Update Code to Use Service
+
 1. Inject `IConstantsService` into systems/components that need constants
 2. Replace `GameConstants.X` with `_constantsService.Get<int>("X")`
 3. Replace `MessageBoxConstants.X` with `_constantsService.Get<int>("X")` or `GetString("X")`
 4. Remove old constant classes after migration complete
 
 ### Phase 4: Add Validation Rules (Optional)
+
 1. Add validation rules to core mod JSON files (optional but recommended)
 2. Validation rules are merged the same way as constants (later mods override earlier ones)
 
@@ -705,7 +722,9 @@ constantsService.ValidateConstants();
 Services.AddService(typeof(IConstantsService), constantsService);
 ```
 
-**Note**: Consider creating a `ConstantsServiceFactory` similar to `FontServiceFactory` if you need to prevent duplicate registration or preserve cached instances. For now, direct registration is sufficient since ConstantsService is created once after mods load.
+**Note**: Consider creating a `ConstantsServiceFactory` similar to `FontServiceFactory` if you need to prevent duplicate
+registration or preserve cached instances. For now, direct registration is sufficient since ConstantsService is created
+once after mods load.
 
 ## Usage Examples
 
@@ -748,7 +767,8 @@ var popupHeight = _constants.Get<int>("PopupBackgroundHeight");
 
 ### With TryGet for Optional Constants
 
-**Important**: Use `TryGet<T>()` only for truly optional constants (e.g., mod-specific extensions). Never use as a fallback for required constants - use `Get<T>()` which fails fast.
+**Important**: Use `TryGet<T>()` only for truly optional constants (e.g., mod-specific extensions). Never use as a
+fallback for required constants - use `Get<T>()` which fails fast.
 
 ```csharp
 // ✅ Good: Optional mod-specific constant
@@ -775,57 +795,72 @@ if (_constants.TryGet<int>("TileChunkSize", out var size))
 
 ## Design Decision: Option 2 - Improved Consistency
 
-This design follows **Option 2** from the consistency analysis: keeping multiple constants per file while improving alignment with other definition patterns.
+This design follows **Option 2** from the consistency analysis: keeping multiple constants per file while improving
+alignment with other definition patterns.
 
 **Key Consistency Improvements:**
+
 - Uses `IModManager.GetDefinition<T>()` instead of direct registry access (like FontService, SpriteLoaderService)
 - Uses `IModManager.GetDefinitionMetadata()` for metadata (consistent with other services)
 - Service wraps registry access and provides domain-specific APIs (same pattern as other services)
 - ConstantDefinition uses `[JsonPropertyName]` attributes (consistent with FontDefinition, SpriteDefinition)
 
 **Trade-offs:**
+
 - Multiple constants per file (more practical than one file per constant)
 - Constants are flattened from definition files (unique to constants, but necessary for the grouped structure)
-- Override pattern merges nested `constants` dictionary recursively (same granularity as other definitions with nested structures)
+- Override pattern merges nested `constants` dictionary recursively (same granularity as other definitions with nested
+  structures)
 
 ## Considerations
 
 1. **Core Mod Location**: Constants are defined in the core mod (`base:monoball-core`), which loads first (priority 0)
 2. **Service Initialization**: Service must be created **after** mods are loaded (in `LoadModsSynchronously()`)
-3. **Service Pattern**: Follows same pattern as FontService and SpriteLoaderService - wraps `IModManager` and provides domain-specific APIs
+3. **Service Pattern**: Follows same pattern as FontService and SpriteLoaderService - wraps `IModManager` and provides
+   domain-specific APIs
 4. **Type Conversion**: JSON numbers are always `double`; validation ensures integer precision for `int` types
 5. **Default Values**: No fallback values - fail-fast if constant missing
 6. **String Constants**: Separate method for strings since they're reference types (can't use `where T : struct`)
 7. **Load Order**: Constants loaded in mod load order; core mod loads first, other mods can override
 8. **Validation**: `ValidateRequiredConstants()` should be called after service creation to fail-fast
-9. **Core Mod Dependency**: All constants must be defined in core mod; other mods can only override, not create new required constants
-10. **Performance**: Constants are cached after first access; systems should cache frequently-used constants in constructors
+9. **Core Mod Dependency**: All constants must be defined in core mod; other mods can only override, not create new
+   required constants
+10. **Performance**: Constants are cached after first access; systems should cache frequently-used constants in
+    constructors
 11. **Caching**: Deserialized values are cached to avoid allocations in hot paths (`Get<T>()` and `GetString()`)
-12. **Override Pattern**: Mods override individual constants using `$operation: "modify"` - the `constants` dictionary merges recursively, so only specified constants need to be included
-13. **Recursive Merging**: The `modify` operation merges nested objects recursively (system-wide improvement to `JsonElementMerger`), allowing granular overrides without replacing entire nested structures
+12. **Override Pattern**: Mods override individual constants using `$operation: "modify"` - the `constants` dictionary
+    merges recursively, so only specified constants need to be included
+13. **Recursive Merging**: The `modify` operation merges nested objects recursively (system-wide improvement to
+    `JsonElementMerger`), allowing granular overrides without replacing entire nested structures
 
 ## Pre-calculated Constants
 
-Some constants were previously computed from frame-based values (assuming 60 FPS). These values are now pre-calculated and stored directly in JSON:
+Some constants were previously computed from frame-based values (assuming 60 FPS). These values are now pre-calculated
+and stored directly in JSON:
 
 **Text Speed Delays** (seconds per character, converted from frame delays):
+
 - `TextSpeedSlowSeconds = 8 frames / 60 FPS = 0.133333` → `0.133333`
 - `TextSpeedMediumSeconds = 4 frames / 60 FPS = 0.066667` → `0.066667`
 - `TextSpeedFastSeconds = 1 frame / 60 FPS = 0.016667` → `0.016667`
 - `TextSpeedInstantSeconds = 0.0` (instant, no delay)
 
 **Scroll Speeds** (pixels per second, converted from pixels per frame at 60 FPS):
+
 - `ScrollSpeedSlowPixelsPerSecond = 1 pixel/frame * 60 FPS = 60.0`
 - `ScrollSpeedMediumPixelsPerSecond = 2 pixels/frame * 60 FPS = 120.0`
 - `ScrollSpeedFastPixelsPerSecond = 4 pixels/frame * 60 FPS = 240.0`
 - `ScrollSpeedInstantPixelsPerSecond = 6 pixels/frame * 60 FPS = 360.0`
 
-**Approach**: All values are pre-calculated and stored directly in JSON. This simplifies the code, avoids runtime computation, and allows mods to override any value independently.
+**Approach**: All values are pre-calculated and stored directly in JSON. This simplifies the code, avoids runtime
+computation, and allows mods to override any value independently.
 
 ## Constant Naming Strategy
 
 ### Flat Naming (Recommended)
+
 Use descriptive, flat names:
+
 - `DefaultPlayerMovementSpeed`
 - `MessageBoxInteriorWidth`
 - `PopupBackgroundHeight`
@@ -834,7 +869,9 @@ Use descriptive, flat names:
 **Cons**: Can get verbose
 
 ### Grouped Naming (Alternative)
+
 Use namespace-like prefixes:
+
 - `game:player:movementSpeed`
 - `ui:messagebox:interiorWidth`
 - `map:popup:backgroundHeight`
@@ -847,18 +884,22 @@ Use namespace-like prefixes:
 ## Architecture Analysis
 
 See [constants-system-design-analysis.md](./constants-system-design-analysis.md) for detailed analysis of:
+
 - Architecture issues and SOLID/DRY violations
 - Performance concerns and optimization opportunities
 - ECS/event system integration considerations
 - Mod system integration patterns
 
-See [constants-system-design-cursorrules-analysis.md](./constants-system-design-cursorrules-analysis.md) for .cursorrules compliance analysis:
+See [constants-system-design-cursorrules-analysis.md](./constants-system-design-cursorrules-analysis.md) for
+.cursorrules compliance analysis:
+
 - Verification against all critical rules
 - .NET 10 C# best practices compliance
 - SOLID/DRY principle evaluation
 - Implementation recommendations
 
 See [constants-system-design-inconsistencies.md](./constants-system-design-inconsistencies.md) for consistency analysis:
+
 - Comparison with other definition types (FontDefinitions, SpriteDefinitions, etc.)
 - Access pattern inconsistencies
 - Structure and override pattern differences
@@ -878,7 +919,8 @@ The analysis document provides detailed recommendations and code examples for ad
 
 ## Implementation Requirement: Recursive Nested Object Merging
 
-**System-Wide Improvement**: The `modify` operation merges nested objects recursively, not just top-level properties. This is implemented as part of the constants system design but benefits all definition types.
+**System-Wide Improvement**: The `modify` operation merges nested objects recursively, not just top-level properties.
+This is implemented as part of the constants system design but benefits all definition types.
 
 **Implementation Details:**
 
@@ -906,19 +948,23 @@ else
 ```
 
 **Benefits:**
+
 - Constants can override individual values without replacing entire dictionary
 - All definition types with nested structures benefit from this improvement
 - Consistent behavior: `modify` merges recursively, `extend` merges recursively, `replace` replaces entirely
 
-**Migration Note**: This change affects the behavior of `modify` operations for all definition types. Existing mods using `modify` on definitions with nested objects will now merge recursively instead of replacing entirely.
+**Migration Note**: This change affects the behavior of `modify` operations for all definition types. Existing mods
+using `modify` on definitions with nested objects will now merge recursively instead of replacing entirely.
 
 ## Validation Rules
 
-Constants support validation rules similar to `ScriptParameterDefinition` and `ShaderParameterDefinition`, but structured differently due to the data model.
+Constants support validation rules similar to `ScriptParameterDefinition` and `ShaderParameterDefinition`, but
+structured differently due to the data model.
 
 **Pattern Comparison:**
 
 **ScriptDefinition/ShaderDefinition** (parameters are objects):
+
 ```json
 {
   "parameters": [
@@ -933,10 +979,12 @@ Constants support validation rules similar to `ScriptParameterDefinition` and `S
   ]
 }
 ```
+
 - Parameters are an **array of objects**
 - Validation rules (`min`/`max`) are **inline** with each parameter
 
 **ConstantDefinition** (constants are primitive values):
+
 ```json
 {
   "constants": {
@@ -951,26 +999,31 @@ Constants support validation rules similar to `ScriptParameterDefinition` and `S
   }
 }
 ```
+
 - Constants are a **dictionary of key-value pairs** (primitive values)
 - Validation rules are defined in a **separate dictionary** mapping constant keys to rules
 
 **Why Different:**
+
 - Constants are stored as primitive values (`"TileChunkSize": 16`), not objects with properties
 - Cannot add metadata (min/max) directly to primitive values
 - Separate `validationRules` dictionary is necessary to map constant keys to their validation constraints
 
 **Purpose:**
+
 - Ensure values are within expected bounds (e.g., `DefaultPlayerMovementSpeed > 0`, `TileChunkSize > 0`)
 - Prevent invalid configurations and catch mod errors early
 - Not for overflow protection (JSON uses doubles, and type conversion already validates precision for int types)
 
 **Validation:**
+
 - Validation rules are optional - constants without rules are not validated
 - Validation runs after constants are loaded via `ValidateConstants()` method
 - Validation fails fast with clear error messages if any constant violates its rules
 - Uses the same validation logic pattern as `ScriptDefinition` and `ShaderDefinition` parameter validation
 
 **Example:**
+
 ```json
 {
   "id": "base:constants:game",
@@ -996,5 +1049,8 @@ Constants support validation rules similar to `ScriptParameterDefinition` and `S
 
 1. **Hot Reload**: Support reloading constants during development (applies to all definitions)
 
-**Note**: Future enhancements should align with patterns used by other definitions. Features like validation rules and hot reload would benefit all definition types, not just constants. Type-safe wrappers are not included since they don't exist for other definition types (which also use string-based dictionary lookups), and would be inconsistent with the rest of the codebase.
+**Note**: Future enhancements should align with patterns used by other definitions. Features like validation rules and
+hot reload would benefit all definition types, not just constants. Type-safe wrappers are not included since they don't
+exist for other definition types (which also use string-based dictionary lookups), and would be inconsistent with the
+rest of the codebase.
 

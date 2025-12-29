@@ -1,13 +1,15 @@
 # Text Effect System Architecture Analysis
 
 **Date:** 2024-12-19  
-**Scope:** Complete analysis of text effect code for architecture issues, SOLID/DRY violations, Arch ECS/Event issues, .cursorrule compliance, and unimplemented features.
+**Scope:** Complete analysis of text effect code for architecture issues, SOLID/DRY violations, Arch ECS/Event issues,
+.cursorrule compliance, and unimplemented features.
 
 ---
 
 ## Executive Summary
 
-The text effect system is generally well-architected but has several issues that violate project rules and best practices:
+The text effect system is generally well-architected but has several issues that violate project rules and best
+practices:
 
 - **🔴 CRITICAL:** Hardcoded shake interval constant instead of using effect definition property
 - **🟡 MEDIUM:** Missing null validation (fail-fast violations)
@@ -24,7 +26,8 @@ The text effect system is generally well-architected but has several issues that
 
 **Location:** `MessageBoxSceneSystem.cs:703`
 
-**Problem:** The `UpdateShakeOffsets` method uses a hardcoded constant `_shakeIntervalSeconds` instead of reading from the effect definition's `ShakeIntervalSeconds` property.
+**Problem:** The `UpdateShakeOffsets` method uses a hardcoded constant `_shakeIntervalSeconds` instead of reading from
+the effect definition's `ShakeIntervalSeconds` property.
 
 ```csharp
 // Current (WRONG):
@@ -40,11 +43,14 @@ if (timeSinceLastShake < effectDef.ShakeIntervalSeconds)
 }
 ```
 
-**Impact:** All shake effects use the same interval regardless of their definition, violating the mod system's flexibility.
+**Impact:** All shake effects use the same interval regardless of their definition, violating the mod system's
+flexibility.
 
-**Fix:** Read `effectDef.ShakeIntervalSeconds` instead of using the cached constant. The constant should only be used as a fallback/default.
+**Fix:** Read `effectDef.ShakeIntervalSeconds` instead of using the cached constant. The constant should only be used as
+a fallback/default.
 
-**Rule Violation:** 
+**Rule Violation:**
+
 - ❌ No Fallback Code rule - should use effect definition property, not constant
 - ❌ DRY - effect definition already has this property
 
@@ -54,7 +60,8 @@ if (timeSinceLastShake < effectDef.ShakeIntervalSeconds)
 
 **Location:** `TextEffectCalculator.cs:18, 87`
 
-**Problem:** Color phase offset is hardcoded as `ColorPhaseOffsetPerChar = 0.1f` instead of using the effect definition's `EffectiveColorPhaseOffset` property.
+**Problem:** Color phase offset is hardcoded as `ColorPhaseOffsetPerChar = 0.1f` instead of using the effect
+definition's `EffectiveColorPhaseOffset` property.
 
 ```csharp
 // Current (WRONG):
@@ -71,6 +78,7 @@ float phase = (totalTime * cycleSpeed) + (charIndex * effect.EffectiveColorPhase
 **Fix:** Pass the effect definition to `CalculateCycleColor` and use `EffectiveColorPhaseOffset`.
 
 **Rule Violation:**
+
 - ❌ DRY - effect definition already has this property
 - ❌ No Fallback Code - should use effect definition, not hardcoded value
 
@@ -97,6 +105,7 @@ private void UpdateShakeOffsets(ref MessageBoxComponent msgBox)
 ```
 
 **Fix:** Add null checks at method start:
+
 ```csharp
 if (_modManager == null)
 {
@@ -120,6 +129,7 @@ public Color CalculateCycleColor(ColorPaletteDefinition palette, ...)
 ```
 
 **Fix:** Add null check:
+
 ```csharp
 if (palette == null)
 {
@@ -128,6 +138,7 @@ if (palette == null)
 ```
 
 **Rule Violation:**
+
 - ❌ No Fallback Code rule - should fail fast with clear exceptions
 - ❌ Dependency Injection best practices - validate required dependencies
 
@@ -140,10 +151,12 @@ if (palette == null)
 **Location:** `MessageBoxSceneSystem.cs:1044-1051` and `699-725`
 
 **Problem:** Shake offset generation logic is duplicated in two places:
+
 1. `EffectStart` token handler (lines 1044-1051)
 2. `UpdateShakeOffsets` method (lines 699-725)
 
 **Fix:** Extract to a private method:
+
 ```csharp
 private void InitializeShakeOffsets(ref MessageBoxComponent msgBox, TextEffectDefinition effectDef)
 {
@@ -165,6 +178,7 @@ private void InitializeShakeOffsets(ref MessageBoxComponent msgBox, TextEffectDe
 **Problem:** Color mode switch has repeated `CalculateCycleColor` calls with same parameters.
 
 **Fix:** Extract cycle color calculation before switch:
+
 ```csharp
 Color? cycleColor = null;
 if (effectDef != null && palette != null && effectDef.EffectTypes.HasFlag(TextEffectType.ColorCycle))
@@ -180,6 +194,7 @@ if (effectDef != null && palette != null && effectDef.EffectTypes.HasFlag(TextEf
 ```
 
 **Rule Violation:**
+
 - ❌ DRY principle - repeated code should be extracted
 
 ---
@@ -189,13 +204,16 @@ if (effectDef != null && palette != null && effectDef.EffectTypes.HasFlag(TextEf
 **Location:** `MessageBoxSceneSystem.cs:718, 1045`
 
 **Problem:** Shake seed uses `(int)(msgBox.EffectTime * 1000)` which may not be deterministic if:
+
 - EffectTime resets
 - EffectTime wraps around
 - Multiple effects use same EffectTime
 
 **Impact:** Shake patterns may not be reproducible even with `DeterministicShake` enabled.
 
-**Fix:** Use effect definition's `ShakeRandomSeed` when `DeterministicShake` is true, combine with character index for per-character variation:
+**Fix:** Use effect definition's `ShakeRandomSeed` when `DeterministicShake` is true, combine with character index for
+per-character variation:
+
 ```csharp
 int seed = effectDef.DeterministicShake 
     ? effectDef.ShakeRandomSeed + charIndex
@@ -203,6 +221,7 @@ int seed = effectDef.DeterministicShake
 ```
 
 **Rule Violation:**
+
 - ❌ Feature not fully implemented - deterministic shake doesn't use configured seed
 
 ---
@@ -211,16 +230,19 @@ int seed = effectDef.DeterministicShake
 
 **Location:** `MessageBoxSceneSystem.cs:717, 1044`
 
-**Problem:** Uses `msgBox.ParsedText?.Count ?? 0` which counts tokens, not characters. Shake offsets are keyed by character index (`charData.CharIndex`), so the count may be wrong.
+**Problem:** Uses `msgBox.ParsedText?.Count ?? 0` which counts tokens, not characters. Shake offsets are keyed by
+character index (`charData.CharIndex`), so the count may be wrong.
 
 **Impact:** Shake offsets may not be generated for all characters, or may generate unnecessary offsets.
 
 **Fix:** Calculate actual character count from wrapped lines:
+
 ```csharp
 int charCount = msgBox.WrappedLines?.Sum(line => line.CharacterData?.Count ?? 0) ?? 0;
 ```
 
 **Rule Violation:**
+
 - ❌ Potential bug - incorrect character count calculation
 
 ---
@@ -232,12 +254,14 @@ int charCount = msgBox.WrappedLines?.Sum(line => line.CharacterData?.Count ?? 0)
 **Location:** `TextEffectCalculator.cs`, `MessageBoxSceneSystem.cs`
 
 **Problem:** Some private methods lack XML documentation:
+
 - `UpdateShakeOffsets` - no XML docs
 - `GetScrollSpeed` - has summary but missing param/returns docs
 
 **Fix:** Add XML documentation for all public and protected methods.
 
 **Rule Violation:**
+
 - ❌ Documentation Standards - all public APIs should have XML comments
 
 ---
@@ -246,9 +270,11 @@ int charCount = msgBox.WrappedLines?.Sum(line => line.CharacterData?.Count ?? 0)
 
 **Location:** `MessageBoxContentRenderer.cs:45-46`
 
-**Problem:** `textEffectCalculator` and `modManager` are optional parameters, but effects won't work without them. This violates fail-fast principle.
+**Problem:** `textEffectCalculator` and `modManager` are optional parameters, but effects won't work without them. This
+violates fail-fast principle.
 
 **Current:**
+
 ```csharp
 public MessageBoxContentRenderer(
     FontService fontService,
@@ -263,9 +289,11 @@ public MessageBoxContentRenderer(
 
 **Impact:** Effects silently fail instead of failing fast with clear error.
 
-**Fix:** Make them required (non-nullable) if effects are always expected, OR add runtime validation when effects are used.
+**Fix:** Make them required (non-nullable) if effects are always expected, OR add runtime validation when effects are
+used.
 
 **Rule Violation:**
+
 - ❌ No Fallback Code - optional dependencies should fail fast when needed
 
 ---
@@ -279,6 +307,7 @@ public MessageBoxContentRenderer(
 **Impact:** Mods can't easily hook into effect lifecycle (e.g., play sounds, trigger animations).
 
 **Fix:** Fire events when effects start/end:
+
 ```csharp
 case TextTokenType.EffectStart:
     // ... existing code ...
@@ -300,6 +329,7 @@ case TextTokenType.EffectStart:
 **Location:** `MessageBoxContentRenderer.cs:156-160, 203-207, 312`
 
 **Problem:** Same null check pattern repeated multiple times:
+
 ```csharp
 bool canRenderEffects =
     line.HasEffects
@@ -309,12 +339,14 @@ bool canRenderEffects =
 ```
 
 **Fix:** Extract to a property or method:
+
 ```csharp
 private bool CanRenderEffects => 
     _textEffectCalculator != null && _modManager != null;
 ```
 
 **Rule Violation:**
+
 - ❌ DRY - repeated null check pattern
 
 ---
@@ -323,7 +355,8 @@ private bool CanRenderEffects =>
 
 **Location:** `MessageBoxContentRenderer.cs:323-353`
 
-**Problem:** Effect definition is cached per line, but if the same effect is used across multiple lines, it's looked up again.
+**Problem:** Effect definition is cached per line, but if the same effect is used across multiple lines, it's looked up
+again.
 
 **Impact:** Minor performance issue - repeated dictionary lookups.
 
@@ -355,21 +388,26 @@ private bool CanRenderEffects =>
 ## SOLID Principles Assessment
 
 ### Single Responsibility ✅
+
 - `TextEffectCalculator` - calculates transformations
 - `MessageBoxContentRenderer` - renders text
 - `MessageBoxSceneSystem` - manages lifecycle
 
 ### Open/Closed ⚠️
+
 - Effect types are enum-based (closed for modification)
 - Could be more extensible with strategy pattern for effect types
 
 ### Liskov Substitution ✅
+
 - `ITextEffectCalculator` interface properly implemented
 
 ### Interface Segregation ✅
+
 - Interfaces are focused and not bloated
 
 ### Dependency Inversion ⚠️
+
 - Dependencies injected via constructor ✅
 - But optional dependencies violate fail-fast principle ❌
 
@@ -378,12 +416,14 @@ private bool CanRenderEffects =>
 ## DRY Assessment
 
 ### Violations Found:
+
 1. Shake offset generation duplicated (2 places)
 2. Color calculation repeated in switch cases
 3. Null checks repeated multiple times
 4. Effect definition lookup pattern repeated
 
 ### Recommendations:
+
 - Extract common methods for shake initialization
 - Pre-calculate cycle color before switch
 - Extract null check to property/method
@@ -394,12 +434,14 @@ private bool CanRenderEffects =>
 ## Arch ECS/Event Assessment
 
 ### Current State:
+
 - ✅ Effect state stored in component (`MessageBoxComponent`)
 - ✅ System-based updates (`MessageBoxSceneSystem`)
 - ⚠️ No events for effect lifecycle
 - ⚠️ Shake offsets stored as Dictionary in component (not component array)
 
 ### Recommendations:
+
 - Consider firing events for effect start/end
 - Dictionary storage is fine for shake offsets (sparse data)
 
@@ -408,6 +450,7 @@ private bool CanRenderEffects =>
 ## .cursorrule Compliance
 
 ### ✅ Compliant:
+
 - XML documentation for most public APIs
 - Namespace matches folder structure
 - One class per file
@@ -415,6 +458,7 @@ private bool CanRenderEffects =>
 - Dependency injection used
 
 ### ❌ Violations:
+
 - Missing null validation (fail-fast violations)
 - Hardcoded constants instead of using effect definition properties
 - Optional dependencies should fail fast when needed
@@ -425,35 +469,39 @@ private bool CanRenderEffects =>
 ## Unimplemented Features / TODOs
 
 ### Found Issues:
+
 1. **Deterministic Shake Not Fully Implemented**
-   - `ShakeRandomSeed` property exists but not used
-   - Seed calculation ignores `DeterministicShake` flag
+    - `ShakeRandomSeed` property exists but not used
+    - Seed calculation ignores `DeterministicShake` flag
 
 2. **Sound Triggers Not Implemented**
-   - `OnStartSound`, `OnEndSound`, `PerCharacterSound` properties exist in `TextEffectDefinition`
-   - No code to play these sounds
+    - `OnStartSound`, `OnEndSound`, `PerCharacterSound` properties exist in `TextEffectDefinition`
+    - No code to play these sounds
 
 3. **Typewriter Speed Override Not Implemented**
-   - `TypewriterSpeedMultiplier` property exists
-   - No code to apply multiplier to text speed
+    - `TypewriterSpeedMultiplier` property exists
+    - No code to apply multiplier to text speed
 
 ---
 
 ## Recommendations Priority
 
 ### 🔴 High Priority (Fix Immediately)
+
 1. Use `effectDef.ShakeIntervalSeconds` instead of constant
 2. Use `effect.EffectiveColorPhaseOffset` instead of hardcoded value
 3. Add null validation for fail-fast behavior
 4. Fix deterministic shake to use `ShakeRandomSeed`
 
 ### 🟡 Medium Priority (Fix Soon)
+
 1. Extract duplicated shake offset generation
 2. Extract duplicated color calculation logic
 3. Fix character count calculation for shake offsets
 4. Add XML documentation for missing methods
 
 ### 🟢 Low Priority (Nice to Have)
+
 1. Fire events for effect lifecycle
 2. Extract repeated null checks to property
 3. Consider caching effect definitions across lines

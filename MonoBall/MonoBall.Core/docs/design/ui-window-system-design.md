@@ -2,11 +2,14 @@
 
 ## Overview
 
-This document describes the design for a reusable UI window system that abstracts common window functionality (border, background, content, position, size) while allowing customization for different window types (map popups, message boxes, future UI elements).
+This document describes the design for a reusable UI window system that abstracts common window functionality (border,
+background, content, position, size) while allowing customization for different window types (map popups, message boxes,
+future UI elements).
 
 ## Problem Statement
 
 Currently, window-like UI elements (map popups, message boxes) have duplicated code for:
+
 - Border/outline rendering
 - Background rendering
 - Position and size calculation
@@ -14,6 +17,7 @@ Currently, window-like UI elements (map popups, message boxes) have duplicated c
 - Coordinate system management
 
 Each implementation handles these concerns differently, leading to:
+
 - Code duplication
 - Inconsistent behavior
 - Difficult maintenance
@@ -629,6 +633,7 @@ namespace MonoBall.Core.UI.Windows
 ```
 
 Concrete implementations:
+
 - `FixedSizeWindowCalculator`: Fixed size (map popups, message boxes)
 - `DynamicSizeWindowCalculator`: Size based on content (future)
 - `TopLeftPositionCalculator`: Top-left positioning (map popups)
@@ -759,24 +764,28 @@ windowRenderer.Render(_spriteBatch, bounds);
 ## Migration Strategy
 
 ### Phase 1: Create Core Infrastructure
+
 1. Create `UI/Windows` namespace and interfaces
 2. Implement `WindowBounds` structure
 3. Implement `WindowRenderer` class
 4. Create base border/background/content renderer interfaces
 
 ### Phase 2: Implement Concrete Renderers
+
 1. Extract border rendering logic from `MapPopupRendererSystem` → `PopupTileSheetBorderRenderer`
 2. Extract border rendering logic from `MessageBoxSceneSystem` → `MessageBoxDialogueFrameBorderRenderer`
 3. Extract background rendering logic → `BitmapBackgroundRenderer`, `TileSheetBackgroundRenderer`
 4. Extract content rendering logic → `SimpleTextContentRenderer`, `MessageBoxContentRenderer`
 
 ### Phase 3: Refactor Existing Systems
+
 1. Refactor `MapPopupRendererSystem` to use `WindowRenderer`
 2. Refactor `MessageBoxSceneSystem` to use `WindowRenderer`
 3. Verify behavior matches existing implementation
 4. Remove duplicate code
 
 ### Phase 4: Add Position/Size Calculators (Optional)
+
 1. Create position calculator interfaces and implementations
 2. Extract position calculation logic
 3. Simplify window creation code
@@ -793,17 +802,17 @@ windowRenderer.Render(_spriteBatch, bounds);
 ## Future Enhancements
 
 1. **Window Animations**: Build a general window animation system to support slide in/out, fade, etc.
-   - **Design Document**: See `window-animation-system-design.md` for complete design
-   - Migrate map popup animations (`PopupAnimationComponent`) to use the window animation system
-   - Support common animation types: slide down/up, fade in/out, scale in/out, combined animations
-   - Allow windows to specify animation parameters (duration, easing, etc.)
-   - Map popups currently use slide down → pause → slide up animation pattern
-   - Uses Arch ECS components (`WindowAnimationComponent`) and events (`WindowAnimationCompletedEvent`)
-   - `WindowRenderer` will accept optional `WindowAnimationComponent` to apply transformations
+    - **Design Document**: See `window-animation-system-design.md` for complete design
+    - Migrate map popup animations (`PopupAnimationComponent`) to use the window animation system
+    - Support common animation types: slide down/up, fade in/out, scale in/out, combined animations
+    - Allow windows to specify animation parameters (duration, easing, etc.)
+    - Map popups currently use slide down → pause → slide up animation pattern
+    - Uses Arch ECS components (`WindowAnimationComponent`) and events (`WindowAnimationCompletedEvent`)
+    - `WindowRenderer` will accept optional `WindowAnimationComponent` to apply transformations
 
 2. **Window Themes**: Support theme switching for TextWindow numbered sprites (Window1, Window2, etc.)
-   - Needed when implementing 9-slice renderer for TextWindow numbered sprites
-   - Allow switching between different window frame styles at runtime
+    - Needed when implementing 9-slice renderer for TextWindow numbered sprites
+    - Allow switching between different window frame styles at runtime
 
 ## File Structure
 

@@ -1,29 +1,28 @@
-namespace MonoBall.Core.Scenes
+namespace MonoBall.Core.Scenes;
+
+/// <summary>
+///     Constants for scene priority values.
+///     Higher priority values render on top (rendered last in reverse iteration).
+/// </summary>
+public static class ScenePriorities
 {
     /// <summary>
-    /// Constants for scene priority values.
-    /// Higher priority values render on top (rendered last in reverse iteration).
+    ///     Priority for debug/overlay scenes that should appear on top of everything.
     /// </summary>
-    public static class ScenePriorities
-    {
-        /// <summary>
-        /// Priority for debug/overlay scenes that should appear on top of everything.
-        /// </summary>
-        public const int DebugOverlay = 100;
+    public const int DebugOverlay = 100;
 
-        /// <summary>
-        /// Priority for loading screen scenes that should appear above game scenes but below debug overlays.
-        /// </summary>
-        public const int LoadingScreen = 75;
+    /// <summary>
+    ///     Priority for loading screen scenes that should appear above game scenes but below debug overlays.
+    /// </summary>
+    public const int LoadingScreen = 75;
 
-        /// <summary>
-        /// Priority for the main game scene.
-        /// </summary>
-        public const int GameScene = 50;
+    /// <summary>
+    ///     Priority for the main game scene.
+    /// </summary>
+    public const int GameScene = 50;
 
-        /// <summary>
-        /// Priority for background scenes.
-        /// </summary>
-        public const int Background = 0;
-    }
+    /// <summary>
+    ///     Priority for background scenes.
+    /// </summary>
+    public const int Background = 0;
 }

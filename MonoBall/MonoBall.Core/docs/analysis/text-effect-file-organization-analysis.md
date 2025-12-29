@@ -10,19 +10,23 @@
 ### Files and Locations
 
 **Enums** (in `Scenes/Components/`):
+
 - `TextEffectType.cs` - Effect types enum (`MonoBall.Core.Scenes.Components`)
 - `ColorEffectMode.cs` - Color mode enum (`MonoBall.Core.Scenes.Components`)
 - `ShadowEffectMode.cs` - Shadow mode enum (`MonoBall.Core.Scenes.Components`)
 - `WobbleOrigin.cs` - Wobble origin enum (`MonoBall.Core.Scenes.Components`)
 
 **Definition** (in `Mods/`):
+
 - `TextEffectDefinition.cs` - Effect definition class (`MonoBall.Core.Mods`)
 
 **Calculator** (in `Rendering/`):
+
 - `ITextEffectCalculator.cs` - Calculator interface (`MonoBall.Core.Rendering`)
 - `TextEffectCalculator.cs` - Calculator implementation (`MonoBall.Core.Rendering`)
 
 **Usage** (scattered):
+
 - `Scenes/Systems/MessageBoxSceneSystem.cs` - Manages effect lifecycle
 - `UI/Windows/Content/MessageBoxContentRenderer.cs` - Renders effects
 - `Scenes/Components/MessageBoxComponent.cs` - Stores effect state
@@ -33,31 +37,41 @@
 ## Issues with Current Organization
 
 ### 1. **Enums in Wrong Location** 🔴
-**Problem:** Text effect enums are in `Scenes/Components/` but they're not scene-specific components. They're domain types used by:
+
+**Problem:** Text effect enums are in `Scenes/Components/` but they're not scene-specific components. They're domain
+types used by:
+
 - `TextEffectDefinition` (in `Mods/`)
 - `TextEffectCalculator` (in `Rendering/`)
 - Various systems and renderers
 
-**Impact:** 
-- Namespace doesn't match usage (`Scenes.Components` suggests scene-specific, but they're used across mods and rendering)
+**Impact:**
+
+- Namespace doesn't match usage (`Scenes.Components` suggests scene-specific, but they're used across mods and
+  rendering)
 - Violates namespace matching folder structure rule
 - Makes it unclear these are text effect domain types
 
 ### 2. **Scattered Domain Types** 🟡
+
 **Problem:** Text effect domain types are split across three folders:
+
 - Enums in `Scenes/Components/`
 - Definition in `Mods/`
 - Calculator in `Rendering/`
 
 **Impact:**
+
 - Hard to find all text effect code
 - No clear domain boundary
 - Inconsistent with other features (Audio, Maps have dedicated folders)
 
 ### 3. **Namespace Mismatch** 🟡
+
 **Problem:** `TextEffectDefinition` is in `MonoBall.Core.Mods` but uses enums from `MonoBall.Core.Scenes.Components`.
 
 **Impact:**
+
 - Dependency direction is wrong (Mods depends on Scenes.Components)
 - Should be: Mods → TextEffects → (no dependency on Scenes)
 
@@ -66,6 +80,7 @@
 ## Comparison with Other Features
 
 ### Audio Feature
+
 ```
 Audio/
 ├── AudioDefinition.cs          (mod definition)
@@ -77,6 +92,7 @@ Audio/
 **Pattern:** Top-level feature folder with all related code.
 
 ### Maps Feature
+
 ```
 Maps/
 ├── MapDefinition.cs            (mod definition)
@@ -107,6 +123,7 @@ TextEffects/
 **Namespace:** `MonoBall.Core.TextEffects`
 
 **Pros:**
+
 - ✅ All text effect code in one place
 - ✅ Clear domain boundary
 - ✅ Consistent with Audio/Maps pattern
@@ -115,10 +132,12 @@ TextEffects/
 - ✅ No cross-folder dependencies for domain types
 
 **Cons:**
+
 - ⚠️ Requires moving files and updating namespaces
 - ⚠️ Breaking change (but project allows breaking changes)
 
 **Migration:**
+
 1. Create `TextEffects/` folder
 2. Move enums from `Scenes/Components/` → `TextEffects/`
 3. Move `TextEffectDefinition.cs` from `Mods/` → `TextEffects/`
@@ -145,10 +164,12 @@ Rendering/
 **Namespace:** `MonoBall.Core.Mods` for enums
 
 **Pros:**
+
 - ✅ Minimal changes
 - ✅ Enums near definition that uses them
 
 **Cons:**
+
 - ❌ Enums aren't really "mod" types - they're domain types
 - ❌ Calculator in Rendering uses Mods namespace (wrong dependency direction)
 - ❌ Doesn't match Audio/Maps pattern
@@ -173,10 +194,12 @@ Mods/
 **Namespace:** `MonoBall.Core.Rendering` for enums
 
 **Pros:**
+
 - ✅ Calculator and enums together
 - ✅ Minimal changes
 
 **Cons:**
+
 - ❌ Enums aren't really "rendering" types - they're domain types
 - ❌ Mods depends on Rendering (wrong dependency direction)
 - ❌ Doesn't match Audio/Maps pattern
@@ -188,27 +211,31 @@ Mods/
 **Create `TextEffects/` as a top-level feature folder** (like `Audio/` and `Maps/`).
 
 ### Rationale:
+
 1. **Consistency:** Matches the pattern used by other features (Audio, Maps)
 2. **Domain Clarity:** Text effects are a cohesive feature domain
 3. **Dependency Direction:** Correct dependency flow:
-   - `Mods/` → `TextEffects/` (mod definitions use text effect types)
-   - `Rendering/` → `TextEffects/` (renderers use text effect types)
-   - `Scenes/` → `TextEffects/` (scenes use text effect types)
+    - `Mods/` → `TextEffects/` (mod definitions use text effect types)
+    - `Rendering/` → `TextEffects/` (renderers use text effect types)
+    - `Scenes/` → `TextEffects/` (scenes use text effect types)
 4. **Discoverability:** All text effect code in one place
 5. **Namespace Match:** Folder structure matches namespace structure
 
 ### File Moves Required:
 
 **From `Scenes/Components/` → `TextEffects/`:**
+
 - `TextEffectType.cs`
 - `ColorEffectMode.cs`
 - `ShadowEffectMode.cs`
 - `WobbleOrigin.cs`
 
 **From `Mods/` → `TextEffects/`:**
+
 - `TextEffectDefinition.cs`
 
 **From `Rendering/` → `TextEffects/`:**
+
 - `ITextEffectCalculator.cs`
 - `TextEffectCalculator.cs`
 
@@ -257,6 +284,7 @@ After reorganization, these files will need updated using statements:
 **Recommended:** Create `TextEffects/` top-level folder and consolidate all text effect domain code there.
 
 **Benefits:**
+
 - Consistent with project patterns (Audio, Maps)
 - Clear domain boundary
 - Correct dependency direction

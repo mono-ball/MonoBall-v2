@@ -10,7 +10,9 @@
 
 ## Executive Summary
 
-This document defines the architecture for a unified flags and variables system integrated with Arch ECS. The system supports boolean flags (for game state tracking) and typed variables (for dynamic data storage), with full integration into Arch ECS for persistence, queries, and reactive updates.
+This document defines the architecture for a unified flags and variables system integrated with Arch ECS. The system
+supports boolean flags (for game state tracking) and typed variables (for dynamic data storage), with full integration
+into Arch ECS for persistence, queries, and reactive updates.
 
 ### Design Principles
 
@@ -23,11 +25,15 @@ This document defines the architecture for a unified flags and variables system 
 
 ### Architecture Notes
 
-**Component Design**: Following .cursorrules requirements, components are pure data structures with no methods. All flag/variable operations (GetFlag, SetFlag, GetVariable, SetVariable, etc.) are implemented in `FlagVariableService`, which accesses and modifies component data.
+**Component Design**: Following .cursorrules requirements, components are pure data structures with no methods. All
+flag/variable operations (GetFlag, SetFlag, GetVariable, SetVariable, etc.) are implemented in `FlagVariableService`,
+which accesses and modifies component data.
 
-**Event System**: Uses static `EventBus` class (not an interface) with `RefAction<T>` delegate pattern for event handlers with ref parameters.
+**Event System**: Uses static `EventBus` class (not an interface) with `RefAction<T>` delegate pattern for event
+handlers with ref parameters.
 
-**Query Caching**: `QueryDescription` is cached as a static readonly field to avoid allocations in hot paths, per .cursorrules requirements.
+**Query Caching**: `QueryDescription` is cached as a static readonly field to avoid allocations in hot paths, per
+.cursorrules requirements.
 
 ---
 
@@ -91,6 +97,7 @@ Entity-Specific (Optional)
 **Location**: `MonoBall.Core.ECS.Components.FlagsComponent`
 
 **Design**:
+
 ```csharp
 namespace MonoBall.Core.ECS.Components
 {
@@ -130,19 +137,23 @@ namespace MonoBall.Core.ECS.Components
 }
 ```
 
-**Note**: Components are pure data structures. All flag operations (GetFlag, SetFlag, etc.) are implemented in `FlagVariableService` which accesses and modifies this component's data.
+**Note**: Components are pure data structures. All flag operations (GetFlag, SetFlag, etc.) are implemented in
+`FlagVariableService` which accesses and modifies this component's data.
 
 **Memory Efficiency**:
+
 - **Per flag**: ~1 bit + dictionary entry overhead (~24 bytes for first access)
 - **2500 flags**: ~313 bytes bitfield + ~60 KB dictionary = ~60 KB total
 - **Comparison**: Much better than Dictionary<bool> approach (~125-200 KB)
 
 **Initialization**:
+
 - Components must be initialized with non-null dictionaries and arrays
 - `FlagVariableService` provides `CreateFlagsComponent()` and `CreateVariablesComponent()` factory methods
 - Components are initialized when the singleton entity is created
 
 **Serialization Considerations**:
+
 - Bitfield array serializes compactly
 - Dictionary mappings must be serialized to restore flag ID → index mapping
 - Arch.Persistence will serialize both `Flags` and `FlagIndices` properties
@@ -157,6 +168,7 @@ namespace MonoBall.Core.ECS.Components
 **Location**: `MonoBall.Core.ECS.Components.VariablesComponent`
 
 **Design**:
+
 ```csharp
 namespace MonoBall.Core.ECS.Components
 {
@@ -184,19 +196,24 @@ namespace MonoBall.Core.ECS.Components
 }
 ```
 
-**Note**: Components are pure data structures. All variable operations (GetVariable, SetVariable, etc.) are implemented in `FlagVariableService` which accesses and modifies this component's data. Serialization/deserialization logic is also in the service layer.
+**Note**: Components are pure data structures. All variable operations (GetVariable, SetVariable, etc.) are implemented
+in `FlagVariableService` which accesses and modifies this component's data. Serialization/deserialization logic is also
+in the service layer.
 
 **Memory Efficiency**:
+
 - **Per variable**: Dictionary entry overhead (~50-80 bytes) + string storage
 - **100 variables**: ~5-8 KB (reasonable for dynamic data)
 - **Trade-off**: More memory than flags, but necessary for typed flexibility
 
 **Initialization**:
+
 - Components must be initialized with non-null dictionaries
 - `FlagVariableService` provides `CreateVariablesComponent()` factory method
 - Components are initialized when the singleton entity is created
 
 **Serialization Considerations**:
+
 - Dictionary serializes naturally with Arch.Persistence
 - Type information preserved for proper deserialization
 - JSON fallback handles complex types
@@ -212,6 +229,7 @@ namespace MonoBall.Core.ECS.Components
 **Location**: `MonoBall.Core.ECS.Services.IFlagVariableService`
 
 **Design**:
+
 ```csharp
 namespace MonoBall.Core.ECS.Services
 {
@@ -383,11 +401,13 @@ namespace MonoBall.Core.ECS.Services
 **Location**: `MonoBall.Core.ECS.Services.FlagVariableService`
 
 **Dependencies**:
+
 - `World` - Arch ECS world instance
 - `ILogger` - Logging service
 - `IFlagVariableValidator` (optional) - Validation service
 
 **Design**:
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -961,6 +981,7 @@ namespace MonoBall.Core.ECS.Services
 **Location**: `MonoBall.Core.ECS.Events.FlagChangedEvent`
 
 **Design**:
+
 ```csharp
 namespace MonoBall.Core.ECS.Events
 {
@@ -992,6 +1013,7 @@ namespace MonoBall.Core.ECS.Events
 **Location**: `MonoBall.Core.ECS.Events.VariableChangedEvent`
 
 **Design**:
+
 ```csharp
 namespace MonoBall.Core.ECS.Events
 {
@@ -1029,6 +1051,7 @@ namespace MonoBall.Core.ECS.Events
 **Location**: `MonoBall.Core.ECS.Systems.VisibilityFlagSystem`
 
 **Design**:
+
 ```csharp
 namespace MonoBall.Core.ECS.Systems
 {
@@ -1119,6 +1142,7 @@ world.RegisterComponent<FlagVariableMetadataComponent>();
 ### Serialization Considerations
 
 **FlagsComponent**:
+
 - `Flags` byte array: Serializes compactly
 - `FlagIndices` Dictionary: Must be serialized to restore flag ID → index mapping
 - `IndexToFlagId` Dictionary: Can be reconstructed from `FlagIndices` reverse lookup
@@ -1126,6 +1150,7 @@ world.RegisterComponent<FlagVariableMetadataComponent>();
 - **Note**: Verify Arch.Persistence serialization support for Dictionary fields
 
 **VariablesComponent**:
+
 - `Variables` Dictionary: Serializes naturally
 - `VariableTypes` Dictionary: Preserves type information
 - **Save file size**: Depends on variable count and values (~5-10 KB typical)
@@ -1348,9 +1373,11 @@ public class MySystem : BaseSystem<World, float>
 
 ### Per-Entity Flags/Variables
 
-The system supports flags and variables on individual entities in addition to the global singleton. This allows entities to have their own state (e.g., "entity_is_on_fire", "entity_health", "entity_custom_data").
+The system supports flags and variables on individual entities in addition to the global singleton. This allows entities
+to have their own state (e.g., "entity_is_on_fire", "entity_health", "entity_custom_data").
 
 **Usage Example**:
+
 ```csharp
 // Set a flag on a specific entity
 _flagVariableService.SetEntityFlag(npcEntity, "entity_is_talking", true);
@@ -1361,9 +1388,11 @@ int health = _flagVariableService.GetEntityVariable<int>(npcEntity, "health") ??
 
 ### Validation System
 
-The system includes optional validation support via `IFlagVariableValidator`. When provided, the service validates all flag IDs and variable keys before setting them.
+The system includes optional validation support via `IFlagVariableValidator`. When provided, the service validates all
+flag IDs and variable keys before setting them.
 
 **Usage Example**:
+
 ```csharp
 // Create validator
 public class FlagVariableValidator : IFlagVariableValidator
@@ -1383,9 +1412,11 @@ var service = new FlagVariableService(world, logger, new FlagVariableValidator()
 
 ### Metadata System
 
-Flags and variables can have associated metadata (description, category, type information) stored in `FlagVariableMetadataComponent`. This is useful for tooling, documentation, and debugging.
+Flags and variables can have associated metadata (description, category, type information) stored in
+`FlagVariableMetadataComponent`. This is useful for tooling, documentation, and debugging.
 
 **Usage Example**:
+
 ```csharp
 // Register metadata
 _flagVariableService.RegisterFlagMetadata(new FlagMetadata
@@ -1402,9 +1433,11 @@ var metadata = _flagVariableService.GetFlagMetadata("base:flag:visibility/npc_bi
 
 ### Bulk Operations
 
-The service supports bulk operations for setting multiple flags or variables at once, which is more efficient than individual calls.
+The service supports bulk operations for setting multiple flags or variables at once, which is more efficient than
+individual calls.
 
 **Usage Example**:
+
 ```csharp
 // Set multiple flags at once
 _flagVariableService.SetFlags(new Dictionary<string, bool>
@@ -1482,5 +1515,7 @@ This design provides:
 10. **Metadata system** for documentation and tooling support
 11. **Bulk operations** for efficient batch updates
 
-The system is designed to scale to thousands of flags and hundreds of variables while maintaining good performance and memory efficiency. It supports both global game state and per-entity state, with optional validation and metadata capabilities.
+The system is designed to scale to thousands of flags and hundreds of variables while maintaining good performance and
+memory efficiency. It supports both global game state and per-entity state, with optional validation and metadata
+capabilities.
 

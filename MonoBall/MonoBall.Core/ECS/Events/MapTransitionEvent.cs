@@ -1,28 +1,29 @@
-namespace MonoBall.Core.ECS.Events
+using MonoBall.Core.ECS.Components;
+
+namespace MonoBall.Core.ECS.Events;
+
+/// <summary>
+///     Event fired when transitioning between maps.
+/// </summary>
+public struct MapTransitionEvent
 {
     /// <summary>
-    /// Event fired when transitioning between maps.
+    ///     The source map ID.
     /// </summary>
-    public struct MapTransitionEvent
-    {
-        /// <summary>
-        /// The source map ID.
-        /// </summary>
-        public string SourceMapId { get; set; }
+    public string SourceMapId { get; set; }
 
-        /// <summary>
-        /// The target map ID.
-        /// </summary>
-        public string TargetMapId { get; set; }
+    /// <summary>
+    ///     The target map ID.
+    /// </summary>
+    public string TargetMapId { get; set; }
 
-        /// <summary>
-        /// The transition direction.
-        /// </summary>
-        public Components.MapConnectionDirection Direction { get; set; }
+    /// <summary>
+    ///     The transition direction.
+    /// </summary>
+    public MapConnectionDirection Direction { get; set; }
 
-        /// <summary>
-        /// The offset in tiles for the transition.
-        /// </summary>
-        public int Offset { get; set; }
-    }
+    /// <summary>
+    ///     The offset in tiles for the transition.
+    /// </summary>
+    public int Offset { get; set; }
 }

@@ -2,7 +2,9 @@
 
 ## Overview
 
-This document describes the design for resolving variable sprite IDs at runtime. Variable sprites are sprite IDs wrapped in curly braces (e.g., `{base:sprite:npcs/generic/var_rival}`) that need to be resolved to actual sprite IDs based on current game state.
+This document describes the design for resolving variable sprite IDs at runtime. Variable sprites are sprite IDs wrapped
+in curly braces (e.g., `{base:sprite:npcs/generic/var_rival}`) that need to be resolved to actual sprite IDs based on
+current game state.
 
 ## Key Principle
 
@@ -15,12 +17,14 @@ This document describes the design for resolving variable sprite IDs at runtime.
 
 ## Problem Statement
 
-1. **Definitions are loaded upfront** - Map definitions are loaded before game state is available, so we cannot resolve variables at definition load time
-2. **Runtime resolution needed** - Sprite IDs like `{base:sprite:npcs/generic/var_rival}` need to be resolved to actual sprites (e.g., `base:sprite:npcs/generic/brendan` or `base:sprite:npcs/generic/may`) based on game variables
+1. **Definitions are loaded upfront** - Map definitions are loaded before game state is available, so we cannot resolve
+   variables at definition load time
+2. **Runtime resolution needed** - Sprite IDs like `{base:sprite:npcs/generic/var_rival}` need to be resolved to actual
+   sprites (e.g., `base:sprite:npcs/generic/brendan` or `base:sprite:npcs/generic/may`) based on game variables
 3. **Multiple resolution points** - Sprites are accessed at different times:
-   - NPC creation (`MapLoaderSystem.CreateNpcEntity`)
-   - Sprite rendering (`SpriteRendererSystem`)
-   - Sprite loading (`SpriteLoaderService`)
+    - NPC creation (`MapLoaderSystem.CreateNpcEntity`)
+    - Sprite rendering (`SpriteRendererSystem`)
+    - Sprite loading (`SpriteLoaderService`)
 
 ## Design Goals
 
@@ -36,14 +40,17 @@ This document describes the design for resolving variable sprite IDs at runtime.
 
 #### 1. Variable Sprite Detection
 
-**Pattern**: Sprite IDs wrapped in curly braces `{fullSpriteId}` are considered variable sprites. The entire sprite ID within the braces is the variable identifier.
+**Pattern**: Sprite IDs wrapped in curly braces `{fullSpriteId}` are considered variable sprites. The entire sprite ID
+within the braces is the variable identifier.
 
 **Examples**:
+
 - `{base:sprite:npcs/generic/var_rival}` → variable sprite ID: `base:sprite:npcs/generic/var_rival`
 - `{base:sprite:npcs/generic/var_player}` → variable sprite ID: `base:sprite:npcs/generic/var_player`
 - `{base:sprite:npcs/generic/var_0}` → variable sprite ID: `base:sprite:npcs/generic/var_0` (legacy support)
 
 **Detection Method**:
+
 ```csharp
 public static bool IsVariableSprite(string spriteId)
 {
@@ -101,7 +108,8 @@ public static string ExtractVariableName(string variableSpriteId)
 }
 ```
 
-**Note**: The curly braces wrap the entire variable sprite ID. The variable name is extracted from the sprite ID path (typically the last segment after the final `/`).
+**Note**: The curly braces wrap the entire variable sprite ID. The variable name is extracted from the sprite ID path (
+typically the last segment after the final `/`).
 
 #### 2. Variable Sprite Resolver Service
 
@@ -149,10 +157,12 @@ namespace MonoBall.Core.ECS.Services
 **Implementation**: `VariableSpriteResolver`
 
 **Dependencies**:
+
 - **`IFlagVariableService`** (required) - Used to read game state variables via `GetVariable<T>()`
 - All value checking must come from game state variables stored in the ECS world
 
 **Responsibilities**:
+
 - Detect variable sprites (check for `{variableName}` markers)
 - Extract variable names from curly braces
 - **Read game state variables using `IFlagVariableService.GetVariable<T>()`**
@@ -162,6 +172,7 @@ namespace MonoBall.Core.ECS.Services
 - Provide fallback sprites when resolution fails
 
 **Resolution Process**:
+
 1. Detect curly braces wrapping sprite ID (e.g., `{base:sprite:npcs/generic/var_rival}`)
 2. Extract variable sprite ID from within braces (e.g., `base:sprite:npcs/generic/var_rival`)
 3. Extract variable name from sprite ID path (e.g., `rival` from `var_rival`)
@@ -169,6 +180,7 @@ namespace MonoBall.Core.ECS.Services
 5. Return fully resolved sprite ID
 
 **Example**:
+
 - Input: `{base:sprite:npcs/generic/var_rival}`
 - Extract variable sprite ID: `base:sprite:npcs/generic/var_rival`
 - Extract variable name: `rival` (from `var_rival`)
@@ -176,6 +188,7 @@ namespace MonoBall.Core.ECS.Services
 - Output: `base:sprite:npcs/generic/brendan`
 
 **Constructor**:
+
 ```csharp
 public class VariableSpriteResolver : IVariableSpriteResolver
 {
@@ -247,12 +260,14 @@ public class VariableSpriteResolver : IVariableSpriteResolver
 ```
 
 **Variable Mapping Strategy**:
+
 - **Use `IFlagVariableService.GetVariable<T>()` to read game state variables**
 - All value checking must come from game state variables stored in the ECS world
 - Map variable names to sprite IDs using predefined rules based on game state
 - Support custom mappings per variable name
 
 **Example Mappings Using Game State Variables**:
+
 ```csharp
 // Variable: "rival"
 // Resolution: Read player gender from game state variables
@@ -304,9 +319,11 @@ private string? ResolvePlayerSprite()
 }
 ```
 
-**Key Principle**: All variable resolution must query game state through `IFlagVariableService.GetVariable<T>()`. Never use hardcoded values or assumptions about game state.
+**Key Principle**: All variable resolution must query game state through `IFlagVariableService.GetVariable<T>()`. Never
+use hardcoded values or assumptions about game state.
 
 **Caching Strategy**:
+
 - Cache resolved sprite ID per variable sprite ID (shared across all entities using same variable sprite)
 - More efficient: if 100 NPCs use `{base:sprite:npcs/generic/var_rival}`, resolve once and reuse
 - Clear cache when relevant game state variables change (via `OnVariableChanged` event handler)
@@ -352,11 +369,13 @@ namespace MonoBall.Core.ECS.Components
 ##### MapLoaderSystem.CreateNpcEntity
 
 **Current Flow**:
+
 1. Validate sprite definition exists
 2. Create NPC entity with `NpcComponent.SpriteId = npcDef.SpriteId`
 3. Preload sprite texture
 
 **New Flow**:
+
 1. Check if sprite ID is variable sprite
 2. If variable: Resolve to actual sprite ID (or defer resolution)
 3. Validate resolved sprite definition exists
@@ -364,6 +383,7 @@ namespace MonoBall.Core.ECS.Components
 5. Preload sprite texture (using resolved ID)
 
 **Option A: Resolve at Creation** (Recommended)
+
 ```csharp
 // In CreateNpcEntity
 // CRITICAL: Resolve variable sprite FIRST, before validation
@@ -408,6 +428,7 @@ var npcEntity = World.Create(
 ```
 
 **Option B: Defer Resolution** (Alternative)
+
 ```csharp
 // Store variable sprite ID, resolve later
 bool isVariable = _variableSpriteResolver?.IsVariableSprite(npcDef.SpriteId) == true;
@@ -432,11 +453,13 @@ var npcEntity = World.Create(
 ##### SpriteRendererSystem
 
 **Current Flow**:
+
 1. Query NPCs with `NpcComponent.SpriteId`
 2. Get sprite definition using `npc.SpriteId`
 3. Render sprite
 
 **New Flow** (if using Option B):
+
 1. Query NPCs
 2. Check if entity has `VariableSpriteComponent`
 3. If variable and not resolved: Resolve now
@@ -447,15 +470,18 @@ var npcEntity = World.Create(
 ##### SpriteLoaderService
 
 **Current Flow**:
+
 1. Check cache for sprite ID
 2. Load from registry if not cached
 
 **New Flow**:
+
 1. Check if sprite ID is variable sprite
 2. If variable: Resolve first, then load resolved sprite
 3. Cache resolved sprite
 
 **Implementation** (Optional - only needed if using Option B):
+
 ```csharp
 public SpriteDefinition? GetSpriteDefinition(string spriteId)
 {
@@ -489,7 +515,8 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 }
 ```
 
-**Note**: 
+**Note**:
+
 - This requires `SpriteLoaderService` to have access to `IVariableSpriteResolver` (optional dependency)
 - If Option A (resolve at creation) is used, this is primarily a safety net
 - If resolution fails here, return `null` - variable sprite IDs are not valid sprite definitions
@@ -499,24 +526,27 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 ### Built-in Mappings
 
 **Rival Sprite** (`var_rival`):
+
 - **Game State Variable**: `base:var:player/gender` (read via `IFlagVariableService.GetVariable<int>()`)
 - **Logic**:
-  - Read `base:var:player/gender` from game state
-  - If gender == 0 (Brendan) → `base:sprite:npcs/generic/may`
-  - If gender == 1 (May) → `base:sprite:npcs/generic/brendan`
-  - If variable not set → fallback to `base:sprite:npcs/generic/brendan`
+    - Read `base:var:player/gender` from game state
+    - If gender == 0 (Brendan) → `base:sprite:npcs/generic/may`
+    - If gender == 1 (May) → `base:sprite:npcs/generic/brendan`
+    - If variable not set → fallback to `base:sprite:npcs/generic/brendan`
 
 **Player Sprite** (`var_player`):
+
 - **Game State Variable**: `base:var:player/gender` (read via `IFlagVariableService.GetVariable<int>()`)
 - **Logic**:
-  - Read `base:var:player/gender` from game state
-  - If gender == 0 → `base:sprite:players/brendan/normal`
-  - If gender == 1 → `base:sprite:players/may/normal`
-  - If variable not set → fallback to `base:sprite:players/brendan/normal`
+    - Read `base:var:player/gender` from game state
+    - If gender == 0 → `base:sprite:players/brendan/normal`
+    - If gender == 1 → `base:sprite:players/may/normal`
+    - If variable not set → fallback to `base:sprite:players/brendan/normal`
 
 ### Extensible Mapping System
 
 **Option 1: Hardcoded Rules** (Simple, but not flexible)
+
 ```csharp
 private string? ResolveVariable(string variableName)
 {
@@ -563,6 +593,7 @@ private string? ResolvePlayerSprite()
 ```
 
 **Option 2: Mapping Registry** (More flexible)
+
 ```csharp
 public class VariableSpriteResolver : IVariableSpriteResolver
 {
@@ -601,75 +632,87 @@ public class VariableSpriteResolver : IVariableSpriteResolver
 }
 ```
 
-**Important**: All resolver functions must use `_flagVariableService.GetVariable<T>()` to read game state. Never use hardcoded values or external state.
+**Important**: All resolver functions must use `_flagVariableService.GetVariable<T>()` to read game state. Never use
+hardcoded values or external state.
 
 **Option 3: Definition-Based** (Most flexible, but requires definition files)
+
 - Create variable sprite definition files that specify resolution rules
 - Load at startup
 - More complex but allows mods to define custom variable sprites
 
-**Recommendation**: Start with Option 1 (hardcoded rules) for built-in variables, add Option 2 (registry) for extensibility.
+**Recommendation**: Start with Option 1 (hardcoded rules) for built-in variables, add Option 2 (registry) for
+extensibility.
 
 ## Error Handling
 
 ### Resolution Failures
 
 **Scenarios**:
+
 1. Variable not set (e.g., game just started, gender not chosen)
 2. Invalid variable name
 3. Resolved sprite ID doesn't exist
 4. Variable value doesn't map to any sprite
 
 **Handling Strategy**:
+
 1. **Log error** when resolution fails (not just warning - this is a critical failure)
-2. **Throw exception** in MapLoaderSystem if resolution fails (Option A) - cannot create NPC with unresolved variable sprite
+2. **Throw exception** in MapLoaderSystem if resolution fails (Option A) - cannot create NPC with unresolved variable
+   sprite
 3. **Return null** in SpriteLoaderService if resolution fails - cannot load sprite definition for variable sprite
 4. **Fallback sprites** are built into resolver logic (e.g., default rival sprite when gender not set)
 5. **Never validate variable sprite IDs** - always validate resolved sprite IDs only
 
 **Fallback Sprites**:
+
 - `var_rival` → `base:sprite:npcs/generic/brendan` (default)
 - `var_player` → `base:sprite:players/brendan/normal` (default)
 
 ## Performance Considerations
 
 1. **Caching**: Cache resolved sprite IDs per variable sprite ID (shared across entities)
-   - If 100 NPCs use `{base:sprite:npcs/generic/var_rival}`, resolve once and reuse for all
-   - More efficient than per-entity caching
+    - If 100 NPCs use `{base:sprite:npcs/generic/var_rival}`, resolve once and reuse for all
+    - More efficient than per-entity caching
 2. **Lazy Resolution**: Only resolve when sprite is actually accessed (at NPC creation)
 3. **Cache Invalidation**: Clear cache when relevant game state variables change (via `OnVariableChanged`)
-   - Call `ClearAllCache()` from event handlers when variables affecting sprite resolution change
+    - Call `ClearAllCache()` from event handlers when variables affecting sprite resolution change
 4. **Entity Cache Cleanup**: Not needed - cache is per variable sprite ID, not per entity
-   - No memory leaks from destroyed entities
+    - No memory leaks from destroyed entities
 
 ## Implementation Plan
 
 ### Phase 1: Core Infrastructure
+
 1. Create `IVariableSpriteResolver` interface
 2. Implement `VariableSpriteResolver` with detection methods
 3. Add basic variable mapping (rival, player)
 
 ### Phase 2: Integration
+
 1. Integrate resolver into `MapLoaderSystem` (Option A: resolve at creation)
-   - Resolve BEFORE validation (critical)
-   - Throw exception if resolution fails
+    - Resolve BEFORE validation (critical)
+    - Throw exception if resolution fails
 2. Integrate resolver into `SpriteLoaderService` (optional safety net)
-   - Return null if resolution fails (variable sprite IDs are not valid sprite definitions)
+    - Return null if resolution fails (variable sprite IDs are not valid sprite definitions)
 3. Add cache cleanup mechanism (call `ClearAllCache()` when game state variables change)
 4. Add logging and error handling
 
 ### Phase 3: Testing & Validation
+
 1. Test with `{base:sprite:npcs/generic/var_rival}` in littleroot_town
 2. Test with unset variables (fallback behavior)
 3. Test performance (caching effectiveness)
 
 ### Phase 4: Extensibility (Optional)
+
 1. Add mapping registry for custom variables
 2. Add definition-based variable sprites (if needed)
 
 ## Example Usage
 
 ### Definition (JSON)
+
 ```json
 {
   "npcId": "base:npc:hoenn/littleroot_town/localid_littleroot_rival",
@@ -681,6 +724,7 @@ public class VariableSpriteResolver : IVariableSpriteResolver
 ```
 
 ### Runtime Resolution
+
 1. `MapLoaderSystem` detects curly braces wrapping sprite ID
 2. Calls `_variableSpriteResolver.ResolveVariableSprite("{base:sprite:npcs/generic/var_rival}")`
 3. Resolver extracts variable sprite ID: `base:sprite:npcs/generic/var_rival`
@@ -693,17 +737,17 @@ public class VariableSpriteResolver : IVariableSpriteResolver
 ## Open Questions
 
 1. **When to resolve?** At creation (Option A) or lazily (Option B)?
-   - **Answer**: Option A (at creation) for simplicity and immediate validation
+    - **Answer**: Option A (at creation) for simplicity and immediate validation
 
 2. **How to handle variable changes?** If player changes gender mid-game, should sprites update?
-   - **Answer**: Typically variables don't change mid-game, but if needed, clear cache and re-resolve
+    - **Answer**: Typically variables don't change mid-game, but if needed, clear cache and re-resolve
 
 3. **Legacy support**: Should we support `var_0`, `var_1` patterns?
-   - **Answer**: Yes, map to descriptive names (`var_0` → `var_rival`, `var_1` → `var_player`)
+    - **Answer**: Yes, map to descriptive names (`var_0` → `var_rival`, `var_1` → `var_player`)
 
 4. **Definition validation**: Should variable sprites be validated at definition load time?
-   - **Answer**: No, defer validation until resolution (variables may not be set yet)
+    - **Answer**: No, defer validation until resolution (variables may not be set yet)
 
 5. **Component vs Service caching**: Store resolved ID in component or service cache?
-   - **Answer**: Service cache (simpler, no component changes needed)
+    - **Answer**: Service cache (simpler, no component changes needed)
 

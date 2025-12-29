@@ -1,28 +1,27 @@
-namespace MonoBall.Core.UI.Windows.Animations
+namespace MonoBall.Core.UI.Windows.Animations;
+
+/// <summary>
+///     Current state of a window animation.
+/// </summary>
+public enum WindowAnimationState
 {
     /// <summary>
-    /// Current state of a window animation.
+    ///     Animation is not started yet.
     /// </summary>
-    public enum WindowAnimationState
-    {
-        /// <summary>
-        /// Animation is not started yet.
-        /// </summary>
-        NotStarted,
+    NotStarted,
 
-        /// <summary>
-        /// Animation is currently playing.
-        /// </summary>
-        Playing,
+    /// <summary>
+    ///     Animation is currently playing.
+    /// </summary>
+    Playing,
 
-        /// <summary>
-        /// Animation is paused (can be resumed).
-        /// </summary>
-        Paused,
+    /// <summary>
+    ///     Animation is paused (can be resumed).
+    /// </summary>
+    Paused,
 
-        /// <summary>
-        /// Animation has completed.
-        /// </summary>
-        Completed,
-    }
+    /// <summary>
+    ///     Animation has completed.
+    /// </summary>
+    Completed,
 }

@@ -2,7 +2,9 @@
 
 ## Overview
 
-Design a general window animation system that supports various animation types (slide, fade, scale, etc.) and integrates with the UI Window System. The system must be compatible with Arch ECS architecture and event-driven patterns, and support migration from the existing `PopupAnimationComponent`.
+Design a general window animation system that supports various animation types (slide, fade, scale, etc.) and integrates
+with the UI Window System. The system must be compatible with Arch ECS architecture and event-driven patterns, and
+support migration from the existing `PopupAnimationComponent`.
 
 ## Goals
 
@@ -978,6 +980,7 @@ namespace MonoBall.Core.UI.Windows
 ```
 
 **Note**: Opacity support requires:
+
 - `SpriteBatch.Begin()` with `BlendState.AlphaBlend` (caller responsibility)
 - Color tinting per draw call: `Color.White * opacity`
 - Renderer interfaces may need to be updated to accept color parameter for opacity
@@ -989,7 +992,8 @@ namespace MonoBall.Core.UI.Windows
 
 1. Create `WindowAnimationComponent`, `WindowAnimationConfig`, `WindowAnimationPhase`
 2. Create `WindowAnimationSystem` with update logic
-3. Create animation events (`WindowAnimationStartedEvent`, `WindowAnimationCompletedEvent`, `WindowAnimationDestroyEvent`)
+3. Create animation events (`WindowAnimationStartedEvent`, `WindowAnimationCompletedEvent`,
+   `WindowAnimationDestroyEvent`)
 4. Update `WindowRenderer` to support animation parameters
 
 ### Phase 2: Migrate Map Popup Animation
@@ -1307,34 +1311,49 @@ MonoBall.Core/
 ## Notes
 
 ### Component Initialization
-- **Collections Must Be Initialized**: `WindowAnimationConfig.Phases` must be initialized (non-null) when component is created. Helper methods (`WindowAnimationHelper`) ensure proper initialization.
-- **Entity References**: `WindowAnimationComponent.WindowEntity` should be validated (`World.IsAlive`) before use if the window entity may be destroyed.
+
+- **Collections Must Be Initialized**: `WindowAnimationConfig.Phases` must be initialized (non-null) when component is
+  created. Helper methods (`WindowAnimationHelper`) ensure proper initialization.
+- **Entity References**: `WindowAnimationComponent.WindowEntity` should be validated (`World.IsAlive`) before use if the
+  window entity may be destroyed.
 
 ### Animation Value Field Usage
-- **Vector3 Field Usage**: `WindowAnimationPhase.StartValue` and `EndValue` use `Vector3` fields differently based on animation type:
-  - `Slide`: X, Y = position offset, Z = unused
-  - `Fade`: Z = opacity (0.0-1.0), X, Y = unused
-  - `Scale`: Z = scale factor (1.0 = normal), X, Y = unused
-  - `SlideFade`: X, Y = position offset, Z = opacity (0.0-1.0)
-  - `SlideScale`: X, Y = position offset, Z = scale factor
-  - `Pause`: X, Y, Z = unused
-  - `None`: X, Y, Z = unused (instant transition)
+
+- **Vector3 Field Usage**: `WindowAnimationPhase.StartValue` and `EndValue` use `Vector3` fields differently based on
+  animation type:
+    - `Slide`: X, Y = position offset, Z = unused
+    - `Fade`: Z = opacity (0.0-1.0), X, Y = unused
+    - `Scale`: Z = scale factor (1.0 = normal), X, Y = unused
+    - `SlideFade`: X, Y = position offset, Z = opacity (0.0-1.0)
+    - `SlideScale`: X, Y = position offset, Z = scale factor
+    - `Pause`: X, Y, Z = unused
+    - `None`: X, Y, Z = unused (instant transition)
 
 ### Event System
-- **Event Firing**: Events are collected during query iteration and fired after query completes to avoid Arch ECS structural change violations.
-- **Event-Driven Cleanup**: Systems listen for `WindowAnimationCompletedEvent` and `WindowAnimationDestroyEvent` to handle cleanup.
+
+- **Event Firing**: Events are collected during query iteration and fired after query completes to avoid Arch ECS
+  structural change violations.
+- **Event-Driven Cleanup**: Systems listen for `WindowAnimationCompletedEvent` and `WindowAnimationDestroyEvent` to
+  handle cleanup.
 
 ### Rendering
-- **Opacity Support**: Opacity requires `SpriteBatch.Begin()` with `BlendState.AlphaBlend` and color tinting (`Color.White * opacity`). Current renderer interfaces don't support opacity - this is a future enhancement.
-- **Scale Support**: Scaling windows requires recalculating both outer and interior bounds. The animation system scales border offsets proportionally, which works for uniform borders. For non-uniform borders (like MessageBox), the caller must calculate animated bounds manually.
+
+- **Opacity Support**: Opacity requires `SpriteBatch.Begin()` with `BlendState.AlphaBlend` and color tinting (
+  `Color.White * opacity`). Current renderer interfaces don't support opacity - this is a future enhancement.
+- **Scale Support**: Scaling windows requires recalculating both outer and interior bounds. The animation system scales
+  border offsets proportionally, which works for uniform borders. For non-uniform borders (like MessageBox), the caller
+  must calculate animated bounds manually.
 - **Position Offset**: Applied in screen space (already scaled coordinates).
 
 ### Animation Features
+
 - **Loop Support**: Implemented - animations with `Loop = true` restart from the beginning when they complete.
 - **Pause/Resume**: Implemented via `WindowAnimationSystem.PauseAnimation()` and `ResumeAnimation()` methods.
-- **Duration Validation**: Phase durations are validated to be positive and finite. Invalid durations are logged and skipped.
+- **Duration Validation**: Phase durations are validated to be positive and finite. Invalid durations are logged and
+  skipped.
 
 ### ECS Integration
+
 - **Component-Based**: Animation is component-based, allowing multiple windows to animate independently.
 - **Query Performance**: QueryDescription is cached in constructor (Arch ECS best practice).
 - **Migration**: `PopupAnimationComponent` can be converted to `WindowAnimationComponent` using helper methods.

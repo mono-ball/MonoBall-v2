@@ -2,9 +2,11 @@
 
 ## Executive Summary
 
-This document analyzes the ResourceManager implementation for architecture issues, threading concerns, Arch ECS/event integration, SOLID/DRY principles, and .cursorrules compliance.
+This document analyzes the ResourceManager implementation for architecture issues, threading concerns, Arch ECS/event
+integration, SOLID/DRY principles, and .cursorrules compliance.
 
 **Overall Assessment**: The implementation is solid but has several critical issues that need addressing:
+
 - **CRITICAL**: File I/O operations inside locks (performance bottleneck)
 - **CRITICAL**: Lock contention in hot paths (Update/Render loops)
 - **HIGH**: Inconsistent fail-fast behavior (some methods return null)
@@ -17,16 +19,19 @@ This document analyzes the ResourceManager implementation for architecture issue
 
 ### 1.1 File I/O Inside Locks ⚠️ CRITICAL
 
-**Problem**: All `Load*` methods perform synchronous file I/O operations (`File.ReadAllBytes`, `Texture2D.FromFile`) while holding the `_lock` object. This blocks all other threads from accessing the cache, even for read-only operations.
+**Problem**: All `Load*` methods perform synchronous file I/O operations (`File.ReadAllBytes`, `Texture2D.FromFile`)
+while holding the `_lock` object. This blocks all other threads from accessing the cache, even for read-only operations.
 
 **Location**: `ResourceManager.cs` lines 119, 199, 259, 323
 
 **Impact**:
+
 - **High lock contention**: Any thread trying to access ResourceManager during file I/O will block
 - **Poor scalability**: Multiple systems calling ResourceManager simultaneously will serialize
 - **Frame drops**: If file I/O takes 10-50ms, all systems waiting for resources will stall
 
 **Example**:
+
 ```csharp
 lock (_lock)
 {
@@ -37,30 +42,37 @@ lock (_lock)
 }
 ```
 
-**Recommendation**: 
+**Recommendation**:
+
 - Move file I/O outside the lock
 - Use double-checked locking pattern
 - Consider async file I/O for non-blocking loads
 
 ### 1.2 Lock Granularity Too Coarse
 
-**Problem**: Single `_lock` object protects all caches and operations. A texture load blocks font loads, audio loads, etc.
+**Problem**: Single `_lock` object protects all caches and operations. A texture load blocks font loads, audio loads,
+etc.
 
 **Impact**:
+
 - Unnecessary contention between unrelated resource types
 - Cache reads blocked by cache writes for different resource types
 
 **Recommendation**:
+
 - Use separate locks per resource type (`_textureLock`, `_fontLock`, etc.)
 - Or use `ReaderWriterLockSlim` for read-heavy workloads
 
 ### 1.3 Missing Lock in `CalculateTilesetSourceRectangle`
 
-**Problem**: `CalculateTilesetSourceRectangle` calls `GetTilesetDefinition` which uses a lock, but the calculation itself is not atomic. If `GetTilesetDefinition` returns a cached value, the calculation happens outside the lock, but if it needs to load, it happens inside a lock. This inconsistency could lead to race conditions.
+**Problem**: `CalculateTilesetSourceRectangle` calls `GetTilesetDefinition` which uses a lock, but the calculation
+itself is not atomic. If `GetTilesetDefinition` returns a cached value, the calculation happens outside the lock, but if
+it needs to load, it happens inside a lock. This inconsistency could lead to race conditions.
 
 **Location**: `ResourceManager.cs` line 743-787
 
 **Current Code**:
+
 ```csharp
 public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int firstGid)
 {
@@ -72,11 +84,13 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 
 **Impact**: Low (definitions are immutable once loaded), but inconsistent locking pattern.
 
-**Recommendation**: Document that this is safe because definitions are immutable, or add explicit lock if needed for consistency.
+**Recommendation**: Document that this is safe because definitions are immutable, or add explicit lock if needed for
+consistency.
 
 ### 1.4 Nested Lock Calls
 
-**Problem**: `GetAnimationFrames` calls `GetSpriteDefinition` which has its own lock. While this won't deadlock (same lock object), it's inefficient.
+**Problem**: `GetAnimationFrames` calls `GetSpriteDefinition` which has its own lock. While this won't deadlock (same
+lock object), it's inefficient.
 
 **Location**: `ResourceManager.cs` line 524
 
@@ -90,18 +104,22 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 
 ### 2.1 Synchronous File I/O in Hot Paths ⚠️ CRITICAL
 
-**Problem**: `LoadTexture`, `LoadFont`, `LoadShader` perform synchronous file I/O. These methods are called from Update/Render loops (hot paths).
+**Problem**: `LoadTexture`, `LoadFont`, `LoadShader` perform synchronous file I/O. These methods are called from
+Update/Render loops (hot paths).
 
 **Evidence**:
+
 - `SpriteRendererSystem.Render()` calls `LoadTexture()` (line 712)
 - `MapRendererSystem.Render()` calls `GetTilesetDefinition()` which may trigger loads
 - `AnimatedTileSystem.Update()` calls `GetCachedTileAnimation()` (safe, but if cache miss, triggers load)
 
 **Impact**:
+
 - **Frame drops**: File I/O can take 10-100ms, causing visible stuttering
 - **Blocking**: All systems waiting for resources will stall
 
 **Recommendation**:
+
 - **Preload critical resources** during initialization/loading screens
 - **Use async file I/O** with `File.ReadAllBytesAsync` (but MonoGame's `Texture2D.FromFile` is synchronous)
 - **Background loading**: Load resources asynchronously and update cache when ready
@@ -112,22 +130,27 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 **Problem**: Every call to ResourceManager in Update/Render loops acquires a lock, even for cache hits.
 
 **Evidence**:
-- `SpriteAnimationSystem.Update()` calls `GetAnimationLoops()` and `GetAnimationFlipHorizontal()` every frame (lines 91-100, 126-135)
+
+- `SpriteAnimationSystem.Update()` calls `GetAnimationLoops()` and `GetAnimationFlipHorizontal()` every frame (lines
+  91-100, 126-135)
 - `AnimatedTileSystem.Update()` calls `GetCachedTileAnimation()` every frame (line 91)
 - `SpriteRendererSystem.Render()` calls `LoadTexture()` and `GetAnimationFrameRectangle()` every frame (lines 712, 725)
 
 **Impact**:
+
 - **Lock contention**: High-frequency lock acquisition/release overhead
 - **Cache thrashing**: LRU updates require lock acquisition
 
 **Recommendation**:
+
 - **Lock-free reads**: Use `ConcurrentDictionary` for read-heavy caches
 - **Lock-free LRU**: Use atomic operations for LRU tracking
 - **Cache snapshots**: Copy frequently accessed data to thread-local storage
 
 ### 2.3 Audio Reader Reset Inside Lock ⚠️ MEDIUM
 
-**Problem**: `LoadAudioReader` calls `cached.Reset()` inside the lock (line 238). `VorbisReader.Reset()` may perform I/O operations.
+**Problem**: `LoadAudioReader` calls `cached.Reset()` inside the lock (line 238). `VorbisReader.Reset()` may perform I/O
+operations.
 
 **Location**: `ResourceManager.cs` line 238
 
@@ -153,7 +176,8 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 
 **Status**: ResourceManager correctly does NOT fire events. Resource loading is a service operation, not an ECS event.
 
-**Rationale**: Resources are infrastructure, not game state. Events should be for game state changes (entity creation, map transitions, etc.).
+**Rationale**: Resources are infrastructure, not game state. Events should be for game state changes (entity creation,
+map transitions, etc.).
 
 ### 3.2 ResourceManager is Not an ECS System ✅ CORRECT
 
@@ -177,7 +201,8 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 
 ### 4.2 Open/Closed Principle ✅ GOOD
 
-**Status**: ResourceManager is open for extension (new resource types can be added via interface) and closed for modification (existing code doesn't need changes).
+**Status**: ResourceManager is open for extension (new resource types can be added via interface) and closed for
+modification (existing code doesn't need changes).
 
 **Assessment**: ✅ Compliant
 
@@ -190,6 +215,7 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 ### 4.4 Interface Segregation Principle ⚠️ MINOR ISSUE
 
 **Problem**: `IResourceManager` is a large interface with many methods. However, this is acceptable because:
+
 - All methods are related to resource management
 - Systems typically need multiple resource types
 - Splitting would create unnecessary complexity
@@ -198,7 +224,8 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 
 ### 4.5 Dependency Inversion Principle ✅ GOOD
 
-**Status**: ResourceManager depends on abstractions (`IModManager`, `IResourcePathResolver`, `ILogger`), not concretions.
+**Status**: ResourceManager depends on abstractions (`IModManager`, `IResourcePathResolver`, `ILogger`), not
+concretions.
 
 **Assessment**: ✅ Compliant
 
@@ -209,6 +236,7 @@ public Rectangle? CalculateTilesetSourceRectangle(string tilesetId, int gid, int
 ### 5.1 Duplicated Cache Check Pattern ✅ GOOD
 
 **Status**: Cache check pattern is consistent across all `Load*` methods:
+
 ```csharp
 lock (_lock)
 {
@@ -229,6 +257,7 @@ lock (_lock)
 **Location**: Lines 122-132, 262-272, 327-337
 
 **Recommendation**: Extract to helper method:
+
 ```csharp
 private void EvictLRU<T>(Dictionary<string, T> cache, LinkedList<string> accessOrder, int maxSize, string cacheName) where T : IDisposable
 ```
@@ -237,7 +266,9 @@ private void EvictLRU<T>(Dictionary<string, T> cache, LinkedList<string> accessO
 
 ### 5.3 Duplicated Definition Loading Pattern ✅ ACCEPTABLE
 
-**Status**: Definition loading pattern (`GetDefinition<T>`, check for null, extract path) is repeated but with different types. This is acceptable because:
+**Status**: Definition loading pattern (`GetDefinition<T>`, check for null, extract path) is repeated but with different
+types. This is acceptable because:
+
 - Type-specific logic is needed
 - Generic helper would be complex
 
@@ -258,6 +289,7 @@ private void EvictLRU<T>(Dictionary<string, T> cache, LinkedList<string> accessO
 **Problem**: Some methods return `null` instead of throwing exceptions, violating fail-fast principle.
 
 **Violations**:
+
 1. `GetSpriteDefinition()` returns `null` if spriteId is null/empty (line 355)
 2. `GetTilesetDefinition()` returns `null` if tilesetId is null/empty (line 647)
 3. `GetAnimationFrames()` returns `null` if not found (line 502, 536)
@@ -265,11 +297,13 @@ private void EvictLRU<T>(Dictionary<string, T> cache, LinkedList<string> accessO
 5. `CalculateTilesetSourceRectangle()` returns `null` if invalid (line 750, 757, 766, 783)
 
 **Expected Behavior** (per .cursorrules):
+
 - Throw `ArgumentException` for null/empty parameters
 - Throw `InvalidOperationException` for missing resources
 - No fallback code, no null returns
 
 **Current Code** (WRONG):
+
 ```csharp
 public SpriteDefinition? GetSpriteDefinition(string spriteId)
 {
@@ -286,7 +320,8 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 }
 ```
 
-**Recommendation**: 
+**Recommendation**:
+
 - Change return types to non-nullable
 - Throw `ArgumentException` for null/empty parameters
 - Throw `InvalidOperationException` for missing resources
@@ -332,6 +367,7 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 **Problem**: Every resource access in Update/Render loops acquires a lock.
 
 **Frequency**:
+
 - `SpriteAnimationSystem.Update()`: 2 calls per sprite per frame
 - `AnimatedTileSystem.Update()`: 1 call per animated tile per frame
 - `SpriteRendererSystem.Render()`: 2 calls per sprite per frame
@@ -363,48 +399,48 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 ### Critical (Must Fix)
 
 1. **Move file I/O outside locks**
-   - Use double-checked locking pattern
-   - Load file data first, then acquire lock to update cache
+    - Use double-checked locking pattern
+    - Load file data first, then acquire lock to update cache
 
 2. **Fix fail-fast violations**
-   - Change nullable return types to non-nullable
-   - Throw exceptions instead of returning null
-   - Update all call sites to handle exceptions
+    - Change nullable return types to non-nullable
+    - Throw exceptions instead of returning null
+    - Update all call sites to handle exceptions
 
 3. **Reduce lock contention**
-   - Use `ConcurrentDictionary` for read-heavy caches
-   - Consider separate locks per resource type
-   - Use lock-free LRU tracking
+    - Use `ConcurrentDictionary` for read-heavy caches
+    - Consider separate locks per resource type
+    - Use lock-free LRU tracking
 
 ### High Priority
 
 4. **Preload resources**
-   - Load all resources needed for current map/scene during initialization
-   - Use loading screens for async preloading
-   - Cache warming strategy
+    - Load all resources needed for current map/scene during initialization
+    - Use loading screens for async preloading
+    - Cache warming strategy
 
 5. **Extract duplicated LRU eviction logic**
-   - Create generic helper method
-   - Reduces code duplication
+    - Create generic helper method
+    - Reduces code duplication
 
 ### Medium Priority
 
 6. **Document thread safety**
-   - Add XML comments explaining thread safety guarantees
-   - Document that definitions are immutable after loading
+    - Add XML comments explaining thread safety guarantees
+    - Document that definitions are immutable after loading
 
 7. **Consider async loading**
-   - For non-critical resources, load asynchronously
-   - Update cache when ready
+    - For non-critical resources, load asynchronously
+    - Update cache when ready
 
 ### Low Priority
 
 8. **Optimize lock granularity**
-   - Separate locks per resource type
-   - Or use `ReaderWriterLockSlim`
+    - Separate locks per resource type
+    - Or use `ReaderWriterLockSlim`
 
 9. **Extract cache check pattern**
-   - Generic helper method for cache check + load pattern
+    - Generic helper method for cache check + load pattern
 
 ---
 
@@ -413,6 +449,7 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 ### Example 1: Fix File I/O in Lock
 
 **Current (WRONG)**:
+
 ```csharp
 lock (_lock)
 {
@@ -428,6 +465,7 @@ lock (_lock)
 ```
 
 **Fixed (CORRECT)**:
+
 ```csharp
 // Check cache (fast path)
 lock (_lock)
@@ -472,6 +510,7 @@ lock (_lock)
 ### Example 2: Fix Fail-Fast Violations
 
 **Current (WRONG)**:
+
 ```csharp
 public SpriteDefinition? GetSpriteDefinition(string spriteId)
 {
@@ -485,6 +524,7 @@ public SpriteDefinition? GetSpriteDefinition(string spriteId)
 ```
 
 **Fixed (CORRECT)**:
+
 ```csharp
 public SpriteDefinition GetSpriteDefinition(string spriteId)
 {
@@ -534,6 +574,7 @@ public SpriteDefinition GetSpriteDefinition(string spriteId)
 ### 10.1 Thread Safety Testing
 
 **Recommendation**: Add unit tests for concurrent access:
+
 - Multiple threads loading same resource
 - Multiple threads loading different resources
 - Cache eviction during concurrent access
@@ -541,6 +582,7 @@ public SpriteDefinition GetSpriteDefinition(string spriteId)
 ### 10.2 Performance Testing
 
 **Recommendation**: Benchmark lock contention:
+
 - Measure lock acquisition time
 - Measure cache hit/miss performance
 - Profile Update/Render loop overhead
@@ -548,6 +590,7 @@ public SpriteDefinition GetSpriteDefinition(string spriteId)
 ### 10.3 Fail-Fast Testing
 
 **Recommendation**: Add tests verifying exceptions are thrown:
+
 - Null/empty parameters → `ArgumentException`
 - Missing resources → `InvalidOperationException`
 - Disposed manager → `ObjectDisposedException`
@@ -563,9 +606,11 @@ The ResourceManager implementation is **architecturally sound** but has **critic
 3. **Lock contention** - Should fix (performance impact)
 4. **DRY violations** - Should fix (code quality)
 
-The implementation follows SOLID principles well and correctly integrates with Arch ECS (as a service, not a system). The main issues are performance-related (threading) and compliance-related (fail-fast).
+The implementation follows SOLID principles well and correctly integrates with Arch ECS (as a service, not a system).
+The main issues are performance-related (threading) and compliance-related (fail-fast).
 
 **Priority Order**:
+
 1. Fix fail-fast violations (compliance)
 2. Move file I/O outside locks (performance)
 3. Reduce lock contention (performance)

@@ -2,7 +2,9 @@
 
 ## Overview
 
-This document describes the design for implementing a message box system with character-by-character typewriting animation, based on the Pokemon Emerald (GBA) implementation. The system will integrate with MonoBall's ECS architecture, event-driven design, and scripting API.
+This document describes the design for implementing a message box system with character-by-character typewriting
+animation, based on the Pokemon Emerald (GBA) implementation. The system will integrate with MonoBall's ECS
+architecture, event-driven design, and scripting API.
 
 ## Goals
 
@@ -17,6 +19,7 @@ This document describes the design for implementing a message box system with ch
 ### Pokemon Emerald (pokeemerald-expansion) Key Components
 
 #### Text Printer System
+
 - **TextPrinter**: State machine for rendering text character-by-character
 - **States**: `RENDER_STATE_HANDLE_CHAR`, `RENDER_STATE_WAIT`, `RENDER_STATE_PAUSE`, `RENDER_STATE_CLEAR`
 - **Delay Counter**: Frame-based delay between characters (controlled by text speed)
@@ -24,12 +27,14 @@ This document describes the design for implementing a message box system with ch
 - **Auto-Scroll**: Optional automatic scrolling for long text
 
 #### Message Box System
+
 - **ShowFieldMessage()**: Shows message box with text
 - **Task_DrawFieldMessage()**: Task-based rendering system
 - **Window Rendering**: Tile-based window frame rendering
 - **Text Flags**: `canABSpeedUpPrint`, `autoScroll`, `useAlternateDownArrow`
 
 #### Text Speed System
+
 - **Player Text Speed**: Configurable speed (Slow/Medium/Fast/Instant)
 - **Speed Modifiers**: Multiplicative modifiers for each speed level
 - **Instant Mode**: Renders all text immediately (for testing/debugging)
@@ -39,12 +44,14 @@ This document describes the design for implementing a message box system with ch
 ### Scene-Based Architecture
 
 The message box system follows the established scene architecture pattern:
+
 - **Message Box Scene**: An ECS entity with `SceneComponent` + `MessageBoxSceneComponent` (marker)
 - **MessageBoxSceneSystem**: Implements `ISceneSystem` to handle update/render for message box scenes
 - **Scene Lifecycle**: Managed by `SceneSystem` (create/destroy/activate)
 - **Priority**: `ScenePriorities.GameScene + 20` (70) - above game scene, below loading/debug overlays
 
 #### Scene Priority Hierarchy
+
 ```
 DebugOverlay (100)        - Debug bar, console
 LoadingScreen (75)        - Loading screens
@@ -54,6 +61,7 @@ Background (0)            - Background scenes
 ```
 
 #### Scene Configuration
+
 - **CameraMode**: `SceneCameraMode.GameCamera` (uses game camera for proper scaling from GBA sprites)
 - **BlocksUpdate**: `true` (blocks game updates when message box is active)
 - **BlocksDraw**: `false` (allows game to render behind message box)
@@ -62,6 +70,7 @@ Background (0)            - Background scenes
 ### ECS Components
 
 #### `MessageBoxSceneComponent`
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -90,6 +99,7 @@ namespace MonoBall.Core.Scenes.Components
 ```
 
 #### `MessageBoxComponent`
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -229,6 +239,7 @@ namespace MonoBall.Core.Scenes.Components
 #### Helper Types for Text Processing
 
 #### `TextToken` and `TextTokenType`
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -298,6 +309,7 @@ namespace MonoBall.Core.Scenes.Components
 ```
 
 #### `WrappedLine`
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -331,6 +343,7 @@ namespace MonoBall.Core.Scenes.Components
 ```
 
 #### `MessageBoxRenderState` Enum
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -375,6 +388,7 @@ namespace MonoBall.Core.Scenes.Components
 ### ECS Events
 
 #### `MessageBoxShowEvent`
+
 ```csharp
 namespace MonoBall.Core.ECS.Events
 {
@@ -419,6 +433,7 @@ namespace MonoBall.Core.ECS.Events
 ```
 
 #### `MessageBoxHideEvent`
+
 ```csharp
 namespace MonoBall.Core.ECS.Events
 {
@@ -436,6 +451,7 @@ namespace MonoBall.Core.ECS.Events
 ```
 
 #### `MessageBoxTextAdvanceEvent`
+
 ```csharp
 namespace MonoBall.Core.ECS.Events
 {
@@ -453,6 +469,7 @@ namespace MonoBall.Core.ECS.Events
 ```
 
 #### `MessageBoxTextFinishedEvent`
+
 ```csharp
 namespace MonoBall.Core.ECS.Events
 {
@@ -472,11 +489,13 @@ namespace MonoBall.Core.ECS.Events
 ### ECS Systems
 
 #### `MessageBoxSceneSystem`
+
 **Purpose**: Manages message box scene lifecycle, text printing state machine, input handling, and rendering.
 
 **Architecture**: Implements `ISceneSystem` interface following the established scene pattern.
 
 **Responsibilities**:
+
 - Handle `MessageBoxShowEvent` - Create message box scene entity
 - Handle `MessageBoxHideEvent` - Destroy message box scene entity
 - Update text printing state machine each frame (`ProcessInternal`)
@@ -487,6 +506,7 @@ namespace MonoBall.Core.ECS.Events
 - Render message box window frame and text (`RenderScene`)
 
 **Interface Implementation**:
+
 ```csharp
 namespace MonoBall.Core.Scenes.Systems
 {
@@ -675,11 +695,13 @@ namespace MonoBall.Core.Scenes.Systems
 ```
 
 **Event Subscriptions**:
+
 - `MessageBoxShowEvent` - Create scene and show message box
 - `MessageBoxHideEvent` - Destroy scene and hide message box
 - `MessageBoxTextAdvanceEvent` - Handle button press advancement
 
 **Scene Creation**:
+
 ```csharp
 /// <summary>
 /// Handles MessageBoxShowEvent by creating a new message box scene.
@@ -825,6 +847,7 @@ private int GetPlayerTextSpeed()
 ```
 
 **Update Logic** (`ProcessInternal`):
+
 ```csharp
 public void ProcessInternal(float deltaTime)
 {
@@ -851,6 +874,7 @@ public void ProcessInternal(float deltaTime)
 ```
 
 **Character Processing**:
+
 - Use pre-parsed tokens (from `ParsedText`) instead of parsing every frame
 - Process current token based on `CurrentCharIndex`
 - Handle control codes (newline, pause, color changes) from parsed tokens
@@ -861,24 +885,27 @@ public void ProcessInternal(float deltaTime)
 - Fire `MessageBoxTextFinishedEvent` when done
 
 **Control Code Parsing** (Pre-processing, not in hot path):
+
 - Parse control codes when message box is created
 - Store as list of tokens: `List<TextToken>` where `TextToken` contains:
-  - `TokenType` (Char, Newline, Pause, Color, Speed, Clear)
-  - `Value` (character, pause frames, color values, etc.)
-  - `Position` (original position in text)
+    - `TokenType` (Char, Newline, Pause, Color, Speed, Clear)
+    - `Value` (character, pause frames, color values, etc.)
+    - `Position` (original position in text)
 - Handle escape sequences (`\{` for literal `{`)
 - Validate control codes (throw exception for malformed codes)
 
 **Text Wrapping** (Pre-processing, not in hot path):
+
 - Use pixel-based wrapping (measure string width with font)
 - Break words if necessary (hyphenate or truncate very long words)
 - Store wrapped lines: `List<WrappedLine>` where each line contains:
-  - `Text` (substring for this line)
-  - `StartIndex` (character index in original text)
-  - `EndIndex` (character index in original text)
-  - `Width` (pixel width of line)
+    - `Text` (substring for this line)
+    - `StartIndex` (character index in original text)
+    - `EndIndex` (character index in original text)
+    - `Width` (pixel width of line)
 
 **Input Handling**:
+
 - Check `InputAction.Interact` (A button) - primary interaction button
 - **Note**: `InputAction` enum currently has `Interact` but no explicit `Cancel` action
 - For B button functionality, check for `Keys.Escape` or add `InputAction.Cancel` to enum (future enhancement)
@@ -888,6 +915,7 @@ public void ProcessInternal(float deltaTime)
 - **Input Blocking**: When message box scene is active, it blocks game updates (`BlocksUpdate = true`)
 
 **Rendering** (`RenderScene`):
+
 - Render message box window frame using tilesheet (9-slice)
 - Render text characters up to `CurrentCharIndex` (using pre-wrapped lines)
 - Render down arrow indicator (when `IsWaitingForInput`)
@@ -895,6 +923,7 @@ public void ProcessInternal(float deltaTime)
 - Use pre-calculated wrapped lines (no wrapping during rendering)
 
 **Dependencies**:
+
 - `ISceneManager` - For creating/destroying scenes (required, validated in constructor)
 - `FontService` - For font loading and rendering (required, validated in constructor)
 - `SpriteBatch` - For rendering text and sprites (required, validated in constructor)
@@ -905,6 +934,7 @@ public void ProcessInternal(float deltaTime)
 - `ILogger` - For logging operations (required, validated in constructor)
 
 **Tilesheet Usage**:
+
 - Use `MessageBoxConstants.MessageBoxTilesheetId` (`base:textwindow:tilesheet/message_box`)
 - Tiles 0-13 represent different parts of the message box frame
 - 9-slice rendering: corners, edges, center fill
@@ -914,6 +944,7 @@ public void ProcessInternal(float deltaTime)
 - Tilesheet must exist in mod registry - validate during scene creation
 
 **Font Usage**:
+
 - Use font ID from `MessageBoxComponent.FontId` (default: `MessageBoxConstants.DefaultFontId`)
 - Load font via `FontService.GetFontSystem(fontId)`
 - **Error Handling**: If font not found, throw `InvalidOperationException` with clear message
@@ -921,6 +952,7 @@ public void ProcessInternal(float deltaTime)
 - Font must exist in mod registry - validate during scene creation
 
 **Text Rendering Details**:
+
 - Use FontStashSharp `DynamicSpriteFont` for text rendering
 - Text colors: White (255,255,255,255) for main text, Dark Gray (72,72,80,255) for shadow
 - Shadow offset: 1 pixel down and 1 pixel right
@@ -928,10 +960,10 @@ public void ProcessInternal(float deltaTime)
 - Render shadow first, then main text on top
 - Render substring up to `CurrentCharIndex` (batch rendering, not character-by-character)
 
-
 ### Script API Integration
 
 #### `IMessageBoxApi` Interface
+
 ```csharp
 namespace MonoBall.Core.Scripting.Api
 {
@@ -961,6 +993,7 @@ namespace MonoBall.Core.Scripting.Api
 ```
 
 #### Implementation
+
 ```csharp
 namespace MonoBall.Core.Scripting.Api
 {
@@ -1018,17 +1051,19 @@ namespace MonoBall.Core.Scripting.Api
 ### Text Speed System
 
 #### Player Text Speed Preference
+
 - **Storage**: Stored in global variables via `IFlagVariableService`
 - **Variable Name**: `"player:textSpeed"` (string value: "slow", "medium", "fast", "instant")
 - **Default**: "medium" if not set
 - **Options**: Slow, Medium, Fast, Instant
 - Maps to delay values (frames per character):
-  - Slow: 8 frames per character
-  - Medium: 4 frames per character
-  - Fast: 2 frames per character
-  - Instant: 0 frames (render all immediately)
+    - Slow: 8 frames per character
+    - Medium: 4 frames per character
+    - Fast: 2 frames per character
+    - Instant: 0 frames (render all immediately)
 
 #### Text Speed Modifiers
+
 - **Storage**: Configurable in mod definitions or config files (future enhancement)
 - **Application**: Multiplicative (`actualDelay = baseDelay * modifier`)
 - **Default Modifier**: 1.0 (no change)
@@ -1036,6 +1071,7 @@ namespace MonoBall.Core.Scripting.Api
 - Can be adjusted per-message if needed
 
 #### Constants
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -1083,6 +1119,7 @@ namespace MonoBall.Core.Scenes.Components
 ### Control Codes
 
 #### Supported Control Codes
+
 - `\n` - Newline (wrap to next line)
 - `\r` - Carriage return (reset to start of line)
 - `{PAUSE:30}` - Pause for N frames (e.g., `{PAUSE:30}` pauses for 30 frames)
@@ -1094,11 +1131,13 @@ namespace MonoBall.Core.Scenes.Components
 #### Control Code Parsing Implementation
 
 **Pre-Parsing Strategy** (Performance Optimization):
+
 - Parse control codes once when message box is created
 - Store as `List<TextToken>` for efficient processing
 - Don't parse during character-by-character printing
 
 **TextToken Structure**:
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -1167,6 +1206,7 @@ namespace MonoBall.Core.Scenes.Components
 ```
 
 **Parsing Algorithm**:
+
 1. Iterate through text string character-by-character
 2. Detect control code start (`{`)
 3. Parse control code type and parameters
@@ -1176,6 +1216,7 @@ namespace MonoBall.Core.Scenes.Components
 7. Continue until end of string
 
 **Error Handling**:
+
 - Malformed control codes: Throw `ArgumentException` with position information
 - Invalid color values: Throw `ArgumentException` with clear message
 - Invalid speed values: Throw `ArgumentException` with clear message
@@ -1184,41 +1225,48 @@ namespace MonoBall.Core.Scenes.Components
 ### Font System
 
 #### Font Definition
+
 - Font definitions stored in mod registry
 - Font properties: `maxLetterWidth`, `maxLetterHeight`, `letterSpacing`, `lineSpacing`
 - Font rendering: Character glyph lookup and rendering
 
 #### Font Rendering
+
 - **Existing System**: Use `FontService` (already implemented) which uses FontStashSharp
-- **Font Loading**: Fonts loaded via `FontService.GetFontSystem(fontId)` 
+- **Font Loading**: Fonts loaded via `FontService.GetFontSystem(fontId)`
 - **Font Rendering**: Use `FontSystem.GetFont(size)` to get `DynamicSpriteFont` for rendering
 - **Character Width**: Use `font.MeasureString(char)` for character width calculation
 - **Text Rendering**: Use `font.DrawText(spriteBatch, text, position, color)` for rendering
 - **Default Font**: Use existing font definitions (e.g., `base:font:debug/mono` or create message box specific font)
 
-**Note**: The existing `FontService` already handles font loading and caching. The message box system should inject `FontService` and use it for text rendering.
+**Note**: The existing `FontService` already handles font loading and caching. The message box system should inject
+`FontService` and use it for text rendering.
 
 ### Message Box Positioning
 
 #### Screen Position
+
 - Default: Bottom of screen, centered horizontally
 - Configurable: Top, Bottom, Center, Custom position (future enhancement)
 - Account for screen resolution changes
 - Use game camera coordinates (not screen space) for proper scaling
 
 #### Size Calculation
+
 - Calculate message box size based on pre-wrapped text lines
 - Maximum width: Screen width - margins (in game pixels, accounting for camera scale)
 - Maximum height: Configurable (default: 4 lines)
 - Auto-resize for long messages (with scrolling support)
 
 **Text Wrapping Algorithm** (Pre-processing):
+
 - Use pixel-based wrapping (measure string width with font)
 - Break at word boundaries when possible
 - Break words if necessary (hyphenate or truncate very long words)
 - Store wrapped lines: `List<WrappedLine>`
 
 **WrappedLine Structure**:
+
 ```csharp
 namespace MonoBall.Core.Scenes.Components
 {
@@ -1251,6 +1299,7 @@ namespace MonoBall.Core.Scenes.Components
 ```
 
 **Wrapping Algorithm**:
+
 1. Measure text width using font (`font.MeasureString()`)
 2. If text fits on line, add as single line
 3. If text doesn't fit, find last word boundary that fits
@@ -1262,32 +1311,36 @@ namespace MonoBall.Core.Scenes.Components
 ## Implementation Phases
 
 ### Phase 1: Core Components and Events
+
 1. Create `MessageBoxConstants` class in `Scenes/Components/` with all constants
 2. Create `MessageBoxSceneComponent` marker struct in `Scenes/Components/`
 3. Create `MessageBoxComponent` struct in `Scenes/Components/`
 4. Create `MessageBoxRenderState` enum in `Scenes/Components/`
 5. Create helper types: `TextToken`, `TextTokenType`, `WrappedLine` in `Scenes/Components/`
-6. Create events: `MessageBoxShowEvent`, `MessageBoxHideEvent`, `MessageBoxTextAdvanceEvent`, `MessageBoxTextFinishedEvent` in `ECS/Events/`
+6. Create events: `MessageBoxShowEvent`, `MessageBoxHideEvent`, `MessageBoxTextAdvanceEvent`,
+   `MessageBoxTextFinishedEvent` in `ECS/Events/`
 7. Create `MessageBoxSceneSystem` skeleton in `Scenes/Systems/` (implements `ISceneSystem`)
-   - Add constructor with all required dependencies (validate nulls)
-   - Cache `QueryDescription` in constructor
-   - Implement `IDisposable` with event unsubscription
-   - Add XML documentation to all public methods
+    - Add constructor with all required dependencies (validate nulls)
+    - Cache `QueryDescription` in constructor
+    - Implement `IDisposable` with event unsubscription
+    - Add XML documentation to all public methods
 
 ### Phase 2: Scene Integration
+
 1. Register `MessageBoxSceneSystem` with `SceneSystem` in `SystemManager`
-   - Call `sceneSystem.RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem)`
+    - Call `sceneSystem.RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem)`
 2. Implement scene creation in `OnMessageBoxShow` event handler
-   - Use `ISceneManager.CreateScene()` with:
-     - Priority: `ScenePriorities.GameScene + 20`
-     - CameraMode: `SceneCameraMode.GameCamera` (for proper scaling from GBA sprites)
-     - BlocksUpdate: `true`
-     - BlocksDraw: `false`
+    - Use `ISceneManager.CreateScene()` with:
+        - Priority: `ScenePriorities.GameScene + 20`
+        - CameraMode: `SceneCameraMode.GameCamera` (for proper scaling from GBA sprites)
+        - BlocksUpdate: `true`
+        - BlocksDraw: `false`
 3. Implement scene destruction in `OnMessageBoxHide` event handler
-   - Use `ISceneManager.DestroyScene()`
+    - Use `ISceneManager.DestroyScene()`
 4. Test scene lifecycle (create/destroy)
 
 ### Phase 3: Text Processing Utilities
+
 1. Implement `ParseControlCodes()` method - parse text into `TextToken` list
 2. Implement `WrapText()` method - wrap text into `WrappedLine` list using font measurement
 3. Handle escape sequences (`\{` for literal `{`)
@@ -1295,6 +1348,7 @@ namespace MonoBall.Core.Scenes.Components
 5. Test parsing with various control codes
 
 ### Phase 4: Text Printing System
+
 1. Implement `ProcessInternal()` - process pre-parsed tokens (not character-by-character parsing)
 2. Implement delay counter system
 3. Implement text speed handling (use `GetPlayerTextSpeed()` with fallback)
@@ -1303,6 +1357,7 @@ namespace MonoBall.Core.Scenes.Components
 6. Test with simple messages
 
 ### Phase 4: Input Handling
+
 1. Implement input detection in `ProcessInternal()`
 2. Implement A/B button detection
 3. Implement speed-up logic
@@ -1310,6 +1365,7 @@ namespace MonoBall.Core.Scenes.Components
 5. Test input responsiveness
 
 ### Phase 5: Rendering System
+
 1. Implement `RenderScene()` method
 2. Implement window frame rendering (9-slice)
 3. Implement text rendering (using pre-wrapped lines, render substring up to `CurrentCharIndex`)
@@ -1317,6 +1373,7 @@ namespace MonoBall.Core.Scenes.Components
 5. Test visual appearance
 
 ### Phase 6: Script API Integration
+
 1. Create `IMessageBoxApi` interface
 2. Implement `MessageBoxApi` class
 3. Register API in script context
@@ -1324,6 +1381,7 @@ namespace MonoBall.Core.Scenes.Components
 5. Update NPC interaction scripts in littleroot_town
 
 ### Phase 7: Polish and Features
+
 1. Add advanced control codes (color, speed changes)
 2. Add auto-scroll support
 3. Add multiple message box support (stacking)
@@ -1335,6 +1393,7 @@ namespace MonoBall.Core.Scenes.Components
 ### With Existing Systems
 
 #### Scene System
+
 - `MessageBoxSceneSystem` implements `ISceneSystem` interface
 - Registered with `SceneSystem` via `RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem)`
 - Scene lifecycle managed by `SceneSystem` (create/destroy/activate)
@@ -1342,40 +1401,47 @@ namespace MonoBall.Core.Scenes.Components
 - Blocks game updates when active (`BlocksUpdate = true`)
 
 #### Input System
+
 - `MessageBoxSceneSystem` queries `IInputBindingService` for button presses
 - Scene blocks game updates when active (prevents player movement)
 - Input handled in `ProcessInternal()` method
 
 #### Rendering System
+
 - `MessageBoxSceneSystem.RenderScene()` called by `SceneRendererSystem`
 - Renders after game scene (due to higher priority)
 - Uses `SpriteBatch` for rendering
 - Integrates with existing scene rendering pipeline
 
 #### Script System
+
 - `MessageBoxApi` available in script context
 - Scripts can call `Context.MessageBox.ShowMessage("text")`
 - Events can be subscribed to in scripts for message box lifecycle
 
 #### NPC Interaction System
+
 - NPC interaction scripts can show messages
 - Example: `Context.MessageBox.ShowMessage("Hello, trainer!")`
 
 ## Testing Strategy
 
 ### Unit Tests
+
 - Control code parsing
 - Text wrapping logic
 - Delay counter calculations
 - State machine transitions
 
 ### Integration Tests
+
 - Event-driven message box creation/destruction
 - Input handling with message box active
 - Script API calls
 - Rendering output verification
 
 ### Manual Testing
+
 - Visual appearance matches Pokemon Emerald
 - Text speed feels responsive
 - Button presses work correctly

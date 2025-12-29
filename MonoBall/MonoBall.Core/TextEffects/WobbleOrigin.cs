@@ -1,23 +1,22 @@
-namespace MonoBall.Core.TextEffects
+namespace MonoBall.Core.TextEffects;
+
+/// <summary>
+///     Defines the pivot point for wobble/rotation effects.
+/// </summary>
+public enum WobbleOrigin
 {
     /// <summary>
-    /// Defines the pivot point for wobble/rotation effects.
+    ///     Rotate around the center of the character.
     /// </summary>
-    public enum WobbleOrigin
-    {
-        /// <summary>
-        /// Rotate around the center of the character.
-        /// </summary>
-        Center,
+    Center,
 
-        /// <summary>
-        /// Rotate around the top of the character (like a hanging sign).
-        /// </summary>
-        Top,
+    /// <summary>
+    ///     Rotate around the top of the character (like a hanging sign).
+    /// </summary>
+    Top,
 
-        /// <summary>
-        /// Rotate around the bottom of the character.
-        /// </summary>
-        Bottom,
-    }
+    /// <summary>
+    ///     Rotate around the bottom of the character.
+    /// </summary>
+    Bottom,
 }

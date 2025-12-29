@@ -2,14 +2,17 @@
 
 ## Overview
 
-This document defines the clear separation between **ScriptBase**, **APIs**, and **Utilities** to ensure consistent, maintainable script development.
+This document defines the clear separation between **ScriptBase**, **APIs**, and **Utilities** to ensure consistent,
+maintainable script development.
 
 ## Design Principles
 
 ### ScriptBase
+
 **Purpose**: Entity-specific convenience methods and script lifecycle management.
 
 **Characteristics**:
+
 - Operates on the script's own entity (`Context.Entity`)
 - Provides convenience wrappers for common patterns
 - Manages script-specific state and lifecycle
@@ -17,12 +20,14 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 - Context-aware (has access to `Context`)
 
 **When to add to ScriptBase**:
+
 - ✅ Operation is specific to the script's own entity
 - ✅ Reduces boilerplate for common patterns
 - ✅ Requires script context (entity, state, timers)
 - ✅ Entity-attached script convenience wrapper
 
 **When NOT to add to ScriptBase**:
+
 - ❌ Pure function (no context needed)
 - ❌ Operates on other entities
 - ❌ Game system operation
@@ -31,9 +36,11 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 ---
 
 ### APIs (IScriptApiProvider)
+
 **Purpose**: Game system operations and cross-entity interactions.
 
 **Characteristics**:
+
 - Operates on any entity (passed as parameter)
 - Accesses game systems and services
 - Cross-entity operations (e.g., player, NPCs, maps)
@@ -41,12 +48,14 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 - Stateless (no script-specific context)
 
 **When to add to API**:
+
 - ✅ Operates on multiple entities or game systems
 - ✅ Accesses game services (movement, camera, etc.)
 - ✅ Cross-entity operations (e.g., face player, query maps)
 - ✅ Game state queries (flags, variables, definitions)
 
 **When NOT to add to API**:
+
 - ❌ Script-specific convenience wrapper
 - ❌ Pure function or parsing utility
 - ❌ Operates only on script's own entity (use ScriptBase)
@@ -54,9 +63,11 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 ---
 
 ### Utilities
+
 **Purpose**: Pure functions, parsing, formatting, and stateless helpers.
 
 **Characteristics**:
+
 - Pure functions (no side effects, no state)
 - Stateless (no context needed)
 - Parsing/formatting operations
@@ -64,6 +75,7 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 - Can be used outside scripts
 
 **When to add to Utilities**:
+
 - ✅ Pure function (input → output, no side effects)
 - ✅ Parsing/formatting (strings, enums, etc.)
 - ✅ Mathematical operations
@@ -71,6 +83,7 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 - ✅ No context or entity needed
 
 **When NOT to add to Utilities**:
+
 - ❌ Requires script context
 - ❌ Operates on entities or components
 - ❌ Accesses game systems
@@ -80,7 +93,9 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 ## Current State Analysis
 
 ### ScriptBase (Current)
+
 ✅ **Correctly placed**:
+
 - `On<TEvent>()` - Event subscription (script-specific)
 - `Get<T>()` / `Set<T>()` - State management (script-specific)
 - `TryGetComponent<T>()` - Component access (own entity)
@@ -88,7 +103,9 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 - `Publish<TEvent>()` - Event publishing (script-specific)
 
 ### APIs (Current)
+
 ✅ **Correctly placed**:
+
 - `IPlayerApi` - Player operations (cross-entity)
 - `IMapApi` - Map operations (game system)
 - `IMovementApi` - Movement operations (game system)
@@ -96,10 +113,13 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 - `IFlagVariableService` - Flags/variables (game state)
 
 ⚠️ **Missing**:
+
 - `INpcApi` - NPC-specific operations (facing direction, movement state) - **To be added**
 
 ### Utilities (Current)
+
 ✅ **Correctly placed**:
+
 - `DirectionParser` - Parsing direction strings (pure function)
 - `Vector2Parser` - Parsing Vector2 strings (pure function)
 - `ScriptStateKeys` - Key generation (pure function)
@@ -111,6 +131,7 @@ This document defines the clear separation between **ScriptBase**, **APIs**, and
 ### ScriptBase Enhancements
 
 #### Event Filtering Helpers
+
 **Rationale**: Reduces boilerplate for event filtering (appears in every event handler).
 
 ```csharp
@@ -142,6 +163,7 @@ protected void RequireEntity()
 ```
 
 #### Component Access Helpers
+
 **Rationale**: Common pattern for getting/setting GridMovement.FacingDirection and PositionComponent.
 
 ```csharp
@@ -180,6 +202,7 @@ protected (int X, int Y) GetPosition()
 ```
 
 #### Timer Helpers
+
 **Rationale**: Common patterns for random timers and cleanup.
 
 ```csharp
@@ -205,6 +228,7 @@ protected void CancelTimerIfExists(string timerId)
 ```
 
 #### Parameter Parsing Helpers
+
 **Rationale**: Reduces boilerplate for common parameter types.
 
 ```csharp
@@ -240,6 +264,7 @@ protected bool GetParameterAsBool(string name, bool defaultValue = false)
 ```
 
 #### State Persistence Helpers
+
 **Rationale**: Common patterns for enum serialization.
 
 ```csharp
@@ -281,14 +306,17 @@ protected void SetPositionState(string keyX, string keyY, int x, int y)
 }
 ```
 
-**Note**: Movement operations should use `Context.Apis.Movement.*` directly. For NPC-specific operations like facing direction and movement state, use `Context.Apis.Npc.*`.
+**Note**: Movement operations should use `Context.Apis.Movement.*` directly. For NPC-specific operations like facing
+direction and movement state, use `Context.Apis.Npc.*`.
 
 ---
 
 ### API Enhancements
 
 #### INpcApi (New)
-**Rationale**: Currently missing - scripts manipulate components directly. Provides NPC-specific operations that complement IMovementApi.
+
+**Rationale**: Currently missing - scripts manipulate components directly. Provides NPC-specific operations that
+complement IMovementApi.
 
 ```csharp
 public interface INpcApi
@@ -331,13 +359,15 @@ public interface INpcApi
 }
 ```
 
-**Note**: Movement operations (RequestMovement, IsMoving, LockMovement, UnlockMovement) are handled by `IMovementApi` and should be used directly. `INpcApi` focuses on NPC-specific operations like facing direction and movement state.
+**Note**: Movement operations (RequestMovement, IsMoving, LockMovement, UnlockMovement) are handled by `IMovementApi`
+and should be used directly. `INpcApi` focuses on NPC-specific operations like facing direction and movement state.
 
 ---
 
 ### Utility Enhancements
 
 #### DirectionHelper (New)
+
 **Rationale**: Pure functions for direction manipulation - currently duplicated across scripts.
 
 ```csharp
@@ -433,6 +463,7 @@ public static class DirectionHelper
 ```
 
 #### RandomHelper (New)
+
 **Rationale**: Common random number generation patterns.
 
 ```csharp
@@ -470,18 +501,20 @@ public static class RandomHelper
 
 ## Summary Table
 
-| Category | Purpose | Examples | Access Pattern |
-|----------|---------|----------|---------------|
-| **ScriptBase** | Entity-specific convenience | `GetFacingDirection()`, `SetFacingDirection()`, `IsEventForThisEntity()` | `protected` methods in script class |
-| **APIs** | Game system operations | `Context.Apis.Player.GetPlayerEntity()`, `Context.Apis.Movement.RequestMovement()`, `Context.Apis.Npc.FaceDirection()` | `Context.Apis.*` |
-| **Utilities** | Pure functions | `DirectionHelper.Rotate()`, `DirectionParser.Parse()` | Static class methods |
+| Category       | Purpose                     | Examples                                                                                                               | Access Pattern                      |
+|----------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| **ScriptBase** | Entity-specific convenience | `GetFacingDirection()`, `SetFacingDirection()`, `IsEventForThisEntity()`                                               | `protected` methods in script class |
+| **APIs**       | Game system operations      | `Context.Apis.Player.GetPlayerEntity()`, `Context.Apis.Movement.RequestMovement()`, `Context.Apis.Npc.FaceDirection()` | `Context.Apis.*`                    |
+| **Utilities**  | Pure functions              | `DirectionHelper.Rotate()`, `DirectionParser.Parse()`                                                                  | Static class methods                |
 
 ---
 
 ## Migration Guide
 
 ### Moving Code to ScriptBase
+
 If code appears in multiple scripts and:
+
 - Operates on `Context.Entity` (script's own entity)
 - Reduces boilerplate
 - Requires script context
@@ -489,7 +522,9 @@ If code appears in multiple scripts and:
 → Move to ScriptBase as protected helper method
 
 ### Moving Code to API
+
 If code:
+
 - Operates on multiple entities (passed as parameter)
 - Accesses game systems
 - Cross-entity operations
@@ -497,7 +532,9 @@ If code:
 → Create or extend API interface
 
 ### Moving Code to Utilities
+
 If code:
+
 - Pure function (no side effects)
 - No context needed
 - Parsing/formatting
@@ -510,6 +547,7 @@ If code:
 ## Examples
 
 ### Before (Current Script Pattern)
+
 ```csharp
 private void OnTimerElapsed(TimerElapsedEvent evt)
 {
@@ -541,6 +579,7 @@ if (TryGetComponent<GridMovement>(out var otherMovement))
 ```
 
 ### After (With Enhancements)
+
 ```csharp
 private void OnTimerElapsed(TimerElapsedEvent evt)
 {
@@ -566,32 +605,35 @@ Context.Apis.Npc.FaceDirection(otherNpcEntity, Direction.North);
 When adding a new helper, ask:
 
 1. **Does it operate on the script's own entity?**
-   - Yes → ScriptBase
-   - No → Continue to #2
+    - Yes → ScriptBase
+    - No → Continue to #2
 
 2. **Does it operate on game systems or multiple entities (including other entities)?**
-   - Yes → API
-   - No → Continue to #3
+    - Yes → API
+    - No → Continue to #3
 
 3. **Is it a pure function with no side effects?**
-   - Yes → Utility
-   - No → Re-evaluate (may need API or ScriptBase)
+    - Yes → Utility
+    - No → Re-evaluate (may need API or ScriptBase)
 
 ---
 
 ## Implementation Priority
 
 ### Phase 1: High Impact (Implement First)
+
 1. ✅ Event filtering helpers (ScriptBase)
 2. ✅ Component access helpers (ScriptBase)
 3. ✅ DirectionHelper utility (Utilities)
 4. ✅ RandomHelper utility (Utilities)
 
 ### Phase 2: Medium Impact
+
 5. ✅ Timer helpers (ScriptBase)
 6. ✅ Parameter parsing helpers (ScriptBase)
 7. ✅ State persistence helpers (ScriptBase)
 
 ### Phase 3: Lower Priority
+
 8. ✅ INpcApi - NPC-specific operations (facing direction, movement state)
 

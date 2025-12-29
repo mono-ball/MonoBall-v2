@@ -1,96 +1,100 @@
 using System.Collections.Generic;
 using MonoBall.Core.Constants;
-using MonoBall.Core.Mods.Utilities;
 
-namespace MonoBall.Core.Mods
+namespace MonoBall.Core.Mods;
+
+/// <summary>
+///     Interface for mod management functionality.
+///     Provides access to mod loading, validation, and definition registry.
+/// </summary>
+public interface IModManager
 {
     /// <summary>
-    /// Interface for mod management functionality.
-    /// Provides access to mod loading, validation, and definition registry.
+    ///     Gets the definition registry. Only available after Load() has been called.
     /// </summary>
-    public interface IModManager
-    {
-        /// <summary>
-        /// Gets the definition registry. Only available after Load() has been called.
-        /// </summary>
-        DefinitionRegistry Registry { get; }
+    DefinitionRegistry Registry { get; }
 
-        /// <summary>
-        /// Gets the list of loaded mods. Only available after Load() has been called.
-        /// </summary>
-        IReadOnlyList<ModManifest> LoadedMods { get; }
+    /// <summary>
+    ///     Gets the list of loaded mods. Only available after Load() has been called.
+    /// </summary>
+    IReadOnlyList<ModManifest> LoadedMods { get; }
 
-        /// <summary>
-        /// Validates all mods without loading them.
-        /// </summary>
-        /// <returns>List of validation issues found.</returns>
-        List<ValidationIssue> Validate();
+    /// <summary>
+    ///     Gets the core mod manifest (slot 0 in mod.manifest, or first loaded mod).
+    /// </summary>
+    ModManifest? CoreMod { get; }
 
-        /// <summary>
-        /// Loads all mods and their definitions. This should be called once during game initialization.
-        /// </summary>
-        /// <param name="validationErrors">Optional list to populate with validation errors/warnings.</param>
-        /// <returns>True if loading succeeded, false if there were critical errors.</returns>
-        bool Load(List<string>? validationErrors = null);
+    /// <summary>
+    ///     Validates all mods without loading them.
+    /// </summary>
+    /// <returns>List of validation issues found.</returns>
+    List<ValidationIssue> Validate();
 
-        /// <summary>
-        /// Gets a definition by ID and type.
-        /// </summary>
-        /// <typeparam name="T">The type of definition to retrieve.</typeparam>
-        /// <param name="id">The definition ID.</param>
-        /// <returns>The definition, or null if not found.</returns>
-        T? GetDefinition<T>(string id)
-            where T : class;
+    /// <summary>
+    ///     Loads all mods and their definitions. This should be called once during game initialization.
+    /// </summary>
+    /// <param name="validationErrors">Optional list to populate with validation errors/warnings.</param>
+    /// <returns>True if loading succeeded, false if there were critical errors.</returns>
+    bool Load(List<string>? validationErrors = null);
 
-        /// <summary>
-        /// Gets definition metadata by ID.
-        /// </summary>
-        /// <param name="id">The definition ID.</param>
-        /// <returns>The definition metadata, or null if not found.</returns>
-        DefinitionMetadata? GetDefinitionMetadata(string id);
+    /// <summary>
+    ///     Gets a definition by ID and type.
+    /// </summary>
+    /// <typeparam name="T">The type of definition to retrieve.</typeparam>
+    /// <param name="id">The definition ID.</param>
+    /// <returns>The definition, or null if not found.</returns>
+    T? GetDefinition<T>(string id)
+        where T : class;
 
-        /// <summary>
-        /// Gets the tile width from constants service or mod configuration.
-        /// Prioritizes constants service if provided, then falls back to mod configuration.
-        /// </summary>
-        /// <param name="constantsService">Optional constants service to use. If provided, uses "TileWidth" constant.</param>
-        /// <returns>The tile width in pixels.</returns>
-        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no tile width configuration is available.</exception>
-        int GetTileWidth(IConstantsService? constantsService = null);
+    /// <summary>
+    ///     Gets definition metadata by ID.
+    /// </summary>
+    /// <param name="id">The definition ID.</param>
+    /// <returns>The definition metadata, or null if not found.</returns>
+    DefinitionMetadata? GetDefinitionMetadata(string id);
 
-        /// <summary>
-        /// Gets the tile height from constants service or mod configuration.
-        /// Prioritizes constants service if provided, then falls back to mod configuration.
-        /// </summary>
-        /// <param name="constantsService">Optional constants service to use. If provided, uses "TileHeight" constant.</param>
-        /// <returns>The tile height in pixels.</returns>
-        /// <exception cref="System.InvalidOperationException">Thrown if mods are not loaded or no tile height configuration is available.</exception>
-        int GetTileHeight(IConstantsService? constantsService = null);
+    /// <summary>
+    ///     Gets the tile width from constants service or mod configuration.
+    ///     Prioritizes constants service if provided, then falls back to mod configuration.
+    /// </summary>
+    /// <param name="constantsService">Optional constants service to use. If provided, uses "TileWidth" constant.</param>
+    /// <returns>The tile width in pixels.</returns>
+    /// <exception cref="System.InvalidOperationException">
+    ///     Thrown if mods are not loaded or no tile width configuration is
+    ///     available.
+    /// </exception>
+    int GetTileWidth(IConstantsService? constantsService = null);
 
-        /// <summary>
-        /// Gets the core mod manifest (slot 0 in mod.manifest, or first loaded mod).
-        /// </summary>
-        ModManifest? CoreMod { get; }
+    /// <summary>
+    ///     Gets the tile height from constants service or mod configuration.
+    ///     Prioritizes constants service if provided, then falls back to mod configuration.
+    /// </summary>
+    /// <param name="constantsService">Optional constants service to use. If provided, uses "TileHeight" constant.</param>
+    /// <returns>The tile height in pixels.</returns>
+    /// <exception cref="System.InvalidOperationException">
+    ///     Thrown if mods are not loaded or no tile height configuration is
+    ///     available.
+    /// </exception>
+    int GetTileHeight(IConstantsService? constantsService = null);
 
-        /// <summary>
-        /// Checks if the specified mod ID is the core mod.
-        /// </summary>
-        /// <param name="modId">The mod ID to check.</param>
-        /// <returns>True if the mod is the core mod, false otherwise.</returns>
-        bool IsCoreMod(string modId);
+    /// <summary>
+    ///     Checks if the specified mod ID is the core mod.
+    /// </summary>
+    /// <param name="modId">The mod ID to check.</param>
+    /// <returns>True if the mod is the core mod, false otherwise.</returns>
+    bool IsCoreMod(string modId);
 
-        /// <summary>
-        /// Gets a mod manifest by ID.
-        /// </summary>
-        /// <param name="modId">The mod ID.</param>
-        /// <returns>The mod manifest, or null if not found.</returns>
-        ModManifest? GetModManifest(string modId);
+    /// <summary>
+    ///     Gets a mod manifest by ID.
+    /// </summary>
+    /// <param name="modId">The mod ID.</param>
+    /// <returns>The mod manifest, or null if not found.</returns>
+    ModManifest? GetModManifest(string modId);
 
-        /// <summary>
-        /// Gets the mod manifest that owns a definition by definition ID.
-        /// </summary>
-        /// <param name="definitionId">The definition ID.</param>
-        /// <returns>The mod manifest that owns the definition, or null if not found.</returns>
-        ModManifest? GetModManifestByDefinitionId(string definitionId);
-    }
+    /// <summary>
+    ///     Gets the mod manifest that owns a definition by definition ID.
+    /// </summary>
+    /// <param name="definitionId">The definition ID.</param>
+    /// <returns>The mod manifest that owns the definition, or null if not found.</returns>
+    ModManifest? GetModManifestByDefinitionId(string definitionId);
 }

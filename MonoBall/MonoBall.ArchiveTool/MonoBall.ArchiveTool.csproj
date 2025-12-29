@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <LangVersion>default</LangVersion>
-    <AssemblyName>MonoBall.ArchiveTool</AssemblyName>
-    <RootNamespace>MonoBall.ArchiveTool</RootNamespace>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="K4os.Compression.LZ4" Version="1.3.8" />
-    <PackageReference Include="Spectre.Console" Version="0.49.1" />
-  </ItemGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>default</LangVersion>
+        <AssemblyName>MonoBall.ArchiveTool</AssemblyName>
+        <RootNamespace>MonoBall.ArchiveTool</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="K4os.Compression.LZ4" Version="1.3.8"/>
+        <PackageReference Include="Spectre.Console" Version="0.49.1"/>
+    </ItemGroup>
 </Project>
 

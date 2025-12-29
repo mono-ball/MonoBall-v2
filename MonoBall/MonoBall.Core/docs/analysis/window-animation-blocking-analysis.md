@@ -5,10 +5,12 @@
 ### 1. **Violation of Open/Closed Principle** ❌
 
 **Problem**: `WindowAnimationSystem.DoesWindowBelongToBlockingScene()` hardcodes knowledge of specific window types:
+
 - Message boxes: Window entity IS the scene entity
 - Map popups: Window has `MapPopupComponent` with `SceneEntity` property
 
-**Impact**: Adding a new window type (e.g., inventory windows, shop windows) requires modifying this method, violating OCP.
+**Impact**: Adding a new window type (e.g., inventory windows, shop windows) requires modifying this method, violating
+OCP.
 
 ```csharp
 // Current implementation - fragile and not extensible
@@ -27,6 +29,7 @@ private bool DoesWindowBelongToBlockingScene(Entity windowEntity, List<Entity> b
 ### 2. **Tight Coupling** ❌
 
 **Problem**: `WindowAnimationSystem` is tightly coupled to:
+
 - `MapPopupComponent` (specific component type)
 - Knowledge of how message boxes work (window entity = scene entity)
 - `SceneSystem` (via function dependency)
@@ -35,7 +38,9 @@ private bool DoesWindowBelongToBlockingScene(Entity windowEntity, List<Entity> b
 
 ### 3. **Missing Abstraction** ❌
 
-**Problem**: There's no explicit component or interface that represents "this window belongs to a scene". The relationship is implicit:
+**Problem**: There's no explicit component or interface that represents "this window belongs to a scene". The
+relationship is implicit:
+
 - Message boxes: Window entity IS the scene (no explicit link)
 - Map popups: `MapPopupComponent.SceneEntity` (explicit but type-specific)
 
@@ -44,6 +49,7 @@ private bool DoesWindowBelongToBlockingScene(Entity windowEntity, List<Entity> b
 ### 4. **DRY Violation** ⚠️
 
 **Problem**: Scene membership logic is duplicated:
+
 - `MapPopupSceneSystem.RenderPopups()` checks `popup.SceneEntity.Id == sceneEntity.Id`
 - `WindowAnimationSystem.DoesWindowBelongToBlockingScene()` checks the same relationship
 - Future systems will need to duplicate this logic
@@ -53,6 +59,7 @@ private bool DoesWindowBelongToBlockingScene(Entity windowEntity, List<Entity> b
 ### 5. **Single Responsibility Violation** ⚠️
 
 **Problem**: `WindowAnimationSystem` is responsible for:
+
 - Updating animation states (primary responsibility) ✅
 - Determining scene membership (secondary concern) ❌
 - Understanding different window types (knowledge it shouldn't have) ❌
@@ -61,7 +68,8 @@ private bool DoesWindowBelongToBlockingScene(Entity windowEntity, List<Entity> b
 
 ### 6. **Performance Concerns** ⚠️
 
-**Problem**: 
+**Problem**:
+
 - `GetBlockingScenes()` creates a new `List<Entity>` every frame
 - `DoesWindowBelongToBlockingScene()` iterates through blocking scenes for each animation
 - Multiple `World.Has<>` checks per animation
@@ -70,7 +78,8 @@ private bool DoesWindowBelongToBlockingScene(Entity windowEntity, List<Entity> b
 
 ### 7. **Integration Issues** ❌
 
-**Problem**: 
+**Problem**:
+
 - Function dependency pattern (`Func<SceneSystem?>`) is inconsistent with other systems
 - `WindowAnimationSystem` needs to know about `SceneSystem` but it's created before `SceneSystem`
 - Creates temporal coupling (system must be initialized in specific order)
@@ -89,6 +98,7 @@ public struct RenderingShaderComponent
 ```
 
 **Why it's good**:
+
 - Explicit scene ownership in component
 - Generic (works for any scene type)
 - Queryable (`shader.SceneEntity == sceneEntity`)
@@ -105,6 +115,7 @@ public bool IsEntityInActiveMaps(Entity entity)
 ```
 
 **Why it's acceptable**:
+
 - Provides abstraction layer (service pattern)
 - Centralizes knowledge of entity-to-map relationships
 - Can be extended without modifying callers
@@ -112,6 +123,7 @@ public bool IsEntityInActiveMaps(Entity entity)
 ### ❌ Current Pattern: `WindowAnimationSystem`
 
 **Why it's bad**:
+
 - No abstraction layer
 - Hardcoded in system logic
 - Not extensible
@@ -138,6 +150,7 @@ public struct SceneOwnershipComponent
 ```
 
 **Benefits**:
+
 - ✅ Explicit, queryable relationship
 - ✅ Works for all window types
 - ✅ Consistent with `RenderingShaderComponent` pattern
@@ -145,6 +158,7 @@ public struct SceneOwnershipComponent
 - ✅ No hardcoded type checks
 
 **Implementation**:
+
 1. Add `SceneOwnershipComponent` to window entities when created
 2. Update `WindowAnimationSystem` to query for `SceneOwnershipComponent`
 3. Check if `ownership.SceneEntity` is in blocking scenes list
@@ -178,11 +192,13 @@ public bool DoesEntityBelongToBlockingScene(Entity entity)
 ```
 
 **Benefits**:
+
 - ✅ Centralizes scene membership logic
 - ✅ Provides abstraction for `WindowAnimationSystem`
 - ✅ Can handle legacy components during migration
 
 **Drawbacks**:
+
 - ⚠️ Still has hardcoded type checks (but centralized)
 - ⚠️ Doesn't solve the root problem (missing explicit ownership)
 
@@ -212,11 +228,13 @@ if (blockingScenes != null && blockingScenes.Count > 0)
 ```
 
 **Benefits**:
+
 - ✅ Uses ECS query system effectively
 - ✅ No manual iteration through blocking scenes
 - ✅ More performant (ECS optimizes queries)
 
 **Drawbacks**:
+
 - ⚠️ Still need to handle legacy components
 - ⚠️ More complex query logic
 
@@ -227,8 +245,8 @@ if (blockingScenes != null && blockingScenes.Count > 0)
 1. **Add `SceneOwnershipComponent`** for explicit scene ownership
 2. **Add `SceneSystem.DoesEntityBelongToBlockingScene()`** to centralize logic
 3. **Migrate existing windows** to use `SceneOwnershipComponent`:
-   - Message boxes: Add component when creating scene
-   - Map popups: Add component when creating popup (can coexist with `MapPopupComponent` during migration)
+    - Message boxes: Add component when creating scene
+    - Map popups: Add component when creating popup (can coexist with `MapPopupComponent` during migration)
 4. **Update `WindowAnimationSystem`** to use centralized method
 5. **Remove hardcoded checks** once migration is complete
 
@@ -243,6 +261,7 @@ if (blockingScenes != null && blockingScenes.Count > 0)
 ## Conclusion
 
 The current implementation is **hacky** because it:
+
 - Hardcodes knowledge of specific window types
 - Violates SOLID principles (OCP, SRP)
 - Creates tight coupling
@@ -250,6 +269,7 @@ The current implementation is **hacky** because it:
 - Duplicates logic
 
 The recommended solution provides:
+
 - ✅ Explicit, queryable scene ownership
 - ✅ Centralized scene membership logic
 - ✅ Extensibility for future window types

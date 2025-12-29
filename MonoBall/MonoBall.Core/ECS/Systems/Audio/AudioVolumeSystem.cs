@@ -2,114 +2,113 @@ using System;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.Audio;
-using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Events.Audio;
 using Serilog;
 
-namespace MonoBall.Core.ECS.Systems.Audio
+namespace MonoBall.Core.ECS.Systems.Audio;
+
+/// <summary>
+///     System that manages audio volume settings and applies them to the audio engine.
+/// </summary>
+public class AudioVolumeSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
 {
+    private readonly IAudioEngine _audioEngine;
+    private readonly ILogger _logger;
+    private bool _disposed;
+
     /// <summary>
-    /// System that manages audio volume settings and applies them to the audio engine.
+    ///     Initializes a new instance of the AudioVolumeSystem.
     /// </summary>
-    public class AudioVolumeSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+    /// <param name="world">The ECS world.</param>
+    /// <param name="audioEngine">The audio engine to apply volume settings to.</param>
+    /// <param name="logger">The logger for logging operations.</param>
+    public AudioVolumeSystem(World world, IAudioEngine audioEngine, ILogger logger)
+        : base(world)
     {
-        private readonly IAudioEngine _audioEngine;
-        private readonly ILogger _logger;
-        private bool _disposed = false;
+        _audioEngine = audioEngine ?? throw new ArgumentNullException(nameof(audioEngine));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-        /// <summary>
-        /// Gets the execution priority for this system.
-        /// </summary>
-        public int Priority => SystemPriority.Audio + 30;
+        EventBus.Subscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged);
+        EventBus.Subscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged);
+        EventBus.Subscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged);
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the AudioVolumeSystem.
-        /// </summary>
-        /// <param name="world">The ECS world.</param>
-        /// <param name="audioEngine">The audio engine to apply volume settings to.</param>
-        /// <param name="logger">The logger for logging operations.</param>
-        public AudioVolumeSystem(World world, IAudioEngine audioEngine, ILogger logger)
-            : base(world)
+    /// <summary>
+    ///     Disposes the system and unsubscribes from events.
+    /// </summary>
+    /// <remarks>
+    ///     Implements IDisposable to properly clean up event subscriptions.
+    ///     Uses standard dispose pattern without finalizer since only managed resources are disposed.
+    ///     Uses 'new' keyword because BaseSystem may have a Dispose() method with different signature.
+    /// </remarks>
+    public new void Dispose()
+    {
+        Dispose(true);
+    }
+
+    /// <summary>
+    ///     Gets the execution priority for this system.
+    /// </summary>
+    public int Priority => SystemPriority.Audio + 30;
+
+    private void OnMasterVolumeChanged(ref SetMasterVolumeEvent evt)
+    {
+        try
         {
-            _audioEngine = audioEngine ?? throw new ArgumentNullException(nameof(audioEngine));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-
-            EventBus.Subscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged);
-            EventBus.Subscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged);
-            EventBus.Subscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged);
+            var clampedVolume = Math.Clamp(evt.Volume, 0f, 1f);
+            _audioEngine.MasterVolume = clampedVolume;
+            _logger.Debug("Master volume set to {Volume}", clampedVolume);
         }
-
-        private void OnMasterVolumeChanged(ref SetMasterVolumeEvent evt)
+        catch (Exception ex)
         {
-            try
-            {
-                float clampedVolume = Math.Clamp(evt.Volume, 0f, 1f);
-                _audioEngine.MasterVolume = clampedVolume;
-                _logger.Debug("Master volume set to {Volume}", clampedVolume);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error handling SetMasterVolumeEvent");
-            }
+            _logger.Error(ex, "Error handling SetMasterVolumeEvent");
         }
+    }
 
-        private void OnMusicVolumeChanged(ref SetMusicVolumeEvent evt)
+    private void OnMusicVolumeChanged(ref SetMusicVolumeEvent evt)
+    {
+        try
         {
-            try
-            {
-                float clampedVolume = Math.Clamp(evt.Volume, 0f, 1f);
-                _audioEngine.MusicVolume = clampedVolume;
-                _logger.Debug("Music volume set to {Volume}", clampedVolume);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error handling SetMusicVolumeEvent");
-            }
+            var clampedVolume = Math.Clamp(evt.Volume, 0f, 1f);
+            _audioEngine.MusicVolume = clampedVolume;
+            _logger.Debug("Music volume set to {Volume}", clampedVolume);
         }
-
-        private void OnSoundEffectVolumeChanged(ref SetSoundEffectVolumeEvent evt)
+        catch (Exception ex)
         {
-            try
-            {
-                float clampedVolume = Math.Clamp(evt.Volume, 0f, 1f);
-                _audioEngine.SoundEffectVolume = clampedVolume;
-                _logger.Debug("Sound effect volume set to {Volume}", clampedVolume);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error handling SetSoundEffectVolumeEvent");
-            }
+            _logger.Error(ex, "Error handling SetMusicVolumeEvent");
         }
+    }
 
-        /// <summary>
-        /// Disposes the system and unsubscribes from events.
-        /// </summary>
-        /// <remarks>
-        /// Implements IDisposable to properly clean up event subscriptions.
-        /// Uses standard dispose pattern without finalizer since only managed resources are disposed.
-        /// Uses 'new' keyword because BaseSystem may have a Dispose() method with different signature.
-        /// </remarks>
-        public new void Dispose()
+    private void OnSoundEffectVolumeChanged(ref SetSoundEffectVolumeEvent evt)
+    {
+        try
         {
-            Dispose(true);
+            var clampedVolume = Math.Clamp(evt.Volume, 0f, 1f);
+            _audioEngine.SoundEffectVolume = clampedVolume;
+            _logger.Debug("Sound effect volume set to {Volume}", clampedVolume);
         }
-
-        /// <summary>
-        /// Disposes the system and unsubscribes from events.
-        /// </summary>
-        /// <param name="disposing">Whether managed resources should be disposed.</param>
-        protected virtual void Dispose(bool disposing)
+        catch (Exception ex)
         {
-            if (!_disposed)
+            _logger.Error(ex, "Error handling SetSoundEffectVolumeEvent");
+        }
+    }
+
+    /// <summary>
+    ///     Disposes the system and unsubscribes from events.
+    /// </summary>
+    /// <param name="disposing">Whether managed resources should be disposed.</param>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
             {
-                if (disposing)
-                {
-                    EventBus.Unsubscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged);
-                    EventBus.Unsubscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged);
-                    EventBus.Unsubscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged);
-                }
-                _disposed = true;
+                EventBus.Unsubscribe<SetMasterVolumeEvent>(OnMasterVolumeChanged);
+                EventBus.Unsubscribe<SetMusicVolumeEvent>(OnMusicVolumeChanged);
+                EventBus.Unsubscribe<SetSoundEffectVolumeEvent>(OnSoundEffectVolumeChanged);
             }
+
+            _disposed = true;
         }
     }
 }

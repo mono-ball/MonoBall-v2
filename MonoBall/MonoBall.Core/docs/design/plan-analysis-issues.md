@@ -10,15 +10,18 @@
 
 ### 1. QueryDescription Missing FlagVariableMetadataComponent
 
-**Issue**: The `GameStateQuery` in the design only includes `FlagsComponent` and `VariablesComponent`, but the singleton entity is created with three components including `FlagVariableMetadataComponent`.
+**Issue**: The `GameStateQuery` in the design only includes `FlagsComponent` and `VariablesComponent`, but the singleton
+entity is created with three components including `FlagVariableMetadataComponent`.
 
 **Design Document** (Line 407-408):
+
 ```csharp
 private static readonly QueryDescription GameStateQuery = new QueryDescription()
     .WithAll<FlagsComponent, VariablesComponent>();
 ```
 
 **But Entity Creation** (Line 438-442):
+
 ```csharp
 _gameStateEntity = _world.Create(
     CreateFlagsComponent(),
@@ -27,11 +30,13 @@ _gameStateEntity = _world.Create(
 );
 ```
 
-**Problem**: 
+**Problem**:
+
 - Query won't find the singleton entity if it has all three components
 - Metadata operations assume the component exists but query doesn't verify it
 
 **Fix Required**:
+
 ```csharp
 private static readonly QueryDescription GameStateQuery = new QueryDescription()
     .WithAll<FlagsComponent, VariablesComponent, FlagVariableMetadataComponent>();
@@ -43,15 +48,18 @@ private static readonly QueryDescription GameStateQuery = new QueryDescription()
 
 ### 2. VisibilityFlagSystem Query Missing RenderableComponent
 
-**Issue**: The `VisibilityFlagSystem` query only includes `NpcComponent`, but it needs to update `RenderableComponent.IsVisible`.
+**Issue**: The `VisibilityFlagSystem` query only includes `NpcComponent`, but it needs to update
+`RenderableComponent.IsVisible`.
 
 **Design Document** (Line 1048-1049):
+
 ```csharp
 _queryDescription = new QueryDescription()
     .WithAll<NpcComponent>();
 ```
 
 **But Update Method** (Line 1058-1066):
+
 ```csharp
 World.Query(in _queryDescription, (ref NpcComponent npc) =>
 {
@@ -61,18 +69,21 @@ World.Query(in _queryDescription, (ref NpcComponent npc) =>
 });
 ```
 
-**Problem**: 
+**Problem**:
+
 - Cannot access `RenderableComponent` in the query
 - Cannot update `IsVisible` property
 - System won't function
 
 **Fix Required**:
+
 ```csharp
 _queryDescription = new QueryDescription()
     .WithAll<NpcComponent, RenderableComponent>();
 ```
 
 **And Update Method**:
+
 ```csharp
 World.Query(in _queryDescription, (Entity entity, ref NpcComponent npc, ref RenderableComponent render) =>
 {
@@ -91,11 +102,13 @@ World.Query(in _queryDescription, (Entity entity, ref NpcComponent npc, ref Rend
 ### 3. MapLoaderSystem Integration Incomplete
 
 **Issue**: The plan says to "check visibility flags when loading NPCs" but doesn't specify:
+
 - When to check (before or after entity creation)
 - What to do if flag is false (don't add RenderableComponent vs add with IsVisible=false)
 - How to handle flag changes after NPC is loaded
 
 **Current MapLoaderSystem** (Line 841-846):
+
 ```csharp
 new Components.RenderableComponent
 {
@@ -106,6 +119,7 @@ new Components.RenderableComponent
 ```
 
 **Design Document** (Line 974-983):
+
 ```csharp
 // In MapLoaderSystem when creating NPC entities
 if (!string.IsNullOrWhiteSpace(npcDef.VisibilityFlag))
@@ -119,12 +133,14 @@ if (!string.IsNullOrWhiteSpace(npcDef.VisibilityFlag))
 }
 ```
 
-**Problem**: 
+**Problem**:
+
 - Design is ambiguous about approach
 - Need to decide: always add RenderableComponent with IsVisible=false, or conditionally add it
 - VisibilityFlagSystem expects RenderableComponent to exist
 
-**Fix Required**: 
+**Fix Required**:
+
 - Always add `RenderableComponent` but set `IsVisible` based on flag value
 - This allows VisibilityFlagSystem to update it later
 - Document the decision clearly
@@ -135,19 +151,23 @@ if (!string.IsNullOrWhiteSpace(npcDef.VisibilityFlag))
 
 ### 4. Component Registration Location Unspecified
 
-**Issue**: Plan says "location TBD - may need to check where Arch.Persistence is initialized" but doesn't provide guidance.
+**Issue**: Plan says "location TBD - may need to check where Arch.Persistence is initialized" but doesn't provide
+guidance.
 
 **Plan** (Line 200):
+
 ```
 - Update component registration (location TBD - may need to check where Arch.Persistence is initialized)
 ```
 
-**Problem**: 
+**Problem**:
+
 - No clear place to register components
 - Arch.Persistence may not be used yet in codebase
 - Components need registration for serialization to work
 
-**Fix Required**: 
+**Fix Required**:
+
 - Check if Arch.Persistence is currently used
 - If not, document that components should be registered when persistence is implemented
 - If yes, find registration location and specify it
@@ -162,6 +182,7 @@ if (!string.IsNullOrWhiteSpace(npcDef.VisibilityFlag))
 **Issue**: The plan doesn't specify required using statements for `FlagVariableService`.
 
 **Design Document** shows:
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -172,6 +193,7 @@ using MonoBall.Core.Logging;
 ```
 
 **But Plan Doesn't Mention**: Required using statements for:
+
 - `Arch.Core` (Entity, World, QueryDescription)
 - `MonoBall.Core.ECS.EventBus` (static EventBus class)
 - `System.Text.Json` (for variable serialization)
@@ -187,6 +209,7 @@ using MonoBall.Core.Logging;
 **Issue**: The design shows entity flag changes fire `FlagChangedEvent`, but this may cause confusion.
 
 **Design Document** (Line 823-829):
+
 ```csharp
 if (oldValue != value)
 {
@@ -200,12 +223,14 @@ if (oldValue != value)
 }
 ```
 
-**Problem**: 
+**Problem**:
+
 - Entity flag changes fire the same event as global flag changes
 - Systems listening to `FlagChangedEvent` can't distinguish between global and entity flags
 - May cause unnecessary updates
 
-**Consideration**: 
+**Consideration**:
+
 - This might be intentional (unified event system)
 - Or might need separate events: `EntityFlagChangedEvent`
 - Document the decision
@@ -216,9 +241,11 @@ if (oldValue != value)
 
 ### 7. VisibilityFlagSystem Update Logic Incomplete
 
-**Issue**: The design shows incomplete implementation with comments like "Implementation depends on how visibility is managed".
+**Issue**: The design shows incomplete implementation with comments like "Implementation depends on how visibility is
+managed".
 
 **Design Document** (Line 1055-1066):
+
 ```csharp
 public override void Update(in float deltaTime)
 {
@@ -235,12 +262,14 @@ public override void Update(in float deltaTime)
 }
 ```
 
-**Problem**: 
+**Problem**:
+
 - Update method doesn't actually update anything
 - Comment suggests uncertainty about implementation
 - Need concrete implementation
 
-**Fix Required**: 
+**Fix Required**:
+
 - Query must include `RenderableComponent`
 - Set `render.IsVisible = flagValue`
 - Document that this runs every frame (may want to optimize later)
@@ -254,17 +283,20 @@ public override void Update(in float deltaTime)
 **Issue**: The service implementation assumes components exist but doesn't always verify.
 
 **Design Document** (Line 911):
+
 ```csharp
 ref FlagVariableMetadataComponent metadataComponent = ref _world.Get<FlagVariableMetadataComponent>(_gameStateEntity);
 metadataComponent.FlagMetadata ??= new Dictionary<string, FlagMetadata>();
 ```
 
-**Problem**: 
+**Problem**:
+
 - `_world.Get<T>()` will throw if component doesn't exist
 - Should use `_world.Has<T>()` check first, or ensure component always exists
 - Entity flag/variable operations check `Has<T>()` but global operations assume singleton exists
 
-**Fix Required**: 
+**Fix Required**:
+
 - Ensure singleton entity always has all three components
 - Document that `EnsureInitialized()` guarantees component existence
 - Add defensive checks or document assumptions
@@ -277,11 +309,14 @@ metadataComponent.FlagMetadata ??= new Dictionary<string, FlagMetadata>();
 
 ### 9. Plan Doesn't Specify Namespace for Metadata Structs
 
-**Issue**: `FlagMetadata` and `VariableMetadata` are shown as separate files but plan doesn't specify if they're in the same namespace as components.
+**Issue**: `FlagMetadata` and `VariableMetadata` are shown as separate files but plan doesn't specify if they're in the
+same namespace as components.
 
-**Design Document**: Shows them as part of `FlagVariableMetadataComponent.cs` file, but plan lists them as separate files.
+**Design Document**: Shows them as part of `FlagVariableMetadataComponent.cs` file, but plan lists them as separate
+files.
 
 **Fix Required**: Clarify if they're:
+
 - Separate files in `MonoBall.Core.ECS.Components` namespace
 - Or nested in `FlagVariableMetadataComponent.cs` file
 
@@ -292,11 +327,13 @@ metadataComponent.FlagMetadata ??= new Dictionary<string, FlagMetadata>();
 ### 10. Missing Error Handling Documentation
 
 **Issue**: Plan doesn't specify error handling approach for:
+
 - Invalid flag/variable IDs
 - Missing components on entities
 - Serialization failures
 
 **Fix Required**: Document error handling strategy:
+
 - Validation errors throw `ArgumentException`
 - Missing components return default values (for Get operations)
 - Serialization failures return default (for GetVariable)
@@ -307,9 +344,11 @@ metadataComponent.FlagMetadata ??= new Dictionary<string, FlagMetadata>();
 
 ### 11. Plan Doesn't Address Entity Component Addition Pattern
 
-**Issue**: Entity flag/variable operations use `World.Add()` if component doesn't exist, but this pattern isn't documented in the plan.
+**Issue**: Entity flag/variable operations use `World.Add()` if component doesn't exist, but this pattern isn't
+documented in the plan.
 
 **Design Document** (Line 789-791):
+
 ```csharp
 if (!_world.Has<EntityFlagsComponent>(entity))
 {
@@ -317,7 +356,8 @@ if (!_world.Has<EntityFlagsComponent>(entity))
 }
 ```
 
-**Problem**: 
+**Problem**:
+
 - Plan doesn't mention this pattern
 - Should document that entity components are added lazily
 - May need to handle edge cases (entity destroyed, etc.)

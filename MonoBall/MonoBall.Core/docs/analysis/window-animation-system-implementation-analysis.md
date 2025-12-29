@@ -2,7 +2,8 @@
 
 ## Overview
 
-Analysis of the window animation system implementation for architecture issues, Arch ECS/event issues, SOLID/DRY principles, and `.cursorrules` compliance.
+Analysis of the window animation system implementation for architecture issues, Arch ECS/event issues, SOLID/DRY
+principles, and `.cursorrules` compliance.
 
 ---
 
@@ -12,9 +13,11 @@ Analysis of the window animation system implementation for architecture issues, 
 
 **Location**: `WindowAnimationSystem.cs:32`
 
-**Issue**: Constructor doesn't validate `world` parameter, but `.cursorrules` requires fail-fast validation for all constructor parameters.
+**Issue**: Constructor doesn't validate `world` parameter, but `.cursorrules` requires fail-fast validation for all
+constructor parameters.
 
 **Current Code**:
+
 ```csharp
 public WindowAnimationSystem(World world, ILogger logger)
     : base(world)
@@ -25,6 +28,7 @@ public WindowAnimationSystem(World world, ILogger logger)
 ```
 
 **Fix**: Add `world` validation:
+
 ```csharp
 public WindowAnimationSystem(World world, ILogger logger)
     : base(world ?? throw new ArgumentNullException(nameof(world)))
@@ -42,9 +46,11 @@ public WindowAnimationSystem(World world, ILogger logger)
 
 **Location**: `MapPopupRendererSystem.cs:222`
 
-**Issue**: WindowEntity validation only checks `Id != 0`, but doesn't validate that the entity is actually alive. The check should use `World.IsAlive()` before accessing the entity.
+**Issue**: WindowEntity validation only checks `Id != 0`, but doesn't validate that the entity is actually alive. The
+check should use `World.IsAlive()` before accessing the entity.
 
 **Current Code**:
+
 ```csharp
 if (anim.WindowEntity.Id != 0 && !World.IsAlive(anim.WindowEntity))
 {
@@ -52,9 +58,11 @@ if (anim.WindowEntity.Id != 0 && !World.IsAlive(anim.WindowEntity))
 }
 ```
 
-**Issue**: The check `anim.WindowEntity.Id != 0` is redundant - `World.IsAlive()` handles invalid entities. Also, if the entity is not alive, we should skip rendering entirely, not just log a warning.
+**Issue**: The check `anim.WindowEntity.Id != 0` is redundant - `World.IsAlive()` handles invalid entities. Also, if the
+entity is not alive, we should skip rendering entirely, not just log a warning.
 
 **Fix**: Simplify validation and skip rendering if entity is not alive:
+
 ```csharp
 if (!World.IsAlive(anim.WindowEntity))
 {
@@ -75,9 +83,11 @@ if (!World.IsAlive(anim.WindowEntity))
 
 **Location**: `MapPopupRendererSystem.cs:234-250`
 
-**Issue**: Creates a duplicate `WindowAnimationComponent` struct just to scale `PositionOffset`. This violates DRY and creates unnecessary allocations. The scaling should be applied directly to the bounds or passed as separate parameters.
+**Issue**: Creates a duplicate `WindowAnimationComponent` struct just to scale `PositionOffset`. This violates DRY and
+creates unnecessary allocations. The scaling should be applied directly to the bounds or passed as separate parameters.
 
 **Current Code**:
+
 ```csharp
 WindowAnimationComponent? scaledAnim = null;
 if (anim.PositionOffset != Vector2.Zero || anim.Scale != 1.0f || anim.Opacity != 1.0f)
@@ -101,6 +111,7 @@ if (anim.PositionOffset != Vector2.Zero || anim.Scale != 1.0f || anim.Opacity !=
 **Issue**: This duplicates the entire component just to scale one field. This is inefficient and violates DRY.
 
 **Better Approach**: Scale `PositionOffset` directly when calculating bounds, or pass scaled offset to `WindowRenderer`:
+
 ```csharp
 // Scale PositionOffset from world space to screen space
 Vector2 scaledPositionOffset = new Vector2(
@@ -126,6 +137,7 @@ windowRenderer.Render(_spriteBatch, bounds, anim);
 **Location**: `WindowAnimationSystem.cs` - multiple private methods
 
 **Issue**: Several private methods lack XML documentation:
+
 - `UpdateAnimation()` (line 72)
 - `InitializeAnimation()` (line 219)
 - `UpdateAnimationValues()` (line 292)
@@ -143,11 +155,13 @@ windowRenderer.Render(_spriteBatch, bounds, anim);
 
 **Location**: `WindowAnimationSystem.cs:348-365`
 
-**Issue**: `ApplyEasing()` method contains reusable easing logic that could be shared with other systems. This violates DRY if other systems need easing functions.
+**Issue**: `ApplyEasing()` method contains reusable easing logic that could be shared with other systems. This violates
+DRY if other systems need easing functions.
 
 **Current Code**: Easing logic is private to `WindowAnimationSystem`.
 
-**Recommendation**: Consider extracting to `WindowAnimationEasing` utility class if other systems need easing functions. For now, keeping it private is acceptable if it's only used by window animations.
+**Recommendation**: Consider extracting to `WindowAnimationEasing` utility class if other systems need easing functions.
+For now, keeping it private is acceptable if it's only used by window animations.
 
 **Priority**: Low (future enhancement)
 
@@ -157,9 +171,11 @@ windowRenderer.Render(_spriteBatch, bounds, anim);
 
 **Location**: `WindowAnimationSystem.cs:372-394`
 
-**Issue**: The logic for finding the current phase index is somewhat convoluted with multiple checks. Could be simplified for readability.
+**Issue**: The logic for finding the current phase index is somewhat convoluted with multiple checks. Could be
+simplified for readability.
 
 **Current Code**:
+
 ```csharp
 private int GetCurrentPhaseIndex(ref WindowAnimationComponent anim)
 {
@@ -186,9 +202,11 @@ private int GetCurrentPhaseIndex(ref WindowAnimationComponent anim)
 }
 ```
 
-**Issue**: The loop recalculates cumulative time for each phase, which is inefficient. Also, the final return statement is unreachable.
+**Issue**: The loop recalculates cumulative time for each phase, which is inefficient. Also, the final return statement
+is unreachable.
 
 **Fix**: Simplify logic:
+
 ```csharp
 private int GetCurrentPhaseIndex(ref WindowAnimationComponent anim)
 {
@@ -223,6 +241,7 @@ private int GetCurrentPhaseIndex(ref WindowAnimationComponent anim)
 **Current Code**: Each parameter has its own validation block with similar logic.
 
 **Recommendation**: Extract to `ValidatePositiveFinite()` helper method:
+
 ```csharp
 private static void ValidatePositiveFinite(float value, string paramName, string description)
 {
@@ -244,9 +263,11 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 **Location**: `WindowAnimationHelper.cs`
 
-**Issue**: Methods throw `ArgumentOutOfRangeException` but XML documentation doesn't specify when exceptions are thrown (only generic `<exception>` tag).
+**Issue**: Methods throw `ArgumentOutOfRangeException` but XML documentation doesn't specify when exceptions are
+thrown (only generic `<exception>` tag).
 
 **Fix**: Add specific conditions to exception documentation:
+
 ```xml
 /// <exception cref="ArgumentOutOfRangeException">
 /// Thrown when <paramref name="slideDownDuration"/> is not positive and finite.
@@ -261,7 +282,8 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 **Location**: `WindowAnimationSystem.cs:80-96` and `GetCurrentPhaseIndex()`
 
-**Issue**: `Config.Phases` null check is performed in multiple places. Could be validated once in `UpdateAnimation()` and assumed non-null elsewhere.
+**Issue**: `Config.Phases` null check is performed in multiple places. Could be validated once in `UpdateAnimation()`
+and assumed non-null elsewhere.
 
 **Current Code**: Null checks in `UpdateAnimation()` and `GetCurrentPhaseIndex()`.
 
@@ -275,11 +297,13 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 **Location**: `WindowRenderer.cs:107-110`
 
-**Issue**: Opacity is calculated but not applied to rendering. This is documented as a limitation, but it means opacity animations won't work.
+**Issue**: Opacity is calculated but not applied to rendering. This is documented as a limitation, but it means opacity
+animations won't work.
 
 **Current Code**: Comment says opacity is not applied due to renderer interface limitations.
 
-**Recommendation**: This is a known limitation documented in the design. Future enhancement needed to support opacity in renderer interfaces.
+**Recommendation**: This is a known limitation documented in the design. Future enhancement needed to support opacity in
+renderer interfaces.
 
 **Priority**: Low (documented limitation, future enhancement)
 
@@ -291,11 +315,13 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 **Location**: `WindowAnimationComponent.cs:51`
 
-**Issue**: Component contains an `Entity` reference (`WindowEntity`), which creates a dependency between components. This is acceptable for ECS, but the entity must be validated before use.
+**Issue**: Component contains an `Entity` reference (`WindowEntity`), which creates a dependency between components.
+This is acceptable for ECS, but the entity must be validated before use.
 
 **Current Status**: Validation is performed in `MapPopupRendererSystem`, but could be more consistent.
 
-**Recommendation**: Document that `WindowEntity` should always be validated before use. Consider adding a helper method `IsValid()` to check both entity ID and alive status.
+**Recommendation**: Document that `WindowEntity` should always be validated before use. Consider adding a helper method
+`IsValid()` to check both entity ID and alive status.
 
 **Priority**: Low (current implementation is acceptable)
 
@@ -305,11 +331,13 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 **Location**: `WindowAnimationConfig.cs:16`
 
-**Issue**: `WindowAnimationConfig` is a struct containing `List<WindowAnimationPhase>`, which is a reference type. This means struct copying doesn't copy the list, which could lead to unexpected behavior.
+**Issue**: `WindowAnimationConfig` is a struct containing `List<WindowAnimationPhase>`, which is a reference type. This
+means struct copying doesn't copy the list, which could lead to unexpected behavior.
 
 **Current Status**: Documented that `Phases` must be initialized (non-null). This is acceptable for ECS components.
 
-**Recommendation**: Keep as-is. The documentation clearly states `Phases` must be initialized. Struct components with collections are acceptable in Arch ECS.
+**Recommendation**: Keep as-is. The documentation clearly states `Phases` must be initialized. Struct components with
+collections are acceptable in Arch ECS.
 
 **Priority**: Low (documented and acceptable)
 
@@ -347,8 +375,10 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 ### Issues Found:
 
-1. **Duplicate Component Creation** (Issue #3): Creating duplicate `WindowAnimationComponent` just to scale `PositionOffset` - violates DRY
-2. **Repetitive Parameter Validation** (Issue #7): Similar validation logic repeated in `WindowAnimationHelper` - minor DRY violation
+1. **Duplicate Component Creation** (Issue #3): Creating duplicate `WindowAnimationComponent` just to scale
+   `PositionOffset` - violates DRY
+2. **Repetitive Parameter Validation** (Issue #7): Similar validation logic repeated in `WindowAnimationHelper` - minor
+   DRY violation
 3. **Null Checks** (Issue #9): `Config.Phases` null checks in multiple places - acceptable defensive programming
 
 ---
@@ -386,7 +416,8 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 
 ### ⚠️ Potential Issues:
 
-1. **Entity Reference in Component**: `WindowAnimationComponent.WindowEntity` contains an entity reference - acceptable but must be validated
+1. **Entity Reference in Component**: `WindowAnimationComponent.WindowEntity` contains an entity reference - acceptable
+   but must be validated
 2. **Event Subscription Cleanup**: `MapPopupSystem` properly unsubscribes in `Dispose()` - ✅ Good
 
 ---
@@ -394,22 +425,26 @@ private static void ValidatePositiveFinite(float value, string paramName, string
 ## Summary
 
 ### Critical Issues (Must Fix):
+
 1. Missing `world` parameter validation in `WindowAnimationSystem` constructor
 2. Incomplete `WindowEntity` validation in `MapPopupRendererSystem`
 3. Duplicate component creation violates DRY
 
 ### Important Issues (Should Fix):
+
 4. Missing XML documentation for private methods
 5. Easing function could be extracted (future enhancement)
 6. `GetCurrentPhaseIndex` logic could be simplified
 
 ### Minor Issues (Nice to Have):
+
 7. Repetitive parameter validation in `WindowAnimationHelper`
 8. Missing detailed exception documentation
 9. Redundant null checks (acceptable defensive programming)
 10. Opacity not applied (documented limitation)
 
 ### Architecture Notes:
+
 - SOLID principles: ✅ Compliant
 - DRY: Mostly compliant (Issue #3 is the main violation)
 - `.cursorrules`: Mostly compliant (Issues #1, #4)

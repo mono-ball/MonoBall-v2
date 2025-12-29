@@ -2,50 +2,59 @@
 
 ## Overview
 
-This document analyzes the constants system design against the project's .cursorrules file to identify any violations or areas that need adjustment.
+This document analyzes the constants system design against the project's .cursorrules file to identify any violations or
+areas that need adjustment.
 
 ## ✅ Compliant Areas
 
 ### 1. No Backward Compatibility ✅
+
 - Design explicitly states removing old constant classes
 - No compatibility layers mentioned
 - **Status**: Compliant
 
 ### 2. No Fallback Code ✅
+
 - Design states "fail-fast if constant missing"
 - `Get<T>()` and `GetString()` throw exceptions for missing constants
 - `TryGet<T>()` methods are intentional for optional constants (not fallback)
 - **Status**: Compliant
 
 ### 3. Dependency Injection ✅
+
 - Constructor takes `IModManager` and `ILogger` (required dependencies)
 - Both validated with `ArgumentNullException`
 - No optional parameters for required dependencies
 - **Status**: Compliant
 
 ### 4. XML Documentation ✅
+
 - Interface methods have complete XML docs with `<summary>`, `<param>`, `<returns>`, `<exception>`
 - `ValidateRequiredConstants()` has XML docs
 - **Status**: Compliant
 
 ### 5. Namespace Structure ✅
+
 - Uses `MonoBall.Core.Constants` namespace
 - Matches folder structure (`MonoBall.Core/Constants/`)
 - **Status**: Compliant
 
 ### 6. File Organization ✅
+
 - One class per file (IConstantsService, ConstantsService, ConstantDefinition)
 - PascalCase naming
 - File names match class names
 - **Status**: Compliant
 
 ### 7. Exception Handling ✅
+
 - Catches specific exceptions (`InvalidCastException`, `JsonException`)
 - Validates arguments with `ArgumentNullException` and `ArgumentException`
 - Includes parameter names in exceptions
 - **Status**: Compliant
 
 ### 8. Performance ✅
+
 - Caches deserialized values to avoid allocations
 - Dictionary-based O(1) lookup
 - No allocations in hot paths after first access
@@ -60,6 +69,7 @@ This document analyzes the constants system design against the project's .cursor
 **Rule**: "Always enable nullable reference types: `<Nullable>enable</Nullable>` in csproj"
 
 **Current State**:
+
 - `TryGetString()` returns `string?` (good)
 - But design doesn't verify nullable types are enabled in the project
 
@@ -69,11 +79,13 @@ This document analyzes the constants system design against the project's .cursor
 
 ### 2. String Validation Pattern
 
-**Issue**: Uses `string.IsNullOrEmpty()` which is correct, but could be more explicit about when to use `IsNullOrWhiteSpace()`.
+**Issue**: Uses `string.IsNullOrEmpty()` which is correct, but could be more explicit about when to use
+`IsNullOrWhiteSpace()`.
 
 **Rule**: "Prefer `string.IsNullOrEmpty()` and `string.IsNullOrWhiteSpace()` over manual checks"
 
-**Current State**: Uses `string.IsNullOrEmpty()` in `ValidateKey()` and `Contains()` - this is correct for constant keys.
+**Current State**: Uses `string.IsNullOrEmpty()` in `ValidateKey()` and `Contains()` - this is correct for constant
+keys.
 
 **Status**: ✅ Compliant (keys shouldn't be whitespace-only)
 
@@ -99,9 +111,11 @@ This document analyzes the constants system design against the project's .cursor
 
 **Issue**: Design doesn't specify code organization order within the class.
 
-**Rule**: "Code order: Using statements → Namespace → XML docs → Constants/Fields → Properties → Constructors → Public methods → Protected → Private"
+**Rule**: "Code order: Using statements → Namespace → XML docs → Constants/Fields → Properties → Constructors → Public
+methods → Protected → Private"
 
 **Current State**: Implementation shows:
+
 - Fields first ✅
 - Constructor ✅
 - Public methods ✅
@@ -114,11 +128,13 @@ This document analyzes the constants system design against the project's .cursor
 ### Critical Rules
 
 #### Rule 1: NO BACKWARD COMPATIBILITY ✅
+
 - Design explicitly removes old constant classes
 - No compatibility layers
 - **Compliant**
 
 #### Rule 2: NO FALLBACK CODE ✅
+
 - `Get<T>()` throws `KeyNotFoundException` - fail-fast ✅
 - `GetString()` throws `KeyNotFoundException` - fail-fast ✅
 - `TryGet<T>()` returns false (intentional for optional) - acceptable ✅
@@ -126,26 +142,31 @@ This document analyzes the constants system design against the project's .cursor
 - **Compliant**
 
 #### Rule 6: Nullable Types ✅
+
 - Uses `string?` for nullable strings
 - Should verify nullable reference types enabled in project
 - **Mostly Compliant** (needs implementation verification)
 
 #### Rule 7: Dependency Injection ✅
+
 - Required dependencies in constructor
 - Throws `ArgumentNullException` for null
 - No optional parameters for required dependencies
 - **Compliant**
 
 #### Rule 8: XML Documentation ✅
+
 - All public methods documented
 - Includes `<exception>` tags
 - **Compliant**
 
 #### Rule 9: Namespace ✅
+
 - `MonoBall.Core.Constants` matches folder structure
 - **Compliant**
 
 #### Rule 10: File Organization ✅
+
 - One class per file
 - PascalCase naming
 - File names match class names
@@ -154,17 +175,20 @@ This document analyzes the constants system design against the project's .cursor
 ### .NET 10 C# Best Practices
 
 #### Nullable Reference Types ⚠️
+
 - Uses `string?` correctly
 - Should verify `<Nullable>enable</Nullable>` in csproj
 - **Needs verification**
 
 #### Exception Handling ✅
+
 - Catches specific exceptions (`InvalidCastException`, `JsonException`)
 - Validates arguments
 - Documents exceptions
 - **Compliant**
 
 #### Collections & Performance ✅
+
 - Uses `Dictionary<TKey, TValue>` appropriately
 - Caches to avoid allocations
 - **Compliant**
@@ -188,6 +212,7 @@ This document analyzes the constants system design against the project's .cursor
 ### 1. Add Nullable Reference Types Verification
 
 **Add to design document**:
+
 ```markdown
 ### Implementation Requirements
 
@@ -199,6 +224,7 @@ This document analyzes the constants system design against the project's .cursor
 ### 2. Clarify TryGet vs Get Usage
 
 **Add to design document**:
+
 ```markdown
 ### When to Use TryGet vs Get
 
@@ -210,6 +236,7 @@ This document analyzes the constants system design against the project's .cursor
 ### 3. Document Exception Documentation
 
 **Already compliant**, but could add:
+
 ```markdown
 ### Exception Documentation
 
@@ -224,6 +251,7 @@ All public methods document exceptions in XML comments:
 ### Compliance Status: **98% Compliant**
 
 **Compliant Rules**:
+
 - ✅ No backward compatibility
 - ✅ No fallback code
 - ✅ Dependency injection
@@ -236,6 +264,7 @@ All public methods document exceptions in XML comments:
 - ✅ DRY principles
 
 **Minor Issues**:
+
 - ⚠️ Should verify nullable reference types enabled (implementation detail)
 - ⚠️ Could add more explicit guidance on TryGet vs Get usage
 
@@ -243,9 +272,11 @@ All public methods document exceptions in XML comments:
 
 ## Conclusion
 
-The constants system design is **highly compliant** with the .cursorrules file. The only minor issue is ensuring nullable reference types are enabled in the project file, which is an implementation detail rather than a design issue.
+The constants system design is **highly compliant** with the .cursorrules file. The only minor issue is ensuring
+nullable reference types are enabled in the project file, which is an implementation detail rather than a design issue.
 
 All critical rules are followed:
+
 - Fail-fast exception handling ✅
 - Proper dependency injection ✅
 - Complete XML documentation ✅

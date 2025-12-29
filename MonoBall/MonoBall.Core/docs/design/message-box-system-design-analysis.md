@@ -2,7 +2,8 @@
 
 ## Overview
 
-This document analyzes the message box system design for architecture issues, Arch ECS/event problems, .cursorrule violations, and forward-thinking concerns.
+This document analyzes the message box system design for architecture issues, Arch ECS/event problems, .cursorrule
+violations, and forward-thinking concerns.
 
 ---
 
@@ -13,6 +14,7 @@ This document analyzes the message box system design for architecture issues, Ar
 **Issue**: `MessageBoxSceneSystem` subscribes to events but doesn't show proper disposal pattern.
 
 **Current Design**:
+
 ```csharp
 // Event subscriptions shown but no Dispose() implementation
 EventBus.Subscribe<MessageBoxShowEvent>(OnMessageBoxShow);
@@ -20,12 +22,15 @@ EventBus.Subscribe<MessageBoxHideEvent>(OnMessageBoxHide);
 EventBus.Subscribe<MessageBoxTextAdvanceEvent>(OnMessageBoxTextAdvance);
 ```
 
-**Problem**: 
-- Violates `.cursorrules` rule #5: "Event Subscriptions: MUST implement `IDisposable` and unsubscribe in `Dispose()` to prevent leaks"
+**Problem**:
+
+- Violates `.cursorrules` rule #5: "Event Subscriptions: MUST implement `IDisposable` and unsubscribe in `Dispose()` to
+  prevent leaks"
 - Memory leaks if system is disposed without unsubscribing
 - Event handlers may hold references to disposed system
 
 **Fix Required**:
+
 ```csharp
 public class MessageBoxSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable, ISceneSystem
 {
@@ -61,6 +66,7 @@ public class MessageBoxSceneSystem : BaseSystem<World, float>, IPrioritizedSyste
 **Issue**: Queries shown in code examples but `QueryDescription` not cached in constructor.
 
 **Current Design**:
+
 ```csharp
 public void ProcessInternal(float deltaTime)
 {
@@ -70,11 +76,13 @@ public void ProcessInternal(float deltaTime)
 ```
 
 **Problem**:
+
 - Violates `.cursorrules` rule #3: "Cache `QueryDescription` in constructor, never create queries in Update/Render"
 - Allocations in hot path (every frame)
 - Performance degradation
 
 **Fix Required**:
+
 ```csharp
 public class MessageBoxSceneSystem : BaseSystem<World, float>, ...
 {
@@ -96,12 +104,15 @@ public class MessageBoxSceneSystem : BaseSystem<World, float>, ...
 **Issue**: No validation for required dependencies, missing components, or null checks.
 
 **Problems**:
-- Violates `.cursorrules` rule #7: "Dependency Injection: Required dependencies in constructor, throw `ArgumentNullException` for null"
+
+- Violates `.cursorrules` rule #7: "Dependency Injection: Required dependencies in constructor, throw
+  `ArgumentNullException` for null"
 - Violates `.cursorrules` rule #2: "NO FALLBACK CODE - Fail fast with clear exceptions"
 - No validation in `RenderScene()` when checking for `MessageBoxComponent`
 - No validation in `OnMessageBoxShow()` for missing services
 
 **Fix Required**:
+
 ```csharp
 public MessageBoxSceneSystem(
     World world,
@@ -135,16 +146,19 @@ public void RenderScene(Entity sceneEntity, GameTime gameTime)
 **Issue**: Design mentions `WindowId` for future multiple boxes but doesn't handle concurrent message boxes.
 
 **Problems**:
+
 - No enforcement of single message box (should only one be active at a time?)
 - `MessageBoxHideEvent` with `WindowId = 0` hides "all" but no tracking of active boxes
 - Race conditions if multiple `MessageBoxShowEvent` fired simultaneously
 - No clear policy: allow stacking or enforce single?
 
 **Recommendation**:
+
 - **Option A (Enforce Single)**: Track active scene entity, destroy existing before creating new
 - **Option B (Allow Stacking)**: Properly track multiple scene entities, handle input for topmost only
 
 **Fix Required**:
+
 ```csharp
 public class MessageBoxSceneSystem : ...
 {
@@ -174,11 +188,13 @@ public class MessageBoxSceneSystem : ...
 **Issue**: System needs to track which scene entity is the active message box.
 
 **Problem**:
+
 - `MessageBoxHideEvent` with `WindowId = 0` needs to know which scene to destroy
 - No mapping from `WindowId` to scene entity
 - `IsMessageBoxVisible()` query inefficient (queries all entities)
 
 **Fix Required**:
+
 ```csharp
 public class MessageBoxSceneSystem : ...
 {
@@ -223,11 +239,13 @@ public class MessageBoxSceneSystem : ...
 **Issue**: Input handled in `ProcessInternal()` but no protection against multiple message boxes.
 
 **Problem**:
+
 - If multiple message boxes exist, which one receives input?
 - No priority system for input handling
 - Button press might affect wrong message box
 
 **Fix Required**:
+
 - Only handle input for the topmost/active message box scene
 - Query scenes by priority, handle input for highest priority active scene only
 
@@ -238,11 +256,13 @@ public class MessageBoxSceneSystem : ...
 **Issue**: Design mentions "player text speed preference" but doesn't specify where it's stored.
 
 **Problem**:
+
 - No clear storage mechanism (save data? global variables? flags?)
 - `GetPlayerTextSpeed()` method shown but not implemented
 - No fallback if player preference doesn't exist
 
 **Fix Required**:
+
 - Use `IFlagVariableService` to store player text speed preference
 - Store as global variable (e.g., `"player:textSpeed"`)
 - Default to Medium speed if not set
@@ -255,13 +275,15 @@ public class MessageBoxSceneSystem : ...
 **Issue**: `MessageBoxComponent` contains `string Text` and `string? SpeakerName` (reference types).
 
 **Problem**:
+
 - `.cursorrules` says "Components are value types (`struct`) - store data, not behavior"
 - Structs can contain reference types, but need to be careful about:
-  - Equality comparison (struct equality uses reference equality for strings)
-  - Memory (strings are heap-allocated)
-  - Copy semantics (struct copies share string references)
+    - Equality comparison (struct equality uses reference equality for strings)
+    - Memory (strings are heap-allocated)
+    - Copy semantics (struct copies share string references)
 
-**Assessment**: 
+**Assessment**:
+
 - ✅ **Acceptable** - Strings in structs are common pattern in ECS
 - ⚠️ **Note**: Be aware of copy semantics (struct copies share string references, which is usually desired)
 
@@ -276,6 +298,7 @@ public class MessageBoxSceneSystem : ...
 **Issue**: Code examples lack XML documentation comments.
 
 **Problem**:
+
 - Violates `.cursorrules` rule #8: "XML Documentation: Document all public APIs with XML comments"
 - Missing `<summary>`, `<param>`, `<returns>`, `<exception>` tags
 
@@ -288,10 +311,12 @@ public class MessageBoxSceneSystem : ...
 **Issue**: Hard-coded values like `ScenePriorities.GameScene + 20`, delay values (8, 4, 2 frames).
 
 **Problem**:
+
 - Violates DRY principle
 - Hard to maintain and adjust
 
 **Fix Required**:
+
 ```csharp
 public static class MessageBoxConstants
 {
@@ -309,7 +334,8 @@ public static class MessageBoxConstants
 
 **Issue**: `MessageBoxComponent` in `Scenes.Components` but events in `ECS.Events`.
 
-**Assessment**: 
+**Assessment**:
+
 - ✅ **Correct** - Components follow scene structure, events are global ECS events
 - No fix needed, but document the reasoning
 
@@ -322,12 +348,14 @@ public static class MessageBoxConstants
 **Issue**: Control codes mentioned but parsing implementation not detailed.
 
 **Problems**:
+
 - No state machine for parsing control codes
 - No handling of malformed control codes
 - No escape sequence handling details
 - Performance concerns (parsing every character every frame?)
 
 **Recommendation**:
+
 - Pre-parse control codes when message box is created (store parsed tokens)
 - Don't parse during character-by-character printing
 - Use token list: `List<TextToken>` where `TextToken` is `{ char, controlCode, position }`
@@ -339,11 +367,13 @@ public static class MessageBoxConstants
 **Issue**: What if `FontId` doesn't exist or font loading fails?
 
 **Problem**:
+
 - No error handling specified
 - Rendering will fail if font missing
 - Must follow `.cursorrules` rule #2: NO FALLBACK CODE
 
 **Recommendation**:
+
 - **Fail fast**: Throw `InvalidOperationException` if font not found
 - Validate font exists during scene creation (before creating component)
 - Clear error message indicating font must exist in mod registry
@@ -356,10 +386,12 @@ public static class MessageBoxConstants
 **Issue**: What if `base:textwindow:tilesheet/message_box` doesn't exist?
 
 **Problem**:
+
 - System will fail if tilesheet missing
 - Must follow `.cursorrules` rule #2: NO FALLBACK CODE
 
 **Recommendation**:
+
 - **Fail fast**: Throw `InvalidOperationException` if tilesheet not found
 - Validate tilesheet exists during scene creation (before creating component)
 - Clear error message indicating tilesheet must exist in mod registry
@@ -372,11 +404,13 @@ public static class MessageBoxConstants
 **Issue**: Text wrapping mentioned but algorithm not specified.
 
 **Problems**:
+
 - How to handle words that don't fit on line?
 - How to handle very long words?
 - How to calculate line width (character count vs pixel width)?
 
 **Recommendation**:
+
 - Use pixel-based wrapping (measure string width with font)
 - Break words if necessary (hyphenate or truncate)
 - Store wrapped lines in component to avoid re-wrapping every frame
@@ -388,11 +422,13 @@ public static class MessageBoxConstants
 **Issue**: Speaker name mentioned but rendering details not specified.
 
 **Problems**:
+
 - Where does speaker name box render? (Above message box? Left side?)
 - What if speaker name is very long?
 - Does speaker name box use same tilesheet or different?
 
 **Recommendation**:
+
 - Render speaker name box above message box (Pokemon Emerald style)
 - Truncate long names with ellipsis
 - Use same tilesheet or create separate speaker name tilesheet definition
@@ -404,11 +440,13 @@ public static class MessageBoxConstants
 **Issue**: Design mentions future support for multiple boxes but doesn't design it.
 
 **Problems**:
+
 - No priority system for stacked boxes
 - No input handling policy (which box receives input?)
 - No rendering order (which box renders on top?)
 
 **Recommendation**:
+
 - Use scene priority for stacking order
 - Handle input for highest priority active scene
 - Document stacking behavior in future enhancements section
@@ -420,11 +458,13 @@ public static class MessageBoxConstants
 **Issue**: Text speed modifiers mentioned but not designed.
 
 **Problems**:
+
 - Where are modifiers stored? (Config file? Mod definitions?)
 - How are modifiers applied? (Multiplicative? Additive?)
 - Can mods override modifiers?
 
 **Recommendation**:
+
 - Store modifiers in mod definitions or config
 - Apply multiplicatively: `actualDelay = baseDelay * modifier`
 - Allow mods to override via definition files
@@ -436,11 +476,13 @@ public static class MessageBoxConstants
 **Issue**: Future enhancement mentions localization but no design.
 
 **Problems**:
+
 - How to handle right-to-left languages?
 - How to handle different character widths?
 - How to handle control codes in localized text?
 
 **Recommendation**:
+
 - Design text direction system (LTR/RTL)
 - Support text direction in `MessageBoxComponent`
 - Handle control codes regardless of text direction
@@ -452,11 +494,13 @@ public static class MessageBoxConstants
 **Issue**: No performance analysis or optimization strategies.
 
 **Problems**:
+
 - Character-by-character rendering every frame
 - String operations in hot path
 - Font measurement calls every frame
 
 **Recommendations**:
+
 - Pre-calculate text layout (wrapped lines, positions) when message box created
 - Cache font measurements
 - Batch character rendering (render substring up to `CurrentCharIndex` instead of individual chars)
@@ -467,6 +511,7 @@ public static class MessageBoxConstants
 ## 📋 Summary of Required Fixes
 
 ### Critical (Must Fix Before Implementation)
+
 1. ✅ Add `IDisposable` implementation with event unsubscription
 2. ✅ Cache `QueryDescription` in constructor
 3. ✅ Add null validation for all dependencies
@@ -475,6 +520,7 @@ public static class MessageBoxConstants
 6. ✅ Track scene entity for active message box
 
 ### Important (Should Fix)
+
 7. ✅ Add XML documentation to all public APIs
 8. ✅ Extract magic numbers to constants
 9. ✅ Design text speed storage mechanism
@@ -482,6 +528,7 @@ public static class MessageBoxConstants
 11. ✅ Design font/tilesheet fallback strategies
 
 ### Nice to Have (Future)
+
 12. ⚠️ Design text wrapping algorithm
 13. ⚠️ Design speaker name box rendering
 14. ⚠️ Design multiple message box stacking

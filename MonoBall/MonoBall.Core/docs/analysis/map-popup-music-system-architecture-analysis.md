@@ -2,7 +2,8 @@
 
 ## Executive Summary
 
-After refactoring to remove `MapPopupOrchestratorSystem` and align both systems, several architectural inconsistencies and violations were identified. This document analyzes all issues and proposes a clear architecture pattern.
+After refactoring to remove `MapPopupOrchestratorSystem` and align both systems, several architectural inconsistencies
+and violations were identified. This document analyzes all issues and proposes a clear architecture pattern.
 
 ---
 
@@ -10,27 +11,33 @@ After refactoring to remove `MapPopupOrchestratorSystem` and align both systems,
 
 ### 1. **Inconsistent Data Source Pattern**
 
-**Problem**: Both systems resolve from definitions, but `MapLoaderSystem` still creates `MusicComponent` on map entities (line 175), which is now unused.
+**Problem**: Both systems resolve from definitions, but `MapLoaderSystem` still creates `MusicComponent` on map
+entities (line 175), which is now unused.
 
 **Current State**:
+
 - `MapMusicSystem` resolves `MapDefinition.MusicId` from definitions ✅
 - `MapPopupSystem` resolves `MapDefinition.MapSectionId` from definitions ✅
 - `MapLoaderSystem` creates `MusicComponent` on map entities ❌ (dead component)
 
-**Impact**: 
+**Impact**:
+
 - Dead component creation wastes memory
 - Unclear when to use components vs definitions
 - Inconsistent pattern across codebase
 
-**Decision Needed**: 
+**Decision Needed**:
+
 - **Option A**: Remove `MusicComponent` creation from `MapLoaderSystem` (simpler, consistent)
 - **Option B**: Keep `MusicComponent` and have `MapMusicSystem` query ECS (more ECS-native)
 
 **Analysis**: See `definition-vs-component-architecture-decision.md` for full analysis.
 
-**Recommendation**: **Option A** - Remove `MusicComponent` creation. Both systems should resolve from definitions for consistency.
+**Recommendation**: **Option A** - Remove `MusicComponent` creation. Both systems should resolve from definitions for
+consistency.
 
 **Reasoning**:
+
 - `MusicId` and `MapSectionId` are **static configuration**, not runtime state
 - No need to query entities by music/section (systems resolve from map ID)
 - Consistent with current `MapPopupSystem` pattern
@@ -44,6 +51,7 @@ After refactoring to remove `MapPopupOrchestratorSystem` and align both systems,
 **Problem**: Both `MapPopupSystem` and `MapMusicSystem` have identical `IsLoadingSceneActive()` methods.
 
 **Current Code** (duplicated in both systems):
+
 ```csharp
 private bool IsLoadingSceneActive()
 {
@@ -65,11 +73,13 @@ private bool IsLoadingSceneActive()
 **Violation**: DRY principle - same logic in two places
 
 **Solutions**:
+
 1. **Extract to `SceneSystem`** - Add `IsLoadingSceneActive()` method to `SceneSystem` (ISceneManager)
 2. **Extract to utility class** - Create `SceneQueryHelper` static class
 3. **Use SceneSystem directly** - Both systems already have access to scene management
 
-**Recommendation**: **Option 1** - Add to `SceneSystem` since it already manages scene state and both systems have access to `ISceneManager`.
+**Recommendation**: **Option 1** - Add to `SceneSystem` since it already manages scene state and both systems have
+access to `ISceneManager`.
 
 ---
 
@@ -78,6 +88,7 @@ private bool IsLoadingSceneActive()
 #### Single Responsibility Principle (SRP)
 
 **Current**: Both systems handle:
+
 - Event subscription/disposal ✅
 - Loading scene checks ✅
 - Definition resolution ✅
@@ -85,6 +96,7 @@ private bool IsLoadingSceneActive()
 - Action execution (music playback / popup creation) ✅
 
 **Analysis**: Each system has a single responsibility (manage music/popups), but they share common concerns:
+
 - Loading scene checks
 - Event handling pattern
 - Definition resolution pattern
@@ -102,10 +114,12 @@ private bool IsLoadingSceneActive()
 ### 4. **Arch ECS Best Practices**
 
 #### ✅ Query Caching
+
 - Both systems cache `QueryDescription` in constructor ✅
 - `_loadingSceneQuery` cached correctly ✅
 
 #### ✅ Event Subscriptions
+
 - Both systems implement `IDisposable` ✅
 - Both unsubscribe in `Dispose()` ✅
 - Use `new` keyword correctly ✅
@@ -115,6 +129,7 @@ private bool IsLoadingSceneActive()
 **Problem**: `IsLoadingSceneActive()` query doesn't short-circuit - iterates all loading scenes even after finding one.
 
 **Current**:
+
 ```csharp
 bool hasActiveLoadingScene = false;
 World.Query(in _loadingSceneQuery, (Entity entity, ref SceneComponent scene) =>
@@ -126,21 +141,26 @@ World.Query(in _loadingSceneQuery, (Entity entity, ref SceneComponent scene) =>
 });
 ```
 
-**Issue**: Arch ECS queries don't support early return from lambda. This is inefficient if there are many loading scenes.
+**Issue**: Arch ECS queries don't support early return from lambda. This is inefficient if there are many loading
+scenes.
 
-**Solution**: Use `SceneSystem` which already tracks active scenes, or accept the inefficiency (loading scenes are rare).
+**Solution**: Use `SceneSystem` which already tracks active scenes, or accept the inefficiency (loading scenes are
+rare).
 
-**Recommendation**: Use `SceneSystem.IsLoadingSceneActive()` if we add it, or keep current implementation (loading scenes are rare).
+**Recommendation**: Use `SceneSystem.IsLoadingSceneActive()` if we add it, or keep current implementation (loading
+scenes are rare).
 
 ---
 
 ### 5. **.cursorrules Compliance**
 
 #### ✅ Component Design
+
 - Components are value types (`struct`) ✅
 - Components are pure data (no methods) ✅
 
 #### ✅ System Design
+
 - Systems inherit from `BaseSystem<World, float>` ✅
 - QueryDescription cached in constructor ✅
 - Event subscriptions disposed properly ✅
@@ -150,6 +170,7 @@ World.Query(in _loadingSceneQuery, (Entity entity, ref SceneComponent scene) =>
 **Issue**: `MapMusicSystem.OnMapTransition()` and `OnGameEntered()` are private methods without XML docs.
 
 **Current**:
+
 ```csharp
 private void OnMapTransition(ref MapTransitionEvent evt) // No XML doc
 ```
@@ -163,6 +184,7 @@ private void OnMapTransition(ref MapTransitionEvent evt) // No XML doc
 **Issue**: `MapMusicSystem.OnMapTransition()` references `targetMapId` on line 106, but variable is `evt.TargetMapId`.
 
 **Current** (line 106):
+
 ```csharp
 _logger.Debug(
     "Map {TargetMapId} already playing music {MusicId}, skipping music change",
@@ -188,12 +210,14 @@ _logger.Debug(
 **Rule**: **Use Definitions for Static Data, ECS for Runtime State**
 
 #### ✅ Use Definitions When:
+
 - Data is **static** (doesn't change at runtime)
 - Data is **configuration** (map properties, themes, sections)
 - Data is **moddable** (loaded from JSON)
 - Examples: `MapDefinition`, `MapSectionDefinition`, `PopupThemeDefinition`, `MusicId`
 
 #### ✅ Use ECS Components When:
+
 - Data is **runtime state** (changes during gameplay)
 - Data needs to be **queried** (find all entities with X)
 - Data is **entity-specific** (attached to specific entities)
@@ -201,17 +225,20 @@ _logger.Debug(
 
 #### ⚠️ Edge Cases:
 
-**MusicId**: 
+**MusicId**:
+
 - **Current**: Static in `MapDefinition`, but `MapLoaderSystem` creates `MusicComponent`
 - **Decision**: Should be definition-only (no component needed)
 - **Reason**: Music ID doesn't change at runtime, doesn't need to be queried
 
 **MapSectionId**:
+
 - **Current**: Static in `MapDefinition`, resolved via definitions
 - **Decision**: ✅ Correct - definition-only
 - **Reason**: Map section is configuration, not runtime state
 
 **Loading Scene Check**:
+
 - **Current**: Queries ECS for `LoadingSceneComponent`
 - **Decision**: ✅ Correct - queries ECS
 - **Reason**: Scene state is runtime, changes during gameplay
@@ -223,38 +250,38 @@ _logger.Debug(
 ### Priority 1: Critical Issues ✅ FIXED
 
 1. ✅ **Fix compilation error** in `MapMusicSystem.OnMapTransition()` (line 106) - **FIXED**
-   - Changed `targetMapId` → `evt.TargetMapId`
-   - Changed `initialMapId` → `evt.InitialMapId`
-   - Added XML documentation to event handlers
+    - Changed `targetMapId` → `evt.TargetMapId`
+    - Changed `initialMapId` → `evt.InitialMapId`
+    - Added XML documentation to event handlers
 
 2. ✅ **Use `MusicComponent` and `MapSectionComponent`** (runtime modification support)
-   - **Status**: Both components now created and queried ✅
-   - **Decision**: Keep components for runtime modification (see `definition-vs-component-architecture-decision.md`)
-   - **Reasoning**: Components allow runtime modification of music/popups via scripts/events
-   - **Implementation**: 
-     - `MapLoaderSystem` creates both `MusicComponent` and `MapSectionComponent`
-     - `MapMusicSystem` queries `MusicComponent` from map entities
-     - `MapPopupSystem` queries `MapSectionComponent` from map entities
+    - **Status**: Both components now created and queried ✅
+    - **Decision**: Keep components for runtime modification (see `definition-vs-component-architecture-decision.md`)
+    - **Reasoning**: Components allow runtime modification of music/popups via scripts/events
+    - **Implementation**:
+        - `MapLoaderSystem` creates both `MusicComponent` and `MapSectionComponent`
+        - `MapMusicSystem` queries `MusicComponent` from map entities
+        - `MapPopupSystem` queries `MapSectionComponent` from map entities
 
 3. ✅ **Extract `IsLoadingSceneActive()`** to `SceneSystem` - **FIXED**
-   - **Status**: Extracted to `ISceneManager` interface and `SceneSystem` implementation ✅
-   - **Implementation**: 
-     - Added `IsLoadingSceneActive()` to `ISceneManager` interface
-     - Implemented in `SceneSystem` using `_sceneStack` for efficient lookup
-     - Removed duplicate methods from both systems
-     - Both systems now use `_sceneManager.IsLoadingSceneActive()`
+    - **Status**: Extracted to `ISceneManager` interface and `SceneSystem` implementation ✅
+    - **Implementation**:
+        - Added `IsLoadingSceneActive()` to `ISceneManager` interface
+        - Implemented in `SceneSystem` using `_sceneStack` for efficient lookup
+        - Removed duplicate methods from both systems
+        - Both systems now use `_sceneManager.IsLoadingSceneActive()`
 
 ### Priority 2: Architecture Improvements ✅ COMPLETE
 
 4. ✅ **Add XML documentation** to event handlers - **FIXED**
-   - Added XML docs to `OnMapTransition()` and `OnGameEntered()` in both systems
+    - Added XML docs to `OnMapTransition()` and `OnGameEntered()` in both systems
 
 5. ⚠️ **Create base class** for map transition systems (if more systems need this pattern)
-   - **Status**: Not implemented (YAGNI - only 2 systems currently)
-   - **Recommendation**: Add if more systems need this pattern
+    - **Status**: Not implemented (YAGNI - only 2 systems currently)
+    - **Recommendation**: Add if more systems need this pattern
 
 6. ✅ **Document the Definition vs ECS pattern** in architecture docs - **FIXED**
-   - Created `definition-vs-component-architecture-decision.md` with full analysis
+    - Created `definition-vs-component-architecture-decision.md` with full analysis
 
 ### Priority 3: Code Quality
 
@@ -318,6 +345,7 @@ if (World.Has<MusicComponent>(mapEntity)) {
 ## 📝 Summary
 
 **Current State**: All critical issues fixed ✅
+
 - ✅ DRY violation fixed (`IsLoadingSceneActive()` extracted to `SceneSystem`)
 - ✅ Components properly used (`MusicComponent` and `MapSectionComponent` queried)
 - ✅ Compilation errors fixed (variable names corrected)
@@ -327,10 +355,12 @@ if (World.Has<MusicComponent>(mapEntity)) {
 - ✅ Query caching compliance
 - ✅ Centralized scene state checks via `ISceneManager`
 
-**Architecture**: 
+**Architecture**:
+
 - Components for runtime-modifiable data (music, popup themes)
 - Definitions for static configuration (display names, theme definitions)
 - Centralized scene state management via `ISceneManager`
 
-**Status**: ✅ All Priority 1 and Priority 2 issues resolved. Systems are architecturally consistent and follow SOLID/DRY principles.
+**Status**: ✅ All Priority 1 and Priority 2 issues resolved. Systems are architecturally consistent and follow SOLID/DRY
+principles.
 
