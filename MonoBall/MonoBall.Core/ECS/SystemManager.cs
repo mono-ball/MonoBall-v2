@@ -271,9 +271,9 @@ public class SystemManager : IDisposable
         _playerSystem = null!;
         _inputSystem = null!;
         _movementSystem = null!;
+        _mapTransitionDetectionSystem = null!;
         _sceneSystem = null!;
         _sceneInputSystem = null!;
-        _mapTransitionDetectionSystem = null!;
 
         // Dispose shader systems
         _shaderParameterAnimationSystem?.Dispose();
@@ -694,7 +694,8 @@ public class SystemManager : IDisposable
         );
         RegisterUpdateSystem(_movementSystem);
 
-        // Create map transition detection system (detects when player crosses map boundaries)
+        // Create map transition detection system (detects when player walks across map boundaries)
+        // Note: GameEnteredEvent is NOT fired here - it's handled by GameInitializationService
         _mapTransitionDetectionSystem = new MapTransitionDetectionSystem(
             _world,
             _activeMapFilterService,

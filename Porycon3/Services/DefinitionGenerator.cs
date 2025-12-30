@@ -1,4 +1,5 @@
 using System.Text.Json;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -259,18 +260,6 @@ public class DefinitionGenerator
         var outputPath = Path.Combine(regionDir, filename);
         File.WriteAllText(outputPath, JsonSerializer.Serialize(definition, JsonOptions));
         return true;
-    }
-
-    private static string FormatDisplayName(string name)
-    {
-        return string.Join(" ", name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
-    }
-
-    private static string ToPascalCase(string name)
-    {
-        return string.Concat(name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 
     private record WeatherConfig(

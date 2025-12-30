@@ -1,8 +1,9 @@
 using System.Text.Json;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
+using Porycon3.Infrastructure;
 using Porycon3.Services.Extraction;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -58,14 +59,24 @@ public class TextWindowExtractor : ExtractorBase
         try
         {
             // Load with proper index 0 transparency (GBA palette index 0 = transparent)
-            using var img = LoadWithIndex0Transparency(sourceFile);
+            var img = IndexedPngLoader.LoadWithIndex0Transparency(sourceFile);
+            if (img == null)
+            {
+                AddError(filename, "Failed to load indexed PNG");
+                return false;
+            }
 
-            // Create PascalCase filename
-            var pascalName = ToPascalCase(filename);
+            using (img)
+            {
+                // Apply magenta transparency as additional fallback
+                ApplyMagentaTransparency(img);
 
-            // Save processed PNG as 32-bit RGBA
-            var destPng = GetGraphicsPath("UI", "TextWindows", $"{pascalName}.png");
-            SaveAsRgbaPng(img, destPng);
+                // Create PascalCase filename
+                var pascalName = TextWindowToPascalCase(filename);
+
+                // Save processed PNG as 32-bit RGBA
+                var destPng = GetGraphicsPath("UI", "TextWindows", $"{pascalName}.png");
+                IndexedPngLoader.SaveAsRgbaPng(img, destPng);
 
             // Get image dimensions
             var width = img.Width;
@@ -101,7 +112,7 @@ public class TextWindowExtractor : ExtractorBase
             var jsonDef = new
             {
                 id = unifiedId,
-                displayName = FormatDisplayName(filename),
+                displayName = FormatTextWindowDisplayName(filename),
                 type = "TileSheet",
                 texturePath = $"Graphics/UI/TextWindows/{pascalName}.png",
                 tileWidth,
@@ -111,157 +122,19 @@ public class TextWindowExtractor : ExtractorBase
                 description = "Text window tile sheet from Pokemon Emerald (GBA tile-based rendering)"
             };
 
-            // Save definition JSON
-            var destJson = GetDefinitionPath("UI", "TextWindows", $"{pascalName}.json");
-            File.WriteAllText(destJson, JsonSerializer.Serialize(jsonDef, JsonOptions.Default));
+                // Save definition JSON
+                var destJson = GetDefinitionPath("UI", "TextWindows", $"{pascalName}.json");
+                File.WriteAllText(destJson, JsonSerializer.Serialize(jsonDef, JsonOptions.Default));
 
-            LogVerbose($"Extracted {pascalName} ({tileCount} tiles)");
-            return true;
+                LogVerbose($"Extracted {pascalName} ({tileCount} tiles)");
+                return true;
+            }
         }
         catch (Exception e)
         {
             AddError(filename, $"Failed to extract: {e.Message}", e);
             return false;
         }
-    }
-
-    /// <summary>
-    /// Load an indexed PNG and convert to RGBA with palette index 0 as transparent.
-    /// This is how GBA/pokeemerald handles sprite transparency.
-    /// </summary>
-    private static Image<Rgba32> LoadWithIndex0Transparency(string pngPath)
-    {
-        // Read raw PNG bytes to extract palette
-        var bytes = File.ReadAllBytes(pngPath);
-
-        // Extract palette from PNG PLTE chunk
-        var palette = ExtractPngPalette(bytes);
-
-        if (palette != null && palette.Length > 0)
-        {
-            // Make palette index 0 transparent
-            palette[0] = new Rgba32(0, 0, 0, 0);
-
-            // Load as RGBA and apply palette with index 0 transparency
-            using var tempImage = Image.Load<Rgba32>(pngPath);
-
-            // Get the color that was at palette index 0 (before we made it transparent)
-            // We need to find all pixels with this color and make them transparent
-            var index0Color = ExtractPaletteColor(bytes, 0);
-
-            if (index0Color.HasValue)
-            {
-                var bgColor = index0Color.Value;
-                tempImage.ProcessPixelRows(accessor =>
-                {
-                    for (int y = 0; y < accessor.Height; y++)
-                    {
-                        var row = accessor.GetRowSpan(y);
-                        for (int x = 0; x < row.Length; x++)
-                        {
-                            // Check if pixel matches palette index 0 color
-                            if (row[x].R == bgColor.R && row[x].G == bgColor.G && row[x].B == bgColor.B)
-                            {
-                                row[x] = new Rgba32(0, 0, 0, 0);
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Also apply magenta transparency as fallback
-            ApplyMagentaTransparency(tempImage);
-
-            return tempImage.Clone();
-        }
-
-        // Fallback: load as RGBA and use first pixel as background color
-        var img = Image.Load<Rgba32>(pngPath);
-        var firstPixel = img[0, 0];
-
-        // Make all pixels matching first pixel transparent
-        img.ProcessPixelRows(accessor =>
-        {
-            for (int y = 0; y < accessor.Height; y++)
-            {
-                var row = accessor.GetRowSpan(y);
-                for (int x = 0; x < row.Length; x++)
-                {
-                    if (row[x].R == firstPixel.R && row[x].G == firstPixel.G && row[x].B == firstPixel.B)
-                    {
-                        row[x] = new Rgba32(0, 0, 0, 0);
-                    }
-                }
-            }
-        });
-
-        // Also apply magenta transparency
-        ApplyMagentaTransparency(img);
-
-        return img;
-    }
-
-    /// <summary>
-    /// Extract RGB palette from PNG PLTE chunk.
-    /// </summary>
-    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
-    {
-        var pos = 8; // Skip PNG signature
-
-        while (pos < pngData.Length - 12)
-        {
-            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
-                         (pngData[pos + 2] << 8) | pngData[pos + 3];
-            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
-
-            if (type == "PLTE")
-            {
-                var colorCount = length / 3;
-                var palette = new Rgba32[colorCount];
-
-                for (var i = 0; i < colorCount; i++)
-                {
-                    var offset = pos + 8 + i * 3;
-                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
-                }
-
-                return palette;
-            }
-
-            pos += 12 + length;
-        }
-
-        return null;
-    }
-
-    /// <summary>
-    /// Extract a specific palette color from PNG PLTE chunk.
-    /// </summary>
-    private static Rgba32? ExtractPaletteColor(byte[] pngData, int index)
-    {
-        var pos = 8;
-
-        while (pos < pngData.Length - 12)
-        {
-            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
-                         (pngData[pos + 2] << 8) | pngData[pos + 3];
-            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
-
-            if (type == "PLTE")
-            {
-                var colorCount = length / 3;
-                if (index < colorCount)
-                {
-                    var offset = pos + 8 + index * 3;
-                    return new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
-                }
-                return null;
-            }
-
-            pos += 12 + length;
-        }
-
-        return null;
     }
 
     /// <summary>
@@ -285,21 +158,7 @@ public class TextWindowExtractor : ExtractorBase
         });
     }
 
-    /// <summary>
-    /// Save image as 32-bit RGBA PNG (not indexed).
-    /// </summary>
-    private static void SaveAsRgbaPng(Image<Rgba32> image, string path)
-    {
-        var encoder = new PngEncoder
-        {
-            ColorType = PngColorType.RgbWithAlpha,
-            BitDepth = PngBitDepth.Bit8,
-            CompressionLevel = PngCompressionLevel.BestCompression
-        };
-        image.SaveAsPng(path, encoder);
-    }
-
-    private static string FormatDisplayName(string name)
+    private static string FormatTextWindowDisplayName(string name)
     {
         // Handle numeric names like "1", "2", etc.
         if (int.TryParse(name, out var num))
@@ -307,12 +166,11 @@ public class TextWindowExtractor : ExtractorBase
             return $"Text Window {num}";
         }
 
-        // Handle snake_case names
-        return string.Join(" ", name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
+        // Use the shared implementation for snake_case names
+        return FormatDisplayName(name);
     }
 
-    private static string ToPascalCase(string name)
+    private static string TextWindowToPascalCase(string name)
     {
         // Handle numeric names - prefix with "Window"
         if (int.TryParse(name, out _))
@@ -320,8 +178,7 @@ public class TextWindowExtractor : ExtractorBase
             return $"Window{name}";
         }
 
-        // Convert snake_case to PascalCase
-        return string.Concat(name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
+        // Use the shared implementation for snake_case names
+        return ToPascalCase(name);
     }
 }

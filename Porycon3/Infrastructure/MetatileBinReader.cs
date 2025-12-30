@@ -1,8 +1,9 @@
 using Porycon3.Models;
+using Porycon3.Services.Interfaces;
 
 namespace Porycon3.Infrastructure;
 
-public class MetatileBinReader
+public class MetatileBinReader : IMetatileReader
 {
     private readonly string _pokeemeraldPath;
 

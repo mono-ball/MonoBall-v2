@@ -3,6 +3,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using Porycon3.Services.Extraction;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -155,11 +156,5 @@ public class InterfaceExtractor : ExtractorBase
             CompressionLevel = PngCompressionLevel.BestCompression
         };
         image.SaveAsPng(path, encoder);
-    }
-
-    private static string ToPascalCase(string snakeCase)
-    {
-        return string.Concat(snakeCase.Split('_')
-            .Select(w => w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 }

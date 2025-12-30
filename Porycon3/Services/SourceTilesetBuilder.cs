@@ -3,6 +3,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Porycon3.Infrastructure;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -12,8 +13,6 @@ namespace Porycon3.Services;
 /// </summary>
 public class SourceTilesetBuilder : IDisposable
 {
-    private const int TileSize = 8;
-    private const int TilesPerRow = 16;
 
     private readonly string _pokeemeraldPath;
     private readonly TilesetPathResolver _resolver;
@@ -235,7 +234,7 @@ public class SourceTilesetBuilder : IDisposable
         try
         {
             var pngBytes = File.ReadAllBytes(imagePath);
-            var (width, height, _, indexedPixels) = ExtractPngIndices(pngBytes);
+            var (indexedPixels, width, height, _) = IndexedPngLoader.ExtractPixelIndices(pngBytes);
 
             if (indexedPixels == null || width == 0 || height == 0)
             {
@@ -393,7 +392,7 @@ public class SourceTilesetBuilder : IDisposable
                         var a = i > 0 ? currentRow[i - 1] : 0;
                         var b = prevRow[i];
                         var c = i > 0 ? prevRow[i - 1] : 0;
-                        currentRow[i] = (byte)(currentRow[i] + PaethPredictor(a, b, c));
+                        currentRow[i] = (byte)(currentRow[i] + IndexedPngLoader.PaethPredictor(a, b, c));
                     }
                     break;
             }
@@ -431,17 +430,6 @@ public class SourceTilesetBuilder : IDisposable
         }
 
         return (width, height, bitDepth, indices);
-    }
-
-    private static int PaethPredictor(int a, int b, int c)
-    {
-        var p = a + b - c;
-        var pa = Math.Abs(p - a);
-        var pb = Math.Abs(p - b);
-        var pc = Math.Abs(p - c);
-        if (pa <= pb && pa <= pc) return a;
-        if (pb <= pc) return b;
-        return c;
     }
 
     public void Dispose()

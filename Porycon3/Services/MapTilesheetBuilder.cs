@@ -2,6 +2,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Porycon3.Models;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -16,8 +17,6 @@ public readonly record struct MetatileKey(int MetatileId, string Tileset, Metati
 /// </summary>
 public class MapTilesheetBuilder : IDisposable
 {
-    private const int MetatileSize = 16;
-    private const int TilesPerRow = 16;
 
     private readonly string _pokeemeraldPath;
     private readonly MetatileRenderer _renderer;

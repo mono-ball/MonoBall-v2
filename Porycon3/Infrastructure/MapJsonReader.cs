@@ -1,9 +1,10 @@
 using System.Text.Json;
 using Porycon3.Models;
+using Porycon3.Services.Interfaces;
 
 namespace Porycon3.Infrastructure;
 
-public class MapJsonReader
+public class MapJsonReader : IMapReader
 {
     private readonly string _pokeemeraldPath;
     private Dictionary<string, LayoutInfo>? _layoutsCache;

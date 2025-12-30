@@ -1,6 +1,7 @@
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using Porycon3.Infrastructure;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -10,7 +11,6 @@ namespace Porycon3.Services;
 public class TilesetImageLoader
 {
     private readonly TilesetPathResolver _resolver;
-    private const int TileSize = 8;
 
     public TilesetImageLoader(string pokeemeraldPath)
     {

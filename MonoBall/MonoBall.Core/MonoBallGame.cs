@@ -284,16 +284,22 @@ public class MonoBallGame : Game
                         "Game initialization complete, transitioning to game scene"
                     );
 
+                    // IMPORTANT: Save reference to early SystemManager BEFORE reassigning
+                    // so we can dispose it and its event subscriptions properly
+                    var earlySystemManager = systemManager;
+
                     gameServices = result.GameServices;
                     systemManager = result.SystemManager;
                     spriteBatch = result.SpriteBatch;
 
-                    // Dispose early SystemManager (will be replaced by the one from async initialization)
-                    var earlySystemManager = systemManager;
+                    // Dispose early SystemManager (was used for loading screen only)
                     if (earlySystemManager != null && earlySystemManager != result.SystemManager)
                         try
                         {
                             earlySystemManager.Dispose();
+                            _logger.Debug(
+                                "Disposed early SystemManager and its event subscriptions"
+                            );
                         }
                         catch (Exception ex)
                         {

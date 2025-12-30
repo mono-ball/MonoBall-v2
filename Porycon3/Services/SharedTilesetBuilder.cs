@@ -3,6 +3,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Porycon3.Models;
 using Porycon3.Infrastructure;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -28,14 +29,7 @@ public readonly record struct MetatileGidResult(uint BottomGid, uint TopGid, boo
 /// </summary>
 public class SharedTilesetBuilder : IDisposable
 {
-    private const int TileSize = 8;
-    private const int MetatileSize = 16;
-    private const int TilesPerRow = 16;
     private const int NumMetatilesInPrimary = 512;
-
-    // Tiled flip flags
-    private const uint FLIP_H = 0x80000000;
-    private const uint FLIP_V = 0x40000000;
 
     private readonly string _pokeemeraldPath;
     private readonly MetatileRenderer _renderer;
@@ -137,8 +131,8 @@ public class SharedTilesetBuilder : IDisposable
 
             // Track tile properties (behavior, terrain) for each GID
             // Only the base GID matters (flip flags stripped), properties are per unique image
-            var bottomBaseGid = (int)(bottomGid & 0x0FFFFFFF);
-            var topBaseGid = (int)(topGid & 0x0FFFFFFF);
+            var bottomBaseGid = (int)(bottomGid & GidMask);
+            var topBaseGid = (int)(topGid & GidMask);
             builder.TrackTileProperty(bottomBaseGid, metatile.Behavior, metatile.TerrainType);
             builder.TrackTileProperty(topBaseGid, metatile.Behavior, metatile.TerrainType);
 
@@ -252,7 +246,7 @@ public class SharedTilesetBuilder : IDisposable
         {
             // Animation frames go through same deduplication via the individual builder
             var gid = builder.ProcessMetatileImage(1000000 + i, frames[i]); // Use high ID for animation frames
-            frameGids[i] = (int)(gid & 0x0FFFFFFF);
+            frameGids[i] = (int)(gid & GidMask);
             _animationFrameGids[(tilesetName, animDef.Name, i)] = frameGids[i];
         }
 

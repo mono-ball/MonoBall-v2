@@ -3,7 +3,9 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
+using Porycon3.Infrastructure;
 using Porycon3.Services.Extraction;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -439,12 +441,6 @@ public class FieldEffectExtractor : ExtractorBase
     #endregion
 
     private static string NormalizeId(string name) => name.ToLowerInvariant().Replace("_", "-");
-
-    private static string ToPascalCase(string name) =>
-        string.Join("", name.Split('_').Select(p => char.ToUpper(p[0]) + p[1..].ToLower()));
-
-    private static string FormatDisplayName(string name) =>
-        string.Join(" ", name.Split('_').Select(p => char.ToUpper(p[0]) + p[1..].ToLower()));
 
     private class FieldEffectDefinition
     {

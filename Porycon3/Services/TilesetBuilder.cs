@@ -3,6 +3,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Porycon3.Models;
 using Porycon3.Infrastructure;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -35,8 +36,6 @@ public class TilesetBuilder
     // Output mapping: TileKey -> GID (1-based)
     private readonly Dictionary<TileKey, int> _tileToGid = new();
 
-    private const int TileSize = 8;
-    private const int TilesPerRow = 16;
     private const int NumTilesInPrimaryVram = 512;
 
     public TilesetBuilder(string pokeemeraldPath)

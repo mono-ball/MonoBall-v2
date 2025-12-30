@@ -1,6 +1,8 @@
+using Porycon3.Services.Interfaces;
+
 namespace Porycon3.Infrastructure;
 
-public class MapBinReader
+public class MapBinReader : IMapBinReader
 {
     private readonly string _pokeemeraldPath;
 
@@ -80,25 +82,6 @@ public class MapBinReader
         catch (Exception ex)
         {
             throw new InvalidDataException("Failed to parse map binary data", ex);
-        }
-
-        return result;
-    }
-
-    /// <summary>
-    /// Reads map.bin and returns a 2D array indexed by [y][x].
-    /// </summary>
-    public ushort[,] ReadMapBin2D(string layoutId, int width, int height)
-    {
-        var flat = ReadMapBin(layoutId, width, height);
-        var result = new ushort[height, width];
-
-        for (int y = 0; y < height; y++)
-        {
-            for (int x = 0; x < width; x++)
-            {
-                result[y, x] = flat[y * width + x];
-            }
         }
 
         return result;

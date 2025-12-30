@@ -1,8 +1,11 @@
 using System.Text.Json;
+using Porycon3.Infrastructure;
 using Porycon3.Services.Extraction;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
+using static Porycon3.Infrastructure.StringUtilities;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -13,7 +16,6 @@ namespace Porycon3.Services;
 /// </summary>
 public class BattleEnvironmentExtractor : ExtractorBase
 {
-    private const int TileSize = 8;
     private const int GbaScreenWidth = 240;
     private const int GbaScreenHeight = 160;
     private const int TilemapWidth = 32; // Standard GBA background width in tiles
@@ -702,18 +704,6 @@ public class BattleEnvironmentExtractor : ExtractorBase
         {
             return null;
         }
-    }
-
-    private static string FormatDisplayName(string name)
-    {
-        return string.Join(" ", name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
-    }
-
-    private static string ToPascalCase(string name)
-    {
-        return string.Concat(name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 
     private record EnvironmentSource(string SourceDir, bool HasAnimation);

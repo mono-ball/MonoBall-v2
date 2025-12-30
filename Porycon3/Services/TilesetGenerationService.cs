@@ -1,6 +1,7 @@
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using System.Text.Json;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -12,9 +13,6 @@ public class TilesetGenerationService
     private readonly TilesetBuilder _tilesetBuilder;
     private readonly string _outputPath;
     private readonly string _region;
-
-    private const int TileSize = 8;
-    private const int TilesPerRow = 16;
 
     public TilesetGenerationService(string pokeemeraldPath, string outputPath, string region)
     {

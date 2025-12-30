@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Porycon3.Services.Extraction;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -275,19 +276,6 @@ public class MapSectionExtractor : ExtractorBase
         var filepath = Path.Combine(outputDir, filename);
         File.WriteAllText(filepath, JsonSerializer.Serialize(definition, JsonOptions.Default));
         LogVerbose($"Saved theme: {displayName}");
-    }
-
-    private static string FormatDisplayName(string name)
-    {
-        return string.Join(" ", name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
-    }
-
-    private static string ToPascalCase(string name)
-    {
-        // Convert ABANDONED_SHIP to AbandonedShip
-        return string.Concat(name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 
     private class MapSectionData

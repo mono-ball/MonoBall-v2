@@ -1,4 +1,5 @@
 using Porycon3.Models;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -9,7 +10,6 @@ namespace Porycon3.Services;
 /// </summary>
 public class TileDeduplicator
 {
-    private const int TileSize = 8;
     private const int PixelsPerTile = TileSize * TileSize;
 
     // Canonical tiles: hash of unflipped tile → tile ID

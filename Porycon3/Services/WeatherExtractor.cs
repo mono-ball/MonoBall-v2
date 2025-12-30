@@ -2,7 +2,10 @@ using System.Text.Json;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
+using Porycon3.Infrastructure;
 using Porycon3.Services.Extraction;
+using static Porycon3.Infrastructure.StringUtilities;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -13,7 +16,6 @@ namespace Porycon3.Services;
 /// </summary>
 public class WeatherExtractor : ExtractorBase
 {
-    private const int TileSize = 8;
 
     public override string Name => "Weather Graphics";
     public override string Description => "Extracts weather particle graphics and definitions";
@@ -221,7 +223,7 @@ public class WeatherExtractor : ExtractorBase
             var bytes = File.ReadAllBytes(sourcePath);
 
             // Extract palette from PNG PLTE chunk
-            var pngPalette = ExtractPngPalette(bytes);
+            var pngPalette = IndexedPngLoader.ExtractPalette(bytes);
 
             // Load image as RGBA
             using var image = Image.Load<Rgba32>(sourcePath);
@@ -289,53 +291,6 @@ public class WeatherExtractor : ExtractorBase
             AddError(Path.GetFileName(sourcePath), $"Failed to extract: {e.Message}", e);
             return (0, 0);
         }
-    }
-
-    /// <summary>
-    /// Extract RGB palette from PNG PLTE chunk.
-    /// </summary>
-    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
-    {
-        // Find PLTE chunk
-        // PNG structure: 8-byte signature, then chunks (4-byte length, 4-byte type, data, 4-byte CRC)
-        var pos = 8; // Skip PNG signature
-
-        while (pos < pngData.Length - 12)
-        {
-            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
-                         (pngData[pos + 2] << 8) | pngData[pos + 3];
-            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
-
-            if (type == "PLTE")
-            {
-                var colorCount = length / 3;
-                var palette = new Rgba32[colorCount];
-
-                for (var i = 0; i < colorCount; i++)
-                {
-                    var offset = pos + 8 + i * 3;
-                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
-                }
-
-                return palette;
-            }
-
-            pos += 12 + length; // 4 length + 4 type + data + 4 CRC
-        }
-
-        return null;
-    }
-
-    private static string FormatDisplayName(string name)
-    {
-        return string.Join(" ", name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
-    }
-
-    private static string ToPascalCase(string name)
-    {
-        return string.Concat(name.Split('_').Select(w =>
-            w.Length > 0 ? char.ToUpper(w[0]) + w[1..].ToLower() : w));
     }
 
     private record WeatherGraphicsInfo(string[] SourceFiles, string? PaletteName, int SpriteWidth, int SpriteHeight, string Description);

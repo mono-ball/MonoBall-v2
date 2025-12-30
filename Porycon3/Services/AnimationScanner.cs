@@ -221,8 +221,8 @@ public class AnimationScanner
         var pngBytes = File.ReadAllBytes(framePath);
 
         // Extract embedded palette from PNG (animation frames typically have their own colors)
-        var embeddedPalette = ExtractPngPalette(pngBytes);
-        var (width, height, bitDepth, indices) = ExtractPngIndices(pngBytes);
+        var embeddedPalette = IndexedPngLoader.ExtractPalette(pngBytes);
+        var (indices, width, height, bitDepth) = IndexedPngLoader.ExtractPixelIndices(pngBytes);
 
         if (indices == null || width == 0 || height == 0)
         {
@@ -280,44 +280,6 @@ public class AnimationScanner
         });
 
         return resultImage;
-    }
-
-    /// <summary>
-    /// Extract RGB palette from PNG PLTE chunk.
-    /// </summary>
-    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
-    {
-        var pos = 8; // Skip PNG signature
-
-        while (pos < pngData.Length - 12)
-        {
-            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
-                         (pngData[pos + 2] << 8) | pngData[pos + 3];
-            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
-
-            if (type == "PLTE")
-            {
-                var colorCount = length / 3;
-                var palette = new Rgba32[colorCount];
-
-                for (var i = 0; i < colorCount; i++)
-                {
-                    var offset = pos + 8 + i * 3;
-                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
-                }
-
-                return palette;
-            }
-            else if (type == "IDAT" || type == "IEND")
-            {
-                // PLTE must come before IDAT
-                break;
-            }
-
-            pos += 12 + length;
-        }
-
-        return null;
     }
 
     /// <summary>
@@ -442,7 +404,7 @@ public class AnimationScanner
                 case 1: for (var i = 1; i < bytesPerRow; i++) currentRow[i] = (byte)(currentRow[i] + currentRow[i - 1]); break;
                 case 2: for (var i = 0; i < bytesPerRow; i++) currentRow[i] = (byte)(currentRow[i] + prevRow[i]); break;
                 case 3: for (var i = 0; i < bytesPerRow; i++) { var left = i > 0 ? currentRow[i - 1] : 0; currentRow[i] = (byte)(currentRow[i] + (left + prevRow[i]) / 2); } break;
-                case 4: for (var i = 0; i < bytesPerRow; i++) { var a = i > 0 ? currentRow[i - 1] : 0; var b = prevRow[i]; var c = i > 0 ? prevRow[i - 1] : 0; currentRow[i] = (byte)(currentRow[i] + PaethPredictor(a, b, c)); } break;
+                case 4: for (var i = 0; i < bytesPerRow; i++) { var a = i > 0 ? currentRow[i - 1] : 0; var b = prevRow[i]; var c = i > 0 ? prevRow[i - 1] : 0; currentRow[i] = (byte)(currentRow[i] + IndexedPngLoader.PaethPredictor(a, b, c)); } break;
             }
 
             for (var x = 0; x < width; x++)
@@ -465,15 +427,6 @@ public class AnimationScanner
             Array.Copy(currentRow, prevRow, bytesPerRow);
         }
         return (width, height, bitDepth, indices);
-    }
-
-    private static int PaethPredictor(int a, int b, int c)
-    {
-        var p = a + b - c;
-        var pa = Math.Abs(p - a); var pb = Math.Abs(p - b); var pc = Math.Abs(p - c);
-        if (pa <= pb && pa <= pc) return a;
-        if (pb <= pc) return b;
-        return c;
     }
 
     /// <summary>

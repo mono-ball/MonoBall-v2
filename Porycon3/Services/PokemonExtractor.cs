@@ -1,10 +1,10 @@
-using System.IO.Compression;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Porycon3.Infrastructure;
 using Porycon3.Services.Extraction;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -96,7 +96,7 @@ public class PokemonExtractor : ExtractorBase
     /// </summary>
     private (int Sprites, int Forms) ExtractPokemon(string pokemonDir, string pokemonName, Dictionary<string, PokemonAnimationInfo> animationData)
     {
-        var pascalName = ToPascalCase(pokemonName);
+        var pascalName = PokemonToPascalCase(pokemonName);
         var pokemonOutputGraphics = Path.Combine(_outputGraphics, pascalName);
         var pokemonOutputData = Path.Combine(_outputData, pascalName);
 
@@ -245,8 +245,8 @@ public class PokemonExtractor : ExtractorBase
         if (normalPalette == null)
             return 0;
 
-        var pascalPokemon = ToPascalCase(pokemonName);
-        var pascalForm = ToPascalCase(formName);
+        var pascalPokemon = PokemonToPascalCase(pokemonName);
+        var pascalForm = PokemonToPascalCase(formName);
         var prefix = $"{pascalPokemon}{pascalForm}";
 
         int spriteCount = 0;
@@ -320,7 +320,7 @@ public class PokemonExtractor : ExtractorBase
         try
         {
             var bytes = File.ReadAllBytes(pngPath);
-            var (indices, width, height, _) = ExtractPixelIndices(bytes);
+            var (indices, width, height, _) = IndexedPngLoader.ExtractPixelIndices(bytes);
 
             if (indices == null || width == 0 || height == 0)
             {
@@ -351,7 +351,7 @@ public class PokemonExtractor : ExtractorBase
             });
 
             var outputPath = Path.Combine(outputDir, $"{name}.png");
-            SaveAsRgbaPng(output, outputPath);
+            IndexedPngLoader.SaveAsRgbaPng(output, outputPath);
 
             return true;
         }
@@ -371,8 +371,8 @@ public class PokemonExtractor : ExtractorBase
         {
             // Icons use their own embedded palette, just need transparency
             var bytes = File.ReadAllBytes(pngPath);
-            var palette = ExtractPngPalette(bytes);
-            var (indices, width, height, _) = ExtractPixelIndices(bytes);
+            var palette = IndexedPngLoader.ExtractPalette(bytes);
+            var (indices, width, height, _) = IndexedPngLoader.ExtractPixelIndices(bytes);
 
             if (indices == null || palette == null || width == 0 || height == 0)
             {
@@ -392,7 +392,7 @@ public class PokemonExtractor : ExtractorBase
                     }
                 });
                 var outputPath = Path.Combine(outputDir, $"{name}.png");
-                SaveAsRgbaPng(img, outputPath);
+                IndexedPngLoader.SaveAsRgbaPng(img, outputPath);
                 return true;
             }
 
@@ -418,7 +418,7 @@ public class PokemonExtractor : ExtractorBase
             });
 
             var outPath = Path.Combine(outputDir, $"{name}.png");
-            SaveAsRgbaPng(output, outPath);
+            IndexedPngLoader.SaveAsRgbaPng(output, outPath);
             return true;
         }
         catch (Exception ex)
@@ -436,7 +436,7 @@ public class PokemonExtractor : ExtractorBase
         try
         {
             var bytes = File.ReadAllBytes(pngPath);
-            var (indices, width, height, _) = ExtractPixelIndices(bytes);
+            var (indices, width, height, _) = IndexedPngLoader.ExtractPixelIndices(bytes);
 
             if (indices == null || width == 0 || height == 0)
                 return false;
@@ -463,7 +463,7 @@ public class PokemonExtractor : ExtractorBase
             });
 
             var outputPath = Path.Combine(outputDir, $"{name}.png");
-            SaveAsRgbaPng(output, outputPath);
+            IndexedPngLoader.SaveAsRgbaPng(output, outputPath);
             return true;
         }
         catch (Exception ex)
@@ -479,7 +479,7 @@ public class PokemonExtractor : ExtractorBase
     /// </summary>
     private void GenerateSpriteDefinitions(string pokemonName, string outputDataDir, string outputGraphicsDir, PokemonAnimationInfo? animInfo)
     {
-        var pascalName = ToPascalCase(pokemonName);
+        var pascalName = PokemonToPascalCase(pokemonName);
         var normalizedName = pokemonName.ToLowerInvariant();
 
         var graphicsFiles = Directory.GetFiles(outputGraphicsDir, "*.png");
@@ -612,174 +612,6 @@ public class PokemonExtractor : ExtractorBase
         }
     }
 
-    /// <summary>
-    /// Extract raw pixel indices from PNG IDAT chunk.
-    /// </summary>
-    private static (byte[]? Indices, int Width, int Height, int BitDepth) ExtractPixelIndices(byte[] pngData)
-    {
-        int width = 0, height = 0, bitDepth = 0, colorType = 0;
-        var idatChunks = new List<byte[]>();
-
-        var pos = 8;
-        while (pos < pngData.Length - 12)
-        {
-            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
-                         (pngData[pos + 2] << 8) | pngData[pos + 3];
-            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
-
-            if (type == "IHDR" && length >= 13)
-            {
-                width = (pngData[pos + 8] << 24) | (pngData[pos + 9] << 16) |
-                        (pngData[pos + 10] << 8) | pngData[pos + 11];
-                height = (pngData[pos + 12] << 24) | (pngData[pos + 13] << 16) |
-                         (pngData[pos + 14] << 8) | pngData[pos + 15];
-                bitDepth = pngData[pos + 16];
-                colorType = pngData[pos + 17];
-            }
-            else if (type == "IDAT")
-            {
-                var chunk = new byte[length];
-                Array.Copy(pngData, pos + 8, chunk, 0, length);
-                idatChunks.Add(chunk);
-            }
-            else if (type == "IEND")
-            {
-                break;
-            }
-
-            pos += 12 + length;
-        }
-
-        if (colorType != 3 || width == 0 || height == 0)
-            return (null, 0, 0, 0);
-
-        var compressedData = idatChunks.SelectMany(c => c).ToArray();
-        byte[] decompressed;
-
-        try
-        {
-            using var compressedStream = new MemoryStream(compressedData);
-            using var zlibStream = new ZLibStream(compressedStream, CompressionMode.Decompress);
-            using var outputStream = new MemoryStream();
-            zlibStream.CopyTo(outputStream);
-            decompressed = outputStream.ToArray();
-        }
-        catch
-        {
-            return (null, 0, 0, 0);
-        }
-
-        var indices = new byte[width * height];
-        var scanlineWidth = (width * bitDepth + 7) / 8;
-        var previousScanline = new byte[scanlineWidth];
-
-        var srcPos = 0;
-        for (int y = 0; y < height; y++)
-        {
-            if (srcPos >= decompressed.Length) break;
-
-            var filterType = decompressed[srcPos++];
-            var scanline = new byte[scanlineWidth];
-
-            for (int i = 0; i < scanlineWidth && srcPos < decompressed.Length; i++)
-            {
-                var raw = decompressed[srcPos++];
-
-                switch (filterType)
-                {
-                    case 0: // None
-                        scanline[i] = raw;
-                        break;
-                    case 1: // Sub
-                        scanline[i] = (byte)(raw + (i > 0 ? scanline[i - 1] : 0));
-                        break;
-                    case 2: // Up
-                        scanline[i] = (byte)(raw + previousScanline[i]);
-                        break;
-                    case 3: // Average
-                        var left = i > 0 ? scanline[i - 1] : 0;
-                        scanline[i] = (byte)(raw + (left + previousScanline[i]) / 2);
-                        break;
-                    case 4: // Paeth
-                        var a = i > 0 ? scanline[i - 1] : 0;
-                        var b = previousScanline[i];
-                        var c = i > 0 ? previousScanline[i - 1] : 0;
-                        scanline[i] = (byte)(raw + PaethPredictor(a, b, c));
-                        break;
-                }
-            }
-
-            Array.Copy(scanline, previousScanline, scanlineWidth);
-
-            for (int x = 0; x < width; x++)
-            {
-                int byteIdx = (x * bitDepth) / 8;
-                int bitOffset = 8 - bitDepth - ((x * bitDepth) % 8);
-
-                if (byteIdx < scanline.Length)
-                {
-                    var mask = (1 << bitDepth) - 1;
-                    var idx = (scanline[byteIdx] >> bitOffset) & mask;
-                    indices[y * width + x] = (byte)idx;
-                }
-            }
-        }
-
-        return (indices, width, height, bitDepth);
-    }
-
-    private static int PaethPredictor(int a, int b, int c)
-    {
-        var p = a + b - c;
-        var pa = Math.Abs(p - a);
-        var pb = Math.Abs(p - b);
-        var pc = Math.Abs(p - c);
-
-        if (pa <= pb && pa <= pc) return a;
-        if (pb <= pc) return b;
-        return c;
-    }
-
-    /// <summary>
-    /// Extract RGB palette from PNG PLTE chunk.
-    /// </summary>
-    private static Rgba32[]? ExtractPngPalette(byte[] pngData)
-    {
-        var pos = 8;
-        while (pos < pngData.Length - 12)
-        {
-            var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
-                         (pngData[pos + 2] << 8) | pngData[pos + 3];
-            var type = System.Text.Encoding.ASCII.GetString(pngData, pos + 4, 4);
-
-            if (type == "PLTE")
-            {
-                var colorCount = length / 3;
-                var palette = new Rgba32[colorCount];
-                for (var i = 0; i < colorCount; i++)
-                {
-                    var offset = pos + 8 + i * 3;
-                    palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
-                }
-                return palette;
-            }
-
-            pos += 12 + length;
-        }
-        return null;
-    }
-
-    private static void SaveAsRgbaPng(Image<Rgba32> image, string path)
-    {
-        var encoder = new PngEncoder
-        {
-            ColorType = PngColorType.RgbWithAlpha,
-            BitDepth = PngBitDepth.Bit8,
-            CompressionLevel = PngCompressionLevel.BestCompression
-        };
-        image.SaveAsPng(path, encoder);
-    }
-
     private static string DetermineSpriteType(string spriteName)
     {
         var lower = spriteName.ToLowerInvariant();
@@ -851,23 +683,14 @@ public class PokemonExtractor : ExtractorBase
         return animations;
     }
 
-    private static string ToPascalCase(string name)
+    /// <summary>
+    /// Extended version that splits on both underscores and hyphens for Pokemon names.
+    /// </summary>
+    private static string PokemonToPascalCase(string name)
     {
+        if (string.IsNullOrEmpty(name)) return name;
         return string.Concat(name.Split('_', '-').Select(w =>
             w.Length > 0 ? char.ToUpperInvariant(w[0]) + w[1..].ToLowerInvariant() : ""));
-    }
-
-    private static string FormatDisplayName(string name)
-    {
-        var result = new System.Text.StringBuilder();
-        for (var i = 0; i < name.Length; i++)
-        {
-            var c = name[i];
-            if (i > 0 && char.IsUpper(c) && !char.IsUpper(name[i - 1]))
-                result.Append(' ');
-            result.Append(c);
-        }
-        return result.ToString();
     }
 }
 

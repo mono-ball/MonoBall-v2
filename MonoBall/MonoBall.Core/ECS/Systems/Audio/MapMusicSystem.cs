@@ -23,6 +23,10 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
     private string? _currentMapMusicId;
     private bool _disposed;
 
+    // Flag to prevent duplicate event processing during same frame
+    // This prevents race conditions if multiple events fire in quick succession
+    private bool _isProcessingMusicEvent;
+
     /// <summary>
     ///     Initializes a new instance of the MapMusicSystem.
     /// </summary>
@@ -74,6 +78,13 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
                 evt.TargetMapId ?? "(null)"
             );
 
+            // Prevent duplicate processing if another event is being handled
+            if (_isProcessingMusicEvent)
+            {
+                _logger.Debug("Already processing music event, skipping MapTransitionEvent");
+                return;
+            }
+
             if (string.IsNullOrEmpty(evt.TargetMapId))
             {
                 _logger.Debug("MapTransitionEvent has empty TargetMapId, skipping music change");
@@ -90,67 +101,83 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
                 return;
             }
 
-            // Query map entity for MusicComponent (allows runtime modification)
-            var mapEntity = GetMapEntity(evt.TargetMapId);
-            if (!mapEntity.HasValue)
+            // Set processing flag to prevent re-entrancy
+            _isProcessingMusicEvent = true;
+            try
             {
-                _logger.Warning("Map entity not found for {MapId}", evt.TargetMapId);
-                return;
+                PlayMusicForMap(evt.TargetMapId);
             }
-
-            if (!World.Has<MusicComponent>(mapEntity.Value))
+            finally
             {
-                _logger.Debug(
-                    "Map {TargetMapId} has no MusicComponent, skipping music change",
-                    evt.TargetMapId
-                );
-                return;
+                _isProcessingMusicEvent = false;
             }
-
-            ref var musicComponent = ref World.Get<MusicComponent>(mapEntity.Value);
-            if (string.IsNullOrEmpty(musicComponent.AudioId))
-            {
-                _logger.Debug(
-                    "Map {TargetMapId} has empty AudioId in MusicComponent, skipping music change",
-                    evt.TargetMapId
-                );
-                return;
-            }
-
-            var musicId = musicComponent.AudioId;
-            var fadeDuration = musicComponent.FadeDuration;
-
-            if (musicId == _currentMapMusicId)
-            {
-                _logger.Debug(
-                    "Map {TargetMapId} already playing music {MusicId}, skipping music change",
-                    evt.TargetMapId,
-                    musicId
-                );
-                return;
-            }
-
-            var playMusicEvent = new PlayMusicEvent
-            {
-                AudioId = musicId,
-                Loop = true,
-                FadeInDuration = fadeDuration > 0 ? fadeDuration : 0f,
-                Crossfade = false, // Use sequential fade (FadeOutAndPlay) instead of crossfade
-            };
-            EventBus.Send(ref playMusicEvent);
-            _currentMapMusicId = musicId;
-
-            _logger.Information(
-                "Playing music {MusicId} for map {TargetMapId} (fade: {FadeDuration}s)",
-                musicId,
-                evt.TargetMapId,
-                fadeDuration > 0 ? fadeDuration : 0f
-            );
         }
         catch (Exception ex)
         {
+            _isProcessingMusicEvent = false;
             _logger.Error(ex, "Error handling MapTransitionEvent");
         }
+    }
+
+    /// <summary>
+    ///     Plays music for the specified map by querying MusicComponent.
+    /// </summary>
+    /// <param name="mapId">The map ID to play music for.</param>
+    private void PlayMusicForMap(string mapId)
+    {
+        // Query map entity for MusicComponent (allows runtime modification)
+        var mapEntity = GetMapEntity(mapId);
+        if (!mapEntity.HasValue)
+        {
+            _logger.Warning("Map entity not found for {MapId}", mapId);
+            return;
+        }
+
+        if (!World.Has<MusicComponent>(mapEntity.Value))
+        {
+            _logger.Debug("Map {MapId} has no MusicComponent, skipping music change", mapId);
+            return;
+        }
+
+        ref var musicComponent = ref World.Get<MusicComponent>(mapEntity.Value);
+        if (string.IsNullOrEmpty(musicComponent.AudioId))
+        {
+            _logger.Debug(
+                "Map {MapId} has empty AudioId in MusicComponent, skipping music change",
+                mapId
+            );
+            return;
+        }
+
+        var musicId = musicComponent.AudioId;
+        var fadeDuration = musicComponent.FadeDuration;
+
+        if (musicId == _currentMapMusicId)
+        {
+            _logger.Debug(
+                "Map {MapId} already playing music {MusicId}, skipping music change",
+                mapId,
+                musicId
+            );
+            return;
+        }
+
+        var playMusicEvent = new PlayMusicEvent
+        {
+            AudioId = musicId,
+            Loop = true,
+            FadeInDuration = fadeDuration > 0 ? fadeDuration : 0f,
+            Crossfade = false, // Use sequential fade (FadeOutAndPlay) instead of crossfade
+        };
+        EventBus.Send(ref playMusicEvent);
+        _currentMapMusicId = musicId;
+
+        _logger.Information(
+            "Playing music {MusicId} for map {MapId} (fade: {FadeDuration}s)",
+            musicId,
+            mapId,
+            fadeDuration > 0 ? fadeDuration : 0f
+        );
     }
 
     /// <summary>
@@ -166,82 +193,37 @@ public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
                 evt.InitialMapId ?? "(null)"
             );
 
+            // Prevent duplicate processing if another event is being handled
+            if (_isProcessingMusicEvent)
+            {
+                _logger.Debug("Already processing music event, skipping GameEnteredEvent");
+                return;
+            }
+
             if (string.IsNullOrEmpty(evt.InitialMapId))
             {
                 _logger.Debug("GameEnteredEvent has empty InitialMapId, skipping music");
                 return;
             }
 
-            // Don't play music if loading scene is active (game still initializing)
-            if (_sceneManager.IsLoadingSceneActive())
+            // Note: GameEnteredEvent is now fired from GameInitializationService.MarkComplete()
+            // after loading completes, so we don't need to check IsLoadingSceneActive() here.
+            // The music will start playing immediately (audio is not blocked by loading scene).
+
+            // Set processing flag to prevent re-entrancy
+            _isProcessingMusicEvent = true;
+            try
             {
-                _logger.Debug(
-                    "Loading scene is active, deferring music for map {InitialMapId}",
-                    evt.InitialMapId
-                );
-                return;
+                PlayMusicForMap(evt.InitialMapId);
             }
-
-            // Query map entity for MusicComponent (allows runtime modification)
-            var mapEntity = GetMapEntity(evt.InitialMapId);
-            if (!mapEntity.HasValue)
+            finally
             {
-                _logger.Warning("Map entity not found for {MapId}", evt.InitialMapId);
-                return;
+                _isProcessingMusicEvent = false;
             }
-
-            if (!World.Has<MusicComponent>(mapEntity.Value))
-            {
-                _logger.Debug(
-                    "Initial map {InitialMapId} has no MusicComponent, skipping music",
-                    evt.InitialMapId
-                );
-                return;
-            }
-
-            ref var musicComponent = ref World.Get<MusicComponent>(mapEntity.Value);
-            if (string.IsNullOrEmpty(musicComponent.AudioId))
-            {
-                _logger.Debug(
-                    "Initial map {InitialMapId} has empty AudioId in MusicComponent, skipping music",
-                    evt.InitialMapId
-                );
-                return;
-            }
-
-            var musicId = musicComponent.AudioId;
-            var fadeDuration = musicComponent.FadeDuration;
-
-            // Prevent duplicate playback if already playing the same track
-            if (musicId == _currentMapMusicId)
-            {
-                _logger.Debug(
-                    "Initial map {InitialMapId} already playing music {MusicId}, skipping music change",
-                    evt.InitialMapId,
-                    musicId
-                );
-                return;
-            }
-
-            var playMusicEvent = new PlayMusicEvent
-            {
-                AudioId = musicId,
-                Loop = true,
-                FadeInDuration = fadeDuration,
-                Crossfade = false,
-            };
-            EventBus.Send(ref playMusicEvent);
-            _currentMapMusicId = musicId;
-
-            _logger.Information(
-                "Playing music {MusicId} for initial map {InitialMapId} (fade: {FadeDuration}s)",
-                musicId,
-                evt.InitialMapId,
-                fadeDuration > 0 ? fadeDuration : 0f
-            );
         }
         catch (Exception ex)
         {
+            _isProcessingMusicEvent = false;
             _logger.Error(ex, "Error handling GameEnteredEvent");
         }
     }

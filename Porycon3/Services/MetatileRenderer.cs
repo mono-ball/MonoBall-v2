@@ -4,6 +4,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Porycon3.Models;
 using Porycon3.Infrastructure;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -13,8 +14,6 @@ namespace Porycon3.Services;
 /// </summary>
 public class MetatileRenderer : IDisposable
 {
-    private const int TileSize = 8;
-    private const int MetatileSize = 16;
     private const int NumTilesInPrimaryVram = 512;
 
     private readonly string _pokeemeraldPath;
@@ -172,7 +171,7 @@ public class MetatileRenderer : IDisposable
         {
             // Load the PNG file and extract raw palette indices
             var pngBytes = File.ReadAllBytes(imagePath);
-            var (width, height, bitDepth, indexedPixels) = ExtractPngIndices(pngBytes);
+            var (indexedPixels, width, height, bitDepth) = IndexedPngLoader.ExtractPixelIndices(pngBytes);
 
             if (indexedPixels == null || width == 0 || height == 0)
             {
@@ -433,7 +432,7 @@ public class MetatileRenderer : IDisposable
                         var a = i > 0 ? currentRow[i - 1] : 0;
                         var b = prevRow[i];
                         var c = i > 0 ? prevRow[i - 1] : 0;
-                        currentRow[i] = (byte)(currentRow[i] + PaethPredictor(a, b, c));
+                        currentRow[i] = (byte)(currentRow[i] + IndexedPngLoader.PaethPredictor(a, b, c));
                     }
                     break;
             }
@@ -485,21 +484,6 @@ public class MetatileRenderer : IDisposable
         }
 
         return (width, height, bitDepth, indices);
-    }
-
-    /// <summary>
-    /// Paeth predictor for PNG filtering.
-    /// </summary>
-    private static int PaethPredictor(int a, int b, int c)
-    {
-        var p = a + b - c;
-        var pa = Math.Abs(p - a);
-        var pb = Math.Abs(p - b);
-        var pc = Math.Abs(p - c);
-
-        if (pa <= pb && pa <= pc) return a;
-        if (pb <= pc) return b;
-        return c;
     }
 
     public void Dispose()

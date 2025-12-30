@@ -1,18 +1,17 @@
 using Porycon3.Models;
 using Porycon3.Infrastructure;
+using Porycon3.Services.Builders;
+using Porycon3.Services.Interfaces;
 using System.Diagnostics;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using Spectre.Console;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
-public class MapConversionService
+public class MapConversionService : IMapConversionService
 {
-    private const int NumMetatilesInPrimary = 512;
-    private const int MetatileSize = 16;
-    private const int TilesPerRow = 16;
-
     private readonly string _inputPath;
     private readonly string _outputPath;
     private readonly string _region;
@@ -34,6 +33,10 @@ public class MapConversionService
     private readonly DoorAnimationExtractor _doorAnimExtractor;
     private readonly BehaviorExtractor _behaviorExtractor;
     private readonly ScriptExtractor _scriptExtractor;
+
+    // Builders for output generation
+    private readonly MapOutputBuilder _outputBuilder;
+    private readonly TilesheetOutputBuilder _tilesheetBuilder;
 
     // Shared tileset registry - reuses tilesets across maps with same tileset pair
     private readonly SharedTilesetRegistry _tilesetRegistry;
@@ -65,6 +68,8 @@ public class MapConversionService
         _doorAnimExtractor = new DoorAnimationExtractor(inputPath, outputPath);
         _behaviorExtractor = new BehaviorExtractor(inputPath, outputPath, verbose);
         _scriptExtractor = new ScriptExtractor(inputPath, outputPath, verbose);
+        _outputBuilder = new MapOutputBuilder(region);
+        _tilesheetBuilder = new TilesheetOutputBuilder(outputPath);
         _tilesetRegistry = new SharedTilesetRegistry(inputPath);
     }
 
@@ -244,138 +249,15 @@ public class MapConversionService
     {
         var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "Maps", _region);
         Directory.CreateDirectory(outputDir);
-
-        var normalizedName = IdTransformer.Normalize(mapName);
         var outputPath = Path.Combine(outputDir, $"{mapName}.json");
 
         // Transform and track IDs for definition generation
-        var weatherId = TransformWeatherId(mapData.Metadata.Weather);
-        var battleSceneId = TransformBattleSceneId(mapData.Metadata.BattleScene);
+        var weatherId = MapTransformers.TransformWeatherId(mapData.Metadata.Weather);
+        var battleSceneId = MapTransformers.TransformBattleSceneId(mapData.Metadata.BattleScene);
         _definitionGenerator.TrackWeatherId(weatherId);
         _definitionGenerator.TrackBattleSceneId(battleSceneId);
 
-        var output = new
-        {
-            id = IdTransformer.MapIdFromName(mapName, _region),
-            name = mapData.Name,
-            description = "",
-            regionId = $"{IdTransformer.Namespace}:region:{_region}",
-            mapTypeId = IdTransformer.MapTypeId(mapData.Metadata.MapType),
-            width = mapData.Layout.Width,
-            height = mapData.Layout.Height,
-            tileWidth = MetatileSize,
-            tileHeight = MetatileSize,
-            musicId = IdTransformer.AudioId(mapData.Metadata.Music),
-            weatherId,
-            battleSceneId,
-            sectionId = IdTransformer.MapsecId(mapData.Metadata.RegionMapSection, _region),
-            showMapName = mapData.Metadata.ShowMapName,
-            canFly = false,
-            requiresFlash = mapData.Metadata.RequiresFlash,
-            allowRunning = mapData.Metadata.AllowRunning,
-            allowCycling = mapData.Metadata.AllowCycling,
-            allowEscaping = mapData.Metadata.AllowEscaping,
-            connections = BuildConnections(mapData.Connections),
-            encounterDataJson = (string?)null,
-            customPropertiesJson = (string?)null,
-            layers = layers.Select((l, idx) => new
-            {
-                id = $"{IdTransformer.Namespace}:layer:{_region}/{normalizedName}/{l.Name.ToLowerInvariant()}",
-                name = l.Name,
-                width = l.Width,
-                height = l.Height,
-                elevation = l.Elevation,
-                visible = true,
-                opacity = 1,
-                offsetX = 0,
-                offsetY = 0,
-                tileData = EncodeTileDataUint(l.Data)
-            }),
-            tilesets = new[]
-            {
-                new { firstGid = 1, tilesetId = SharedTilesetRegistry.GenerateTilesetId(tilesetPair) }
-            },
-            warps = mapData.Warps.Select((w, idx) =>
-            {
-                // Strip MAP_ prefix before normalizing
-                var destMapName = w.DestMap.StartsWith("MAP_", StringComparison.OrdinalIgnoreCase)
-                    ? w.DestMap[4..]
-                    : w.DestMap;
-                var destNormalized = IdTransformer.Normalize(destMapName);
-                return new
-                {
-                    id = $"{IdTransformer.Namespace}:warp:{_region}/{normalizedName}/warp_to_{destNormalized}",
-                    name = $"Warp to {destNormalized}",
-                    x = w.X * MetatileSize,
-                    y = w.Y * MetatileSize,
-                    width = MetatileSize,
-                    height = MetatileSize,
-                    targetMapId = IdTransformer.MapId(w.DestMap, _region),
-                    targetX = w.DestWarpId,
-                    targetY = 0,
-                    elevation = w.Elevation
-                };
-            }),
-            triggers = mapData.CoordEvents.Select((c, idx) =>
-            {
-                var varNormalized = IdTransformer.Normalize(c.Var);
-                var value = int.TryParse(c.VarValue, out var v) ? v : 0;
-                return new
-                {
-                    id = $"{IdTransformer.Namespace}:trigger:{_region}/{normalizedName}/trigger_{varNormalized}_{value}",
-                    name = $"Trigger: {c.Var} == {c.VarValue}",
-                    x = c.X * MetatileSize,
-                    y = c.Y * MetatileSize,
-                    width = MetatileSize,
-                    height = MetatileSize,
-                    variable = $"{IdTransformer.Namespace}:variable:{_region}/{c.Var.ToLowerInvariant()}",
-                    value,
-                    triggerId = TransformTriggerId(c.Script),
-                    elevation = c.Elevation
-                };
-            }),
-            interactions = mapData.BgEvents.Select((b, idx) =>
-            {
-                var scriptNormalized = IdTransformer.Normalize(b.Script).Replace("_", "");
-                var typeDisplay = char.ToUpper(b.Type[0]) + b.Type[1..].ToLowerInvariant();
-                return new
-                {
-                    id = $"{IdTransformer.Namespace}:interaction:{_region}/{normalizedName}/{b.Type.ToLowerInvariant()}_{scriptNormalized}",
-                    name = $"{typeDisplay}: {b.Script}",
-                    x = b.X * MetatileSize,
-                    y = b.Y * MetatileSize,
-                    width = MetatileSize,
-                    height = MetatileSize,
-                    interactionId = TransformInteractionId(b.Script),
-                    elevation = b.Elevation
-                };
-            }),
-            npcs = mapData.ObjectEvents.Select((o, idx) => new
-            {
-                id = $"{IdTransformer.Namespace}:npc:{_region}/{normalizedName}/{(o.LocalId ?? $"npc_{idx}").ToLowerInvariant()}",
-                name = o.LocalId ?? $"NPC_{idx}",
-                x = o.X * MetatileSize,
-                y = o.Y * MetatileSize,
-                spriteId = IdTransformer.SpriteId(o.GraphicsId),
-                behaviorId = TransformBehaviorId(o.MovementType),
-                behaviorParameters = BuildBehaviorParameters(o.MovementType, o.X * MetatileSize, o.Y * MetatileSize, o.MovementRangeX, o.MovementRangeY),
-                interactionId = TransformInteractionId(o.Script),
-                visibilityFlag = string.IsNullOrEmpty(o.Flag) || o.Flag == "0" ? null : IdTransformer.FlagId(o.Flag),
-                facingDirection = ExtractDirection(o.MovementType),
-                elevation = o.Elevation
-            }),
-            collisions = collisionLayers.Select(c => new
-            {
-                id = $"{IdTransformer.Namespace}:collision:{_region}/{normalizedName}/elevation_{c.Elevation}",
-                name = $"Collision_{c.Elevation}",
-                width = c.Width,
-                height = c.Height,
-                elevation = c.Elevation,
-                offsetX = 0,
-                offsetY = 0,
-                tileData = EncodeCollisionData(c.Data)
-            })
-        };
+        var output = _outputBuilder.BuildMapOutput(mapName, mapData, layers, tilesetPair, collisionLayers, weatherId, battleSceneId);
 
         var json = System.Text.Json.JsonSerializer.Serialize(output, new System.Text.Json.JsonSerializerOptions
         {
@@ -384,186 +266,6 @@ public class MapConversionService
         });
 
         File.WriteAllText(outputPath, json);
-    }
-
-    private static string TransformWeatherId(string weather)
-    {
-        if (string.IsNullOrEmpty(weather)) return $"{IdTransformer.Namespace}:weather:outdoor/sunny";
-        var name = weather.StartsWith("WEATHER_") ? weather[8..].ToLowerInvariant() : weather.ToLowerInvariant();
-        return $"{IdTransformer.Namespace}:weather:outdoor/{name}";
-    }
-
-    private static string TransformBattleSceneId(string battleScene)
-    {
-        if (string.IsNullOrEmpty(battleScene)) return $"{IdTransformer.Namespace}:battlescene:normal/normal";
-        var name = battleScene.StartsWith("MAP_BATTLE_SCENE_") ? battleScene[17..].ToLowerInvariant() : battleScene.ToLowerInvariant();
-        return $"{IdTransformer.Namespace}:battlescene:normal/{name}";
-    }
-
-    private static string TransformBehaviorId(string movementType)
-    {
-        if (string.IsNullOrEmpty(movementType)) return $"{IdTransformer.Namespace}:behavior:npcs/stationary";
-        var name = movementType.StartsWith("MOVEMENT_TYPE_") ? movementType[14..].ToLowerInvariant() : movementType.ToLowerInvariant();
-
-        // Categorize movement types
-        if (name.StartsWith("walk_sequence_")) return $"{IdTransformer.Namespace}:behavior:npcs/patrol";
-        if (name.Contains("wander")) return $"{IdTransformer.Namespace}:behavior:npcs/wander";
-        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around")) return $"{IdTransformer.Namespace}:behavior:npcs/stationary";
-        if (name.Contains("walk") || name.Contains("pace")) return $"{IdTransformer.Namespace}:behavior:npcs/walk";
-        if (name.Contains("jog") || name.Contains("run")) return $"{IdTransformer.Namespace}:behavior:npcs/jog";
-        if (name.Contains("copy_player") || name.Contains("follow")) return $"{IdTransformer.Namespace}:behavior:npcs/follow";
-        if (name.Contains("invisible")) return $"{IdTransformer.Namespace}:behavior:npcs/invisible";
-        if (name.Contains("buried")) return $"{IdTransformer.Namespace}:behavior:npcs/buried";
-        if (name.Contains("tree_disguise")) return $"{IdTransformer.Namespace}:behavior:npcs/disguise_tree";
-        if (name.Contains("rock_disguise")) return $"{IdTransformer.Namespace}:behavior:npcs/disguise_rock";
-
-        return $"{IdTransformer.Namespace}:behavior:npcs/{name}";
-    }
-
-    private static object? BuildBehaviorParameters(string movementType, int startX, int startY, int? rangeX, int? rangeY)
-    {
-        if (string.IsNullOrEmpty(movementType)) return null;
-        var name = movementType.StartsWith("MOVEMENT_TYPE_") ? movementType[14..].ToLowerInvariant() : movementType.ToLowerInvariant();
-
-        // Patrol behavior - calculate waypoint grid positions from direction sequence
-        if (name.StartsWith("walk_sequence_"))
-        {
-            var waypoints = CalculatePatrolWaypoints(name, startX, startY, rangeX ?? 1, rangeY ?? 1);
-            if (waypoints != null && waypoints.Length > 0)
-            {
-                return new { waypoints };
-            }
-            return null;
-        }
-
-        // Wander/Walk behaviors use range parameters
-        if (name.Contains("wander") || name.Contains("walk") || name.Contains("pace"))
-        {
-            // Only include if range values are meaningful (non-zero)
-            if ((rangeX.HasValue && rangeX.Value > 0) || (rangeY.HasValue && rangeY.Value > 0))
-            {
-                return new { rangeX = rangeX ?? 0, rangeY = rangeY ?? 0 };
-            }
-        }
-
-        return null;
-    }
-
-    private static object[]? CalculatePatrolWaypoints(string name, int startX, int startY, int rangeX, int rangeY)
-    {
-        // Remove "walk_sequence_" prefix
-        var sequence = name.StartsWith("walk_sequence_") ? name[14..] : name;
-
-        // Parse the direction sequence (e.g., "up_right_left_down")
-        var directions = new List<string>();
-        var parts = sequence.Split('_');
-        foreach (var part in parts)
-        {
-            if (part == "up" || part == "down" || part == "left" || part == "right")
-            {
-                directions.Add(part);
-            }
-        }
-
-        if (directions.Count == 0) return null;
-
-        // Calculate waypoints by following the direction sequence
-        var waypoints = new List<object>();
-        int currentX = startX;
-        int currentY = startY;
-
-        foreach (var dir in directions)
-        {
-            switch (dir)
-            {
-                case "up":
-                    currentY -= rangeY * MetatileSize;
-                    break;
-                case "down":
-                    currentY += rangeY * MetatileSize;
-                    break;
-                case "left":
-                    currentX -= rangeX * MetatileSize;
-                    break;
-                case "right":
-                    currentX += rangeX * MetatileSize;
-                    break;
-            }
-            waypoints.Add(new { x = currentX, y = currentY });
-        }
-
-        return waypoints.ToArray();
-    }
-
-    private static string? ExtractDirection(string movementType)
-    {
-        if (string.IsNullOrEmpty(movementType)) return null;
-        var lower = movementType.ToLowerInvariant();
-        if (lower.Contains("_up") || lower.Contains("face_up")) return "up";
-        if (lower.Contains("_down") || lower.Contains("face_down")) return "down";
-        if (lower.Contains("_left") || lower.Contains("face_left")) return "left";
-        if (lower.Contains("_right") || lower.Contains("face_right")) return "right";
-        return null;
-    }
-
-    private static string? TransformTriggerId(string script)
-    {
-        if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL") return null;
-        return $"{IdTransformer.Namespace}:script:trigger/{IdTransformer.Normalize(script)}";
-    }
-
-    private static string? TransformInteractionId(string script)
-    {
-        if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL" || script == "0") return null;
-        return $"{IdTransformer.Namespace}:interaction/npcs/{IdTransformer.Normalize(script)}";
-    }
-
-    private object BuildConnections(List<Models.MapConnection> connections)
-    {
-        var result = new Dictionary<string, object>();
-        foreach (var c in connections)
-        {
-            var dir = c.Direction.ToLowerInvariant();
-            var key = dir switch
-            {
-                "up" => "north",
-                "down" => "south",
-                "left" => "west",
-                "right" => "east",
-                _ => dir
-            };
-            result[key] = new
-            {
-                mapId = IdTransformer.MapId(c.MapId, _region),
-                offset = c.Offset
-            };
-        }
-        return result;
-    }
-
-    private static string EncodeTileData(int[] data)
-    {
-        var bytes = new byte[data.Length * 4];
-        for (int i = 0; i < data.Length; i++)
-        {
-            var tileBytes = BitConverter.GetBytes(data[i]);
-            Buffer.BlockCopy(tileBytes, 0, bytes, i * 4, 4);
-        }
-        return Convert.ToBase64String(bytes);
-    }
-
-    /// <summary>
-    /// Encode uint tile data (preserves flip flags in high bits) to base64.
-    /// </summary>
-    private static string EncodeTileDataUint(uint[] data)
-    {
-        var bytes = new byte[data.Length * 4];
-        for (int i = 0; i < data.Length; i++)
-        {
-            var tileBytes = BitConverter.GetBytes(data[i]);
-            Buffer.BlockCopy(tileBytes, 0, bytes, i * 4, 4);
-        }
-        return Convert.ToBase64String(bytes);
     }
 
     /// <summary>
@@ -581,126 +283,22 @@ public class MapConversionService
             var builder = _tilesetRegistry.GetBuilder(pair);
             if (builder == null) continue;
 
-            // Load palettes for animation processing
             var primaryPalettes = LoadPalettes(resolver, pair.PrimaryTileset);
             var secondaryPalettes = LoadPalettes(resolver, pair.SecondaryTileset);
             builder.ProcessAnimations(primaryPalettes, secondaryPalettes);
         }
 
-        // Build and save individual tilesets (organized by primary/secondary)
+        // Build and save individual tilesets using builder
         foreach (var result in _tilesetRegistry.BuildAllTilesets())
         {
             if (result.TileCount == 0) continue;
 
-            SaveIndividualTilesheet(result);
+            _tilesheetBuilder.SaveTilesheet(result);
             count++;
         }
 
-        // Dispose the registry (cleans up all builders)
         _tilesetRegistry.Dispose();
-
         return count;
-    }
-
-    /// <summary>
-    /// Save individual tilesheet image and JSON definition (organized by primary/secondary).
-    /// </summary>
-    private void SaveIndividualTilesheet(SharedTilesetResult result)
-    {
-        // Save to Graphics/Tilesets/{Primary|Secondary}/{name}.png
-        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Tilesets",
-            result.TilesetType == "primary" ? "Primary" : "Secondary");
-        Directory.CreateDirectory(graphicsDir);
-        var imagePath = Path.Combine(graphicsDir, $"{result.TilesetName}.png");
-        result.TilesheetImage.SaveAsPng(imagePath);
-
-        // Save JSON to Definitions/Assets/Tilesets/{primary|secondary}/{name}.json
-        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", result.TilesetType);
-        Directory.CreateDirectory(defsDir);
-
-        // Build animation lookup by localTileId (use first animation if duplicates exist)
-        var animationsByTile = result.Animations
-            .GroupBy(a => a.LocalTileId)
-            .ToDictionary(g => g.Key, g => g.First());
-
-        // Build tiles array combining properties with animations
-        object[]? tilesArray = null;
-        if (result.TileProperties.Count > 0 || result.Animations.Count > 0)
-        {
-            var tiles = new List<object>();
-
-            // Add all tile properties
-            foreach (var prop in result.TileProperties)
-            {
-                // Check if this tile has an animation
-                object? animation = null;
-                if (animationsByTile.TryGetValue(prop.LocalTileId, out var anim))
-                {
-                    animation = anim.Frames.Select(f => new
-                    {
-                        tileId = f.TileId,
-                        durationMs = f.DurationMs
-                    });
-                }
-
-                tiles.Add(new
-                {
-                    localTileId = prop.LocalTileId,
-                    interactionId = prop.InteractionId,
-                    terrainId = prop.TerrainId,
-                    collisionId = prop.CollisionId,
-                    animation = animation
-                });
-            }
-
-            // Add any animations that don't have properties (animation-only tiles)
-            var propertyTileIds = result.TileProperties.Select(p => p.LocalTileId).ToHashSet();
-            foreach (var anim in result.Animations.Where(a => !propertyTileIds.Contains(a.LocalTileId)))
-            {
-                tiles.Add(new
-                {
-                    localTileId = anim.LocalTileId,
-                    interactionId = (string?)null,
-                    terrainId = (string?)null,
-                    collisionId = (string?)null,
-                    animation = anim.Frames.Select(f => new
-                    {
-                        tileId = f.TileId,
-                        durationMs = f.DurationMs
-                    })
-                });
-            }
-
-            tilesArray = tiles.OrderBy(t => ((dynamic)t).localTileId).ToArray();
-        }
-
-        var texturePath = $"Graphics/Tilesets/{(result.TilesetType == "primary" ? "Primary" : "Secondary")}/{result.TilesetName}.png";
-        var tilesetJson = new
-        {
-            id = result.TilesetId,
-            name = result.TilesetName,
-            type = result.TilesetType,
-            texturePath = texturePath,
-            tileWidth = MetatileSize,
-            tileHeight = MetatileSize,
-            tileCount = result.TileCount,
-            columns = result.Columns,
-            imageWidth = result.TilesheetImage.Width,
-            imageHeight = result.TilesheetImage.Height,
-            spacing = 0,
-            margin = 0,
-            tiles = tilesArray
-        };
-
-        var jsonPath = Path.Combine(defsDir, $"{result.TilesetName}.json");
-        var json = System.Text.Json.JsonSerializer.Serialize(tilesetJson, new System.Text.Json.JsonSerializerOptions
-        {
-            WriteIndented = true,
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-        });
-        File.WriteAllText(jsonPath, json);
-
-        result.TilesheetImage.Dispose();
     }
 
     /// <summary>
@@ -799,18 +397,4 @@ public class MapConversionService
             .Select(kv => new CollisionLayerData(width, height, kv.Key, kv.Value))
             .ToList();
     }
-
-    /// <summary>
-    /// Encode collision layer data to base64 (1 byte per tile).
-    /// </summary>
-    private static string EncodeCollisionData(byte[] data)
-    {
-        return Convert.ToBase64String(data);
-    }
-
-    /// <summary>
-    /// Represents collision layer data for a specific elevation.
-    /// Each byte contains only collision value (0-3).
-    /// </summary>
-    private record CollisionLayerData(int Width, int Height, int Elevation, byte[] Data);
 }

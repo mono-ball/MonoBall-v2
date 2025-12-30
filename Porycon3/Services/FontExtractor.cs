@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using Porycon3.Services.Extraction;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -584,11 +585,5 @@ public class FontExtractor : ExtractorBase
         }
 
         return result;
-    }
-
-    private static string ToPascalCase(string snakeCase)
-    {
-        return string.Concat(snakeCase.Split('_')
-            .Select(w => char.ToUpperInvariant(w[0]) + w[1..].ToLowerInvariant()));
     }
 }

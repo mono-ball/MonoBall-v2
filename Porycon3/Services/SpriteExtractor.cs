@@ -1,9 +1,10 @@
 using System.Text.Json;
+using Porycon3.Infrastructure;
 using Porycon3.Services.Extraction;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
+using static Porycon3.Infrastructure.StringUtilities;
 
 namespace Porycon3.Services;
 
@@ -186,12 +187,14 @@ public class SpriteExtractor : ExtractorBase
 
         // Load all source PNGs, handling multi-file pics
         var sourceImages = new List<Image<Rgba32>>();
-        var totalWidth = 0;
-        var maxHeight = 0;
-        var totalPhysicalFrames = 0;
-        var allSourceFiles = new List<string>();
+        try
+        {
+            var totalWidth = 0;
+            var maxHeight = 0;
+            var totalPhysicalFrames = 0;
+            var allSourceFiles = new List<string>();
 
-        foreach (var source in sources)
+            foreach (var source in sources)
         {
             if (string.IsNullOrWhiteSpace(source.PicName)) continue;
 
@@ -265,7 +268,7 @@ public class SpriteExtractor : ExtractorBase
         if (isPlayerSprite)
         {
             baseFolder = "Characters/Players";
-            spriteCategory = ToPascalCase(subPath);
+            spriteCategory = PathToPascalCase(subPath);
         }
         else if (patternOverride != null)
         {
@@ -276,12 +279,12 @@ public class SpriteExtractor : ExtractorBase
         else if (CategoryMappings.TryGetValue(sourceCategory, out var mappedFolder))
         {
             baseFolder = mappedFolder;
-            spriteCategory = subPath.Length > 0 ? ToPascalCase(subPath) : "";
+            spriteCategory = subPath.Length > 0 ? PathToPascalCase(subPath) : "";
         }
         else
         {
             baseFolder = "Characters/Npcs";
-            spriteCategory = subPath.Length > 0 ? ToPascalCase(subPath) : "Generic";
+            spriteCategory = subPath.Length > 0 ? PathToPascalCase(subPath) : "Generic";
         }
 
         var graphicsDir = string.IsNullOrEmpty(spriteCategory)
@@ -295,7 +298,7 @@ public class SpriteExtractor : ExtractorBase
 
         // Save combined spritesheet as 32-bit RGBA
         var graphicsPath = Path.Combine(graphicsDir, $"{spriteName}.png");
-        SaveAsRgbaPng(combined, graphicsPath);
+        IndexedPngLoader.SaveAsRgbaPng(combined, graphicsPath);
 
         // Get physical frame mapping
         var physicalFrameMapping = GetAnimationData().FrameMappings.GetValueOrDefault(picTableName);
@@ -355,14 +358,17 @@ public class SpriteExtractor : ExtractorBase
             Animations = animations
         };
 
-        var manifestPath = Path.Combine(dataDir, $"{spriteName}.json");
-        File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, JsonOptions.Default));
+            var manifestPath = Path.Combine(dataDir, $"{spriteName}.json");
+            File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, JsonOptions.Default));
 
-        // Cleanup
-        foreach (var img in sourceImages)
-            img.Dispose();
-
-        return true;
+            return true;
+        }
+        finally
+        {
+            // Ensure all loaded images are disposed even on exception
+            foreach (var img in sourceImages)
+                img.Dispose();
+        }
     }
 
     private bool ExtractStandalonePng(string pngPath, string sourceCategory)
@@ -397,7 +403,7 @@ public class SpriteExtractor : ExtractorBase
         if (isPlayerSprite)
         {
             baseFolder = "Characters/Players";
-            spriteCategory = ToPascalCase(subDirectory);
+            spriteCategory = PathToPascalCase(subDirectory);
         }
         else if (patternOverride != null)
         {
@@ -408,12 +414,12 @@ public class SpriteExtractor : ExtractorBase
         else if (CategoryMappings.TryGetValue(sourceCategory, out var mappedFolder))
         {
             baseFolder = mappedFolder;
-            spriteCategory = subDirectory.Length > 0 ? ToPascalCase(subDirectory) : "";
+            spriteCategory = subDirectory.Length > 0 ? PathToPascalCase(subDirectory) : "";
         }
         else
         {
             baseFolder = "Characters/Npcs";
-            spriteCategory = subDirectory.Length > 0 ? ToPascalCase(subDirectory) : "Generic";
+            spriteCategory = subDirectory.Length > 0 ? PathToPascalCase(subDirectory) : "Generic";
         }
 
         var graphicsDir = string.IsNullOrEmpty(spriteCategory)
@@ -427,7 +433,7 @@ public class SpriteExtractor : ExtractorBase
 
         // Save sprite sheet as 32-bit RGBA
         var graphicsPath = Path.Combine(graphicsDir, $"{spriteName}.png");
-        SaveAsRgbaPng(image, graphicsPath);
+        IndexedPngLoader.SaveAsRgbaPng(image, graphicsPath);
 
         // Build frames
         var frames = new List<FrameDefinition>();
@@ -925,7 +931,7 @@ public class SpriteExtractor : ExtractorBase
                         var a = i > 0 ? currentRow[i - 1] : 0;
                         var b = prevRow[i];
                         var c = i > 0 ? prevRow[i - 1] : 0;
-                        currentRow[i] = (byte)(currentRow[i] + PaethPredictor(a, b, c));
+                        currentRow[i] = (byte)(currentRow[i] + IndexedPngLoader.PaethPredictor(a, b, c));
                     }
                     break;
             }
@@ -979,35 +985,6 @@ public class SpriteExtractor : ExtractorBase
         return (width, height, bitDepth, indices);
     }
 
-    /// <summary>
-    /// Paeth predictor for PNG filtering.
-    /// </summary>
-    private static int PaethPredictor(int a, int b, int c)
-    {
-        var p = a + b - c;
-        var pa = Math.Abs(p - a);
-        var pb = Math.Abs(p - b);
-        var pc = Math.Abs(p - c);
-
-        if (pa <= pb && pa <= pc) return a;
-        if (pb <= pc) return b;
-        return c;
-    }
-
-    /// <summary>
-    /// Save image as 32-bit RGBA PNG (not indexed).
-    /// </summary>
-    private static void SaveAsRgbaPng(Image<Rgba32> image, string path)
-    {
-        var encoder = new PngEncoder
-        {
-            ColorType = PngColorType.RgbWithAlpha,
-            BitDepth = PngBitDepth.Bit8,
-            CompressionLevel = PngCompressionLevel.BestCompression
-        };
-        image.SaveAsPng(path, encoder);
-    }
-
     private string ConvertPicTableNameToSpriteName(string picTableName, string category)
     {
         // Remove category prefixes, keep PascalCase for Porycon3
@@ -1041,7 +1018,10 @@ public class SpriteExtractor : ExtractorBase
         return new string(result.ToArray());
     }
 
-    private static string ToPascalCase(string input)
+    /// <summary>
+    /// Path-aware version of ToPascalCase that handles paths with slashes.
+    /// </summary>
+    private static string PathToPascalCase(string input)
     {
         if (string.IsNullOrEmpty(input)) return input;
 
@@ -1052,10 +1032,7 @@ public class SpriteExtractor : ExtractorBase
             return string.Join("/", segments.Select(ToPascalCase));
         }
 
-        // Handle underscores
-        var parts = input.Split('_');
-        return string.Concat(parts.Select(p =>
-            p.Length > 0 ? char.ToUpperInvariant(p[0]) + p[1..].ToLowerInvariant() : ""));
+        return ToPascalCase(input);
     }
 
     private static string StripCommonSuffixes(string name)
@@ -1063,22 +1040,6 @@ public class SpriteExtractor : ExtractorBase
         if (name.EndsWith("Normal")) return name[..^6];
         if (name.EndsWith("Running")) return name[..^7];
         return name;
-    }
-
-    private static string FormatDisplayName(string name)
-    {
-        // Handle PascalCase by inserting spaces before uppercase letters
-        var result = new System.Text.StringBuilder();
-        for (var i = 0; i < name.Length; i++)
-        {
-            var c = name[i];
-            if (i > 0 && char.IsUpper(c) && !char.IsUpper(name[i - 1]))
-            {
-                result.Append(' ');
-            }
-            result.Append(c);
-        }
-        return result.ToString();
     }
 
     /// <summary>

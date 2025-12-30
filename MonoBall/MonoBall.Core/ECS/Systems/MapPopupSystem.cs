@@ -11,6 +11,7 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.UI.Windows.Animations;
+using MonoBall.Core.UI.Windows.Animations.Events;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -34,6 +35,10 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
     private Entity? _currentPopupEntity;
     private Entity? _currentPopupSceneEntity;
     private bool _disposed;
+
+    // Flag to prevent duplicate event processing during same frame
+    // This prevents race conditions if multiple events fire in quick succession
+    private bool _isProcessingPopupEvent;
 
     /// <summary>
     ///     Initializes a new instance of the MapPopupSystem.
@@ -60,6 +65,12 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         // Subscribe to MapTransitionEvent and GameEnteredEvent directly
         _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>(OnMapTransition));
         _subscriptions.Add(EventBus.Subscribe<GameEnteredEvent>(OnGameEntered));
+
+        // Subscribe to WindowAnimationDestroyEvent to properly destroy popups when animation completes
+        // This is CRITICAL - without this subscription, popups are never destroyed and accumulate
+        _subscriptions.Add(
+            EventBus.Subscribe<WindowAnimationDestroyEvent>(OnWindowAnimationDestroy)
+        );
     }
 
     /// <summary>
@@ -88,28 +99,100 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
                 evt.InitialMapId ?? "(null)"
             );
 
+            // Prevent duplicate processing if another event is being handled
+            if (_isProcessingPopupEvent)
+            {
+                _logger.Debug("Already processing popup event, skipping GameEnteredEvent");
+                return;
+            }
+
             if (string.IsNullOrEmpty(evt.InitialMapId))
             {
                 _logger.Debug("GameEnteredEvent has empty InitialMapId, skipping popup");
                 return;
             }
 
-            // Don't show popup if loading scene is active (game still initializing)
-            if (_sceneManager.IsLoadingSceneActive())
+            // Note: GameEnteredEvent is now fired from GameInitializationService.MarkComplete()
+            // after loading completes, so we don't need to check IsLoadingSceneActive() here.
+            // The popup will be created and will become visible when the loading scene is dismissed.
+
+            // Set processing flag to prevent re-entrancy
+            _isProcessingPopupEvent = true;
+            try
+            {
+                // Show popup for the initial map
+                ShowPopupForMap(evt.InitialMapId);
+            }
+            finally
+            {
+                _isProcessingPopupEvent = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            _isProcessingPopupEvent = false;
+            _logger.Error(ex, "Error handling GameEnteredEvent");
+        }
+    }
+
+    /// <summary>
+    ///     Handles WindowAnimationDestroyEvent to destroy popup when animation completes.
+    ///     This is the proper cleanup path for popups - called when DestroyOnComplete animation finishes.
+    /// </summary>
+    /// <param name="evt">The window animation destroy event.</param>
+    private void OnWindowAnimationDestroy(ref WindowAnimationDestroyEvent evt)
+    {
+        try
+        {
+            // Only handle events for our tracked popup entity
+            if (!_currentPopupEntity.HasValue)
             {
                 _logger.Debug(
-                    "Loading scene is active, deferring popup for map {InitialMapId}",
-                    evt.InitialMapId
+                    "Received WindowAnimationDestroyEvent but no current popup entity tracked"
                 );
                 return;
             }
 
-            // Show popup for the initial map
-            ShowPopupForMap(evt.InitialMapId);
+            // Check if this destroy event is for our popup (by WindowEntity, which is the popup entity)
+            if (evt.WindowEntity.Id != _currentPopupEntity.Value.Id)
+            {
+                _logger.Debug(
+                    "WindowAnimationDestroyEvent for entity {EntityId} does not match current popup {PopupEntityId}",
+                    evt.WindowEntity.Id,
+                    _currentPopupEntity.Value.Id
+                );
+                return;
+            }
+
+            _logger.Debug(
+                "Received WindowAnimationDestroyEvent for popup entity {PopupEntityId}",
+                evt.WindowEntity.Id
+            );
+
+            // Verify popup entity is still alive before attempting destruction
+            if (!World.IsAlive(_currentPopupEntity.Value))
+            {
+                _logger.Debug(
+                    "Popup entity {PopupEntityId} is already destroyed, clearing tracked reference",
+                    evt.WindowEntity.Id
+                );
+                _currentPopupEntity = null;
+                _currentPopupSceneEntity = null;
+                _currentMapSectionId = null;
+                return;
+            }
+
+            // Destroy the popup (this handles scene cleanup too)
+            DestroyPopup(_currentPopupEntity.Value);
+
+            _logger.Information(
+                "Destroyed popup entity {PopupEntityId} via WindowAnimationDestroyEvent",
+                evt.WindowEntity.Id
+            );
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, "Error handling GameEnteredEvent");
+            _logger.Error(ex, "Error handling WindowAnimationDestroyEvent");
         }
     }
 
@@ -127,6 +210,13 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
                 evt.TargetMapId ?? "(null)"
             );
 
+            // Prevent duplicate processing if another event is being handled
+            if (_isProcessingPopupEvent)
+            {
+                _logger.Debug("Already processing popup event, skipping MapTransitionEvent");
+                return;
+            }
+
             if (string.IsNullOrEmpty(evt.TargetMapId))
             {
                 _logger.Debug("MapTransitionEvent has empty TargetMapId, skipping popup");
@@ -143,11 +233,21 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
                 return;
             }
 
-            // Show popup for the target map
-            ShowPopupForMap(evt.TargetMapId);
+            // Set processing flag to prevent re-entrancy
+            _isProcessingPopupEvent = true;
+            try
+            {
+                // Show popup for the target map
+                ShowPopupForMap(evt.TargetMapId);
+            }
+            finally
+            {
+                _isProcessingPopupEvent = false;
+            }
         }
         catch (Exception ex)
         {
+            _isProcessingPopupEvent = false;
             _logger.Error(ex, "Error handling MapTransitionEvent");
         }
     }

@@ -3,6 +3,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Porycon3.Models;
 using Porycon3.Infrastructure;
+using static Porycon3.Infrastructure.TileConstants;
 
 namespace Porycon3.Services;
 
@@ -12,10 +13,6 @@ namespace Porycon3.Services;
 /// </summary>
 public class IndividualTilesetBuilder : IDisposable
 {
-    private const int MetatileSize = 16;
-    private const int TilesPerRow = 16;
-    private const uint FLIP_H = 0x80000000;
-    private const uint FLIP_V = 0x40000000;
 
     private readonly string _pokeemeraldPath;
     private readonly string _tilesetName;
@@ -108,8 +105,8 @@ public class IndividualTilesetBuilder : IDisposable
         if (_variantLookup.TryGetValue(hash, out var existing))
         {
             uint gid = (uint)existing.Gid;
-            if (existing.FlipH) gid |= FLIP_H;
-            if (existing.FlipV) gid |= FLIP_V;
+            if (existing.FlipH) gid |= FlipHorizontal;
+            if (existing.FlipV) gid |= FlipVertical;
             return gid;
         }
 
@@ -123,9 +120,9 @@ public class IndividualTilesetBuilder : IDisposable
             uint gid = (uint)matchH.Gid;
             bool finalFlipH = !matchH.FlipH;
             bool finalFlipV = matchH.FlipV;
-            if (finalFlipH) gid |= FLIP_H;
-            if (finalFlipV) gid |= FLIP_V;
-            _variantLookup[hash] = ((int)(gid & 0x0FFFFFFF), finalFlipH, finalFlipV);
+            if (finalFlipH) gid |= FlipHorizontal;
+            if (finalFlipV) gid |= FlipVertical;
+            _variantLookup[hash] = ((int)(gid & GidMask), finalFlipH, finalFlipV);
             return gid;
         }
 
@@ -138,9 +135,9 @@ public class IndividualTilesetBuilder : IDisposable
             uint gid = (uint)matchV.Gid;
             bool finalFlipH = matchV.FlipH;
             bool finalFlipV = !matchV.FlipV;
-            if (finalFlipH) gid |= FLIP_H;
-            if (finalFlipV) gid |= FLIP_V;
-            _variantLookup[hash] = ((int)(gid & 0x0FFFFFFF), finalFlipH, finalFlipV);
+            if (finalFlipH) gid |= FlipHorizontal;
+            if (finalFlipV) gid |= FlipVertical;
+            _variantLookup[hash] = ((int)(gid & GidMask), finalFlipH, finalFlipV);
             return gid;
         }
 
@@ -153,9 +150,9 @@ public class IndividualTilesetBuilder : IDisposable
             uint gid = (uint)matchHV.Gid;
             bool finalFlipH = !matchHV.FlipH;
             bool finalFlipV = !matchHV.FlipV;
-            if (finalFlipH) gid |= FLIP_H;
-            if (finalFlipV) gid |= FLIP_V;
-            _variantLookup[hash] = ((int)(gid & 0x0FFFFFFF), finalFlipH, finalFlipV);
+            if (finalFlipH) gid |= FlipHorizontal;
+            if (finalFlipV) gid |= FlipVertical;
+            _variantLookup[hash] = ((int)(gid & GidMask), finalFlipH, finalFlipV);
             return gid;
         }
 

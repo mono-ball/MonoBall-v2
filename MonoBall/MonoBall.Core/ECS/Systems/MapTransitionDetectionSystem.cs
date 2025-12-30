@@ -11,12 +11,12 @@ namespace MonoBall.Core.ECS.Systems;
 /// <summary>
 ///     System that detects when the player crosses map boundaries and fires MapTransitionEvent.
 ///     This system runs each frame and checks which map the player is currently in.
+///     Note: GameEnteredEvent is NOT handled here - it's fired from GameInitializationService.
 /// </summary>
 public class MapTransitionDetectionSystem : BaseSystem<World, float>, IPrioritizedSystem
 {
     private readonly IActiveMapFilterService _activeMapFilterService;
     private readonly ILogger _logger;
-    private bool _hasRenderedFirstFrame;
     private bool _isInitialized;
     private string? _previousPlayerMapId;
 
@@ -57,34 +57,20 @@ public class MapTransitionDetectionSystem : BaseSystem<World, float>, IPrioritiz
         if (string.IsNullOrEmpty(currentPlayerMapId))
             return;
 
-        // On first update, initialize but don't fire event yet
-        // Wait until after first frame is rendered to ensure popup animation starts correctly
+        // On first update, just initialize the tracking
         if (!_isInitialized)
         {
             _previousPlayerMapId = currentPlayerMapId;
             _isInitialized = true;
             _logger.Debug(
-                "Initialized with player in map {MapId}, waiting for first frame",
+                "Initialized MapTransitionDetectionSystem with player in map {MapId}",
                 currentPlayerMapId
             );
             return;
         }
 
-        // After first frame is rendered, fire GameEnteredEvent for initial game entry
-        // This ensures popup animation starts correctly (popup created in Update, rendered in Draw)
-        if (!_hasRenderedFirstFrame && _isInitialized)
-        {
-            _hasRenderedFirstFrame = true;
-            var gameEnteredEvent = new GameEnteredEvent { InitialMapId = currentPlayerMapId };
-            EventBus.Send(ref gameEnteredEvent);
-            _logger.Information(
-                "Fired GameEnteredEvent for initial map {MapId} (after first frame)",
-                currentPlayerMapId
-            );
-            return;
-        }
-
-        // Check if player has transitioned to a different map
+        // Check if player has transitioned to a different map (by walking, not by warp)
+        // Warps are handled by MapConnectionSystem which fires its own MapTransitionEvent
         if (_previousPlayerMapId != null && _previousPlayerMapId != currentPlayerMapId)
         {
             // Player has transitioned to a new map - fire event
@@ -92,12 +78,12 @@ public class MapTransitionDetectionSystem : BaseSystem<World, float>, IPrioritiz
             {
                 SourceMapId = _previousPlayerMapId,
                 TargetMapId = currentPlayerMapId,
-                Direction = MapConnectionDirection.North, // Default direction (could be improved)
+                Direction = MapConnectionDirection.North, // Default direction
                 Offset = 0,
             };
             EventBus.Send(ref transitionEvent);
             _logger.Information(
-                "Player transitioned from {SourceMapId} to {TargetMapId}",
+                "Player walked from {SourceMapId} to {TargetMapId}",
                 _previousPlayerMapId,
                 currentPlayerMapId
             );
