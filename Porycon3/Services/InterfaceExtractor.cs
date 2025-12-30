@@ -2,137 +2,119 @@ using System.Text.Json;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
 /// <summary>
 /// Extracts interface graphics from pokeemerald graphics/interface directory.
 /// </summary>
-public class InterfaceExtractor
+public class InterfaceExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
+    public override string Name => "Interface Graphics";
+    public override string Description => "Extracts UI interface graphics and sprites";
 
-    private static readonly JsonSerializerOptions JsonOptions = new()
+    // Interface graphics with frame metadata for sprite sheets
+    private static readonly (string fileName, string displayName, int? frameWidth, int? frameHeight, int? frameCount)[] InterfaceGraphics =
+    [
+        ("arrow_cursor", "Arrow Cursor", 8, 8, 1),
+        ("blank", "Blank", null, null, null),
+        ("category_icons", "Category Icons", 32, 16, 3),
+        ("menu_info", "Menu Info", null, null, null),
+        ("mon_markings", "Mon Markings", 8, 8, 6),
+        ("mon_markings_menu", "Mon Markings Menu", null, null, null),
+        ("mystery_gift_textbox_border", "Mystery Gift Textbox Border", null, null, null),
+        ("option_menu_equals_sign", "Option Menu Equals Sign", null, null, null),
+        ("outline_cursor", "Outline Cursor", null, null, null),
+        ("scroll_indicator", "Scroll Indicator", 8, 8, 2),
+        ("status_icons", "Status Icons", 16, 8, 7),
+        ("swap_line", "Swap Line", null, null, null),
+        ("ui_learn_move", "UI Learn Move", null, null, null),
+    ];
+
+    public InterfaceExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        WriteIndented = true,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
-
-    private readonly string _emeraldGraphics;
-    private readonly string _outputGraphics;
-    private readonly string _outputData;
-
-    public InterfaceExtractor(string inputPath, string outputPath)
-    {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-
-        _emeraldGraphics = Path.Combine(inputPath, "graphics", "interface");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "UI", "Interface");
-        _outputData = Path.Combine(outputPath, "Definitions", "Assets", "UI", "Interface");
     }
 
-    /// <summary>
-    /// Extract all interface graphics from pokeemerald.
-    /// </summary>
-    public int ExtractAll()
+    protected override int ExecuteExtraction()
     {
-        if (!Directory.Exists(_emeraldGraphics))
+        var emeraldGraphics = Path.Combine(InputPath, "graphics", "interface");
+
+        if (!Directory.Exists(emeraldGraphics))
         {
-            Console.WriteLine($"[InterfaceExtractor] Interface graphics not found: {_emeraldGraphics}");
+            AddError("", $"Interface graphics not found: {emeraldGraphics}");
             return 0;
         }
 
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
+        int count = 0;
 
-        var count = 0;
-
-        // Interface graphics with frame metadata for sprite sheets
-        var interfaceGraphics = new (string fileName, string displayName, int? frameWidth, int? frameHeight, int? frameCount)[]
+        WithProgress("Extracting interface graphics", InterfaceGraphics.ToList(), (item, task) =>
         {
-            ("arrow_cursor", "Arrow Cursor", 8, 8, 1),
-            ("blank", "Blank", null, null, null),
-            ("category_icons", "Category Icons", 32, 16, 3),
-            ("menu_info", "Menu Info", null, null, null),
-            ("mon_markings", "Mon Markings", 8, 8, 6),
-            ("mon_markings_menu", "Mon Markings Menu", null, null, null),
-            ("mystery_gift_textbox_border", "Mystery Gift Textbox Border", null, null, null),
-            ("option_menu_equals_sign", "Option Menu Equals Sign", null, null, null),
-            ("outline_cursor", "Outline Cursor", null, null, null),
-            ("scroll_indicator", "Scroll Indicator", 8, 8, 2),
-            ("status_icons", "Status Icons", 16, 8, 7),
-            ("swap_line", "Swap Line", null, null, null),
-            ("ui_learn_move", "UI Learn Move", null, null, null),
-        };
+            var (fileName, displayName, frameWidth, frameHeight, frameCount) = item;
+            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{displayName}[/]");
 
-        foreach (var (fileName, displayName, frameWidth, frameHeight, frameCount) in interfaceGraphics)
-        {
-            if (ExtractInterfaceGraphic(fileName, displayName, frameWidth, frameHeight, frameCount))
+            if (ExtractInterfaceGraphic(emeraldGraphics, fileName, displayName, frameWidth, frameHeight, frameCount))
                 count++;
-        }
+        });
 
-        Console.WriteLine($"[InterfaceExtractor] Extracted {count} interface graphics");
         return count;
     }
 
-    private bool ExtractInterfaceGraphic(string fileName, string displayName, int? frameWidth, int? frameHeight, int? frameCount)
+    private bool ExtractInterfaceGraphic(string emeraldGraphics, string fileName, string displayName,
+        int? frameWidth, int? frameHeight, int? frameCount)
     {
-        var pngPath = Path.Combine(_emeraldGraphics, $"{fileName}.png");
-        if (!File.Exists(pngPath)) return false;
-
-        try
+        var pngPath = Path.Combine(emeraldGraphics, $"{fileName}.png");
+        if (!File.Exists(pngPath))
         {
-            var pascalName = ToPascalCase(fileName);
-
-            // Load and apply transparency using corner color method
-            using var img = LoadWithCornerTransparency(pngPath);
-
-            // Save processed PNG
-            var outputPngPath = Path.Combine(_outputGraphics, $"{pascalName}.png");
-            SaveAsRgbaPng(img, outputPngPath);
-
-            // Create definition
-            object definition;
-            if (frameWidth.HasValue && frameHeight.HasValue && frameCount.HasValue)
-            {
-                definition = new
-                {
-                    id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
-                    name = displayName,
-                    type = "Sprite",
-                    texturePath = $"Graphics/UI/Interface/{pascalName}.png",
-                    width = img.Width,
-                    height = img.Height,
-                    frameWidth = frameWidth.Value,
-                    frameHeight = frameHeight.Value,
-                    frameCount = frameCount.Value
-                };
-            }
-            else
-            {
-                definition = new
-                {
-                    id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
-                    name = displayName,
-                    type = "Sprite",
-                    texturePath = $"Graphics/UI/Interface/{pascalName}.png",
-                    width = img.Width,
-                    height = img.Height
-                };
-            }
-
-            var defPath = Path.Combine(_outputData, $"{pascalName}.json");
-            File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions));
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"[InterfaceExtractor] Failed to extract {fileName}: {ex.Message}");
+            LogWarning($"File not found: {fileName}.png");
             return false;
         }
+
+        var pascalName = ToPascalCase(fileName);
+
+        // Load and apply transparency using corner color method
+        using var img = LoadWithCornerTransparency(pngPath);
+
+        // Save processed PNG
+        var outputPngPath = GetGraphicsPath("UI", "Interface", $"{pascalName}.png");
+        SaveAsRgbaPng(img, outputPngPath);
+
+        // Create definition
+        object definition;
+        if (frameWidth.HasValue && frameHeight.HasValue && frameCount.HasValue)
+        {
+            definition = new
+            {
+                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                name = displayName,
+                type = "Sprite",
+                texturePath = $"Graphics/UI/Interface/{pascalName}.png",
+                width = img.Width,
+                height = img.Height,
+                frameWidth = frameWidth.Value,
+                frameHeight = frameHeight.Value,
+                frameCount = frameCount.Value
+            };
+        }
+        else
+        {
+            definition = new
+            {
+                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                name = displayName,
+                type = "Sprite",
+                texturePath = $"Graphics/UI/Interface/{pascalName}.png",
+                width = img.Width,
+                height = img.Height
+            };
+        }
+
+        var defPath = GetDefinitionPath("UI", "Interface", $"{pascalName}.json");
+        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
+
+        LogVerbose($"Extracted {pascalName}");
+        return true;
     }
 
     /// <summary>

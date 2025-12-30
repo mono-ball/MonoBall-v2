@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Arch.Core;
 using Arch.System;
@@ -7,6 +8,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.Audio;
 using MonoBall.Core.Constants;
+using MonoBall.Core.Diagnostics;
+using MonoBall.Core.Diagnostics.Services;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.ECS.Systems.Audio;
@@ -52,6 +55,7 @@ public class SystemManager : IDisposable
     private IFlagVariableService _flagVariableService = null!; // Initialized in InitializeCoreServices()
 
     // Scene-specific systems (owned by SceneSystem, not registered separately)
+    private IDebugOverlayService? _debugOverlayService; // Initialized in CreateSceneSystems()
     private InputBindingService _inputBindingService = null!; // Initialized in Initialize()
     private InputSystem _inputSystem = null!; // Initialized in Initialize()
     private bool _isDisposed;
@@ -286,6 +290,10 @@ public class SystemManager : IDisposable
         _renderTargetManager?.Dispose();
         _renderTargetManager = null;
         // ShaderManagerSystem doesn't need disposal (no managed resources)
+
+        // Dispose debug overlay service
+        _debugOverlayService?.Dispose();
+        _debugOverlayService = null;
 
         // Dispose audio systems
         _mapMusicSystem?.Dispose();
@@ -1071,6 +1079,23 @@ public class SystemManager : IDisposable
         );
         RegisterUpdateSystem(debugBarToggleSystem);
 
+        // Create ImGui debug overlay service and scene system
+        _debugOverlayService = new DebugOverlayService(_world);
+        _debugOverlayService.Initialize(_game);
+
+        var debugMenuSceneSystem = new DebugMenuSceneSystem(
+            _world,
+            _sceneSystem, // Pass SceneSystem as ISceneManager
+            _inputBindingService,
+            _debugOverlayService
+        );
+
+        // Register DebugMenuSceneSystem with SceneSystem (as ISceneSystem)
+        _sceneSystem.SetDebugMenuSceneSystem(debugMenuSceneSystem);
+
+        // Register DebugMenuSceneSystem with update systems (it implements IPrioritizedSystem)
+        RegisterUpdateSystem(debugMenuSceneSystem);
+
         // Create shader cycle system (for cycling through shader effects with F4 and F5)
         if (_shaderManagerSystem != null)
         {
@@ -1146,14 +1171,54 @@ public class SystemManager : IDisposable
 
         var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        // Normal update: run all systems
-        // SceneSystem coordinates scene-specific systems internally
-        _updateSystems.BeforeUpdate(in deltaTime);
-        _updateSystems.Update(in deltaTime);
-        _updateSystems.AfterUpdate(in deltaTime);
+        // Check if profiling is enabled (any listeners subscribed to timing hooks)
+        var profilingEnabled = SystemTimingHook.HasSubscribers;
+
+        if (profilingEnabled)
+        {
+            // Profile each system individually
+            UpdateWithProfiling(deltaTime);
+        }
+        else
+        {
+            // Normal update: run all systems via Group (slightly faster, no profiling overhead)
+            _updateSystems.BeforeUpdate(in deltaTime);
+            _updateSystems.Update(in deltaTime);
+            _updateSystems.AfterUpdate(in deltaTime);
+        }
 
         // Update audio engine
         _audioEngine.Update(deltaTime);
+    }
+
+    /// <summary>
+    ///     Updates all systems with per-system timing for profiling.
+    ///     Maintains the same lifecycle order as Group: all BeforeUpdate, then all Update, then all AfterUpdate.
+    /// </summary>
+    private void UpdateWithProfiling(float deltaTime)
+    {
+        var stopwatch = new Stopwatch();
+
+        // Phase 1: Call BeforeUpdate on all systems (matches Group behavior)
+        foreach (var system in _registeredUpdateSystems)
+        {
+            system.BeforeUpdate(in deltaTime);
+        }
+
+        // Phase 2: Call Update on all systems with timing
+        foreach (var system in _registeredUpdateSystems)
+        {
+            stopwatch.Restart();
+            system.Update(in deltaTime);
+            stopwatch.Stop();
+            SystemProfiler.RecordTiming(system.GetType().Name, stopwatch.Elapsed.TotalMilliseconds);
+        }
+
+        // Phase 3: Call AfterUpdate on all systems (matches Group behavior)
+        foreach (var system in _registeredUpdateSystems)
+        {
+            system.AfterUpdate(in deltaTime);
+        }
     }
 
     /// <summary>

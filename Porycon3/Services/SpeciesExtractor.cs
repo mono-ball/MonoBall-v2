@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
@@ -8,11 +9,10 @@ namespace Porycon3.Services;
 /// Parses species_info headers, level_up_learnsets, teachable_learnsets, and egg_moves
 /// to generate unified Pokemon species JSON definitions.
 /// </summary>
-public class SpeciesExtractor
+public class SpeciesExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-    private readonly bool _verbose;
+    public override string Name => "Pokemon Species";
+    public override string Description => "Extracts Pokemon species data, stats, moves, and evolutions";
 
     private readonly string _speciesInfoPath;
     private readonly string _levelUpLearnsetsPath;
@@ -25,13 +25,6 @@ public class SpeciesExtractor
 
     // Form change data: maps species name to (item, change type)
     private Dictionary<string, (string? Item, string ChangeType)> _formChangeData = new();
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
 
     // Regex patterns for parsing C header files
     private static readonly Regex SpeciesStartRegex = new(
@@ -83,11 +76,8 @@ public class SpeciesExtractor
         RegexOptions.Compiled | RegexOptions.Singleline);
 
     public SpeciesExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-        _verbose = verbose;
-
         _speciesInfoPath = Path.Combine(inputPath, "src", "data", "pokemon", "species_info");
         _levelUpLearnsetsPath = Path.Combine(inputPath, "src", "data", "pokemon", "level_up_learnsets");
         _teachableLearnsetsPath = Path.Combine(inputPath, "src", "data", "pokemon", "teachable_learnsets.h");
@@ -98,51 +88,51 @@ public class SpeciesExtractor
         _criesPath = Path.Combine(outputPath, "Audio", "SFX", "Cries");
     }
 
-    /// <summary>
-    /// Extract all Pokemon species data.
-    /// </summary>
-    public (int Species, int Forms) ExtractAll()
+    protected override int ExecuteExtraction()
     {
         if (!Directory.Exists(_speciesInfoPath))
         {
-            Console.WriteLine($"[SpeciesExtractor] Species info not found: {_speciesInfoPath}");
-            return (0, 0);
+            LogWarning($"Species info not found: {_speciesInfoPath}");
+            return 0;
         }
 
-        Directory.CreateDirectory(_outputData);
+        EnsureDirectory(_outputData);
 
         // Parse all data sources
-        var levelUpLearnsets = ParseAllLevelUpLearnsets();
-        var teachableLearnsets = ParseTeachableLearnsets();
-        var eggMoveLearnsets = ParseEggMoveLearnsets();
-        _formChangeData = ParseFormChangeTables();
+        Dictionary<string, List<LevelUpMove>> levelUpLearnsets = new();
+        Dictionary<string, List<string>> teachableLearnsets = new();
+        Dictionary<string, List<string>> eggMoveLearnsets = new();
 
-        if (_verbose)
+        WithStatus("Parsing learnsets and form data...", _ =>
         {
-            Console.WriteLine($"[SpeciesExtractor] Parsed {levelUpLearnsets.Count} level-up learnsets");
-            Console.WriteLine($"[SpeciesExtractor] Parsed {teachableLearnsets.Count} teachable learnsets");
-            Console.WriteLine($"[SpeciesExtractor] Parsed {eggMoveLearnsets.Count} egg move learnsets");
-            Console.WriteLine($"[SpeciesExtractor] Parsed {_formChangeData.Count} form change entries");
-        }
+            levelUpLearnsets = ParseAllLevelUpLearnsets();
+            teachableLearnsets = ParseTeachableLearnsets();
+            eggMoveLearnsets = ParseEggMoveLearnsets();
+            _formChangeData = ParseFormChangeTables();
+        });
+
+        LogVerbose($"Parsed {levelUpLearnsets.Count} level-up learnsets");
+        LogVerbose($"Parsed {teachableLearnsets.Count} teachable learnsets");
+        LogVerbose($"Parsed {eggMoveLearnsets.Count} egg move learnsets");
+        LogVerbose($"Parsed {_formChangeData.Count} form change entries");
 
         // Collect ALL species data first
         var allSpecies = new List<SpeciesData>();
-        var genFiles = Directory.GetFiles(_speciesInfoPath, "gen_*_families.h");
+        var genFiles = Directory.GetFiles(_speciesInfoPath, "gen_*_families.h").ToList();
 
-        foreach (var genFile in genFiles)
+        WithProgress("Parsing species files", genFiles, (genFile, task) =>
         {
+            var fileName = Path.GetFileName(genFile);
+            SetTaskDescription(task, $"[cyan]Parsing[/] [yellow]{fileName}[/]");
             var speciesList = CollectSpeciesFromFile(genFile, levelUpLearnsets, teachableLearnsets, eggMoveLearnsets);
             allSpecies.AddRange(speciesList);
-        }
+        });
 
         // Separate base species from forms
         var baseSpecies = allSpecies.Where(s => !IsForm(s.OriginalSpeciesName!)).ToList();
         var forms = allSpecies.Where(s => IsForm(s.OriginalSpeciesName!)).ToList();
 
-        if (_verbose)
-        {
-            Console.WriteLine($"[SpeciesExtractor] Found {baseSpecies.Count} base species, {forms.Count} forms");
-        }
+        LogVerbose($"Found {baseSpecies.Count} base species, {forms.Count} forms");
 
         // Group forms with their base species
         foreach (var form in forms)
@@ -156,20 +146,21 @@ public class SpeciesExtractor
                 baseSpec.Forms ??= new List<PokemonFormDto>();
                 baseSpec.Forms.Add(ConvertToFormDto(form, baseSpeciesName));
             }
-            else if (_verbose)
+            else
             {
-                Console.WriteLine($"[SpeciesExtractor] Warning: No base species found for form {form.OriginalSpeciesName}");
+                LogVerbose($"Warning: No base species found for form {form.OriginalSpeciesName}");
             }
         }
 
         // Write only base species (with embedded forms)
-        foreach (var species in baseSpecies)
+        WithProgress("Writing species definitions", baseSpecies, (species, task) =>
         {
+            SetTaskDescription(task, $"[cyan]Writing[/] [yellow]{species.Name}[/]");
             WriteSpeciesJson(species);
-        }
+        });
 
-        Console.WriteLine($"[SpeciesExtractor] Extracted {baseSpecies.Count} species ({forms.Count} forms)");
-        return (baseSpecies.Count, forms.Count);
+        SetCount("Forms", forms.Count);
+        return baseSpecies.Count;
     }
 
     private string GetBaseSpeciesNameFromOriginal(string speciesName)
@@ -272,8 +263,8 @@ public class SpeciesExtractor
             }
             catch (Exception ex)
             {
-                if (_verbose)
-                    Console.WriteLine($"[SpeciesExtractor] Error parsing {speciesName}: {ex.Message}");
+                AddError(speciesName, ex.Message, ex);
+                LogVerbose($"Error parsing {speciesName}: {ex.Message}");
             }
         }
 
@@ -866,7 +857,7 @@ public class SpeciesExtractor
             }
         }
 
-        var json = JsonSerializer.Serialize(species, JsonOptions);
+        var json = JsonSerializer.Serialize(species, JsonOptions.Default);
         File.WriteAllText(outputPath, json);
     }
 

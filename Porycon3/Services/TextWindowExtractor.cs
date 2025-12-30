@@ -2,71 +2,49 @@ using System.Text.Json;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
 /// <summary>
 /// Extracts text window graphics from pokeemerald and processes them.
 /// Copies text window tile sheets with proper transparency.
-/// Matches porycon2's text_window_extractor.py output format.
 /// </summary>
-public class TextWindowExtractor
+public class TextWindowExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
+    public override string Name => "Text Windows";
+    public override string Description => "Extracts text window tile sheets";
 
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
-
-    // Pokeemerald paths
     private readonly string _emeraldGraphics;
 
-    // Output paths
-    private readonly string _outputGraphics;
-    private readonly string _outputData;
-
-    public TextWindowExtractor(string inputPath, string outputPath)
+    public TextWindowExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "text_window");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "UI", "TextWindows");
-        _outputData = Path.Combine(outputPath, "Definitions", "Assets", "UI", "TextWindows");
     }
 
-    /// <summary>
-    /// Extract all text window graphics from pokeemerald.
-    /// </summary>
-    /// <returns>Number of text windows extracted</returns>
-    public int ExtractAll()
+    protected override int ExecuteExtraction()
     {
         if (!Directory.Exists(_emeraldGraphics))
         {
-            Console.WriteLine($"[TextWindowExtractor] Text window graphics not found: {_emeraldGraphics}");
+            AddError("", $"Text window graphics not found: {_emeraldGraphics}");
             return 0;
         }
 
-        // Create output directories
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
+        // Find all PNG files in text_window directory
+        var pngFiles = Directory.GetFiles(_emeraldGraphics, "*.png").ToList();
 
         int count = 0;
 
-        // Find all PNG files in text_window directory
-        var pngFiles = Directory.GetFiles(_emeraldGraphics, "*.png");
-        Console.WriteLine($"[TextWindowExtractor] Found {pngFiles.Length} PNG files in text_window directory");
-
-        foreach (var pngFile in pngFiles)
+        WithProgress("Extracting text windows", pngFiles, (pngFile, task) =>
         {
+            var filename = Path.GetFileNameWithoutExtension(pngFile);
+            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{filename}[/]");
+
             if (ExtractTextWindow(pngFile))
                 count++;
-        }
+        });
 
-        Console.WriteLine($"[TextWindowExtractor] Extracted {count} text window graphics");
         return count;
     }
 
@@ -86,7 +64,7 @@ public class TextWindowExtractor
             var pascalName = ToPascalCase(filename);
 
             // Save processed PNG as 32-bit RGBA
-            var destPng = Path.Combine(_outputGraphics, $"{pascalName}.png");
+            var destPng = GetGraphicsPath("UI", "TextWindows", $"{pascalName}.png");
             SaveAsRgbaPng(img, destPng);
 
             // Get image dimensions
@@ -134,14 +112,15 @@ public class TextWindowExtractor
             };
 
             // Save definition JSON
-            var destJson = Path.Combine(_outputData, $"{pascalName}.json");
-            File.WriteAllText(destJson, JsonSerializer.Serialize(jsonDef, JsonOptions));
+            var destJson = GetDefinitionPath("UI", "TextWindows", $"{pascalName}.json");
+            File.WriteAllText(destJson, JsonSerializer.Serialize(jsonDef, JsonOptions.Default));
 
+            LogVerbose($"Extracted {pascalName} ({tileCount} tiles)");
             return true;
         }
         catch (Exception e)
         {
-            Console.WriteLine($"[TextWindowExtractor] Failed to extract text window {filename}: {e.Message}");
+            AddError(filename, $"Failed to extract: {e.Message}", e);
             return false;
         }
     }
@@ -227,8 +206,6 @@ public class TextWindowExtractor
     /// </summary>
     private static Rgba32[]? ExtractPngPalette(byte[] pngData)
     {
-        // Find PLTE chunk
-        // PNG structure: 8-byte signature, then chunks (4-byte length, 4-byte type, data, 4-byte CRC)
         var pos = 8; // Skip PNG signature
 
         while (pos < pngData.Length - 12)
@@ -251,7 +228,7 @@ public class TextWindowExtractor
                 return palette;
             }
 
-            pos += 12 + length; // 4 length + 4 type + data + 4 CRC
+            pos += 12 + length;
         }
 
         return null;
@@ -262,7 +239,7 @@ public class TextWindowExtractor
     /// </summary>
     private static Rgba32? ExtractPaletteColor(byte[] pngData, int index)
     {
-        var pos = 8; // Skip PNG signature
+        var pos = 8;
 
         while (pos < pngData.Length - 12)
         {
@@ -288,7 +265,7 @@ public class TextWindowExtractor
     }
 
     /// <summary>
-    /// Apply transparency for magenta (#FF00FF) pixels, a common GBA transparency mask.
+    /// Apply transparency for magenta (#FF00FF) pixels.
     /// </summary>
     private static void ApplyMagentaTransparency(Image<Rgba32> image)
     {
@@ -299,7 +276,6 @@ public class TextWindowExtractor
                 var row = accessor.GetRowSpan(y);
                 for (int x = 0; x < row.Length; x++)
                 {
-                    // Magenta (#FF00FF) is commonly used as transparency mask in GBA graphics
                     if (row[x].R == 255 && row[x].G == 0 && row[x].B == 255 && row[x].A > 0)
                     {
                         row[x] = new Rgba32(0, 0, 0, 0);

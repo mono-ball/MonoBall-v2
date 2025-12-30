@@ -55,4 +55,9 @@ public enum InputAction
     ///     Cycle through available shader effects for the player entity.
     /// </summary>
     CyclePlayerShader,
+
+    /// <summary>
+    ///     Toggle the ImGui debug menu overlay.
+    /// </summary>
+    ToggleDebugMenu,
 }

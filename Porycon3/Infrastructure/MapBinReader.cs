@@ -111,10 +111,10 @@ public class MapBinReader
     public static int GetMetatileId(ushort mapEntry) => mapEntry & 0x3FF;
 
     /// <summary>
-    /// Extracts collision/elevation data from a map entry.
-    /// Upper 6 bits contain collision and elevation information.
+    /// Extracts collision override from a map entry.
+    /// Bits 10-11 contain collision override (0=passable, 1-3=blocked).
     /// </summary>
-    public static int GetCollision(ushort mapEntry) => (mapEntry >> 10) & 0x3F;
+    public static int GetCollision(ushort mapEntry) => (mapEntry >> 10) & 0x3;
 
     /// <summary>
     /// Checks if a map entry has collision enabled.
@@ -135,19 +135,23 @@ public class MapBinReader
     }
 
     /// <summary>
-    /// Creates a map entry from a metatile ID and collision data.
+    /// Creates a map entry from a metatile ID, collision override, and elevation.
     /// </summary>
-    public static ushort CreateMapEntry(int metatileId, int collision = 0)
+    public static ushort CreateMapEntry(int metatileId, int collision = 0, int elevation = 0)
     {
         if (metatileId < 0 || metatileId > 0x3FF)
             throw new ArgumentOutOfRangeException(nameof(metatileId),
                 "Metatile ID must be between 0 and 1023");
 
-        if (collision < 0 || collision > 0x3F)
+        if (collision < 0 || collision > 0x3)
             throw new ArgumentOutOfRangeException(nameof(collision),
-                "Collision must be between 0 and 63");
+                "Collision must be between 0 and 3");
 
-        return (ushort)((collision << 10) | metatileId);
+        if (elevation < 0 || elevation > 0xF)
+            throw new ArgumentOutOfRangeException(nameof(elevation),
+                "Elevation must be between 0 and 15");
+
+        return (ushort)((elevation << 12) | (collision << 10) | metatileId);
     }
 
     /// <summary>

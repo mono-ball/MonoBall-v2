@@ -2,144 +2,155 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
-public class DoorAnimationExtractor
+/// <summary>
+/// Extracts door animation sprites and definitions from pokeemerald-expansion.
+/// </summary>
+public class DoorAnimationExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-
     // Frame timing: 4 game frames per animation frame (~67ms at 60fps)
     private const double FrameDurationSeconds = 0.06666666666666667;
 
-    public DoorAnimationExtractor(string inputPath, string outputPath)
+    public override string Name => "Door Animations";
+    public override string Description => "Extracts door animation sprites and definitions";
+
+    public DoorAnimationExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
     }
 
-    public int Extract()
+    protected override int ExecuteExtraction()
     {
-        var doorAnimPath = Path.Combine(_inputPath, "graphics/door_anims");
-        var fieldDoorPath = Path.Combine(_inputPath, "src/field_door.c");
+        var doorAnimPath = Path.Combine(InputPath, "graphics/door_anims");
+        var fieldDoorPath = Path.Combine(InputPath, "src/field_door.c");
 
         if (!Directory.Exists(doorAnimPath) || !File.Exists(fieldDoorPath))
         {
-            Console.WriteLine("[DoorAnimationExtractor] Door animation source not found");
+            AddError("", "Door animation source not found");
             return 0;
         }
 
-        // Parse the door graphics table from field_door.c
-        var doorMappings = ParseDoorGraphicsTable(fieldDoorPath);
+        // Parse the door graphics table
+        List<DoorMapping> doorMappings = [];
+        WithStatus("Parsing door graphics table...", _ =>
+        {
+            doorMappings = ParseDoorGraphicsTable(fieldDoorPath);
+        });
 
         // Get all PNG files
-        var pngFiles = Directory.GetFiles(doorAnimPath, "*.png");
+        var pngFiles = Directory.GetFiles(doorAnimPath, "*.png")
+            .Where(f => !Path.GetFileNameWithoutExtension(f).StartsWith("unused_"))
+            .ToList();
 
-        var count = 0;
+        int count = 0;
+        int graphicsCount = 0;
 
-        foreach (var pngFile in pngFiles)
+        WithProgress("Extracting door animations", pngFiles, (pngFile, task) =>
         {
             var fileName = Path.GetFileNameWithoutExtension(pngFile);
+            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{fileName}[/]");
 
-            // Skip unused files
-            if (fileName.StartsWith("unused_"))
-                continue;
-
-            // Convert to PascalCase for output
-            var pascalName = ToPascalCase(fileName);
-
-            // Find mapping info
-            var mapping = doorMappings.FirstOrDefault(m =>
-                m.TileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) ||
-                m.TileName.Replace("_", "").Equals(fileName.Replace("_", ""), StringComparison.OrdinalIgnoreCase));
-
-            // Convert sound type to sound ID
-            var soundType = mapping?.SoundType ?? "normal";
-            var soundId = $"{IdTransformer.Namespace}:sound:door-{soundType}";
-            var metatileId = mapping?.MetatileId;
-
-            // Get frame info from the sprite sheet (detect width from image)
-            var (frameCount, frameWidth, frameHeight) = GetFrameInfo(pngFile);
-            if (frameCount == 0) continue;
-
-            // Copy the sprite sheet
-            var outputGraphicsDir = Path.Combine(_outputPath, "Graphics/DoorAnimations");
-            Directory.CreateDirectory(outputGraphicsDir);
-            var outputPngPath = Path.Combine(outputGraphicsDir, $"{pascalName}.png");
-            File.Copy(pngFile, outputPngPath, overwrite: true);
-
-            // Build frames array (frames are stacked vertically)
-            var frames = new List<object>();
-            for (var i = 0; i < frameCount; i++)
+            if (ExtractDoorAnimation(pngFile, fileName, doorMappings))
             {
-                frames.Add(new
-                {
-                    index = i,
-                    x = 0,
-                    y = i * frameHeight,
-                    width = frameWidth,
-                    height = frameHeight
-                });
+                count++;
+                graphicsCount++;
             }
+        });
 
-            // Build animations
-            var openFrameIndices = Enumerable.Range(0, frameCount).ToList();
-            var closeFrameIndices = Enumerable.Range(0, frameCount).Reverse().ToList();
-            var frameDurations = Enumerable.Repeat(FrameDurationSeconds, frameCount).ToList();
+        SetCount("Graphics", graphicsCount);
+        return count;
+    }
 
-            var animations = new List<object>
-            {
-                new
-                {
-                    name = "open",
-                    loop = false,
-                    frameIndices = openFrameIndices,
-                    frameDurations = frameDurations,
-                    flipHorizontal = false
-                },
-                new
-                {
-                    name = "close",
-                    loop = false,
-                    frameIndices = closeFrameIndices,
-                    frameDurations = frameDurations,
-                    flipHorizontal = false
-                }
-            };
+    private bool ExtractDoorAnimation(string pngFile, string fileName, List<DoorMapping> doorMappings)
+    {
+        var pascalName = ToPascalCase(fileName);
 
-            // Create definition
-            var outputDefDir = Path.Combine(_outputPath, "Definitions/Assets/DoorAnimations");
-            Directory.CreateDirectory(outputDefDir);
+        // Find mapping info
+        var mapping = doorMappings.FirstOrDefault(m =>
+            m.TileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) ||
+            m.TileName.Replace("_", "").Equals(fileName.Replace("_", ""), StringComparison.OrdinalIgnoreCase));
 
-            var definition = new
-            {
-                id = $"{IdTransformer.Namespace}:sprite:door-animations/{fileName.Replace("_", "-")}",
-                name = FormatName(fileName),
-                type = "Sprite",
-                texturePath = $"Graphics/DoorAnimations/{pascalName}.png",
-                frameWidth,
-                frameHeight,
-                frameCount,
-                soundId,
-                metatileId,
-                frames,
-                animations
-            };
+        // Convert sound type to sound ID
+        var soundType = mapping?.SoundType ?? "normal";
+        var soundId = $"{IdTransformer.Namespace}:sound:door-{soundType}";
+        var metatileId = mapping?.MetatileId;
 
-            var defPath = Path.Combine(outputDefDir, $"{pascalName}.json");
-            var json = JsonSerializer.Serialize(definition, new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-            });
-            File.WriteAllText(defPath, json);
-
-            count++;
+        // Get frame info from the sprite sheet
+        var (frameCount, frameWidth, frameHeight) = GetFrameInfo(pngFile);
+        if (frameCount == 0)
+        {
+            AddError(fileName, "Could not read frame information");
+            return false;
         }
 
-        Console.WriteLine($"[DoorAnimationExtractor] Extracted {count} door animations");
-        return count;
+        // Copy the sprite sheet
+        var outputPngPath = GetGraphicsPath("DoorAnimations", $"{pascalName}.png");
+        File.Copy(pngFile, outputPngPath, overwrite: true);
+
+        // Build frames array (frames are stacked vertically)
+        var frames = new List<object>();
+        for (var i = 0; i < frameCount; i++)
+        {
+            frames.Add(new
+            {
+                index = i,
+                x = 0,
+                y = i * frameHeight,
+                width = frameWidth,
+                height = frameHeight
+            });
+        }
+
+        // Build animations
+        var openFrameIndices = Enumerable.Range(0, frameCount).ToList();
+        var closeFrameIndices = Enumerable.Range(0, frameCount).Reverse().ToList();
+        var frameDurations = Enumerable.Repeat(FrameDurationSeconds, frameCount).ToList();
+
+        var animations = new List<object>
+        {
+            new
+            {
+                name = "open",
+                loop = false,
+                frameIndices = openFrameIndices,
+                frameDurations = frameDurations,
+                flipHorizontal = false
+            },
+            new
+            {
+                name = "close",
+                loop = false,
+                frameIndices = closeFrameIndices,
+                frameDurations = frameDurations,
+                flipHorizontal = false
+            }
+        };
+
+        // Create definition
+        var definition = new
+        {
+            id = $"{IdTransformer.Namespace}:sprite:door-animations/{fileName.Replace("_", "-")}",
+            name = FormatName(fileName),
+            type = "Sprite",
+            texturePath = $"Graphics/DoorAnimations/{pascalName}.png",
+            frameWidth,
+            frameHeight,
+            frameCount,
+            soundId,
+            metatileId,
+            frames,
+            animations
+        };
+
+        var defPath = GetDefinitionPath("DoorAnimations", $"{pascalName}.json");
+        var json = JsonSerializer.Serialize(definition, JsonOptions.Default);
+        File.WriteAllText(defPath, json);
+
+        LogVerbose($"Extracted {pascalName} ({frameCount} frames)");
+        return true;
     }
 
     private (int frameCount, int frameWidth, int frameHeight) GetFrameInfo(string pngPath)
@@ -156,7 +167,7 @@ public class DoorAnimationExtractor
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"[DoorAnimationExtractor] Error reading {pngPath}: {ex.Message}");
+            AddError(Path.GetFileName(pngPath), $"Error reading image: {ex.Message}", ex);
             return (0, 0, 0);
         }
     }

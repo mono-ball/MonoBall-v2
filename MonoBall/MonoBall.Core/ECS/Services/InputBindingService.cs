@@ -200,6 +200,7 @@ public class InputBindingService : IInputBindingService
         _keyBindings[InputAction.ToggleDebugBar] = Keys.F3;
         _keyBindings[InputAction.CycleShader] = Keys.F4;
         _keyBindings[InputAction.CyclePlayerShader] = Keys.F5;
+        _keyBindings[InputAction.ToggleDebugMenu] = Keys.OemTilde;
     }
 
     /// <summary>

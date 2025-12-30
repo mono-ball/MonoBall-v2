@@ -2,6 +2,7 @@ using System.Text.Json;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
@@ -10,22 +11,12 @@ namespace Porycon3.Services;
 /// Converts 4bpp indexed PNGs to RGBA with proper palette and transparency.
 /// Outputs TileSheet format matching other graphics extractors.
 /// </summary>
-public class WeatherExtractor
+public class WeatherExtractor : ExtractorBase
 {
     private const int TileSize = 8;
 
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
-
-    private readonly string _emeraldGraphics;
-    private readonly string _outputGraphics;
-    private readonly string _outputData;
+    public override string Name => "Weather Graphics";
+    public override string Description => "Extracts weather particle graphics and definitions";
 
     // Weather graphics mapping: internal name -> source file(s), optional palette, and sprite info
     private static readonly Dictionary<string, WeatherGraphicsInfo> WeatherGraphics = new()
@@ -40,49 +31,49 @@ public class WeatherExtractor
         ["clouds"] = new(new[] { "cloud.png" }, null, 64, 64, "Cloud particles")
     };
 
-    public WeatherExtractor(string inputPath, string outputPath)
-    {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
+    private readonly string _emeraldGraphics;
 
+    public WeatherExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
+    {
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "weather");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "Weather");
-        _outputData = Path.Combine(outputPath, "Definitions", "Assets", "Weather");
     }
 
-    public (int Graphics, int Definitions) ExtractAll()
+    protected override int ExecuteExtraction()
     {
         if (!Directory.Exists(_emeraldGraphics))
         {
-            Console.WriteLine($"[WeatherExtractor] Weather graphics not found: {_emeraldGraphics}");
-            return (0, 0);
+            AddError("", $"Weather graphics not found: {_emeraldGraphics}");
+            return 0;
         }
-
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
 
         int graphicsCount = 0;
         int definitionsCount = 0;
 
-        foreach (var (weatherType, info) in WeatherGraphics)
+        var weatherTypes = WeatherGraphics.ToList();
+
+        WithProgress("Extracting weather graphics", weatherTypes, (kvp, task) =>
         {
-            var extracted = ExtractWeatherGraphics(weatherType, info);
-            if (extracted)
+            var (weatherType, info) = kvp;
+            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{FormatDisplayName(weatherType)}[/]");
+
+            if (ExtractWeatherGraphics(weatherType, info))
             {
                 graphicsCount += info.SourceFiles.Length;
                 definitionsCount++;
             }
-        }
+        });
 
-        Console.WriteLine($"[WeatherExtractor] Extracted {graphicsCount} graphics for {definitionsCount} weather types");
-        return (graphicsCount, definitionsCount);
+        SetCount("Definitions", definitionsCount);
+        return graphicsCount;
     }
 
     private bool ExtractWeatherGraphics(string weatherType, WeatherGraphicsInfo info)
     {
         var pascalName = ToPascalCase(weatherType);
-        var typeDir = Path.Combine(_outputGraphics, pascalName);
-        Directory.CreateDirectory(typeDir);
+        var typeDir = GetGraphicsPath("Weather", pascalName);
+        typeDir = Path.GetDirectoryName(typeDir)!;
+        EnsureDirectory(typeDir);
 
         // Load palette if specified
         Rgba32[]? palette = null;
@@ -100,7 +91,10 @@ public class WeatherExtractor
         {
             var sourcePath = Path.Combine(_emeraldGraphics, sourceFile);
             if (!File.Exists(sourcePath))
+            {
+                LogWarning($"Source file not found: {sourceFile}");
                 continue;
+            }
 
             var destFilename = ToPascalCase(Path.GetFileNameWithoutExtension(sourceFile)) + ".png";
             var destPath = Path.Combine(typeDir, destFilename);
@@ -133,7 +127,10 @@ public class WeatherExtractor
         }
 
         if (extractedTextures.Count == 0)
+        {
+            LogWarning($"No textures extracted for {weatherType}");
             return false;
+        }
 
         // Create graphics definition with TileSheet format
         var definition = new Dictionary<string, object>
@@ -158,9 +155,10 @@ public class WeatherExtractor
             definition["frameCount"] = extractedTextures.Count;
         }
 
-        var defPath = Path.Combine(_outputData, $"{pascalName}.json");
-        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions));
+        var defPath = GetDefinitionPath("Weather", $"{pascalName}.json");
+        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
 
+        LogVerbose($"Extracted {pascalName} ({extractedTextures.Count} textures, {totalTileCount} tiles)");
         return true;
     }
 
@@ -281,13 +279,14 @@ public class WeatherExtractor
                 BitDepth = PngBitDepth.Bit8,
                 CompressionLevel = PngCompressionLevel.BestCompression
             };
+            Directory.CreateDirectory(Path.GetDirectoryName(destPath)!);
             image.SaveAsPng(destPath, encoder);
 
             return (width, height);
         }
         catch (Exception e)
         {
-            Console.WriteLine($"[WeatherExtractor] Failed to extract {sourcePath}: {e.Message}");
+            AddError(Path.GetFileName(sourcePath), $"Failed to extract: {e.Message}", e);
             return (0, 0);
         }
     }

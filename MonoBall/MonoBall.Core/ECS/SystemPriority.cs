@@ -192,6 +192,12 @@ public static class SystemPriority
     public const int MessageBoxScene = 360;
 
     /// <summary>
+    ///     Debug menu scene system - manages ImGui debug menu overlay.
+    ///     Runs after MessageBoxScene to render debug menu on top.
+    /// </summary>
+    public const int DebugMenuScene = 370;
+
+    /// <summary>
     ///     Map popup orchestrator - coordinates map popup lifecycle.
     ///     Runs after scene systems to coordinate popups.
     /// </summary>

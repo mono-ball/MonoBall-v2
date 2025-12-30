@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Porycon3.Services.Extraction;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
@@ -8,29 +9,30 @@ namespace Porycon3.Services;
 
 /// <summary>
 /// Extracts overworld sprites from pokeemerald-expansion.
-/// Handles all sprite categories: people, berry_trees, cushions, dolls, misc, pokemon_old.
+/// Handles all sprite categories: people, berry_trees, cushions, dolls, misc.
+/// pokemon_old is ignored since improved Pokemon overworld sprites come from species extraction.
 /// Outputs Sprite definitions matching porycon2 format.
 /// </summary>
-public class SpriteExtractor
+public class SpriteExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-    private readonly bool _verbose;
-    private readonly AnimationData _animationData;
+    public override string Name => "Overworld Sprites";
+    public override string Description => "Extracts overworld sprites and animations";
+
+    private AnimationData? _animationData;
 
     private readonly string _picsBasePath;
     private readonly string _outputGraphics;
     private readonly string _outputData;
 
     // Sprite categories with their base folder mappings
+    // Note: pokemon_old is intentionally excluded - improved sprites come from species extraction
     private static readonly Dictionary<string, string> CategoryMappings = new()
     {
         { "people", "Characters/Npcs" },
         { "berry_trees", "Objects/BerryTrees" },
         { "cushions", "Objects/Cushions" },
         { "dolls", "Objects/Dolls" },
-        { "misc", "Objects/Misc" },
-        { "pokemon_old", "Characters/Pokemon" }
+        { "misc", "Objects/Misc" }
     };
 
     // Pattern-based category overrides (filename -> folder)
@@ -55,56 +57,62 @@ public class SpriteExtractor
         "ballmoon", "ballsport", "ballbeast", "ballstrange"
     };
 
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
-
     public SpriteExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-        _verbose = verbose;
-
         _picsBasePath = Path.Combine(inputPath, "graphics", "object_events", "pics");
         _outputGraphics = Path.Combine(outputPath, "Graphics");
         _outputData = Path.Combine(outputPath, "Definitions", "Assets");
-
-        // Parse animation data from pokeemerald source
-        var parser = new AnimationParser(inputPath, verbose);
-        _animationData = parser.ParseAnimationData();
     }
 
-    /// <summary>
-    /// Extract all sprites from pokeemerald.
-    /// </summary>
-    public (int Sprites, int Graphics) ExtractAll()
+    private AnimationData GetAnimationData()
+    {
+        if (_animationData != null)
+            return _animationData;
+
+        // Parse animation data lazily (deferred from constructor)
+        var parser = new AnimationParser(InputPath, Verbose);
+        _animationData = parser.ParseAnimationData();
+
+        LogVerbose($"Parsed {_animationData.PicToFilePath.Count} pic->file mappings");
+        LogVerbose($"Parsed {_animationData.AnimationSequences.Count} animation sequences");
+        LogVerbose($"Parsed {_animationData.AnimationTables.Count} animation tables");
+        LogVerbose($"Parsed {_animationData.PicTableSources.Count} pic table sources");
+
+        return _animationData;
+    }
+
+    protected override int ExecuteExtraction()
     {
         if (!Directory.Exists(_picsBasePath))
         {
-            if (_verbose)
-                Console.WriteLine($"[SpriteExtractor] Pics path not found: {_picsBasePath}");
-            return (0, 0);
+            LogWarning($"Pics path not found: {_picsBasePath}");
+            return 0;
         }
 
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
+        EnsureDirectory(_outputGraphics);
+        EnsureDirectory(_outputData);
 
         int spriteCount = 0;
         int graphicsCount = 0;
         var processedFiles = new HashSet<string>();
 
         // Extract sprites based on sPicTable definitions
-        foreach (var (picTableName, sources) in _animationData.PicTableSources)
-        {
-            // Skip pic tables with no valid sources
-            var validSources = sources.Where(s => !string.IsNullOrWhiteSpace(s.FilePath)).ToList();
-            if (validSources.Count == 0) continue;
+        var animationData = GetAnimationData();
+        var picTableList = animationData.PicTableSources
+            .Where(kvp => kvp.Value.Any(s => !string.IsNullOrWhiteSpace(s.FilePath)))
+            .ToList();
 
-            try
+        if (picTableList.Count > 0)
+        {
+            WithProgress("Extracting pic table sprites", picTableList, (kvp, task) =>
             {
+                var (picTableName, sources) = kvp;
+                var validSources = sources.Where(s => !string.IsNullOrWhiteSpace(s.FilePath)).ToList();
+                if (validSources.Count == 0) return;
+
+                SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{picTableName}[/]");
+
                 if (ExtractSpriteFromPicTable(picTableName, validSources))
                 {
                     spriteCount++;
@@ -114,17 +122,11 @@ public class SpriteExtractor
                         processedFiles.Add(source.FilePath);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                if (_verbose)
-                    Console.WriteLine($"[SpriteExtractor] Error processing {picTableName}: {ex.Message}");
-            }
+            });
         }
 
         // Mark files that are part of multi-file pics as processed
-        // (e.g., walking.png + running.png are combined into BrendanNormalRunning)
-        foreach (var (_, files) in _animationData.MultiFilePics)
+        foreach (var (_, files) in animationData.MultiFilePics)
         {
             foreach (var file in files)
             {
@@ -132,41 +134,40 @@ public class SpriteExtractor
             }
         }
 
-        // Process each sprite category directory
+        // Process each sprite category directory for standalone PNGs
         foreach (var category in CategoryMappings.Keys)
         {
             var categoryPath = Path.Combine(_picsBasePath, category);
             if (!Directory.Exists(categoryPath)) continue;
 
             // Extract standalone PNGs not in sPicTables or multi-file pics
-            var allPngs = Directory.GetFiles(categoryPath, "*.png", SearchOption.AllDirectories);
-            foreach (var pngPath in allPngs)
-            {
-                // Build relative path from pics base (e.g., "people/may/walking" or "misc/ball_poke")
-                var relativePath = Path.GetRelativePath(_picsBasePath, pngPath);
-                var pathWithoutExt = Path.ChangeExtension(relativePath, null).Replace('\\', '/');
-
-                if (!processedFiles.Contains(pathWithoutExt))
+            var allPngs = Directory.GetFiles(categoryPath, "*.png", SearchOption.AllDirectories)
+                .Where(pngPath =>
                 {
-                    try
+                    var relativePath = Path.GetRelativePath(_picsBasePath, pngPath);
+                    var pathWithoutExt = Path.ChangeExtension(relativePath, null).Replace('\\', '/');
+                    return !processedFiles.Contains(pathWithoutExt);
+                })
+                .ToList();
+
+            if (allPngs.Count > 0)
+            {
+                WithProgress($"Extracting {category} sprites", allPngs, (pngPath, task) =>
+                {
+                    var fileName = Path.GetFileNameWithoutExtension(pngPath);
+                    SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{fileName}[/]");
+
+                    if (ExtractStandalonePng(pngPath, category))
                     {
-                        if (ExtractStandalonePng(pngPath, category))
-                        {
-                            spriteCount++;
-                            graphicsCount++;
-                        }
+                        spriteCount++;
+                        graphicsCount++;
                     }
-                    catch (Exception ex)
-                    {
-                        if (_verbose)
-                            Console.WriteLine($"[SpriteExtractor] Error processing {Path.GetFileName(pngPath)}: {ex.Message}");
-                    }
-                }
+                });
             }
         }
 
-        Console.WriteLine($"[SpriteExtractor] Extracted {graphicsCount} graphics for {spriteCount} sprites");
-        return (spriteCount, graphicsCount);
+        SetCount("Graphics", graphicsCount);
+        return spriteCount;
     }
 
     private bool ExtractSpriteFromPicTable(string picTableName, List<SpriteSourceInfo> sources)
@@ -185,8 +186,7 @@ public class SpriteExtractor
 
         var spriteName = ConvertPicTableNameToSpriteName(picTableName, subPath);
 
-        if (_verbose)
-            Console.WriteLine($"[SpriteExtractor] Processing: {picTableName} -> {spriteName} (category: {sourceCategory})");
+        LogVerbose($"Processing: {picTableName} -> {spriteName} (category: {sourceCategory})");
 
         // Load all source PNGs, handling multi-file pics
         var sourceImages = new List<Image<Rgba32>>();
@@ -200,7 +200,7 @@ public class SpriteExtractor
             if (string.IsNullOrWhiteSpace(source.PicName)) continue;
 
             // Check if this pic is a multi-file pic (e.g., walking + running combined)
-            if (_animationData.MultiFilePics.TryGetValue(source.PicName, out var multiFiles))
+            if (GetAnimationData().MultiFilePics.TryGetValue(source.PicName, out var multiFiles))
             {
                 allSourceFiles.AddRange(multiFiles);
             }
@@ -294,15 +294,15 @@ public class SpriteExtractor
         var dataDir = string.IsNullOrEmpty(spriteCategory)
             ? Path.Combine(_outputData, baseFolder)
             : Path.Combine(_outputData, baseFolder, spriteCategory);
-        Directory.CreateDirectory(graphicsDir);
-        Directory.CreateDirectory(dataDir);
+        EnsureDirectory(graphicsDir);
+        EnsureDirectory(dataDir);
 
         // Save combined spritesheet as 32-bit RGBA
         var graphicsPath = Path.Combine(graphicsDir, $"{spriteName}.png");
         SaveAsRgbaPng(combined, graphicsPath);
 
         // Get physical frame mapping
-        var physicalFrameMapping = _animationData.FrameMappings.GetValueOrDefault(picTableName);
+        var physicalFrameMapping = GetAnimationData().FrameMappings.GetValueOrDefault(picTableName);
 
         // Build frame definitions
         var physicalToX = physicalFramePositions.ToDictionary(p => p.Index, p => p.X);
@@ -360,7 +360,7 @@ public class SpriteExtractor
         };
 
         var manifestPath = Path.Combine(dataDir, $"{spriteName}.json");
-        File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, JsonOptions));
+        File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, JsonOptions.Default));
 
         // Cleanup
         foreach (var img in sourceImages)
@@ -426,8 +426,8 @@ public class SpriteExtractor
         var dataDir = string.IsNullOrEmpty(spriteCategory)
             ? Path.Combine(_outputData, baseFolder)
             : Path.Combine(_outputData, baseFolder, spriteCategory);
-        Directory.CreateDirectory(graphicsDir);
-        Directory.CreateDirectory(dataDir);
+        EnsureDirectory(graphicsDir);
+        EnsureDirectory(dataDir);
 
         // Save sprite sheet as 32-bit RGBA
         var graphicsPath = Path.Combine(graphicsDir, $"{spriteName}.png");
@@ -468,7 +468,7 @@ public class SpriteExtractor
         };
 
         var manifestPath = Path.Combine(dataDir, $"{spriteName}.json");
-        File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, JsonOptions));
+        File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, JsonOptions.Default));
 
         return true;
     }
@@ -556,18 +556,19 @@ public class SpriteExtractor
         };
 
         string? animTableName = null;
+        var animData = GetAnimationData();
         foreach (var name in possibleNames)
         {
-            if (_animationData.SpriteToAnimTable.TryGetValue(name, out var tableName))
+            if (animData.SpriteToAnimTable.TryGetValue(name, out var tableName))
             {
                 animTableName = tableName;
                 break;
             }
         }
 
-        if (animTableName != null && _animationData.AnimationTables.TryGetValue(animTableName, out var animDefs))
+        if (animTableName != null && animData.AnimationTables.TryGetValue(animTableName, out var animDefs))
         {
-            var frameCount = _animationData.FrameCounts.GetValueOrDefault(spriteName, info.FrameCount);
+            var frameCount = animData.FrameCounts.GetValueOrDefault(spriteName, info.FrameCount);
 
             foreach (var animDef in animDefs)
             {

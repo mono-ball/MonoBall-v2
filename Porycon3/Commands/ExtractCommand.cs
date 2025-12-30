@@ -21,29 +21,44 @@ public class ExtractCommand : Command<ExtractSettings>
                 case "doors":
                 case "door_anims":
                 case "dooranimations":
-                    var doorExtractor = new DoorAnimationExtractor(settings.InputPath, settings.OutputPath);
-                    var doorCount = doorExtractor.Extract();
-                    AnsiConsole.MarkupLine($"[green]Extracted {doorCount} door animations[/]");
+                    var doorExtractor = new DoorAnimationExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    doorExtractor.ExtractAll();
                     break;
 
                 case "fieldeffects":
                 case "field_effects":
-                    var fieldExtractor = new FieldEffectExtractor(settings.InputPath, settings.OutputPath, true);
-                    var fieldCount = fieldExtractor.ExtractAll();
-                    AnsiConsole.MarkupLine($"[green]Extracted {fieldCount} field effects[/]");
+                    var fieldExtractor = new FieldEffectExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    fieldExtractor.ExtractAll();
                     break;
 
                 case "fonts":
-                    var fontExtractor = new FontExtractor(settings.InputPath, settings.OutputPath);
-                    var fontCount = fontExtractor.Extract();
-                    AnsiConsole.MarkupLine($"[green]Extracted {fontCount} font assets[/]");
+                    var fontExtractor = new FontExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    fontExtractor.ExtractAll();
                     break;
 
                 case "interface":
                 case "ui":
-                    var interfaceExtractor = new InterfaceExtractor(settings.InputPath, settings.OutputPath);
-                    var interfaceCount = interfaceExtractor.ExtractAll();
-                    AnsiConsole.MarkupLine($"[green]Extracted {interfaceCount} interface graphics[/]");
+                    var interfaceExtractor = new InterfaceExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    interfaceExtractor.ExtractAll();
+                    break;
+
+                case "weather":
+                    var weatherExtractor = new WeatherExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    weatherExtractor.ExtractAll();
+                    break;
+
+                case "popup":
+                case "popups":
+                case "map_popup":
+                    var popupExtractor = new PopupExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    popupExtractor.ExtractAll();
+                    break;
+
+                case "textwindows":
+                case "text_windows":
+                case "textwindow":
+                    var textWindowExtractor = new TextWindowExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
+                    textWindowExtractor.ExtractAll();
                     break;
 
                 case "sound":
@@ -57,19 +72,17 @@ public class ExtractCommand : Command<ExtractSettings>
                 case "behaviors":
                 case "behaviour":
                     var behaviorExtractor = new BehaviorExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
-                    var (behaviors, behaviorScripts) = behaviorExtractor.ExtractAll();
-                    AnsiConsole.MarkupLine($"[green]Extracted {behaviors} behavior definitions and {behaviorScripts} behavior scripts[/]");
+                    behaviorExtractor.ExtractAll();
                     break;
 
                 case "scripts":
                     var scriptExtractor = new ScriptExtractor(settings.InputPath, settings.OutputPath, settings.Verbose);
-                    var (interactions, triggers, signs, totalScripts) = scriptExtractor.ExtractAll();
-                    AnsiConsole.MarkupLine($"[green]Extracted {totalScripts} script definitions ({interactions} interactions, {triggers} triggers, {signs} signs)[/]");
+                    scriptExtractor.ExtractAll();
                     break;
 
                 default:
                     AnsiConsole.MarkupLine($"[red]Unknown asset type: {settings.Asset}[/]");
-                    AnsiConsole.MarkupLine("Available: doors, fieldeffects, fonts, interface, sound, behaviors, scripts");
+                    AnsiConsole.MarkupLine("Available: doors, fieldeffects, fonts, interface, weather, popup, textwindows, sound, behaviors, scripts");
                     return 1;
             }
 

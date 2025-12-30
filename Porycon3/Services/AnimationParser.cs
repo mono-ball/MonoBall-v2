@@ -31,8 +31,6 @@ public class AnimationParser
 
         if (!Directory.Exists(objectEventsPath))
         {
-            if (_verbose)
-                Console.WriteLine($"[AnimationParser] Object events path not found: {objectEventsPath}");
             return result;
         }
 
@@ -56,14 +54,6 @@ public class AnimationParser
         // Parse physical frame mappings
         result.FrameMappings = ParseFrameMappings(picTablesPath, result.PicTableSources);
 
-        if (_verbose)
-        {
-            Console.WriteLine($"[AnimationParser] Parsed {result.PicToFilePath.Count} pic->file mappings");
-            Console.WriteLine($"[AnimationParser] Parsed {result.AnimationSequences.Count} animation sequences");
-            Console.WriteLine($"[AnimationParser] Parsed {result.AnimationTables.Count} animation tables");
-            Console.WriteLine($"[AnimationParser] Parsed {result.PicTableSources.Count} pic table sources");
-        }
-
         return result;
     }
 
@@ -85,7 +75,7 @@ public class AnimationParser
             RegexOptions.Compiled);
 
         // Pattern to extract individual file paths from INCBIN content
-        // Matches all subdirectories: people, berry_trees, cushions, dolls, misc, pokemon_old
+        // Matches all subdirectories: people, berry_trees, cushions, dolls, misc (pokemon_old filtered by SpriteExtractor)
         var filePattern = new Regex(
             @"""graphics/object_events/pics/([^""]+)\.4bpp""",
             RegexOptions.Compiled);

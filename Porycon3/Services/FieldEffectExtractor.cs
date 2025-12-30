@@ -3,6 +3,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
@@ -10,22 +11,10 @@ namespace Porycon3.Services;
 /// Extracts field effects from pokeemerald-expansion.
 /// Slices sprite sheets into individual frames and creates definition files.
 /// </summary>
-public class FieldEffectExtractor
+public class FieldEffectExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-    private readonly bool _verbose;
-
-    private readonly string _fieldEffectsPath;
-    private readonly string _outputGraphics;
-    private readonly string _outputData;
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
+    public override string Name => "Field Effects";
+    public override string Description => "Extracts field effect sprites and animations";
 
     private static readonly PngEncoder PngEncoder = new()
     {
@@ -53,21 +42,20 @@ public class FieldEffectExtractor
         { "slither_tracks", (16, 16, 4, false) },
         { "jump_big_splash", (16, 16, 4, false) },
         { "long_grass", (16, 16, 4, false) },
-        { "jump_long_grass", (16, 16, 7, false) },  // 7 frames (112/16)
+        { "jump_long_grass", (16, 16, 7, false) },
         { "unused_grass_2", (16, 16, 4, false) },
         { "unused_grass_3", (16, 16, 4, false) },
         { "unused_sand", (16, 16, 4, false) },
-        { "water_surfacing", (16, 16, 5, false) },  // 5 frames (80/16)
+        { "water_surfacing", (16, 16, 5, false) },
         { "sparkle", (16, 16, 6, false) },
         { "short_grass", (16, 16, 2, false) },
         { "ash_puff", (16, 16, 5, false) },
         { "ash_launch", (16, 16, 5, false) },
         { "small_sparkle", (16, 16, 2, false) },
-        { "cave_dust", (16, 16, 4, true) },  // Vertical layout!
+        { "cave_dust", (16, 16, 4, true) },
         { "secret_power_cave", (16, 16, 5, false) },
         { "secret_power_shrub", (16, 16, 5, false) },
-
-        // 16x8 sprites (2x1 tiles)
+        // 16x8 sprites
         { "ground_impact_dust", (16, 8, 3, false) },
         { "jump_tall_grass", (16, 8, 4, false) },
         { "splash", (16, 8, 2, false) },
@@ -76,27 +64,23 @@ public class FieldEffectExtractor
         { "field_move_streaks", (16, 8, 8, false) },
         { "field_move_streaks_indoors", (16, 8, 2, false) },
         { "record_mix_lights", (16, 8, 6, false) },
-
-        // 16x32 sprites (2x4 tiles)
+        // 16x32 sprites
         { "tree_disguise", (16, 32, 7, false) },
         { "mountain_disguise", (16, 32, 7, false) },
         { "sand_disguise_placeholder", (16, 32, 7, false) },
         { "bubbles", (16, 32, 8, false) },
-
-        // 32x32 sprites (4x4 tiles)
+        // 32x32 sprites
         { "surf_blob", (32, 32, 3, false) },
         { "rock_climb_blob", (32, 32, 3, false) },
         { "rock_climb_dust", (32, 32, 3, false) },
-        { "bird", (32, 32, 1, false) },  // Single frame
-
-        // 16x16 single frames (no slicing needed)
+        { "bird", (32, 32, 1, false) },
+        // 16x16 single frames
         { "emote_x", (16, 16, 1, false) },
         { "emotion_double_exclamation", (16, 16, 1, false) },
         { "emotion_exclamation", (16, 16, 1, false) },
         { "emotion_heart", (16, 16, 1, false) },
         { "emotion_question", (16, 16, 1, false) },
         { "hot_springs_water", (16, 16, 1, false) },
-
         // 8x8 single frames
         { "shadow_small", (8, 8, 1, false) },
         { "cut_grass", (8, 8, 1, false) },
@@ -105,112 +89,103 @@ public class FieldEffectExtractor
         { "deoxys_rock_fragment_bottom_right", (8, 8, 1, false) },
         { "deoxys_rock_fragment_top_left", (8, 8, 1, false) },
         { "deoxys_rock_fragment_top_right", (8, 8, 1, false) },
-
         // Other single frames
         { "shadow_medium", (16, 8, 1, false) },
         { "shadow_large", (32, 8, 1, false) },
         { "shadow_extra_large", (64, 32, 1, false) },
-
         // Special multi-frame sprites
         { "secret_power_tree", (16, 16, 6, false) },
         { "hof_monitor_big", (16, 16, 4, false) },
         { "hof_monitor_small", (16, 16, 2, false) },
         { "unknown_17", (16, 16, 8, false) },
-
-        // ORAS dowsing (larger frames)
+        // ORAS dowsing
         { "oras_dowsing_brendan", (16, 32, 9, false) },
         { "oras_dowsing_may", (16, 32, 9, false) },
-
-        // Spotlight (special vertical layout)
+        // Spotlight
         { "spotlight", (48, 24, 5, true) },
     };
 
     public FieldEffectExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-        _verbose = verbose;
-
-        _fieldEffectsPath = Path.Combine(inputPath, "graphics", "field_effects", "pics");
-        _outputGraphics = Path.Combine(outputPath, "Graphics", "FieldEffects");
-        _outputData = Path.Combine(outputPath, "Definitions", "Assets", "FieldEffects");
     }
 
-    /// <summary>
-    /// Extract all field effects.
-    /// </summary>
-    /// <returns>Number of field effects extracted.</returns>
-    public int ExtractAll()
+    protected override int ExecuteExtraction()
     {
-        if (!Directory.Exists(_fieldEffectsPath))
+        var fieldEffectsPath = Path.Combine(InputPath, "graphics", "field_effects", "pics");
+
+        if (!Directory.Exists(fieldEffectsPath))
         {
-            Console.WriteLine($"[FieldEffectExtractor] Field effects not found: {_fieldEffectsPath}");
+            AddError("", $"Field effects not found: {fieldEffectsPath}");
             return 0;
         }
 
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
-
         int count = 0;
+        int frameCount = 0;
 
-        // Process all PNG files in the root directory
-        foreach (var pngFile in Directory.GetFiles(_fieldEffectsPath, "*.png"))
+        // Get all PNG files that don't have matching subdirectories
+        var pngFiles = Directory.GetFiles(fieldEffectsPath, "*.png")
+            .Where(f => !Directory.Exists(Path.Combine(fieldEffectsPath, Path.GetFileNameWithoutExtension(f))))
+            .ToList();
+
+        // Get subdirectories with pre-separated frames
+        var subDirs = Directory.GetDirectories(fieldEffectsPath).ToList();
+
+        var allItems = pngFiles.Select(f => (Path: f, Name: Path.GetFileNameWithoutExtension(f), IsSubDir: false))
+            .Concat(subDirs.Select(d => (Path: d, Name: Path.GetFileName(d), IsSubDir: true)))
+            .ToList();
+
+        WithProgress("Extracting field effects", allItems, (item, task) =>
         {
-            var name = Path.GetFileNameWithoutExtension(pngFile);
+            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{item.Name}[/]");
 
-            // Skip if there's a subdirectory with the same name (those are handled separately)
-            var subDir = Path.Combine(_fieldEffectsPath, name);
-            if (Directory.Exists(subDir))
-                continue;
-
-            ExtractFieldEffect(pngFile, name);
-            count++;
-        }
-
-        // Process subdirectories (pre-separated animation frames)
-        foreach (var subDir in Directory.GetDirectories(_fieldEffectsPath))
-        {
-            var name = Path.GetFileName(subDir);
-            var frames = Directory.GetFiles(subDir, "*.png")
-                .OrderBy(f => f)
-                .ToList();
-
-            if (frames.Count > 0)
+            if (item.IsSubDir)
             {
-                ExtractPreSeparatedFrames(subDir, name, frames);
-                count++;
+                var frames = Directory.GetFiles(item.Path, "*.png").OrderBy(f => f).ToList();
+                if (frames.Count > 0)
+                {
+                    ExtractPreSeparatedFrames(item.Path, item.Name, frames);
+                    count++;
+                    frameCount += frames.Count;
+                }
             }
-        }
+            else
+            {
+                var extracted = ExtractFieldEffect(item.Path, item.Name);
+                if (extracted > 0)
+                {
+                    count++;
+                    frameCount += extracted;
+                }
+            }
+        });
 
-        Console.WriteLine($"[FieldEffectExtractor] Extracted {count} field effects");
+        SetCount("Frames", frameCount);
         return count;
     }
 
-    private void ExtractFieldEffect(string sourcePath, string name)
+    private int ExtractFieldEffect(string sourcePath, string name)
     {
-        var id = NormalizeId(name);
-        var pascalName = ToPascalCase(name);
-
         // Check if this is a sprite sheet that needs slicing
         if (SpriteSheetInfo.TryGetValue(name, out var info) && info.Frames > 1)
         {
-            ExtractSpriteSheet(sourcePath, name, info);
+            return ExtractSpriteSheet(sourcePath, name, info);
         }
         else
         {
-            // Single frame - just copy with transparency
             ExtractSingleFrame(sourcePath, name);
+            return 1;
         }
     }
 
-    private void ExtractSpriteSheet(string sourcePath, string name, (int Width, int Height, int Frames, bool Vertical) info)
+    private int ExtractSpriteSheet(string sourcePath, string name, (int Width, int Height, int Frames, bool Vertical) info)
     {
         var id = NormalizeId(name);
         var pascalName = ToPascalCase(name);
 
         // Create subdirectory for frames
-        var framesDir = Path.Combine(_outputGraphics, pascalName);
-        Directory.CreateDirectory(framesDir);
+        var framesDir = GetGraphicsPath("FieldEffects", pascalName);
+        EnsureDirectory(framesDir);
 
         // Load the sprite sheet with transparency
         using var spriteSheet = LoadWithIndex0Transparency(sourcePath);
@@ -234,8 +209,7 @@ public class FieldEffectExtractor
             // Bounds check
             if (x + info.Width > spriteSheet.Width || y + info.Height > spriteSheet.Height)
             {
-                if (_verbose)
-                    Console.WriteLine($"[FieldEffectExtractor] Warning: Frame {i} out of bounds for {name}");
+                LogWarning($"Frame {i} out of bounds for {name}");
                 break;
             }
 
@@ -259,12 +233,11 @@ public class FieldEffectExtractor
             Frames = frameNames
         };
 
-        var jsonPath = Path.Combine(_outputData, $"{pascalName}.json");
-        var json = JsonSerializer.Serialize(definition, JsonOptions);
-        File.WriteAllText(jsonPath, json);
+        var jsonPath = GetDefinitionPath("FieldEffects", $"{pascalName}.json");
+        File.WriteAllText(jsonPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
 
-        if (_verbose)
-            Console.WriteLine($"[FieldEffectExtractor] Extracted {name} ({frameNames.Count} frames, {info.Width}x{info.Height})");
+        LogVerbose($"Extracted {name} ({frameNames.Count} frames, {info.Width}x{info.Height})");
+        return frameNames.Count;
     }
 
     private void ExtractSingleFrame(string sourcePath, string name)
@@ -273,7 +246,7 @@ public class FieldEffectExtractor
         var pascalName = ToPascalCase(name);
 
         // Load with proper GBA transparency and save
-        var graphicPath = Path.Combine(_outputGraphics, $"{pascalName}.png");
+        var graphicPath = GetGraphicsPath("FieldEffects", $"{pascalName}.png");
         using var img = LoadWithIndex0Transparency(sourcePath);
         img.Save(graphicPath, PngEncoder);
 
@@ -287,12 +260,10 @@ public class FieldEffectExtractor
             Height = img.Height
         };
 
-        var jsonPath = Path.Combine(_outputData, $"{pascalName}.json");
-        var json = JsonSerializer.Serialize(definition, JsonOptions);
-        File.WriteAllText(jsonPath, json);
+        var jsonPath = GetDefinitionPath("FieldEffects", $"{pascalName}.json");
+        File.WriteAllText(jsonPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
 
-        if (_verbose)
-            Console.WriteLine($"[FieldEffectExtractor] Extracted {name} (single frame, {img.Width}x{img.Height})");
+        LogVerbose($"Extracted {name} (single frame, {img.Width}x{img.Height})");
     }
 
     private void ExtractPreSeparatedFrames(string sourceDir, string name, List<string> frames)
@@ -301,8 +272,8 @@ public class FieldEffectExtractor
         var pascalName = ToPascalCase(name);
 
         // Create subdirectory for frames
-        var framesDir = Path.Combine(_outputGraphics, pascalName);
-        Directory.CreateDirectory(framesDir);
+        var framesDir = GetGraphicsPath("FieldEffects", pascalName);
+        EnsureDirectory(framesDir);
 
         // Process all frames with transparency
         var frameNames = new List<string>();
@@ -335,34 +306,22 @@ public class FieldEffectExtractor
             Frames = frameNames
         };
 
-        var jsonPath = Path.Combine(_outputData, $"{pascalName}.json");
-        var json = JsonSerializer.Serialize(definition, JsonOptions);
-        File.WriteAllText(jsonPath, json);
+        var jsonPath = GetDefinitionPath("FieldEffects", $"{pascalName}.json");
+        File.WriteAllText(jsonPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
 
-        if (_verbose)
-            Console.WriteLine($"[FieldEffectExtractor] Extracted {name} ({frames.Count} pre-separated frames)");
+        LogVerbose($"Extracted {name} ({frames.Count} pre-separated frames)");
     }
 
     #region Transparency Helpers
 
-    /// <summary>
-    /// Load an indexed PNG and convert to RGBA with palette index 0 as transparent.
-    /// This is how GBA/pokeemerald handles sprite transparency.
-    /// </summary>
     private static Image<Rgba32> LoadWithIndex0Transparency(string pngPath)
     {
-        // Read raw PNG bytes to extract palette
         var bytes = File.ReadAllBytes(pngPath);
-
-        // Extract palette from PNG PLTE chunk
         var palette = ExtractPngPalette(bytes);
 
         if (palette != null && palette.Length > 0)
         {
-            // Load as RGBA
             using var tempImage = Image.Load<Rgba32>(pngPath);
-
-            // Get the color that was at palette index 0
             var index0Color = ExtractPaletteColor(bytes, 0);
 
             if (index0Color.HasValue)
@@ -375,7 +334,6 @@ public class FieldEffectExtractor
                         var row = accessor.GetRowSpan(y);
                         for (int x = 0; x < row.Length; x++)
                         {
-                            // Check if pixel matches palette index 0 color
                             if (row[x].R == bgColor.R && row[x].G == bgColor.G && row[x].B == bgColor.B)
                             {
                                 row[x] = new Rgba32(0, 0, 0, 0);
@@ -385,17 +343,13 @@ public class FieldEffectExtractor
                 });
             }
 
-            // Also apply magenta transparency as fallback
             ApplyMagentaTransparency(tempImage);
-
             return tempImage.Clone();
         }
 
-        // Fallback: load as RGBA and use first pixel as background color
         var img = Image.Load<Rgba32>(pngPath);
         var firstPixel = img[0, 0];
 
-        // Make all pixels matching first pixel transparent
         img.ProcessPixelRows(accessor =>
         {
             for (int y = 0; y < accessor.Height; y++)
@@ -411,19 +365,13 @@ public class FieldEffectExtractor
             }
         });
 
-        // Also apply magenta transparency
         ApplyMagentaTransparency(img);
-
         return img;
     }
 
-    /// <summary>
-    /// Extract RGB palette from PNG PLTE chunk.
-    /// </summary>
     private static Rgba32[]? ExtractPngPalette(byte[] pngData)
     {
-        var pos = 8; // Skip PNG signature
-
+        var pos = 8;
         while (pos < pngData.Length - 12)
         {
             var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
@@ -434,29 +382,21 @@ public class FieldEffectExtractor
             {
                 var colorCount = length / 3;
                 var palette = new Rgba32[colorCount];
-
                 for (var i = 0; i < colorCount; i++)
                 {
                     var offset = pos + 8 + i * 3;
                     palette[i] = new Rgba32(pngData[offset], pngData[offset + 1], pngData[offset + 2], 255);
                 }
-
                 return palette;
             }
-
-            pos += 12 + length; // 4 length + 4 type + data + 4 CRC
+            pos += 12 + length;
         }
-
         return null;
     }
 
-    /// <summary>
-    /// Extract a specific palette color from PNG PLTE chunk.
-    /// </summary>
     private static Rgba32? ExtractPaletteColor(byte[] pngData, int index)
     {
-        var pos = 8; // Skip PNG signature
-
+        var pos = 8;
         while (pos < pngData.Length - 12)
         {
             var length = (pngData[pos] << 24) | (pngData[pos + 1] << 16) |
@@ -473,16 +413,11 @@ public class FieldEffectExtractor
                 }
                 return null;
             }
-
             pos += 12 + length;
         }
-
         return null;
     }
 
-    /// <summary>
-    /// Apply transparency for magenta (#FF00FF) pixels, a common GBA transparency mask.
-    /// </summary>
     private static void ApplyMagentaTransparency(Image<Rgba32> image)
     {
         image.ProcessPixelRows(accessor =>
@@ -492,7 +427,6 @@ public class FieldEffectExtractor
                 var row = accessor.GetRowSpan(y);
                 for (int x = 0; x < row.Length; x++)
                 {
-                    // Magenta (#FF00FF) is commonly used as transparency mask in GBA graphics
                     if (row[x].R == 255 && row[x].G == 0 && row[x].B == 255 && row[x].A > 0)
                     {
                         row[x] = new Rgba32(0, 0, 0, 0);
@@ -504,25 +438,13 @@ public class FieldEffectExtractor
 
     #endregion
 
-    private string NormalizeId(string name)
-    {
-        // Convert to lowercase with underscores to hyphens
-        return name.ToLowerInvariant().Replace("_", "-");
-    }
+    private static string NormalizeId(string name) => name.ToLowerInvariant().Replace("_", "-");
 
-    private string ToPascalCase(string name)
-    {
-        // Convert snake_case to PascalCase
-        return string.Join("", name.Split('_')
-            .Select(p => char.ToUpper(p[0]) + p.Substring(1).ToLower()));
-    }
+    private static string ToPascalCase(string name) =>
+        string.Join("", name.Split('_').Select(p => char.ToUpper(p[0]) + p[1..].ToLower()));
 
-    private string FormatDisplayName(string name)
-    {
-        // Convert snake_case to Title Case
-        return string.Join(" ", name.Split('_')
-            .Select(p => char.ToUpper(p[0]) + p.Substring(1).ToLower()));
-    }
+    private static string FormatDisplayName(string name) =>
+        string.Join(" ", name.Split('_').Select(p => char.ToUpper(p[0]) + p[1..].ToLower()));
 
     private class FieldEffectDefinition
     {

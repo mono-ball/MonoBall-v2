@@ -1,6 +1,7 @@
 using System.IO.Compression;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Porycon3.Services.Extraction;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
@@ -12,23 +13,15 @@ namespace Porycon3.Services;
 /// Handles front/back sprites, icons, overworld sprites, and animation data.
 /// Applies JASC-PAL palettes and proper transparency.
 /// </summary>
-public class PokemonExtractor
+public class PokemonExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-    private readonly bool _verbose;
+    public override string Name => "Pokemon Sprites";
+    public override string Description => "Extracts Pokemon sprites, icons, and animation data";
 
     private readonly string _pokemonGraphics;
     private readonly string _speciesInfoPath;
     private readonly string _outputGraphics;
     private readonly string _outputData;
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
 
     // Standard sprite sizes
     private const int BattleSpriteSize = 64;
@@ -37,44 +30,43 @@ public class PokemonExtractor
     private const int OverworldFrameSize = 32;
 
     public PokemonExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-        _verbose = verbose;
-
         _pokemonGraphics = Path.Combine(inputPath, "graphics", "pokemon");
         _speciesInfoPath = Path.Combine(inputPath, "src", "data", "pokemon", "species_info");
         _outputGraphics = Path.Combine(outputPath, "Graphics", "Pokemon");
         _outputData = Path.Combine(outputPath, "Definitions", "Assets", "Pokemon");
     }
 
-    /// <summary>
-    /// Extract all Pokemon sprites and animations.
-    /// </summary>
-    public (int Pokemon, int Sprites, int Forms) ExtractAll()
+    protected override int ExecuteExtraction()
     {
         if (!Directory.Exists(_pokemonGraphics))
         {
-            Console.WriteLine($"[PokemonExtractor] Pokemon graphics not found: {_pokemonGraphics}");
-            return (0, 0, 0);
+            LogWarning($"Pokemon graphics not found: {_pokemonGraphics}");
+            return 0;
         }
 
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
+        EnsureDirectory(_outputGraphics);
+        EnsureDirectory(_outputData);
 
         // Parse animation data from species_info headers
-        var animationData = ParseAnimationData();
+        Dictionary<string, PokemonAnimationInfo> animationData = new();
+        WithStatus("Parsing animation data...", _ =>
+        {
+            animationData = ParseAnimationData();
+        });
 
         int pokemonCount = 0;
         int spriteCount = 0;
         int formCount = 0;
 
         // Get all Pokemon directories
-        var pokemonDirs = Directory.GetDirectories(_pokemonGraphics);
+        var pokemonDirs = Directory.GetDirectories(_pokemonGraphics).ToList();
 
-        foreach (var pokemonDir in pokemonDirs)
+        WithProgress("Extracting Pokemon sprites", pokemonDirs, (pokemonDir, task) =>
         {
             var pokemonName = Path.GetFileName(pokemonDir);
+            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{pokemonName}[/]");
 
             try
             {
@@ -88,13 +80,14 @@ public class PokemonExtractor
             }
             catch (Exception ex)
             {
-                if (_verbose)
-                    Console.WriteLine($"[PokemonExtractor] Error extracting {pokemonName}: {ex.Message}");
+                AddError(pokemonName, ex.Message, ex);
+                LogVerbose($"Error extracting {pokemonName}: {ex.Message}");
             }
-        }
+        });
 
-        Console.WriteLine($"[PokemonExtractor] Extracted {spriteCount} sprites for {pokemonCount} Pokemon ({formCount} forms)");
-        return (pokemonCount, spriteCount, formCount);
+        SetCount("Sprites", spriteCount);
+        SetCount("Forms", formCount);
+        return pokemonCount;
     }
 
     /// <summary>
@@ -330,8 +323,7 @@ public class PokemonExtractor
 
             if (indices == null || width == 0 || height == 0)
             {
-                if (_verbose)
-                    Console.WriteLine($"[PokemonExtractor] Failed to extract indices from {pngPath}");
+                LogVerbose($"Failed to extract indices from {pngPath}");
                 return false;
             }
 
@@ -364,8 +356,7 @@ public class PokemonExtractor
         }
         catch (Exception ex)
         {
-            if (_verbose)
-                Console.WriteLine($"[PokemonExtractor] Error extracting battle sprite {name}: {ex.Message}");
+            LogVerbose($"Error extracting battle sprite {name}: {ex.Message}");
             return false;
         }
     }
@@ -431,8 +422,7 @@ public class PokemonExtractor
         }
         catch (Exception ex)
         {
-            if (_verbose)
-                Console.WriteLine($"[PokemonExtractor] Error extracting icon {name}: {ex.Message}");
+            LogVerbose($"Error extracting icon {name}: {ex.Message}");
             return false;
         }
     }
@@ -477,8 +467,7 @@ public class PokemonExtractor
         }
         catch (Exception ex)
         {
-            if (_verbose)
-                Console.WriteLine($"[PokemonExtractor] Error extracting overworld sprite {name}: {ex.Message}");
+            LogVerbose($"Error extracting overworld sprite {name}: {ex.Message}");
             return false;
         }
     }
@@ -516,7 +505,7 @@ public class PokemonExtractor
             };
 
             var defPath = Path.Combine(outputDataDir, $"{spriteName}.json");
-            File.WriteAllText(defPath, JsonSerializer.Serialize(spriteDefinition, JsonOptions));
+            File.WriteAllText(defPath, JsonSerializer.Serialize(spriteDefinition, JsonOptions.Default));
         }
     }
 

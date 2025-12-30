@@ -3,6 +3,7 @@ using Porycon3.Infrastructure;
 using System.Diagnostics;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using Spectre.Console;
 
 namespace Porycon3.Services;
 
@@ -118,8 +119,11 @@ public class MapConversionService
 
             // Note: Tilesheet is built after all maps are processed via FinalizeSharedTilesets()
 
-            // 5. Write map output (references shared tileset)
-            WriteOutput(mapName, mapData, layers, sharedBuilder.TilesetPair);
+            // 5. Extract collision overrides from map data
+            var collisionOverrides = ExtractCollisionOverrides(mapBin, mapData.Layout.Width, mapData.Layout.Height);
+
+            // 6. Write map output (references shared tileset)
+            WriteOutput(mapName, mapData, layers, sharedBuilder.TilesetPair, collisionOverrides);
 
             sw.Stop();
             return new ConversionResult
@@ -236,7 +240,7 @@ public class MapConversionService
         return PaletteLoader.LoadTilesetPalettes(result.Value.Path);
     }
 
-    private void WriteOutput(string mapName, MapData mapData, List<SharedLayerData> layers, TilesetPairKey tilesetPair)
+    private void WriteOutput(string mapName, MapData mapData, List<SharedLayerData> layers, TilesetPairKey tilesetPair, List<CollisionOverride> collisionOverrides)
     {
         var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "Maps", _region);
         Directory.CreateDirectory(outputDir);
@@ -361,7 +365,15 @@ public class MapConversionService
                 visibilityFlag = string.IsNullOrEmpty(o.Flag) || o.Flag == "0" ? null : IdTransformer.FlagId(o.Flag),
                 facingDirection = ExtractDirection(o.MovementType),
                 elevation = o.Elevation
-            })
+            }),
+            collision = collisionOverrides.Count > 0 ? collisionOverrides.Select(c => new
+            {
+                x = c.X,
+                y = c.Y,
+                width = MetatileSize,
+                height = MetatileSize,
+                elevation = c.Elevation
+            }) : null
         };
 
         var json = System.Text.Json.JsonSerializer.Serialize(output, new System.Text.Json.JsonSerializerOptions
@@ -693,22 +705,100 @@ public class MapConversionService
     /// <summary>
     /// Generate additional definitions (Weather, BattleScenes, Region, Sprites, Pokemon, Species) based on IDs
     /// referenced by converted maps. Call this after all maps have been converted.
+    /// Uses ExtractionOrchestrator for unified live progress display.
     /// </summary>
-    public (int Weather, int BattleScenes, bool Region, int Sections, int Themes, int PopupBackgrounds, int PopupOutlines, int WeatherGraphics, int BattleEnvironments, int Sprites, int TextWindows, int Pokemon, int PokemonSprites, int Species, int SpeciesForms, int FieldEffects, int DoorAnimations, int Behaviors, int Scripts) GenerateDefinitions()
+    public Dictionary<string, Extraction.ExtractionResult> GenerateDefinitions()
     {
-        var (weather, battleScenes, region) = _definitionGenerator.GenerateAll();
-        var (sections, themes) = _sectionExtractor.ExtractAll();
-        var (popupBackgrounds, popupOutlines) = _popupExtractor.ExtractAll();
-        var (weatherGraphics, _) = _weatherExtractor.ExtractAll();
-        var (battleEnvs, _) = _battleEnvExtractor.ExtractAll();
-        var (sprites, _) = _spriteExtractor.ExtractAll();
-        var textWindows = _textWindowExtractor.ExtractAll();
-        var (pokemon, pokemonSprites, _) = _pokemonExtractor.ExtractAll();
-        var (species, speciesForms) = _speciesExtractor.ExtractAll();
-        var fieldEffects = _fieldEffectExtractor.ExtractAll();
-        var doorAnims = _doorAnimExtractor.Extract();
-        var (behaviors, behaviorScripts) = _behaviorExtractor.ExtractAll();
-        var (interactionScripts, triggerScripts, signScripts, totalScripts) = _scriptExtractor.ExtractAll();
-        return (weather, battleScenes, region, sections, themes, popupBackgrounds, popupOutlines, weatherGraphics, battleEnvs, sprites, textWindows, pokemon, pokemonSprites, species, speciesForms, fieldEffects, doorAnims, behaviors, totalScripts);
+        // Run legacy definition generator with status indicator
+        AnsiConsole.Status()
+            .Spinner(Spinner.Known.Dots)
+            .SpinnerStyle(Style.Parse("cyan"))
+            .Start("Generating base definitions...", _ =>
+            {
+                _definitionGenerator.GenerateAll();
+            });
+
+        // Use orchestrator for all extractors with unified live display
+        var orchestrator = new Extraction.ExtractionOrchestrator(_verbose)
+            .Add(_sectionExtractor)
+            .Add(_popupExtractor)
+            .Add(_weatherExtractor)
+            .Add(_battleEnvExtractor)
+            .Add(_spriteExtractor)
+            .Add(_textWindowExtractor)
+            .Add(_pokemonExtractor)
+            .Add(_speciesExtractor)
+            .Add(_fieldEffectExtractor)
+            .Add(_doorAnimExtractor)
+            .Add(_behaviorExtractor)
+            .Add(_scriptExtractor);
+
+        return orchestrator.RunAll();
     }
+
+    /// <summary>
+    /// Get all extractors for external orchestration.
+    /// Use this when you need to run extractors with custom progress reporting.
+    /// </summary>
+    public IEnumerable<Extraction.IExtractor> GetExtractors()
+    {
+        yield return _sectionExtractor;
+        yield return _popupExtractor;
+        yield return _weatherExtractor;
+        yield return _battleEnvExtractor;
+        yield return _spriteExtractor;
+        yield return _textWindowExtractor;
+        yield return _pokemonExtractor;
+        yield return _speciesExtractor;
+        yield return _fieldEffectExtractor;
+        yield return _doorAnimExtractor;
+        yield return _behaviorExtractor;
+        yield return _scriptExtractor;
+    }
+
+    /// <summary>
+    /// Run the definition generator (Weather, BattleScene definitions).
+    /// Call this before running extractors when using external orchestration.
+    /// </summary>
+    public void RunDefinitionGenerator()
+    {
+        _definitionGenerator.GenerateAll();
+    }
+
+    /// <summary>
+    /// Extract collision overrides from map binary data.
+    /// Returns tiles where the collision override bit is set (non-zero = blocked).
+    /// </summary>
+    private static List<CollisionOverride> ExtractCollisionOverrides(ushort[] mapBin, int width, int height)
+    {
+        var overrides = new List<CollisionOverride>();
+
+        for (int i = 0; i < mapBin.Length; i++)
+        {
+            var entry = mapBin[i];
+            var collision = Infrastructure.MapBinReader.GetCollision(entry);
+
+            // Only include tiles with non-zero collision (blocked)
+            if (collision != 0)
+            {
+                var x = i % width;
+                var y = i / width;
+                var elevation = Infrastructure.MapBinReader.GetElevation(entry);
+
+                overrides.Add(new CollisionOverride(
+                    x * MetatileSize,
+                    y * MetatileSize,
+                    elevation
+                ));
+            }
+        }
+
+        return overrides;
+    }
+
+    /// <summary>
+    /// Represents a per-tile collision override from map data.
+    /// These tiles are blocked regardless of metatile behavior.
+    /// </summary>
+    private record CollisionOverride(int X, int Y, int Elevation);
 }

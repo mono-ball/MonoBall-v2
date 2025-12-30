@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using MonoBall.Core.Diagnostics;
 
 namespace MonoBall.Core.ECS;
 
@@ -161,10 +163,20 @@ public static class EventBus
         where T : struct
     {
         var eventType = typeof(T);
+        var hasHooks = EventDispatchHook.HasSubscribers;
 
         // Fast path: check cache for handlers
         if (!_cache.TryGetValue(eventType, out var cache) || cache.IsEmpty)
+        {
+            // Still notify hook even if no handlers (for inspection)
+            if (hasHooks)
+            {
+                EventDispatchHook.Notify(eventType.FullName ?? eventType.Name, 0, 0);
+            }
             return;
+        }
+
+        var startTicks = hasHooks ? System.Diagnostics.Stopwatch.GetTimestamp() : 0;
 
         // Create a copy for non-ref handlers
         var eventCopy = eventData;
@@ -189,6 +201,18 @@ public static class EventBus
             {
                 LogHandlerError(eventType.Name, ex);
             }
+        }
+
+        // Notify dispatch hook if subscribed
+        if (hasHooks)
+        {
+            var elapsedTicks = System.Diagnostics.Stopwatch.GetTimestamp() - startTicks;
+            var elapsedMs = elapsedTicks * 1000.0 / System.Diagnostics.Stopwatch.Frequency;
+            EventDispatchHook.Notify(
+                eventType.FullName ?? eventType.Name,
+                handlers.Length,
+                elapsedMs
+            );
         }
     }
 
@@ -277,6 +301,21 @@ public static class EventBus
     ///     Gets the number of pending main thread queue items.
     /// </summary>
     public static int MainThreadQueueCount => _mainThreadQueue.Count;
+
+    /// <summary>
+    ///     Gets all registered event types and their subscriber counts.
+    ///     Useful for debugging and inspection tools.
+    /// </summary>
+    /// <returns>Dictionary of event type names to subscriber counts.</returns>
+    public static IReadOnlyDictionary<string, int> GetRegisteredEventTypes()
+    {
+        var result = new Dictionary<string, int>();
+        foreach (var kvp in _cache)
+        {
+            result[kvp.Key.FullName ?? kvp.Key.Name] = kvp.Value.Count;
+        }
+        return result;
+    }
 
     private static IDisposable SubscribeInternal<T>(HandlerEntry entry)
         where T : struct

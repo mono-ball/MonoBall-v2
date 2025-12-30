@@ -222,6 +222,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
                     World.Add(sceneEntity, loadingProgressComp);
                 else if (component is MessageBoxSceneComponent messageBoxSceneComp)
                     World.Add(sceneEntity, messageBoxSceneComp);
+                else if (component is DebugMenuSceneComponent debugMenuSceneComp)
+                    World.Add(sceneEntity, debugMenuSceneComp);
 
         // Add other component types as needed in the future
         // Add to scene stack and ID lookup
@@ -340,6 +342,17 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
         _messageBoxSceneSystem =
             messageBoxSceneSystem ?? throw new ArgumentNullException(nameof(messageBoxSceneSystem));
         RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem);
+    }
+
+    /// <summary>
+    ///     Sets the debug menu scene system.
+    ///     Called by SystemManager after creating DebugMenuSceneSystem (which needs ISceneManager).
+    /// </summary>
+    /// <param name="debugMenuSceneSystem">The debug menu scene system.</param>
+    public void SetDebugMenuSceneSystem(ISceneSystem debugMenuSceneSystem)
+    {
+        ArgumentNullException.ThrowIfNull(debugMenuSceneSystem);
+        RegisterSceneSystem(typeof(DebugMenuSceneComponent), debugMenuSceneSystem);
     }
 
     /// <summary>
@@ -549,6 +562,10 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
             )
                 ? system
                 : null;
+        if (World.Has<DebugMenuSceneComponent>(sceneEntity))
+            return _sceneSystemRegistry.TryGetValue(typeof(DebugMenuSceneComponent), out var system)
+                ? system
+                : null;
 
         return null;
     }
@@ -736,8 +753,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
                 _shaderManagerSystem?.UpdateShaderState(sceneEntity);
 
                 // Find appropriate scene system and render
-                var sceneSystem = FindSceneSystem(sceneEntity);
-                sceneSystem?.RenderScene(sceneEntity, gameTime);
+                FindSceneSystem(sceneEntity)?.RenderScene(sceneEntity, gameTime);
 
                 // Check BlocksDraw - if scene blocks draw, stop iterating
                 // Note: We iterate in reverse (lowest to highest priority), so if a scene blocks draw,

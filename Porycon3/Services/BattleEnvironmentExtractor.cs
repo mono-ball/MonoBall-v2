@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Porycon3.Services.Extraction;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
@@ -10,21 +11,15 @@ namespace Porycon3.Services;
 /// Pre-renders composed backgrounds as Bitmaps (like popup backgrounds).
 /// Outputs animation tiles as TileSheet for runtime swapping.
 /// </summary>
-public class BattleEnvironmentExtractor
+public class BattleEnvironmentExtractor : ExtractorBase
 {
     private const int TileSize = 8;
     private const int GbaScreenWidth = 240;
     private const int GbaScreenHeight = 160;
     private const int TilemapWidth = 32; // Standard GBA background width in tiles
 
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
+    public override string Name => "Battle Environments";
+    public override string Description => "Extracts battle environment graphics and animations";
 
     private readonly string _emeraldGraphics;
     private readonly string _outputGraphics;
@@ -75,75 +70,90 @@ public class BattleEnvironmentExtractor
         },
     };
 
-    public BattleEnvironmentExtractor(string inputPath, string outputPath)
+    public BattleEnvironmentExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-
         _emeraldGraphics = Path.Combine(inputPath, "graphics", "battle_environment");
         _outputGraphics = Path.Combine(outputPath, "Graphics", "Battle");
         _outputData = Path.Combine(outputPath, "Definitions", "Assets", "Battle");
     }
 
-    public (int Environments, int Graphics) ExtractAll()
+    protected override int ExecuteExtraction()
     {
         if (!Directory.Exists(_emeraldGraphics))
         {
-            Console.WriteLine($"[BattleEnvironmentExtractor] Battle environment graphics not found: {_emeraldGraphics}");
-            return (0, 0);
+            LogWarning($"Battle environment graphics not found: {_emeraldGraphics}");
+            return 0;
         }
 
-        Directory.CreateDirectory(_outputGraphics);
-        Directory.CreateDirectory(_outputData);
+        EnsureDirectory(_outputGraphics);
+        EnsureDirectory(_outputData);
 
         int envCount = 0;
         int graphicsCount = 0;
 
-        // Extract base environments
+        // Build list of environments to extract (base + variants)
+        var extractionTasks = new List<(string Name, string Dir, EnvironmentSource Source, PaletteVariant? Variant)>();
+
         foreach (var (envName, source) in EnvironmentMapping)
         {
             var envDir = Path.Combine(_emeraldGraphics, source.SourceDir);
             if (!Directory.Exists(envDir))
                 continue;
 
-            var (extracted, count) = ExtractEnvironment(envName, envDir, source);
+            // Add base environment
+            extractionTasks.Add((envName, envDir, source, null));
+
+            // Add palette variants
+            if (PaletteVariants.TryGetValue(envName, out var variants))
+            {
+                foreach (var variant in variants)
+                {
+                    extractionTasks.Add(($"{envName}_{variant.Id}", envDir, source, variant));
+                }
+            }
+        }
+
+        // Extract with progress bar
+        WithProgress("Extracting battle environments", extractionTasks, (task, progressTask) =>
+        {
+            var (name, dir, source, variant) = task;
+            SetTaskDescription(progressTask, $"[cyan]Extracting[/] [yellow]{name}[/]");
+
+            bool extracted;
+            int count;
+
+            if (variant != null)
+            {
+                (extracted, count) = ExtractPaletteVariant(name, dir, source, variant);
+            }
+            else
+            {
+                (extracted, count) = ExtractEnvironment(name, dir, source);
+            }
+
             if (extracted)
             {
                 envCount++;
                 graphicsCount += count;
             }
+        });
 
-            // Extract palette variants if any
-            if (PaletteVariants.TryGetValue(envName, out var variants))
-            {
-                foreach (var variant in variants)
-                {
-                    var variantName = $"{envName}_{variant.Id}";
-                    var (varExtracted, varCount) = ExtractPaletteVariant(variantName, envDir, source, variant);
-                    if (varExtracted)
-                    {
-                        envCount++;
-                        graphicsCount += varCount;
-                    }
-                }
-            }
-        }
-
-        Console.WriteLine($"[BattleEnvironmentExtractor] Extracted {graphicsCount} graphics for {envCount} environments");
-        return (envCount, graphicsCount);
+        SetCount("Graphics", graphicsCount);
+        return envCount;
     }
 
     private (bool Success, int Count) ExtractEnvironment(string envName, string envDir, EnvironmentSource source)
     {
         var pascalName = ToPascalCase(envName);
         var outputDir = Path.Combine(_outputGraphics, pascalName);
-        Directory.CreateDirectory(outputDir);
+        EnsureDirectory(outputDir);
 
         // Load palette
         var palette = LoadBattlePaletteFromDir(envDir);
         if (palette == null)
         {
-            Console.WriteLine($"[BattleEnvironmentExtractor] No palette for {envName}");
+            LogVerbose($"No palette for {envName}");
             return (false, 0);
         }
 
@@ -152,7 +162,7 @@ public class BattleEnvironmentExtractor
         var mapPath = Path.Combine(envDir, "map.bin");
         if (!File.Exists(tilesPath))
         {
-            Console.WriteLine($"[BattleEnvironmentExtractor] No tiles.png for {envName}");
+            LogVerbose($"No tiles.png for {envName}");
             return (false, 0);
         }
 
@@ -226,9 +236,10 @@ public class BattleEnvironmentExtractor
         }
 
         var defPath = Path.Combine(_outputData, $"{pascalName}.json");
-        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions));
+        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
 
         tileSheet.Dispose();
+        LogVerbose($"Extracted environment: {envName}");
         return (true, graphicsCount);
     }
 
@@ -236,7 +247,7 @@ public class BattleEnvironmentExtractor
     {
         var pascalName = ToPascalCase(variantName);
         var outputDir = Path.Combine(_outputGraphics, pascalName);
-        Directory.CreateDirectory(outputDir);
+        EnsureDirectory(outputDir);
 
         // Load variant palette
         var palettePath = Path.Combine(envDir, variant.PaletteFile);
@@ -283,9 +294,10 @@ public class BattleEnvironmentExtractor
         };
 
         var defPath = Path.Combine(_outputData, $"{pascalName}.json");
-        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions));
+        File.WriteAllText(defPath, JsonSerializer.Serialize(definition, JsonOptions.Default));
 
         tileSheet.Dispose();
+        LogVerbose($"Extracted variant: {variant.DisplayName}");
         return (true, 1);
     }
 
@@ -336,7 +348,7 @@ public class BattleEnvironmentExtractor
         }
         catch (Exception e)
         {
-            Console.WriteLine($"[BattleEnvironmentExtractor] Failed to load {tilesPath}: {e.Message}");
+            AddError(tilesPath, $"Failed to load tile sheet: {e.Message}", e);
             return null;
         }
     }
@@ -397,7 +409,7 @@ public class BattleEnvironmentExtractor
         }
         catch (Exception e)
         {
-            Console.WriteLine($"[BattleEnvironmentExtractor] Failed to compose background: {e.Message}");
+            AddError(destPath, $"Failed to compose background: {e.Message}", e);
             return (0, 0);
         }
     }
@@ -484,7 +496,7 @@ public class BattleEnvironmentExtractor
         }
         catch (Exception e)
         {
-            Console.WriteLine($"[BattleEnvironmentExtractor] Failed to render {tilesPath}: {e.Message}");
+            AddError(tilesPath, $"Failed to render tile sheet: {e.Message}", e);
             return (0, 0, 0);
         }
     }

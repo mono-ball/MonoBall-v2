@@ -150,7 +150,9 @@ public static class LoggerFactory
                         );
                     },
                     100000 // Drop logs if buffer is full rather than blocking game thread
-                );
+                )
+                // ImGui log sink for debug panel (always enabled, lightweight when no panel connected)
+                .WriteTo.Sink(new ImGuiLogSink());
 
             _logger = loggerConfiguration.CreateLogger();
             Log.Logger = _logger;

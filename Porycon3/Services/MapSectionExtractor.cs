@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
@@ -7,17 +8,12 @@ namespace Porycon3.Services;
 /// Extracts map section (MAPSEC) definitions and popup theme mappings from pokeemerald.
 /// Matches porycon2's section_extractor.py output format.
 /// </summary>
-public class MapSectionExtractor
+public class MapSectionExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-    private readonly string _region;
+    public override string Name => "Map Sections";
+    public override string Description => "Extracts map section definitions and popup themes";
 
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
+    private readonly string _region;
 
     // Theme ID mapping (from pokeemerald/src/map_name_popup.c)
     private static readonly Dictionary<int, string> ThemeNames = new()
@@ -43,43 +39,68 @@ public class MapSectionExtractor
         ["bw_default"] = ("BW Default", "Black/white default frame - used for special areas")
     };
 
-    public MapSectionExtractor(string inputPath, string outputPath, string region)
+    public MapSectionExtractor(string inputPath, string outputPath, string region, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
         _region = region;
     }
 
-    /// <summary>
-    /// Extract all map sections and popup themes.
-    /// </summary>
-    public (int Sections, int Themes) ExtractAll()
+    protected override int ExecuteExtraction()
     {
         // Extract section definitions from JSON
-        var sections = ExtractSections();
-        if (sections.Count == 0)
-            return (0, 0);
+        Dictionary<string, JsonElement> sections = new();
+        Dictionary<string, string> themeMapping = new();
 
-        // Extract theme mappings from C file
-        var themeMapping = ExtractThemeMapping();
+        WithStatus("Parsing section data...", _ =>
+        {
+            sections = ExtractSections();
+            themeMapping = ExtractThemeMapping();
+        });
+
+        if (sections.Count == 0)
+        {
+            LogWarning("No map sections found in source data");
+            return 0;
+        }
+
+        LogVerbose($"Found {sections.Count} sections, {themeMapping.Count} theme mappings");
 
         // Merge section data with theme mappings
         var completeSections = MergeSectionData(sections, themeMapping);
 
+        int sectionCount = 0;
+        int themeCount = 0;
+
         // Save sections
-        var sectionCount = SaveSections(completeSections);
+        var sectionList = completeSections.OrderBy(x => x.Key).ToList();
+        WithProgress("Extracting map sections", sectionList, (kvp, task) =>
+        {
+            SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{kvp.Value.Name}[/]");
+            SaveSection(kvp.Key, kvp.Value);
+            sectionCount++;
+        });
 
         // Save themes
-        var themeCount = SaveThemes();
+        var themeList = ThemeNames.Values.ToList();
+        WithProgress("Extracting popup themes", themeList, (themeName, task) =>
+        {
+            SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{themeName}[/]");
+            SaveTheme(themeName);
+            themeCount++;
+        });
 
-        return (sectionCount, themeCount);
+        SetCount("Themes", themeCount);
+        return sectionCount;
     }
 
     private Dictionary<string, JsonElement> ExtractSections()
     {
-        var sectionsFile = Path.Combine(_inputPath, "src", "data", "region_map", "region_map_sections.json");
+        var sectionsFile = Path.Combine(InputPath, "src", "data", "region_map", "region_map_sections.json");
         if (!File.Exists(sectionsFile))
+        {
+            LogWarning($"Sections file not found: {sectionsFile}");
             return new Dictionary<string, JsonElement>();
+        }
 
         try
         {
@@ -104,17 +125,21 @@ public class MapSectionExtractor
 
             return sections;
         }
-        catch
+        catch (Exception ex)
         {
+            AddError("sections", $"Failed to parse sections: {ex.Message}", ex);
             return new Dictionary<string, JsonElement>();
         }
     }
 
     private Dictionary<string, string> ExtractThemeMapping()
     {
-        var popupCFile = Path.Combine(_inputPath, "src", "map_name_popup.c");
+        var popupCFile = Path.Combine(InputPath, "src", "map_name_popup.c");
         if (!File.Exists(popupCFile))
+        {
+            LogWarning($"Popup C file not found: {popupCFile}");
             return new Dictionary<string, string>();
+        }
 
         try
         {
@@ -134,8 +159,9 @@ public class MapSectionExtractor
 
             return themeMapping;
         }
-        catch
+        catch (Exception ex)
         {
+            AddError("themes", $"Failed to parse theme mapping: {ex.Message}", ex);
             return new Dictionary<string, string>();
         }
     }
@@ -202,65 +228,53 @@ public class MapSectionExtractor
         return merged;
     }
 
-    private int SaveSections(Dictionary<string, MapSectionData> sections)
+    private void SaveSection(string sectionId, MapSectionData sectionData)
     {
-        var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "MapSections");
-        Directory.CreateDirectory(outputDir);
+        var outputDir = GetEntityPath("MapSections");
+        EnsureDirectory(outputDir);
 
-        int count = 0;
-        foreach (var (sectionId, sectionData) in sections)
+        // Convert MAPSEC_ABANDONED_SHIP to AbandonedShip (PascalCase, no prefix)
+        var baseName = sectionId.Replace("MAPSEC_", "");
+        var filename = ToPascalCase(baseName) + ".json";
+        var filepath = Path.Combine(outputDir, filename);
+
+        var definition = new Dictionary<string, object?>
         {
-            // Convert MAPSEC_ABANDONED_SHIP to AbandonedShip (PascalCase, no prefix)
-            var baseName = sectionId.Replace("MAPSEC_", "");
-            var filename = ToPascalCase(baseName) + ".json";
-            var filepath = Path.Combine(outputDir, filename);
+            ["id"] = sectionData.Id,
+            ["name"] = sectionData.Name,
+            ["theme"] = sectionData.Theme
+        };
 
-            var definition = new Dictionary<string, object?>
-            {
-                ["id"] = sectionData.Id,
-                ["name"] = sectionData.Name,
-                ["theme"] = sectionData.Theme
-            };
+        if (sectionData.X.HasValue) definition["x"] = sectionData.X.Value;
+        if (sectionData.Y.HasValue) definition["y"] = sectionData.Y.Value;
+        if (sectionData.Width.HasValue) definition["width"] = sectionData.Width.Value;
+        if (sectionData.Height.HasValue) definition["height"] = sectionData.Height.Value;
 
-            if (sectionData.X.HasValue) definition["x"] = sectionData.X.Value;
-            if (sectionData.Y.HasValue) definition["y"] = sectionData.Y.Value;
-            if (sectionData.Width.HasValue) definition["width"] = sectionData.Width.Value;
-            if (sectionData.Height.HasValue) definition["height"] = sectionData.Height.Value;
-
-            File.WriteAllText(filepath, JsonSerializer.Serialize(definition, JsonOptions));
-            count++;
-        }
-
-        return count;
+        File.WriteAllText(filepath, JsonSerializer.Serialize(definition, JsonOptions.Default));
+        LogVerbose($"Saved section: {sectionData.Name}");
     }
 
-    private int SaveThemes()
+    private void SaveTheme(string themeName)
     {
-        var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "PopupThemes");
-        Directory.CreateDirectory(outputDir);
+        var outputDir = GetEntityPath("PopupThemes");
+        EnsureDirectory(outputDir);
 
-        int count = 0;
-        foreach (var themeName in ThemeNames.Values)
+        var (displayName, description) = ThemeInfo.GetValueOrDefault(themeName, (themeName.Replace("_", " ").ToUpperInvariant(), ""));
+
+        var definition = new
         {
-            var (displayName, description) = ThemeInfo.GetValueOrDefault(themeName, (themeName.Replace("_", " ").ToUpperInvariant(), ""));
+            id = $"{IdTransformer.Namespace}:theme:popup/{themeName}",
+            name = displayName,
+            description,
+            background = $"{IdTransformer.Namespace}:popup:background/{themeName}",
+            outline = $"{IdTransformer.Namespace}:popup:outline/{themeName}"
+        };
 
-            var definition = new
-            {
-                id = $"{IdTransformer.Namespace}:theme:popup/{themeName}",
-                name = displayName,
-                description,
-                background = $"{IdTransformer.Namespace}:popup:background/{themeName}",
-                outline = $"{IdTransformer.Namespace}:popup:outline/{themeName}"
-            };
-
-            // Use PascalCase filename (e.g., "Wood.json", "BwDefault.json")
-            var filename = ToPascalCase(themeName.ToUpperInvariant()) + ".json";
-            var filepath = Path.Combine(outputDir, filename);
-            File.WriteAllText(filepath, JsonSerializer.Serialize(definition, JsonOptions));
-            count++;
-        }
-
-        return count;
+        // Use PascalCase filename (e.g., "Wood.json", "BwDefault.json")
+        var filename = ToPascalCase(themeName.ToUpperInvariant()) + ".json";
+        var filepath = Path.Combine(outputDir, filename);
+        File.WriteAllText(filepath, JsonSerializer.Serialize(definition, JsonOptions.Default));
+        LogVerbose($"Saved theme: {displayName}");
     }
 
     private static string FormatDisplayName(string name)

@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Porycon3.Services.Extraction;
 
 namespace Porycon3.Services;
 
@@ -7,18 +8,10 @@ namespace Porycon3.Services;
 /// Extracts script definitions from pokeemerald-expansion.
 /// Scans map event scripts and creates definition files for interactions, triggers, and other scripts.
 /// </summary>
-public class ScriptExtractor
+public class ScriptExtractor : ExtractorBase
 {
-    private readonly string _inputPath;
-    private readonly string _outputPath;
-    private readonly bool _verbose;
-
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    };
+    public override string Name => "Script Definitions";
+    public override string Description => "Extracts script references from map event data";
 
     // Categories of scripts we extract
     private readonly HashSet<string> _interactionScripts = new();
@@ -29,72 +22,88 @@ public class ScriptExtractor
     private readonly HashSet<string> _weatherScripts = new();
 
     public ScriptExtractor(string inputPath, string outputPath, bool verbose = false)
+        : base(inputPath, outputPath, verbose)
     {
-        _inputPath = inputPath;
-        _outputPath = outputPath;
-        _verbose = verbose;
     }
 
-    public (int Interactions, int Triggers, int Signs, int Total) ExtractAll()
+    protected override int ExecuteExtraction()
     {
         // Scan all map scripts to find script references
-        ScanMapScripts();
+        WithStatus("Scanning map scripts...", _ => ScanMapScripts());
 
         // Create output directories
-        var interactionsPath = Path.Combine(_outputPath, "Definitions", "Scripts", "Interactions");
-        var triggersPath = Path.Combine(_outputPath, "Definitions", "Scripts", "Triggers");
-        var signsPath = Path.Combine(_outputPath, "Definitions", "Scripts", "Signs");
+        var interactionsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions");
+        var triggersPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Triggers");
+        var signsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Signs");
 
-        Directory.CreateDirectory(interactionsPath);
-        Directory.CreateDirectory(triggersPath);
-        Directory.CreateDirectory(signsPath);
+        EnsureDirectory(interactionsPath);
+        EnsureDirectory(triggersPath);
+        EnsureDirectory(signsPath);
 
         int interactionCount = 0;
         int triggerCount = 0;
         int signCount = 0;
 
         // Generate interaction script definitions
-        foreach (var scriptName in _interactionScripts)
+        var interactionList = _interactionScripts.OrderBy(s => s).ToList();
+        if (interactionList.Count > 0)
         {
-            var def = CreateScriptDefinition(scriptName, "interaction", "Interactions");
-            var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
-            File.WriteAllText(Path.Combine(interactionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions));
-            interactionCount++;
+            WithProgress("Extracting interaction scripts", interactionList, (scriptName, task) =>
+            {
+                SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{scriptName}[/]");
+
+                var def = CreateScriptDefinition(scriptName, "interaction", "Interactions");
+                var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
+                File.WriteAllText(Path.Combine(interactionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+                interactionCount++;
+            });
         }
 
         // Generate trigger script definitions
-        foreach (var scriptName in _triggerScripts)
+        var triggerList = _triggerScripts.OrderBy(s => s).ToList();
+        if (triggerList.Count > 0)
         {
-            var def = CreateScriptDefinition(scriptName, "trigger", "Triggers");
-            var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
-            File.WriteAllText(Path.Combine(triggersPath, fileName), JsonSerializer.Serialize(def, JsonOptions));
-            triggerCount++;
+            WithProgress("Extracting trigger scripts", triggerList, (scriptName, task) =>
+            {
+                SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{scriptName}[/]");
+
+                var def = CreateScriptDefinition(scriptName, "trigger", "Triggers");
+                var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
+                File.WriteAllText(Path.Combine(triggersPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+                triggerCount++;
+            });
         }
 
         // Generate sign script definitions
-        foreach (var scriptName in _signScripts)
+        var signList = _signScripts.OrderBy(s => s).ToList();
+        if (signList.Count > 0)
         {
-            var def = CreateScriptDefinition(scriptName, "sign", "Signs");
-            var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
-            File.WriteAllText(Path.Combine(signsPath, fileName), JsonSerializer.Serialize(def, JsonOptions));
-            signCount++;
+            WithProgress("Extracting sign scripts", signList, (scriptName, task) =>
+            {
+                SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{scriptName}[/]");
+
+                var def = CreateScriptDefinition(scriptName, "sign", "Signs");
+                var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
+                File.WriteAllText(Path.Combine(signsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+                signCount++;
+            });
         }
 
-        if (_verbose)
-        {
-            Console.WriteLine($"  Extracted {interactionCount} interaction scripts");
-            Console.WriteLine($"  Extracted {triggerCount} trigger scripts");
-            Console.WriteLine($"  Extracted {signCount} sign scripts");
-        }
+        SetCount("Interactions", interactionCount);
+        SetCount("Triggers", triggerCount);
+        SetCount("Signs", signCount);
 
-        return (interactionCount, triggerCount, signCount, interactionCount + triggerCount + signCount);
+        return interactionCount + triggerCount + signCount;
     }
 
     private void ScanMapScripts()
     {
-        var mapsPath = Path.Combine(_inputPath, "data", "maps");
+        var mapsPath = Path.Combine(InputPath, "data", "maps");
         if (!Directory.Exists(mapsPath))
+        {
+            LogWarning($"Maps path not found: {mapsPath}");
             return;
+        }
 
         foreach (var mapDir in Directory.GetDirectories(mapsPath))
         {
@@ -113,7 +122,7 @@ public class ScriptExtractor
         }
 
         // Scan common scripts
-        var commonScriptsPath = Path.Combine(_inputPath, "data", "scripts");
+        var commonScriptsPath = Path.Combine(InputPath, "data", "scripts");
         if (Directory.Exists(commonScriptsPath))
         {
             foreach (var file in Directory.GetFiles(commonScriptsPath, "*.inc", SearchOption.AllDirectories))
@@ -121,6 +130,8 @@ public class ScriptExtractor
                 ScanScriptFile(file);
             }
         }
+
+        LogVerbose($"Found {_interactionScripts.Count} interactions, {_triggerScripts.Count} triggers, {_signScripts.Count} signs");
     }
 
     private void ScanScriptFile(string filePath)
