@@ -118,6 +118,9 @@ public class ConvertCommandExecutor
         // Run extractors
         RunExtractors(converter);
 
+        // Generate manifest
+        GenerateManifest();
+
         AnsiConsole.WriteLine();
         AnsiConsole.MarkupLine("[green]Conversion complete![/]");
         return 0;
@@ -130,62 +133,80 @@ public class ConvertCommandExecutor
     {
         var results = new List<ConversionResult>();
 
-        // Phase 0: Scan for maps
-        AnsiConsole.Markup("[cyan]Scanning maps...[/] ");
-        _progress.SetPhase(ConversionPhase.ScanningMaps);
+        // Skip map conversion if --assets-only
+        if (!_settings.AssetsOnly)
+        {
+            // Phase 0: Scan for maps
+            AnsiConsole.Markup("[cyan]Scanning maps...[/] ");
+            _progress.SetPhase(ConversionPhase.ScanningMaps);
 
-        var maps = converter.ScanMaps();
-        _progress.SetMapTotal(maps.Count);
-        AnsiConsole.MarkupLine($"[green]found {maps.Count} maps[/]");
+            var maps = converter.ScanMaps();
+            _progress.SetMapTotal(maps.Count);
+            AnsiConsole.MarkupLine($"[green]found {maps.Count} maps[/]");
 
-        if (_cts.IsCancellationRequested) return 1;
+            if (_cts.IsCancellationRequested) return 1;
 
-        // Phase 1: Convert maps (parallel)
-        _progress.SetPhase(ConversionPhase.ConvertingMaps);
-        AnsiConsole.Progress()
-            .AutoClear(false)
-            .AutoRefresh(true)
-            .HideCompleted(false)
-            .Columns(
-                new TaskDescriptionColumn(),
-                new ProgressBarColumn(),
-                new PercentageColumn(),
-                new RemainingTimeColumn(),
-                new SpinnerColumn())
-            .Start(ctx =>
-            {
-                var convertTask = ctx.AddTask("[blue]Converting maps[/]", maxValue: maps.Count);
-                ConvertMapsParallel(converter, maps, results, convertTask);
-            });
+            // Phase 1: Convert maps (parallel)
+            _progress.SetPhase(ConversionPhase.ConvertingMaps);
+            AnsiConsole.Progress()
+                .AutoClear(false)
+                .AutoRefresh(true)
+                .HideCompleted(false)
+                .Columns(
+                    new TaskDescriptionColumn(),
+                    new ProgressBarColumn(),
+                    new PercentageColumn(),
+                    new RemainingTimeColumn(),
+                    new SpinnerColumn())
+                .Start(ctx =>
+                {
+                    var convertTask = ctx.AddTask("[blue]Converting maps[/]", maxValue: maps.Count);
+                    ConvertMapsParallel(converter, maps, results, convertTask);
+                });
 
-        if (_cts.IsCancellationRequested) return 1;
+            if (_cts.IsCancellationRequested) return 1;
 
-        // Phase 2: Finalize tilesets
-        AnsiConsole.Markup("[magenta]Finalizing tilesets...[/] ");
-        _progress.SetPhase(ConversionPhase.FinalizingTilesets);
+            // Phase 2: Finalize tilesets
+            AnsiConsole.Markup("[magenta]Finalizing tilesets...[/] ");
+            _progress.SetPhase(ConversionPhase.FinalizingTilesets);
 
-        var tilesetCount = converter.FinalizeSharedTilesets();
-        _progress.SetTilesetTotal(tilesetCount);
-        _progress.SetTilesetCompleted(tilesetCount);
-        AnsiConsole.MarkupLine($"[green]{tilesetCount} shared tilesets[/]");
+            var tilesetCount = converter.FinalizeSharedTilesets();
+            _progress.SetTilesetTotal(tilesetCount);
+            _progress.SetTilesetCompleted(tilesetCount);
+            AnsiConsole.MarkupLine($"[green]{tilesetCount} shared tilesets[/]");
 
-        if (_cts.IsCancellationRequested) return 1;
+            if (_cts.IsCancellationRequested) return 1;
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[dim]Skipping map conversion (--assets-only)[/]");
+        }
 
-        // Phase 3: Extract assets (sequential)
-        _progress.SetPhase(ConversionPhase.ExtractingAssets);
-        AnsiConsole.MarkupLine("[yellow]Extracting assets...[/]");
+        // Phase 3: Extract assets
+        if (!_settings.MapsOnly)
+        {
+            _progress.SetPhase(ConversionPhase.ExtractingAssets);
+            AnsiConsole.MarkupLine("[yellow]Extracting assets...[/]");
 
-        AnsiConsole.Progress()
-            .AutoClear(false)
-            .AutoRefresh(true)
-            .HideCompleted(false)
-            .Columns(
-                new TaskDescriptionColumn(),
-                new ProgressBarColumn(),
-                new PercentageColumn(),
-                new RemainingTimeColumn(),
-                new SpinnerColumn())
-            .Start(ctx => RunExtractorsWithProgress(converter, ctx));
+            AnsiConsole.Progress()
+                .AutoClear(false)
+                .AutoRefresh(true)
+                .HideCompleted(false)
+                .Columns(
+                    new TaskDescriptionColumn(),
+                    new ProgressBarColumn(),
+                    new PercentageColumn(),
+                    new RemainingTimeColumn(),
+                    new SpinnerColumn())
+                .Start(ctx => RunExtractorsWithProgress(converter, ctx));
+        }
+        else
+        {
+            AnsiConsole.MarkupLine("[dim]Skipping asset extraction (--maps-only)[/]");
+        }
+
+        // Phase 4: Generate manifest
+        GenerateManifest();
 
         // Complete
         _progress.SetPhase(ConversionPhase.Complete);
@@ -259,7 +280,12 @@ public class ConvertCommandExecutor
         converter.RunDefinitionGenerator();
         defTask.Increment(1);
 
-        var extractors = converter.GetExtractors().ToList();
+        var extractors = FilterExtractors(converter.GetExtractors()).ToList();
+
+        if (extractors.Count == 0)
+        {
+            return;
+        }
 
         // Create a progress task for each extractor
         var tasks = extractors.Select(e =>
@@ -329,6 +355,84 @@ public class ConvertCommandExecutor
             .Start(ctx => RunExtractorsWithProgress(converter, ctx));
 
         _progress.SetPhase(ConversionPhase.Complete);
+    }
+
+    /// <summary>
+    /// Filter extractors based on command-line options.
+    /// </summary>
+    private IEnumerable<Porycon3.Services.Extraction.IExtractor> FilterExtractors(
+        IEnumerable<Porycon3.Services.Extraction.IExtractor> extractors)
+    {
+        var skipped = _settings.GetSkippedExtractors();
+        var only = _settings.GetOnlyExtractors();
+
+        // If --maps-only, skip all extractors
+        if (skipped.Contains("*"))
+        {
+            yield break;
+        }
+
+        foreach (var extractor in extractors)
+        {
+            var name = extractor.Name.ToLowerInvariant();
+
+            // If --only is specified, check if extractor is in the list
+            if (only != null && !only.Contains(name))
+            {
+                continue;
+            }
+
+            // Check if extractor is in the skip list
+            if (skipped.Contains(name))
+            {
+                continue;
+            }
+
+            // Handle aliases (e.g., "sprites" matches "Sprites" extractor)
+            var shouldSkip = name switch
+            {
+                "sprites" => skipped.Contains("sprites"),
+                "pokemon" => skipped.Contains("pokemon"),
+                "species" => skipped.Contains("pokemon") || skipped.Contains("species"),
+                "sound" => skipped.Contains("sound") || skipped.Contains("audio"),
+                _ => false
+            };
+
+            if (!shouldSkip)
+            {
+                yield return extractor;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Generate mod.json manifest.
+    /// </summary>
+    private void GenerateManifest()
+    {
+        if (_settings.NoManifest)
+            return;
+
+        AnsiConsole.Markup("[cyan]Generating manifest...[/] ");
+
+        try
+        {
+            var generator = new ManifestGenerator(
+                _settings.OutputPath,
+                _settings.Namespace,
+                _settings.Region);
+
+            generator.Generate(
+                _settings.ModName,
+                _settings.ModAuthor,
+                _settings.ModVersion);
+
+            AnsiConsole.MarkupLine("[green]mod.json[/]");
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"[red]failed: {Markup.Escape(ex.Message)}[/]");
+        }
     }
 
     /// <summary>

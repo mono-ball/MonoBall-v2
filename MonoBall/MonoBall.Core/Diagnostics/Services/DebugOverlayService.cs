@@ -8,9 +8,11 @@ using ImGui;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS;
 using MonoBall.Core.Logging;
+using MonoBall.Core.Mods;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Systems;
 using Panels;
+using Serilog;
 using Systems;
 
 /// <summary>
@@ -32,6 +34,7 @@ public sealed class DebugOverlayService : IDebugOverlayService
     private PerformanceStatsAdapter? _performanceStats;
     private TimeControlService? _timeControl;
     private SceneSystem? _sceneSystem;
+    private IModManager? _modManager;
     private bool _initialized;
     private bool _disposed;
 
@@ -82,12 +85,14 @@ public sealed class DebugOverlayService : IDebugOverlayService
     /// <param name="game">The MonoGame Game instance.</param>
     /// <param name="resourceManager">Optional resource manager for loading fonts from the mod system.</param>
     /// <param name="sceneSystem">Optional scene system for time control commands.</param>
+    /// <param name="modManager">Optional mod manager for the mod browser panel.</param>
     /// <exception cref="ArgumentNullException">Thrown when game is null.</exception>
     /// <exception cref="InvalidOperationException">Thrown when already initialized.</exception>
     public void Initialize(
         Game game,
         IResourceManager? resourceManager = null,
-        SceneSystem? sceneSystem = null
+        SceneSystem? sceneSystem = null,
+        IModManager? modManager = null
     )
     {
         if (game == null)
@@ -97,6 +102,7 @@ public sealed class DebugOverlayService : IDebugOverlayService
             throw new InvalidOperationException("Debug overlay is already initialized.");
 
         _sceneSystem = sceneSystem;
+        _modManager = modManager;
 
         _renderer = new MonoGameImGuiRenderer();
         _renderer.Initialize(game, resourceManager);
@@ -257,6 +263,13 @@ public sealed class DebugOverlayService : IDebugOverlayService
             TimeControl = _timeControl,
         };
         _panelRegistry.Register(new ConsolePanel(_consoleService));
+
+        // Register the mod browser panel if mod manager is available
+        if (_modManager != null)
+        {
+            _panelRegistry.Register(new ModBrowserPanel(_modManager));
+            _panelRegistry.Register(new DefinitionBrowserPanel(_modManager));
+        }
     }
 
     private void ThrowIfNotInitialized()

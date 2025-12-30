@@ -49,7 +49,8 @@ public sealed class DebugPanelRenderSystem : DebugSystemBase
     {
         ThrowIfDisposed();
 
-        if (!_lifecycleSystem.IsVisible)
+        // Must be visible AND have an active ImGui frame before calling any ImGui functions
+        if (!_lifecycleSystem.IsVisible || !_lifecycleSystem.IsFrameActive)
             return;
 
         _registry.Update(deltaTime);

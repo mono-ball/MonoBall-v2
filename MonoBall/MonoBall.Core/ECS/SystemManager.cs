@@ -1082,7 +1082,7 @@ public class SystemManager : IDisposable
 
         // Create ImGui debug overlay service and scene system
         _debugOverlayService = new DebugOverlayService(_world);
-        _debugOverlayService.Initialize(_game, _resourceManager, _sceneSystem);
+        _debugOverlayService.Initialize(_game, _resourceManager, _sceneSystem, _modManager);
 
         var debugMenuSceneSystem = new DebugMenuSceneSystem(
             _world,

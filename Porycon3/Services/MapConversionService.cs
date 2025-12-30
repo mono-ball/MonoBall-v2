@@ -2,6 +2,7 @@ using Porycon3.Models;
 using Porycon3.Infrastructure;
 using Porycon3.Services.Builders;
 using Porycon3.Services.Interfaces;
+using Porycon3.Services.Sound;
 using System.Diagnostics;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -33,6 +34,7 @@ public class MapConversionService : IMapConversionService
     private readonly DoorAnimationExtractor _doorAnimExtractor;
     private readonly BehaviorExtractor _behaviorExtractor;
     private readonly ScriptExtractor _scriptExtractor;
+    private readonly SoundExtractor _soundExtractor;
 
     // Builders for output generation
     private readonly MapOutputBuilder _outputBuilder;
@@ -68,6 +70,7 @@ public class MapConversionService : IMapConversionService
         _doorAnimExtractor = new DoorAnimationExtractor(inputPath, outputPath);
         _behaviorExtractor = new BehaviorExtractor(inputPath, outputPath, verbose);
         _scriptExtractor = new ScriptExtractor(inputPath, outputPath, verbose);
+        _soundExtractor = new SoundExtractor(inputPath, outputPath, verbose);
         _outputBuilder = new MapOutputBuilder(region);
         _tilesheetBuilder = new TilesheetOutputBuilder(outputPath);
         _tilesetRegistry = new SharedTilesetRegistry(inputPath);
@@ -353,6 +356,7 @@ public class MapConversionService : IMapConversionService
         yield return _doorAnimExtractor;
         yield return _behaviorExtractor;
         yield return _scriptExtractor;
+        yield return _soundExtractor;
     }
 
     /// <summary>

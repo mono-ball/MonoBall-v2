@@ -4,6 +4,7 @@ using System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.Diagnostics.Console.Services;
 using MonoBall.Core.Diagnostics.Panels;
+using MonoBall.Core.Mods;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Systems;
 
@@ -50,10 +51,12 @@ public interface IDebugOverlayService : IDisposable
     /// <param name="game">The MonoGame Game instance.</param>
     /// <param name="resourceManager">Optional resource manager for loading fonts from the mod system.</param>
     /// <param name="sceneSystem">Optional scene system for time control commands.</param>
+    /// <param name="modManager">Optional mod manager for the mod browser panel.</param>
     void Initialize(
         Game game,
         IResourceManager? resourceManager = null,
-        SceneSystem? sceneSystem = null
+        SceneSystem? sceneSystem = null,
+        IModManager? modManager = null
     );
 
     /// <summary>

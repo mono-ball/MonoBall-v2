@@ -24,20 +24,28 @@ public sealed class ImGuiLifecycleSystem : DebugSystemBase
     public bool IsVisible => _isVisible;
 
     /// <summary>
+    /// Gets whether an ImGui frame is currently active.
+    /// True between BeginFrame() and EndFrame() calls.
+    /// </summary>
+    public bool IsFrameActive => _frameStarted;
+
+    /// <summary>
     /// Gets whether ImGui wants to capture keyboard input.
     /// </summary>
     public bool WantsCaptureKeyboard =>
-        _isVisible && Hexa.NET.ImGui.ImGui.GetIO().WantCaptureKeyboard;
+        _isVisible && _frameStarted && Hexa.NET.ImGui.ImGui.GetIO().WantCaptureKeyboard;
 
     /// <summary>
     /// Gets whether ImGui wants to capture mouse input.
     /// </summary>
-    public bool WantsCaptureMouse => _isVisible && Hexa.NET.ImGui.ImGui.GetIO().WantCaptureMouse;
+    public bool WantsCaptureMouse =>
+        _isVisible && _frameStarted && Hexa.NET.ImGui.ImGui.GetIO().WantCaptureMouse;
 
     /// <summary>
     /// Gets whether ImGui wants to capture text input.
     /// </summary>
-    public bool WantsCaptureTextInput => _isVisible && Hexa.NET.ImGui.ImGui.GetIO().WantTextInput;
+    public bool WantsCaptureTextInput =>
+        _isVisible && _frameStarted && Hexa.NET.ImGui.ImGui.GetIO().WantTextInput;
 
     /// <summary>
     /// Initializes the ImGui lifecycle system.
@@ -108,6 +116,14 @@ public sealed class ImGuiLifecycleSystem : DebugSystemBase
     /// <inheritdoc />
     protected override void DisposeManagedResources()
     {
+        // End any active ImGui frame before disposal to prevent DestroyContext crash.
+        // This is required cleanup, not defensive code - ImGui cannot destroy context mid-frame.
+        if (_frameStarted)
+        {
+            _renderer.EndFrame();
+            _frameStarted = false;
+        }
+
         _toggleSubscription?.Dispose();
         _toggleSubscription = null;
         base.DisposeManagedResources();
