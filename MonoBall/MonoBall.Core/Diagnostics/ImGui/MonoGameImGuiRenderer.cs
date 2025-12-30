@@ -52,6 +52,10 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     private readonly List<int> _keys = new();
     private bool _disposed;
 
+    // Store the ImGui context to prevent garbage collection
+    private ImGuiContextPtr _context;
+    private bool _contextCreated;
+
     // Store pinned glyph ranges to keep them alive for ImGui
     private GCHandle _glyphRangesHandle;
     private bool _glyphRangesPinned;
@@ -72,8 +76,9 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         _graphicsDevice = game.GraphicsDevice;
         _resourceManager = resourceManager;
 
-        var context = ImGui.CreateContext();
-        ImGui.SetCurrentContext(context);
+        _context = ImGui.CreateContext();
+        _contextCreated = true;
+        ImGui.SetCurrentContext(_context);
 
         var io = ImGui.GetIO();
         io.ConfigFlags |= ImGuiConfigFlags.NavEnableKeyboard;
@@ -216,6 +221,15 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     {
         ThrowIfNotInitialized();
 
+        // Ensure context was created (it should be, but verify for safety)
+        if (!_contextCreated)
+            throw new InvalidOperationException(
+                "ImGui context is not created. Ensure Initialize() was called."
+            );
+
+        // Set the context as current (ensures it's valid for this frame)
+        ImGui.SetCurrentContext(_context);
+
         var io = ImGui.GetIO();
 
         io.DisplaySize = new System.Numerics.Vector2(
@@ -328,7 +342,12 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
             _glyphRangesPinned = false;
         }
 
-        ImGui.DestroyContext();
+        // Destroy the ImGui context if it was created
+        if (_contextCreated)
+        {
+            ImGui.DestroyContext(_context);
+            _contextCreated = false;
+        }
 
         _disposed = true;
     }
