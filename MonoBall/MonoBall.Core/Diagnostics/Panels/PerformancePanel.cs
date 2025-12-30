@@ -35,7 +35,7 @@ public sealed class PerformancePanel : IDebugPanel, IDebugPanelLifecycle
     public string DisplayName => "Performance";
 
     /// <inheritdoc />
-    public bool IsVisible { get; set; } = true;
+    public bool IsVisible { get; set; }
 
     /// <inheritdoc />
     public string Category => "Diagnostics";
@@ -82,12 +82,7 @@ public sealed class PerformancePanel : IDebugPanel, IDebugPanelLifecycle
     private void DrawToolbar()
     {
         // FPS color indicator
-        var fpsColor = _fps switch
-        {
-            >= 60 => DebugColors.Success,
-            >= 30 => DebugColors.Warning,
-            _ => DebugColors.Error,
-        };
+        var fpsColor = DebugPanelHelpers.GetFpsColor(_fps);
         ImGui.TextColored(fpsColor, $"{_fps:F0} FPS");
 
         ImGui.SameLine();
@@ -145,13 +140,7 @@ public sealed class PerformancePanel : IDebugPanel, IDebugPanelLifecycle
         ImGui.Text("Frame Rate");
         ImGui.Indent();
 
-        var fpsColor = _fps switch
-        {
-            >= 60 => DebugColors.Success,
-            >= 30 => DebugColors.Warning,
-            _ => DebugColors.Error,
-        };
-
+        var fpsColor = DebugPanelHelpers.GetFpsColor(_fps);
         ImGui.TextColored(fpsColor, $"{_fps:F1} FPS");
         ImGui.SameLine();
         ImGui.Text("Target:");

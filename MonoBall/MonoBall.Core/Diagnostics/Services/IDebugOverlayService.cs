@@ -2,7 +2,10 @@ namespace MonoBall.Core.Diagnostics.Services;
 
 using System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.Diagnostics.Console.Services;
 using MonoBall.Core.Diagnostics.Panels;
+using MonoBall.Core.Resources;
+using MonoBall.Core.Scenes.Systems;
 
 /// <summary>
 /// Interface for the debug overlay service.
@@ -36,11 +39,22 @@ public interface IDebugOverlayService : IDisposable
     IDebugPanelRegistry? PanelRegistry { get; }
 
     /// <summary>
+    /// Gets the time control service for pausing/resuming the game.
+    /// </summary>
+    ITimeControl? TimeControl { get; }
+
+    /// <summary>
     /// Initializes the debug overlay system.
     /// Call this after the game has been initialized.
     /// </summary>
     /// <param name="game">The MonoGame Game instance.</param>
-    void Initialize(Game game);
+    /// <param name="resourceManager">Optional resource manager for loading fonts from the mod system.</param>
+    /// <param name="sceneSystem">Optional scene system for time control commands.</param>
+    void Initialize(
+        Game game,
+        IResourceManager? resourceManager = null,
+        SceneSystem? sceneSystem = null
+    );
 
     /// <summary>
     /// Registers a debug panel.

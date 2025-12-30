@@ -52,10 +52,7 @@ public sealed class DebugPanelRenderSystem : DebugSystemBase
         if (!_lifecycleSystem.IsVisible)
             return;
 
-        if (_registry is DebugPanelRegistry concreteRegistry)
-        {
-            concreteRegistry.Update(deltaTime);
-        }
+        _registry.Update(deltaTime);
 
         if (_showMainMenuBar)
         {

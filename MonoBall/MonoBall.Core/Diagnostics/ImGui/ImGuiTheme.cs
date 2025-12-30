@@ -186,10 +186,20 @@ public static class ImGuiTheme
             W = 0.35f,
         };
         colors[(int)ImGuiCol.DragDropTarget] = PikachuYellow with { W = 0.90f };
-        colors[(int)ImGuiCol.NavHighlight] = PikachuYellow;
+        // NavHighlight doesn't render properly for InputText - disabled
+        colors[(int)ImGuiCol.NavHighlight] = new Vector4(0, 0, 0, 0);
         colors[(int)ImGuiCol.NavWindowingHighlight] = new Vector4(1.00f, 1.00f, 1.00f, 0.70f);
         colors[(int)ImGuiCol.NavWindowingDimBg] = new Vector4(0.80f, 0.80f, 0.80f, 0.20f);
         colors[(int)ImGuiCol.ModalWindowDimBg] = new Vector4(0.00f, 0.00f, 0.00f, 0.50f);
+
+        // Docking colors (since docking is enabled)
+        colors[(int)ImGuiCol.DockingPreview] = new Vector4(
+            PokeballRed.X * 0.7f,
+            PokeballRed.Y * 0.7f,
+            PokeballRed.Z * 0.7f,
+            0.70f
+        );
+        colors[(int)ImGuiCol.DockingEmptyBg] = DebugColors.BackgroundSecondary;
     }
 
     /// <summary>

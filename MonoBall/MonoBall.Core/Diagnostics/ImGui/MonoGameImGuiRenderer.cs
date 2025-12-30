@@ -1,12 +1,14 @@
 namespace MonoBall.Core.Diagnostics.ImGui;
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Hexa.NET.ImGui;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoBall.Core.Resources;
 using Serilog;
 
 /// <summary>
@@ -18,14 +20,26 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     // ImDrawVert: pos (Vector2, 8 bytes) + uv (Vector2, 8 bytes) + col (uint, 4 bytes) = 20 bytes
     private const int ImDrawVertSize = 20;
 
+    /// <summary>
+    /// Resource ID for the debug font in the mod system.
+    /// </summary>
+    private const string DebugFontResourceId = "base:font:debug/mono";
+
+    /// <summary>
+    /// Default font size for ImGui.
+    /// </summary>
+    private const float DefaultFontSize = 14.0f;
+
     private Game? _game;
     private GraphicsDevice? _graphicsDevice;
+    private IResourceManager? _resourceManager;
     private BasicEffect? _effect;
     private RasterizerState? _rasterizerState;
 
     private Texture2D? _fontTexture;
-    private readonly Dictionary<IntPtr, Texture2D> _boundTextures = new();
+    private readonly ConcurrentDictionary<IntPtr, Texture2D> _boundTextures = new();
     private int _textureIdCounter = 1;
+    private readonly object _textureIdLock = new();
 
     private byte[]? _vertexData;
     private byte[]? _indexData;
@@ -38,11 +52,15 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     private readonly List<int> _keys = new();
     private bool _disposed;
 
+    // Store pinned glyph ranges to keep them alive for ImGui
+    private GCHandle _glyphRangesHandle;
+    private bool _glyphRangesPinned;
+
     /// <inheritdoc />
     public bool IsInitialized => _game != null && _graphicsDevice != null;
 
     /// <inheritdoc />
-    public void Initialize(Game game)
+    public void Initialize(Game game, IResourceManager? resourceManager = null)
     {
         if (game == null)
             throw new ArgumentNullException(nameof(game));
@@ -52,6 +70,7 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
 
         _game = game;
         _graphicsDevice = game.GraphicsDevice;
+        _resourceManager = resourceManager;
 
         var context = ImGui.CreateContext();
         ImGui.SetCurrentContext(context);
@@ -62,9 +81,134 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         io.BackendFlags |= ImGuiBackendFlags.HasMouseCursors;
 
         SetupInput(io);
+        LoadFonts(io);
         CreateDeviceResources();
 
         ImGuiTheme.ApplyDefaultTheme();
+    }
+
+    // Store pinned font data to keep it alive for ImGui
+    private GCHandle _fontDataHandle;
+    private bool _fontDataPinned;
+
+    /// <summary>
+    /// Loads fonts into ImGui, including the Nerd Font from the resource manager.
+    /// </summary>
+    private unsafe void LoadFonts(ImGuiIOPtr io)
+    {
+        if (_resourceManager == null)
+        {
+            throw new InvalidOperationException(
+                "ResourceManager is null - cannot load debug font. "
+                    + "Ensure ResourceManager is passed to DebugOverlayService.Initialize()."
+            );
+        }
+
+        // Load the debug font from the mod system
+        byte[] fontData;
+        try
+        {
+            fontData = _resourceManager.LoadFontData(DebugFontResourceId);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(
+                $"Failed to load font data for '{DebugFontResourceId}': {ex.Message}",
+                ex
+            );
+        }
+
+        if (fontData == null || fontData.Length == 0)
+        {
+            throw new InvalidOperationException(
+                $"Font data was null or empty for '{DebugFontResourceId}'. "
+                    + "Ensure the font definition exists and fontPath is correct."
+            );
+        }
+
+        // Pin the font data in memory for ImGui - keep it alive!
+        _fontDataHandle = GCHandle.Alloc(fontData, GCHandleType.Pinned);
+        _fontDataPinned = true;
+
+        // Create font config with proper defaults
+        // Note: new ImFontConfig() creates a zeroed struct, but ImGui's C++ constructor
+        // sets important defaults. We must set them explicitly.
+        var fontConfig = new ImFontConfig();
+        fontConfig.FontDataOwnedByAtlas = 0; // false - We manage the memory
+        fontConfig.OversampleH = 2;
+        fontConfig.OversampleV = 1;
+        fontConfig.PixelSnapH = 1; // true
+        fontConfig.GlyphMinAdvanceX = 0;
+        fontConfig.GlyphMaxAdvanceX = float.MaxValue; // Default from ImGui C++
+        fontConfig.RasterizerMultiply = 1.0f; // CRITICAL: 0 = invisible text!
+        fontConfig.RasterizerDensity = 1.0f; // Font density multiplier
+        fontConfig.EllipsisChar = unchecked((char)0xFFFF); // -1 = auto-detect
+
+        // Build glyph ranges for ASCII + Nerd Font icons
+        // Pin the glyph ranges in memory - ImGui needs them for the font atlas lifetime
+        var glyphRanges = BuildNerdFontGlyphRanges();
+        _glyphRangesHandle = GCHandle.Alloc(glyphRanges, GCHandleType.Pinned);
+        _glyphRangesPinned = true;
+
+        io.Fonts.AddFontFromMemoryTTF(
+            (void*)_fontDataHandle.AddrOfPinnedObject(),
+            fontData.Length,
+            DefaultFontSize,
+            &fontConfig,
+            (char*)_glyphRangesHandle.AddrOfPinnedObject()
+        );
+
+        Log.Information(
+            "Loaded debug font from resource manager: {ResourceId} ({Size} bytes)",
+            DebugFontResourceId,
+            fontData.Length
+        );
+    }
+
+    /// <summary>
+    /// Builds glyph ranges for ASCII characters and Nerd Font icon ranges.
+    /// </summary>
+    private static ushort[] BuildNerdFontGlyphRanges()
+    {
+        // ImGui glyph ranges are pairs of (start, end) codepoints, terminated by 0
+        return new ushort[]
+        {
+            // Basic Latin (ASCII)
+            0x0020,
+            0x00FF,
+            // Latin Extended-A
+            0x0100,
+            0x017F,
+            // Box Drawing (for tree structures)
+            0x2500,
+            0x257F,
+            // Geometric Shapes (for bullets, etc.)
+            0x25A0,
+            0x25FF,
+            // Powerline symbols (E0A0-E0D7)
+            0xE0A0,
+            0xE0D7,
+            // Seti-UI + Custom (E5FA-E6AC)
+            0xE5FA,
+            0xE6AC,
+            // Devicons (E700-E7C5)
+            0xE700,
+            0xE7C5,
+            // Font Awesome (F000-F2E0)
+            0xF000,
+            0xF2E0,
+            // Font Awesome Extension (E200-E2A9)
+            0xE200,
+            0xE2A9,
+            // Octicons (F400-F532)
+            0xF400,
+            0xF532,
+            // Codicons (EA60-EBE7)
+            0xEA60,
+            0xEBE7,
+            // Terminator
+            0,
+        };
     }
 
     /// <inheritdoc />
@@ -133,7 +277,11 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         if (texture == null)
             throw new ArgumentNullException(nameof(texture));
 
-        var id = new IntPtr(_textureIdCounter++);
+        IntPtr id;
+        lock (_textureIdLock)
+        {
+            id = new IntPtr(_textureIdCounter++);
+        }
         _boundTextures[id] = texture;
         return id;
     }
@@ -141,7 +289,7 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     /// <inheritdoc />
     public void UnbindTexture(IntPtr textureHandle)
     {
-        _boundTextures.Remove(textureHandle);
+        _boundTextures.TryRemove(textureHandle, out _);
     }
 
     /// <inheritdoc />
@@ -156,7 +304,29 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         _effect?.Dispose();
         _rasterizerState?.Dispose();
 
+        // Dispose all bound textures (except font texture which is already disposed)
+        foreach (var kvp in _boundTextures)
+        {
+            if (kvp.Value != _fontTexture)
+            {
+                kvp.Value?.Dispose();
+            }
+        }
         _boundTextures.Clear();
+
+        // Free pinned font data
+        if (_fontDataPinned)
+        {
+            _fontDataHandle.Free();
+            _fontDataPinned = false;
+        }
+
+        // Free pinned glyph ranges
+        if (_glyphRangesPinned)
+        {
+            _glyphRangesHandle.Free();
+            _glyphRangesPinned = false;
+        }
 
         ImGui.DestroyContext();
 
@@ -226,24 +396,23 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         _scrollWheelValue = mouse.ScrollWheelValue;
         io.AddMouseWheelEvent(0, scrollDelta / 120f);
 
-        io.AddKeyEvent(
-            ImGuiKey.ModCtrl,
-            keyboard.IsKeyDown(Keys.LeftControl) || keyboard.IsKeyDown(Keys.RightControl)
-        );
-        io.AddKeyEvent(
-            ImGuiKey.ModShift,
-            keyboard.IsKeyDown(Keys.LeftShift) || keyboard.IsKeyDown(Keys.RightShift)
-        );
-        io.AddKeyEvent(
-            ImGuiKey.ModAlt,
-            keyboard.IsKeyDown(Keys.LeftAlt) || keyboard.IsKeyDown(Keys.RightAlt)
-        );
+        var isCtrl = keyboard.IsKeyDown(Keys.LeftControl) || keyboard.IsKeyDown(Keys.RightControl);
+        var isShift = keyboard.IsKeyDown(Keys.LeftShift) || keyboard.IsKeyDown(Keys.RightShift);
+        var isAlt = keyboard.IsKeyDown(Keys.LeftAlt) || keyboard.IsKeyDown(Keys.RightAlt);
+
+        io.AddKeyEvent(ImGuiKey.ModCtrl, isCtrl);
+        io.AddKeyEvent(ImGuiKey.ModShift, isShift);
+        io.AddKeyEvent(ImGuiKey.ModAlt, isAlt);
 
         foreach (var key in _keys)
         {
             var xnaKey = (Keys)key;
             io.AddKeyEvent(TranslateKey(xnaKey), keyboard.IsKeyDown(xnaKey));
         }
+
+        // NOTE: Text input (AddInputCharacter) is handled by ImGuiInputBridgeSystem
+        // which provides keyboard polling with key repeat support.
+        // Do NOT add character input here - it would cause duplicate characters.
     }
 
     private static ImGuiKey TranslateKey(Keys key)
@@ -405,9 +574,11 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
                 foreach (var pass in _effect.CurrentTechnique.Passes)
                 {
                     pass.Apply();
+                    // vtxOffset is cumulative across command lists
+                    // drawCmd.VtxOffset is the per-draw-command offset within this list
                     _graphicsDevice.DrawIndexedPrimitives(
                         PrimitiveType.TriangleList,
-                        vtxOffset,
+                        vtxOffset + (int)drawCmd.VtxOffset,
                         (int)drawCmd.IdxOffset + idxOffset,
                         (int)drawCmd.ElemCount / 3
                     );

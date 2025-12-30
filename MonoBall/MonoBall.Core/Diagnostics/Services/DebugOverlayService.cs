@@ -2,11 +2,14 @@ namespace MonoBall.Core.Diagnostics.Services;
 
 using System;
 using Arch.Core;
+using Console.Services;
 using Events;
 using ImGui;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS;
 using MonoBall.Core.Logging;
+using MonoBall.Core.Resources;
+using MonoBall.Core.Scenes.Systems;
 using Panels;
 using Systems;
 
@@ -16,12 +19,19 @@ using Systems;
 /// </summary>
 public sealed class DebugOverlayService : IDebugOverlayService
 {
+    // Cached query to count all entities
+    private static readonly QueryDescription AllEntitiesQuery = new();
+
     private readonly World _world;
     private IImGuiRenderer? _renderer;
     private ImGuiLifecycleSystem? _lifecycleSystem;
     private ImGuiInputBridgeSystem? _inputBridgeSystem;
     private DebugPanelRenderSystem? _panelRenderSystem;
     private DebugPanelRegistry? _panelRegistry;
+    private ConsoleService? _consoleService;
+    private PerformanceStatsAdapter? _performanceStats;
+    private TimeControlService? _timeControl;
+    private SceneSystem? _sceneSystem;
     private bool _initialized;
     private bool _disposed;
 
@@ -51,6 +61,11 @@ public sealed class DebugOverlayService : IDebugOverlayService
     public IDebugPanelRegistry? PanelRegistry => _panelRegistry;
 
     /// <summary>
+    /// Gets the time control service for pausing/resuming the game.
+    /// </summary>
+    public MonoBall.Core.Diagnostics.Console.Services.ITimeControl? TimeControl => _timeControl;
+
+    /// <summary>
     /// Initializes a new debug overlay service.
     /// </summary>
     /// <param name="world">The ECS world.</param>
@@ -65,9 +80,15 @@ public sealed class DebugOverlayService : IDebugOverlayService
     /// Call this after the game has been initialized.
     /// </summary>
     /// <param name="game">The MonoGame Game instance.</param>
+    /// <param name="resourceManager">Optional resource manager for loading fonts from the mod system.</param>
+    /// <param name="sceneSystem">Optional scene system for time control commands.</param>
     /// <exception cref="ArgumentNullException">Thrown when game is null.</exception>
     /// <exception cref="InvalidOperationException">Thrown when already initialized.</exception>
-    public void Initialize(Game game)
+    public void Initialize(
+        Game game,
+        IResourceManager? resourceManager = null,
+        SceneSystem? sceneSystem = null
+    )
     {
         if (game == null)
             throw new ArgumentNullException(nameof(game));
@@ -75,8 +96,10 @@ public sealed class DebugOverlayService : IDebugOverlayService
         if (_initialized)
             throw new InvalidOperationException("Debug overlay is already initialized.");
 
+        _sceneSystem = sceneSystem;
+
         _renderer = new MonoGameImGuiRenderer();
-        _renderer.Initialize(game);
+        _renderer.Initialize(game, resourceManager);
 
         _panelRegistry = new DebugPanelRegistry();
         _lifecycleSystem = new ImGuiLifecycleSystem(_world, _renderer);
@@ -139,7 +162,16 @@ public sealed class DebugOverlayService : IDebugOverlayService
             return;
 
         var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        // Update performance stats for console commands
+        var entityCount = _world.CountEntities(AllEntitiesQuery);
+        _performanceStats?.Update(deltaTime, entityCount);
+
         _lifecycleSystem!.BeginFrame(deltaTime);
+
+        // Process keyboard input BEFORE panels render so characters are available
+        // Uses keyboard polling instead of TextInput events to avoid duplicate input
+        _inputBridgeSystem!.Update(in deltaTime);
     }
 
     /// <summary>
@@ -178,6 +210,7 @@ public sealed class DebugOverlayService : IDebugOverlayService
         // Disconnect from Serilog sink
         ImGuiLogSink.SetLogsPanel(null);
 
+        _consoleService?.Dispose();
         _panelRenderSystem?.Dispose();
         _inputBridgeSystem?.Dispose();
         _lifecycleSystem?.Dispose();
@@ -208,6 +241,22 @@ public sealed class DebugOverlayService : IDebugOverlayService
         var logsPanel = new LogsPanel();
         _panelRegistry.Register(logsPanel);
         ImGuiLogSink.SetLogsPanel(logsPanel);
+
+        // Create console services
+        _performanceStats = new PerformanceStatsAdapter();
+
+        if (_sceneSystem != null)
+        {
+            _timeControl = new TimeControlService(_sceneSystem);
+        }
+
+        // Register the console panel with services wired up
+        _consoleService = new ConsoleService
+        {
+            PerformanceStats = _performanceStats,
+            TimeControl = _timeControl,
+        };
+        _panelRegistry.Register(new ConsolePanel(_consoleService));
     }
 
     private void ThrowIfNotInitialized()

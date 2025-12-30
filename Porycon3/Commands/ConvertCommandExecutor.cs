@@ -9,7 +9,6 @@ namespace Porycon3.Commands;
 
 /// <summary>
 /// Unified command executor using Spectre.Console Progress for the conversion pipeline.
-/// Provides immediate feedback with auto-refreshing progress bars.
 /// </summary>
 public class ConvertCommandExecutor
 {
@@ -37,15 +36,20 @@ public class ConvertCommandExecutor
     /// </summary>
     public int Execute()
     {
-        // Display header immediately (before any processing)
+        try
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+        }
+        catch
+        {
+            // Ignore encoding errors
+        }
+
         AnsiConsole.Write(new FigletText("Porycon3")
-            .Centered()
+            .LeftJustified()
             .Color(Color.Cyan1));
         AnsiConsole.MarkupLine("[grey]Pokemon Map Converter for pokeemerald-expansion[/]");
         AnsiConsole.WriteLine();
-
-        // Force flush to ensure header displays immediately
-        Console.Out.Flush();
 
         try
         {
@@ -55,7 +59,9 @@ public class ConvertCommandExecutor
             // Ensure output directory exists
             Directory.CreateDirectory(_settings.OutputPath);
 
-            // Initialize converter (fast - just creates lightweight service objects)
+            // Initialize converter
+            AnsiConsole.MarkupLine("[dim]Initializing...[/]");
+
             var sw = Stopwatch.StartNew();
             var converter = new MapConversionService(
                 _settings.InputPath,
@@ -72,7 +78,7 @@ public class ConvertCommandExecutor
             }
             else
             {
-                return ExecuteAllMapsWithUnifiedDisplay(converter);
+                return ExecuteAllMaps(converter);
             }
         }
         catch (OperationCanceledException)
@@ -89,7 +95,7 @@ public class ConvertCommandExecutor
     }
 
     /// <summary>
-    /// Execute single map conversion (simple status display).
+    /// Execute single map conversion.
     /// </summary>
     private int ExecuteSingleMap(MapConversionService converter)
     {
@@ -109,8 +115,8 @@ public class ConvertCommandExecutor
         var sharedTilesetCount = converter.FinalizeSharedTilesets();
         AnsiConsole.MarkupLine($"[blue]Generated {sharedTilesetCount} shared tileset(s)[/]");
 
-        // Generate definitions using progress-aware orchestrator
-        RunDefinitionsWithProgress(converter);
+        // Run extractors
+        RunExtractors(converter);
 
         AnsiConsole.WriteLine();
         AnsiConsole.MarkupLine("[green]Conversion complete![/]");
@@ -118,15 +124,24 @@ public class ConvertCommandExecutor
     }
 
     /// <summary>
-    /// Execute full conversion with unified Progress display.
-    /// Single Spectre context for all phases - starts immediately for instant feedback.
+    /// Execute full conversion with phased display.
     /// </summary>
-    private int ExecuteAllMapsWithUnifiedDisplay(MapConversionService converter)
+    private int ExecuteAllMaps(MapConversionService converter)
     {
         var results = new List<ConversionResult>();
-        List<string>? maps = null;
 
-        // Use Progress context which handles rendering automatically
+        // Phase 0: Scan for maps
+        AnsiConsole.Markup("[cyan]Scanning maps...[/] ");
+        _progress.SetPhase(ConversionPhase.ScanningMaps);
+
+        var maps = converter.ScanMaps();
+        _progress.SetMapTotal(maps.Count);
+        AnsiConsole.MarkupLine($"[green]found {maps.Count} maps[/]");
+
+        if (_cts.IsCancellationRequested) return 1;
+
+        // Phase 1: Convert maps (parallel)
+        _progress.SetPhase(ConversionPhase.ConvertingMaps);
         AnsiConsole.Progress()
             .AutoClear(false)
             .AutoRefresh(true)
@@ -139,59 +154,41 @@ public class ConvertCommandExecutor
                 new SpinnerColumn())
             .Start(ctx =>
             {
-                // Create progress tasks for each phase
-                var scanTask = ctx.AddTask("[cyan]Scanning maps[/]", autoStart: false);
-                var convertTask = ctx.AddTask("[blue]Converting maps[/]", autoStart: false);
-                var tilesetTask = ctx.AddTask("[magenta]Finalizing tilesets[/]", autoStart: false);
-                var extractTask = ctx.AddTask("[green]Extracting assets[/]", autoStart: false);
-
-                // Phase 0: Scan for maps
-                scanTask.StartTask();
-                scanTask.IsIndeterminate = true;
-                _progress.SetPhase(ConversionPhase.ScanningMaps);
-
-                maps = converter.ScanMaps();
-                _progress.SetMapTotal(maps.Count);
-
-                scanTask.IsIndeterminate = false;
-                scanTask.MaxValue = 1;
-                scanTask.Increment(1);
-
-                if (_cts.IsCancellationRequested) return;
-
-                // Phase 1: Convert maps (parallel)
-                convertTask.StartTask();
-                convertTask.MaxValue = maps.Count;
-                _progress.SetPhase(ConversionPhase.ConvertingMaps);
-
-                ConvertMapsParallelWithTask(converter, maps, results, convertTask);
-
-                if (_cts.IsCancellationRequested) return;
-
-                // Phase 2: Finalize tilesets
-                tilesetTask.StartTask();
-                tilesetTask.IsIndeterminate = true;
-                _progress.SetPhase(ConversionPhase.FinalizingTilesets);
-
-                var tilesetCount = converter.FinalizeSharedTilesets();
-                _progress.SetTilesetTotal(tilesetCount);
-                _progress.SetTilesetCompleted(tilesetCount);
-
-                tilesetTask.IsIndeterminate = false;
-                tilesetTask.MaxValue = 1;
-                tilesetTask.Increment(1);
-
-                if (_cts.IsCancellationRequested) return;
-
-                // Phase 3: Extract assets
-                extractTask.StartTask();
-                _progress.SetPhase(ConversionPhase.ExtractingAssets);
-
-                RunExtractorsWithTask(converter, extractTask);
-
-                // Complete
-                _progress.SetPhase(ConversionPhase.Complete);
+                var convertTask = ctx.AddTask("[blue]Converting maps[/]", maxValue: maps.Count);
+                ConvertMapsParallel(converter, maps, results, convertTask);
             });
+
+        if (_cts.IsCancellationRequested) return 1;
+
+        // Phase 2: Finalize tilesets
+        AnsiConsole.Markup("[magenta]Finalizing tilesets...[/] ");
+        _progress.SetPhase(ConversionPhase.FinalizingTilesets);
+
+        var tilesetCount = converter.FinalizeSharedTilesets();
+        _progress.SetTilesetTotal(tilesetCount);
+        _progress.SetTilesetCompleted(tilesetCount);
+        AnsiConsole.MarkupLine($"[green]{tilesetCount} shared tilesets[/]");
+
+        if (_cts.IsCancellationRequested) return 1;
+
+        // Phase 3: Extract assets (sequential)
+        _progress.SetPhase(ConversionPhase.ExtractingAssets);
+        AnsiConsole.MarkupLine("[yellow]Extracting assets...[/]");
+
+        AnsiConsole.Progress()
+            .AutoClear(false)
+            .AutoRefresh(true)
+            .HideCompleted(false)
+            .Columns(
+                new TaskDescriptionColumn(),
+                new ProgressBarColumn(),
+                new PercentageColumn(),
+                new RemainingTimeColumn(),
+                new SpinnerColumn())
+            .Start(ctx => RunExtractorsWithProgress(converter, ctx));
+
+        // Complete
+        _progress.SetPhase(ConversionPhase.Complete);
 
         // Show summary
         ShowCompletionSummary(results);
@@ -218,9 +215,9 @@ public class ConvertCommandExecutor
     }
 
     /// <summary>
-    /// Convert maps in parallel with ProgressTask updates.
+    /// Convert maps in parallel.
     /// </summary>
-    private void ConvertMapsParallelWithTask(
+    private void ConvertMapsParallel(
         MapConversionService converter,
         List<string> maps,
         List<ConversionResult> results,
@@ -248,30 +245,47 @@ public class ConvertCommandExecutor
         }
         catch (OperationCanceledException)
         {
-            // Parallel loop was cancelled, that's fine
+            // Cancelled, that's fine
         }
     }
 
     /// <summary>
-    /// Run extractors with ProgressTask updates.
+    /// Run extractors in parallel with progress display.
     /// </summary>
-    private void RunExtractorsWithTask(MapConversionService converter, ProgressTask task)
+    private void RunExtractorsWithProgress(MapConversionService converter, ProgressContext ctx)
     {
-        // First, run the definition generator
+        // First, run the definition generator (must complete before extractors)
+        var defTask = ctx.AddTask("[dim]Generating definitions[/]", maxValue: 1);
         converter.RunDefinitionGenerator();
+        defTask.Increment(1);
 
         var extractors = converter.GetExtractors().ToList();
-        task.MaxValue = extractors.Count;
 
-        foreach (var extractor in extractors)
+        // Create a progress task for each extractor
+        var tasks = extractors.Select(e =>
         {
-            if (_cts.IsCancellationRequested) break;
+            var task = ctx.AddTask($"[dim]{e.Name}[/]", autoStart: true, maxValue: 1);
+            _progress.RegisterExtractor(e.Name);
+            return (Extractor: e, Task: task);
+        }).ToList();
 
-            task.Description = $"[green]Extracting:[/] {extractor.Name}";
-            _progress.RegisterExtractor(extractor.Name);
+        // Run all extractors in parallel
+        Parallel.ForEach(tasks, new ParallelOptions { CancellationToken = _cts.Token }, item =>
+        {
+            var (extractor, task) = item;
+
+            if (_cts.IsCancellationRequested)
+            {
+                _progress.UpdateExtractor(extractor.Name, ExtractorState.Skipped);
+                task.Description = $"[yellow]{extractor.Name}[/] [dim](skipped)[/]";
+                task.Increment(1);
+                return;
+            }
+
+            task.Description = $"[blue]{extractor.Name}[/]";
             _progress.UpdateExtractor(extractor.Name, ExtractorState.Running);
 
-            var sw = System.Diagnostics.Stopwatch.StartNew();
+            var sw = Stopwatch.StartNew();
             try
             {
                 extractor.QuietMode = true;
@@ -280,17 +294,41 @@ public class ConvertCommandExecutor
 
                 var state = result.Success ? ExtractorState.Complete : ExtractorState.Failed;
                 _progress.UpdateExtractor(extractor.Name, state, result.ItemCount, sw.Elapsed);
+
+                task.Description = result.Success
+                    ? $"[green]{extractor.Name}[/] [dim]({result.ItemCount})[/]"
+                    : $"[red]{extractor.Name}[/] [dim](failed)[/]";
             }
             catch (Exception)
             {
                 sw.Stop();
                 _progress.UpdateExtractor(extractor.Name, ExtractorState.Failed, elapsed: sw.Elapsed);
+                task.Description = $"[red]{extractor.Name}[/] [dim](error)[/]";
             }
 
             task.Increment(1);
-        }
+        });
+    }
 
-        task.Description = "[green]Extracting assets[/]";
+    /// <summary>
+    /// Run extractors for single map mode.
+    /// </summary>
+    private void RunExtractors(MapConversionService converter)
+    {
+        _progress.SetPhase(ConversionPhase.ExtractingAssets);
+
+        AnsiConsole.Progress()
+            .AutoClear(false)
+            .AutoRefresh(true)
+            .HideCompleted(false)
+            .Columns(
+                new TaskDescriptionColumn(),
+                new ProgressBarColumn(),
+                new PercentageColumn(),
+                new SpinnerColumn())
+            .Start(ctx => RunExtractorsWithProgress(converter, ctx));
+
+        _progress.SetPhase(ConversionPhase.Complete);
     }
 
     /// <summary>
@@ -323,24 +361,4 @@ public class ConvertCommandExecutor
             AnsiConsole.MarkupLine($"[red]✗[/] [red]{extractorsFailed}[/] extractor(s) failed: {failedNames}");
         }
     }
-
-    /// <summary>
-    /// Run definitions for single map mode.
-    /// </summary>
-    private void RunDefinitionsWithProgress(MapConversionService converter)
-    {
-        _progress.SetPhase(ConversionPhase.ExtractingAssets);
-
-        AnsiConsole.Progress()
-            .AutoClear(false)
-            .Start(ctx =>
-            {
-                var task = ctx.AddTask("[green]Extracting assets[/]");
-                RunExtractorsWithTask(converter, task);
-            });
-
-        _progress.SetPhase(ConversionPhase.Complete);
-        ShowCompletionSummary(new List<ConversionResult>());
-    }
-
 }

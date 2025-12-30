@@ -119,11 +119,11 @@ public class MapConversionService
 
             // Note: Tilesheet is built after all maps are processed via FinalizeSharedTilesets()
 
-            // 5. Extract collision overrides from map data
-            var collisionOverrides = ExtractCollisionOverrides(mapBin, mapData.Layout.Width, mapData.Layout.Height);
+            // 5. Build collision layers from map data (one per elevation)
+            var collisionLayers = BuildCollisionLayers(mapBin, mapData.Layout.Width, mapData.Layout.Height);
 
             // 6. Write map output (references shared tileset)
-            WriteOutput(mapName, mapData, layers, sharedBuilder.TilesetPair, collisionOverrides);
+            WriteOutput(mapName, mapData, layers, sharedBuilder.TilesetPair, collisionLayers);
 
             sw.Stop();
             return new ConversionResult
@@ -240,7 +240,7 @@ public class MapConversionService
         return PaletteLoader.LoadTilesetPalettes(result.Value.Path);
     }
 
-    private void WriteOutput(string mapName, MapData mapData, List<SharedLayerData> layers, TilesetPairKey tilesetPair, List<CollisionOverride> collisionOverrides)
+    private void WriteOutput(string mapName, MapData mapData, List<SharedLayerData> layers, TilesetPairKey tilesetPair, List<CollisionLayerData> collisionLayers)
     {
         var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "Maps", _region);
         Directory.CreateDirectory(outputDir);
@@ -282,7 +282,6 @@ public class MapConversionService
             {
                 id = $"{IdTransformer.Namespace}:layer:{_region}/{normalizedName}/{l.Name.ToLowerInvariant()}",
                 name = l.Name,
-                type = "tilelayer",
                 width = l.Width,
                 height = l.Height,
                 elevation = l.Elevation,
@@ -290,8 +289,7 @@ public class MapConversionService
                 opacity = 1,
                 offsetX = 0,
                 offsetY = 0,
-                tileData = EncodeTileDataUint(l.Data),
-                imagePath = (string?)null
+                tileData = EncodeTileDataUint(l.Data)
             }),
             tilesets = new[]
             {
@@ -366,14 +364,17 @@ public class MapConversionService
                 facingDirection = ExtractDirection(o.MovementType),
                 elevation = o.Elevation
             }),
-            collision = collisionOverrides.Count > 0 ? collisionOverrides.Select(c => new
+            collisions = collisionLayers.Select(c => new
             {
-                x = c.X,
-                y = c.Y,
-                width = MetatileSize,
-                height = MetatileSize,
-                elevation = c.Elevation
-            }) : null
+                id = $"{IdTransformer.Namespace}:collision:{_region}/{normalizedName}/elevation_{c.Elevation}",
+                name = $"Collision_{c.Elevation}",
+                width = c.Width,
+                height = c.Height,
+                elevation = c.Elevation,
+                offsetX = 0,
+                offsetY = 0,
+                tileData = EncodeCollisionData(c.Data)
+            })
         };
 
         var json = System.Text.Json.JsonSerializer.Serialize(output, new System.Text.Json.JsonSerializerOptions
@@ -514,7 +515,7 @@ public class MapConversionService
     private static string? TransformInteractionId(string script)
     {
         if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL" || script == "0") return null;
-        return $"{IdTransformer.Namespace}:script:interaction/{IdTransformer.Normalize(script)}";
+        return $"{IdTransformer.Namespace}:interaction/npcs/{IdTransformer.Normalize(script)}";
     }
 
     private object BuildConnections(List<Models.MapConnection> connections)
@@ -645,7 +646,7 @@ public class MapConversionService
                 tiles.Add(new
                 {
                     localTileId = prop.LocalTileId,
-                    behaviorId = prop.BehaviorId,
+                    interactionId = prop.InteractionId,
                     terrainId = prop.TerrainId,
                     collisionId = prop.CollisionId,
                     animation = animation
@@ -659,7 +660,7 @@ public class MapConversionService
                 tiles.Add(new
                 {
                     localTileId = anim.LocalTileId,
-                    behaviorId = (string?)null,
+                    interactionId = (string?)null,
                     terrainId = (string?)null,
                     collisionId = (string?)null,
                     animation = anim.Frames.Select(f => new
@@ -766,39 +767,50 @@ public class MapConversionService
     }
 
     /// <summary>
-    /// Extract collision overrides from map binary data.
-    /// Returns tiles where the collision override bit is set (non-zero = blocked).
+    /// Build collision layers from map binary data, one per elevation level.
+    /// Each elevation with collision data gets its own layer containing only collision values (0-3).
     /// </summary>
-    private static List<CollisionOverride> ExtractCollisionOverrides(ushort[] mapBin, int width, int height)
+    private static List<CollisionLayerData> BuildCollisionLayers(ushort[] mapBin, int width, int height)
     {
-        var overrides = new List<CollisionOverride>();
+        // Group tiles by elevation and check if any collision data exists at that elevation
+        var elevationData = new Dictionary<int, byte[]>();
 
         for (int i = 0; i < mapBin.Length; i++)
         {
             var entry = mapBin[i];
             var collision = Infrastructure.MapBinReader.GetCollision(entry);
+            var elevation = Infrastructure.MapBinReader.GetElevation(entry);
 
-            // Only include tiles with non-zero collision (blocked)
-            if (collision != 0)
+            // Only create layer if there's actual collision data (collision > 0)
+            if (collision > 0)
             {
-                var x = i % width;
-                var y = i / width;
-                var elevation = Infrastructure.MapBinReader.GetElevation(entry);
-
-                overrides.Add(new CollisionOverride(
-                    x * MetatileSize,
-                    y * MetatileSize,
-                    elevation
-                ));
+                if (!elevationData.TryGetValue(elevation, out var data))
+                {
+                    data = new byte[width * height];
+                    elevationData[elevation] = data;
+                }
+                data[i] = (byte)(collision & 0x3);
             }
         }
 
-        return overrides;
+        // Create collision layer for each elevation that has collision data
+        return elevationData
+            .OrderBy(kv => kv.Key)
+            .Select(kv => new CollisionLayerData(width, height, kv.Key, kv.Value))
+            .ToList();
     }
 
     /// <summary>
-    /// Represents a per-tile collision override from map data.
-    /// These tiles are blocked regardless of metatile behavior.
+    /// Encode collision layer data to base64 (1 byte per tile).
     /// </summary>
-    private record CollisionOverride(int X, int Y, int Elevation);
+    private static string EncodeCollisionData(byte[] data)
+    {
+        return Convert.ToBase64String(data);
+    }
+
+    /// <summary>
+    /// Represents collision layer data for a specific elevation.
+    /// Each byte contains only collision value (0-3).
+    /// </summary>
+    private record CollisionLayerData(int Width, int Height, int Elevation, byte[] Data);
 }

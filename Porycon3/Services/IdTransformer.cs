@@ -477,15 +477,15 @@ public static class IdTransformer
 
     #endregion
 
-    #region Metatile Behavior IDs
+    #region Tile Interaction IDs
 
     /// <summary>
-    /// Transform metatile behavior value to behavior ID.
+    /// Transform metatile behavior value to tile interaction ID.
     /// 0 (MB_NORMAL) -> null (default, not stored)
-    /// Other values -> base:behavior:tiles/{name}
+    /// Other values -> base:interaction/tiles/{name}
     /// Behavior value is extracted from metatile_attributes.bin (bits 0-7).
     /// </summary>
-    public static string? MetatileBehaviorId(int behaviorValue)
+    public static string? TileInteractionId(int behaviorValue)
     {
         // Extract pure behavior from bits 0-7 only
         var pureBehavior = behaviorValue & 0xFF;
@@ -495,7 +495,7 @@ public static class IdTransformer
             return null;
 
         var name = GetMetatileBehaviorName(pureBehavior);
-        return $"{Namespace}:behavior:tiles/{name}";
+        return $"{Namespace}:interaction/tiles/{name}";
     }
 
     /// <summary>

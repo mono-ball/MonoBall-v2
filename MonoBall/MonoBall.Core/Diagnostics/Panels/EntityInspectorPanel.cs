@@ -8,6 +8,7 @@ using System.Reflection;
 using Arch.Core;
 using Arch.Core.Extensions;
 using Hexa.NET.ImGui;
+using MonoBall.Core.Diagnostics.UI;
 
 /// <summary>
 /// Debug panel for inspecting ECS entities and their components.
@@ -287,10 +288,7 @@ public sealed class EntityInspectorPanel : IDebugPanel, IDebugPanelLifecycle
         var entity = _selectedEntity.Value;
         if (!_world.IsAlive(entity))
         {
-            ImGui.TextColored(
-                new System.Numerics.Vector4(1, 0.4f, 0.4f, 1),
-                "Entity no longer exists"
-            );
+            ImGui.TextColored(DebugColors.Error, "Entity no longer exists");
             _selectedEntity = null;
             return;
         }
@@ -346,10 +344,7 @@ public sealed class EntityInspectorPanel : IDebugPanel, IDebugPanelLifecycle
                 }
                 catch
                 {
-                    ImGui.TextColored(
-                        new System.Numerics.Vector4(1, 0.7f, 0.4f, 1),
-                        $"{property.Name}: <error reading>"
-                    );
+                    ImGui.TextColored(DebugColors.Warning, $"{property.Name}: <error reading>");
                 }
             }
 
@@ -360,10 +355,7 @@ public sealed class EntityInspectorPanel : IDebugPanel, IDebugPanelLifecycle
         }
         catch (Exception ex)
         {
-            ImGui.TextColored(
-                new System.Numerics.Vector4(1, 0.4f, 0.4f, 1),
-                $"Error: {ex.Message}"
-            );
+            ImGui.TextColored(DebugColors.Error, $"Error: {ex.Message}");
         }
     }
 
@@ -382,7 +374,7 @@ public sealed class EntityInspectorPanel : IDebugPanel, IDebugPanelLifecycle
 
         ImGui.Text($"{name}:");
         ImGui.SameLine();
-        ImGui.TextColored(new System.Numerics.Vector4(0.7f, 0.9f, 1f, 1f), displayValue);
+        ImGui.TextColored(DebugColors.TextValue, displayValue);
     }
 
     private void RefreshEntityList()

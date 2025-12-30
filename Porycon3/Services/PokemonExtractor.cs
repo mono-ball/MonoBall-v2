@@ -56,6 +56,7 @@ public class PokemonExtractor : ExtractorBase
             animationData = ParseAnimationData();
         });
 
+        // Thread-safe counters
         int pokemonCount = 0;
         int spriteCount = 0;
         int formCount = 0;
@@ -63,19 +64,19 @@ public class PokemonExtractor : ExtractorBase
         // Get all Pokemon directories
         var pokemonDirs = Directory.GetDirectories(_pokemonGraphics).ToList();
 
-        WithProgress("Extracting Pokemon sprites", pokemonDirs, (pokemonDir, task) =>
+        // Process Pokemon in parallel for better performance
+        WithParallelProgress("Extracting Pokemon sprites", pokemonDirs, pokemonDir =>
         {
             var pokemonName = Path.GetFileName(pokemonDir);
-            SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{pokemonName}[/]");
 
             try
             {
                 var (sprites, forms) = ExtractPokemon(pokemonDir, pokemonName, animationData);
                 if (sprites > 0)
                 {
-                    pokemonCount++;
-                    spriteCount += sprites;
-                    formCount += forms;
+                    Interlocked.Increment(ref pokemonCount);
+                    Interlocked.Add(ref spriteCount, sprites);
+                    Interlocked.Add(ref formCount, forms);
                 }
             }
             catch (Exception ex)

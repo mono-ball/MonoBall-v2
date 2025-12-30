@@ -63,6 +63,10 @@ public sealed class ImGuiLifecycleSystem : DebugSystemBase
         if (!_isVisible || !_renderer.IsInitialized)
             return;
 
+        // Prevent double BeginFrame without EndFrame (would duplicate input)
+        if (_frameStarted)
+            return;
+
         _renderer.BeginFrame(deltaTime);
         _frameStarted = true;
     }
@@ -111,6 +115,16 @@ public sealed class ImGuiLifecycleSystem : DebugSystemBase
 
     private void OnDebugToggle(DebugToggleEvent evt)
     {
-        _isVisible = evt.Show ?? !_isVisible;
+        var newVisible = evt.Show ?? !_isVisible;
+
+        // If turning off visibility during a frame, end the current frame first
+        if (!newVisible && _frameStarted)
+        {
+            _renderer.EndFrame();
+            _frameStarted = false;
+            Log.Debug("ImGui frame ended early due to visibility toggle");
+        }
+
+        _isVisible = newVisible;
     }
 }

@@ -62,4 +62,10 @@ public interface IDebugPanelRegistry
     /// <param name="panelId">The panel ID.</param>
     /// <returns>The new visibility state, or null if panel not found.</returns>
     bool? TogglePanelVisibility(string panelId);
+
+    /// <summary>
+    /// Updates all panels that implement IDebugPanelLifecycle.
+    /// </summary>
+    /// <param name="deltaTime">Time since last frame in seconds.</param>
+    void Update(float deltaTime);
 }

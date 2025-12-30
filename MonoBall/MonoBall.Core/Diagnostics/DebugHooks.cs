@@ -39,14 +39,20 @@ public sealed class SystemTimingHook : IDisposable
     /// </summary>
     internal static void Notify(string systemName, double elapsedMs)
     {
+        // Snapshot to avoid deadlock if callback calls Dispose()
+        SystemTimingHook[] snapshot;
         lock (ActiveHooks)
         {
-            foreach (var hook in ActiveHooks)
+            if (ActiveHooks.Count == 0)
+                return;
+            snapshot = ActiveHooks.ToArray();
+        }
+
+        foreach (var hook in snapshot)
+        {
+            if (!hook._disposed)
             {
-                if (!hook._disposed)
-                {
-                    hook._callback(systemName, elapsedMs);
-                }
+                hook._callback(systemName, elapsedMs);
             }
         }
     }
@@ -115,14 +121,20 @@ public sealed class EventDispatchHook : IDisposable
     /// </summary>
     internal static void Notify(string eventType, int subscriberCount, double elapsedMs)
     {
+        // Snapshot to avoid deadlock if callback calls Dispose()
+        EventDispatchHook[] snapshot;
         lock (ActiveHooks)
         {
-            foreach (var hook in ActiveHooks)
+            if (ActiveHooks.Count == 0)
+                return;
+            snapshot = ActiveHooks.ToArray();
+        }
+
+        foreach (var hook in snapshot)
+        {
+            if (!hook._disposed)
             {
-                if (!hook._disposed)
-                {
-                    hook._callback(eventType, subscriberCount, elapsedMs);
-                }
+                hook._callback(eventType, subscriberCount, elapsedMs);
             }
         }
     }

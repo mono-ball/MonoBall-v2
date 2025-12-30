@@ -184,29 +184,37 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
         ImGui.Checkbox("Category", ref _showCategory);
     }
 
+    // Reusable list to avoid allocations during render
+    private readonly List<LogEntry> _renderList = new();
+
     private void DrawLogList()
     {
         UpdateFilteredLogs();
 
+        // Copy filtered logs while holding lock (minimal time)
+        lock (_logLock)
+        {
+            _renderList.Clear();
+            _renderList.AddRange(_filteredLogs);
+        }
+
+        // Render without holding the lock
         var availableHeight = ImGui.GetContentRegionAvail().Y - 25; // Reserve space for status bar
         ImGui.BeginChild("LogList", new Vector2(0, availableHeight), ImGuiChildFlags.Borders);
 
-        lock (_logLock)
+        ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0, 2));
+
+        foreach (var entry in _renderList)
         {
-            ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0, 2));
+            DrawLogEntry(entry);
+        }
 
-            foreach (var entry in _filteredLogs)
-            {
-                DrawLogEntry(entry);
-            }
+        ImGui.PopStyleVar();
 
-            ImGui.PopStyleVar();
-
-            // Auto-scroll to bottom
-            if (_autoScroll && ImGui.GetScrollY() >= ImGui.GetScrollMaxY() - 20)
-            {
-                ImGui.SetScrollHereY(1.0f);
-            }
+        // Auto-scroll to bottom
+        if (_autoScroll && ImGui.GetScrollY() >= ImGui.GetScrollMaxY() - 20)
+        {
+            ImGui.SetScrollHereY(1.0f);
         }
 
         ImGui.EndChild();

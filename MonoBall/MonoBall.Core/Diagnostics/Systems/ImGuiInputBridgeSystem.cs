@@ -1,17 +1,39 @@
 namespace MonoBall.Core.Diagnostics.Systems;
 
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using Utilities;
 
 /// <summary>
 /// Bridges input state between MonoGame and ImGui.
-/// Provides methods to check if ImGui wants to consume input.
+/// Uses keyboard polling instead of TextInput events to avoid duplicate input issues.
 /// </summary>
 public sealed class ImGuiInputBridgeSystem : DebugSystemBase
 {
     private readonly ImGuiLifecycleSystem _lifecycleSystem;
-    private GameWindow? _gameWindow;
+
+    // Keyboard state tracking for polling
+    private KeyboardState _currentKeyboard;
+    private KeyboardState _previousKeyboard;
+
+    // Key repeat tracking for smooth text input
+    private readonly Dictionary<Keys, KeyRepeatState> _keyRepeatStates = new();
+
+    // Cached list to avoid allocation during key repeat state updates
+    private readonly List<Keys> _keysToRemoveCache = new();
+
+    /// <summary>
+    /// Initial delay before key repeat starts (in seconds).
+    /// </summary>
+    public float InitialKeyRepeatDelay { get; set; } = 0.5f;
+
+    /// <summary>
+    /// Interval between key repeats after initial delay (in seconds).
+    /// </summary>
+    public float KeyRepeatInterval { get; set; } = 0.05f;
 
     /// <summary>
     /// Initializes the ImGui input bridge system.
@@ -24,11 +46,15 @@ public sealed class ImGuiInputBridgeSystem : DebugSystemBase
     {
         _lifecycleSystem =
             lifecycleSystem ?? throw new ArgumentNullException(nameof(lifecycleSystem));
+
+        // Initialize keyboard state
+        _currentKeyboard = Keyboard.GetState();
+        _previousKeyboard = _currentKeyboard;
     }
 
     /// <summary>
     /// Hooks text input events from the game window.
-    /// Call this after game initialization.
+    /// Note: This method is kept for API compatibility but no longer uses TextInput events.
     /// </summary>
     /// <param name="window">The game window.</param>
     public void HookTextInput(GameWindow window)
@@ -38,11 +64,8 @@ public sealed class ImGuiInputBridgeSystem : DebugSystemBase
         if (window == null)
             throw new ArgumentNullException(nameof(window));
 
-        if (_gameWindow != null)
-            _gameWindow.TextInput -= OnTextInput;
-
-        _gameWindow = window;
-        _gameWindow.TextInput += OnTextInput;
+        // No longer using TextInput events - we use keyboard polling instead
+        // This method is kept for API compatibility
     }
 
     /// <summary>
@@ -71,27 +94,123 @@ public sealed class ImGuiInputBridgeSystem : DebugSystemBase
     /// <inheritdoc />
     public override void Update(in float deltaTime)
     {
-        // Input state is queried directly via properties
+        // Update keyboard state
+        _previousKeyboard = _currentKeyboard;
+        _currentKeyboard = Keyboard.GetState();
+
+        // Update key repeat states
+        UpdateKeyRepeatStates(deltaTime);
+
+        // Only process text input when ImGui wants it
+        if (!_lifecycleSystem.IsVisible || !_lifecycleSystem.WantsCaptureTextInput)
+            return;
+
+        // Process character input via keyboard polling
+        ProcessCharacterInput();
     }
 
     /// <inheritdoc />
     protected override void DisposeManagedResources()
     {
-        if (_gameWindow != null)
-        {
-            _gameWindow.TextInput -= OnTextInput;
-            _gameWindow = null;
-        }
-
+        _keyRepeatStates.Clear();
         base.DisposeManagedResources();
     }
 
-    private void OnTextInput(object? sender, TextInputEventArgs e)
+    private void UpdateKeyRepeatStates(float deltaTime)
     {
-        if (!_lifecycleSystem.IsVisible)
-            return;
+        _keysToRemoveCache.Clear();
 
+        foreach (var (key, state) in _keyRepeatStates)
+        {
+            // If key is no longer held, mark for removal
+            if (!_currentKeyboard.IsKeyDown(key))
+            {
+                _keysToRemoveCache.Add(key);
+                continue;
+            }
+
+            // Update hold time
+            state.HoldTime += deltaTime;
+
+            // Update repeat timer if past initial delay
+            if (state.HoldTime >= InitialKeyRepeatDelay)
+            {
+                state.TimeSinceLastRepeat += deltaTime;
+            }
+        }
+
+        // Remove keys that are no longer held
+        foreach (var key in _keysToRemoveCache)
+        {
+            _keyRepeatStates.Remove(key);
+        }
+    }
+
+    private bool IsKeyPressedWithRepeat(Keys key)
+    {
+        // Initial press
+        if (_currentKeyboard.IsKeyDown(key) && _previousKeyboard.IsKeyUp(key))
+        {
+            // Start tracking this key for repeat
+            _keyRepeatStates[key] = new KeyRepeatState { HoldTime = 0, TimeSinceLastRepeat = 0 };
+            return true;
+        }
+
+        // Check for repeat
+        if (_keyRepeatStates.TryGetValue(key, out var state))
+        {
+            // Past initial delay and time for another repeat?
+            if (
+                state.HoldTime >= InitialKeyRepeatDelay
+                && state.TimeSinceLastRepeat >= KeyRepeatInterval
+            )
+            {
+                state.TimeSinceLastRepeat = 0; // Reset repeat timer
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsShiftDown()
+    {
+        return _currentKeyboard.IsKeyDown(Keys.LeftShift)
+            || _currentKeyboard.IsKeyDown(Keys.RightShift);
+    }
+
+    private void ProcessCharacterInput()
+    {
         var io = Hexa.NET.ImGui.ImGui.GetIO();
-        io.AddInputCharacter(e.Character);
+        bool shift = IsShiftDown();
+
+        // Process all character-producing keys
+        foreach (Keys key in Enum.GetValues<Keys>())
+        {
+            if (IsKeyPressedWithRepeat(key))
+            {
+                char? ch = KeyboardHelper.KeyToChar(key, shift);
+                if (ch.HasValue)
+                {
+                    io.AddInputCharacterUTF16(ch.Value);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Tracks the repeat state of a held key.
+    /// </summary>
+    private sealed class KeyRepeatState
+    {
+        /// <summary>
+        /// How long the key has been held (in seconds).
+        /// </summary>
+        public float HoldTime { get; set; }
+
+        /// <summary>
+        /// Time since the last repeat fired (in seconds).
+        /// </summary>
+        public float TimeSinceLastRepeat { get; set; }
     }
 }

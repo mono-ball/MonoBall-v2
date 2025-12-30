@@ -237,6 +237,41 @@ public class ResourceManager : IResourceManager, IDisposable
         }
     }
 
+    public byte[] LoadFontData(string resourceId)
+    {
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(ResourceManager));
+
+        if (string.IsNullOrEmpty(resourceId))
+            throw new ArgumentException("Resource ID cannot be null or empty.", nameof(resourceId));
+
+        // Load font definition
+        var fontDef = _modManager.GetDefinition<FontDefinition>(resourceId);
+        if (fontDef == null || string.IsNullOrEmpty(fontDef.FontPath))
+            throw new InvalidOperationException(
+                $"Font definition not found or has no FontPath: {resourceId}"
+            );
+
+        var virtualPath = _pathResolver.ResolveResourcePath(resourceId, fontDef.FontPath);
+
+        // Parse mod:// path and read from ModSource
+        var (modId, actualRelativePath) = ModPathParser.ParseModPath(virtualPath);
+        var modManifest = _modManager.GetModManifest(modId);
+        if (modManifest?.ModSource == null)
+            throw new InvalidOperationException(
+                $"Mod '{modId}' not found or has no ModSource for resource '{resourceId}'"
+            );
+
+        var fontData = modManifest.ModSource.ReadFile(actualRelativePath);
+
+        _logger.Debug(
+            "Loaded raw font data: {ResourceId} ({Size} bytes)",
+            resourceId,
+            fontData.Length
+        );
+        return fontData;
+    }
+
     public VorbisReader LoadAudioReader(string resourceId)
     {
         if (_disposed)

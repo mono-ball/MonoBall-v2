@@ -262,6 +262,21 @@ public static class EventBus
     }
 
     /// <summary>
+    ///     Checks if there are any subscribers for an event type.
+    ///     More efficient than GetSubscriberCount() when you only need to know if subscribers exist.
+    /// </summary>
+    /// <typeparam name="T">The event type.</typeparam>
+    /// <returns>True if there are any subscribers, false otherwise.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool HasSubscribers<T>()
+        where T : struct
+    {
+        if (_cache.TryGetValue(typeof(T), out var cache))
+            return !cache.IsEmpty;
+        return false;
+    }
+
+    /// <summary>
     ///     Gets the number of subscribers for an event type.
     /// </summary>
     /// <typeparam name="T">The event type.</typeparam>

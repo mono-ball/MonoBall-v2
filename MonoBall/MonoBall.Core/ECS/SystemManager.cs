@@ -1081,7 +1081,7 @@ public class SystemManager : IDisposable
 
         // Create ImGui debug overlay service and scene system
         _debugOverlayService = new DebugOverlayService(_world);
-        _debugOverlayService.Initialize(_game);
+        _debugOverlayService.Initialize(_game, _resourceManager, _sceneSystem);
 
         var debugMenuSceneSystem = new DebugMenuSceneSystem(
             _world,
@@ -1170,6 +1170,31 @@ public class SystemManager : IDisposable
             return;
 
         var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        // Check time control for pause/step/scale
+        var timeControl = _debugOverlayService?.TimeControl;
+        if (timeControl != null)
+        {
+            // Handle pause state - set deltaTime to 0 so systems still run but gameplay freezes
+            if (timeControl.IsPaused)
+            {
+                // Check for step frames
+                if (timeControl.ConsumeStepFrame())
+                {
+                    // Allow this frame to proceed with normal deltaTime (stepping)
+                }
+                else
+                {
+                    // Paused - freeze gameplay by zeroing deltaTime
+                    deltaTime = 0f;
+                }
+            }
+            else
+            {
+                // Apply time scale only when not paused
+                deltaTime *= timeControl.TimeScale;
+            }
+        }
 
         // Check if profiling is enabled (any listeners subscribed to timing hooks)
         var profilingEnabled = SystemTimingHook.HasSubscribers;

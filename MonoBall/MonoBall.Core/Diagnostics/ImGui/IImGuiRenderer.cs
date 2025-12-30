@@ -2,6 +2,7 @@ namespace MonoBall.Core.Diagnostics.ImGui;
 
 using System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.Resources;
 
 /// <summary>
 /// Interface for ImGui rendering backend integration with MonoGame.
@@ -14,12 +15,13 @@ public interface IImGuiRenderer : IDisposable
     bool IsInitialized { get; }
 
     /// <summary>
-    /// Initializes the ImGui renderer with the game instance.
+    /// Initializes the ImGui renderer with the game instance and optional resource manager.
     /// </summary>
     /// <param name="game">The MonoGame Game instance.</param>
+    /// <param name="resourceManager">Optional resource manager for loading fonts from the mod system.</param>
     /// <exception cref="ArgumentNullException">Thrown when game is null.</exception>
     /// <exception cref="InvalidOperationException">Thrown when already initialized.</exception>
-    void Initialize(Game game);
+    void Initialize(Game game, IResourceManager? resourceManager = null);
 
     /// <summary>
     /// Begins a new ImGui frame. Call at start of Update.

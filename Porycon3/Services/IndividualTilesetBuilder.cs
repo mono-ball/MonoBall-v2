@@ -186,8 +186,8 @@ public class IndividualTilesetBuilder : IDisposable
 
     /// <summary>
     /// Track tile properties for a GID. Only stores the first property set for each GID.
-    /// This associates metatile behavior/terrain/collision with the rendered tile image.
-    /// Tiles with all-default properties (normal behavior, normal terrain, passable) are skipped.
+    /// This associates metatile interaction/terrain/collision with the rendered tile image.
+    /// Tiles with all-default properties (normal interaction, normal terrain, passable) are skipped.
     /// The behavior parameter contains the raw 16-bit attribute value with behavior in bits 0-7.
     /// </summary>
     public void TrackTileProperty(int gid, int behavior, int terrainType)
@@ -198,17 +198,17 @@ public class IndividualTilesetBuilder : IDisposable
             if (_tileProperties.ContainsKey(gid))
                 return;
 
-            var behaviorId = IdTransformer.MetatileBehaviorId(behavior);
+            var interactionId = IdTransformer.TileInteractionId(behavior);
             var terrainId = IdTransformer.TerrainTypeId(terrainType);
             var collisionId = IdTransformer.DeriveCollisionId(behavior);
 
             // Skip tiles with all-default properties (all null)
-            if (behaviorId == null && terrainId == null && collisionId == null)
+            if (interactionId == null && terrainId == null && collisionId == null)
                 return;
 
             _tileProperties[gid] = new TileProperty(
                 gid - 1,  // LocalTileId is 0-based
-                behaviorId,
+                interactionId,
                 terrainId,
                 collisionId
             );

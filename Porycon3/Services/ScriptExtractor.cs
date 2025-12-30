@@ -5,21 +5,18 @@ using Porycon3.Services.Extraction;
 namespace Porycon3.Services;
 
 /// <summary>
-/// Extracts script definitions from pokeemerald-expansion.
-/// Scans map event scripts and creates definition files for interactions, triggers, and other scripts.
+/// Extracts interaction definitions from pokeemerald-expansion.
+/// Scans map event scripts and metatile behaviors to create definition files.
 /// </summary>
 public class ScriptExtractor : ExtractorBase
 {
-    public override string Name => "Script Definitions";
-    public override string Description => "Extracts script references from map event data";
+    public override string Name => "Interaction Definitions";
+    public override string Description => "Extracts NPC and tile interaction definitions";
 
-    // Categories of scripts we extract
-    private readonly HashSet<string> _interactionScripts = new();
+    // Categories of interactions we extract
+    private readonly HashSet<string> _npcInteractions = new();
     private readonly HashSet<string> _triggerScripts = new();
     private readonly HashSet<string> _signScripts = new();
-    private readonly HashSet<string> _npcScripts = new();
-    private readonly HashSet<string> _itemScripts = new();
-    private readonly HashSet<string> _weatherScripts = new();
 
     public ScriptExtractor(string inputPath, string outputPath, bool verbose = false)
         : base(inputPath, outputPath, verbose)
@@ -32,186 +29,277 @@ public class ScriptExtractor : ExtractorBase
         WithStatus("Scanning map scripts...", _ => ScanMapScripts());
 
         // Create output directories
-        var interactionsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions");
+        var npcInteractionsPath = Path.Combine(OutputPath, "Definitions", "Interactions", "NPCs");
+        var tileInteractionsPath = Path.Combine(OutputPath, "Definitions", "Interactions", "Tiles");
         var triggersPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Triggers");
         var signsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Signs");
 
-        EnsureDirectory(interactionsPath);
+        EnsureDirectory(npcInteractionsPath);
+        EnsureDirectory(tileInteractionsPath);
         EnsureDirectory(triggersPath);
         EnsureDirectory(signsPath);
 
-        int interactionCount = 0;
+        int npcCount = 0;
+        int tileCount = 0;
         int triggerCount = 0;
         int signCount = 0;
 
-        // Generate interaction script definitions
-        var interactionList = _interactionScripts.OrderBy(s => s).ToList();
-        if (interactionList.Count > 0)
+        // Generate NPC interaction definitions (parallel)
+        var npcList = _npcInteractions.OrderBy(s => s).ToList();
+        if (npcList.Count > 0)
         {
-            WithProgress("Extracting interaction scripts", interactionList, (scriptName, task) =>
+            WithParallelProgress("Extracting NPC interactions", npcList, scriptName =>
             {
-                SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{scriptName}[/]");
-
-                var def = CreateScriptDefinition(scriptName, "interaction", "Interactions");
+                var def = CreateNpcInteractionDefinition(scriptName);
                 var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
-                File.WriteAllText(Path.Combine(interactionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
-                interactionCount++;
+                File.WriteAllText(Path.Combine(npcInteractionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+                Interlocked.Increment(ref npcCount);
             });
         }
 
-        // Generate trigger script definitions
+        // Generate tile interaction definitions from metatile behaviors
+        var tileInteractions = GenerateTileInteractionList();
+        if (tileInteractions.Count > 0)
+        {
+            WithParallelProgress("Extracting tile interactions", tileInteractions, name =>
+            {
+                var def = CreateTileInteractionDefinition(name);
+                var fileName = $"{name}.json";
+                File.WriteAllText(Path.Combine(tileInteractionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+                Interlocked.Increment(ref tileCount);
+            });
+        }
+
+        // Generate trigger script definitions (parallel)
         var triggerList = _triggerScripts.OrderBy(s => s).ToList();
         if (triggerList.Count > 0)
         {
-            WithProgress("Extracting trigger scripts", triggerList, (scriptName, task) =>
+            WithParallelProgress("Extracting trigger scripts", triggerList, scriptName =>
             {
-                SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{scriptName}[/]");
-
                 var def = CreateScriptDefinition(scriptName, "trigger", "Triggers");
                 var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
                 File.WriteAllText(Path.Combine(triggersPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
-                triggerCount++;
+                Interlocked.Increment(ref triggerCount);
             });
         }
 
-        // Generate sign script definitions
+        // Generate sign script definitions (parallel)
         var signList = _signScripts.OrderBy(s => s).ToList();
         if (signList.Count > 0)
         {
-            WithProgress("Extracting sign scripts", signList, (scriptName, task) =>
+            WithParallelProgress("Extracting sign scripts", signList, scriptName =>
             {
-                SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{scriptName}[/]");
-
                 var def = CreateScriptDefinition(scriptName, "sign", "Signs");
                 var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
                 File.WriteAllText(Path.Combine(signsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
-                signCount++;
+                Interlocked.Increment(ref signCount);
             });
         }
 
-        SetCount("Interactions", interactionCount);
+        SetCount("NPC Interactions", npcCount);
+        SetCount("Tile Interactions", tileCount);
         SetCount("Triggers", triggerCount);
         SetCount("Signs", signCount);
 
-        return interactionCount + triggerCount + signCount;
+        return npcCount + tileCount + triggerCount + signCount;
     }
+
+    /// <summary>
+    /// Generate list of tile interaction names.
+    /// </summary>
+    private static List<string> GenerateTileInteractionList() =>
+    [
+        "tall_grass",
+        "very_tall_grass",
+        "underwater_grass",
+        "shore_water",
+        "deep_water",
+        "waterfall",
+        "ocean_water",
+        "pond_water",
+        "puddle",
+        "no_running",
+        "indoor_encounter",
+        "mountain",
+        "secret_base_hole",
+        "footprints",
+        "thin_ice",
+        "cracked_ice",
+        "hot_spring",
+        "lava",
+        "sand",
+        "ash_grass",
+        "sand_cave",
+        "ledge_south",
+        "ledge_north",
+        "ledge_east",
+        "ledge_west",
+        "ledge_southeast",
+        "ledge_southwest",
+        "ledge_northeast",
+        "ledge_northwest",
+        "stairs_south",
+        "stairs_north",
+        "impassable_south",
+        "impassable_north",
+        "impassable_east",
+        "impassable_west",
+        "cycling_road_pull_south",
+        "cycling_road_pull_east",
+        "bump",
+        "walk_south",
+        "walk_north",
+        "walk_east",
+        "walk_west",
+        "slide_south",
+        "slide_north",
+        "slide_east",
+        "slide_west",
+        "trick_house_puzzle_8_floor",
+        "muddy_slope",
+        "spin_right",
+        "spin_left",
+        "spin_down",
+        "spin_up",
+        "ice_spin_right",
+        "ice_spin_left",
+        "ice_spin_down",
+        "ice_spin_up",
+        "secret_base_rock_wall",
+        "secret_base_shrub",
+        "warp_or_bridge",
+        "warp_door",
+        "pokecenter_sign",
+        "pokemart_sign",
+        "berry_tree_soil",
+        "secret_base_pc",
+    ];
 
     private void ScanMapScripts()
     {
-        var mapsPath = Path.Combine(InputPath, "data", "maps");
+        // Scan converted map definitions to find interaction scripts
+        var mapsPath = Path.Combine(OutputPath, "Maps");
         if (!Directory.Exists(mapsPath))
         {
-            LogWarning($"Maps path not found: {mapsPath}");
+            LogWarning($"Maps output path not found: {mapsPath}");
             return;
         }
 
-        foreach (var mapDir in Directory.GetDirectories(mapsPath))
+        foreach (var mapFile in Directory.GetFiles(mapsPath, "*.json", SearchOption.AllDirectories))
         {
-            var scriptsFile = Path.Combine(mapDir, "scripts.inc");
-            if (File.Exists(scriptsFile))
+            ScanConvertedMapFile(mapFile);
+        }
+
+        LogVerbose($"Found {_npcInteractions.Count} NPC interactions, {_triggerScripts.Count} triggers, {_signScripts.Count} signs");
+    }
+
+    private void ScanConvertedMapFile(string filePath)
+    {
+        try
+        {
+            using var doc = JsonDocument.Parse(File.ReadAllText(filePath));
+            var root = doc.RootElement;
+
+            // Scan interactions - signs have "Sign:" prefix in name
+            if (root.TryGetProperty("interactions", out var interactions))
             {
-                ScanScriptFile(scriptsFile);
+                foreach (var interaction in interactions.EnumerateArray())
+                {
+                    if (!interaction.TryGetProperty("interactionId", out var idProp)) continue;
+                    var interactionId = idProp.GetString();
+                    if (string.IsNullOrEmpty(interactionId)) continue;
+
+                    // Extract script name from interactionId (e.g., "base:interaction/npcs/scriptname")
+                    var scriptName = ExtractScriptName(interactionId);
+                    if (string.IsNullOrEmpty(scriptName)) continue;
+
+                    // Check name prefix to determine type
+                    var name = interaction.TryGetProperty("name", out var nameProp) ? nameProp.GetString() : null;
+                    if (name?.StartsWith("Sign:", StringComparison.OrdinalIgnoreCase) == true)
+                        _signScripts.Add(scriptName);
+                    else
+                        _npcInteractions.Add(scriptName);
+                }
             }
 
-            // Also check for scripts.pory (poryscript format)
-            var poryFile = Path.Combine(mapDir, "scripts.pory");
-            if (File.Exists(poryFile))
+            // Scan NPCs for their interaction scripts
+            if (root.TryGetProperty("npcs", out var npcs))
             {
-                ScanPoryScriptFile(poryFile);
+                foreach (var npc in npcs.EnumerateArray())
+                {
+                    if (!npc.TryGetProperty("interactionId", out var idProp)) continue;
+                    var interactionId = idProp.GetString();
+                    if (string.IsNullOrEmpty(interactionId)) continue;
+
+                    var scriptName = ExtractScriptName(interactionId);
+                    if (!string.IsNullOrEmpty(scriptName))
+                        _npcInteractions.Add(scriptName);
+                }
+            }
+
+            // Scan triggers
+            if (root.TryGetProperty("triggers", out var triggers))
+            {
+                foreach (var trigger in triggers.EnumerateArray())
+                {
+                    if (!trigger.TryGetProperty("scriptId", out var idProp)) continue;
+                    var scriptId = idProp.GetString();
+                    if (string.IsNullOrEmpty(scriptId)) continue;
+
+                    var scriptName = ExtractScriptName(scriptId);
+                    if (!string.IsNullOrEmpty(scriptName))
+                        _triggerScripts.Add(scriptName);
+                }
             }
         }
-
-        // Scan common scripts
-        var commonScriptsPath = Path.Combine(InputPath, "data", "scripts");
-        if (Directory.Exists(commonScriptsPath))
+        catch (JsonException ex)
         {
-            foreach (var file in Directory.GetFiles(commonScriptsPath, "*.inc", SearchOption.AllDirectories))
-            {
-                ScanScriptFile(file);
-            }
-        }
-
-        LogVerbose($"Found {_interactionScripts.Count} interactions, {_triggerScripts.Count} triggers, {_signScripts.Count} signs");
-    }
-
-    private void ScanScriptFile(string filePath)
-    {
-        var content = File.ReadAllText(filePath);
-        var mapName = GetMapNameFromPath(filePath);
-
-        // Find script labels (script definitions start with label::)
-        var labelRegex = new Regex(@"^(\w+)::.*$", RegexOptions.Multiline);
-
-        foreach (Match match in labelRegex.Matches(content))
-        {
-            var scriptName = match.Groups[1].Value;
-            CategorizeScript(scriptName, mapName);
+            LogWarning($"Failed to parse {filePath}: {ex.Message}");
         }
     }
 
-    private void ScanPoryScriptFile(string filePath)
+    private static string? ExtractScriptName(string interactionId)
     {
-        var content = File.ReadAllText(filePath);
-        var mapName = GetMapNameFromPath(filePath);
-
-        // Find script definitions in poryscript format
-        var scriptRegex = new Regex(@"script\s+(\w+)\s*\{", RegexOptions.Multiline);
-
-        foreach (Match match in scriptRegex.Matches(content))
-        {
-            var scriptName = match.Groups[1].Value;
-            CategorizeScript(scriptName, mapName);
-        }
+        // Extract the script name from IDs like "base:interaction/npcs/scriptname"
+        var lastSlash = interactionId.LastIndexOf('/');
+        if (lastSlash < 0) return null;
+        return interactionId[(lastSlash + 1)..];
     }
 
-    private string GetMapNameFromPath(string filePath)
+    private object CreateNpcInteractionDefinition(string scriptName)
     {
-        var dir = Path.GetDirectoryName(filePath) ?? "";
-        return Path.GetFileName(dir);
+        var normalizedName = IdTransformer.Normalize(scriptName);
+        var friendlyName = ScriptToFriendlyName(scriptName);
+
+        return new Dictionary<string, object>
+        {
+            ["id"] = $"{IdTransformer.Namespace}:interaction/npcs/{normalizedName}",
+            ["name"] = friendlyName,
+            ["description"] = $"NPC interaction: {friendlyName}",
+            ["scriptPath"] = $"Scripts/Interactions/NPCs/{normalizedName}.csx",
+            ["category"] = "npc",
+            ["priority"] = 500,
+            ["parameters"] = new List<object>()
+        };
     }
 
-    private void CategorizeScript(string scriptName, string mapName)
+    private object CreateTileInteractionDefinition(string behaviorName)
     {
-        var lower = scriptName.ToLowerInvariant();
+        var friendlyName = BehaviorToFriendlyName(behaviorName);
+        var category = GetTileInteractionCategory(behaviorName);
 
-        // Skip internal/helper scripts
-        if (lower.StartsWith("common_") ||
-            lower.StartsWith("std_") ||
-            lower.Contains("_movement") ||
-            lower.EndsWith("_text") ||
-            lower.EndsWith("_msgtext"))
+        return new Dictionary<string, object>
         {
-            return;
-        }
-
-        // Categorize based on naming patterns
-        if (lower.Contains("_sign") || lower.Contains("sign_"))
-        {
-            _signScripts.Add(scriptName);
-        }
-        else if (lower.Contains("trigger") || lower.Contains("_trig"))
-        {
-            _triggerScripts.Add(scriptName);
-        }
-        else if (lower.Contains("_npc") || lower.Contains("npc_") ||
-                 lower.Contains("_man") || lower.Contains("_woman") ||
-                 lower.Contains("_boy") || lower.Contains("_girl") ||
-                 lower.Contains("_twin") || lower.Contains("_fat") ||
-                 lower.Contains("_mom") || lower.Contains("_rival") ||
-                 lower.Contains("_birch") || lower.Contains("_script_"))
-        {
-            _interactionScripts.Add(scriptName);
-        }
-        else if (lower.Contains("eventscript") || lower.Contains("event_script"))
-        {
-            // General event scripts - categorize as interactions by default
-            _interactionScripts.Add(scriptName);
-        }
+            ["id"] = $"{IdTransformer.Namespace}:interaction/tiles/{behaviorName}",
+            ["name"] = friendlyName,
+            ["description"] = $"Tile interaction: {friendlyName}",
+            ["category"] = category,
+            ["priority"] = 500
+        };
     }
 
     private object CreateScriptDefinition(string scriptName, string category, string subfolder)
     {
-        // Use IdTransformer.Normalize to match the format used in map definitions
         var normalizedName = IdTransformer.Normalize(scriptName);
         var friendlyName = ScriptToFriendlyName(scriptName);
 
@@ -230,7 +318,6 @@ public class ScriptExtractor : ExtractorBase
     private static string ScriptToFriendlyName(string name)
     {
         // LittlerootTown_EventScript_Boy -> Littleroot Town Boy Interaction
-        // Remove common suffixes
         var cleaned = name
             .Replace("_EventScript_", " ")
             .Replace("EventScript_", "")
@@ -252,39 +339,30 @@ public class ScriptExtractor : ExtractorBase
         return result;
     }
 
-    /// <summary>
-    /// Extract scripts referenced in already-converted map definitions.
-    /// Call this after map conversion to find all script IDs used.
-    /// </summary>
-    public void ExtractFromMapDefinitions(string mapsDefinitionPath)
+    private static string BehaviorToFriendlyName(string name)
     {
-        if (!Directory.Exists(mapsDefinitionPath))
-            return;
+        // tall_grass -> Tall Grass
+        var words = name.Split('_');
+        return string.Join(" ", words.Select(w =>
+            string.IsNullOrEmpty(w) ? w : char.ToUpper(w[0]) + w[1..]));
+    }
 
-        foreach (var mapFile in Directory.GetFiles(mapsDefinitionPath, "*.json", SearchOption.AllDirectories))
-        {
-            try
-            {
-                var json = File.ReadAllText(mapFile);
-
-                // Find all script ID references
-                var interactionRegex = new Regex(@"""interactionId"":\s*""[^:]+:script:interaction/([^""]+)""");
-                var triggerRegex = new Regex(@"""triggerId"":\s*""[^:]+:script:trigger/([^""]+)""");
-
-                foreach (Match match in interactionRegex.Matches(json))
-                {
-                    _interactionScripts.Add(match.Groups[1].Value);
-                }
-
-                foreach (Match match in triggerRegex.Matches(json))
-                {
-                    _triggerScripts.Add(match.Groups[1].Value);
-                }
-            }
-            catch
-            {
-                // Ignore parse errors
-            }
-        }
+    private static string GetTileInteractionCategory(string behaviorName)
+    {
+        if (behaviorName.Contains("grass") || behaviorName.Contains("encounter"))
+            return "encounter";
+        if (behaviorName.Contains("water") || behaviorName.Contains("waterfall") || behaviorName.Contains("pond") || behaviorName.Contains("ocean"))
+            return "water";
+        if (behaviorName.Contains("ledge"))
+            return "ledge";
+        if (behaviorName.Contains("slide") || behaviorName.Contains("spin") || behaviorName.Contains("walk"))
+            return "movement";
+        if (behaviorName.Contains("warp") || behaviorName.Contains("door"))
+            return "warp";
+        if (behaviorName.Contains("ice"))
+            return "ice";
+        if (behaviorName.Contains("secret_base"))
+            return "secret_base";
+        return "misc";
     }
 }

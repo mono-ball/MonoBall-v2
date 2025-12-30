@@ -62,6 +62,17 @@ public interface IResourceManager
     /// <returns>True if cached, false otherwise.</returns>
     bool HasFont(string resourceId);
 
+    /// <summary>
+    ///     Loads raw font data (TTF bytes) for the specified font resource ID.
+    ///     Useful for passing to rendering systems that require raw font data (e.g., ImGui).
+    /// </summary>
+    /// <param name="resourceId">The font resource ID.</param>
+    /// <returns>The raw TTF font data as a byte array.</returns>
+    /// <exception cref="ArgumentException">Thrown when resourceId is null/empty.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when definition not found or font path missing.</exception>
+    /// <exception cref="FileNotFoundException">Thrown when font file not found.</exception>
+    byte[] LoadFontData(string resourceId);
+
     // Audio Loading (from AudioDefinition)
     /// <summary>
     ///     Creates a new audio reader for the specified audio resource.

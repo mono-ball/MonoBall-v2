@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using Spectre.Console;
 
@@ -14,9 +15,10 @@ public abstract class ExtractorBase : IExtractor
     protected readonly bool Verbose;
 
     private readonly Stopwatch _stopwatch = new();
-    private readonly List<ExtractionError> _errors = new();
-    private readonly List<string> _warnings = new();
-    private readonly Dictionary<string, int> _counts = new();
+    // Thread-safe collections for parallel extraction
+    private readonly ConcurrentBag<ExtractionError> _errors = new();
+    private readonly ConcurrentBag<string> _warnings = new();
+    private readonly ConcurrentDictionary<string, int> _counts = new();
 
     /// <summary>
     /// When true, suppresses all console output (for use with orchestrator).
@@ -39,8 +41,9 @@ public abstract class ExtractorBase : IExtractor
     public ExtractionResult ExtractAll()
     {
         _stopwatch.Restart();
-        _errors.Clear();
-        _warnings.Clear();
+        // Clear concurrent collections
+        while (_errors.TryTake(out _)) { }
+        while (_warnings.TryTake(out _)) { }
         _counts.Clear();
 
         int itemCount = 0;
@@ -59,12 +62,12 @@ public abstract class ExtractorBase : IExtractor
         var result = new ExtractionResult
         {
             ExtractorName = Name,
-            Success = _errors.Count == 0,
+            Success = _errors.IsEmpty,
             ItemCount = itemCount,
             AdditionalCounts = new Dictionary<string, int>(_counts),
             Duration = _stopwatch.Elapsed,
-            Errors = new List<ExtractionError>(_errors),
-            Warnings = new List<string>(_warnings),
+            Errors = _errors.ToList(),
+            Warnings = _warnings.ToList(),
             OutputPath = OutputPath
         };
 
@@ -146,6 +149,64 @@ public abstract class ExtractorBase : IExtractor
     }
 
     /// <summary>
+    /// Run extraction in parallel with a progress bar for known item counts.
+    /// Thread-safe: errors are collected safely, progress increments are atomic.
+    /// In quiet mode, runs parallel without display.
+    /// </summary>
+    protected void WithParallelProgress<T>(string description, IReadOnlyList<T> items, Action<T> processItem, int? maxParallelism = null)
+    {
+        var parallelism = maxParallelism ?? Environment.ProcessorCount;
+        var options = new ParallelOptions { MaxDegreeOfParallelism = parallelism };
+
+        if (QuietMode)
+        {
+            // Parallel iteration without progress display
+            Parallel.ForEach(items, options, item =>
+            {
+                try
+                {
+                    processItem(item);
+                }
+                catch (Exception ex)
+                {
+                    AddError(item?.ToString() ?? "unknown", ex.Message, ex);
+                }
+            });
+            return;
+        }
+
+        AnsiConsole.Progress()
+            .AutoRefresh(true)
+            .HideCompleted(false)
+            .Columns(
+                new TaskDescriptionColumn(),
+                new ProgressBarColumn(),
+                new PercentageColumn(),
+                new RemainingTimeColumn(),
+                new SpinnerColumn())
+            .Start(ctx =>
+            {
+                var task = ctx.AddTask($"[cyan]{Markup.Escape(description)}[/]", maxValue: items.Count);
+
+                Parallel.ForEach(items, options, item =>
+                {
+                    try
+                    {
+                        processItem(item);
+                    }
+                    catch (Exception ex)
+                    {
+                        AddError(item?.ToString() ?? "unknown", ex.Message, ex);
+                        if (Verbose)
+                            LogError($"Error processing {item}: {ex.Message}");
+                    }
+
+                    task.Increment(1); // Thread-safe in Spectre.Console
+                });
+            });
+    }
+
+    /// <summary>
     /// Run extraction with a status spinner for unknown duration.
     /// In quiet mode, just runs the action without spinner.
     /// </summary>
@@ -219,7 +280,7 @@ public abstract class ExtractorBase : IExtractor
     }
 
     /// <summary>
-    /// Record an additional count category.
+    /// Record an additional count category (thread-safe).
     /// </summary>
     protected void SetCount(string category, int count)
     {
@@ -227,12 +288,11 @@ public abstract class ExtractorBase : IExtractor
     }
 
     /// <summary>
-    /// Increment an additional count category.
+    /// Increment an additional count category (thread-safe).
     /// </summary>
     protected void IncrementCount(string category, int amount = 1)
     {
-        _counts.TryGetValue(category, out var current);
-        _counts[category] = current + amount;
+        _counts.AddOrUpdate(category, amount, (_, existing) => existing + amount);
     }
 
     #endregion

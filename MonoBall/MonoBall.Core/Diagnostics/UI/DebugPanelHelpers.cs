@@ -69,17 +69,13 @@ public static class DebugPanelHelpers
     /// Draws a standard refresh interval slider.
     /// </summary>
     /// <param name="interval">The refresh interval value.</param>
+    /// <param name="idSuffix">Optional ID suffix to ensure unique ImGui IDs across panels.</param>
     /// <returns>True if the value changed.</returns>
-    public static bool DrawRefreshSlider(ref float interval)
+    public static bool DrawRefreshSlider(ref float interval, string? idSuffix = null)
     {
         ImGui.SetNextItemWidth(RefreshSliderWidth);
-        return ImGui.SliderFloat(
-            "##refresh",
-            ref interval,
-            MinRefreshInterval,
-            MaxRefreshInterval,
-            "%.1fs"
-        );
+        var id = string.IsNullOrEmpty(idSuffix) ? "##refresh" : $"##refresh_{idSuffix}";
+        return ImGui.SliderFloat(id, ref interval, MinRefreshInterval, MaxRefreshInterval, "%.1fs");
     }
 
     /// <summary>
@@ -87,11 +83,17 @@ public static class DebugPanelHelpers
     /// </summary>
     /// <param name="filter">The filter string.</param>
     /// <param name="hint">Optional custom hint text.</param>
+    /// <param name="idSuffix">Optional ID suffix to ensure unique ImGui IDs across panels.</param>
     /// <returns>True if the value changed.</returns>
-    public static bool DrawFilterInput(ref string filter, string? hint = null)
+    public static bool DrawFilterInput(
+        ref string filter,
+        string? hint = null,
+        string? idSuffix = null
+    )
     {
         ImGui.SetNextItemWidth(FilterInputWidth);
-        return ImGui.InputTextWithHint("##filter", hint ?? FilterHint, ref filter, 256);
+        var id = string.IsNullOrEmpty(idSuffix) ? "##filter" : $"##filter_{idSuffix}";
+        return ImGui.InputTextWithHint(id, hint ?? FilterHint, ref filter, 256);
     }
 
     /// <summary>

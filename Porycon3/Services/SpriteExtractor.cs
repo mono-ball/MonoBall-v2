@@ -93,11 +93,12 @@ public class SpriteExtractor : ExtractorBase
         EnsureDirectory(_outputGraphics);
         EnsureDirectory(_outputData);
 
+        // Thread-safe counters and collection
         int spriteCount = 0;
         int graphicsCount = 0;
-        var processedFiles = new HashSet<string>();
+        var processedFiles = new System.Collections.Concurrent.ConcurrentDictionary<string, byte>();
 
-        // Extract sprites based on sPicTable definitions
+        // Extract sprites based on sPicTable definitions (parallel)
         var animationData = GetAnimationData();
         var picTableList = animationData.PicTableSources
             .Where(kvp => kvp.Value.Any(s => !string.IsNullOrWhiteSpace(s.FilePath)))
@@ -105,21 +106,19 @@ public class SpriteExtractor : ExtractorBase
 
         if (picTableList.Count > 0)
         {
-            WithProgress("Extracting pic table sprites", picTableList, (kvp, task) =>
+            WithParallelProgress("Extracting pic table sprites", picTableList, kvp =>
             {
                 var (picTableName, sources) = kvp;
                 var validSources = sources.Where(s => !string.IsNullOrWhiteSpace(s.FilePath)).ToList();
                 if (validSources.Count == 0) return;
 
-                SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{picTableName}[/]");
-
                 if (ExtractSpriteFromPicTable(picTableName, validSources))
                 {
-                    spriteCount++;
-                    graphicsCount++;
+                    Interlocked.Increment(ref spriteCount);
+                    Interlocked.Increment(ref graphicsCount);
                     foreach (var source in validSources)
                     {
-                        processedFiles.Add(source.FilePath);
+                        processedFiles.TryAdd(source.FilePath, 0);
                     }
                 }
             });
@@ -130,11 +129,11 @@ public class SpriteExtractor : ExtractorBase
         {
             foreach (var file in files)
             {
-                processedFiles.Add(file);
+                processedFiles.TryAdd(file, 0);
             }
         }
 
-        // Process each sprite category directory for standalone PNGs
+        // Process each sprite category directory for standalone PNGs (parallel)
         foreach (var category in CategoryMappings.Keys)
         {
             var categoryPath = Path.Combine(_picsBasePath, category);
@@ -146,21 +145,18 @@ public class SpriteExtractor : ExtractorBase
                 {
                     var relativePath = Path.GetRelativePath(_picsBasePath, pngPath);
                     var pathWithoutExt = Path.ChangeExtension(relativePath, null).Replace('\\', '/');
-                    return !processedFiles.Contains(pathWithoutExt);
+                    return !processedFiles.ContainsKey(pathWithoutExt);
                 })
                 .ToList();
 
             if (allPngs.Count > 0)
             {
-                WithProgress($"Extracting {category} sprites", allPngs, (pngPath, task) =>
+                WithParallelProgress($"Extracting {category} sprites", allPngs, pngPath =>
                 {
-                    var fileName = Path.GetFileNameWithoutExtension(pngPath);
-                    SetTaskDescription(task, $"[cyan]Extracting[/] [yellow]{fileName}[/]");
-
                     if (ExtractStandalonePng(pngPath, category))
                     {
-                        spriteCount++;
-                        graphicsCount++;
+                        Interlocked.Increment(ref spriteCount);
+                        Interlocked.Increment(ref graphicsCount);
                     }
                 });
             }

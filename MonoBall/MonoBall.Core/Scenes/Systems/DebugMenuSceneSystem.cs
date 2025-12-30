@@ -122,13 +122,11 @@ public sealed class DebugMenuSceneSystem
             else
             {
                 OpenMenu();
-                // Initialize ImGui frame immediately so RenderScene has valid data
-                var gameTime = new GameTime(TimeSpan.Zero, TimeSpan.FromSeconds(deltaTime));
-                _debugOverlay.BeginUpdate(gameTime);
-                _debugOverlay.EndUpdate(gameTime);
+                // Don't call BeginUpdate/EndUpdate here - the code below handles it
+                // This prevents double frame processing on menu open
             }
 
-            return;
+            // Fall through to update overlay if now open (handles the open case)
         }
 
         // Handle ESC to close (only when menu is open)

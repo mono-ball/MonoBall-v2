@@ -116,16 +116,15 @@ public class SpeciesExtractor : ExtractorBase
         LogVerbose($"Parsed {eggMoveLearnsets.Count} egg move learnsets");
         LogVerbose($"Parsed {_formChangeData.Count} form change entries");
 
-        // Collect ALL species data first
-        var allSpecies = new List<SpeciesData>();
+        // Collect ALL species data first (thread-safe collection for parallel parsing)
+        var allSpecies = new System.Collections.Concurrent.ConcurrentBag<SpeciesData>();
         var genFiles = Directory.GetFiles(_speciesInfoPath, "gen_*_families.h").ToList();
 
-        WithProgress("Parsing species files", genFiles, (genFile, task) =>
+        WithParallelProgress("Parsing species files", genFiles, genFile =>
         {
-            var fileName = Path.GetFileName(genFile);
-            SetTaskDescription(task, $"[cyan]Parsing[/] [yellow]{fileName}[/]");
             var speciesList = CollectSpeciesFromFile(genFile, levelUpLearnsets, teachableLearnsets, eggMoveLearnsets);
-            allSpecies.AddRange(speciesList);
+            foreach (var species in speciesList)
+                allSpecies.Add(species);
         });
 
         // Separate base species from forms
@@ -152,10 +151,9 @@ public class SpeciesExtractor : ExtractorBase
             }
         }
 
-        // Write only base species (with embedded forms)
-        WithProgress("Writing species definitions", baseSpecies, (species, task) =>
+        // Write only base species (with embedded forms) - parallel file writes
+        WithParallelProgress("Writing species definitions", baseSpecies, species =>
         {
-            SetTaskDescription(task, $"[cyan]Writing[/] [yellow]{species.Name}[/]");
             WriteSpeciesJson(species);
         });
 
