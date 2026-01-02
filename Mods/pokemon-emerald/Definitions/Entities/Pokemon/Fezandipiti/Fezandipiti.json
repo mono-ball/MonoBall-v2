@@ -1,0 +1,129 @@
+{
+  "id": "pokeemerald:pokemon:fezandipiti",
+  "name": "Fezandipiti",
+  "cryId": "pokeemerald:audio:sfx/cries/fezandipiti",
+  "baseStats": {
+    "hp": 88,
+    "attack": 91,
+    "defense": 82,
+    "speed": 99,
+    "spAttack": 70,
+    "spDefense": 125
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 3,
+  "expYield": 278,
+  "evYield": {
+    "spDefense": 3
+  },
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:toxic_chain",
+    null,
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:retainer",
+  "height": 14,
+  "weight": 301,
+  "description": "Fezandipiti owes its beautiful looks and  lovely voice to the toxic stimulants  emanating from the chain wrapped around  its body.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:cross_poison"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:tail_slap"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:moonblast"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitiback",
+    "backShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitiicon",
+    "overworld": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitioverworldshiny"
+  },
+  "isLegendary": true
+}

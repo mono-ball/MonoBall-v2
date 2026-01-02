@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:haunter",
+  "name": "Haunter",
+  "cryId": "pokeemerald:audio:sfx/cries/haunter",
+  "baseStats": {
+    "hp": 45,
+    "attack": 50,
+    "defense": 45,
+    "speed": 95,
+    "spAttack": 115
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:gas",
+  "height": 16,
+  "weight": 1,
+  "description": "If a Haunter beckons you while it is  floating in darkness, don\u0027t approach it.  This Pok\u00E9mon will try to lick you with its  tongue and steal your life away.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:gengar"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_LINKING_CORD",
+      "targetSpeciesId": "pokeemerald:pokemon:gengar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shadow_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:spite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:dark_pulse"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/haunter/haunterfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/haunter/haunterfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/haunter/haunterback",
+    "backShiny": "pokeemerald:pokemon:sprite/haunter/haunterbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/haunter/hauntericon",
+    "overworld": "pokeemerald:pokemon:sprite/haunter/haunteroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/haunter/haunteroverworldshiny"
+  }
+}

@@ -103,7 +103,7 @@ public class VoicegroupParser
             ParseVoiceGroupsInc(mainFile);
         }
 
-        Console.WriteLine($"[VoicegroupParser] Parsed {_voicegroups.Count} voicegroups, {_keysplitTables.Count} keysplit tables");
+        // Metrics tracked by SoundExtractor via SetCount
     }
 
     /// <summary>

@@ -28,11 +28,11 @@ public class ScriptExtractor : ExtractorBase
         // Scan all map scripts to find script references
         WithStatus("Scanning map scripts...", _ => ScanMapScripts());
 
-        // Create output directories
-        var npcInteractionsPath = Path.Combine(OutputPath, "Definitions", "Interactions", "NPCs");
-        var tileInteractionsPath = Path.Combine(OutputPath, "Definitions", "Interactions", "Tiles");
-        var triggersPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Triggers");
-        var signsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Signs");
+        // Create output directories - all under Definitions/Scripts/Interactions
+        var npcInteractionsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "NPCs");
+        var tileInteractionsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "Tiles");
+        var triggersPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "Triggers");
+        var signsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "Signs");
 
         EnsureDirectory(npcInteractionsPath);
         EnsureDirectory(tileInteractionsPath);
@@ -178,7 +178,8 @@ public class ScriptExtractor : ExtractorBase
     private void ScanMapScripts()
     {
         // Scan converted map definitions to find interaction scripts
-        var mapsPath = Path.Combine(OutputPath, "Maps");
+        // Maps are now at Definitions/Entities/Maps/{region}/
+        var mapsPath = Path.Combine(OutputPath, "Definitions", "Entities", "Maps");
         if (!Directory.Exists(mapsPath))
         {
             LogWarning($"Maps output path not found: {mapsPath}");

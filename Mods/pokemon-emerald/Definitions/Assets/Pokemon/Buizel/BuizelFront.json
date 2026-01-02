@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/buizel/buizelfront",
+  "name": "Buizelfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Buizel/BuizelFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

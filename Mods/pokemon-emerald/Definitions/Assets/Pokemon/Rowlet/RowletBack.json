@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/rowlet/rowletback",
+  "name": "Rowletback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Rowlet/RowletBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

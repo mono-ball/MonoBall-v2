@@ -1,0 +1,178 @@
+{
+  "id": "pokeemerald:pokemon:leafeon",
+  "name": "Leafeon",
+  "cryId": "pokeemerald:audio:sfx/cries/leafeon",
+  "baseStats": {
+    "hp": 65,
+    "attack": 110,
+    "defense": 130,
+    "speed": 95,
+    "spAttack": 60,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:leaf_guard",
+    "pokeemerald:ability:leaf_guard",
+    "pokeemerald:ability:chlorophyll"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:verdant",
+  "height": 10,
+  "weight": 255,
+  "description": "Its cellular composition is closer to  that of a plant than an animal. It uses  photosynthesis to produce its energy  supply without eating food.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/leafeon/leafeonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/leafeon/leafeonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/leafeon/leafeonback",
+    "backShiny": "pokeemerald:pokemon:sprite/leafeon/leafeonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/leafeon/leafeonicon",
+    "overworld": "pokeemerald:pokemon:sprite/leafeon/leafeonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/leafeon/leafeonoverworldshiny"
+  }
+}

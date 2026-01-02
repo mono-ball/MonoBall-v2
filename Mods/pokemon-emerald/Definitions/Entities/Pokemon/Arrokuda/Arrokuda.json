@@ -1,0 +1,119 @@
+{
+  "id": "pokeemerald:pokemon:arrokuda",
+  "name": "Arrokuda",
+  "cryId": "pokeemerald:audio:sfx/cries/arrokuda",
+  "baseStats": {
+    "hp": 41,
+    "attack": 63,
+    "defense": 40,
+    "speed": 66,
+    "spAttack": 40,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 255,
+  "expYield": 56,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:propeller_tail"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rush",
+  "height": 5,
+  "weight": 10,
+  "description": "If it sees any movement around it, this  Pok\u00E9mon charges for it straightaway,  leading with its sharply pointed jaw.  It\u0027s very proud of that jaw.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 26,
+      "targetSpeciesId": "pokeemerald:pokemon:barraskewda"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:acupressure",
+    "pokeemerald:move:slash",
+    "pokeemerald:move:night_slash"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/arrokuda/arrokudafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/arrokuda/arrokudafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/arrokuda/arrokudaback",
+    "backShiny": "pokeemerald:pokemon:sprite/arrokuda/arrokudabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/arrokuda/arrokudaicon",
+    "overworld": "pokeemerald:pokemon:sprite/arrokuda/arrokudaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arrokuda/arrokudaoverworldshiny"
+  }
+}

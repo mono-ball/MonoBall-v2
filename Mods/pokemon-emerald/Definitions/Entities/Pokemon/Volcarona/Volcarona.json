@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:volcarona",
+  "name": "Volcarona",
+  "cryId": "pokeemerald:audio:sfx/cries/volcarona",
+  "baseStats": {
+    "hp": 85,
+    "attack": 60,
+    "defense": 65,
+    "speed": 100,
+    "spAttack": 135,
+    "spDefense": 105
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 15,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:flame_body",
+    null,
+    "pokeemerald:ability:swarm"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:sun",
+  "height": 16,
+  "weight": 460,
+  "description": "When volcanic ash darkened the  atmosphere, it appeared and saved Pok\u00E9mon  from freezing, Volcarona\u0027s fire provided a  replacement for the sun.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:quiver_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fiery_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:leech_life"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:heat_wave"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 78,
+      "moveId": "pokeemerald:move:rage_powder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/volcarona/volcaronafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/volcarona/volcaronafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/volcarona/volcaronaback",
+    "backShiny": "pokeemerald:pokemon:sprite/volcarona/volcaronabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/volcarona/volcaronaicon",
+    "overworld": "pokeemerald:pokemon:sprite/volcarona/volcaronaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/volcarona/volcaronaoverworldshiny"
+  }
+}

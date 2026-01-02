@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route118_event_script_chester",
+  "name": "route118 event script chester",
+  "description": "NPC interaction: route118 event script chester",
+  "scriptPath": "Scripts/Interactions/NPCs/route118_event_script_chester.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

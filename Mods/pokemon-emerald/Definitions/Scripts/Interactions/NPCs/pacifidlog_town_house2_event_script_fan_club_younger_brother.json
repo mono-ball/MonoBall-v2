@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_house2_event_script_fan_club_younger_brother",
+  "name": "pacifidlog town house2 event script fan club younger brother",
+  "description": "NPC interaction: pacifidlog town house2 event script fan club younger brother",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_house2_event_script_fan_club_younger_brother.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

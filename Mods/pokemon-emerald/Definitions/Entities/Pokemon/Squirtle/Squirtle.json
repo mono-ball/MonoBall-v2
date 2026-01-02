@@ -1,0 +1,170 @@
+{
+  "id": "pokeemerald:pokemon:squirtle",
+  "name": "Squirtle",
+  "cryId": "pokeemerald:audio:sfx/cries/squirtle",
+  "baseStats": {
+    "hp": 44,
+    "attack": 48,
+    "defense": 65,
+    "speed": 43,
+    "spAttack": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:rain_dish"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:tiny_turtle",
+  "height": 5,
+  "weight": 90,
+  "description": "Its shell is not just for protection.  Its rounded shape and the grooves on its  surface minimize resistance in water,  enabling Squirtle to swim at high speeds.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:wartortle"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:refresh",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:muddy_water",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:water_spout",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:dragon_pulse",
+    "pokeemerald:move:aura_sphere"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/squirtle/squirtlefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/squirtle/squirtlefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/squirtle/squirtleback",
+    "backShiny": "pokeemerald:pokemon:sprite/squirtle/squirtlebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/squirtle/squirtleicon",
+    "overworld": "pokeemerald:pokemon:sprite/squirtle/squirtleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/squirtle/squirtleoverworldshiny"
+  }
+}

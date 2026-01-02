@@ -1,0 +1,133 @@
+{
+  "id": "pokeemerald:pokemon:skwovet",
+  "name": "Skwovet",
+  "cryId": "pokeemerald:audio:sfx/cries/skwovet",
+  "baseStats": {
+    "hp": 70,
+    "attack": 55,
+    "defense": 55,
+    "speed": 25,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 55,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:cheek_pouch",
+    null,
+    "pokeemerald:ability:gluttony"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:cheeky",
+  "height": 3,
+  "weight": 25,
+  "description": "Found throughout the Galar region, this  Pok\u00E9mon becomes uneasy if its cheeks are  ever completely empty of berries.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:greedent"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:stuff_cheeks"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:belch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:thief"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:belly_drum"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skwovet/skwovetfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skwovet/skwovetfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skwovet/skwovetback",
+    "backShiny": "pokeemerald:pokemon:sprite/skwovet/skwovetbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skwovet/skwoveticon",
+    "overworld": "pokeemerald:pokemon:sprite/skwovet/skwovetoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skwovet/skwovetoverworldshiny"
+  }
+}

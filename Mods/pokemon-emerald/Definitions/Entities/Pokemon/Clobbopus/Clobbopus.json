@@ -1,0 +1,128 @@
+{
+  "id": "pokeemerald:pokemon:clobbopus",
+  "name": "Clobbopus",
+  "cryId": "pokeemerald:audio:sfx/cries/clobbopus",
+  "baseStats": {
+    "hp": 50,
+    "attack": 68,
+    "defense": 60,
+    "speed": 32,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 180,
+  "expYield": 62,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:limber",
+    null,
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:tantrum",
+  "height": 6,
+  "weight": 40,
+  "description": "It\u0027s very curious, but its means of  investigating things is to try to punch  them with its tentacles. The search for  food is what brings it onto land.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:grapploct"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:submission"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:waterfall"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:pain_split",
+    "pokeemerald:move:soak",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:circle_throw",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/clobbopus/clobbopusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/clobbopus/clobbopusback",
+    "backShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/clobbopus/clobbopusicon",
+    "overworld": "pokeemerald:pokemon:sprite/clobbopus/clobbopusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopusoverworldshiny"
+  }
+}

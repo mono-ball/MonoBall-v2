@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/fallarbor_town_battle_tent_lobby_event_script_rules_board",
+  "name": "fallarbor town battle tent lobby event script rules board",
+  "description": "Sign script: fallarbor town battle tent lobby event script rules board",
+  "scriptPath": "Scripts/Signs/fallarbor_town_battle_tent_lobby_event_script_rules_board.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

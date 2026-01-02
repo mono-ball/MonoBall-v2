@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:nihilego",
+  "name": "Nihilego",
+  "cryId": "pokeemerald:audio:sfx/cries/nihilego",
+  "baseStats": {
+    "hp": 109,
+    "attack": 53,
+    "defense": 47,
+    "speed": 103,
+    "spAttack": 127,
+    "spDefense": 131
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:parasite",
+  "height": 12,
+  "weight": 555,
+  "description": "One of several mysterious Ultra Beasts.  It\u0027s unclear whether or not this Pok\u00E9mon  is sentient, but sometimes it can be  observed behaving like a young girl.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:tickle"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:power_split"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:venom_drench"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:wonder_room"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nihilego/nihilegofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nihilego/nihilegofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nihilego/nihilegoback",
+    "backShiny": "pokeemerald:pokemon:sprite/nihilego/nihilegobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nihilego/nihilegoicon",
+    "overworld": "pokeemerald:pokemon:sprite/nihilego/nihilegooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nihilego/nihilegooverworldshiny"
+  },
+  "isUltraBeast": true
+}

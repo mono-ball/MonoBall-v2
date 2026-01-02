@@ -1,9 +1,0 @@
-{
-  "id": "base:behavior:movement/walk_in_place",
-  "name": "Walk In Place Behavior",
-  "description": "NPC walks in place without moving, playing walk animation",
-  "scriptId": "base:script:movement/walk_in_place",
-  "parameterOverrides": {
-    "direction": "down"
-  }
-}

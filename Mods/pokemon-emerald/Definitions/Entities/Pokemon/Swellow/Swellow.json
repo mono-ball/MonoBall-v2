@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:swellow",
+  "name": "Swellow",
+  "cryId": "pokeemerald:audio:sfx/cries/swellow",
+  "baseStats": {
+    "hp": 60,
+    "attack": 85,
+    "defense": 60,
+    "speed": 125,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 159,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:guts",
+    null,
+    "pokeemerald:ability:scrappy"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:swallow",
+  "height": 7,
+  "weight": 198,
+  "description": "A Swellow dives upon prey from far above.  It never misses its targets. It takes to  the skies in search of lands with a warm  climate.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:brave_bird"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:brave_bird"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:reversal"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/swellow/swellowfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/swellow/swellowfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/swellow/swellowback",
+    "backShiny": "pokeemerald:pokemon:sprite/swellow/swellowbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/swellow/swellowicon",
+    "overworld": "pokeemerald:pokemon:sprite/swellow/swellowoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swellow/swellowoverworldshiny"
+  }
+}

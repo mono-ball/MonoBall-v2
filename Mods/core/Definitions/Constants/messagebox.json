@@ -9,7 +9,7 @@
     "TextSpeedVariableName": "player:textSpeed",
     "DefaultTextSpeed": "medium",
     "DefaultFontId": "base:font:game/pokemon",
-    "MessageBoxTilesheetId": "base:textwindow:tilesheet/message_box",
+    "MessageBoxTilesheetId": "pokeemerald:textwindow:tilesheet/message_box",
     "MessageBoxInteriorWidth": 216,
     "MessageBoxInteriorHeight": 32,
     "MessageBoxInteriorTileX": 2,

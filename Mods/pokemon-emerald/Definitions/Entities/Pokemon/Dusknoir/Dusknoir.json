@@ -1,0 +1,175 @@
+{
+  "id": "pokeemerald:pokemon:dusknoir",
+  "name": "Dusknoir",
+  "cryId": "pokeemerald:audio:sfx/cries/dusknoir",
+  "baseStats": {
+    "hp": 45,
+    "attack": 100,
+    "defense": 135,
+    "speed": 45,
+    "spAttack": 65,
+    "spDefense": 135
+  },
+  "types": [
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "expYield": 263,
+  "evYield": {
+    "defense": 1,
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:frisk"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:gripper",
+  "height": 22,
+  "weight": 1066,
+  "description": "This feared Pok\u00E9mon is said to travel to  worlds unknown. Some even believe that  it takes lost spirits into its pliant body  and guides them home.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dusknoir/dusknoirfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dusknoir/dusknoirfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dusknoir/dusknoirback",
+    "backShiny": "pokeemerald:pokemon:sprite/dusknoir/dusknoirbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dusknoir/dusknoiricon",
+    "overworld": "pokeemerald:pokemon:sprite/dusknoir/dusknoiroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dusknoir/dusknoiroverworldshiny"
+  }
+}

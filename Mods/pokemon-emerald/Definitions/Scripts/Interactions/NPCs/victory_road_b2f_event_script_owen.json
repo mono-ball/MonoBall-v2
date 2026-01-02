@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/victory_road_b2f_event_script_owen",
+  "name": "victory road b2f event script owen",
+  "description": "NPC interaction: victory road b2f event script owen",
+  "scriptPath": "Scripts/Interactions/NPCs/victory_road_b2f_event_script_owen.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

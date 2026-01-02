@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:spinda",
+  "name": "Spinda",
+  "cryId": "pokeemerald:audio:sfx/cries/spinda",
+  "baseStats": {
+    "hp": 60,
+    "attack": 60,
+    "defense": 60,
+    "speed": 60,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:tangled_feet",
+    "pokeemerald:ability:contrary"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:spot_panda",
+  "height": 11,
+  "weight": 50,
+  "description": "It is distinguished by a pattern of  spots that is always different. Its  unsteady, tottering walk has the  effect of fouling its foe\u0027s aim.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:teeter_dance"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:encore",
+    "pokeemerald:move:assist",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:trick",
+    "pokeemerald:move:smelling_salts",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:role_play",
+    "pokeemerald:move:psycho_cut",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:psycho_shift",
+    "pokeemerald:move:guard_split",
+    "pokeemerald:move:spotlight"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/spinda/spindafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/spinda/spindafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/spinda/spindaback",
+    "backShiny": "pokeemerald:pokemon:sprite/spinda/spindabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/spinda/spindaicon",
+    "overworld": "pokeemerald:pokemon:sprite/spinda/spindaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spinda/spindaoverworldshiny"
+  }
+}

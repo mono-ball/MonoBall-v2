@@ -1,0 +1,197 @@
+{
+  "id": "pokeemerald:pokemon:lapras",
+  "name": "Lapras",
+  "cryId": "pokeemerald:audio:sfx/cries/lapras",
+  "baseStats": {
+    "hp": 130,
+    "attack": 85,
+    "defense": 80,
+    "speed": 60,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:hydration"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:transport",
+  "height": 25,
+  "weight": 2200,
+  "description": "People have driven Lapras almost to the  point of extinction. In the evenings,  it is said to sing plaintively as it seeks  what few others of its kind still remain.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:perish_song"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:refresh",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:horn_drill",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:whirlpool",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:dragon_pulse",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:future_sight",
+    "pokeemerald:move:freeze_dry"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lapras/laprasfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lapras/laprasfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lapras/laprasback",
+    "backShiny": "pokeemerald:pokemon:sprite/lapras/laprasbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lapras/laprasicon",
+    "overworld": "pokeemerald:pokemon:sprite/lapras/laprasoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lapras/laprasoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:lapras/gmax",
+      "name": "Lapras",
+      "cryId": "pokeemerald:audio:sfx/cries/lapras",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 130,
+        "attack": 85,
+        "defense": 80,
+        "speed": 60,
+        "spDefense": 95
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:ice"
+      ],
+      "abilities": [
+        "pokeemerald:ability:water_absorb",
+        "pokeemerald:ability:shell_armor",
+        "pokeemerald:ability:hydration"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/lapras/laprasgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/lapras/laprasgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/lapras/laprasgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/lapras/laprasgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/lapras/laprasgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/lapras/laprasgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/lapras/laprasgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

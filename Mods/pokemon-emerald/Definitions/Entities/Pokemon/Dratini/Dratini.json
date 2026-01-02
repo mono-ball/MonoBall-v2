@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:dratini",
+  "name": "Dratini",
+  "cryId": "pokeemerald:audio:sfx/cries/dratini",
+  "baseStats": {
+    "hp": 41,
+    "attack": 64,
+    "defense": 45,
+    "speed": 50,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:shed_skin",
+    null,
+    "pokeemerald:ability:marvel_scale"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:dragon",
+  "height": 18,
+  "weight": 33,
+  "description": "A Dratini continually molts and sloughs  off its old skin. It does so because the  life energy within its body steadily builds  to reach uncontrollable levels.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:dragonair"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:dragon_rush"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mist",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:dragon_breath",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:dragon_rush",
+    "pokeemerald:move:extreme_speed",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:dragon_pulse",
+    "pokeemerald:move:iron_tail"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dratini/dratinifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dratini/dratinifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dratini/dratiniback",
+    "backShiny": "pokeemerald:pokemon:sprite/dratini/dratinibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dratini/dratiniicon",
+    "overworld": "pokeemerald:pokemon:sprite/dratini/dratinioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dratini/dratinioverworldshiny"
+  }
+}

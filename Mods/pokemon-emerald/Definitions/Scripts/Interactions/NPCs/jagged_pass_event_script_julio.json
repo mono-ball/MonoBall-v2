@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/jagged_pass_event_script_julio",
+  "name": "jagged pass event script julio",
+  "description": "NPC interaction: jagged pass event script julio",
+  "scriptPath": "Scripts/Interactions/NPCs/jagged_pass_event_script_julio.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

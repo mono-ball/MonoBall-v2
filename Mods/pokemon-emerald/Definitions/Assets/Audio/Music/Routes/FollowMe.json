@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/routes/follow-me",
+  "name": "Follow Me",
+  "audioPath": "Audio/Music/Routes/FollowMe.ogg",
+  "volume": 0.58,
+  "loop": true,
+  "loopStartSamples": 165375,
+  "loopLengthSamples": 992250
+}

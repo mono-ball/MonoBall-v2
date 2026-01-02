@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_event_script_old_man",
+  "name": "fortree city event script old man",
+  "description": "NPC interaction: fortree city event script old man",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_event_script_old_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

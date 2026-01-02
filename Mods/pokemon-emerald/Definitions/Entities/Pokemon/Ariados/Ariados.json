@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:ariados",
+  "name": "Ariados",
+  "cryId": "pokeemerald:audio:sfx/cries/ariados",
+  "baseStats": {
+    "hp": 70,
+    "attack": 90,
+    "defense": 70,
+    "speed": 40,
+    "spAttack": 60
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 90,
+  "expYield": 140,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:long_leg",
+  "height": 11,
+  "weight": 335,
+  "description": "Its feet are tipped with tiny hooked claws  that enable it to scuttle on ceilings and  vertical walls. It constricts its foe with  thin and strong silk webbing.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:infestation"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:cross_poison"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:toxic_thread"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ariados/ariadosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ariados/ariadosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ariados/ariadosback",
+    "backShiny": "pokeemerald:pokemon:sprite/ariados/ariadosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ariados/ariadosicon",
+    "overworld": "pokeemerald:pokemon:sprite/ariados/ariadosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ariados/ariadosoverworldshiny"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:buzzwole",
+  "name": "Buzzwole",
+  "cryId": "pokeemerald:audio:sfx/cries/buzzwole",
+  "baseStats": {
+    "hp": 107,
+    "attack": 139,
+    "defense": 139,
+    "speed": 79,
+    "spAttack": 53,
+    "spDefense": 53
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1,
+    "defense": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:swollen",
+  "height": 24,
+  "weight": 3336,
+  "description": "This life-form called an Ultra Beast  appeared from another world. It shows  off its body, but whether that display  is a boast or a threat remains unclear.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_up_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:vital_throw"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:mega_punch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:lunge"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:dynamic_punch"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:focus_punch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/buzzwole/buzzwolefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwolefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleback",
+    "backShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwolebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleicon",
+    "overworld": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleoverworldshiny"
+  },
+  "isUltraBeast": true
+}

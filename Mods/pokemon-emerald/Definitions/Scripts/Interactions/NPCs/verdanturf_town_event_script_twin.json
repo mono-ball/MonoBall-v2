@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_event_script_twin",
+  "name": "verdanturf town event script twin",
+  "description": "NPC interaction: verdanturf town event script twin",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_event_script_twin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

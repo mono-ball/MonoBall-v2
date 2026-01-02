@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/ever_grande_city_phoebes_room_event_script_phoebe",
+  "name": "ever grande city phoebes room event script phoebe",
+  "description": "NPC interaction: ever grande city phoebes room event script phoebe",
+  "scriptPath": "Scripts/Interactions/NPCs/ever_grande_city_phoebes_room_event_script_phoebe.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

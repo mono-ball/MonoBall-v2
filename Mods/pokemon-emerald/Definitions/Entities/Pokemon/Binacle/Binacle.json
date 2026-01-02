@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:binacle",
+  "name": "Binacle",
+  "cryId": "pokeemerald:audio:sfx/cries/binacle",
+  "baseStats": {
+    "hp": 42,
+    "attack": 52,
+    "defense": 67,
+    "speed": 50,
+    "spAttack": 39,
+    "spDefense": 56
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 120,
+  "expYield": 61,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:tough_claws",
+    "pokeemerald:ability:sniper",
+    "pokeemerald:ability:pickpocket"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:two-handed",
+  "height": 5,
+  "weight": 310,
+  "description": "They stretch and then contract, yanking  their rocks along with them in bold hops.  They eat seaweed that washes up on  the shoreline.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 39,
+      "targetSpeciesId": "pokeemerald:pokemon:barbaracle"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:cross_chop"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:water_sport"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/binacle/binaclefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/binacle/binaclefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/binacle/binacleback",
+    "backShiny": "pokeemerald:pokemon:sprite/binacle/binaclebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/binacle/binacleicon",
+    "overworld": "pokeemerald:pokemon:sprite/binacle/binacleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/binacle/binacleoverworldshiny"
+  }
+}

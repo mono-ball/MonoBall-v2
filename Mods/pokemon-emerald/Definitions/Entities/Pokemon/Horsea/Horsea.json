@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:horsea",
+  "name": "Horsea",
+  "cryId": "pokeemerald:audio:sfx/cries/horsea",
+  "baseStats": {
+    "hp": 30,
+    "attack": 40,
+    "defense": 70,
+    "speed": 60,
+    "spAttack": 70
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:sniper",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:dragon",
+  "height": 4,
+  "weight": 80,
+  "description": "By cleverly flicking the fins on its back  side to side, it moves in any direction  while facing forward. It spits ink to  escape if it senses danger.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 32,
+      "targetSpeciesId": "pokeemerald:pokemon:seadra"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:rain_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:flail",
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:octazooka",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:splash",
+    "pokeemerald:move:dragon_rage",
+    "pokeemerald:move:dragon_breath",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:razor_wind",
+    "pokeemerald:move:muddy_water",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:clear_smog",
+    "pokeemerald:move:outrage"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/horsea/horseafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/horsea/horseafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/horsea/horseaback",
+    "backShiny": "pokeemerald:pokemon:sprite/horsea/horseabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/horsea/horseaicon",
+    "overworld": "pokeemerald:pokemon:sprite/horsea/horseaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/horsea/horseaoverworldshiny"
+  }
+}

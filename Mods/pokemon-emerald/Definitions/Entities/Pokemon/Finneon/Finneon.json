@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:finneon",
+  "name": "Finneon",
+  "cryId": "pokeemerald:audio:sfx/cries/finneon",
+  "baseStats": {
+    "hp": 49,
+    "attack": 49,
+    "defense": 56,
+    "speed": 66,
+    "spAttack": 49,
+    "spDefense": 61
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:storm_drain",
+    "pokeemerald:ability:water_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:wing_fish",
+  "height": 4,
+  "weight": 70,
+  "description": "Its double tail fins propel its energetic  jumps. When it breaks the surface of the  sea, Wingull swoop down to grab it on  the fly.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 31,
+      "targetSpeciesId": "pokeemerald:pokemon:lumineon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:soak"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:sweet_kiss",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:splash",
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:confuse_ray"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/finneon/finneonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/finneon/finneonfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/finneon/finneonfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/finneon/finneonfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/finneon/finneonback",
+    "backShiny": "pokeemerald:pokemon:sprite/finneon/finneonbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/finneon/finneonbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/finneon/finneonbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/finneon/finneonicon",
+    "overworld": "pokeemerald:pokemon:sprite/finneon/finneonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/finneon/finneonoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

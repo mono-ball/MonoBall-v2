@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_outside_east_event_script_expert_f",
+  "name": "battle frontier outside east event script expert f",
+  "description": "NPC interaction: battle frontier outside east event script expert f",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_outside_east_event_script_expert_f.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

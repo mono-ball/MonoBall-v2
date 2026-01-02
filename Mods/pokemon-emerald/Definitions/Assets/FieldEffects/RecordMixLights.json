@@ -1,0 +1,53 @@
+{
+  "id": "pokeemerald:field_effect:record-mix-lights",
+  "name": "Record Mix Lights",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/RecordMixLights.png",
+  "frameWidth": 16,
+  "frameHeight": 8,
+  "frameCount": 6,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 2,
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 3,
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 4,
+      "x": 64,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 5,
+      "x": 80,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    }
+  ]
+}

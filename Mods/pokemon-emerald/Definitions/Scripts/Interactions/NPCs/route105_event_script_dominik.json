@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route105_event_script_dominik",
+  "name": "route105 event script dominik",
+  "description": "NPC interaction: route105 event script dominik",
+  "scriptPath": "Scripts/Interactions/NPCs/route105_event_script_dominik.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

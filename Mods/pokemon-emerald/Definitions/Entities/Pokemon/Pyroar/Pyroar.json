@@ -1,0 +1,187 @@
+{
+  "id": "pokeemerald:pokemon:pyroar",
+  "name": "Pyroar",
+  "cryId": "pokeemerald:audio:sfx/cries/pyroar",
+  "baseStats": {
+    "hp": 86,
+    "attack": 68,
+    "defense": 72,
+    "speed": 106,
+    "spAttack": 109,
+    "spDefense": 66
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 65,
+  "expYield": 177,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 223,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rivalry",
+    "pokeemerald:ability:unnerve",
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:royal",
+  "height": 15,
+  "weight": 815,
+  "description": "The male with the largest mane of fire  is the leader of the pride. The females  protect the pride\u0027s cubs. They viciously  threaten any challenger.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hyper_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:overheat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pyroar/pyroarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/pyroar/pyroarfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/pyroar/pyroarback",
+    "backShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/pyroar/pyroarbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/pyroar/pyroaricon",
+    "overworld": "pokeemerald:pokemon:sprite/pyroar/pyroaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pyroar/pyroaroverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:pyroar/mega",
+      "name": "Pyroar",
+      "cryId": "pokeemerald:audio:sfx/cries/pyroar",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 86,
+        "attack": 88,
+        "defense": 92,
+        "speed": 126,
+        "spAttack": 129,
+        "spDefense": 86
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:rivalry",
+        "pokeemerald:ability:unnerve",
+        "pokeemerald:ability:moxie"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pyroar/pyroarmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:pyroarite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

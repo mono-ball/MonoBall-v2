@@ -1,0 +1,187 @@
+{
+  "id": "pokeemerald:pokemon:samurott",
+  "name": "Samurott",
+  "cryId": "pokeemerald:audio:sfx/cries/samurott",
+  "baseStats": {
+    "hp": 95,
+    "attack": 100,
+    "defense": 85,
+    "speed": 70,
+    "spAttack": 108,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:shell_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:formidable",
+  "height": 15,
+  "weight": 946,
+  "description": "One swing of the seamitars attached  to its armor can fell an opponent.  A simple glare from one of them is  enough to intimidate most enemies.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/samurott/samurottfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/samurott/samurottfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/samurott/samurottback",
+    "backShiny": "pokeemerald:pokemon:sprite/samurott/samurottbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/samurott/samurotticon",
+    "overworld": "pokeemerald:pokemon:sprite/samurott/samurottoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/samurott/samurottoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:samurott/hisui",
+      "name": "Samurott",
+      "cryId": "pokeemerald:audio:sfx/cries/samurott",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 90,
+        "attack": 108,
+        "defense": 80,
+        "speed": 85,
+        "spAttack": 100,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:torrent",
+        null,
+        "pokeemerald:ability:sharpness"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/samurott/samurotthisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/samurott/samurotthisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/samurott/samurotthisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/samurott/samurotthisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/samurott/samurotthisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/samurott/samurotthisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/samurott/samurotthisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

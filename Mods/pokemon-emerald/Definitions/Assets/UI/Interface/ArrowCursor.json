@@ -1,0 +1,11 @@
+{
+  "id": "pokeemerald:sprite:ui/interface/arrow-cursor",
+  "name": "Arrow Cursor",
+  "type": "Sprite",
+  "texturePath": "Graphics/UI/Interface/ArrowCursor.png",
+  "width": 16,
+  "height": 16,
+  "frameWidth": 8,
+  "frameHeight": 8,
+  "frameCount": 1
+}

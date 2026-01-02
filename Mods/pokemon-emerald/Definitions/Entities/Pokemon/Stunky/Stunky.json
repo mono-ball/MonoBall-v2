@@ -1,0 +1,168 @@
+{
+  "id": "pokeemerald:pokemon:stunky",
+  "name": "Stunky",
+  "cryId": "pokeemerald:audio:sfx/cries/stunky",
+  "baseStats": {
+    "hp": 63,
+    "attack": 63,
+    "defense": 47,
+    "speed": 74,
+    "spAttack": 41,
+    "spDefense": 41
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stench",
+    "pokeemerald:ability:aftermath",
+    "pokeemerald:ability:keen_eye"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:skunk",
+  "height": 4,
+  "weight": 192,
+  "description": "It protects itself by spraying a  nose-curling, stinky fluid from its rear  to repel attackers. The stench lingers  for 24 hours.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:skuntank"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:leer",
+    "pokeemerald:move:smog",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:foul_play",
+    "pokeemerald:move:flame_burst",
+    "pokeemerald:move:play_rough"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/stunky/stunkyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/stunky/stunkyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/stunky/stunkyback",
+    "backShiny": "pokeemerald:pokemon:sprite/stunky/stunkybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/stunky/stunkyicon",
+    "overworld": "pokeemerald:pokemon:sprite/stunky/stunkyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stunky/stunkyoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route134_event_script_alex",
+  "name": "route134 event script alex",
+  "description": "NPC interaction: route134 event script alex",
+  "scriptPath": "Scripts/Interactions/NPCs/route134_event_script_alex.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

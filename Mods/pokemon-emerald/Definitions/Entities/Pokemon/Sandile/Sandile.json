@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:sandile",
+  "name": "Sandile",
+  "cryId": "pokeemerald:audio:sfx/cries/sandile",
+  "baseStats": {
+    "hp": 50,
+    "attack": 72,
+    "defense": 35,
+    "speed": 65,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 180,
+  "expYield": 58,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:moxie",
+    "pokeemerald:ability:anger_point"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:desert_croc",
+  "height": 7,
+  "weight": 152,
+  "description": "It conceals itself in the sand and  chomps down on the legs of any prey  that unwarily walk over it. Its favorite  food is Trapinch.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 29,
+      "targetSpeciesId": "pokeemerald:pokemon:krokorok"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_trip"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:rock_climb",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:beat_up",
+    "pokeemerald:move:focus_energy",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:power_trip"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sandile/sandilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sandile/sandilefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sandile/sandileback",
+    "backShiny": "pokeemerald:pokemon:sprite/sandile/sandilebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sandile/sandileicon",
+    "overworld": "pokeemerald:pokemon:sprite/sandile/sandileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sandile/sandileoverworldshiny"
+  }
+}

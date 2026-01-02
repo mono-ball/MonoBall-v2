@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route134_event_script_hudson",
+  "name": "route134 event script hudson",
+  "description": "NPC interaction: route134 event script hudson",
+  "scriptPath": "Scripts/Interactions/NPCs/route134_event_script_hudson.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

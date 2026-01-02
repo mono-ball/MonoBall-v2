@@ -1,0 +1,181 @@
+{
+  "id": "pokeemerald:map:hoenn/battle_frontier_battle_pike_room_wild_mons",
+  "name": "BattleFrontier_BattlePikeRoomWildMons",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 9,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/b_pike",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_pike_room_wild_mons/ground",
+      "name": "Ground",
+      "width": 9,
+      "height": 20,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_pike_room_wild_mons/objects",
+      "name": "Objects",
+      "width": 9,
+      "height": 20,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_pike_room_wild_mons/overhead",
+      "name": "Overhead",
+      "width": 9,
+      "height": 20,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/battle_pike"
+    }
+  ],
+  "warps": [],
+  "triggers": [
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_1_0",
+      "name": "Trigger: VAR_TEMP_1 == 0",
+      "x": 64,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_1",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_exit",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 48,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_2",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_set_entered_room",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 64,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_2",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_set_entered_room",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_2_0",
+      "name": "Trigger: VAR_TEMP_2 == 0",
+      "x": 80,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_2",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_set_entered_room",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 48,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_3",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_no_turning_back",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 64,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_3",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_no_turning_back",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/battle_frontier_battle_pike_room_wild_mons/trigger_var_temp_3_1",
+      "name": "Trigger: VAR_TEMP_3 == 1",
+      "x": 80,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_3",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/battle_frontier_battle_pike_room_wild_mons_event_script_no_turning_back",
+      "elevation": 3
+    }
+  ],
+  "interactions": [],
+  "npcs": [],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_pike_room_wild_mons/elevation_0",
+      "name": "Collision_0",
+      "width": 9,
+      "height": 20,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAQEBAAAAAAAAAAABAAABAAAAAQAAAAAAAAAAAAAAAQEBAAAAAQEBAAAAAAAAAAAAAQEBAQEBAQEAAAAAAAAAAAAAAAEBAQEBAQEBAAAAAAAAAAAAAQEBAQEBAQABAAAAAAAAAAAAAQABAQEBAQEBAAAAAAAAAAAAAQEBAQEBAQABAAAAAAAAAAAAAQEAAAAAAAEBAAABAAAAAQAA"
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_pike_room_wild_mons/elevation_3",
+      "name": "Collision_3",
+      "width": 9,
+      "height": 20,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAQEAAQABAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ]
+}

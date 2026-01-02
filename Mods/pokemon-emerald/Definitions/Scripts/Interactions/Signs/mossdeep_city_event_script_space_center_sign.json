@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mossdeep_city_event_script_space_center_sign",
+  "name": "mossdeep city event script space center sign",
+  "description": "Sign script: mossdeep city event script space center sign",
+  "scriptPath": "Scripts/Signs/mossdeep_city_event_script_space_center_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

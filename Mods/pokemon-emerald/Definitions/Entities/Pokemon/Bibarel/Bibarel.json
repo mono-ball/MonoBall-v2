@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:bibarel",
+  "name": "Bibarel",
+  "cryId": "pokeemerald:audio:sfx/cries/bibarel",
+  "baseStats": {
+    "hp": 79,
+    "attack": 85,
+    "defense": 60,
+    "speed": 71,
+    "spAttack": 55,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 127,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:simple",
+    "pokeemerald:ability:unaware",
+    "pokeemerald:ability:moody"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:beaver",
+  "height": 10,
+  "weight": 315,
+  "description": "It makes its nest by damming streams  with bark and mud. A river dammed by  Bibarel will never overflow its banks,  which is appreciated by people nearby.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:curse"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bibarel/bibarelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bibarel/bibarelfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/bibarel/bibarelfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/bibarel/bibarelfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/bibarel/bibarelback",
+    "backShiny": "pokeemerald:pokemon:sprite/bibarel/bibarelbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bibarel/bibarelicon",
+    "overworld": "pokeemerald:pokemon:sprite/bibarel/bibareloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bibarel/bibareloverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

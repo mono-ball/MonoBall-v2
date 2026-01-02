@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route124_event_script_roy",
+  "name": "route124 event script roy",
+  "description": "NPC interaction: route124 event script roy",
+  "scriptPath": "Scripts/Interactions/NPCs/route124_event_script_roy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

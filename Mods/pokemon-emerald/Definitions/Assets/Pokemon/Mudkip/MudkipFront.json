@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/mudkip/mudkipfront",
+  "name": "Mudkipfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Mudkip/MudkipFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:boldore",
+  "name": "Boldore",
+  "cryId": "pokeemerald:audio:sfx/cries/boldore",
+  "baseStats": {
+    "hp": 70,
+    "attack": 105,
+    "defense": 105,
+    "speed": 20,
+    "spAttack": 50,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 120,
+  "expYield": 137,
+  "evYield": {
+    "attack": 1,
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:weak_armor",
+    "pokeemerald:ability:sand_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ore",
+  "height": 9,
+  "weight": 1020,
+  "description": "Its orange crystal is a mass of energy.  Just one crystal fragment would provide  enough fuel for a hundred dump trucks.  When it is healthy, its core sticks out.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:gigalith"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_LINKING_CORD",
+      "targetSpeciesId": "pokeemerald:pokemon:gigalith"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/boldore/boldorefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/boldore/boldorefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/boldore/boldoreback",
+    "backShiny": "pokeemerald:pokemon:sprite/boldore/boldorebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/boldore/boldoreicon",
+    "overworld": "pokeemerald:pokemon:sprite/boldore/boldoreoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/boldore/boldoreoverworldshiny"
+  }
+}

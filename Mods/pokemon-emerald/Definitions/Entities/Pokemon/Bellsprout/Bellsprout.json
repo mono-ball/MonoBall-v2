@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:bellsprout",
+  "name": "Bellsprout",
+  "cryId": "pokeemerald:audio:sfx/cries/bellsprout",
+  "baseStats": {
+    "hp": 50,
+    "attack": 75,
+    "defense": 35,
+    "speed": 40,
+    "spAttack": 70
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:chlorophyll",
+    null,
+    "pokeemerald:ability:gluttony"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:flower",
+  "height": 7,
+  "weight": 40,
+  "description": "A Bellsprout\u0027s thin and flexible body lets  it bend and sway to avoid any attack,  however strong it may be. From its mouth,  it leaks a fluid that melts even iron.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 21,
+      "targetSpeciesId": "pokeemerald:pokemon:weepinbell"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:power_whip"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:encore",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:leech_life",
+    "pokeemerald:move:ingrain",
+    "pokeemerald:move:magical_leaf",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:weather_ball",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:clear_smog",
+    "pokeemerald:move:power_whip",
+    "pokeemerald:move:acid_spray",
+    "pokeemerald:move:belch",
+    "pokeemerald:move:strength_sap"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bellsprout/bellsproutfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsproutfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bellsprout/bellsproutback",
+    "backShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsproutbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bellsprout/bellsprouticon",
+    "overworld": "pokeemerald:pokemon:sprite/bellsprout/bellsproutoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsproutoverworldshiny"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "id": "pokeemerald:pokemon:archen",
+  "name": "Archen",
+  "cryId": "pokeemerald:audio:sfx/cries/archen",
+  "baseStats": {
+    "hp": 55,
+    "attack": 112,
+    "defense": 45,
+    "speed": 70,
+    "spAttack": 74,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 71,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:defeatist",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:first_bird",
+  "height": 5,
+  "weight": 95,
+  "description": "Said to be the ancestor of all bird  Pok\u00E9mon, Archen itself could not actually  fly but moved by hopping from treetop  to treetop.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 37,
+      "targetSpeciesId": "pokeemerald:pokemon:archeops"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:endeavor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:defog",
+    "pokeemerald:move:dragon_pulse",
+    "pokeemerald:move:head_smash",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:earth_power",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:ally_switch",
+    "pokeemerald:move:switcheroo"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/archen/archenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/archen/archenfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/archen/archenback",
+    "backShiny": "pokeemerald:pokemon:sprite/archen/archenbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/archen/archenicon",
+    "overworld": "pokeemerald:pokemon:sprite/archen/archenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/archen/archenoverworldshiny"
+  }
+}

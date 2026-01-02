@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:dewgong",
+  "name": "Dewgong",
+  "cryId": "pokeemerald:audio:sfx/cries/dewgong",
+  "baseStats": {
+    "hp": 90,
+    "attack": 70,
+    "defense": 80,
+    "speed": 70,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:sea_lion",
+  "height": 17,
+  "weight": 1200,
+  "description": "It loves to snooze on bitterly cold ice.  The sight of this Pok\u00E9mon sleeping on  a glacier was mistakenly thought to be  a mermaid by a mariner long ago.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:sheer_cold"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 61,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:snowscape"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dewgong/dewgongfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dewgong/dewgongfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dewgong/dewgongback",
+    "backShiny": "pokeemerald:pokemon:sprite/dewgong/dewgongbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dewgong/dewgongicon",
+    "overworld": "pokeemerald:pokemon:sprite/dewgong/dewgongoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dewgong/dewgongoverworldshiny"
+  }
+}

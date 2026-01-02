@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_picnicker",
+  "name": "battle frontier battle factory lobby event script picnicker",
+  "description": "NPC interaction: battle frontier battle factory lobby event script picnicker",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_factory_lobby_event_script_picnicker.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

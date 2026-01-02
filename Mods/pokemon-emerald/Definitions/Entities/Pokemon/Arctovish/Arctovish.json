@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:arctovish",
+  "name": "Arctovish",
+  "cryId": "pokeemerald:audio:sfx/cries/arctovish",
+  "baseStats": {
+    "hp": 90,
+    "attack": 90,
+    "defense": 100,
+    "speed": 55,
+    "spAttack": 80,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "expYield": 177,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:slush_rush"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:fossil",
+  "height": 20,
+  "weight": 1750,
+  "description": "Though it\u0027s able to capture prey by  freezing its surroundings, it has trouble  eating the prey afterward because its  mouth is on top of its head.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:aurora_veil"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:fishious_rend"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:icicle_crash"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:blizzard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:waterfall"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/arctovish/arctovishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/arctovish/arctovishfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/arctovish/arctovishback",
+    "backShiny": "pokeemerald:pokemon:sprite/arctovish/arctovishbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/arctovish/arctovishicon",
+    "overworld": "pokeemerald:pokemon:sprite/arctovish/arctovishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arctovish/arctovishoverworldshiny"
+  }
+}

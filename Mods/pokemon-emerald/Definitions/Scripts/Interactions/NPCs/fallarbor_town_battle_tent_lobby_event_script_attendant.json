@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_battle_tent_lobby_event_script_attendant",
+  "name": "fallarbor town battle tent lobby event script attendant",
+  "description": "NPC interaction: fallarbor town battle tent lobby event script attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_battle_tent_lobby_event_script_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

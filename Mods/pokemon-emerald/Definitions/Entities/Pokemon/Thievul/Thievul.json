@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:thievul",
+  "name": "Thievul",
+  "cryId": "pokeemerald:audio:sfx/cries/thievul",
+  "baseStats": {
+    "hp": 70,
+    "attack": 58,
+    "defense": 58,
+    "speed": 90,
+    "spAttack": 87,
+    "spDefense": 92
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 127,
+  "expYield": 159,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:stakeout"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:fox",
+  "height": 12,
+  "weight": 199,
+  "description": "It secretly marks potential targets with  a scent. By following the scent, it  stalks its targets and steals from them  when they least expect it.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:thief"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thief"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:tail_slap"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:parting_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/thievul/thievulfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/thievul/thievulfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/thievul/thievulback",
+    "backShiny": "pokeemerald:pokemon:sprite/thievul/thievulbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/thievul/thievulicon",
+    "overworld": "pokeemerald:pokemon:sprite/thievul/thievuloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/thievul/thievuloverworldshiny"
+  }
+}

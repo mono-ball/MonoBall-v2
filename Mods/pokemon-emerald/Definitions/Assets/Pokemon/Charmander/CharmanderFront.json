@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/charmander/charmanderfront",
+  "name": "Charmanderfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Charmander/CharmanderFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

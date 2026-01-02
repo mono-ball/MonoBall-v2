@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:weather:outdoor/drought",
+  "name": "Drought",
+  "description": "Drought weather condition",
+  "category": "outdoor",
+  "intensity": 2,
+  "affectsBattle": true,
+  "effectScriptId": "pokeemerald:script:weather/drought",
+  "screenTint": "#FF6600",
+  "screenTintOpacity": 0.15,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/building_leader",
+  "name": "Gym Leader",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/BuildingLeader/BuildingLeader.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/building",
+  "description": "Battle environment background for Gym Leader"
+}

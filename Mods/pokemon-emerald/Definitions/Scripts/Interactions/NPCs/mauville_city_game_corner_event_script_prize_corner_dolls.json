@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_game_corner_event_script_prize_corner_dolls",
+  "name": "mauville city game corner event script prize corner dolls",
+  "description": "NPC interaction: mauville city game corner event script prize corner dolls",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_game_corner_event_script_prize_corner_dolls.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,186 @@
+{
+  "id": "pokeemerald:pokemon:starmie",
+  "name": "Starmie",
+  "cryId": "pokeemerald:audio:sfx/cries/starmie",
+  "baseStats": {
+    "hp": 60,
+    "attack": 75,
+    "defense": 85,
+    "speed": 115,
+    "spAttack": 100
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:illuminate",
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:analytic"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:mysterious",
+  "height": 11,
+  "weight": 800,
+  "description": "People in ancient times imagined that  Starmie were transformed from the  reflections of stars that twinkled on  gentle waves at night.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/starmie/starmiefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/starmie/starmiefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/starmie/starmieback",
+    "backShiny": "pokeemerald:pokemon:sprite/starmie/starmiebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/starmie/starmieicon",
+    "overworld": "pokeemerald:pokemon:sprite/starmie/starmieoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/starmie/starmieoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:starmie/mega",
+      "name": "Starmie",
+      "cryId": "pokeemerald:audio:sfx/cries/starmie",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 60,
+        "attack": 140,
+        "defense": 105,
+        "speed": 120,
+        "spAttack": 130,
+        "spDefense": 105
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:illuminate",
+        "pokeemerald:ability:natural_cure",
+        "pokeemerald:ability:analytic"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/starmie/starmiemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/starmie/starmiemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/starmie/starmiemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/starmie/starmiemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/starmie/starmiemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/starmie/starmiemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/starmie/starmiemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:starminite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

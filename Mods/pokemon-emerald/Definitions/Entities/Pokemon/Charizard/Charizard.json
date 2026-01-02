@@ -1,0 +1,264 @@
+{
+  "id": "pokeemerald:pokemon:charizard",
+  "name": "Charizard",
+  "cryId": "pokeemerald:audio:sfx/cries/charizard",
+  "baseStats": {
+    "hp": 78,
+    "attack": 84,
+    "defense": 78,
+    "speed": 100,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 267,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:solar_power"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:flame",
+  "height": 17,
+  "weight": 905,
+  "description": "A Charizard flies about in search of  strong opponents. It breathes intense  flames that can melt any material. However,  it will never torch a weaker foe.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:heat_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/charizard/charizardfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/charizard/charizardback",
+    "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/charizard/charizardicon",
+    "overworld": "pokeemerald:pokemon:sprite/charizard/charizardoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:charizard/gmax",
+      "name": "Charizard",
+      "cryId": "pokeemerald:audio:sfx/cries/charizard",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "speed": 100,
+        "spDefense": 85
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:blaze",
+        null,
+        "pokeemerald:ability:solar_power"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/charizard/charizardgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/charizard/charizardgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/charizard/charizardgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/charizard/charizardgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:charizard/mega-y",
+      "name": "Charizard",
+      "cryId": "pokeemerald:audio:sfx/cries/charizard-mega-y",
+      "formKey": "mega-y",
+      "baseStats": {
+        "hp": 78,
+        "attack": 104,
+        "defense": 78,
+        "speed": 100,
+        "spAttack": 159,
+        "spDefense": 115
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:drought",
+        "pokeemerald:ability:drought",
+        "pokeemerald:ability:drought"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/charizard/charizardmegayfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegayfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/charizard/charizardmegayback",
+        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaybackshiny",
+        "icon": "pokeemerald:pokemon:sprite/charizard/charizardmegayicon",
+        "overworld": "pokeemerald:pokemon:sprite/charizard/charizardmegayoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegayoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:charizardite_y",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:charizard/mega-x",
+      "name": "Charizard",
+      "cryId": "pokeemerald:audio:sfx/cries/charizard-mega-x",
+      "formKey": "mega-x",
+      "baseStats": {
+        "hp": 78,
+        "attack": 130,
+        "defense": 111,
+        "speed": 100,
+        "spAttack": 130,
+        "spDefense": 85
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:tough_claws",
+        "pokeemerald:ability:tough_claws",
+        "pokeemerald:ability:tough_claws"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/charizard/charizardmegaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/charizard/charizardmegaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/charizard/charizardmegaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/charizard/charizardmegaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:charizardite_x",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

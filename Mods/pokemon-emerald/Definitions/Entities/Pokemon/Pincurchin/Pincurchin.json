@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:pincurchin",
+  "name": "Pincurchin",
+  "cryId": "pokeemerald:audio:sfx/cries/pincurchin",
+  "baseStats": {
+    "hp": 48,
+    "attack": 101,
+    "defense": 95,
+    "speed": 15,
+    "spAttack": 91,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 75,
+  "expYield": 152,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:lightning_rod",
+    null,
+    "pokeemerald:ability:electric_surge"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sea_urchin",
+  "height": 3,
+  "weight": 10,
+  "description": "It feeds on seaweed, using its teeth to  scrape it off rocks. Electric current  flows from the tips of its spines.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:zing_zap"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:acupressure"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:discharge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:memento",
+    "pokeemerald:move:sucker_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pincurchin/pincurchinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pincurchin/pincurchinback",
+    "backShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pincurchin/pincurchinicon",
+    "overworld": "pokeemerald:pokemon:sprite/pincurchin/pincurchinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchinoverworldshiny"
+  }
+}

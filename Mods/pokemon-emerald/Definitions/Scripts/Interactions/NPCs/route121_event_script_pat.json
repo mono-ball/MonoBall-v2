@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route121_event_script_pat",
+  "name": "route121 event script pat",
+  "description": "NPC interaction: route121 event script pat",
+  "scriptPath": "Scripts/Interactions/NPCs/route121_event_script_pat.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

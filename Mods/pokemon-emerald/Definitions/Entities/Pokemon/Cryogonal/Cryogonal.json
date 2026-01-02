@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:cryogonal",
+  "name": "Cryogonal",
+  "cryId": "pokeemerald:audio:sfx/cries/cryogonal",
+  "baseStats": {
+    "attack": 50,
+    "speed": 105,
+    "spAttack": 95,
+    "spDefense": 135
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 25,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:crystallize",
+  "height": 11,
+  "weight": 1480,
+  "description": "They are born in snow clouds. When  its body temperature goes up, it turns  into steam and vanishes. When its  temperature lowers, it returns to ice.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:solar_beam"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cryogonal/cryogonalfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cryogonal/cryogonalfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cryogonal/cryogonalback",
+    "backShiny": "pokeemerald:pokemon:sprite/cryogonal/cryogonalbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cryogonal/cryogonalicon",
+    "overworld": "pokeemerald:pokemon:sprite/cryogonal/cryogonaloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cryogonal/cryogonaloverworldshiny"
+  }
+}

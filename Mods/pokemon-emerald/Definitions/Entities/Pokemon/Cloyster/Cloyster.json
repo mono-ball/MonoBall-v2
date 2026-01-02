@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:cloyster",
+  "name": "Cloyster",
+  "cryId": "pokeemerald:audio:sfx/cries/cloyster",
+  "baseStats": {
+    "hp": 50,
+    "attack": 95,
+    "defense": 180,
+    "speed": 70,
+    "spAttack": 85
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:skill_link",
+    "pokeemerald:ability:overcoat"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:bivalve",
+  "height": 15,
+  "weight": 1325,
+  "description": "It swims in the sea by swallowing water,  then jetting it out toward the rear.  The Cloyster shoots spikes from its  shell using the same system.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:icicle_spear"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:icicle_crash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spikes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:razor_shell"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cloyster/cloysterfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cloyster/cloysterfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cloyster/cloysterback",
+    "backShiny": "pokeemerald:pokemon:sprite/cloyster/cloysterbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cloyster/cloystericon",
+    "overworld": "pokeemerald:pokemon:sprite/cloyster/cloysteroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cloyster/cloysteroverworldshiny"
+  }
+}

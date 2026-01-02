@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_gym_event_script_hannah",
+  "name": "mossdeep city gym event script hannah",
+  "description": "NPC interaction: mossdeep city gym event script hannah",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_gym_event_script_hannah.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:gible",
+  "name": "Gible",
+  "cryId": "pokeemerald:audio:sfx/cries/gible",
+  "baseStats": {
+    "hp": 58,
+    "attack": 70,
+    "defense": 45,
+    "speed": 42,
+    "spAttack": 40,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:sand_veil",
+    null,
+    "pokeemerald:ability:rough_skin"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:land_shark",
+  "height": 7,
+  "weight": 205,
+  "description": "It nests in horizontal holes warmed by  geothermal heat. Foes who stray too  close can expect to be pounced on  and bitten.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:gabite"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:dragon_rush"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:dragon_breath",
+    "pokeemerald:move:outrage",
+    "pokeemerald:move:twister",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:sand_tomb",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:iron_head",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:rock_climb",
+    "pokeemerald:move:iron_tail"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gible/giblefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gible/giblefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gible/giblefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gible/giblefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/gible/gibleback",
+    "backShiny": "pokeemerald:pokemon:sprite/gible/giblebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gible/giblebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gible/giblebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/gible/gibleicon",
+    "overworld": "pokeemerald:pokemon:sprite/gible/gibleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gible/gibleoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

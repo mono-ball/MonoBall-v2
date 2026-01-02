@@ -1,0 +1,223 @@
+{
+  "id": "pokeemerald:pokemon:gengar",
+  "name": "Gengar",
+  "cryId": "pokeemerald:audio:sfx/cries/gengar",
+  "baseStats": {
+    "hp": 60,
+    "attack": 65,
+    "defense": 60,
+    "speed": 110,
+    "spAttack": 130
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "expYield": 250,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:shadow",
+  "height": 15,
+  "weight": 405,
+  "description": "Deep in the night, your shadow cast by  a streetlight may suddenly overtake you.  It is actually a Gengar running past  you, pretending to be your shadow.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:reflect_type"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:perish_song"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:spite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:dark_pulse"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gengar/gengarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengarfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gengar/gengarback",
+    "backShiny": "pokeemerald:pokemon:sprite/gengar/gengarbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gengar/gengaricon",
+    "overworld": "pokeemerald:pokemon:sprite/gengar/gengaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengaroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:gengar/gmax",
+      "name": "Gengar",
+      "cryId": "pokeemerald:audio:sfx/cries/gengar",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 60,
+        "attack": 65,
+        "defense": 60,
+        "speed": 110,
+        "spAttack": 130
+      },
+      "types": [
+        "pokeemerald:type:ghost",
+        "pokeemerald:type:poison"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/gengar/gengargmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengargmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/gengar/gengargmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/gengar/gengargmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/gengar/gengargmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/gengar/gengargmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengargmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:gengar/mega",
+      "name": "Gengar",
+      "cryId": "pokeemerald:audio:sfx/cries/gengar-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 60,
+        "attack": 65,
+        "defense": 80,
+        "speed": 130,
+        "spAttack": 170,
+        "spDefense": 95
+      },
+      "types": [
+        "pokeemerald:type:ghost",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:shadow_tag",
+        "pokeemerald:ability:shadow_tag",
+        "pokeemerald:ability:shadow_tag"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/gengar/gengarmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengarmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/gengar/gengarmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/gengar/gengarmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/gengar/gengarmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/gengar/gengarmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengarmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:gengarite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

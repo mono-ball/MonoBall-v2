@@ -1,0 +1,185 @@
+{
+  "id": "pokeemerald:tileset:secondary/slateport",
+  "name": "slateport",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/slateport.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 303,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 304,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north"
+    },
+    {
+      "localTileId": 18,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north"
+    },
+    {
+      "localTileId": 19,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_southwest",
+      "collisionId": "pokeemerald:collision:ledge_southwest"
+    },
+    {
+      "localTileId": 20,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_southwest",
+      "collisionId": "pokeemerald:collision:ledge_southwest"
+    },
+    {
+      "localTileId": 21,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 28,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 29,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 36,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 37,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 38,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 40,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 42,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 43,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 44,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 45,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 46,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 47,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 53,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 56,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 57,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 65,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 97,
+      "interactionId": "pokeemerald:interaction/tiles/trainer_see_east"
+    },
+    {
+      "localTileId": 107,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 111,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 121,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 174,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 175,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 180,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 183,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 200,
+      "interactionId": "pokeemerald:interaction/tiles/trainer_see_east"
+    },
+    {
+      "localTileId": 215,
+      "interactionId": "pokeemerald:interaction/tiles/trainer_see_east"
+    },
+    {
+      "localTileId": 253,
+      "animation": [
+        {
+          "tileId": 300,
+          "durationMs": 133
+        },
+        {
+          "tileId": 301,
+          "durationMs": 133
+        },
+        {
+          "tileId": 302,
+          "durationMs": 133
+        },
+        {
+          "tileId": 301,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 257,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 293,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 294,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 296,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    },
+    {
+      "localTileId": 299,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_21"
+    }
+  ]
+}

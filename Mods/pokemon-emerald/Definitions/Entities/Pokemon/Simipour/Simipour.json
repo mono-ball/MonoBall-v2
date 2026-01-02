@@ -1,0 +1,100 @@
+{
+  "id": "pokeemerald:pokemon:simipour",
+  "name": "Simipour",
+  "cryId": "pokeemerald:audio:sfx/cries/simipour",
+  "baseStats": {
+    "hp": 75,
+    "attack": 98,
+    "defense": 63,
+    "speed": 101,
+    "spAttack": 98,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 75,
+  "expYield": 174,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gluttony",
+    null,
+    "pokeemerald:ability:torrent"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:geyser",
+  "height": 10,
+  "weight": 290,
+  "description": "It can shoot highly-pressurised water  from its tail with enough power to  break through a solid concrete wall.  It prefers places with clean water.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scald"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/simipour/simipourfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/simipour/simipourfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/simipour/simipourback",
+    "backShiny": "pokeemerald:pokemon:sprite/simipour/simipourbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/simipour/simipouricon",
+    "overworld": "pokeemerald:pokemon:sprite/simipour/simipouroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/simipour/simipouroverworldshiny"
+  }
+}

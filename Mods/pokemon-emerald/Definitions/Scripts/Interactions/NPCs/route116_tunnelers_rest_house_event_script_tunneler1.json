@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route116_tunnelers_rest_house_event_script_tunneler1",
+  "name": "route116 tunnelers rest house event script tunneler1",
+  "description": "NPC interaction: route116 tunnelers rest house event script tunneler1",
+  "scriptPath": "Scripts/Interactions/NPCs/route116_tunnelers_rest_house_event_script_tunneler1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

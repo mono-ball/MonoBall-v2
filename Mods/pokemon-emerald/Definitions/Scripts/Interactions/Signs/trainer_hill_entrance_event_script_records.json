@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/trainer_hill_entrance_event_script_records",
+  "name": "trainer hill entrance event script records",
+  "description": "Sign script: trainer hill entrance event script records",
+  "scriptPath": "Scripts/Signs/trainer_hill_entrance_event_script_records.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

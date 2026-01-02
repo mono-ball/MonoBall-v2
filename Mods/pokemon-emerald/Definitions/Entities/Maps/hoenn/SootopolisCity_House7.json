@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:map:hoenn/sootopolis_city_house7",
+  "name": "SootopolisCity_House7",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 8,
+  "height": 7,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/sootopolis",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/sootopolis_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/sootopolis_city_house7/ground",
+      "name": "Ground",
+      "width": 8,
+      "height": 7,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/sootopolis_city_house7/objects",
+      "name": "Objects",
+      "width": 8,
+      "height": 7,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/sootopolis_city_house7/overhead",
+      "name": "Overhead",
+      "width": 8,
+      "height": 7,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/sootopolis_city_house7/warp_to_sootopolis_city",
+      "name": "Warp to sootopolis_city",
+      "x": 48,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sootopolis_city",
+      "targetX": 10,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/sootopolis_city_house7/warp_to_sootopolis_city",
+      "name": "Warp to sootopolis_city",
+      "x": 64,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sootopolis_city",
+      "targetX": 10,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/sootopolis_city_house7/npc_0",
+      "name": "NPC_0",
+      "x": 80,
+      "y": 48,
+      "spriteId": "pokeemerald:sprite:npcs/oldman",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_house7_event_script_old_man",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/sootopolis_city_house7/npc_1",
+      "name": "NPC_1",
+      "x": 16,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/pokefanf",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_house7_event_script_pokefan_f",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/sootopolis_city_house7/elevation_0",
+      "name": "Collision_0",
+      "width": 8,
+      "height": 7,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/sootopolis_city_house7/elevation_3",
+      "name": "Collision_3",
+      "width": 8,
+      "height": 7,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAA="
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:kirlia",
+  "name": "Kirlia",
+  "cryId": "pokeemerald:audio:sfx/cries/kirlia",
+  "baseStats": {
+    "hp": 38,
+    "attack": 35,
+    "defense": 35,
+    "speed": 50,
+    "spAttack": 65,
+    "spDefense": 55
+  },
+  "catchRate": 120,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:trace",
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:emotion",
+  "height": 8,
+  "weight": 202,
+  "description": "A Kirlia has the psychic power to create   a rip in the dimensions and see into the  future. It is said to dance with pleasure  on sunny mornings.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:gardevoir"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_DAWN_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:gallade"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:dream_eater"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:future_sight"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kirlia/kirliafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kirlia/kirliafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kirlia/kirliaback",
+    "backShiny": "pokeemerald:pokemon:sprite/kirlia/kirliabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kirlia/kirliaicon",
+    "overworld": "pokeemerald:pokemon:sprite/kirlia/kirliaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kirlia/kirliaoverworldshiny"
+  }
+}

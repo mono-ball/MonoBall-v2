@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:hatterene",
+  "name": "Hatterene",
+  "cryId": "pokeemerald:audio:sfx/cries/hatterene",
+  "baseStats": {
+    "hp": 57,
+    "attack": 90,
+    "defense": 95,
+    "speed": 29,
+    "spAttack": 136,
+    "spDefense": 103
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 45,
+  "expYield": 255,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:healer",
+    "pokeemerald:ability:anticipation",
+    "pokeemerald:ability:magic_bounce"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:silent",
+  "height": 21,
+  "weight": 51,
+  "description": "It emits psychic power strong enough to  cause headaches as a deterrent to the  approach of others.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:healing_wish"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:magic_powder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hatterene/hatterenefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hatterene/hatterenefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hatterene/hattereneback",
+    "backShiny": "pokeemerald:pokemon:sprite/hatterene/hatterenebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hatterene/hattereneicon",
+    "overworld": "pokeemerald:pokemon:sprite/hatterene/hattereneoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hatterene/hattereneoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:hatterene/gmax",
+      "name": "Hatterene",
+      "cryId": "pokeemerald:audio:sfx/cries/hatterene",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 57,
+        "attack": 90,
+        "defense": 95,
+        "speed": 29,
+        "spAttack": 136,
+        "spDefense": 103
+      },
+      "types": [
+        "pokeemerald:type:psychic",
+        "pokeemerald:type:fairy"
+      ],
+      "abilities": [
+        "pokeemerald:ability:healer",
+        "pokeemerald:ability:anticipation",
+        "pokeemerald:ability:magic_bounce"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/hatterene/hatterenegmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

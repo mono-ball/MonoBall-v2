@@ -1,0 +1,177 @@
+{
+  "id": "pokeemerald:pokemon:skitty",
+  "name": "Skitty",
+  "cryId": "pokeemerald:audio:sfx/cries/skitty",
+  "baseStats": {
+    "hp": 50,
+    "attack": 45,
+    "defense": 45,
+    "speed": 50,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 191,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:cute_charm",
+    "pokeemerald:ability:normalize",
+    "pokeemerald:ability:wonder_skin"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:kitten",
+  "height": 6,
+  "weight": 110,
+  "description": "A Skitty\u0027s adorably cute behavior makes it  highly popular. In battle, it makes its tail  puff out. It threatens foes with a sharp  growl.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_MOON_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:delcatty"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:facade"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:heal_bell"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:zen_headbutt",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:mud_bomb",
+    "pokeemerald:move:simple_beam",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:cosmic_power"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skitty/skittyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skitty/skittyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skitty/skittyback",
+    "backShiny": "pokeemerald:pokemon:sprite/skitty/skittybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skitty/skittyicon",
+    "overworld": "pokeemerald:pokemon:sprite/skitty/skittyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skitty/skittyoverworldshiny"
+  }
+}

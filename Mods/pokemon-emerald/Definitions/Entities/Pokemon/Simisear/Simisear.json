@@ -1,0 +1,97 @@
+{
+  "id": "pokeemerald:pokemon:simisear",
+  "name": "Simisear",
+  "cryId": "pokeemerald:audio:sfx/cries/simisear",
+  "baseStats": {
+    "hp": 75,
+    "attack": 98,
+    "defense": 63,
+    "speed": 101,
+    "spAttack": 98,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 75,
+  "expYield": 174,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gluttony",
+    null,
+    "pokeemerald:ability:blaze"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:ember",
+  "height": 10,
+  "weight": 280,
+  "description": "It loves sweets because they become  energy for the fire burning inside its  body. It scatters embers from its head  and tail to sear its opponents.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flame_burst"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/simisear/simisearfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/simisear/simisearfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/simisear/simisearback",
+    "backShiny": "pokeemerald:pokemon:sprite/simisear/simisearbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/simisear/simisearicon",
+    "overworld": "pokeemerald:pokemon:sprite/simisear/simisearoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/simisear/simisearoverworldshiny"
+  }
+}

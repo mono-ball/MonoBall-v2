@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/slateport_city_event_script_harbor_sign",
+  "name": "slateport city event script harbor sign",
+  "description": "Sign script: slateport city event script harbor sign",
+  "scriptPath": "Scripts/Signs/slateport_city_event_script_harbor_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

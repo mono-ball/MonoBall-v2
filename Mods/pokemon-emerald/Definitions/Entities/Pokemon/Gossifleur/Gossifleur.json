@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:gossifleur",
+  "name": "Gossifleur",
+  "cryId": "pokeemerald:audio:sfx/cries/gossifleur",
+  "baseStats": {
+    "hp": 40,
+    "attack": 40,
+    "defense": 60,
+    "speed": 10,
+    "spAttack": 40,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 190,
+  "expYield": 50,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:cotton_down",
+    "pokeemerald:ability:regenerator",
+    "pokeemerald:ability:effect_spore"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:flowering",
+  "height": 4,
+  "weight": 22,
+  "description": "It anchors itself in the ground with its  single leg, then basks in the sun. After  absorbing enough sunlight, its petals  spread as it blooms brilliantly.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:eldegoss"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:leaf_tornado"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:growth",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:poison_powder",
+    "pokeemerald:move:stun_spore",
+    "pokeemerald:move:sleep_powder"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gossifleur/gossifleurfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gossifleur/gossifleurfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gossifleur/gossifleurback",
+    "backShiny": "pokeemerald:pokemon:sprite/gossifleur/gossifleurbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gossifleur/gossifleuricon",
+    "overworld": "pokeemerald:pokemon:sprite/gossifleur/gossifleuroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gossifleur/gossifleuroverworldshiny"
+  }
+}

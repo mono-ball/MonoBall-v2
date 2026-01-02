@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lilycove_city_department_store_rooftop_event_script_vending_machine",
+  "name": "lilycove city department store rooftop event script vending machine",
+  "description": "Sign script: lilycove city department store rooftop event script vending machine",
+  "scriptPath": "Scripts/Signs/lilycove_city_department_store_rooftop_event_script_vending_machine.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:hippowdon",
+  "name": "Hippowdon",
+  "cryId": "pokeemerald:audio:sfx/cries/hippowdon",
+  "baseStats": {
+    "hp": 108,
+    "attack": 112,
+    "defense": 118,
+    "speed": 47,
+    "spAttack": 68,
+    "spDefense": 72
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:sand_stream",
+    null,
+    "pokeemerald:ability:sand_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:heavyweight",
+  "height": 20,
+  "weight": 3000,
+  "description": "It is surprisingly quick to anger.  It brandishes its gaping mouth in a  display of fearsome strength and raises  vast quantities of sand while attacking.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:fissure"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:slack_off"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hippowdon/hippowdonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hippowdon/hippowdonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hippowdon/hippowdonback",
+    "backShiny": "pokeemerald:pokemon:sprite/hippowdon/hippowdonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hippowdon/hippowdonicon",
+    "overworld": "pokeemerald:pokemon:sprite/hippowdon/hippowdonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hippowdon/hippowdonoverworldshiny"
+  }
+}

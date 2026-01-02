@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:bombirdier",
+  "name": "Bombirdier",
+  "cryId": "pokeemerald:audio:sfx/cries/bombirdier",
+  "baseStats": {
+    "hp": 70,
+    "attack": 103,
+    "defense": 85,
+    "speed": 82,
+    "spAttack": 60,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:flying",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 25,
+  "expYield": 243,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:big_pecks",
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:rocky_payload"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:item_drop",
+  "height": 15,
+  "weight": 429,
+  "description": "Bombirdier uses the apron on its  chest to bundle up food, which it  carries back to its nest. It enjoys  dropping things that make loud noises.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:thief"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:dual_wingbeat"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:parting_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:feather_dance",
+    "pokeemerald:move:power_trip",
+    "pokeemerald:move:roost",
+    "pokeemerald:move:sky_attack",
+    "pokeemerald:move:sucker_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bombirdier/bombirdierfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdierfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bombirdier/bombirdierback",
+    "backShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdierbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bombirdier/bombirdiericon",
+    "overworld": "pokeemerald:pokemon:sprite/bombirdier/bombirdieroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdieroverworldshiny"
+  }
+}

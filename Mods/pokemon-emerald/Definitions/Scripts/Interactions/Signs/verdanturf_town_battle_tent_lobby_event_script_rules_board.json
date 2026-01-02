@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/verdanturf_town_battle_tent_lobby_event_script_rules_board",
+  "name": "verdanturf town battle tent lobby event script rules board",
+  "description": "Sign script: verdanturf town battle tent lobby event script rules board",
+  "scriptPath": "Scripts/Signs/verdanturf_town_battle_tent_lobby_event_script_rules_board.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

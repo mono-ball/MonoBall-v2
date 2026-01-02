@@ -1,0 +1,182 @@
+{
+  "id": "pokeemerald:pokemon:zoroark",
+  "name": "Zoroark",
+  "cryId": "pokeemerald:audio:sfx/cries/zoroark",
+  "baseStats": {
+    "hp": 60,
+    "attack": 105,
+    "defense": 60,
+    "speed": 105,
+    "spAttack": 120,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 45,
+  "expYield": 179,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:illusion",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:illusion_fox",
+  "height": 16,
+  "weight": 811,
+  "description": "Bonds between these Pok\u00E9mon are very  strong. It protects the safety of its  pack by tricking its opponents. They  defend their lair with illusory scenery.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:night_daze"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:foul_play"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/zoroark/zoroarkfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/zoroark/zoroarkback",
+    "backShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/zoroark/zoroarkicon",
+    "overworld": "pokeemerald:pokemon:sprite/zoroark/zoroarkoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:zoroark/hisui",
+      "name": "Zoroark",
+      "cryId": "pokeemerald:audio:sfx/cries/zoroark",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 55,
+        "attack": 100,
+        "defense": 60,
+        "speed": 110,
+        "spAttack": 125,
+        "spDefense": 60
+      },
+      "types": [
+        "pokeemerald:type:normal",
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:illusion",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

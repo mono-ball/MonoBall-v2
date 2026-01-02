@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_contest_hall_event_script_cute_contestant2",
+  "name": "lilycove city contest hall event script cute contestant2",
+  "description": "NPC interaction: lilycove city contest hall event script cute contestant2",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_contest_hall_event_script_cute_contestant2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

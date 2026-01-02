@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:map:hoenn/mossdeep_city_house4",
+  "name": "MossdeepCity_House4",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 10,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/rustboro",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/mossdeep_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/mossdeep_city_house4/ground",
+      "name": "Ground",
+      "width": 10,
+      "height": 8,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/mossdeep_city_house4/objects",
+      "name": "Objects",
+      "width": 10,
+      "height": 8,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/mossdeep_city_house4/overhead",
+      "name": "Overhead",
+      "width": 10,
+      "height": 8,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/mossdeep_city_house4/warp_to_mossdeep_city",
+      "name": "Warp to mossdeep_city",
+      "x": 64,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mossdeep_city",
+      "targetX": 7,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/mossdeep_city_house4/warp_to_mossdeep_city",
+      "name": "Warp to mossdeep_city",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mossdeep_city",
+      "targetX": 7,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/mossdeep_city_house4/npc_0",
+      "name": "NPC_0",
+      "x": 48,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/woman2",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_house4_event_script_woman",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mossdeep_city_house4/npc_1",
+      "name": "NPC_1",
+      "x": 96,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 0
+      },
+      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_house4_event_script_ninja_boy",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mossdeep_city_house4/npc_2",
+      "name": "NPC_2",
+      "x": 32,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:pokemon/skittyold",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_house4_event_script_skitty",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/mossdeep_city_house4/elevation_0",
+      "name": "Collision_0",
+      "width": 10,
+      "height": 8,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/mossdeep_city_house4/elevation_3",
+      "name": "Collision_3",
+      "width": 10,
+      "height": 8,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    }
+  ]
+}

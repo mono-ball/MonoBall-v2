@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_2f_event_script_fossil_scientist",
+  "name": "rustboro city devon corp 2f event script fossil scientist",
+  "description": "NPC interaction: rustboro city devon corp 2f event script fossil scientist",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_devon_corp_2f_event_script_fossil_scientist.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

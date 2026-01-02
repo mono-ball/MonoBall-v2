@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_little_boy",
+  "name": "verdanturf town battle tent lobby event script little boy",
+  "description": "NPC interaction: verdanturf town battle tent lobby event script little boy",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_battle_tent_lobby_event_script_little_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

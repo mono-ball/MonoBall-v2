@@ -1,0 +1,179 @@
+{
+  "id": "pokeemerald:pokemon:moltres",
+  "name": "Moltres",
+  "cryId": "pokeemerald:audio:sfx/cries/moltres",
+  "baseStats": {
+    "hp": 90,
+    "attack": 100,
+    "defense": 90,
+    "speed": 90,
+    "spAttack": 125
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 80,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:flame_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:flame",
+  "height": 20,
+  "weight": 600,
+  "description": "Moltres is a legendary bird Pok\u00E9mon  that can control fire. If injured, it is said  to dip its body in the molten magma of  a volcano to burn and heal itself.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:heat_wave"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:sky_attack"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/moltres/moltresfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/moltres/moltresfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/moltres/moltresback",
+    "backShiny": "pokeemerald:pokemon:sprite/moltres/moltresbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/moltres/moltresicon",
+    "overworld": "pokeemerald:pokemon:sprite/moltres/moltresoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/moltres/moltresoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:moltres/galar",
+      "name": "Moltres",
+      "cryId": "pokeemerald:audio:sfx/cries/moltres",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 90,
+        "speed": 90,
+        "spAttack": 100,
+        "spDefense": 125
+      },
+      "types": [
+        "pokeemerald:type:dark",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:berserk",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/moltres/moltresgalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/moltres/moltresgalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/moltres/moltresgalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/moltres/moltresgalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/moltres/moltresgalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/moltres/moltresgalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/moltres/moltresgalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ],
+  "isLegendary": true
+}

@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:ribombee",
+  "name": "Ribombee",
+  "cryId": "pokeemerald:audio:sfx/cries/ribombee",
+  "baseStats": {
+    "hp": 60,
+    "attack": 55,
+    "defense": 60,
+    "speed": 124,
+    "spAttack": 95,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 75,
+  "expYield": 162,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:honey_gather",
+    "pokeemerald:ability:shield_dust",
+    "pokeemerald:ability:sweet_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:bee_fly",
+  "height": 2,
+  "weight": 5,
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:pollen_puff"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fairy_wind"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:quiver_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ribombee/ribombeefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ribombee/ribombeefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ribombee/ribombeeback",
+    "backShiny": "pokeemerald:pokemon:sprite/ribombee/ribombeebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ribombee/ribombeeicon",
+    "overworld": "pokeemerald:pokemon:sprite/ribombee/ribombeeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ribombee/ribombeeoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:ribombee/totem",
+      "name": "Ribombee",
+      "cryId": "pokeemerald:audio:sfx/cries/ribombee",
+      "formKey": "totem",
+      "baseStats": {
+        "hp": 60,
+        "attack": 55,
+        "defense": 60,
+        "speed": 124,
+        "spAttack": 95,
+        "spDefense": 70
+      },
+      "types": [
+        "pokeemerald:type:bug",
+        "pokeemerald:type:fairy"
+      ],
+      "abilities": [
+        "pokeemerald:ability:sweet_veil",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/ribombee/ribombeetotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/ribombee/ribombeetotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/ribombee/ribombeetotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/ribombee/ribombeetotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/ribombee/ribombeetotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/ribombee/ribombeetotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/ribombee/ribombeetotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:totem"
+    }
+  ]
+}

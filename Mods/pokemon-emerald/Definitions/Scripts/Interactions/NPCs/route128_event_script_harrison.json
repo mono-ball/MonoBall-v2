@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route128_event_script_harrison",
+  "name": "route128 event script harrison",
+  "description": "NPC interaction: route128 event script harrison",
+  "scriptPath": "Scripts/Interactions/NPCs/route128_event_script_harrison.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

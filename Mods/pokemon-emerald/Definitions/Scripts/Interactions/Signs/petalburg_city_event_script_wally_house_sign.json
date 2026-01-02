@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/petalburg_city_event_script_wally_house_sign",
+  "name": "petalburg city event script wally house sign",
+  "description": "Sign script: petalburg city event script wally house sign",
+  "scriptPath": "Scripts/Signs/petalburg_city_event_script_wally_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

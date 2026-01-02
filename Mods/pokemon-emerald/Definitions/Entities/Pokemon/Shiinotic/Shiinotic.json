@@ -1,0 +1,125 @@
+{
+  "id": "pokeemerald:pokemon:shiinotic",
+  "name": "Shiinotic",
+  "cryId": "pokeemerald:audio:sfx/cries/shiinotic",
+  "baseStats": {
+    "hp": 60,
+    "attack": 45,
+    "defense": 80,
+    "speed": 30,
+    "spAttack": 90,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 75,
+  "expYield": 142,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:illuminate",
+    "pokeemerald:ability:effect_spore",
+    "pokeemerald:ability:rain_dish"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:illuminate",
+  "height": 10,
+  "weight": 115,
+  "description": "Forests where Shiinotic live are  treacherous to enter at night.  People confused by its strange lights  can never find their way home again.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:strength_sap"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:spore"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shiinotic/shiinoticfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinoticfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/shiinotic/shiinoticback",
+    "backShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinoticbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/shiinotic/shiinoticicon",
+    "overworld": "pokeemerald:pokemon:sprite/shiinotic/shiinoticoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinoticoverworldshiny"
+  }
+}

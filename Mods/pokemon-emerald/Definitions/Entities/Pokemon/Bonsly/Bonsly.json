@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:bonsly",
+  "name": "Bonsly",
+  "cryId": "pokeemerald:audio:sfx/cries/bonsly",
+  "baseStats": {
+    "hp": 50,
+    "attack": 80,
+    "defense": 95,
+    "speed": 10,
+    "spAttack": 10,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:bonsai",
+  "height": 5,
+  "weight": 150,
+  "description": "Bonsly prefers an arid atmosphere.  In order to adjust the level of fluids  in its body, it exudes water from its eyes.  This makes it appear to be crying.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:sudowoodo"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:mimic"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:tearful_look"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:self_destruct",
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:harden",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sand_tomb",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bonsly/bonslyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bonsly/bonslyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bonsly/bonslyback",
+    "backShiny": "pokeemerald:pokemon:sprite/bonsly/bonslybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bonsly/bonslyicon",
+    "overworld": "pokeemerald:pokemon:sprite/bonsly/bonslyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bonsly/bonslyoverworldshiny"
+  }
+}

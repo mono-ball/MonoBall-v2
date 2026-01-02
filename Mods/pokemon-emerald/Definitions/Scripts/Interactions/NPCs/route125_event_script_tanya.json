@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route125_event_script_tanya",
+  "name": "route125 event script tanya",
+  "description": "NPC interaction: route125 event script tanya",
+  "scriptPath": "Scripts/Interactions/NPCs/route125_event_script_tanya.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

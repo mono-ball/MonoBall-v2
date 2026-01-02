@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route115_event_script_meteor_falls_sign",
+  "name": "route115 event script meteor falls sign",
+  "description": "Sign script: route115 event script meteor falls sign",
+  "scriptPath": "Scripts/Signs/route115_event_script_meteor_falls_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

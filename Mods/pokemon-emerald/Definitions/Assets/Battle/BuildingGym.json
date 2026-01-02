@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/building_gym",
+  "name": "Gym",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/BuildingGym/BuildingGym.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/building",
+  "description": "Battle environment background for Gym"
+}

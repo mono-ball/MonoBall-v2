@@ -1,0 +1,14 @@
+{
+  "id": "pokeemerald:weather:outdoor/downpour",
+  "name": "Downpour",
+  "description": "Downpour weather condition",
+  "category": "outdoor",
+  "intensity": 2,
+  "affectsBattle": true,
+  "ambientSoundId": "pokeemerald:audio:sfx/ambient/heavy_rain",
+  "effectScriptId": "pokeemerald:script:weather/downpour",
+  "graphicsId": "pokeemerald:weather:graphics/rain",
+  "screenTintOpacity": 0,
+  "reducesVisibility": true,
+  "visibilityRange": 4
+}

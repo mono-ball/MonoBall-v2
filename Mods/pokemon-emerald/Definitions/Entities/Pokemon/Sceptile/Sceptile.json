@@ -1,0 +1,212 @@
+{
+  "id": "pokeemerald:pokemon:sceptile",
+  "name": "Sceptile",
+  "cryId": "pokeemerald:audio:sfx/cries/sceptile",
+  "baseStats": {
+    "hp": 70,
+    "attack": 85,
+    "defense": 65,
+    "speed": 120,
+    "spAttack": 105,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:unburden"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:forest",
+  "height": 17,
+  "weight": 522,
+  "description": "In the jungle, its power is without equal.  This Pok\u00E9mon carefully grows trees and  plants. It regulates its body temperature  by basking in sunlight.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:energy_ball"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shed_tail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sceptile/sceptilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sceptile/sceptileback",
+    "backShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sceptile/sceptileicon",
+    "overworld": "pokeemerald:pokemon:sprite/sceptile/sceptileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sceptile/sceptileoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:sceptile/mega",
+      "name": "Sceptile",
+      "cryId": "pokeemerald:audio:sfx/cries/sceptile-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 70,
+        "attack": 110,
+        "defense": 75,
+        "speed": 145,
+        "spAttack": 145,
+        "spDefense": 85
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:lightning_rod",
+        "pokeemerald:ability:lightning_rod",
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/sceptile/sceptilemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:sceptilite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

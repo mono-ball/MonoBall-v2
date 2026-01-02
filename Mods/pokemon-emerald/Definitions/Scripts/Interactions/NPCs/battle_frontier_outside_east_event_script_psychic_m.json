@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_outside_east_event_script_psychic_m",
+  "name": "battle frontier outside east event script psychic m",
+  "description": "NPC interaction: battle frontier outside east event script psychic m",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_outside_east_event_script_psychic_m.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

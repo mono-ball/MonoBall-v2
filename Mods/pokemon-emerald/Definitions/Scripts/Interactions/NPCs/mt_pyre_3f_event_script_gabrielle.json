@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_pyre_3f_event_script_gabrielle",
+  "name": "mt pyre 3f event script gabrielle",
+  "description": "NPC interaction: mt pyre 3f event script gabrielle",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_pyre_3f_event_script_gabrielle.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

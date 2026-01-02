@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle4_event_script_cora",
+  "name": "route110 trick house puzzle4 event script cora",
+  "description": "NPC interaction: route110 trick house puzzle4 event script cora",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle4_event_script_cora.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

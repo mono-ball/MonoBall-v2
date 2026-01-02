@@ -1,0 +1,181 @@
+{
+  "id": "pokeemerald:pokemon:electrode",
+  "name": "Electrode",
+  "cryId": "pokeemerald:audio:sfx/cries/electrode",
+  "baseStats": {
+    "hp": 60,
+    "attack": 50,
+    "defense": 70,
+    "spAttack": 80,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:soundproof",
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:aftermath"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:ball",
+  "height": 12,
+  "weight": 666,
+  "description": "They appear in great numbers at electric  power plants. Because they feed on  electricity, they cause massive and  chaotic blackouts in nearby cities.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:eerie_impulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magnetic_flux"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charge_beam"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:mirror_coat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/electrode/electrodefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/electrode/electrodefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/electrode/electrodeback",
+    "backShiny": "pokeemerald:pokemon:sprite/electrode/electrodebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/electrode/electrodeicon",
+    "overworld": "pokeemerald:pokemon:sprite/electrode/electrodeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/electrode/electrodeoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:electrode/hisui",
+      "name": "Electrode",
+      "cryId": "pokeemerald:audio:sfx/cries/electrode",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 70,
+        "spAttack": 80,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:grass"
+      ],
+      "abilities": [
+        "pokeemerald:ability:soundproof",
+        "pokeemerald:ability:static",
+        "pokeemerald:ability:aftermath"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/electrode/electrodehisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/electrode/electrodehisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/electrode/electrodehisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/electrode/electrodehisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/electrode/electrodehisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/electrode/electrodehisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/electrode/electrodehisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lavaridge_town_event_script_herb_shop_sign",
+  "name": "lavaridge town event script herb shop sign",
+  "description": "Sign script: lavaridge town event script herb shop sign",
+  "scriptPath": "Scripts/Signs/lavaridge_town_event_script_herb_shop_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

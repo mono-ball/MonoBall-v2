@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route129_event_script_tisha",
+  "name": "route129 event script tisha",
+  "description": "NPC interaction: route129 event script tisha",
+  "scriptPath": "Scripts/Interactions/NPCs/route129_event_script_tisha.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

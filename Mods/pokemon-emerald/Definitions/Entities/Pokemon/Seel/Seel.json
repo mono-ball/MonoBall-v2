@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:seel",
+  "name": "Seel",
+  "cryId": "pokeemerald:audio:sfx/cries/seel",
+  "baseStats": {
+    "hp": 65,
+    "attack": 45,
+    "defense": 55,
+    "speed": 45,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:sea_lion",
+  "height": 11,
+  "weight": 900,
+  "description": "Seel hunt for prey in frigid, ice-covered  seas. When it needs to breathe, it punches  a hole through the ice with the sharply  protruding section of its head.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:dewgong"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:snowscape"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:lick",
+    "pokeemerald:move:perish_song",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:horn_drill",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:icicle_spear",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:belch",
+    "pokeemerald:move:entrainment"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/seel/seelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/seel/seelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/seel/seelback",
+    "backShiny": "pokeemerald:pokemon:sprite/seel/seelbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/seel/seelicon",
+    "overworld": "pokeemerald:pokemon:sprite/seel/seeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/seel/seeloverworldshiny"
+  }
+}

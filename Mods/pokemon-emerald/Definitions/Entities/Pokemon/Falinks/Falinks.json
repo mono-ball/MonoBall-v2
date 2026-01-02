@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:falinks",
+  "name": "Falinks",
+  "cryId": "pokeemerald:audio:sfx/cries/falinks",
+  "baseStats": {
+    "hp": 65,
+    "attack": 100,
+    "defense": 100,
+    "speed": 75,
+    "spAttack": 70,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 165,
+  "evYield": {
+    "attack": 2,
+    "spDefense": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:battle_armor",
+    null,
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:formation",
+  "height": 30,
+  "weight": 620,
+  "description": "Five of them are troopers, and one is the  brass. The brass\u0027s orders are absolute.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:first_impression"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:no_retreat"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:counter"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swords_dance"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/falinks/falinksfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/falinks/falinksfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/falinks/falinksback",
+    "backShiny": "pokeemerald:pokemon:sprite/falinks/falinksbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/falinks/falinksicon",
+    "overworld": "pokeemerald:pokemon:sprite/falinks/falinksoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/falinks/falinksoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:falinks/mega",
+      "name": "Falinks",
+      "cryId": "pokeemerald:audio:sfx/cries/falinks",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 65,
+        "attack": 135,
+        "defense": 135,
+        "speed": 100,
+        "spAttack": 70,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:battle_armor",
+        null,
+        "pokeemerald:ability:defiant"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/falinks/falinksmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/falinks/falinksmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/falinks/falinksmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/falinks/falinksmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/falinks/falinksmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/falinks/falinksmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/falinks/falinksmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:falinksite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

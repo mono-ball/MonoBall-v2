@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/gabby_and_ty_event_script_ty_battle1",
+  "name": "gabby and ty event script ty battle1",
+  "description": "NPC interaction: gabby and ty event script ty battle1",
+  "scriptPath": "Scripts/Interactions/NPCs/gabby_and_ty_event_script_ty_battle1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

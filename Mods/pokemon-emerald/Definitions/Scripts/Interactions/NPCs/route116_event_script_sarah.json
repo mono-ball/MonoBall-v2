@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route116_event_script_sarah",
+  "name": "route116 event script sarah",
+  "description": "NPC interaction: route116 event script sarah",
+  "scriptPath": "Scripts/Interactions/NPCs/route116_event_script_sarah.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

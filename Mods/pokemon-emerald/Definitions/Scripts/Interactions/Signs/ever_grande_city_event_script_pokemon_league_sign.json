@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/ever_grande_city_event_script_pokemon_league_sign",
+  "name": "ever grande city event script pokemon league sign",
+  "description": "Sign script: ever grande city event script pokemon league sign",
+  "scriptPath": "Scripts/Signs/ever_grande_city_event_script_pokemon_league_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

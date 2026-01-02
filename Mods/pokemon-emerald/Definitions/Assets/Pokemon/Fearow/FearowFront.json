@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/fearow/fearowfront",
+  "name": "Fearowfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Fearow/FearowFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

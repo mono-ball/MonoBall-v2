@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route117_event_script_aisha",
+  "name": "route117 event script aisha",
+  "description": "NPC interaction: route117 event script aisha",
+  "scriptPath": "Scripts/Interactions/NPCs/route117_event_script_aisha.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

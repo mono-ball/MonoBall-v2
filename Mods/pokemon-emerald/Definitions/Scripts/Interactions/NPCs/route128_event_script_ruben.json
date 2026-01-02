@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route128_event_script_ruben",
+  "name": "route128 event script ruben",
+  "description": "NPC interaction: route128 event script ruben",
+  "scriptPath": "Scripts/Interactions/NPCs/route128_event_script_ruben.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

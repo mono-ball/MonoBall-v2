@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_rival",
+  "name": "route103 event script rival",
+  "description": "NPC interaction: route103 event script rival",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_rival.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

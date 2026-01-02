@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_cyndaquil",
+  "name": "littleroot town professor birchs lab event script cyndaquil",
+  "description": "NPC interaction: littleroot town professor birchs lab event script cyndaquil",
+  "scriptPath": "Scripts/Interactions/NPCs/littleroot_town_professor_birchs_lab_event_script_cyndaquil.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

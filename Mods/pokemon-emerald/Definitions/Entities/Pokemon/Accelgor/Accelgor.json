@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:accelgor",
+  "name": "Accelgor",
+  "cryId": "pokeemerald:audio:sfx/cries/accelgor",
+  "baseStats": {
+    "hp": 80,
+    "attack": 70,
+    "defense": 40,
+    "speed": 145,
+    "spAttack": 100,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 75,
+  "expYield": 173,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:sticky_hold",
+    "pokeemerald:ability:unburden"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:shell_out",
+  "height": 8,
+  "weight": 253,
+  "description": "When its body dries out, it weakens. So, to  prevent dehydration, it wraps itself in  layers of thin membrane. It is very light  and fights with ninja-like movements.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_shuriken"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:guard_swap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:power_swap"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:final_gambit"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:toxic"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/accelgor/accelgorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/accelgor/accelgorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/accelgor/accelgorback",
+    "backShiny": "pokeemerald:pokemon:sprite/accelgor/accelgorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/accelgor/accelgoricon",
+    "overworld": "pokeemerald:pokemon:sprite/accelgor/accelgoroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/accelgor/accelgoroverworldshiny"
+  }
+}

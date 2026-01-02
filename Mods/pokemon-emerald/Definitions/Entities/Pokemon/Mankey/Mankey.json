@@ -1,0 +1,178 @@
+{
+  "id": "pokeemerald:pokemon:mankey",
+  "name": "Mankey",
+  "cryId": "pokeemerald:audio:sfx/cries/mankey",
+  "baseStats": {
+    "hp": 40,
+    "attack": 80,
+    "defense": 35,
+    "speed": 70,
+    "spAttack": 35
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:anger_point",
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:pig_monkey",
+  "height": 5,
+  "weight": 280,
+  "description": "When it starts shaking and its nasal  breathing turns rough, it\u0027s a sure sign  of anger. However, since this happens  instantly, there is no time to flee.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 28,
+      "targetSpeciesId": "pokeemerald:pokemon:primeape"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:seismic_toss"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:cross_chop"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:final_gambit"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:meditate",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:beat_up",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:smelling_salts",
+    "pokeemerald:move:close_combat",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:power_trip"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mankey/mankeyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mankey/mankeyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mankey/mankeyback",
+    "backShiny": "pokeemerald:pokemon:sprite/mankey/mankeybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mankey/mankeyicon",
+    "overworld": "pokeemerald:pokemon:sprite/mankey/mankeyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mankey/mankeyoverworldshiny"
+  }
+}

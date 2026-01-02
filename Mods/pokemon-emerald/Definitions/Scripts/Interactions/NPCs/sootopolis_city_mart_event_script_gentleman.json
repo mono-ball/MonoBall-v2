@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_mart_event_script_gentleman",
+  "name": "sootopolis city mart event script gentleman",
+  "description": "NPC interaction: sootopolis city mart event script gentleman",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_mart_event_script_gentleman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

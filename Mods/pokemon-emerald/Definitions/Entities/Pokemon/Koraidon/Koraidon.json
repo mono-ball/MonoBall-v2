@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:koraidon",
+  "name": "Koraidon",
+  "cryId": "pokeemerald:audio:sfx/cries/koraidon",
+  "baseStats": {
+    "hp": 100,
+    "attack": 135,
+    "defense": 115,
+    "speed": 135,
+    "spAttack": 85,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:fighting",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 3,
+  "expYield": 335,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 50,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:orichalcum_pulse",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:paradox",
+  "height": 25,
+  "weight": 3030,
+  "description": "This Pok\u00E9mon resembles Cyclizar,  but it is far burlier and more  ferocious. Nothing is known about its  ecology or other features.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:breaking_swipe"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:drain_punch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:collision_course"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 91,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 98,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/koraidon/koraidonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/koraidon/koraidonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/koraidon/koraidonback",
+    "backShiny": "pokeemerald:pokemon:sprite/koraidon/koraidonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/koraidon/koraidonicon",
+    "overworld": "pokeemerald:pokemon:sprite/koraidon/koraidonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/koraidon/koraidonoverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

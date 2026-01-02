@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_house4_event_script_woman",
+  "name": "pacifidlog town house4 event script woman",
+  "description": "NPC interaction: pacifidlog town house4 event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_house4_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/special/rg-new-game-instruct",
+  "name": "Rg New Game Instruct",
+  "audioPath": "Audio/Music/Special/RgNewGameInstruct.ogg",
+  "volume": 0.67,
+  "loop": true,
+  "loopStartSamples": 11025,
+  "loopLengthSamples": 352800
+}

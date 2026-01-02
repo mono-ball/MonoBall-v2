@@ -1,0 +1,236 @@
+{
+  "id": "pokeemerald:map:hoenn/mt_pyre_2f",
+  "name": "MtPyre_2F",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 13,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/mt_pyre",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/mt_pyre",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/mt_pyre_2f/ground",
+      "name": "Ground",
+      "width": 13,
+      "height": 13,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "SAIAAAAAAAAAAAAAAAAAAEcCAABIAgAARwIAAEgCAABHAgAAAAAAAAAAAAAAAAAASAIAAEoCAAAAAAAAAAAAAAAAAABJAgAASgIAAEkCAABKAgAASQIAAAAAAAAAAAAAAAAAAEoCAAAAAAAASwIAAAAAAABLAgAAAAAAAAAAAABLAgAASwIAAAAAAABLAgAAAAAAAEsCAABLAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE8CAAAAAAAAAAAAAAAAAAAAAAAATwIAAEsCAABPAgAAAAAAAAAAAAAAAAAAAAAAAE8CAAAAAAAATwIAAE8CAAAAAAAAAAAAAAAAAABLAgAATwIAAAAAAAAAAAAAAAAAAAAAAABPAgAAAAAAAE8CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE8CAABPAgAAAAAAAAAAAAAAAAAATwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPAgAATwIAAAAAAABLAgAATwIAAE8CAABPAgAATwIAAE8CAAAAAAAAAAAAAE8CAABPAgAAAAAAAAAAAABPAgAASwIAAAAAAAAAAAAAAAAAAE8CAABPAgAAAAAAAAAAAABPAgAATwIAAAAAAAAAAAAATwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABLAgAATwIAAAAAAAAAAAAATwIAAE8CAAAAAAAAAAAAAE8CAABPAgAAAAAAAE8CAABPAgAASwIAAE8CAAAAAAAAAAAAAE8CAABPAgAAAAAAAAAAAABPAgAATwIAAAAAAABPAgAATwIAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/mt_pyre_2f/objects",
+      "name": "Objects",
+      "width": 13,
+      "height": 13,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "dgEAwJcBAACZAQAAmwEAAHYBAMB2AQDAdgEAwHYBAMB2AQDAlwEAAJkBAICbAQAAdgEAwHYBAMCfAQAAoAEAAKEBAAB2AQDAdgEAwHYBAMB2AQDAdgEAwLABAACxAQAAsgEAAHYBAMBLAgAAowEAAEsCAACkAQAASwIAAEsCAABMAgAATAIAAEsCAACjAQAASwIAAKQBAABMAgAASwIAAE4CAABOAgAATgIAAE4CAABOAgAATgIAAEwCAABOAgAATgIAAE4CAABOAgAATAIAAEwCAABMAgAATgIAAE4CAABOAgAATgIAAEwCAABOAgAATAIAAEwCAABOAgAATgIAAE4CAABMAgAATAIAAE4CAABOAgAATgIAAE4CAABMAgAATgIAAEwCAABOAgAATgIAAE4CAABOAgAASwIAAE4CAABMAgAATgIAAE4CAABOAgAATgIAAE4CAABOAgAATgIAAEwCAABMAgAATgIAAEsCAABOAgAATAIAAE4CAABOAgAATgIAAE4CAABOAgAATgIAAE4CAABMAgAATAIAAE4CAABMAgAATAIAAEwCAABMAgAATAIAAEwCAABOAgAATgIAAEwCAABMAgAATgIAAE4CAABMAgAATAIAAE4CAABOAgAATgIAAEwCAABMAgAATgIAAE4CAABMAgAATAIAAE4CAABRAgAATAIAAEsCAABOAgAATgIAAE4CAABOAgAATgIAAE4CAABOAgAATgIAAE4CAABOAgAATgIAAE4CAABMAgAATAIAAE4CAABOAgAATAIAAEwCAABOAgAATgIAAEwCAABMAgAATgIAAEwCAABMAgAATAIAAEwCAABOAgAATgIAAEwCAABMAgAATgIAAE4CAABMAgAATAIAAE4CAABMAgAATAIAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/mt_pyre_2f/overhead",
+      "name": "Overhead",
+      "width": 13,
+      "height": 13,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAJgBAACaAQAAmAEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAmAEAAJoBAICYAQCAAAAAAAAAAAB2AQDAdgEAwHYBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAHYBAMB2AQDAdgEAwAAAAAB2AQDAAAAAAHYBAMAAAAAAdgEAwHYBAMAAAAAAAAAAAHYBAMAAAAAAdgEAwAAAAAAAAAAAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwAAAAAB2AQDAdgEAwHYBAMB2AQDAAAAAAAAAAAAAAAAAdgEAwHYBAMB2AQDAdgEAwAAAAAB2AQDAAAAAAAAAAAB2AQDAdgEAwHYBAMAAAAAAAAAAAHYBAMB2AQDAdgEAwHYBAMAAAAAAdgEAwAAAAAB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMAAAAAAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwAAAAAAAAAAAdgEAwHYBAMB2AQDAAAAAAHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMAAAAAAAAAAAHYBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB2AQDAdgEAwAAAAAAAAAAAdgEAwHYBAMAAAAAAAAAAAHYBAMB2AQDAdgEAwAAAAAAAAAAAdgEAwHYBAMAAAAAAAAAAAHYBAMB2AQDAAAAAAHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMAAAAAAAAAAAHYBAMB2AQDAAAAAAAAAAAB2AQDAdgEAwAAAAAAAAAAAdgEAwAAAAAAAAAAAAAAAAAAAAAB2AQDAdgEAwAAAAAAAAAAAdgEAwHYBAMAAAAAAAAAAAHYBAMAAAAAAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/facility"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/mt_pyre_2f/warp_to_mt_pyre_1f",
+      "name": "Warp to mt_pyre_1f",
+      "x": 32,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mt_pyre_1f",
+      "targetX": 4,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/mt_pyre_2f/warp_to_mt_pyre_3f",
+      "name": "Warp to mt_pyre_3f",
+      "x": 160,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mt_pyre_3f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/mt_pyre_2f/warp_to_mt_pyre_3f",
+      "name": "Warp to mt_pyre_3f",
+      "x": 160,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mt_pyre_3f",
+      "targetX": 4,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/mt_pyre_2f/warp_to_mt_pyre_3f",
+      "name": "Warp to mt_pyre_3f",
+      "x": 96,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mt_pyre_3f",
+      "targetX": 5,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/mt_pyre_2f/warp_to_mt_pyre_1f",
+      "name": "Warp to mt_pyre_1f",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/mt_pyre_1f",
+      "targetX": 5,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_0",
+      "name": "NPC_0",
+      "x": 48,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/maniac",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_mark",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_1",
+      "name": "NPC_1",
+      "x": 0,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/common_event_script_find_item",
+      "visibilityFlag": "pokeemerald:flag:item/mt_pyre_2f_ultra_ball",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_2",
+      "name": "NPC_2",
+      "x": 144,
+      "y": 48,
+      "spriteId": "pokeemerald:sprite:npcs/woman1",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_woman",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_3",
+      "name": "NPC_3",
+      "x": 192,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_pokefan_m",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_4",
+      "name": "NPC_4",
+      "x": 32,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/woman4",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_dez",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_5",
+      "name": "NPC_5",
+      "x": 48,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/man4",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_luke",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_6",
+      "name": "NPC_6",
+      "x": 96,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_zander",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/mt_pyre_2f/npc_7",
+      "name": "NPC_7",
+      "x": 96,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/hexmaniac",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_leah",
+      "facingDirection": "down",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/mt_pyre_2f/elevation_0",
+      "name": "Collision_0",
+      "width": 13,
+      "height": 13,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAAEBAQEBAQEAAQEAAAAAAAABAQAAAAABAAAAAAAAAAEAAAAAAQEBAAAAAAEAAQEAAAABAQAAAAABAAEAAAAAAAABAAAAAAAAAAEBAAAAAQAAAAAAAAABAQABAQEBAQEAAAEBAAABAQAAAAEBAAABAQAAAQAAAAAAAAAAAAAAAAABAQAAAQEAAAEBAAEBAQEAAAEBAAABAQABAQ=="
+    }
+  ]
+}

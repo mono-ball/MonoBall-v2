@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:frosmoth",
+  "name": "Frosmoth",
+  "cryId": "pokeemerald:audio:sfx/cries/frosmoth",
+  "baseStats": {
+    "hp": 70,
+    "attack": 65,
+    "defense": 60,
+    "speed": 65,
+    "spAttack": 125,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 75,
+  "expYield": 166,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:shield_dust",
+    null,
+    "pokeemerald:ability:ice_scales"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:frost_moth",
+  "height": 13,
+  "weight": 420,
+  "description": "Icy scales fall from its wings like snow  as it flies over fields and mountains.  The temperature of its wings is less than  -290 degrees Fahrenheit.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:infestation"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:snowscape"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:aurora_veil"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:quiver_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/frosmoth/frosmothfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmothfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/frosmoth/frosmothback",
+    "backShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmothbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/frosmoth/frosmothicon",
+    "overworld": "pokeemerald:pokemon:sprite/frosmoth/frosmothoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmothoverworldshiny"
+  }
+}

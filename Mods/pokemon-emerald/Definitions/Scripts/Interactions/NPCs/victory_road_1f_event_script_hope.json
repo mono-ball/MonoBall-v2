@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/victory_road_1f_event_script_hope",
+  "name": "victory road 1f event script hope",
+  "description": "NPC interaction: victory road 1f event script hope",
+  "scriptPath": "Scripts/Interactions/NPCs/victory_road_1f_event_script_hope.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

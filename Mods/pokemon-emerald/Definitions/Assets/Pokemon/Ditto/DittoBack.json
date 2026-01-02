@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/ditto/dittoback",
+  "name": "Dittoback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Ditto/DittoBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

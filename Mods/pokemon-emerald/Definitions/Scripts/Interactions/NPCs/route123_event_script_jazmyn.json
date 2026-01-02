@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route123_event_script_jazmyn",
+  "name": "route123 event script jazmyn",
+  "description": "NPC interaction: route123 event script jazmyn",
+  "scriptPath": "Scripts/Interactions/NPCs/route123_event_script_jazmyn.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

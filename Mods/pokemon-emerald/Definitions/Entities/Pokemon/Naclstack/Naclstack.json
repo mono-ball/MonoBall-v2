@@ -1,0 +1,132 @@
+{
+  "id": "pokeemerald:pokemon:naclstack",
+  "name": "Naclstack",
+  "cryId": "pokeemerald:audio:sfx/cries/naclstack",
+  "baseStats": {
+    "hp": 60,
+    "attack": 60,
+    "defense": 100,
+    "speed": 35,
+    "spAttack": 35,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 120,
+  "expYield": 124,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:purifying_salt",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:clear_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rock_salt",
+  "height": 6,
+  "weight": 1050,
+  "description": "It compresses rock salt inside its  body and shoots out hardened salt  pellets with enough force to  perforate an iron sheet.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 38,
+      "targetSpeciesId": "pokeemerald:pokemon:garganacl"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:salt_cure"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/naclstack/naclstackfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/naclstack/naclstackfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/naclstack/naclstackback",
+    "backShiny": "pokeemerald:pokemon:sprite/naclstack/naclstackbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/naclstack/naclstackicon",
+    "overworld": "pokeemerald:pokemon:sprite/naclstack/naclstackoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/naclstack/naclstackoverworldshiny"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "pokeemerald:pokemon:wobbuffet",
+  "name": "Wobbuffet",
+  "cryId": "pokeemerald:audio:sfx/cries/wobbuffet",
+  "baseStats": {
+    "hp": 190,
+    "attack": 33,
+    "defense": 58,
+    "speed": 33,
+    "spAttack": 33,
+    "spDefense": 58
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:shadow_tag",
+    null,
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:patient",
+  "height": 13,
+  "weight": 285,
+  "description": "Usually docile, a Wobbuffet strikes back  ferociously if its black tail is attacked.  It makes its lair in caves where it waits  for nightfall.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:counter",
+    "pokeemerald:move:safeguard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetback",
+    "backShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffeticon",
+    "overworld": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

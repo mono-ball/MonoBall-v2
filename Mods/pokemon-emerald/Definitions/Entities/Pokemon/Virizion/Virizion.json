@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:virizion",
+  "name": "Virizion",
+  "cryId": "pokeemerald:audio:sfx/cries/virizion",
+  "baseStats": {
+    "hp": 91,
+    "attack": 90,
+    "defense": 72,
+    "speed": 108,
+    "spAttack": 90,
+    "spDefense": 129
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "spDefense": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 80,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:justified",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:grassland",
+  "height": 20,
+  "weight": 2000,
+  "description": "Its head sprouts horns as sharp as blades.  Legends say this Pok\u00E9mon used  whirlwind-like movements to confound  and swiftly cut its opponents.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:sacred_sword"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/virizion/virizionfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/virizion/virizionfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/virizion/virizionback",
+    "backShiny": "pokeemerald:pokemon:sprite/virizion/virizionbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/virizion/virizionicon",
+    "overworld": "pokeemerald:pokemon:sprite/virizion/virizionoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/virizion/virizionoverworldshiny"
+  },
+  "isLegendary": true
+}

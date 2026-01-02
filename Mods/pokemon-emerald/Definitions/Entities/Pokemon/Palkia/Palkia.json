@@ -1,0 +1,180 @@
+{
+  "id": "pokeemerald:pokemon:palkia",
+  "name": "Palkia",
+  "cryId": "pokeemerald:audio:sfx/cries/palkia",
+  "baseStats": {
+    "hp": 90,
+    "attack": 120,
+    "defense": 100,
+    "speed": 100,
+    "spAttack": 150,
+    "spDefense": 120
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:spatial",
+  "height": 42,
+  "weight": 3360,
+  "description": "Palkia has the ability to distort space.  Its total control over the boundaries of  space enable it to transport itself to  faraway places and other dimensions.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:aura_sphere"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:spacial_rend"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/palkia/palkiafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/palkia/palkiafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/palkia/palkiaback",
+    "backShiny": "pokeemerald:pokemon:sprite/palkia/palkiabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/palkia/palkiaicon",
+    "overworld": "pokeemerald:pokemon:sprite/palkia/palkiaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:palkia/origin",
+      "name": "Palkia",
+      "cryId": "pokeemerald:audio:sfx/cries/palkia",
+      "formKey": "origin",
+      "baseStats": {
+        "hp": 90,
+        "attack": 100,
+        "defense": 100,
+        "speed": 120,
+        "spAttack": 150,
+        "spDefense": 120
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pressure",
+        null,
+        "pokeemerald:ability:telepathy"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/palkia/palkiaoriginfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoriginfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/palkia/palkiaoriginback",
+        "backShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoriginbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/palkia/palkiaoriginicon",
+        "overworld": "pokeemerald:pokemon:sprite/palkia/palkiaoriginoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoriginoverworldshiny"
+      }
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

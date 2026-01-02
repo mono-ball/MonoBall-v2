@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:chimecho",
+  "name": "Chimecho",
+  "cryId": "pokeemerald:audio:sfx/cries/chimecho",
+  "baseStats": {
+    "attack": 50,
+    "speed": 65,
+    "spAttack": 95
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 159,
+  "evYield": {
+    "spAttack": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:wind_chime",
+  "height": 6,
+  "weight": 10,
+  "description": "They fly about very actively when the hot  season arrives. They communicate among  themselves using seven different and  distinguishing cries.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:healing_wish"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:heal_bell"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:heal_pulse"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:disable",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:future_sight",
+    "pokeemerald:move:recover",
+    "pokeemerald:move:stored_power",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:cosmic_power",
+    "pokeemerald:move:crafty_shield",
+    "pokeemerald:move:perish_song"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chimecho/chimechofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chimecho/chimechofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chimecho/chimechoback",
+    "backShiny": "pokeemerald:pokemon:sprite/chimecho/chimechobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chimecho/chimechoicon",
+    "overworld": "pokeemerald:pokemon:sprite/chimecho/chimechooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chimecho/chimechooverworldshiny"
+  }
+}

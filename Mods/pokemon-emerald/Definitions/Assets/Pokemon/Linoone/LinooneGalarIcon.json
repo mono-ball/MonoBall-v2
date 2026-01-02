@@ -1,0 +1,24 @@
+{
+  "id": "pokeemerald:pokemon:sprite/linoone/linoonegalaricon",
+  "name": "Linoonegalaricon",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Linoone/LinooneGalarIcon.png",
+  "spriteType": "icon",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "frameCount": 2,
+  "animations": [
+    {
+      "name": "bounce",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

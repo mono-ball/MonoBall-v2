@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_event_script_trendy_phrase_boy",
+  "name": "dewford town event script trendy phrase boy",
+  "description": "NPC interaction: dewford town event script trendy phrase boy",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_event_script_trendy_phrase_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

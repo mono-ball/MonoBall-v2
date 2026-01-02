@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:carvanha",
+  "name": "Carvanha",
+  "cryId": "pokeemerald:audio:sfx/cries/carvanha",
+  "baseStats": {
+    "hp": 45,
+    "attack": 90,
+    "defense": 20,
+    "speed": 65,
+    "spAttack": 65,
+    "spDefense": 20
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:rough_skin",
+    null,
+    "pokeemerald:ability:speed_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:savage",
+  "height": 8,
+  "weight": 208,
+  "description": "Carvanha attack ships in swarms, making  them sink. Although it is said to be a very  vicious Pok\u00E9mon, it timidly flees as soon  as it finds itself alone.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:sharpedo"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:take_down"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:psychic_fangs"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/carvanha/carvanhafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/carvanha/carvanhafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/carvanha/carvanhaback",
+    "backShiny": "pokeemerald:pokemon:sprite/carvanha/carvanhabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/carvanha/carvanhaicon",
+    "overworld": "pokeemerald:pokemon:sprite/carvanha/carvanhaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carvanha/carvanhaoverworldshiny"
+  }
+}

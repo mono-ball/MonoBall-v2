@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:jirachi",
+  "name": "Jirachi",
+  "cryId": "pokeemerald:audio:sfx/cries/jirachi",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "speed": 100,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 3,
+  "expYield": 300,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:serene_grace",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:wish",
+  "height": 3,
+  "weight": 11,
+  "description": "Jirachi is said to make wishes come true.  While it sleeps, a tough crystalline shell  envelops the body to protect it from  enemies.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:meteor_mash"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:healing_wish"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 91,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 98,
+      "moveId": "pokeemerald:move:doom_desire"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/jirachi/jirachifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/jirachi/jirachifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/jirachi/jirachiback",
+    "backShiny": "pokeemerald:pokemon:sprite/jirachi/jirachibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/jirachi/jirachiicon",
+    "overworld": "pokeemerald:pokemon:sprite/jirachi/jirachioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/jirachi/jirachioverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

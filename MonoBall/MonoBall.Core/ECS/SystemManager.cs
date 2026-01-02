@@ -811,6 +811,7 @@ public class SystemManager : IDisposable
             _graphicsDevice,
             _resourceManager,
             _cameraService,
+            _modManager.Registry,
             LoggerFactory.CreateLogger<MapRendererSystem>(),
             _shaderManagerSystem,
             _shaderRendererSystem,

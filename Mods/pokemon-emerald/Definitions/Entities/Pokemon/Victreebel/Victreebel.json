@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:victreebel",
+  "name": "Victreebel",
+  "cryId": "pokeemerald:audio:sfx/cries/victreebel",
+  "baseStats": {
+    "hp": 80,
+    "attack": 105,
+    "defense": 65,
+    "speed": 70,
+    "spAttack": 100
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "expYield": 245,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:chlorophyll",
+    null,
+    "pokeemerald:ability:gluttony"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:flycatcher",
+  "height": 17,
+  "weight": 155,
+  "description": "The long vine extending from its head is  waved about as if it were a living thing to  attract prey. When an unsuspecting victim  approaches, it is swallowed whole.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:leaf_storm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:leaf_blade"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/victreebel/victreebelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/victreebel/victreebelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/victreebel/victreebelback",
+    "backShiny": "pokeemerald:pokemon:sprite/victreebel/victreebelbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/victreebel/victreebelicon",
+    "overworld": "pokeemerald:pokemon:sprite/victreebel/victreebeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/victreebel/victreebeloverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:victreebel/mega",
+      "name": "Victreebel",
+      "cryId": "pokeemerald:audio:sfx/cries/victreebel",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 125,
+        "defense": 85,
+        "speed": 70,
+        "spAttack": 135,
+        "spDefense": 95
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:chlorophyll",
+        null,
+        "pokeemerald:ability:gluttony"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/victreebel/victreebelmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/victreebel/victreebelmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/victreebel/victreebelmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/victreebel/victreebelmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/victreebel/victreebelmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/victreebel/victreebelmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/victreebel/victreebelmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:victreebelite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

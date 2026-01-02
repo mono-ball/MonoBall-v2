@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/rustboro_city_event_script_gym_sign",
+  "name": "rustboro city event script gym sign",
+  "description": "Sign script: rustboro city event script gym sign",
+  "scriptPath": "Scripts/Signs/rustboro_city_event_script_gym_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

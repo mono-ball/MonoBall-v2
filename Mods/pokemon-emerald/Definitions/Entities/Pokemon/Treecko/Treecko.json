@@ -1,0 +1,175 @@
+{
+  "id": "pokeemerald:pokemon:treecko",
+  "name": "Treecko",
+  "cryId": "pokeemerald:audio:sfx/cries/treecko",
+  "baseStats": {
+    "hp": 40,
+    "attack": 45,
+    "defense": 35,
+    "speed": 70,
+    "spAttack": 65,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:unburden"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:wood_gecko",
+  "height": 5,
+  "weight": 50,
+  "description": "It makes its nest in a giant tree in the  forest. It ferociously guards against  anything nearing its territory. It is said  to be the protector of the forest\u0027s trees.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:grovyle"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:energy_ball"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:endeavor",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:dragon_breath",
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:double_kick",
+    "pokeemerald:move:grass_whistle",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:magical_leaf",
+    "pokeemerald:move:leaf_storm",
+    "pokeemerald:move:razor_wind",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:grassy_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/treecko/treeckofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/treecko/treeckofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/treecko/treeckoback",
+    "backShiny": "pokeemerald:pokemon:sprite/treecko/treeckobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/treecko/treeckoicon",
+    "overworld": "pokeemerald:pokemon:sprite/treecko/treeckooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/treecko/treeckooverworldshiny"
+  }
+}

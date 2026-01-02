@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_pyre_summit_event_script_grunt3",
+  "name": "mt pyre summit event script grunt3",
+  "description": "NPC interaction: mt pyre summit event script grunt3",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_pyre_summit_event_script_grunt3.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,205 @@
+{
+  "id": "pokeemerald:pokemon:gardevoir",
+  "name": "Gardevoir",
+  "cryId": "pokeemerald:audio:sfx/cries/gardevoir",
+  "baseStats": {
+    "hp": 68,
+    "attack": 65,
+    "defense": 65,
+    "speed": 80,
+    "spAttack": 125,
+    "spDefense": 115
+  },
+  "catchRate": 45,
+  "expYield": 259,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:trace",
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:embrace",
+  "height": 16,
+  "weight": 484,
+  "description": "It apparently does not feel the pull of  gravity because it supports itself with  psychic power. It will give its life to  protect its Trainer.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mystical_fire"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:healing_wish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:dream_eater"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:future_sight"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gardevoir/gardevoirfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gardevoir/gardevoirback",
+    "backShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gardevoir/gardevoiricon",
+    "overworld": "pokeemerald:pokemon:sprite/gardevoir/gardevoiroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoiroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:gardevoir/mega",
+      "name": "Gardevoir",
+      "cryId": "pokeemerald:audio:sfx/cries/gardevoir-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 68,
+        "attack": 85,
+        "defense": 65,
+        "speed": 100,
+        "spAttack": 165,
+        "spDefense": 135
+      },
+      "abilities": [
+        "pokeemerald:ability:pixilate",
+        "pokeemerald:ability:pixilate",
+        "pokeemerald:ability:pixilate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:gardevoirite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

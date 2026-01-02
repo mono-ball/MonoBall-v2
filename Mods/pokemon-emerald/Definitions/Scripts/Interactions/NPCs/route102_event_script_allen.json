@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route102_event_script_allen",
+  "name": "route102 event script allen",
+  "description": "NPC interaction: route102 event script allen",
+  "scriptPath": "Scripts/Interactions/NPCs/route102_event_script_allen.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/navel_rock_bottom_event_script_lugia",
+  "name": "navel rock bottom event script lugia",
+  "description": "NPC interaction: navel rock bottom event script lugia",
+  "scriptPath": "Scripts/Interactions/NPCs/navel_rock_bottom_event_script_lugia.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

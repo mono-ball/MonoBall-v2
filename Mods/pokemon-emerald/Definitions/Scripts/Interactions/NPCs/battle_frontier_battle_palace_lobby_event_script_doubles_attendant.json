@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_palace_lobby_event_script_doubles_attendant",
+  "name": "battle frontier battle palace lobby event script doubles attendant",
+  "description": "NPC interaction: battle frontier battle palace lobby event script doubles attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_palace_lobby_event_script_doubles_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

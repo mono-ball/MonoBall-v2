@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:clauncher",
+  "name": "Clauncher",
+  "cryId": "pokeemerald:audio:sfx/cries/clauncher",
+  "baseStats": {
+    "hp": 50,
+    "attack": 53,
+    "defense": 62,
+    "speed": 44,
+    "spAttack": 58,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 225,
+  "expYield": 66,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:mega_launcher",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:water_gun",
+  "height": 5,
+  "weight": 83,
+  "description": "Through controlled expulsions of internal  gas, it can expel water like a pistol shot.  At close distances, it can even shatter  large rocks.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 37,
+      "targetSpeciesId": "pokeemerald:pokemon:clawitzer"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:aura_sphere"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:crabhammer"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:entrainment",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:crabhammer",
+    "pokeemerald:move:helping_hand"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/clauncher/clauncherfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/clauncher/clauncherfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/clauncher/clauncherback",
+    "backShiny": "pokeemerald:pokemon:sprite/clauncher/clauncherbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/clauncher/claunchericon",
+    "overworld": "pokeemerald:pokemon:sprite/clauncher/clauncheroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clauncher/clauncheroverworldshiny"
+  }
+}

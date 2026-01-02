@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:politoed",
+  "name": "Politoed",
+  "cryId": "pokeemerald:audio:sfx/cries/politoed",
+  "baseStats": {
+    "hp": 90,
+    "attack": 75,
+    "defense": 75,
+    "speed": 70,
+    "spAttack": 90,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 250,
+  "evYield": {
+    "spDefense": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:damp",
+    "pokeemerald:ability:drizzle"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:frog",
+  "height": 11,
+  "weight": 339,
+  "description": "The curled hair on its head proves its  status as a king. It is said that the  longer and curlier the hair, the more  respect it earns from its peers.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:perish_song"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:belly_drum"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rain_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/politoed/politoedfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/politoed/politoedfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/politoed/politoedfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/politoed/politoedfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/politoed/politoedback",
+    "backShiny": "pokeemerald:pokemon:sprite/politoed/politoedbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/politoed/politoedbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/politoed/politoedbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/politoed/politoedicon",
+    "overworld": "pokeemerald:pokemon:sprite/politoed/politoedoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/politoed/politoedoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route131_event_script_ian",
+  "name": "route131 event script ian",
+  "description": "NPC interaction: route131 event script ian",
+  "scriptPath": "Scripts/Interactions/NPCs/route131_event_script_ian.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

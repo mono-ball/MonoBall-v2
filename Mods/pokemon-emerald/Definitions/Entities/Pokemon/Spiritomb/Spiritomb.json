@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:spiritomb",
+  "name": "Spiritomb",
+  "cryId": "pokeemerald:audio:sfx/cries/spiritomb",
+  "baseStats": {
+    "hp": 50,
+    "attack": 92,
+    "defense": 108,
+    "speed": 35,
+    "spAttack": 92,
+    "spDefense": 108
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 100,
+  "evYield": {
+    "defense": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:forbidden",
+  "height": 10,
+  "weight": 1080,
+  "description": "A Pok\u00E9mon that was formed by 108 spirits.  Its constant mischief and misdeeds  resulted in it being bound to an  Odd Keystone by a mysterious spell.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:spite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:dark_pulse"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:pain_split",
+    "pokeemerald:move:smokescreen",
+    "pokeemerald:move:imprison",
+    "pokeemerald:move:grudge",
+    "pokeemerald:move:shadow_sneak",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:nightmare",
+    "pokeemerald:move:foul_play",
+    "pokeemerald:move:disable"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/spiritomb/spiritombfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/spiritomb/spiritombfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/spiritomb/spiritombback",
+    "backShiny": "pokeemerald:pokemon:sprite/spiritomb/spiritombbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/spiritomb/spiritombicon",
+    "overworld": "pokeemerald:pokemon:sprite/spiritomb/spiritomboverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spiritomb/spiritomboverworldshiny"
+  }
+}

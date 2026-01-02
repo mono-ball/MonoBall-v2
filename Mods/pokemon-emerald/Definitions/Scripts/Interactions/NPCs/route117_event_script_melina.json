@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route117_event_script_melina",
+  "name": "route117 event script melina",
+  "description": "NPC interaction: route117 event script melina",
+  "scriptPath": "Scripts/Interactions/NPCs/route117_event_script_melina.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

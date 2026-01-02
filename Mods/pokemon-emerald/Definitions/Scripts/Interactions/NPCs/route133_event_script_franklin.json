@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route133_event_script_franklin",
+  "name": "route133 event script franklin",
+  "description": "NPC interaction: route133 event script franklin",
+  "scriptPath": "Scripts/Interactions/NPCs/route133_event_script_franklin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

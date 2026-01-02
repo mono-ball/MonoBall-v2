@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/union_room_event_script_player8",
+  "name": "union room event script player8",
+  "description": "NPC interaction: union room event script player8",
+  "scriptPath": "Scripts/Interactions/NPCs/union_room_event_script_player8.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

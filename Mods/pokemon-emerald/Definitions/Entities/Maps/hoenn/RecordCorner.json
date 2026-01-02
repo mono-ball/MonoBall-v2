@@ -1,0 +1,196 @@
+{
+  "id": "pokeemerald:map:hoenn/record_corner",
+  "name": "RecordCorner",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 20,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/ever_grande",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/dynamic",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/record_corner/ground",
+      "name": "Ground",
+      "width": 20,
+      "height": 10,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/record_corner/objects",
+      "name": "Objects",
+      "width": 20,
+      "height": 10,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/record_corner/overhead",
+      "name": "Overhead",
+      "width": 20,
+      "height": 10,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/cable_club"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/record_corner/warp_to_dynamic",
+      "name": "Warp to dynamic",
+      "x": 128,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/dynamic",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/record_corner/warp_to_dynamic",
+      "name": "Warp to dynamic",
+      "x": 144,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/dynamic",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/record_corner/warp_to_dynamic",
+      "name": "Warp to dynamic",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/dynamic",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/record_corner/warp_to_dynamic",
+      "name": "Warp to dynamic",
+      "x": 160,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/dynamic",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [
+    {
+      "id": "pokeemerald:trigger:hoenn/record_corner/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 96,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/event_script_record_center_spot0",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/record_corner/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 96,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/event_script_record_center_spot2",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/record_corner/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 208,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/event_script_record_center_spot1",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/record_corner/trigger_var_temp_0_0",
+      "name": "Trigger: VAR_TEMP_0 == 0",
+      "x": 208,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/event_script_record_center_spot3",
+      "elevation": 3
+    }
+  ],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/record_corner/npc_0",
+      "name": "NPC_0",
+      "x": 160,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/linkreceptionist",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/record_corner_event_script_attendant",
+      "facingDirection": "down",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/record_corner/elevation_0",
+      "name": "Collision_0",
+      "width": 20,
+      "height": 10,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAABAQEBAQEBAQAAAAAAAAAAAAAAAAEBAQEBAQEBAAAAAQEBAQEBAAAAAQEBAQEBAQEAAAAAAQEBAQAAAAABAQEBAQEBAQAAAAEBAQEBAQAAAAEBAQEBAQEBAAAAAAAAAAAAAAAAAQEBAQEBAQEAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEAAAAAAQEBAQEBAQE="
+    }
+  ]
+}

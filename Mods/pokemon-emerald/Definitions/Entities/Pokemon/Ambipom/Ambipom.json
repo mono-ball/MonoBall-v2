@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:ambipom",
+  "name": "Ambipom",
+  "cryId": "pokeemerald:audio:sfx/cries/ambipom",
+  "baseStats": {
+    "hp": 75,
+    "attack": 100,
+    "defense": 66,
+    "speed": 115,
+    "spAttack": 60,
+    "spDefense": 66
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:technician",
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:skill_link"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:long_tail",
+  "height": 12,
+  "weight": 203,
+  "description": "They live on large trees. Split into two,  the tails are so adept at handling and  doing things, Ambipom rarely uses  its hands now.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:tickle"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ambipom/ambipomfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ambipom/ambipomfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/ambipom/ambipomfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ambipom/ambipomfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/ambipom/ambipomback",
+    "backShiny": "pokeemerald:pokemon:sprite/ambipom/ambipombackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/ambipom/ambipombackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/ambipom/ambipombackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/ambipom/ambipomicon",
+    "overworld": "pokeemerald:pokemon:sprite/ambipom/ambipomoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ambipom/ambipomoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

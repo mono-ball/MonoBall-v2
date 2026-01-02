@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/jagged_pass_event_script_ethan",
+  "name": "jagged pass event script ethan",
+  "description": "NPC interaction: jagged pass event script ethan",
+  "scriptPath": "Scripts/Interactions/NPCs/jagged_pass_event_script_ethan.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

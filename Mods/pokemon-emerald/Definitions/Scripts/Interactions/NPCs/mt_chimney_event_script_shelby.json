@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_shelby",
+  "name": "mt chimney event script shelby",
+  "description": "NPC interaction: mt chimney event script shelby",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_shelby.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

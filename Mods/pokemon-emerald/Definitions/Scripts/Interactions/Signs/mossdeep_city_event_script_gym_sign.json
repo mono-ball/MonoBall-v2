@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mossdeep_city_event_script_gym_sign",
+  "name": "mossdeep city event script gym sign",
+  "description": "Sign script: mossdeep city event script gym sign",
+  "scriptPath": "Scripts/Signs/mossdeep_city_event_script_gym_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

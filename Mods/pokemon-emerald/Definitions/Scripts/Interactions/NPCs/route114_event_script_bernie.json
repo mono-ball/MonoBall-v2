@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route114_event_script_bernie",
+  "name": "route114 event script bernie",
+  "description": "NPC interaction: route114 event script bernie",
+  "scriptPath": "Scripts/Interactions/NPCs/route114_event_script_bernie.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

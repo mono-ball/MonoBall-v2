@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/slaking/slakingfront",
+  "name": "Slakingfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Slaking/SlakingFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

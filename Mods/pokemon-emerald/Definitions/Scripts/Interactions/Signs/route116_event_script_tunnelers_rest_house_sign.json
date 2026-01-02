@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route116_event_script_tunnelers_rest_house_sign",
+  "name": "route116 event script tunnelers rest house sign",
+  "description": "Sign script: route116 event script tunnelers rest house sign",
+  "scriptPath": "Scripts/Signs/route116_event_script_tunnelers_rest_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_game_corner_event_script_gentleman",
+  "name": "mauville city game corner event script gentleman",
+  "description": "NPC interaction: mauville city game corner event script gentleman",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_game_corner_event_script_gentleman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

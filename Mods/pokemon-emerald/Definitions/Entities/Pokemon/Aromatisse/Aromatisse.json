@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:pokemon:aromatisse",
+  "name": "Aromatisse",
+  "cryId": "pokeemerald:audio:sfx/cries/aromatisse",
+  "baseStats": {
+    "hp": 101,
+    "attack": 72,
+    "defense": 72,
+    "speed": 29,
+    "spAttack": 99,
+    "spDefense": 89
+  },
+  "types": [
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 140,
+  "expYield": 162,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:healer",
+    null,
+    "pokeemerald:ability:aroma_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:fragrance",
+  "height": 8,
+  "weight": 155,
+  "description": "Its scent is so overpowering that,  unless a Trainer happens to really enjoy  the smell, he or she will have a hard time  walking alongside it.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fairy_wind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:skill_swap"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:psych_up"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/aromatisse/aromatissefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatissefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/aromatisse/aromatisseback",
+    "backShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatissebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/aromatisse/aromatisseicon",
+    "overworld": "pokeemerald:pokemon:sprite/aromatisse/aromatisseoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatisseoverworldshiny"
+  }
+}

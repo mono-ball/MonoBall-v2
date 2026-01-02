@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:pokemon:crabrawler",
+  "name": "Crabrawler",
+  "cryId": "pokeemerald:audio:sfx/cries/crabrawler",
+  "baseStats": {
+    "hp": 47,
+    "attack": 82,
+    "defense": 57,
+    "speed": 63,
+    "spAttack": 42,
+    "spDefense": 47
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 225,
+  "expYield": 68,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:iron_fist",
+    "pokeemerald:ability:anger_point"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:boxing",
+  "height": 6,
+  "weight": 70,
+  "description": "While guarding its weak points with its  pincers, it looks for an opening and  unleashes punches. When it loses, it  foams at the mouth and faints.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:crabominable"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_ICE_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:crabominable"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:crabhammer"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:dynamic_punch"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:superpower",
+    "pokeemerald:move:endeavor",
+    "pokeemerald:move:amnesia"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/crabrawler/crabrawlerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/crabrawler/crabrawlerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/crabrawler/crabrawlerback",
+    "backShiny": "pokeemerald:pokemon:sprite/crabrawler/crabrawlerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/crabrawler/crabrawlericon",
+    "overworld": "pokeemerald:pokemon:sprite/crabrawler/crabrawleroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/crabrawler/crabrawleroverworldshiny"
+  }
+}

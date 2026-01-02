@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:yveltal",
+  "name": "Yveltal",
+  "cryId": "pokeemerald:audio:sfx/cries/yveltal",
+  "baseStats": {
+    "hp": 126,
+    "attack": 131,
+    "defense": 95,
+    "speed": 99,
+    "spAttack": 131,
+    "spDefense": 98
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:dark_aura",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:destruction",
+  "height": 58,
+  "weight": 2030,
+  "description": "When its life comes to an end, its wings  and tail spread wide and glow red, and  it absorbs the life energy of every living  thing and turns into a cocoon.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dark_pulse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:oblivion_wing"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:phantom_force"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:dragon_rush"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 75,
+      "moveId": "pokeemerald:move:focus_blast"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:sky_attack"
+    },
+    {
+      "level": 85,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/yveltal/yveltalfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/yveltal/yveltalfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/yveltal/yveltalback",
+    "backShiny": "pokeemerald:pokemon:sprite/yveltal/yveltalbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/yveltal/yveltalicon",
+    "overworld": "pokeemerald:pokemon:sprite/yveltal/yveltaloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yveltal/yveltaloverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

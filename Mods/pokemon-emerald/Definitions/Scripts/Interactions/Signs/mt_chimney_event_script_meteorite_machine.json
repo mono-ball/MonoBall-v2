@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mt_chimney_event_script_meteorite_machine",
+  "name": "mt chimney event script meteorite machine",
+  "description": "Sign script: mt chimney event script meteorite machine",
+  "scriptPath": "Scripts/Signs/mt_chimney_event_script_meteorite_machine.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -171,13 +171,17 @@ public class IndividualTilesetBuilder : IDisposable
     }
 
     /// <summary>
-    /// Add an animation for this tileset.
+    /// Add an animation for this tileset. Prevents duplicates by checking LocalTileId.
     /// </summary>
     public void AddAnimation(TileAnimation animation)
     {
         lock (_lock)
         {
-            _animations.Add(animation);
+            // Prevent duplicate animations for the same tile
+            if (!_animations.Any(a => a.LocalTileId == animation.LocalTileId))
+            {
+                _animations.Add(animation);
+            }
         }
     }
 

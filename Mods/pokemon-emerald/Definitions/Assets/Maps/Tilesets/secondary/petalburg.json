@@ -1,0 +1,44 @@
+{
+  "id": "pokeemerald:tileset:secondary/petalburg",
+  "name": "petalburg",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/petalburg.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 116,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 128,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 2,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_3e"
+    },
+    {
+      "localTileId": 16,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 17,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 50,
+      "interactionId": "pokeemerald:interaction/tiles/cable_car_climb"
+    },
+    {
+      "localTileId": 54,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_3e"
+    },
+    {
+      "localTileId": 82,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 112,
+      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+    }
+  ]
+}

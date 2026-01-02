@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_mart_event_script_boy",
+  "name": "verdanturf town mart event script boy",
+  "description": "NPC interaction: verdanturf town mart event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_mart_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

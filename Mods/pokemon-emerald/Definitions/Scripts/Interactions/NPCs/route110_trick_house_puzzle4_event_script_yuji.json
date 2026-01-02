@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle4_event_script_yuji",
+  "name": "route110 trick house puzzle4 event script yuji",
+  "description": "NPC interaction: route110 trick house puzzle4 event script yuji",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle4_event_script_yuji.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

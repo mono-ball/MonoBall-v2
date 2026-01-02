@@ -1,0 +1,180 @@
+{
+  "id": "pokeemerald:pokemon:pidgeot",
+  "name": "Pidgeot",
+  "cryId": "pokeemerald:audio:sfx/cries/pidgeot",
+  "baseStats": {
+    "hp": 83,
+    "attack": 80,
+    "defense": 75,
+    "spAttack": 70,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 240,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:tangled_feet",
+    "pokeemerald:ability:big_pecks"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:bird",
+  "height": 15,
+  "weight": 395,
+  "description": "This Pok\u00E9mon has gorgeous, glossy  feathers. Many Trainers are so captivated  by the beautiful feathers on its head that  they choose Pidgeot as their Pok\u00E9mon.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:hurricane"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pidgeot/pidgeotfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pidgeot/pidgeotback",
+    "backShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pidgeot/pidgeoticon",
+    "overworld": "pokeemerald:pokemon:sprite/pidgeot/pidgeotoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:pidgeot/mega",
+      "name": "Pidgeot",
+      "cryId": "pokeemerald:audio:sfx/cries/pidgeot-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 83,
+        "attack": 80,
+        "defense": 80,
+        "spAttack": 135,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:normal",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:no_guard",
+        "pokeemerald:ability:no_guard",
+        "pokeemerald:ability:no_guard"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:pidgeotite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

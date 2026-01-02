@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_south_event_script_boy",
+  "name": "safari zone south event script boy",
+  "description": "NPC interaction: safari zone south event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_south_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

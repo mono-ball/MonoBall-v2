@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:clamperl",
+  "name": "Clamperl",
+  "cryId": "pokeemerald:audio:sfx/cries/clamperl",
+  "baseStats": {
+    "hp": 35,
+    "attack": 64,
+    "defense": 85,
+    "speed": 32,
+    "spAttack": 74,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:shell_armor",
+    null,
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:bivalve",
+  "height": 4,
+  "weight": 525,
+  "description": "A Clamperl slams its shell closed on prey  to prevent escape. The pearl it creates  upon evolution is said to be infused with  a mysterious energy.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:huntail"
+    },
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:gorebyss"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_DEEP_SEA_TOOTH",
+      "targetSpeciesId": "pokeemerald:pokemon:huntail"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_DEEP_SEA_SCALE",
+      "targetSpeciesId": "pokeemerald:pokemon:gorebyss"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:shell_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:refresh",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:muddy_water",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/clamperl/clamperlfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/clamperl/clamperlfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/clamperl/clamperlback",
+    "backShiny": "pokeemerald:pokemon:sprite/clamperl/clamperlbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/clamperl/clamperlicon",
+    "overworld": "pokeemerald:pokemon:sprite/clamperl/clamperloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clamperl/clamperloverworldshiny"
+  }
+}

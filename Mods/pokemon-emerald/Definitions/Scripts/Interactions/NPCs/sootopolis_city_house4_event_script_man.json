@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_house4_event_script_man",
+  "name": "sootopolis city house4 event script man",
+  "description": "NPC interaction: sootopolis city house4 event script man",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_house4_event_script_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

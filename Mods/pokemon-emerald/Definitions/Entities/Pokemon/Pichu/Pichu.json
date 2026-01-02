@@ -1,0 +1,168 @@
+{
+  "id": "pokeemerald:pokemon:pichu",
+  "name": "Pichu",
+  "cryId": "pokeemerald:audio:sfx/cries/pichu",
+  "baseStats": {
+    "hp": 20,
+    "attack": 40,
+    "defense": 15,
+    "speed": 60,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:static",
+    null,
+    "pokeemerald:ability:lightning_rod"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:tiny_mouse",
+  "height": 3,
+  "weight": 20,
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:pikachu"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:charm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:present",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:double_slap",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:charge",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:lucky_chant",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:disarming_voice",
+    "pokeemerald:move:electric_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pichu/pichufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pichu/pichufrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pichu/pichuback",
+    "backShiny": "pokeemerald:pokemon:sprite/pichu/pichubackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pichu/pichuicon",
+    "overworld": "pokeemerald:pokemon:sprite/pichu/pichuoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pichu/pichuoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:pichu/spiky-eared",
+      "name": "Pichu",
+      "cryId": "pokeemerald:audio:sfx/cries/pichu",
+      "formKey": "spiky-eared",
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defense": 15,
+        "speed": 60,
+        "spAttack": 35,
+        "spDefense": 35
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedback",
+        "backShiny": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedicon",
+        "overworld": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pichu/pichuspikyearedoverworldshiny"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/abandoned_ship_rooms_b1f_event_script_fat_man",
+  "name": "abandoned ship rooms b1f event script fat man",
+  "description": "NPC interaction: abandoned ship rooms b1f event script fat man",
+  "scriptPath": "Scripts/Interactions/NPCs/abandoned_ship_rooms_b1f_event_script_fat_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

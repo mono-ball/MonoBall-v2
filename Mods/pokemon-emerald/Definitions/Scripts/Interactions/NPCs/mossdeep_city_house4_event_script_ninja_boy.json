@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_house4_event_script_ninja_boy",
+  "name": "mossdeep city house4 event script ninja boy",
+  "description": "NPC interaction: mossdeep city house4 event script ninja boy",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_house4_event_script_ninja_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

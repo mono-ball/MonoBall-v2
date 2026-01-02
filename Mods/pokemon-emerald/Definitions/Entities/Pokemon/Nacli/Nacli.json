@@ -1,0 +1,132 @@
+{
+  "id": "pokeemerald:pokemon:nacli",
+  "name": "Nacli",
+  "cryId": "pokeemerald:audio:sfx/cries/nacli",
+  "baseStats": {
+    "hp": 55,
+    "attack": 55,
+    "defense": 75,
+    "speed": 25,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 255,
+  "expYield": 56,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:purifying_salt",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:clear_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rock_salt",
+  "height": 4,
+  "weight": 160,
+  "description": "The ground scrapes its body as it  travels, causing it to leave salt  behind. Salt is constantly being created  and replenished inside Nacli\u0027s body.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:naclstack"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:power_gem"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nacli/naclifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nacli/naclifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nacli/nacliback",
+    "backShiny": "pokeemerald:pokemon:sprite/nacli/naclibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nacli/nacliicon",
+    "overworld": "pokeemerald:pokemon:sprite/nacli/naclioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nacli/naclioverworldshiny"
+  }
+}

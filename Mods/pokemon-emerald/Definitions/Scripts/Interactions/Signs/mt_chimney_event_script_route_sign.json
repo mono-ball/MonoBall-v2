@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mt_chimney_event_script_route_sign",
+  "name": "mt chimney event script route sign",
+  "description": "Sign script: mt chimney event script route sign",
+  "scriptPath": "Scripts/Signs/mt_chimney_event_script_route_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

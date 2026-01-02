@@ -1,0 +1,287 @@
+{
+  "id": "pokeemerald:map:hoenn/abandoned_ship_corridors_1f",
+  "name": "AbandonedShip_Corridors_1F",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:underground",
+  "width": 18,
+  "height": 12,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/abandoned_ship",
+  "weatherId": "pokeemerald:weather:outdoor/shade",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/abandoned_ship",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/abandoned_ship_corridors_1f/ground",
+      "name": "Ground",
+      "width": 18,
+      "height": 12,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/abandoned_ship_corridors_1f/objects",
+      "name": "Objects",
+      "width": 18,
+      "height": 12,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/abandoned_ship_corridors_1f/overhead",
+      "name": "Overhead",
+      "width": 18,
+      "height": 12,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/inside_ship"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_deck",
+      "name": "Warp to abandoned_ship_deck",
+      "x": 144,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_deck",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_deck",
+      "name": "Warp to abandoned_ship_deck",
+      "x": 128,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_deck",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_deck",
+      "name": "Warp to abandoned_ship_deck",
+      "x": 0,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_deck",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_deck",
+      "name": "Warp to abandoned_ship_deck",
+      "x": 16,
+      "y": 176,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_deck",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_rooms_1f",
+      "name": "Warp to abandoned_ship_rooms_1f",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_rooms_1f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_rooms_1f",
+      "name": "Warp to abandoned_ship_rooms_1f",
+      "x": 224,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_rooms_1f",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_rooms_1f",
+      "name": "Warp to abandoned_ship_rooms_1f",
+      "x": 176,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_rooms_1f",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_rooms_1f",
+      "name": "Warp to abandoned_ship_rooms_1f",
+      "x": 224,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_rooms_1f",
+      "targetX": 4,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_rooms2_1f",
+      "name": "Warp to abandoned_ship_rooms2_1f",
+      "x": 48,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_rooms2_1f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_corridors_b1f",
+      "name": "Warp to abandoned_ship_corridors_b1f",
+      "x": 256,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_corridors_b1f",
+      "targetX": 7,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_corridors_b1f",
+      "name": "Warp to abandoned_ship_corridors_b1f",
+      "x": 80,
+      "y": 32,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_corridors_b1f",
+      "targetX": 6,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/abandoned_ship_corridors_1f/warp_to_abandoned_ship_rooms2_1f",
+      "name": "Warp to abandoned_ship_rooms2_1f",
+      "x": 48,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/abandoned_ship_rooms2_1f",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/abandoned_ship_corridors_1f/npc_0",
+      "name": "NPC_0",
+      "x": 272,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/youngster",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/abandoned_ship_corridors_1f_event_script_youngster",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/abandoned_ship_corridors_1f/npc_1",
+      "name": "NPC_1",
+      "x": 80,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:npcs/tuberm",
+      "behaviorId": "pokeemerald:script/movement/npcs/patrol",
+      "behaviorParameters": {
+        "waypoints": [
+          {
+            "x": 80,
+            "y": 48
+          },
+          {
+            "x": 16,
+            "y": 48
+          },
+          {
+            "x": 16,
+            "y": 160
+          },
+          {
+            "x": 80,
+            "y": 160
+          }
+        ]
+      },
+      "interactionId": "pokeemerald:interaction/npcs/abandoned_ship_corridors_1f_event_script_charlie",
+      "facingDirection": "up",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/abandoned_ship_corridors_1f/elevation_0",
+      "name": "Collision_0",
+      "width": 18,
+      "height": 12,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAABAQEAAAEAAAEBAQEBAQAAAAABAQEAAAEAAAEBAQEBAQAAAAABAQEAAAEAAAEBAQEBAQAAAAABAQEAAAEAAAEBAQEBAQAAAAABAQEAAAEAAAEAAQEBAQAAAAABAAEAAAEAAAEAAQEAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/abandoned_ship_corridors_1f/elevation_3",
+      "name": "Collision_3",
+      "width": 18,
+      "height": 12,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ]
+}

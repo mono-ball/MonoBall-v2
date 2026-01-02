@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:fomantis",
+  "name": "Fomantis",
+  "cryId": "pokeemerald:audio:sfx/cries/fomantis",
+  "baseStats": {
+    "hp": 40,
+    "attack": 55,
+    "defense": 35,
+    "speed": 35,
+    "spAttack": 50,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 190,
+  "expYield": 50,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:leaf_guard",
+    null,
+    "pokeemerald:ability:contrary"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:sickle_grass",
+  "height": 3,
+  "weight": 15,
+  "description": "During the day, it sleeps and soaks up  light. They give off a sweet and refreshing  scent. Cutiefly often gather near the tall  grass where Fomantis are hiding.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:lurantis"
+    },
+    {
+      "method": "pokeemerald:evolution_method:none",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:lurantis-totem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:solar_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:weather_ball",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:aromatherapy",
+    "pokeemerald:move:defog",
+    "pokeemerald:move:leaf_storm"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/fomantis/fomantisfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/fomantis/fomantisfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/fomantis/fomantisback",
+    "backShiny": "pokeemerald:pokemon:sprite/fomantis/fomantisbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/fomantis/fomantisicon",
+    "overworld": "pokeemerald:pokemon:sprite/fomantis/fomantisoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fomantis/fomantisoverworldshiny"
+  }
+}

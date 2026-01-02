@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:popup:background/marble",
+  "name": "Marble",
+  "type": "Bitmap",
+  "texturePath": "Graphics/UI/Popups/Backgrounds/Marble.png",
+  "width": 80,
+  "height": 24,
+  "description": "Background bitmap for map popup"
+}

@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:tinkatuff",
+  "name": "Tinkatuff",
+  "cryId": "pokeemerald:audio:sfx/cries/tinkatuff",
+  "baseStats": {
+    "hp": 65,
+    "attack": 55,
+    "defense": 55,
+    "speed": 78,
+    "spAttack": 45,
+    "spDefense": 82
+  },
+  "types": [
+    "pokeemerald:type:fairy",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 90,
+  "expYield": 133,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:mold_breaker",
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:pickpocket"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:hammer",
+  "height": 7,
+  "weight": 591,
+  "description": "These Pok\u00E9mon make their homes in  piles of scrap metal. They test the  strength of each other\u0027s hammers by  smashing them together.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 38,
+      "targetSpeciesId": "pokeemerald:pokemon:tinkaton"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fairy_wind"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:skitter_smack"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:knock_off"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tinkatuff/tinkatufffront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tinkatuff/tinkatufffrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tinkatuff/tinkatuffback",
+    "backShiny": "pokeemerald:pokemon:sprite/tinkatuff/tinkatuffbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tinkatuff/tinkatufficon",
+    "overworld": "pokeemerald:pokemon:sprite/tinkatuff/tinkatuffoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tinkatuff/tinkatuffoverworldshiny"
+  }
+}

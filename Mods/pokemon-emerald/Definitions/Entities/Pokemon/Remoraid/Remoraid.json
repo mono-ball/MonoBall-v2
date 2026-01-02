@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:remoraid",
+  "name": "Remoraid",
+  "cryId": "pokeemerald:audio:sfx/cries/remoraid",
+  "baseStats": {
+    "hp": 35,
+    "attack": 65,
+    "defense": 35,
+    "speed": 65,
+    "spAttack": 65,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:hustle",
+    "pokeemerald:ability:sniper",
+    "pokeemerald:ability:moody"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:jet",
+  "height": 6,
+  "weight": 120,
+  "description": "A Remoraid uses its abdominal muscles  to forcefully expel swallowed water, then  shoot down flying prey. When evolution  approaches, it travels down rivers.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:octillery"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:lock_on"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:octazooka",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:rock_blast",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:water_spout",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:acid_spray",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:entrainment"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/remoraid/remoraidfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/remoraid/remoraidfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/remoraid/remoraidback",
+    "backShiny": "pokeemerald:pokemon:sprite/remoraid/remoraidbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/remoraid/remoraidicon",
+    "overworld": "pokeemerald:pokemon:sprite/remoraid/remoraidoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/remoraid/remoraidoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/safari_zone_southwest_event_script_rest_house_sign",
+  "name": "safari zone southwest event script rest house sign",
+  "description": "Sign script: safari zone southwest event script rest house sign",
+  "scriptPath": "Scripts/Signs/safari_zone_southwest_event_script_rest_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

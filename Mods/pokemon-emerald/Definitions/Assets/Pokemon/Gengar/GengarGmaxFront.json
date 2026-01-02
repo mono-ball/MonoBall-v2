@@ -1,0 +1,26 @@
+{
+  "id": "pokeemerald:pokemon:sprite/gengar/gengargmaxfront",
+  "name": "Gengargmaxfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Gengar/GengarGmaxFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1,
+  "animations": [
+    {
+      "name": "idle",
+      "loop": true,
+      "frameIndices": [
+        1,
+        1,
+        0
+      ],
+      "frameDurations": [
+        0.8333333333333334,
+        0.6666666666666666,
+        0.16666666666666666
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/cave_groudon",
+  "name": "Groudon Battle",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/CaveGroudon/CaveGroudon.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/cave",
+  "description": "Battle environment background for Groudon Battle"
+}

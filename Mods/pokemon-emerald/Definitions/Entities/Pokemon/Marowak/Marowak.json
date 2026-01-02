@@ -1,0 +1,217 @@
+{
+  "id": "pokeemerald:pokemon:marowak",
+  "name": "Marowak",
+  "cryId": "pokeemerald:audio:sfx/cries/marowak",
+  "baseStats": {
+    "hp": 60,
+    "attack": 80,
+    "defense": 110,
+    "speed": 45,
+    "spAttack": 50
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:lightning_rod",
+    "pokeemerald:ability:battle_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:bone_keeper",
+  "height": 10,
+  "weight": 450,
+  "description": "A Marowak is the evolved form of a Cubone  that has grown tough by overcoming the  grief of losing its mother. Its tempered  and hardened spirit is not easily broken.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:bone_rush"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:bonemerang"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/marowak/marowakfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/marowak/marowakfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/marowak/marowakback",
+    "backShiny": "pokeemerald:pokemon:sprite/marowak/marowakbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/marowak/marowakicon",
+    "overworld": "pokeemerald:pokemon:sprite/marowak/marowakoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/marowak/marowakoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:marowak/alola-totem",
+      "name": "Marowak",
+      "cryId": "pokeemerald:audio:sfx/cries/marowak",
+      "formKey": "alola-totem",
+      "baseStats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 110,
+        "speed": 45,
+        "spAttack": 50,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:rock_head",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/marowak/marowakalolatotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/marowak/marowakalolatotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/marowak/marowakalolatotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/marowak/marowakalolatotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/marowak/marowakalolatotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/marowak/marowakalolatotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/marowak/marowakalolatotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:marowak/alola",
+      "name": "Marowak",
+      "cryId": "pokeemerald:audio:sfx/cries/marowak",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 110,
+        "speed": 45,
+        "spAttack": 50,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:cursed_body",
+        "pokeemerald:ability:lightning_rod",
+        "pokeemerald:ability:rock_head"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/marowak/marowakalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/marowak/marowakalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/marowak/marowakalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/marowak/marowakalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/marowak/marowakalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/marowak/marowakalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/marowak/marowakalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

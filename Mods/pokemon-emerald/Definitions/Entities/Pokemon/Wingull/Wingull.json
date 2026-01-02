@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:wingull",
+  "name": "Wingull",
+  "cryId": "pokeemerald:audio:sfx/cries/wingull",
+  "baseStats": {
+    "hp": 40,
+    "attack": 30,
+    "defense": 30,
+    "speed": 85,
+    "spAttack": 55,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:rain_dish"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:seagull",
+  "height": 6,
+  "weight": 95,
+  "description": "It makes its nest on a sheer cliff at the  edge of the sea. It has trouble keeping  its wings flapping in flight. Instead, it  soars on updrafts.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:pelipper"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hurricane"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mist",
+    "pokeemerald:move:twister",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:gust",
+    "pokeemerald:move:water_sport",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:roost",
+    "pokeemerald:move:soak",
+    "pokeemerald:move:wide_guard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wingull/wingullfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wingull/wingullfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wingull/wingullback",
+    "backShiny": "pokeemerald:pokemon:sprite/wingull/wingullbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wingull/wingullicon",
+    "overworld": "pokeemerald:pokemon:sprite/wingull/wingulloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wingull/wingulloverworldshiny"
+  }
+}

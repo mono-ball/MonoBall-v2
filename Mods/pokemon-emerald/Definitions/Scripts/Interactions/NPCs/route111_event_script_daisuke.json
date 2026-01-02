@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_daisuke",
+  "name": "route111 event script daisuke",
+  "description": "NPC interaction: route111 event script daisuke",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_daisuke.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

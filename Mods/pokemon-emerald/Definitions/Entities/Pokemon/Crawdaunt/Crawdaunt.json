@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:crawdaunt",
+  "name": "Crawdaunt",
+  "cryId": "pokeemerald:audio:sfx/cries/crawdaunt",
+  "baseStats": {
+    "hp": 63,
+    "attack": 120,
+    "defense": 85,
+    "speed": 55,
+    "spAttack": 90,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 155,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:adaptability"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:rogue",
+  "height": 11,
+  "weight": 328,
+  "description": "A brutish Pok\u00E9mon that loves to battle.  A veteran Crawdaunt that has prevailed in  hundreds of battles has giant pincers  marked with countless scars.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:crabhammer"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:guillotine"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/crawdaunt/crawdauntfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/crawdaunt/crawdauntfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/crawdaunt/crawdauntback",
+    "backShiny": "pokeemerald:pokemon:sprite/crawdaunt/crawdauntbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/crawdaunt/crawdaunticon",
+    "overworld": "pokeemerald:pokemon:sprite/crawdaunt/crawdauntoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/crawdaunt/crawdauntoverworldshiny"
+  }
+}

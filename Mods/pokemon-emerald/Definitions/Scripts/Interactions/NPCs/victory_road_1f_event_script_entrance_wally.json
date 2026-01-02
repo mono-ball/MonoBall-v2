@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/victory_road_1f_event_script_entrance_wally",
+  "name": "victory road 1f event script entrance wally",
+  "description": "NPC interaction: victory road 1f event script entrance wally",
+  "scriptPath": "Scripts/Interactions/NPCs/victory_road_1f_event_script_entrance_wally.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

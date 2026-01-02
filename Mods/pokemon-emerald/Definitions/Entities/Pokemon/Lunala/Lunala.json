@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:lunala",
+  "name": "Lunala",
+  "cryId": "pokeemerald:audio:sfx/cries/lunala",
+  "baseStats": {
+    "hp": 137,
+    "attack": 113,
+    "defense": 89,
+    "speed": 97,
+    "spAttack": 137,
+    "spDefense": 107
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:shadow_shield",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:moone",
+  "height": 40,
+  "weight": 1200,
+  "description": "When its third eye activates, away it flies  to another world. This Pok\u00E9mon devours  light, drawing the moonless dark veil of  night over the brightness of day.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:moongeist_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:night_daze"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:phantom_force"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:dream_eater"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:wide_guard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lunala/lunalafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lunala/lunalafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lunala/lunalaback",
+    "backShiny": "pokeemerald:pokemon:sprite/lunala/lunalabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lunala/lunalaicon",
+    "overworld": "pokeemerald:pokemon:sprite/lunala/lunalaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lunala/lunalaoverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

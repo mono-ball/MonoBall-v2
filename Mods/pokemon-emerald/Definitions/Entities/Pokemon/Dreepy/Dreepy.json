@@ -1,0 +1,95 @@
+{
+  "id": "pokeemerald:pokemon:dreepy",
+  "name": "Dreepy",
+  "cryId": "pokeemerald:audio:sfx/cries/dreepy",
+  "baseStats": {
+    "hp": 28,
+    "attack": 60,
+    "defense": 30,
+    "speed": 82,
+    "spAttack": 40,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "expYield": 54,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:clear_body",
+    "pokeemerald:ability:infiltrator",
+    "pokeemerald:ability:cursed_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:lingering",
+  "height": 5,
+  "weight": 20,
+  "description": "After being reborn as a ghost Pok\u00E9mon,  Dreepy wanders the areas it used to  inhabit back when it was alive in  prehistoric seas.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 50,
+      "targetSpeciesId": "pokeemerald:pokemon:drakloak"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:infestation"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:curse",
+    "pokeemerald:move:grudge",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:dragon_tail",
+    "pokeemerald:move:sucker_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dreepy/dreepyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dreepy/dreepyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dreepy/dreepyback",
+    "backShiny": "pokeemerald:pokemon:sprite/dreepy/dreepybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dreepy/dreepyicon",
+    "overworld": "pokeemerald:pokemon:sprite/dreepy/dreepyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dreepy/dreepyoverworldshiny"
+  }
+}

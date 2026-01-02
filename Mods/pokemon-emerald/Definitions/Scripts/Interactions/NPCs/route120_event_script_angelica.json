@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_angelica",
+  "name": "route120 event script angelica",
+  "description": "NPC interaction: route120 event script angelica",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_angelica.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

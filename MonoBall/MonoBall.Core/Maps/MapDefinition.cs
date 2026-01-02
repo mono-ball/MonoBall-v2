@@ -143,8 +143,8 @@ public class MapDefinition
     /// <summary>
     ///     The tileset references.
     /// </summary>
-    [JsonPropertyName("tilesetRefs")]
-    public List<TilesetReference> TilesetRefs { get; set; } = new();
+    [JsonPropertyName("tilesets")]
+    public List<TilesetReference> Tilesets { get; set; } = new();
 
     /// <summary>
     ///     The NPCs on this map.

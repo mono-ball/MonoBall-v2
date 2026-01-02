@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:goldeen",
+  "name": "Goldeen",
+  "cryId": "pokeemerald:audio:sfx/cries/goldeen",
+  "baseStats": {
+    "hp": 45,
+    "attack": 67,
+    "defense": 60,
+    "speed": 63,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:water_veil",
+    "pokeemerald:ability:lightning_rod"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:goldfish",
+  "height": 6,
+  "weight": 150,
+  "description": "In the springtime, schools of Goldeen  can be seen swimming up falls and rivers.  It metes out staggering damage with its  single horn.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 33,
+      "targetSpeciesId": "pokeemerald:pokemon:seaking"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:waterfall"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:horn_drill"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:skull_bash",
+    "pokeemerald:move:signal_beam"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/goldeen/goldeenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/goldeen/goldeenfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/goldeen/goldeenback",
+    "backShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/goldeen/goldeenbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/goldeen/goldeenicon",
+    "overworld": "pokeemerald:pokemon:sprite/goldeen/goldeenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

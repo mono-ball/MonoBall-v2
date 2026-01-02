@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route124_event_script_lila",
+  "name": "route124 event script lila",
+  "description": "NPC interaction: route124 event script lila",
+  "scriptPath": "Scripts/Interactions/NPCs/route124_event_script_lila.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

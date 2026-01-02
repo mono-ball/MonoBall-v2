@@ -82,7 +82,7 @@ public class MidiConfigParser
             ParseMidiCfg(midiCfg);
         }
 
-        Console.WriteLine($"[MidiConfigParser] Found {_songs.Count} songs");
+        // Metrics tracked by SoundExtractor via SetCount
     }
 
     /// <summary>
@@ -151,7 +151,7 @@ public class MidiConfigParser
             parsed++;
         }
 
-        Console.WriteLine($"[MidiConfigParser] Parsed {parsed} entries from midi.cfg");
+        // Parsed count tracked internally
     }
 
     /// <summary>

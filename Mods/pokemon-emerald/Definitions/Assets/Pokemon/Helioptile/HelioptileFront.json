@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/helioptile/helioptilefront",
+  "name": "Helioptilefront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Helioptile/HelioptileFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

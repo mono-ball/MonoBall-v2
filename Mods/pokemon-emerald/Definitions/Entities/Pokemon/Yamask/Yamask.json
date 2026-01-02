@@ -1,0 +1,194 @@
+{
+  "id": "pokeemerald:pokemon:yamask",
+  "name": "Yamask",
+  "cryId": "pokeemerald:audio:sfx/cries/yamask",
+  "baseStats": {
+    "hp": 38,
+    "attack": 30,
+    "defense": 85,
+    "speed": 30,
+    "spAttack": 55,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 190,
+  "expYield": 61,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:mummy",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:spirit",
+  "height": 5,
+  "weight": 15,
+  "description": "These Pok\u00E9mon arose from the spirits  of people interred in graves in past ages.  Each of them carries a mask that used  to be its face when it was human.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:cofagrigus"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:crafty_shield"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:grudge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:dark_pulse"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:power_split"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:memento",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:heal_block",
+    "pokeemerald:move:imprison",
+    "pokeemerald:move:nightmare",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:ally_switch",
+    "pokeemerald:move:toxic_spikes",
+    "pokeemerald:move:crafty_shield"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/yamask/yamaskfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/yamask/yamaskfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/yamask/yamaskback",
+    "backShiny": "pokeemerald:pokemon:sprite/yamask/yamaskbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/yamask/yamaskicon",
+    "overworld": "pokeemerald:pokemon:sprite/yamask/yamaskoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yamask/yamaskoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:yamask/galar",
+      "name": "Yamask",
+      "cryId": "pokeemerald:audio:sfx/cries/yamask",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 38,
+        "attack": 55,
+        "defense": 85,
+        "speed": 30,
+        "spAttack": 30,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:ground",
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:wandering_spirit",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/yamask/yamaskgalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/yamask/yamaskgalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/yamask/yamaskgalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/yamask/yamaskgalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/yamask/yamaskgalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/yamask/yamaskgalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/yamask/yamaskgalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

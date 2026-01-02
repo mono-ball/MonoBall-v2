@@ -1,0 +1,199 @@
+{
+  "id": "pokeemerald:pokemon:linoone",
+  "name": "Linoone",
+  "cryId": "pokeemerald:audio:sfx/cries/linoone",
+  "baseStats": {
+    "hp": 78,
+    "attack": 70,
+    "defense": 61,
+    "speed": 100,
+    "spAttack": 50,
+    "spDefense": 61
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:quick_feet"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:rushing",
+  "height": 5,
+  "weight": 325,
+  "description": "It is exceedingly fast if it only has to run  in a straight line. When it spots pond-  dwelling prey underwater, it quickly leaps  in and catches it with its sharp claws.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:belly_drum"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/linoone/linoonefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/linoone/linoonefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/linoone/linooneback",
+    "backShiny": "pokeemerald:pokemon:sprite/linoone/linoonebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/linoone/linooneicon",
+    "overworld": "pokeemerald:pokemon:sprite/linoone/linooneoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/linoone/linooneoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:linoone/galar",
+      "name": "Linoone",
+      "cryId": "pokeemerald:audio:sfx/cries/linoone",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 78,
+        "attack": 70,
+        "defense": 61,
+        "speed": 100,
+        "spAttack": 50,
+        "spDefense": 61
+      },
+      "types": [
+        "pokeemerald:type:dark",
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pickup",
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:quick_feet"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/linoone/linoonegalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/linoone/linoonegalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/linoone/linoonegalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/linoone/linoonegalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/linoone/linoonegalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/linoone/linoonegalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/linoone/linoonegalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

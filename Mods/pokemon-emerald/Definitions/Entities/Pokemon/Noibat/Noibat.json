@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:noibat",
+  "name": "Noibat",
+  "cryId": "pokeemerald:audio:sfx/cries/noibat",
+  "baseStats": {
+    "hp": 40,
+    "attack": 30,
+    "defense": 35,
+    "speed": 55,
+    "spAttack": 45,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:flying",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 190,
+  "expYield": 49,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:infiltrator",
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sound_wave",
+  "height": 5,
+  "weight": 80,
+  "description": "They live in pitch-black caves. Even a  robust wrestler will become dizzy and  unable to stand when exposed to its  200,000-hertz ultrasonic waves.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 48,
+      "targetSpeciesId": "pokeemerald:pokemon:noivern"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:hurricane"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:outrage",
+    "pokeemerald:move:tailwind"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/noibat/noibatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/noibat/noibatfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/noibat/noibatback",
+    "backShiny": "pokeemerald:pokemon:sprite/noibat/noibatbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/noibat/noibaticon",
+    "overworld": "pokeemerald:pokemon:sprite/noibat/noibatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/noibat/noibatoverworldshiny"
+  }
+}

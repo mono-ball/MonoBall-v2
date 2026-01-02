@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route118_event_script_route_sign_mauville",
+  "name": "route118 event script route sign mauville",
+  "description": "Sign script: route118 event script route sign mauville",
+  "scriptPath": "Scripts/Signs/route118_event_script_route_sign_mauville.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

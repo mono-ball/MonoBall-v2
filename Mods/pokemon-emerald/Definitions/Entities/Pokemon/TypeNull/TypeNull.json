@@ -1,0 +1,55 @@
+{
+  "id": "pokeemerald:pokemon:type-null",
+  "name": "Type: Null",
+  "cryId": "pokeemerald:audio:sfx/cries/type-null",
+  "baseStats": {
+    "hp": 95,
+    "attack": 95,
+    "defense": 95,
+    "speed": 59,
+    "spAttack": 95,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 3,
+  "expYield": 107,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:battle_armor",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:synthetic",
+  "height": 19,
+  "weight": 1205,
+  "description": "Due to the danger that this synthetic  Pok\u00E9mon may go on a rampage, it wears a  control mask to restrain its capabilities.  It has some hidden special power.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:silvally-normal"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/typenull/typenullfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/typenull/typenullfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/typenull/typenullback",
+    "backShiny": "pokeemerald:pokemon:sprite/typenull/typenullbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/typenull/typenullicon",
+    "overworld": "pokeemerald:pokemon:sprite/typenull/typenulloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/typenull/typenulloverworldshiny"
+  },
+  "isLegendary": true
+}

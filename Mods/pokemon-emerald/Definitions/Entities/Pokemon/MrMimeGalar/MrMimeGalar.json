@@ -1,0 +1,53 @@
+{
+  "id": "pokeemerald:pokemon:mr-mime-galar",
+  "name": "Mr. Mime",
+  "baseStats": {
+    "hp": 50,
+    "attack": 65,
+    "defense": 65,
+    "speed": 100,
+    "spAttack": 90,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:screen_cleaner",
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:dancing",
+  "height": 14,
+  "weight": 568,
+  "description": "Its talent is tap-dancing. It can radiate  chilliness from the bottoms of its feet to  to create a floor of ice, which this  Pok\u00E9mon can kick up to use as a barrier.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 42,
+      "targetSpeciesId": "pokeemerald:pokemon:mr-rime"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarback",
+    "backShiny": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalaricon",
+    "overworld": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalaroverworldshiny"
+  }
+}

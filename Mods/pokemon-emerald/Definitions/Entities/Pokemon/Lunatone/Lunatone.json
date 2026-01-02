@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:lunatone",
+  "name": "Lunatone",
+  "cryId": "pokeemerald:audio:sfx/cries/lunatone",
+  "baseStats": {
+    "attack": 55,
+    "defense": 65,
+    "speed": 70,
+    "spAttack": 95,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 161,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:meteorite",
+  "height": 10,
+  "weight": 1680,
+  "description": "It becomes very active on the night of  a full moon. This Pok\u00E9mon was first  discovered 40 years ago at the site of  a meteor strike.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:magic_room"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lunatone/lunatonefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lunatone/lunatonefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lunatone/lunatoneback",
+    "backShiny": "pokeemerald:pokemon:sprite/lunatone/lunatonebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lunatone/lunatoneicon",
+    "overworld": "pokeemerald:pokemon:sprite/lunatone/lunatoneoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lunatone/lunatoneoverworldshiny"
+  }
+}

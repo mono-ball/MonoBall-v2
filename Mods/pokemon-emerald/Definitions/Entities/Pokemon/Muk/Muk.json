@@ -1,0 +1,191 @@
+{
+  "id": "pokeemerald:pokemon:muk",
+  "name": "Muk",
+  "cryId": "pokeemerald:audio:sfx/cries/muk",
+  "baseStats": {
+    "hp": 105,
+    "attack": 105,
+    "defense": 75,
+    "speed": 50,
+    "spAttack": 65
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "hp": 1,
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stench",
+    "pokeemerald:ability:sticky_hold",
+    "pokeemerald:ability:poison_touch"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sludge",
+  "height": 12,
+  "weight": 300,
+  "description": "It prefers warm and humid habitats.  In the summertime, the toxic substances  in its body intensify, making Muk reek like  putrid kitchen garbage.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sludge"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sludge_wave"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:gunk_shot"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:memento"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/muk/mukfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/muk/mukfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/muk/mukback",
+    "backShiny": "pokeemerald:pokemon:sprite/muk/mukbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/muk/mukicon",
+    "overworld": "pokeemerald:pokemon:sprite/muk/mukoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/muk/mukoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:muk/alola",
+      "name": "Muk",
+      "cryId": "pokeemerald:audio:sfx/cries/muk",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 105,
+        "attack": 105,
+        "defense": 75,
+        "speed": 50,
+        "spAttack": 65,
+        "spDefense": 100
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:poison_touch",
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:power_of_alchemy"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/muk/mukalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/muk/mukalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/muk/mukalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/muk/mukalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/muk/mukalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/muk/mukalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/muk/mukalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

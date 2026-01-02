@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:larvesta",
+  "name": "Larvesta",
+  "cryId": "pokeemerald:audio:sfx/cries/larvesta",
+  "baseStats": {
+    "hp": 55,
+    "attack": 85,
+    "defense": 55,
+    "speed": 60,
+    "spAttack": 50,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 72,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:flame_body",
+    null,
+    "pokeemerald:ability:swarm"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:torch",
+  "height": 11,
+  "weight": 288,
+  "description": "This Pok\u00E9mon was believed to have  been born from the sun. It spews fire from  its horns and encases itself in a cocoon  of fire when it evolves.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 59,
+      "targetSpeciesId": "pokeemerald:pokemon:volcarona"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:leech_life"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:string_shot",
+    "pokeemerald:move:harden",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:zen_headbutt",
+    "pokeemerald:move:morning_sun",
+    "pokeemerald:move:magnet_rise"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/larvesta/larvestafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/larvesta/larvestafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/larvesta/larvestaback",
+    "backShiny": "pokeemerald:pokemon:sprite/larvesta/larvestabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/larvesta/larvestaicon",
+    "overworld": "pokeemerald:pokemon:sprite/larvesta/larvestaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/larvesta/larvestaoverworldshiny"
+  }
+}

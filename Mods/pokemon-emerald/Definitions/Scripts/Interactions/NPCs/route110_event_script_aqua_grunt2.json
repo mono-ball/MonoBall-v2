@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_aqua_grunt2",
+  "name": "route110 event script aqua grunt2",
+  "description": "NPC interaction: route110 event script aqua grunt2",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_aqua_grunt2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

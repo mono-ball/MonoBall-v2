@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route124_event_script_grace",
+  "name": "route124 event script grace",
+  "description": "NPC interaction: route124 event script grace",
+  "scriptPath": "Scripts/Interactions/NPCs/route124_event_script_grace.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

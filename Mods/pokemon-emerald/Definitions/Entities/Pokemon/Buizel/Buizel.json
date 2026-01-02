@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:pokemon:buizel",
+  "name": "Buizel",
+  "cryId": "pokeemerald:audio:sfx/cries/buizel",
+  "baseStats": {
+    "hp": 55,
+    "attack": 65,
+    "defense": 35,
+    "speed": 85,
+    "spAttack": 60,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:water_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:sea_weasel",
+  "height": 7,
+  "weight": 295,
+  "description": "It inflates its flotation sac, keeping its  face above water in order to watch for  prey movement. It swims by rotating its  two tails like a screw.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 26,
+      "targetSpeciesId": "pokeemerald:pokemon:floatzel"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:fury_swipes",
+    "pokeemerald:move:slash",
+    "pokeemerald:move:odor_sleuth",
+    "pokeemerald:move:double_slap",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:tail_slap",
+    "pokeemerald:move:soak",
+    "pokeemerald:move:helping_hand"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/buizel/buizelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/buizel/buizelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/buizel/buizelback",
+    "backShiny": "pokeemerald:pokemon:sprite/buizel/buizelbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/buizel/buizelbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/buizel/buizelbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/buizel/buizelicon",
+    "overworld": "pokeemerald:pokemon:sprite/buizel/buizeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/buizel/buizeloverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

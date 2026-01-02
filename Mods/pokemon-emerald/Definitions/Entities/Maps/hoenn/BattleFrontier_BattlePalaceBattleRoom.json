@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:map:hoenn/battle_frontier_battle_palace_battle_room",
+  "name": "BattleFrontier_BattlePalaceBattleRoom",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 15,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/b_palace",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_palace_battle_room/ground",
+      "name": "Ground",
+      "width": 15,
+      "height": 10,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARgAAAEYAAABGAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAyAAAAUAAAAEYAAABGAAAARgAAAEYAAABGAAAARgAAAEYAAABNAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAyAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAUAAAAEYAAABGAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_palace_battle_room/objects",
+      "name": "Objects",
+      "width": 15,
+      "height": 10,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARwAAAEcAAABHAAAASQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFAAAASQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAzAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAzAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAUQAAAEcAAABHAAAARwAAAEcAAABHAAAARwAAAEcAAABOAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAUQAAAEcAAABHAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_palace_battle_room/overhead",
+      "name": "Overhead",
+      "width": 15,
+      "height": 10,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/battle_palace"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/battle_frontier_battle_palace_battle_room/warp_to_battle_frontier_battle_palace_corridor",
+      "name": "Warp to battle_frontier_battle_palace_corridor",
+      "x": 0,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/battle_frontier_battle_palace_corridor",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/battle_frontier_battle_palace_battle_room/warp_to_battle_frontier_battle_palace_corridor",
+      "name": "Warp to battle_frontier_battle_palace_corridor",
+      "x": 16,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/battle_frontier_battle_palace_corridor",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_battle_player",
+      "name": "LOCALID_PALACE_BATTLE_PLAYER",
+      "x": 16,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/{var_player}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_battle_opponent",
+      "name": "LOCALID_PALACE_BATTLE_OPPONENT",
+      "x": 208,
+      "y": 16,
+      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_battle_attendant",
+      "name": "LOCALID_PALACE_BATTLE_ATTENDANT",
+      "x": 16,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/expertm",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_dusclops",
+      "name": "LOCALID_PALACE_DUSCLOPS",
+      "x": 208,
+      "y": 16,
+      "spriteId": "pokeemerald:sprite:pokemon/dusclopsold",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_palace_battle_room/localid_palace_azurill",
+      "name": "LOCALID_PALACE_AZURILL",
+      "x": 208,
+      "y": 16,
+      "spriteId": "pokeemerald:sprite:pokemon/azurillold",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "down",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_palace_battle_room/elevation_0",
+      "name": "Collision_0",
+      "width": 15,
+      "height": 10,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEAAAAAAAAAAAEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_palace_battle_room/elevation_3",
+      "name": "Collision_3",
+      "width": 15,
+      "height": 10,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAABAAABAAABAAABAQAAAAABAAABAAABAAABAQAAAAABAAABAAABAAABAAAAAAAAAAABAQEBAQEAAAAAAAAAAAEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ]
+}

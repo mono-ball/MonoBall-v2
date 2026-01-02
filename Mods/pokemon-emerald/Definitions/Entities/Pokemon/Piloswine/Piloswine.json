@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:piloswine",
+  "name": "Piloswine",
+  "cryId": "pokeemerald:audio:sfx/cries/piloswine",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 80,
+    "speed": 50,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "hp": 1,
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:thick_fat"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:swine",
+  "height": 11,
+  "weight": 558,
+  "description": "A Piloswine is covered by a thick coat  of long hair for enduring freezing cold.  It uses its tusks to dig up food that has  been buried under ice.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:mamoswine"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/piloswine/piloswinefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/piloswine/piloswinefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/piloswine/piloswineback",
+    "backShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/piloswine/piloswinebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/piloswine/piloswineicon",
+    "overworld": "pokeemerald:pokemon:sprite/piloswine/piloswineoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/piloswine/piloswineoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_event_script_dynamic_punch_tutor",
+  "name": "mossdeep city event script dynamic punch tutor",
+  "description": "NPC interaction: mossdeep city event script dynamic punch tutor",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_event_script_dynamic_punch_tutor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

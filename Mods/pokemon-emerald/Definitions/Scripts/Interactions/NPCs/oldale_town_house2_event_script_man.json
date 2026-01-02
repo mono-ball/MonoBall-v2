@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/oldale_town_house2_event_script_man",
+  "name": "oldale town house2 event script man",
+  "description": "NPC interaction: oldale town house2 event script man",
+  "scriptPath": "Scripts/Interactions/NPCs/oldale_town_house2_event_script_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

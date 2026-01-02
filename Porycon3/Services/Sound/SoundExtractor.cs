@@ -33,28 +33,33 @@ public class SoundExtractor : ExtractorBase
         EnsureDirectory(audioDir);
         EnsureDirectory(musicOutputDir);
 
-        // Parse voicegroups and song configs
+        // Parse voicegroups and song configs (0-15%)
         LogVerbose("Parsing voicegroups...");
         _voicegroupParser.ParseAll();
         SetCount("Voicegroups", _voicegroupParser.GetAllVoicegroups().Count);
+        ReportProgress(0.10);
 
         LogVerbose("Parsing song configurations...");
         _midiConfigParser.ParseAll();
+        ReportProgress(0.15);
 
-        // Build the master SF2 soundfont
+        // Build the master SF2 soundfont (15-40%)
         LogVerbose("Building soundfont...");
         var sf2Path = Path.Combine(audioDir, "pokemon_emerald.sf2");
         BuildSoundfont(sf2Path);
+        ReportProgress(0.40);
 
-        // Convert MIDI files to OGG with loop support
+        // Convert MIDI files to OGG with loop support (40-80%)
         LogVerbose("Converting MIDI files to OGG...");
         var musicCount = ConvertMidiToOgg(musicOutputDir, sf2Path);
         SetCount("Music Tracks", musicCount);
+        ReportProgress(0.80);
 
-        // Generate SFX (cries)
+        // Generate SFX (cries) (80-100%)
         LogVerbose("Processing sound effects...");
         var sfxCount = ProcessSoundEffects();
         SetCount("Sound Effects", sfxCount);
+        ReportProgress(1.0);
 
         return musicCount + sfxCount;
     }

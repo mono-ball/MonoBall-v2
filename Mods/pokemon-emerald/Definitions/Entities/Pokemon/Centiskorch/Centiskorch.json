@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:centiskorch",
+  "name": "Centiskorch",
+  "cryId": "pokeemerald:audio:sfx/cries/centiskorch",
+  "baseStats": {
+    "hp": 100,
+    "attack": 115,
+    "defense": 65,
+    "speed": 65,
+    "spAttack": 90,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 75,
+  "expYield": 184,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:white_smoke",
+    "pokeemerald:ability:flame_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:radiator",
+  "height": 30,
+  "weight": 1200,
+  "description": "When it heats up, its body temperature  reaches about 1,500 degrees Fahrenheit.  It lashes its body like a whip and  launches itself at enemies.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:fire_lash"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:lunge"
+    },
+    {
+      "level": 67,
+      "moveId": "pokeemerald:move:burn_up"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/centiskorch/centiskorchfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/centiskorch/centiskorchback",
+    "backShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/centiskorch/centiskorchicon",
+    "overworld": "pokeemerald:pokemon:sprite/centiskorch/centiskorchoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:centiskorch/gmax",
+      "name": "Centiskorch",
+      "cryId": "pokeemerald:audio:sfx/cries/centiskorch",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 100,
+        "attack": 115,
+        "defense": 65,
+        "speed": 65,
+        "spAttack": 90,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:bug"
+      ],
+      "abilities": [
+        "pokeemerald:ability:flash_fire",
+        "pokeemerald:ability:white_smoke",
+        "pokeemerald:ability:flame_body"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

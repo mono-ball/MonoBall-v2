@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:morelull",
+  "name": "Morelull",
+  "cryId": "pokeemerald:audio:sfx/cries/morelull",
+  "baseStats": {
+    "hp": 40,
+    "attack": 35,
+    "defense": 55,
+    "speed": 15,
+    "spAttack": 65,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 190,
+  "expYield": 57,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:illuminate",
+    "pokeemerald:ability:effect_spore",
+    "pokeemerald:ability:rain_dish"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:illuminate",
+  "height": 2,
+  "weight": 15,
+  "description": "As it drowses the day away, it nourishes  itself by sucking from tree roots.  It wakens at the fall of night, wandering  off in search of a new tree.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:shiinotic"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:strength_sap"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:spore"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:poison_powder",
+    "pokeemerald:move:stun_spore",
+    "pokeemerald:move:growth",
+    "pokeemerald:move:leech_seed"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/morelull/morelullfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/morelull/morelullfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/morelull/morelullback",
+    "backShiny": "pokeemerald:pokemon:sprite/morelull/morelullbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/morelull/morelullicon",
+    "overworld": "pokeemerald:pokemon:sprite/morelull/morelulloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/morelull/morelulloverworldshiny"
+  }
+}

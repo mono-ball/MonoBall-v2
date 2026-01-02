@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route131_event_script_reli",
+  "name": "route131 event script reli",
+  "description": "NPC interaction: route131 event script reli",
+  "scriptPath": "Scripts/Interactions/NPCs/route131_event_script_reli.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

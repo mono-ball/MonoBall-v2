@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:petilil",
+  "name": "Petilil",
+  "cryId": "pokeemerald:audio:sfx/cries/petilil",
+  "baseStats": {
+    "hp": 45,
+    "attack": 35,
+    "defense": 50,
+    "speed": 30,
+    "spAttack": 70,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 190,
+  "expYield": 56,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:chlorophyll",
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:leaf_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:bulb",
+  "height": 5,
+  "weight": 66,
+  "description": "By pruning the leaves on its head with  regularity, this Pok\u00E9mon can be grown  into a fine plump shape. These bitter  leaves refresh those who eat them.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SUN_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:lilligant"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SUN_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:lilligant-hisui"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:energy_ball"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:entrainment"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:ingrain",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:grass_whistle",
+    "pokeemerald:move:sweet_scent",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:healing_wish",
+    "pokeemerald:move:encore"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/petilil/petililfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/petilil/petililfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/petilil/petililback",
+    "backShiny": "pokeemerald:pokemon:sprite/petilil/petililbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/petilil/petililicon",
+    "overworld": "pokeemerald:pokemon:sprite/petilil/petililoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/petilil/petililoverworldshiny"
+  }
+}

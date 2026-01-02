@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:reuniclus",
+  "name": "Reuniclus",
+  "cryId": "pokeemerald:audio:sfx/cries/reuniclus",
+  "baseStats": {
+    "hp": 110,
+    "attack": 65,
+    "defense": 75,
+    "speed": 30,
+    "spAttack": 125,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 50,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overcoat",
+    "pokeemerald:ability:magic_guard",
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:multiplying",
+  "height": 10,
+  "weight": 201,
+  "description": "They use psychic power to control their  arms, which are made of a special liquid.  When Reuniclus shake hands, a network  forms between their brains.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:skill_swap"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:wonder_room"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/reuniclus/reuniclusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/reuniclus/reuniclusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/reuniclus/reuniclusback",
+    "backShiny": "pokeemerald:pokemon:sprite/reuniclus/reuniclusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/reuniclus/reuniclusicon",
+    "overworld": "pokeemerald:pokemon:sprite/reuniclus/reuniclusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/reuniclus/reuniclusoverworldshiny"
+  }
+}

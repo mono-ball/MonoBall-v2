@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:battle:environment/stadium",
+  "name": "Stadium",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/Stadium/Stadium.png",
+  "width": 256,
+  "height": 512,
+  "description": "Battle environment background for Stadium"
+}

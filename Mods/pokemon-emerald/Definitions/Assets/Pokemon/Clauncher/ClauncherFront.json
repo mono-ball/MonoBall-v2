@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/clauncher/clauncherfront",
+  "name": "Clauncherfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Clauncher/ClauncherFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

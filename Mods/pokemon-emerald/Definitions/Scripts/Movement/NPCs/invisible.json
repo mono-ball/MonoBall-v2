@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/invisible",
+  "name": "Invisible Movement Script",
+  "description": "NPC is invisible and does not interact",
+  "scriptPath": "Scripts/Movement/NPCs/invisible.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

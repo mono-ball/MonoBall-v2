@@ -18,6 +18,12 @@ public interface IExtractor
     bool QuietMode { get; set; }
 
     /// <summary>
+    /// Optional callback to report progress (0.0 to 1.0) during extraction.
+    /// Used by orchestrators to update external progress displays.
+    /// </summary>
+    IProgress<double>? ProgressCallback { get; set; }
+
+    /// <summary>
     /// Execute the extraction operation.
     /// </summary>
     /// <returns>Result containing counts, duration, and any errors.</returns>

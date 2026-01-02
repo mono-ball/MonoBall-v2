@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:jellicent",
+  "name": "Jellicent",
+  "cryId": "pokeemerald:audio:sfx/cries/jellicent",
+  "baseStats": {
+    "hp": 100,
+    "attack": 60,
+    "defense": 70,
+    "speed": 60,
+    "spAttack": 85,
+    "spDefense": 105
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 60,
+  "expYield": 168,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:cursed_body",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:floating",
+  "height": 22,
+  "weight": 1350,
+  "description": "They propel themselves by expelling  absorbed seawater from their bodies.  It\u0027s said there\u0027s a castle of ships  Jellicent have sunk on the seafloor.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:water_spout"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/jellicent/jellicentfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/jellicent/jellicentfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/jellicent/jellicentback",
+    "backShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/jellicent/jellicentbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/jellicent/jellicenticon",
+    "overworld": "pokeemerald:pokemon:sprite/jellicent/jellicentoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

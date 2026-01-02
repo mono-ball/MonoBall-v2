@@ -1,0 +1,189 @@
+{
+  "id": "pokeemerald:pokemon:wigglytuff",
+  "name": "Wigglytuff",
+  "cryId": "pokeemerald:audio:sfx/cries/wigglytuff",
+  "baseStats": {
+    "hp": 140,
+    "attack": 70,
+    "defense": 45,
+    "speed": 45,
+    "spDefense": 50
+  },
+  "catchRate": 50,
+  "expYield": 218,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 191,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:cute_charm",
+    "pokeemerald:ability:competitive",
+    "pokeemerald:ability:frisk"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:balloon",
+  "height": 10,
+  "weight": 120,
+  "description": "Its fur is the ultimate in luxuriousness.  Sleeping alongside a Wigglytuff is simply  divine. Its body expands seemingly without  end when it inhales.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mimic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wigglytuff/wigglytufffront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wigglytuff/wigglytufffrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wigglytuff/wigglytuffback",
+    "backShiny": "pokeemerald:pokemon:sprite/wigglytuff/wigglytuffbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wigglytuff/wigglytufficon",
+    "overworld": "pokeemerald:pokemon:sprite/wigglytuff/wigglytuffoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wigglytuff/wigglytuffoverworldshiny"
+  }
+}

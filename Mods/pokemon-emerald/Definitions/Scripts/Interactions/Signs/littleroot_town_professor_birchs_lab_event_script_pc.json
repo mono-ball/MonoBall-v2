@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/littleroot_town_professor_birchs_lab_event_script_pc",
+  "name": "littleroot town professor birchs lab event script pc",
+  "description": "Sign script: littleroot town professor birchs lab event script pc",
+  "scriptPath": "Scripts/Signs/littleroot_town_professor_birchs_lab_event_script_pc.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

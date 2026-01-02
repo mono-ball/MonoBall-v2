@@ -1,0 +1,130 @@
+{
+  "id": "pokeemerald:pokemon:quaxwell",
+  "name": "Quaxwell",
+  "cryId": "pokeemerald:audio:sfx/cries/quaxwell",
+  "baseStats": {
+    "hp": 70,
+    "attack": 85,
+    "defense": 65,
+    "speed": 65,
+    "spAttack": 65,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 144,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:practicing",
+  "height": 12,
+  "weight": 215,
+  "description": "The hardworking Quaxwell observes  people and Pok\u00E9mon from various  regions and incorporates their  movements into its own dance routines.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:quaquaval"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:low_sweep"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:aqua_cutter"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:feather_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/quaxwell/quaxwellfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/quaxwell/quaxwellfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/quaxwell/quaxwellback",
+    "backShiny": "pokeemerald:pokemon:sprite/quaxwell/quaxwellbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/quaxwell/quaxwellicon",
+    "overworld": "pokeemerald:pokemon:sprite/quaxwell/quaxwelloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quaxwell/quaxwelloverworldshiny"
+  }
+}

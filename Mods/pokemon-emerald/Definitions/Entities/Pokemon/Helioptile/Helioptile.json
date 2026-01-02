@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:helioptile",
+  "name": "Helioptile",
+  "cryId": "pokeemerald:audio:sfx/cries/helioptile",
+  "baseStats": {
+    "hp": 44,
+    "attack": 38,
+    "defense": 33,
+    "speed": 70,
+    "spAttack": 61,
+    "spDefense": 43
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 190,
+  "expYield": 58,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:dry_skin",
+    "pokeemerald:ability:sand_veil",
+    "pokeemerald:ability:solar_power"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:generator",
+  "height": 5,
+  "weight": 60,
+  "description": "They make their home in deserts.  They can generate their own energy from  basking in the sun, so eating food is not  a requirement.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SUN_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:heliolisk"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:volt_switch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:parabolic_charge"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:thunderbolt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:electrify"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:agility",
+    "pokeemerald:move:glare",
+    "pokeemerald:move:camouflage",
+    "pokeemerald:move:electric_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/helioptile/helioptilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/helioptile/helioptilefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/helioptile/helioptileback",
+    "backShiny": "pokeemerald:pokemon:sprite/helioptile/helioptilebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/helioptile/helioptileicon",
+    "overworld": "pokeemerald:pokemon:sprite/helioptile/helioptileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/helioptile/helioptileoverworldshiny"
+  }
+}

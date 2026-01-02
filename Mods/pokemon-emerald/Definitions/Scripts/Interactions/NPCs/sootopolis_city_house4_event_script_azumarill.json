@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_house4_event_script_azumarill",
+  "name": "sootopolis city house4 event script azumarill",
+  "description": "NPC interaction: sootopolis city house4 event script azumarill",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_house4_event_script_azumarill.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route104_event_script_ivan",
+  "name": "route104 event script ivan",
+  "description": "NPC interaction: route104 event script ivan",
+  "scriptPath": "Scripts/Interactions/NPCs/route104_event_script_ivan.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/shoal_cave_low_tide_entrance_room_event_script_shell_bell_expert",
+  "name": "shoal cave low tide entrance room event script shell bell expert",
+  "description": "NPC interaction: shoal cave low tide entrance room event script shell bell expert",
+  "scriptPath": "Scripts/Interactions/NPCs/shoal_cave_low_tide_entrance_room_event_script_shell_bell_expert.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

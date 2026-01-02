@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_colosseum_2_p_event_script_attendant",
+  "name": "battle colosseum 2 p event script attendant",
+  "description": "NPC interaction: battle colosseum 2 p event script attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_colosseum_2_p_event_script_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

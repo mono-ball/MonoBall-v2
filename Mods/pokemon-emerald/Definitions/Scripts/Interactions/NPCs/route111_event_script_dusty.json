@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_dusty",
+  "name": "route111 event script dusty",
+  "description": "NPC interaction: route111 event script dusty",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_dusty.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

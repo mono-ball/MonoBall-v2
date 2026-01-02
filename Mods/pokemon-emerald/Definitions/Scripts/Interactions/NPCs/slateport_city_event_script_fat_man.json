@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_fat_man",
+  "name": "slateport city event script fat man",
+  "description": "NPC interaction: slateport city event script fat man",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_fat_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

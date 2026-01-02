@@ -1,0 +1,162 @@
+{
+  "id": "pokeemerald:pokemon:larvitar",
+  "name": "Larvitar",
+  "cryId": "pokeemerald:audio:sfx/cries/larvitar",
+  "baseStats": {
+    "hp": 50,
+    "attack": 64,
+    "defense": 50,
+    "speed": 41,
+    "spAttack": 45,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:guts",
+    null,
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:rock_skin",
+  "height": 6,
+  "weight": 720,
+  "description": "A Larvitar is born deep under the ground.  It must eat its way through the soil above  and reach the surface for it to see its  parents\u0027 faces.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:pupitar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:outrage",
+    "pokeemerald:move:focus_energy",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:iron_defense",
+    "pokeemerald:move:assurance",
+    "pokeemerald:move:iron_head",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:iron_tail"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/larvitar/larvitarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/larvitar/larvitarfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/larvitar/larvitarback",
+    "backShiny": "pokeemerald:pokemon:sprite/larvitar/larvitarbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/larvitar/larvitaricon",
+    "overworld": "pokeemerald:pokemon:sprite/larvitar/larvitaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/larvitar/larvitaroverworldshiny"
+  }
+}

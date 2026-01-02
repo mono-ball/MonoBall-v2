@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_bridge_kecleon",
+  "name": "route120 event script bridge kecleon",
+  "description": "NPC interaction: route120 event script bridge kecleon",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_bridge_kecleon.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

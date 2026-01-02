@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/oldale_town_event_script_girl",
+  "name": "oldale town event script girl",
+  "description": "NPC interaction: oldale town event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/oldale_town_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

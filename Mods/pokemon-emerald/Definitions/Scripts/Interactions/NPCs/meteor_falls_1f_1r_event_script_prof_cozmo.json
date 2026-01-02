@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/meteor_falls_1f_1r_event_script_prof_cozmo",
+  "name": "meteor falls 1f 1 r event script prof cozmo",
+  "description": "NPC interaction: meteor falls 1f 1 r event script prof cozmo",
+  "scriptPath": "Scripts/Interactions/NPCs/meteor_falls_1f_1r_event_script_prof_cozmo.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

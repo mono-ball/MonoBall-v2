@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/routes/cycling",
+  "name": "Cycling",
+  "audioPath": "Audio/Music/Routes/Cycling.ogg",
+  "volume": 0.65,
+  "loop": true,
+  "loopStartSamples": 76695,
+  "loopLengthSamples": 2147475
+}

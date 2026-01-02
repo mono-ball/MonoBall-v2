@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/slateport_city_event_script_berry_crush_rankings_sign",
+  "name": "slateport city event script berry crush rankings sign",
+  "description": "Sign script: slateport city event script berry crush rankings sign",
+  "scriptPath": "Scripts/Signs/slateport_city_event_script_berry_crush_rankings_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

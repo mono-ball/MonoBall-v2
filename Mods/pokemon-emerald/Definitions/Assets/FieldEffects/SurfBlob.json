@@ -1,0 +1,75 @@
+{
+  "id": "pokeemerald:field_effect:surf-blob",
+  "name": "Surf Blob",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/SurfBlob.png",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "frameCount": 3,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "index": 1,
+      "x": 32,
+      "y": 0,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "index": 2,
+      "x": 64,
+      "y": 0,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": [
+    {
+      "name": "south",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ]
+    },
+    {
+      "name": "north",
+      "loop": true,
+      "frameIndices": [
+        1
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ]
+    },
+    {
+      "name": "west",
+      "loop": true,
+      "frameIndices": [
+        2
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ]
+    },
+    {
+      "name": "east",
+      "loop": true,
+      "frameIndices": [
+        2
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ],
+      "flipHorizontal": true
+    }
+  ]
+}

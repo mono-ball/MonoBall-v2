@@ -1,0 +1,78 @@
+{
+  "id": "pokeemerald:pokemon:combee",
+  "name": "Combee",
+  "cryId": "pokeemerald:audio:sfx/cries/combee",
+  "baseStats": {
+    "hp": 30,
+    "attack": 30,
+    "defense": 42,
+    "speed": 70,
+    "spAttack": 30,
+    "spDefense": 42
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:honey_gather",
+    null,
+    "pokeemerald:ability:hustle"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:tiny_bee",
+  "height": 3,
+  "weight": 55,
+  "description": "A Pok\u00E9mon formed by three others.  It constantly gathers honey from flowers  to please Vespiquen. At night, they  cluster to form a beehive and sleep.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 21,
+      "targetSpeciesId": "pokeemerald:pokemon:vespiquen"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:struggle_bug"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/combee/combeefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/combee/combeefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/combee/combeeback",
+    "backShiny": "pokeemerald:pokemon:sprite/combee/combeebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/combee/combeeicon",
+    "overworld": "pokeemerald:pokemon:sprite/combee/combeeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/combee/combeeoverworldshiny"
+  }
+}

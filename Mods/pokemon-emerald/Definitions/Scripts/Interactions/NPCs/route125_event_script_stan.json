@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route125_event_script_stan",
+  "name": "route125 event script stan",
+  "description": "NPC interaction: route125 event script stan",
+  "scriptPath": "Scripts/Interactions/NPCs/route125_event_script_stan.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:karrablast",
+  "name": "Karrablast",
+  "cryId": "pokeemerald:audio:sfx/cries/karrablast",
+  "baseStats": {
+    "hp": 50,
+    "attack": 75,
+    "defense": 45,
+    "speed": 60,
+    "spAttack": 40,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 200,
+  "expYield": 63,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:shed_skin",
+    "pokeemerald:ability:no_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:clamping",
+  "height": 5,
+  "weight": 59,
+  "description": "When they feel threatened, they spit an  acidic liquid to drive attackers away.  For some reason they evolve while they  are in the same place as Shelmet.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:escavalier"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:megahorn",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:horn_attack",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:bug_bite",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:drill_run"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/karrablast/karrablastfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/karrablast/karrablastfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/karrablast/karrablastback",
+    "backShiny": "pokeemerald:pokemon:sprite/karrablast/karrablastbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/karrablast/karrablasticon",
+    "overworld": "pokeemerald:pokemon:sprite/karrablast/karrablastoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/karrablast/karrablastoverworldshiny"
+  }
+}

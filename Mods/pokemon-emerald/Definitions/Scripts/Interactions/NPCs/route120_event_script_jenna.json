@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_jenna",
+  "name": "route120 event script jenna",
+  "description": "NPC interaction: route120 event script jenna",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_jenna.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

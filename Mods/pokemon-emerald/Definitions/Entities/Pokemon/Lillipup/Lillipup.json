@@ -1,0 +1,151 @@
+{
+  "id": "pokeemerald:pokemon:lillipup",
+  "name": "Lillipup",
+  "cryId": "pokeemerald:audio:sfx/cries/lillipup",
+  "baseStats": {
+    "hp": 45,
+    "attack": 60,
+    "defense": 45,
+    "speed": 55,
+    "spAttack": 25,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 55,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:run_away"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:puppy",
+  "height": 4,
+  "weight": 41,
+  "description": "It faces strong opponents with great  courage. Because it doesn\u0027t yelp, it\u0027s  extremely popular with Trainers who live  in apartment buildings.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:herdier"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:howl",
+    "pokeemerald:move:sand_attack",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:lick",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:psychic_fangs"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lillipup/lillipupfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lillipup/lillipupfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lillipup/lillipupback",
+    "backShiny": "pokeemerald:pokemon:sprite/lillipup/lillipupbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lillipup/lillipupicon",
+    "overworld": "pokeemerald:pokemon:sprite/lillipup/lillipupoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lillipup/lillipupoverworldshiny"
+  }
+}

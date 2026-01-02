@@ -1,0 +1,134 @@
+{
+  "id": "pokeemerald:pokemon:mabosstiff",
+  "name": "Mabosstiff",
+  "cryId": "pokeemerald:audio:sfx/cries/mabosstiff",
+  "baseStats": {
+    "hp": 80,
+    "attack": 120,
+    "defense": 90,
+    "speed": 85,
+    "spAttack": 60,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 75,
+  "expYield": 177,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:guard_dog",
+    "pokeemerald:ability:stakeout"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:boss",
+  "height": 11,
+  "weight": 610,
+  "description": "Mabosstiff loves playing with  children. Though usually gentle, it  takes on an intimidating look when  protecting its family.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:comeuppance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:jaw_lock"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:outrage"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mabosstiff/mabosstifffront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstifffrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffback",
+    "backShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mabosstiff/mabosstifficon",
+    "overworld": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffoverworldshiny"
+  }
+}

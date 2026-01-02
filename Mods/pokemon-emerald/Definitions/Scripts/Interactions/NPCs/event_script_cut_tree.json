@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/event_script_cut_tree",
+  "name": "event script cut tree",
+  "description": "NPC interaction: event script cut tree",
+  "scriptPath": "Scripts/Interactions/NPCs/event_script_cut_tree.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

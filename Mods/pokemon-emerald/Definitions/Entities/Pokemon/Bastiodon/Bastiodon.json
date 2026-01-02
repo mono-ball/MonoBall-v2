@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:bastiodon",
+  "name": "Bastiodon",
+  "cryId": "pokeemerald:audio:sfx/cries/bastiodon",
+  "baseStats": {
+    "hp": 60,
+    "attack": 52,
+    "defense": 168,
+    "speed": 30,
+    "spAttack": 47,
+    "spDefense": 138
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    null,
+    "pokeemerald:ability:soundproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:shield",
+  "height": 13,
+  "weight": 1495,
+  "description": "Their rock-hard faces serve to protect  them from any frontral attacks.  When attacked, they form a wall.  They shielded their young in that way.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:metal_burst"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:heavy_slam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bastiodon/bastiodonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bastiodon/bastiodonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bastiodon/bastiodonback",
+    "backShiny": "pokeemerald:pokemon:sprite/bastiodon/bastiodonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bastiodon/bastiodonicon",
+    "overworld": "pokeemerald:pokemon:sprite/bastiodon/bastiodonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bastiodon/bastiodonoverworldshiny"
+  }
+}

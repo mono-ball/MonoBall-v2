@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_old_ladys_rest_stop_event_script_old_lady",
+  "name": "route111 old ladys rest stop event script old lady",
+  "description": "NPC interaction: route111 old ladys rest stop event script old lady",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_old_ladys_rest_stop_event_script_old_lady.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

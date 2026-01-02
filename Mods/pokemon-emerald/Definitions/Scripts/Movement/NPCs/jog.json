@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/jog",
+  "name": "Jog Movement Script",
+  "description": "NPC jogs or runs in place or pattern",
+  "scriptPath": "Scripts/Movement/NPCs/jog.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

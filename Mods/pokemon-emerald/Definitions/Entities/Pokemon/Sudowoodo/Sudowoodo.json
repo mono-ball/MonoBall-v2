@@ -1,0 +1,178 @@
+{
+  "id": "pokeemerald:pokemon:sudowoodo",
+  "name": "Sudowoodo",
+  "cryId": "pokeemerald:audio:sfx/cries/sudowoodo",
+  "baseStats": {
+    "hp": 70,
+    "attack": 100,
+    "defense": 115,
+    "speed": 30,
+    "spAttack": 30,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 65,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:imitation",
+  "height": 12,
+  "weight": 380,
+  "description": "It mimics a tree to avoid being attacked  by enemies. But since its forelegs  remain green throughout the year, it is  easily identified as a fake in the winter.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:mimic"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:tearful_look"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:self_destruct",
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:harden",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sand_tomb",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodoback",
+    "backShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodobackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodobackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodobackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodoicon",
+    "overworld": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodooverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

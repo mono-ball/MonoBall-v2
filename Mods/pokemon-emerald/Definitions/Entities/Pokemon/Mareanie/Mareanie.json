@@ -1,0 +1,133 @@
+{
+  "id": "pokeemerald:pokemon:mareanie",
+  "name": "Mareanie",
+  "cryId": "pokeemerald:audio:sfx/cries/mareanie",
+  "baseStats": {
+    "hp": 50,
+    "attack": 53,
+    "defense": 62,
+    "speed": 45,
+    "spAttack": 43,
+    "spDefense": 52
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "expYield": 61,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:merciless",
+    "pokeemerald:ability:limber",
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:brutal_star",
+  "height": 4,
+  "weight": 80,
+  "description": "It\u0027s found crawling on beaches and  seafloors. The coral that grows on  Corsola\u0027s head is as good as a five-star  banquet to this Pok\u00E9mon.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 38,
+      "targetSpeciesId": "pokeemerald:pokemon:toxapex"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:toxic"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:haze"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mareanie/mareaniefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mareanie/mareaniefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mareanie/mareanieback",
+    "backShiny": "pokeemerald:pokemon:sprite/mareanie/mareaniebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mareanie/mareanieicon",
+    "overworld": "pokeemerald:pokemon:sprite/mareanie/mareanieoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mareanie/mareanieoverworldshiny"
+  }
+}

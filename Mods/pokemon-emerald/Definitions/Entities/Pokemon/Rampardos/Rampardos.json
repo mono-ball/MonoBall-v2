@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:rampardos",
+  "name": "Rampardos",
+  "cryId": "pokeemerald:audio:sfx/cries/rampardos",
+  "baseStats": {
+    "hp": 97,
+    "attack": 165,
+    "defense": 60,
+    "speed": 58,
+    "spAttack": 65,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:mold_breaker",
+    null,
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:head_butt",
+  "height": 16,
+  "weight": 1025,
+  "description": "The result of repeated headbutts  is a skull grown thick and hard.  However, its brain has shrunk in size  compared with Cranidos\u0027s.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rampardos/rampardosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rampardos/rampardosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/rampardos/rampardosback",
+    "backShiny": "pokeemerald:pokemon:sprite/rampardos/rampardosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/rampardos/rampardosicon",
+    "overworld": "pokeemerald:pokemon:sprite/rampardos/rampardosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rampardos/rampardosoverworldshiny"
+  }
+}

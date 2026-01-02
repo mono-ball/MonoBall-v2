@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route117_event_script_brandi",
+  "name": "route117 event script brandi",
+  "description": "NPC interaction: route117 event script brandi",
+  "scriptPath": "Scripts/Interactions/NPCs/route117_event_script_brandi.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_boy",
+  "name": "route103 event script boy",
+  "description": "NPC interaction: route103 event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

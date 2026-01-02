@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_event_script_kings_rock_boy",
+  "name": "mossdeep city event script kings rock boy",
+  "description": "NPC interaction: mossdeep city event script kings rock boy",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_event_script_kings_rock_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

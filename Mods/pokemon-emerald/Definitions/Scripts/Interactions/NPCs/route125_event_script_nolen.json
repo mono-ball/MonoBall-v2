@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route125_event_script_nolen",
+  "name": "route125 event script nolen",
+  "description": "NPC interaction: route125 event script nolen",
+  "scriptPath": "Scripts/Interactions/NPCs/route125_event_script_nolen.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

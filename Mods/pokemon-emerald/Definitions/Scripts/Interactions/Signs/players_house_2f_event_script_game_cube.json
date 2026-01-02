@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/players_house_2f_event_script_game_cube",
+  "name": "players house 2f event script game cube",
+  "description": "Sign script: players house 2f event script game cube",
+  "scriptPath": "Scripts/Signs/players_house_2f_event_script_game_cube.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

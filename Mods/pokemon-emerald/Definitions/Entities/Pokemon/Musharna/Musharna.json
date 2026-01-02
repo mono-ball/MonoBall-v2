@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:musharna",
+  "name": "Musharna",
+  "cryId": "pokeemerald:audio:sfx/cries/musharna",
+  "baseStats": {
+    "hp": 116,
+    "attack": 55,
+    "defense": 85,
+    "speed": 29,
+    "spAttack": 107,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 75,
+  "expYield": 170,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:forewarn",
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:drowsing",
+  "height": 11,
+  "weight": 605,
+  "description": "The mist emanating from their foreheads  is packed with the dreams of people and  Pok\u00E9mon. It changes into different colors  depending on the dream that was eaten.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psychic_terrain"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magic_coat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dream_eater"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wonder_room"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psybeam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/musharna/musharnafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/musharna/musharnafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/musharna/musharnaback",
+    "backShiny": "pokeemerald:pokemon:sprite/musharna/musharnabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/musharna/musharnaicon",
+    "overworld": "pokeemerald:pokemon:sprite/musharna/musharnaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/musharna/musharnaoverworldshiny"
+  }
+}

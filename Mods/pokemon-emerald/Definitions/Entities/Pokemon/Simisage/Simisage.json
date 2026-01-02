@@ -1,0 +1,95 @@
+{
+  "id": "pokeemerald:pokemon:simisage",
+  "name": "Simisage",
+  "cryId": "pokeemerald:audio:sfx/cries/simisage",
+  "baseStats": {
+    "hp": 75,
+    "attack": 98,
+    "defense": 63,
+    "speed": 101,
+    "spAttack": 98,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 75,
+  "expYield": 174,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gluttony",
+    null,
+    "pokeemerald:ability:overgrow"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:thorn_monkey",
+  "height": 11,
+  "weight": 305,
+  "description": "Ill tempered, it attacks enemies by  swinging its barbed tail around wildly.  The leaf growing on its head is  very bitter.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:seed_bomb"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/simisage/simisagefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/simisage/simisagefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/simisage/simisageback",
+    "backShiny": "pokeemerald:pokemon:sprite/simisage/simisagebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/simisage/simisageicon",
+    "overworld": "pokeemerald:pokemon:sprite/simisage/simisageoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/simisage/simisageoverworldshiny"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:vanillite",
+  "name": "Vanillite",
+  "cryId": "pokeemerald:audio:sfx/cries/vanillite",
+  "baseStats": {
+    "hp": 36,
+    "attack": 50,
+    "defense": 50,
+    "speed": 44,
+    "spAttack": 65,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 255,
+  "expYield": 61,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:fresh_snow",
+  "height": 4,
+  "weight": 57,
+  "description": "The temperature of their breath is -58\u00BAF.  They create snow crystals and make snow  fall in the areas around them. Vanillite is  treasured by households in warm regions.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:vanillish"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:avalanche"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hail"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:icicle_spear"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:imprison",
+    "pokeemerald:move:autotomize",
+    "pokeemerald:move:iron_defense",
+    "pokeemerald:move:magnet_rise",
+    "pokeemerald:move:ice_shard",
+    "pokeemerald:move:powder_snow"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/vanillite/vanillitefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/vanillite/vanillitefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/vanillite/vanilliteback",
+    "backShiny": "pokeemerald:pokemon:sprite/vanillite/vanillitebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/vanillite/vanilliteicon",
+    "overworld": "pokeemerald:pokemon:sprite/vanillite/vanilliteoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vanillite/vanilliteoverworldshiny"
+  }
+}

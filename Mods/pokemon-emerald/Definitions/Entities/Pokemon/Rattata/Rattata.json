@@ -1,0 +1,195 @@
+{
+  "id": "pokeemerald:pokemon:rattata",
+  "name": "Rattata",
+  "cryId": "pokeemerald:audio:sfx/cries/rattata",
+  "baseStats": {
+    "hp": 30,
+    "attack": 56,
+    "defense": 35,
+    "speed": 72,
+    "spAttack": 25
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:hustle"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:mouse",
+  "height": 3,
+  "weight": 35,
+  "description": "A Rattata is cautious in the extreme.  Even while it is asleep, it constantly  moves its ears and listens for danger.  It will make its nest anywhere.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:raticate"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:endeavor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:screech",
+    "pokeemerald:move:flame_wheel",
+    "pokeemerald:move:fury_swipes",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:final_gambit"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rattata/rattatafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rattata/rattatafrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rattata/rattatafrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rattata/rattatafrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/rattata/rattataback",
+    "backShiny": "pokeemerald:pokemon:sprite/rattata/rattatabackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rattata/rattatabackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rattata/rattatabackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/rattata/rattataicon",
+    "overworld": "pokeemerald:pokemon:sprite/rattata/rattataoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rattata/rattataoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:rattata/alola",
+      "name": "Rattata",
+      "cryId": "pokeemerald:audio:sfx/cries/rattata",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "spAttack": 25,
+        "spDefense": 35
+      },
+      "types": [
+        "pokeemerald:type:dark",
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:hustle",
+        "pokeemerald:ability:thick_fat"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rattata/rattataalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rattata/rattataalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rattata/rattataalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/rattata/rattataalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rattata/rattataalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/rattata/rattataalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rattata/rattataalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

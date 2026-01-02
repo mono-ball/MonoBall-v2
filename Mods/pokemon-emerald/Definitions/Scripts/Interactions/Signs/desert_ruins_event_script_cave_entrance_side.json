@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/desert_ruins_event_script_cave_entrance_side",
+  "name": "desert ruins event script cave entrance side",
+  "description": "Sign script: desert ruins event script cave entrance side",
+  "scriptPath": "Scripts/Signs/desert_ruins_event_script_cave_entrance_side.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,171 @@
+{
+  "id": "pokeemerald:pokemon:granbull",
+  "name": "Granbull",
+  "cryId": "pokeemerald:audio:sfx/cries/granbull",
+  "baseStats": {
+    "hp": 90,
+    "attack": 120,
+    "defense": 75,
+    "speed": 45,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:quick_feet",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:fairy",
+  "height": 14,
+  "weight": 487,
+  "description": "It has a particularly well-developed lower  jaw. The huge fangs are heavy, causing  it to tilt its head. Unless it is startled,  it will not try to bite.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:crunch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/granbull/granbullfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/granbull/granbullfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/granbull/granbullback",
+    "backShiny": "pokeemerald:pokemon:sprite/granbull/granbullbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/granbull/granbullicon",
+    "overworld": "pokeemerald:pokemon:sprite/granbull/granbulloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/granbull/granbulloverworldshiny"
+  }
+}

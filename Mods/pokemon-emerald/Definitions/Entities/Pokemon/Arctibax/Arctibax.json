@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:pokemon:arctibax",
+  "name": "Arctibax",
+  "cryId": "pokeemerald:audio:sfx/cries/arctibax",
+  "baseStats": {
+    "hp": 90,
+    "attack": 95,
+    "defense": 66,
+    "speed": 62,
+    "spAttack": 45,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 25,
+  "expYield": 148,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:thermal_exchange",
+    null,
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ice_fin",
+  "height": 8,
+  "weight": 300,
+  "description": "Arctibax freezes the air around it,  protecting its face with an ice  mask and turning its dorsal fin into a  blade of ice.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 54,
+      "targetSpeciesId": "pokeemerald:pokemon:baxcalibur"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:icicle_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swords_dance"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/arctibax/arctibaxfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/arctibax/arctibaxfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/arctibax/arctibaxback",
+    "backShiny": "pokeemerald:pokemon:sprite/arctibax/arctibaxbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/arctibax/arctibaxicon",
+    "overworld": "pokeemerald:pokemon:sprite/arctibax/arctibaxoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arctibax/arctibaxoverworldshiny"
+  }
+}

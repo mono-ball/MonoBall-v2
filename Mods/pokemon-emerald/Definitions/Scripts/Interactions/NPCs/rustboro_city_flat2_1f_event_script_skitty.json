@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_flat2_1f_event_script_skitty",
+  "name": "rustboro city flat2 1f event script skitty",
+  "description": "NPC interaction: rustboro city flat2 1f event script skitty",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_flat2_1f_event_script_skitty.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

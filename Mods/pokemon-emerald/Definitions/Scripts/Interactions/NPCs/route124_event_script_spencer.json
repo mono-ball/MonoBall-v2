@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route124_event_script_spencer",
+  "name": "route124 event script spencer",
+  "description": "NPC interaction: route124 event script spencer",
+  "scriptPath": "Scripts/Interactions/NPCs/route124_event_script_spencer.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

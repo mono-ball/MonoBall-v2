@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mauville_city_event_script_game_corner_sign",
+  "name": "mauville city event script game corner sign",
+  "description": "Sign script: mauville city event script game corner sign",
+  "scriptPath": "Scripts/Signs/mauville_city_event_script_game_corner_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

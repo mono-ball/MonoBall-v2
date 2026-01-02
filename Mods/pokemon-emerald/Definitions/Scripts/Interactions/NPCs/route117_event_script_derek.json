@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route117_event_script_derek",
+  "name": "route117 event script derek",
+  "description": "NPC interaction: route117 event script derek",
+  "scriptPath": "Scripts/Interactions/NPCs/route117_event_script_derek.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

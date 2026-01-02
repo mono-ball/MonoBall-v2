@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:revavroom",
+  "name": "Revavroom",
+  "cryId": "pokeemerald:audio:sfx/cries/revavroom",
+  "baseStats": {
+    "hp": 80,
+    "attack": 119,
+    "defense": 90,
+    "speed": 90,
+    "spAttack": 54,
+    "spDefense": 67
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 75,
+  "expYield": 175,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:overcoat",
+    null,
+    "pokeemerald:ability:filter"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:multi-cyl",
+  "height": 18,
+  "weight": 1200,
+  "description": "It creates a gas out of poison and  minerals from rocks. It then  detonates the gas in its cylinders- now  numbering eight-to generate energy.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shift_gear"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:sludge"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:spin_out"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:gunk_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/revavroom/revavroomfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/revavroom/revavroomfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/revavroom/revavroomback",
+    "backShiny": "pokeemerald:pokemon:sprite/revavroom/revavroombackshiny",
+    "icon": "pokeemerald:pokemon:sprite/revavroom/revavroomicon",
+    "overworld": "pokeemerald:pokemon:sprite/revavroom/revavroomoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/revavroom/revavroomoverworldshiny"
+  }
+}

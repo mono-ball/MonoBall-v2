@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_jeffrey",
+  "name": "route120 event script jeffrey",
+  "description": "NPC interaction: route120 event script jeffrey",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_jeffrey.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

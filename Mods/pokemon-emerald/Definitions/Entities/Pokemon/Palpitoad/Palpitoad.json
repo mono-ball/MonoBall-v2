@@ -1,0 +1,134 @@
+{
+  "id": "pokeemerald:pokemon:palpitoad",
+  "name": "Palpitoad",
+  "cryId": "pokeemerald:audio:sfx/cries/palpitoad",
+  "baseStats": {
+    "hp": 75,
+    "attack": 65,
+    "defense": 55,
+    "speed": 69,
+    "spAttack": 65,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 120,
+  "expYield": 134,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:water_absorb"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:vibration",
+  "height": 8,
+  "weight": 170,
+  "description": "It lives in the water and on land.  When they vibrate the bumps on their  heads, they can make waves in water  or earthquake-like vibrations on land.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:seismitoad"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/palpitoad/palpitoadfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/palpitoad/palpitoadfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/palpitoad/palpitoadback",
+    "backShiny": "pokeemerald:pokemon:sprite/palpitoad/palpitoadbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/palpitoad/palpitoadicon",
+    "overworld": "pokeemerald:pokemon:sprite/palpitoad/palpitoadoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/palpitoad/palpitoadoverworldshiny"
+  }
+}

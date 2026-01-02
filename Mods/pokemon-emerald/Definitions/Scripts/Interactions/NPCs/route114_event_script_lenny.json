@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route114_event_script_lenny",
+  "name": "route114 event script lenny",
+  "description": "NPC interaction: route114 event script lenny",
+  "scriptPath": "Scripts/Interactions/NPCs/route114_event_script_lenny.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

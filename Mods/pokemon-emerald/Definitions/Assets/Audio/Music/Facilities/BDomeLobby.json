@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/facilities/b-dome-lobby",
+  "name": "B Dome Lobby",
+  "audioPath": "Audio/Music/Facilities/BDomeLobby.ogg",
+  "volume": 0.44,
+  "loop": true,
+  "loopStartSamples": 293999,
+  "loopLengthSamples": 587999
+}

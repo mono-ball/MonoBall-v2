@@ -1,0 +1,175 @@
+{
+  "id": "pokeemerald:pokemon:combusken",
+  "name": "Combusken",
+  "cryId": "pokeemerald:audio:sfx/cries/combusken",
+  "baseStats": {
+    "hp": 60,
+    "attack": 85,
+    "defense": 60,
+    "speed": 55,
+    "spAttack": 85,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 142,
+  "evYield": {
+    "attack": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:speed_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:young_fowl",
+  "height": 9,
+  "weight": 195,
+  "description": "It lashes out with 10 kicks per second.  Its strong fighting instinct compels it  to keep up its offensive until the  opponent gives up.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:blaziken"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:blaze_kick"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/combusken/combuskenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/combusken/combuskenfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/combusken/combuskenfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/combusken/combuskenfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/combusken/combuskenback",
+    "backShiny": "pokeemerald:pokemon:sprite/combusken/combuskenbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/combusken/combuskenbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/combusken/combuskenbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/combusken/combuskenicon",
+    "overworld": "pokeemerald:pokemon:sprite/combusken/combuskenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/combusken/combuskenoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

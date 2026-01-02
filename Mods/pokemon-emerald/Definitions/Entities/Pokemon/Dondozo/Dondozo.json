@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:dondozo",
+  "name": "Dondozo",
+  "cryId": "pokeemerald:audio:sfx/cries/dondozo",
+  "baseStats": {
+    "hp": 150,
+    "attack": 100,
+    "defense": 115,
+    "speed": 35,
+    "spAttack": 65,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 25,
+  "expYield": 265,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:unaware",
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:water_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:big_catfish",
+  "height": 120,
+  "weight": 2200,
+  "description": "It treats Tatsugiri like its boss  and follows it loyally. Though  powerful, Dondozo is apparently not very  smart.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:tickle"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sleep_talk"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:order_up"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:curse",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:yawn"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dondozo/dondozofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dondozo/dondozofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dondozo/dondozoback",
+    "backShiny": "pokeemerald:pokemon:sprite/dondozo/dondozobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dondozo/dondozoicon",
+    "overworld": "pokeemerald:pokemon:sprite/dondozo/dondozooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dondozo/dondozooverworldshiny"
+  }
+}

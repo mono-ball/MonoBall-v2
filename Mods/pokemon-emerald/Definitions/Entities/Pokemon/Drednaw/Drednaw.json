@@ -1,0 +1,170 @@
+{
+  "id": "pokeemerald:pokemon:drednaw",
+  "name": "Drednaw",
+  "cryId": "pokeemerald:audio:sfx/cries/drednaw",
+  "baseStats": {
+    "hp": 90,
+    "attack": 115,
+    "defense": 90,
+    "speed": 74,
+    "spAttack": 48,
+    "spDefense": 68
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 75,
+  "expYield": 170,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:strong_jaw",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:bite",
+  "height": 10,
+  "weight": 1155,
+  "description": "With jaws that can shear through steel  rods, this highly aggressive Pok\u00E9mon  chomps down on its unfortunate prey.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:jaw_lock"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/drednaw/drednawfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/drednaw/drednawfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/drednaw/drednawback",
+    "backShiny": "pokeemerald:pokemon:sprite/drednaw/drednawbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/drednaw/drednawicon",
+    "overworld": "pokeemerald:pokemon:sprite/drednaw/drednawoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drednaw/drednawoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:drednaw/gmax",
+      "name": "Drednaw",
+      "cryId": "pokeemerald:audio:sfx/cries/drednaw",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 90,
+        "attack": 115,
+        "defense": 90,
+        "speed": 74,
+        "spAttack": 48,
+        "spDefense": 68
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:rock"
+      ],
+      "abilities": [
+        "pokeemerald:ability:strong_jaw",
+        "pokeemerald:ability:shell_armor",
+        "pokeemerald:ability:swift_swim"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/drednaw/drednawgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

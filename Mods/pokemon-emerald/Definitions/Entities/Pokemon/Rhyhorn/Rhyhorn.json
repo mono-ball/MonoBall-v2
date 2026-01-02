@@ -1,0 +1,174 @@
+{
+  "id": "pokeemerald:pokemon:rhyhorn",
+  "name": "Rhyhorn",
+  "cryId": "pokeemerald:audio:sfx/cries/rhyhorn",
+  "baseStats": {
+    "hp": 80,
+    "attack": 85,
+    "defense": 95,
+    "speed": 25,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:lightning_rod",
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:reckless"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:spikes",
+  "height": 10,
+  "weight": 1150,
+  "description": "Once it starts running, it doesn\u0027t stop.  Its tiny brain makes it so stupid that it  can\u0027t remember why it started running in  the first place.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 42,
+      "targetSpeciesId": "pokeemerald:pokemon:rhydon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:drill_run"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:horn_drill"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:magnitude",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:dragon_rush",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:skull_bash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:rock_climb",
+    "pokeemerald:move:rototiller",
+    "pokeemerald:move:metal_burst",
+    "pokeemerald:move:guard_split"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornback",
+    "backShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornicon",
+    "overworld": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

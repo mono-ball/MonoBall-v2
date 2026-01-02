@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lilycove_city_event_script_department_store_sign",
+  "name": "lilycove city event script department store sign",
+  "description": "Sign script: lilycove city event script department store sign",
+  "scriptPath": "Scripts/Signs/lilycove_city_event_script_department_store_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

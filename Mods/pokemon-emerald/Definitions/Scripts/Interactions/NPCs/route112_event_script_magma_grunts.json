@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route112_event_script_magma_grunts",
+  "name": "route112 event script magma grunts",
+  "description": "NPC interaction: route112 event script magma grunts",
+  "scriptPath": "Scripts/Interactions/NPCs/route112_event_script_magma_grunts.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

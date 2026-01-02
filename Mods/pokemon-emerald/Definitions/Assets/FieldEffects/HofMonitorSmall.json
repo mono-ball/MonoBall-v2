@@ -1,0 +1,25 @@
+{
+  "id": "pokeemerald:field_effect:hof-monitor-small",
+  "name": "Hof Monitor Small",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/HofMonitorSmall.png",
+  "frameWidth": 16,
+  "frameHeight": 16,
+  "frameCount": 2,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    }
+  ]
+}

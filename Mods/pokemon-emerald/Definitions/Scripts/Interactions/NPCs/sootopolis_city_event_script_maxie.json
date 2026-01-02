@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_event_script_maxie",
+  "name": "sootopolis city event script maxie",
+  "description": "NPC interaction: sootopolis city event script maxie",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_event_script_maxie.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

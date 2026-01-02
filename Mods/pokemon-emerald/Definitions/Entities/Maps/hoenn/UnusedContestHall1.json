@@ -1,0 +1,86 @@
+{
+  "id": "pokeemerald:map:hoenn/unused_contest_hall1",
+  "name": "UnusedContestHall1",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 1,
+  "height": 1,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/gsc_pewter",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/dynamic",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/unused_contest_hall1/ground",
+      "name": "Ground",
+      "width": 1,
+      "height": 1,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/unused_contest_hall1/objects",
+      "name": "Objects",
+      "width": 1,
+      "height": 1,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/unused_contest_hall1/overhead",
+      "name": "Overhead",
+      "width": 1,
+      "height": 1,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/contest"
+    }
+  ],
+  "warps": [],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/unused_contest_hall1/elevation_0",
+      "name": "Collision_0",
+      "width": 1,
+      "height": 1,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQ=="
+    }
+  ]
+}

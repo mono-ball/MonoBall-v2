@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/oldale_town_mart_event_script_clerk",
+  "name": "oldale town mart event script clerk",
+  "description": "NPC interaction: oldale town mart event script clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/oldale_town_mart_event_script_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:litwick",
+  "name": "Litwick",
+  "cryId": "pokeemerald:audio:sfx/cries/litwick",
+  "baseStats": {
+    "hp": 50,
+    "attack": 30,
+    "defense": 55,
+    "speed": 20,
+    "spAttack": 65,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 190,
+  "expYield": 55,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:flame_body",
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:candle",
+  "height": 3,
+  "weight": 31,
+  "description": "While Litwick shines a light and pretends  to be a guide, it absorbs the life force of  any who follow it, which becomes the fuel  that it burns.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 41,
+      "targetSpeciesId": "pokeemerald:pokemon:lampent"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:memento"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:acid_armor",
+    "pokeemerald:move:heat_wave",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:acid",
+    "pokeemerald:move:clear_smog",
+    "pokeemerald:move:power_split"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/litwick/litwickfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/litwick/litwickfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/litwick/litwickback",
+    "backShiny": "pokeemerald:pokemon:sprite/litwick/litwickbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/litwick/litwickicon",
+    "overworld": "pokeemerald:pokemon:sprite/litwick/litwickoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/litwick/litwickoverworldshiny"
+  }
+}

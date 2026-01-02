@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_double_edge_tutor",
+  "name": "sootopolis city pokemon center 1f event script double edge tutor",
+  "description": "NPC interaction: sootopolis city pokemon center 1f event script double edge tutor",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_pokemon_center_1f_event_script_double_edge_tutor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

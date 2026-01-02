@@ -1,0 +1,428 @@
+{
+  "id": "pokeemerald:pokemon:milcery",
+  "name": "Milcery",
+  "cryId": "pokeemerald:audio:sfx/cries/milcery",
+  "baseStats": {
+    "hp": 45,
+    "attack": 40,
+    "defense": 40,
+    "speed": 34,
+    "spAttack": 50,
+    "spDefense": 61
+  },
+  "types": [
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 200,
+  "expYield": 54,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sweet_veil",
+    null,
+    "pokeemerald:ability:aroma_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:cream",
+  "height": 2,
+  "weight": 3,
+  "description": "This Pok\u00E9mon was born from sweet-smelling  particles in the air. Its body is made  of cream.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-strawberry-rainbow-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-berry-rainbow-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-love-rainbow-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-star-rainbow-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-clover-rainbow-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-flower-rainbow-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-vanilla-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-ruby-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-matcha-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-mint-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-lemon-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_SHORT",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-salted-cream"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CCW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-ruby-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_CW_LONG",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-caramel-swirl"
+    },
+    {
+      "method": "pokeemerald:evolution_method:spin",
+      "parameterName": "SPIN_EITHER",
+      "targetSpeciesId": "pokeemerald:pokemon:alcremie-ribbon-rainbow-swirl"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:entrainment"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:baby_doll_eyes",
+    "pokeemerald:move:last_resort"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/milcery/milceryfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/milcery/milceryfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/milcery/milceryback",
+    "backShiny": "pokeemerald:pokemon:sprite/milcery/milcerybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/milcery/milceryicon",
+    "overworld": "pokeemerald:pokemon:sprite/milcery/milceryoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/milcery/milceryoverworldshiny"
+  }
+}

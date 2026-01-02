@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_alyssa",
+  "name": "route110 event script alyssa",
+  "description": "NPC interaction: route110 event script alyssa",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_alyssa.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

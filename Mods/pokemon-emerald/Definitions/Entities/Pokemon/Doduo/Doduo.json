@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:doduo",
+  "name": "Doduo",
+  "cryId": "pokeemerald:audio:sfx/cries/doduo",
+  "baseStats": {
+    "hp": 35,
+    "attack": 85,
+    "defense": 45,
+    "speed": 75,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:early_bird",
+    "pokeemerald:ability:tangled_feet"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:twin_bird",
+  "height": 14,
+  "weight": 392,
+  "description": "Even while eating or sleeping, one of the  heads remains always vigilant for any sign  of danger. When threatened, it flees at  over 60 miles per hour.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 31,
+      "targetSpeciesId": "pokeemerald:pokemon:dodrio"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:acupressure"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:endeavor",
+    "pokeemerald:move:mirror_move",
+    "pokeemerald:move:brave_bird",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:assurance"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/doduo/doduofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/doduo/doduofrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/doduo/doduofrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/doduo/doduofrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/doduo/doduoback",
+    "backShiny": "pokeemerald:pokemon:sprite/doduo/doduobackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/doduo/doduobackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/doduo/doduobackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/doduo/doduoicon",
+    "overworld": "pokeemerald:pokemon:sprite/doduo/doduooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/doduo/doduooverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

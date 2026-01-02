@@ -1,7 +1,0 @@
-{
-  "id": "base:behavior:movement/stationary",
-  "name": "Stationary Behavior",
-  "description": "NPC stays in one place, does not move",
-  "scriptId": "base:script:movement/stationary",
-  "parameterOverrides": {}
-}

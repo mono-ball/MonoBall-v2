@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:gliscor",
+  "name": "Gliscor",
+  "cryId": "pokeemerald:audio:sfx/cries/gliscor",
+  "baseStats": {
+    "hp": 75,
+    "attack": 95,
+    "defense": 125,
+    "speed": 95,
+    "spAttack": 45,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:sand_veil",
+    "pokeemerald:ability:poison_heal"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:fang_scorp",
+  "height": 20,
+  "weight": 425,
+  "description": "Gliscor observes prey while hanging  upside down from branches. Its flight is  soundless. When the chance presents  itself, it swoops!",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:crabhammer"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:swords_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gliscor/gliscorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gliscor/gliscorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gliscor/gliscorback",
+    "backShiny": "pokeemerald:pokemon:sprite/gliscor/gliscorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gliscor/gliscoricon",
+    "overworld": "pokeemerald:pokemon:sprite/gliscor/gliscoroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gliscor/gliscoroverworldshiny"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:krokorok",
+  "name": "Krokorok",
+  "cryId": "pokeemerald:audio:sfx/cries/krokorok",
+  "baseStats": {
+    "hp": 60,
+    "attack": 82,
+    "defense": 45,
+    "speed": 74,
+    "spAttack": 45,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 90,
+  "expYield": 123,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:moxie",
+    "pokeemerald:ability:anger_point"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:desert_croc",
+  "height": 10,
+  "weight": 334,
+  "description": "They move in groups of a few individuals.  Thanks to the special membrane covering  its eyes, it can see its surroundings  clearly, even in the dead of night.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:krookodile"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_trip"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/krokorok/krokorokfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/krokorok/krokorokfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/krokorok/krokorokback",
+    "backShiny": "pokeemerald:pokemon:sprite/krokorok/krokorokbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/krokorok/krokorokicon",
+    "overworld": "pokeemerald:pokemon:sprite/krokorok/krokorokoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/krokorok/krokorokoverworldshiny"
+  }
+}

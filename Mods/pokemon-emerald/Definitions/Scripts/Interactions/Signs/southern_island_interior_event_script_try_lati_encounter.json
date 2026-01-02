@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/southern_island_interior_event_script_try_lati_encounter",
+  "name": "southern island interior event script try lati encounter",
+  "description": "Sign script: southern island interior event script try lati encounter",
+  "scriptPath": "Scripts/Signs/southern_island_interior_event_script_try_lati_encounter.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

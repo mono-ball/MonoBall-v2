@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_irene",
+  "name": "route111 event script irene",
+  "description": "NPC interaction: route111 event script irene",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_irene.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

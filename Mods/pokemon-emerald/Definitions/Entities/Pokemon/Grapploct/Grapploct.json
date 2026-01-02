@@ -1,0 +1,132 @@
+{
+  "id": "pokeemerald:pokemon:grapploct",
+  "name": "Grapploct",
+  "cryId": "pokeemerald:audio:sfx/cries/grapploct",
+  "baseStats": {
+    "hp": 80,
+    "attack": 118,
+    "defense": 90,
+    "speed": 42,
+    "spAttack": 70,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 168,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:limber",
+    null,
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:jujitsu",
+  "height": 16,
+  "weight": 390,
+  "description": "A body made up of nothing but muscle makes  the grappling moves this Pok\u00E9mon performs  with its tentacles tremendously powerful.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:octolock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:octolock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:octazooka"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:submission"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:topsy_turvy"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:waterfall"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/grapploct/grapploctfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/grapploct/grapploctfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/grapploct/grapploctback",
+    "backShiny": "pokeemerald:pokemon:sprite/grapploct/grapploctbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/grapploct/grapplocticon",
+    "overworld": "pokeemerald:pokemon:sprite/grapploct/grapploctoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grapploct/grapploctoverworldshiny"
+  }
+}

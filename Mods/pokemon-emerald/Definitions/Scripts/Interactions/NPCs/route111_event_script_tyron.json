@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_tyron",
+  "name": "route111 event script tyron",
+  "description": "NPC interaction: route111 event script tyron",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_tyron.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

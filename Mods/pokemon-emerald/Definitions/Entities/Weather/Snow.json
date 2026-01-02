@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:weather:outdoor/snow",
+  "name": "Snow",
+  "description": "Snow weather condition",
+  "category": "outdoor",
+  "intensity": 1,
+  "affectsBattle": true,
+  "effectScriptId": "pokeemerald:script:weather/snow",
+  "graphicsId": "pokeemerald:weather:graphics/snow",
+  "screenTintOpacity": 0,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

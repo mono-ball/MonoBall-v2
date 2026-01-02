@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:battlescene:normal/aqua",
+  "name": "Aqua",
+  "description": "Aqua battle background",
+  "category": "team",
+  "backgroundTextureId": "pokeemerald:texture:battle/background/stadium",
+  "playerPlatformTextureId": "pokeemerald:texture:battle/platform/stadium_player",
+  "enemyPlatformTextureId": "pokeemerald:texture:battle/platform/stadium_enemy",
+  "paletteId": "pokeemerald:texture:battle/palette/aqua",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

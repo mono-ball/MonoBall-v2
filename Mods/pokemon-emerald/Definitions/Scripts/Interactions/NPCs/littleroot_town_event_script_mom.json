@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/littleroot_town_event_script_mom",
+  "name": "littleroot town event script mom",
+  "description": "NPC interaction: littleroot town event script mom",
+  "scriptPath": "Scripts/Interactions/NPCs/littleroot_town_event_script_mom.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_man",
+  "name": "trainer hill entrance event script man",
+  "description": "NPC interaction: trainer hill entrance event script man",
+  "scriptPath": "Scripts/Interactions/NPCs/trainer_hill_entrance_event_script_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

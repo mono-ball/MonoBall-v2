@@ -1,0 +1,128 @@
+{
+  "id": "pokeemerald:pokemon:tadbulb",
+  "name": "Tadbulb",
+  "cryId": "pokeemerald:audio:sfx/cries/tadbulb",
+  "baseStats": {
+    "hp": 61,
+    "attack": 31,
+    "defense": 41,
+    "speed": 45,
+    "spAttack": 59,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 190,
+  "expYield": 54,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:eletadpole",
+  "height": 3,
+  "weight": 4,
+  "description": "Tadbulb shakes its tail to  generate electricity. If it senses danger,  it will make its head blink on and off  to alert its allies.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:bellibolt"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:weather_ball"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:zap_cannon"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:muddy_water",
+    "pokeemerald:move:parabolic_charge",
+    "pokeemerald:move:soak"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tadbulb/tadbulbfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulbfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tadbulb/tadbulbback",
+    "backShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulbbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tadbulb/tadbulbicon",
+    "overworld": "pokeemerald:pokemon:sprite/tadbulb/tadbulboverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulboverworldshiny"
+  }
+}

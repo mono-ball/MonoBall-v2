@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:sprite:ui/interface/keypad-icons",
+  "name": "Keypad Icons",
+  "type": "Sprite",
+  "texturePath": "Graphics/UI/Interface/KeypadIcons.png",
+  "frameWidth": 16,
+  "frameHeight": 16,
+  "frameCount": 16
+}

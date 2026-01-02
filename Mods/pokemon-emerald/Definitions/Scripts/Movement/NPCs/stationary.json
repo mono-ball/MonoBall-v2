@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/stationary",
+  "name": "Stationary Movement Script",
+  "description": "NPC stays in place, may look around or change facing direction",
+  "scriptPath": "Scripts/Movement/NPCs/stationary.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

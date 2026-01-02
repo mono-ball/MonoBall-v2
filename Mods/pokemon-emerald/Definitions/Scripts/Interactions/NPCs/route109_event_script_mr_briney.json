@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_mr_briney",
+  "name": "route109 event script mr briney",
+  "description": "NPC interaction: route109 event script mr briney",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_mr_briney.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

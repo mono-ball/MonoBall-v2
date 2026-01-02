@@ -1,0 +1,132 @@
+{
+  "id": "pokeemerald:pokemon:swanna",
+  "name": "Swanna",
+  "cryId": "pokeemerald:audio:sfx/cries/swanna",
+  "baseStats": {
+    "hp": 75,
+    "attack": 87,
+    "defense": 63,
+    "speed": 98,
+    "spAttack": 87,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 166,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:big_pecks",
+    "pokeemerald:ability:hydration"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:white_bird",
+  "height": 13,
+  "weight": 242,
+  "description": "Despite their elegant appearance, they  can flap their wings strongly and fly for  thousands of miles. The one in the middle  is the leader of the flock.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:brave_bird"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:hurricane"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/swanna/swannafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/swanna/swannafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/swanna/swannaback",
+    "backShiny": "pokeemerald:pokemon:sprite/swanna/swannabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/swanna/swannaicon",
+    "overworld": "pokeemerald:pokemon:sprite/swanna/swannaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swanna/swannaoverworldshiny"
+  }
+}

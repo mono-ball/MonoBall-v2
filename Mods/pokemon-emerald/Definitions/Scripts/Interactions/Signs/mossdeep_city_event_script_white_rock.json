@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mossdeep_city_event_script_white_rock",
+  "name": "mossdeep city event script white rock",
+  "description": "Sign script: mossdeep city event script white rock",
+  "scriptPath": "Scripts/Signs/mossdeep_city_event_script_white_rock.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

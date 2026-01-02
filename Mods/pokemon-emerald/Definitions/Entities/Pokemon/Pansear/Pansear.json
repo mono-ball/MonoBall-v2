@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:pansear",
+  "name": "Pansear",
+  "cryId": "pokeemerald:audio:sfx/cries/pansear",
+  "baseStats": {
+    "hp": 50,
+    "attack": 53,
+    "defense": 48,
+    "speed": 64,
+    "spAttack": 53,
+    "spDefense": 48
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 190,
+  "expYield": 63,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gluttony",
+    null,
+    "pokeemerald:ability:blaze"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:high_temp",
+  "height": 6,
+  "weight": 110,
+  "description": "The fire within the tuft on its head can  reach up to 600\u00BAF. Very intelligent,  it roasts berries before eating them.  It likes to help people.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_FIRE_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:simisear"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:flame_burst"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:recycle"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:natural_gift"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:crunch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:covet",
+    "pokeemerald:move:low_kick",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:role_play",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:fire_spin",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:heat_wave",
+    "pokeemerald:move:disarming_voice",
+    "pokeemerald:move:belch",
+    "pokeemerald:move:flare_blitz"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pansear/pansearfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pansear/pansearfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pansear/pansearback",
+    "backShiny": "pokeemerald:pokemon:sprite/pansear/pansearbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pansear/pansearicon",
+    "overworld": "pokeemerald:pokemon:sprite/pansear/pansearoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pansear/pansearoverworldshiny"
+  }
+}

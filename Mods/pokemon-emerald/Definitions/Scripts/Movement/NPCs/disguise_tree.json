@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/disguise_tree",
+  "name": "Disguise (Tree) Movement Script",
+  "description": "NPC disguised as a tree (e.g., Sudowoodo)",
+  "scriptPath": "Scripts/Movement/NPCs/disguise_tree.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

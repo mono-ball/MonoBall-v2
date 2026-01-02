@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_event_script_camper",
+  "name": "verdanturf town event script camper",
+  "description": "NPC interaction: verdanturf town event script camper",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_event_script_camper.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

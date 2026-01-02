@@ -1,0 +1,176 @@
+{
+  "id": "pokeemerald:pokemon:sylveon",
+  "name": "Sylveon",
+  "cryId": "pokeemerald:audio:sfx/cries/sylveon",
+  "baseStats": {
+    "hp": 95,
+    "attack": 65,
+    "defense": 65,
+    "speed": 60,
+    "spAttack": 110,
+    "spDefense": 130
+  },
+  "types": [
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 45,
+  "expYield": 184,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:cute_charm",
+    "pokeemerald:ability:cute_charm",
+    "pokeemerald:ability:pixilate"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:intertwine",
+  "height": 10,
+  "weight": 235,
+  "description": "Its ribbonlike feelers give off an aura  that weakens hostility in its prey, causing  them to let down their guard. A moment  later, it pounces.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:skill_swap"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sylveon/sylveonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sylveon/sylveonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sylveon/sylveonback",
+    "backShiny": "pokeemerald:pokemon:sprite/sylveon/sylveonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sylveon/sylveonicon",
+    "overworld": "pokeemerald:pokemon:sprite/sylveon/sylveonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sylveon/sylveonoverworldshiny"
+  }
+}

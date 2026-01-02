@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_roxanne",
+  "name": "rustboro city gym event script roxanne",
+  "description": "NPC interaction: rustboro city gym event script roxanne",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_gym_event_script_roxanne.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

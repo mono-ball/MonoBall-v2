@@ -1,0 +1,22 @@
+{
+  "id": "pokeemerald:script/movement/npcs/walk",
+  "name": "Walk Movement Script",
+  "description": "NPC walks in a pattern or direction",
+  "scriptPath": "Scripts/Movement/NPCs/walk.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "rangeX",
+      "type": "int",
+      "defaultValue": 0,
+      "description": "Horizontal walk range"
+    },
+    {
+      "name": "rangeY",
+      "type": "int",
+      "defaultValue": 0,
+      "description": "Vertical walk range"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "id": "pokeemerald:pokemon:makuhita",
+  "name": "Makuhita",
+  "cryId": "pokeemerald:audio:sfx/cries/makuhita",
+  "baseStats": {
+    "hp": 72,
+    "attack": 60,
+    "defense": 30,
+    "speed": 25,
+    "spAttack": 20,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 180,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 63,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:guts",
+  "height": 10,
+  "weight": 864,
+  "description": "It loves to toughen up its body above all  else. If you hear quaking rumbles in a cave,  it is the sound of Makuhita undertaking  strenuous training.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:hariyama"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:arm_thrust"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:force_palm"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:belly_drum"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:seismic_toss"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:focus_punch"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:heavy_slam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:detect",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:cross_chop",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:wake_up_slap",
+    "pokeemerald:move:bullet_punch",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:chip_away"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/makuhita/makuhitafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/makuhita/makuhitafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/makuhita/makuhitaback",
+    "backShiny": "pokeemerald:pokemon:sprite/makuhita/makuhitabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/makuhita/makuhitaicon",
+    "overworld": "pokeemerald:pokemon:sprite/makuhita/makuhitaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/makuhita/makuhitaoverworldshiny"
+  }
+}

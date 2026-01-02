@@ -1,0 +1,188 @@
+{
+  "id": "pokeemerald:pokemon:abomasnow",
+  "name": "Abomasnow",
+  "cryId": "pokeemerald:audio:sfx/cries/abomasnow",
+  "baseStats": {
+    "hp": 90,
+    "attack": 92,
+    "defense": 75,
+    "speed": 60,
+    "spAttack": 92,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:snow_warning",
+    null,
+    "pokeemerald:ability:soundproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:frost_tree",
+  "height": 22,
+  "weight": 1355,
+  "description": "It lives a quiet life on mountains that  are perpetually covered in snow. It hides  itself by whipping up blizzards.  It is also known as \u201CThe Ice Monster.\u201D",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:ice_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aurora_veil"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/abomasnow/abomasnowback",
+    "backShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/abomasnow/abomasnowicon",
+    "overworld": "pokeemerald:pokemon:sprite/abomasnow/abomasnowoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:abomasnow/mega",
+      "name": "Abomasnow",
+      "cryId": "pokeemerald:audio:sfx/cries/abomasnow-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 90,
+        "attack": 132,
+        "defense": 105,
+        "speed": 30,
+        "spAttack": 132,
+        "spDefense": 105
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:ice"
+      ],
+      "abilities": [
+        "pokeemerald:ability:snow_warning",
+        "pokeemerald:ability:snow_warning",
+        "pokeemerald:ability:snow_warning"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:abomasite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

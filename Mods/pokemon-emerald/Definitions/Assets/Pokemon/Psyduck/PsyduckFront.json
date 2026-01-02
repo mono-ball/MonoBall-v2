@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/psyduck/psyduckfront",
+  "name": "Psyduckfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Psyduck/PsyduckFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

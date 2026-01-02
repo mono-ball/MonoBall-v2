@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:whirlipede",
+  "name": "Whirlipede",
+  "cryId": "pokeemerald:audio:sfx/cries/whirlipede",
+  "baseStats": {
+    "hp": 40,
+    "attack": 55,
+    "defense": 99,
+    "speed": 47,
+    "spAttack": 40,
+    "spDefense": 79
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 120,
+  "expYield": 126,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:speed_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:curlipede",
+  "height": 12,
+  "weight": 585,
+  "description": "Storing energy for evolution, it sits.  But when attacked, it spins its body at  high speed like a wheel and then  crashes furiously into its opponent.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:scolipede"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:venom_drench"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/whirlipede/whirlipedefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipedefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeback",
+    "backShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipedebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeicon",
+    "overworld": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeoverworldshiny"
+  }
+}

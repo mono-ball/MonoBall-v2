@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_sailor1",
+  "name": "slateport city event script sailor1",
+  "description": "NPC interaction: slateport city event script sailor1",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_sailor1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

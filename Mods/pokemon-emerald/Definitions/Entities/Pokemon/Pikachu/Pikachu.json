@@ -1,0 +1,654 @@
+{
+  "id": "pokeemerald:pokemon:pikachu",
+  "name": "Pikachu",
+  "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+  "baseStats": {
+    "hp": 35,
+    "attack": 55,
+    "speed": 90,
+    "spAttack": 50
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:static",
+    null,
+    "pokeemerald:ability:lightning_rod"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:mouse",
+  "height": 4,
+  "weight": 60,
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:raichu"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:raichu-alola"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:iron_tail"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:thunderbolt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pikachu/pikachufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachufrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/pikachu/pikachufrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pikachu/pikachufrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/pikachu/pikachuback",
+    "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/pikachu/pikachubackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuicon",
+    "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/starter",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "starter",
+      "baseStats": {
+        "hp": 45,
+        "attack": 80,
+        "defense": 50,
+        "speed": 120,
+        "spAttack": 75,
+        "spDefense": 60
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachustarterfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachustarterfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachustarterback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachustarterbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachustartericon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachustarteroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachustarteroverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/gmax",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/world",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "world",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuworldfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuworldfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuworldback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuworldbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuworldicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuworldoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuworldoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/partner",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "partner",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachupartnericon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachupartneroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupartneroverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/alola",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachualolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachualolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachualolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachualolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachualolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachualolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachualolaoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/kalos",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "kalos",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachukalosfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachukalosfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachukalosback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachukalosbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachukalosicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachukalosoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachukalosoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/unova",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "unova",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuunovafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuunovafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuunovabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/sinnoh",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "sinnoh",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/hoenn",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "hoenn",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/original",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "original",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginaloverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginaloverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/libre",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "libre",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachulibrefront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachulibrefrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachulibreback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachulibrebackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachulibreicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachulibreoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachulibreoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/phd",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "phd",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuphdfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuphdfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuphdback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuphdbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuphdicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuphdoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuphdoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/pop-star",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "pop-star",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachupopstaricon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachupopstaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupopstaroverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/belle",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "belle",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachubellefront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubellefrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachubelleback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubellebackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachubelleicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachubelleoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubelleoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/rock-star",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "rock-star",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachurockstaricon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachurockstaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachurockstaroverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:pikachu/cosplay",
+      "name": "Pikachu",
+      "cryId": "pokeemerald:audio:sfx/cries/pikachu",
+      "formKey": "cosplay",
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "speed": 90,
+        "spAttack": 50
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:static",
+        null,
+        "pokeemerald:ability:lightning_rod"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayback",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachucosplaybackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayicon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayoverworldshiny"
+      }
+    }
+  ]
+}

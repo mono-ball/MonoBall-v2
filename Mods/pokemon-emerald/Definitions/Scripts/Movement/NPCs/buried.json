@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/buried",
+  "name": "Buried Movement Script",
+  "description": "NPC is hidden underground (e.g., Diglett encounters)",
+  "scriptPath": "Scripts/Movement/NPCs/buried.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

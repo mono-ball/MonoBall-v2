@@ -1,0 +1,186 @@
+{
+  "id": "pokeemerald:pokemon:drampa",
+  "name": "Drampa",
+  "cryId": "pokeemerald:audio:sfx/cries/drampa",
+  "baseStats": {
+    "hp": 78,
+    "attack": 60,
+    "defense": 85,
+    "speed": 36,
+    "spAttack": 135,
+    "spDefense": 91
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 70,
+  "expYield": 170,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:berserk",
+    "pokeemerald:ability:sap_sipper",
+    "pokeemerald:ability:cloud_nine"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:placid",
+  "height": 30,
+  "weight": 1850,
+  "description": "This Pok\u00E9mon is friendly to people and  loves children most of all. It comes from  deep in the mountains to play with  children it likes in town.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:fly"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:outrage"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:hurricane",
+    "pokeemerald:move:dragon_rush",
+    "pokeemerald:move:razor_wind",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:play_rough"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/drampa/drampafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/drampa/drampafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/drampa/drampaback",
+    "backShiny": "pokeemerald:pokemon:sprite/drampa/drampabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/drampa/drampaicon",
+    "overworld": "pokeemerald:pokemon:sprite/drampa/drampaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drampa/drampaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:drampa/mega",
+      "name": "Drampa",
+      "cryId": "pokeemerald:audio:sfx/cries/drampa",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 78,
+        "attack": 85,
+        "defense": 110,
+        "speed": 36,
+        "spAttack": 160,
+        "spDefense": 116
+      },
+      "types": [
+        "pokeemerald:type:normal",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:berserk",
+        "pokeemerald:ability:sap_sipper",
+        "pokeemerald:ability:cloud_nine"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/drampa/drampamegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/drampa/drampamegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/drampa/drampamegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/drampa/drampamegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/drampa/drampamegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/drampa/drampamegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/drampa/drampamegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:drampanite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

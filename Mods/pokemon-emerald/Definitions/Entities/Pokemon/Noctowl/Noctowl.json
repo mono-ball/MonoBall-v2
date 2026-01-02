@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:noctowl",
+  "name": "Noctowl",
+  "cryId": "pokeemerald:audio:sfx/cries/noctowl",
+  "baseStats": {
+    "hp": 100,
+    "attack": 50,
+    "defense": 50,
+    "speed": 70,
+    "spDefense": 96
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 90,
+  "expYield": 158,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:tinted_lens"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:owl",
+  "height": 16,
+  "weight": 408,
+  "description": "It unfailingly catches prey in darkness.  Noctowl owe their success to superior  vision that allows them to see in minimal  light, and to their supple and silent wings.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sky_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/noctowl/noctowlfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/noctowl/noctowlfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/noctowl/noctowlback",
+    "backShiny": "pokeemerald:pokemon:sprite/noctowl/noctowlbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/noctowl/noctowlicon",
+    "overworld": "pokeemerald:pokemon:sprite/noctowl/noctowloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/noctowl/noctowloverworldshiny"
+  }
+}

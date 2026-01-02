@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/common_event_script_show_pokemon_center_sign",
+  "name": "common event script show pokemon center sign",
+  "description": "Sign script: common event script show pokemon center sign",
+  "scriptPath": "Scripts/Signs/common_event_script_show_pokemon_center_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

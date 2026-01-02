@@ -1,0 +1,178 @@
+{
+  "id": "pokeemerald:pokemon:kyogre",
+  "name": "Kyogre",
+  "cryId": "pokeemerald:audio:sfx/cries/kyogre",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 90,
+    "speed": 90,
+    "spAttack": 150,
+    "spDefense": 140
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 3,
+  "expYield": 335,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:drizzle",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:sea_basin",
+  "height": 45,
+  "weight": 3520,
+  "description": "Kyogre has appeared in mythology as the  creator of the sea. After long years of  feuding with Groudon, it took to sleep at  the bottom of the sea.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:origin_pulse"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:sheer_cold"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 81,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 90,
+      "moveId": "pokeemerald:move:water_spout"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kyogre/kyogrefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kyogre/kyogrefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kyogre/kyogreback",
+    "backShiny": "pokeemerald:pokemon:sprite/kyogre/kyogrebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kyogre/kyogreicon",
+    "overworld": "pokeemerald:pokemon:sprite/kyogre/kyogreoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kyogre/kyogreoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:kyogre/primal",
+      "name": "Kyogre",
+      "cryId": "pokeemerald:audio:sfx/cries/kyogre-primal",
+      "formKey": "primal",
+      "baseStats": {
+        "hp": 100,
+        "attack": 150,
+        "defense": 90,
+        "speed": 90,
+        "spAttack": 180,
+        "spDefense": 160
+      },
+      "types": [
+        "pokeemerald:type:water"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/kyogre/kyogreprimalfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/kyogre/kyogreprimalfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/kyogre/kyogreprimalback",
+        "backShiny": "pokeemerald:pokemon:sprite/kyogre/kyogreprimalbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/kyogre/kyogreprimalicon",
+        "overworld": "pokeemerald:pokemon:sprite/kyogre/kyogreprimaloverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kyogre/kyogreprimaloverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:primal",
+      "transformItem": "pokeemerald:item:blue_orb",
+      "transformMethod": "pokeemerald:transform_method:primal_reversion"
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

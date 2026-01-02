@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:trapinch",
+  "name": "Trapinch",
+  "cryId": "pokeemerald:audio:sfx/cries/trapinch",
+  "baseStats": {
+    "hp": 45,
+    "attack": 100,
+    "defense": 45,
+    "speed": 10,
+    "spAttack": 45,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:arena_trap",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:ant_pit",
+  "height": 7,
+  "weight": 150,
+  "description": "Its big jaws crunch through boulders.  Because its head is so big, it has a hard  time getting back upright if it tips over  onto its back.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:vibrava"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:fissure"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:focus_energy",
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:gust",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:earth_power",
+    "pokeemerald:move:bug_bite",
+    "pokeemerald:move:signal_beam"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/trapinch/trapinchfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/trapinch/trapinchfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/trapinch/trapinchback",
+    "backShiny": "pokeemerald:pokemon:sprite/trapinch/trapinchbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/trapinch/trapinchicon",
+    "overworld": "pokeemerald:pokemon:sprite/trapinch/trapinchoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/trapinch/trapinchoverworldshiny"
+  }
+}

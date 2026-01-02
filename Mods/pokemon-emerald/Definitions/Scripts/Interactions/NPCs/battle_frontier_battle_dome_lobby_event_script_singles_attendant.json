@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_dome_lobby_event_script_singles_attendant",
+  "name": "battle frontier battle dome lobby event script singles attendant",
+  "description": "NPC interaction: battle frontier battle dome lobby event script singles attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_dome_lobby_event_script_singles_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

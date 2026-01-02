@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:shellder",
+  "name": "Shellder",
+  "cryId": "pokeemerald:audio:sfx/cries/shellder",
+  "baseStats": {
+    "hp": 30,
+    "attack": 65,
+    "defense": 100,
+    "speed": 40,
+    "spAttack": 45
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:skill_link",
+    "pokeemerald:ability:overcoat"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:bivalve",
+  "height": 3,
+  "weight": 40,
+  "description": "At night, it burrows a hole in the seafloor  with its broad tongue to make a place to  sleep. While asleep, it closes its shell,  but leaves its tongue hanging out.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_WATER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:cloyster"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:bubble_beam",
+    "pokeemerald:move:take_down",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:icicle_spear",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:rock_blast",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:twineedle"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shellder/shellderfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shellder/shellderfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/shellder/shellderback",
+    "backShiny": "pokeemerald:pokemon:sprite/shellder/shellderbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/shellder/shelldericon",
+    "overworld": "pokeemerald:pokemon:sprite/shellder/shellderoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shellder/shellderoverworldshiny"
+  }
+}

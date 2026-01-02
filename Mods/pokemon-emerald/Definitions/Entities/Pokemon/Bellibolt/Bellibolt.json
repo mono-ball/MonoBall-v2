@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:bellibolt",
+  "name": "Bellibolt",
+  "cryId": "pokeemerald:audio:sfx/cries/bellibolt",
+  "baseStats": {
+    "hp": 109,
+    "attack": 64,
+    "defense": 91,
+    "speed": 45,
+    "spAttack": 103,
+    "spDefense": 83
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 50,
+  "expYield": 173,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:electromorphosis",
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:elefrog",
+  "height": 12,
+  "weight": 1130,
+  "description": "When this Pok\u00E9mon expands and  contracts its wobbly body, the belly-  button dynamo in its stomach  produces a huge amount of electricity.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:slack_off"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:weather_ball"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:zap_cannon"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bellibolt/belliboltfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bellibolt/belliboltfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bellibolt/belliboltback",
+    "backShiny": "pokeemerald:pokemon:sprite/bellibolt/belliboltbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bellibolt/bellibolticon",
+    "overworld": "pokeemerald:pokemon:sprite/bellibolt/belliboltoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bellibolt/belliboltoverworldshiny"
+  }
+}

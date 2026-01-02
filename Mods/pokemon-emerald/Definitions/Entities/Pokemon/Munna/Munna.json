@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:munna",
+  "name": "Munna",
+  "cryId": "pokeemerald:audio:sfx/cries/munna",
+  "baseStats": {
+    "hp": 76,
+    "attack": 25,
+    "defense": 45,
+    "speed": 24,
+    "spAttack": 67,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 190,
+  "expYield": 58,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:forewarn",
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:dream_eater",
+  "height": 6,
+  "weight": 233,
+  "description": "This Pok\u00E9mon appears before people  and Pok\u00E9mon who are having nightmares  and eats those dreams. Munna always  float in the air.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_MOON_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:musharna"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:magic_coat"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:dream_eater"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:wonder_room"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:secret_power",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:magic_coat",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:sonic_boom",
+    "pokeemerald:move:healing_wish"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/munna/munnafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/munna/munnafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/munna/munnaback",
+    "backShiny": "pokeemerald:pokemon:sprite/munna/munnabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/munna/munnaicon",
+    "overworld": "pokeemerald:pokemon:sprite/munna/munnaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/munna/munnaoverworldshiny"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "id": "pokeemerald:pokemon:metagross",
+  "name": "Metagross",
+  "cryId": "pokeemerald:audio:sfx/cries/metagross",
+  "baseStats": {
+    "hp": 80,
+    "attack": 135,
+    "defense": 130,
+    "speed": 70,
+    "spAttack": 95,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 3,
+  "expYield": 300,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:clear_body",
+    null,
+    "pokeemerald:ability:light_metal"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:iron_leg",
+  "height": 16,
+  "weight": 5500,
+  "description": "Metagross has four brains that are joined  by a complex neural network. As a result of  integration, this Pok\u00E9mon is smarter than  a supercomputer.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bullet_punch"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:meteor_mash"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 82,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/metagross/metagrossfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/metagross/metagrossfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/metagross/metagrossback",
+    "backShiny": "pokeemerald:pokemon:sprite/metagross/metagrossbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/metagross/metagrossicon",
+    "overworld": "pokeemerald:pokemon:sprite/metagross/metagrossoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/metagross/metagrossoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:metagross/mega",
+      "name": "Metagross",
+      "cryId": "pokeemerald:audio:sfx/cries/metagross-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 145,
+        "defense": 150,
+        "speed": 110,
+        "spAttack": 105,
+        "spDefense": 110
+      },
+      "types": [
+        "pokeemerald:type:steel",
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:tough_claws",
+        "pokeemerald:ability:tough_claws",
+        "pokeemerald:ability:tough_claws"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/metagross/metagrossmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/metagross/metagrossmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/metagross/metagrossmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/metagross/metagrossmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/metagross/metagrossmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/metagross/metagrossmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/metagross/metagrossmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:metagrossite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

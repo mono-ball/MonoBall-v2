@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:torterra",
+  "name": "Torterra",
+  "cryId": "pokeemerald:audio:sfx/cries/torterra",
+  "baseStats": {
+    "hp": 95,
+    "attack": 109,
+    "defense": 105,
+    "speed": 56,
+    "spAttack": 75,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 45,
+  "expYield": 263,
+  "evYield": {
+    "attack": 2,
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:shell_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:continent",
+  "height": 22,
+  "weight": 3100,
+  "description": "Some Pok\u00E9mon are born on a Torterra\u0027s  back and spend their entire life there.  Ancient people imagined that beneath   the ground, a gigantic Torterra dwelled.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:leaf_storm"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:headlong_rush"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/torterra/torterrafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/torterra/torterrafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/torterra/torterraback",
+    "backShiny": "pokeemerald:pokemon:sprite/torterra/torterrabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/torterra/torterraicon",
+    "overworld": "pokeemerald:pokemon:sprite/torterra/torterraoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/torterra/torterraoverworldshiny"
+  }
+}

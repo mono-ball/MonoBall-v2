@@ -1,0 +1,294 @@
+{
+  "id": "pokeemerald:map:hoenn/oldale_town",
+  "name": "OldaleTown",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:town",
+  "width": 20,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/oldale",
+  "weatherId": "pokeemerald:weather:outdoor/sunny",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/oldale_town",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": {
+    "north": {
+      "mapId": "pokeemerald:map:hoenn/route103",
+      "offset": 0
+    },
+    "south": {
+      "mapId": "pokeemerald:map:hoenn/route101",
+      "offset": 0
+    },
+    "west": {
+      "mapId": "pokeemerald:map:hoenn/route102",
+      "offset": 0
+    }
+  },
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/oldale_town/ground",
+      "name": "Ground",
+      "width": 20,
+      "height": 20,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAAAAAABxAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHoAAAB8AACA1AAAANUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAaQEAAHcBAAB5AQAAdAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHoAAAB8AAAAfQAAAH4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGkBAAB3AQAAeQEAAHQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/oldale_town/objects",
+      "name": "Objects",
+      "width": 20,
+      "height": 20,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "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"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/oldale_town/overhead",
+      "name": "Overhead",
+      "width": 20,
+      "height": 20,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwMYAAADIAAAAyAAAAGgBAAACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAagEAAGsBAABrAQAAbAEAAAIAAMACAADAAgAAwAIAAMACAADAywAAAAIAAMACAADAywAAgAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAAAAABtAQAAbgEAAG4BAABvAQAAAgAAwAIAAMACAADAAgAAwAIAAMDQAAAAAgAAwAIAAMDQAACAAgAAwAwAAAALAAAAAgAAwAIAAMAAAAAAAgAAwHABAAAAAAAAcwEAAHUBAAACAADAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMAMAAAACwAAAAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMB4AQDAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwH0BAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAIAAMACAADAAgAAwGwAAABtAAAAfwEAAIABAAACAADAAgAAwAIAAMACAADAAgAAwGoBAABrAQAAawEAAGwBAAAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAcAAAAHEAAABxAACAcwAAAAIAAMACAADAAgAAwAIAAMACAADAbQEAAG4BAABuAQAAbwEAAAIAAMACAADADAAAAAsAAAAMAAAACwAAAAIAAMB1AAAAdwAAAHcAAIB1AACAAgAAwAIAAMACAADAAgAAwAIAAMBwAQAAAAAAAHMBAAB1AQAADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAwAAAALAAAADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAAggEAAAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAACwAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/petalburg"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/oldale_town/warp_to_oldale_town_house1",
+      "name": "Warp to oldale_town_house1",
+      "x": 80,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/oldale_town_house1",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/oldale_town/warp_to_oldale_town_house2",
+      "name": "Warp to oldale_town_house2",
+      "x": 240,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/oldale_town_house2",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/oldale_town/warp_to_oldale_town_pokemon_center_1f",
+      "name": "Warp to oldale_town_pokemon_center_1f",
+      "x": 96,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/oldale_town_pokemon_center_1f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/oldale_town/warp_to_oldale_town_mart",
+      "name": "Warp to oldale_town_mart",
+      "x": 224,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/oldale_town_mart",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [
+    {
+      "id": "pokeemerald:trigger:hoenn/oldale_town/trigger_var_oldale_town_state_0",
+      "name": "Trigger: VAR_OLDALE_TOWN_STATE == 0",
+      "x": 0,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_oldale_town_state",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/oldale_town_event_script_blocked_path",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/oldale_town/trigger_var_oldale_rival_state_1",
+      "name": "Trigger: VAR_OLDALE_RIVAL_STATE == 1",
+      "x": 128,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_oldale_rival_state",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/oldale_town_event_script_rival_trigger1",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/oldale_town/trigger_var_oldale_rival_state_1",
+      "name": "Trigger: VAR_OLDALE_RIVAL_STATE == 1",
+      "x": 144,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_oldale_rival_state",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/oldale_town_event_script_rival_trigger2",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/oldale_town/trigger_var_oldale_rival_state_1",
+      "name": "Trigger: VAR_OLDALE_RIVAL_STATE == 1",
+      "x": 160,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_oldale_rival_state",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/oldale_town_event_script_rival_trigger3",
+      "elevation": 3
+    }
+  ],
+  "interactions": [
+    {
+      "id": "pokeemerald:interaction:hoenn/oldale_town/sign_oldaletowneventscripttownsign",
+      "name": "Sign: OldaleTown_EventScript_TownSign",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/oldale_town_event_script_town_sign",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/oldale_town/sign_commoneventscriptshowpokemoncentersign",
+      "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
+      "x": 112,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemon_center_sign",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/oldale_town/sign_commoneventscriptshowpokemartsign",
+      "name": "Sign: Common_EventScript_ShowPokemartSign",
+      "x": 240,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemart_sign",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/oldale_town/sign_commoneventscriptshowpokemoncentersign",
+      "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
+      "x": 128,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemon_center_sign",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/oldale_town/sign_commoneventscriptshowpokemartsign",
+      "name": "Sign: Common_EventScript_ShowPokemartSign",
+      "x": 256,
+      "y": 96,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemart_sign",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/oldale_town/npc_0",
+      "name": "NPC_0",
+      "x": 256,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:npcs/girl3",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/oldale_town_event_script_girl",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/oldale_town/localid_oldale_mart_employee",
+      "name": "LOCALID_OLDALE_MART_EMPLOYEE",
+      "x": 208,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/martemployee",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/oldale_town_event_script_mart_employee",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/oldale_town/localid_footprints_man",
+      "name": "LOCALID_FOOTPRINTS_MAN",
+      "x": 128,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/maniac",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/oldale_town_event_script_footprints_man",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/oldale_town/localid_oldale_rival",
+      "name": "LOCALID_OLDALE_RIVAL",
+      "x": 176,
+      "y": 304,
+      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/oldale_town_event_script_rival",
+      "visibilityFlag": "pokeemerald:flag:visibility/oldale_town_rival",
+      "facingDirection": "up",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/oldale_town/elevation_0",
+      "name": "Collision_0",
+      "width": 20,
+      "height": 20,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEAAAAAAQEBAQEBAQEBAQEBAQEBAQAAAAABAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAABAQEBAQEBAQAAAAAAAAAAAAAAAAEBAQEBAQAAAAAAAAAAAAAAAQEBAQABAQEBAAABAQEBAAAAAAABAQEBAAEBAQEAAAEBAQEAAAAAAAEBAQEAAQEBAQAAAQEBAQAAAAAAAAAAAAABAQEBAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAQEBAQAAAAAAAAAAAAAAAAAAAAABAQEBAAAAAQEBAQAAAAAAAQEBAQEBAQEAAAABAQEBAAAAAAABAQEBAQEBAQEBAAEBAQEAAAAAAAEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAEBAQEBAQAAAAAAAAAAAAAAAAEBAQEBAQEBAAAAAAAAAAAAAAAAAQEBAQ=="
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "pokeemerald:battlescene:normal/glacia",
+  "name": "Glacia",
+  "description": "Glacia battle background",
+  "category": "elite_four",
+  "backgroundTextureId": "pokeemerald:texture:battle/background/stadium",
+  "playerPlatformTextureId": "pokeemerald:texture:battle/platform/stadium_player",
+  "enemyPlatformTextureId": "pokeemerald:texture:battle/platform/stadium_enemy",
+  "paletteId": "pokeemerald:texture:battle/palette/elite_glacia",
+  "defaultMusicId": "pokeemerald:audio:music/battle/elite_four",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_lounge5_event_script_nature_girl",
+  "name": "battle frontier lounge5 event script nature girl",
+  "description": "NPC interaction: battle frontier lounge5 event script nature girl",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_lounge5_event_script_nature_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

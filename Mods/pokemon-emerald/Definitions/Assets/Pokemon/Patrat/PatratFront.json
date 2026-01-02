@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/patrat/patratfront",
+  "name": "Patratfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Patrat/PatratFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

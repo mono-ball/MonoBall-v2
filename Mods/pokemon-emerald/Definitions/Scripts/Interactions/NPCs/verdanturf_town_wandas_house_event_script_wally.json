@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_wandas_house_event_script_wally",
+  "name": "verdanturf town wandas house event script wally",
+  "description": "NPC interaction: verdanturf town wandas house event script wally",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_wandas_house_event_script_wally.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

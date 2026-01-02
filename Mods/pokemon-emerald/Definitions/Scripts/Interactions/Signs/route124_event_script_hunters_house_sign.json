@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route124_event_script_hunters_house_sign",
+  "name": "route124 event script hunters house sign",
+  "description": "Sign script: route124 event script hunters house sign",
+  "scriptPath": "Scripts/Signs/route124_event_script_hunters_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

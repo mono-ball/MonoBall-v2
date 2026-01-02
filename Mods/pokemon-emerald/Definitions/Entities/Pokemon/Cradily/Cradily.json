@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:cradily",
+  "name": "Cradily",
+  "cryId": "pokeemerald:audio:sfx/cries/cradily",
+  "baseStats": {
+    "hp": 86,
+    "attack": 81,
+    "defense": 97,
+    "speed": 43,
+    "spAttack": 81,
+    "spDefense": 107
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 173,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:suction_cups",
+    null,
+    "pokeemerald:ability:storm_drain"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:barnacle",
+  "height": 15,
+  "weight": 604,
+  "description": "It drags its heavy body along the  seafloor. It makes its nest in the shallows  of warm seas. Cradily can be seen on  beaches when the tide goes out.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:energy_ball"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cradily/cradilyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cradily/cradilyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cradily/cradilyback",
+    "backShiny": "pokeemerald:pokemon:sprite/cradily/cradilybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cradily/cradilyicon",
+    "overworld": "pokeemerald:pokemon:sprite/cradily/cradilyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cradily/cradilyoverworldshiny"
+  }
+}

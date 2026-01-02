@@ -1,0 +1,200 @@
+{
+  "id": "pokeemerald:pokemon:latias",
+  "name": "Latias",
+  "cryId": "pokeemerald:audio:sfx/cries/latias",
+  "baseStats": {
+    "hp": 80,
+    "attack": 80,
+    "defense": 90,
+    "speed": 110,
+    "spAttack": 110,
+    "spDefense": 130
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 3,
+  "expYield": 300,
+  "evYield": {
+    "spDefense": 3
+  },
+  "genderRatio": 254,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 90,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:eon",
+  "height": 14,
+  "weight": 400,
+  "description": "They make a small herd of only several  members. They rarely make contact with  people or other Pok\u00E9mon. They disappear  if they sense enemies.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:mist_ball"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:reflect_type"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:healing_wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/latias/latiasfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/latias/latiasfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/latias/latiasback",
+    "backShiny": "pokeemerald:pokemon:sprite/latias/latiasbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/latias/latiasicon",
+    "overworld": "pokeemerald:pokemon:sprite/latias/latiasoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/latias/latiasoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:latias/mega",
+      "name": "Latias",
+      "cryId": "pokeemerald:audio:sfx/cries/latias-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 120,
+        "speed": 110,
+        "spAttack": 140,
+        "spDefense": 150
+      },
+      "types": [
+        "pokeemerald:type:dragon",
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        "pokeemerald:ability:levitate",
+        "pokeemerald:ability:levitate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/latias/latiasmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/latias/latiasmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/latias/latiasmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/latias/latiasmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/latias/latiasmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/latias/latiasmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/latias/latiasmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:latiasite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ],
+  "isLegendary": true
+}

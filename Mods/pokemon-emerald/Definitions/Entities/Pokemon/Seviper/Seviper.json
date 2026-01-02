@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:seviper",
+  "name": "Seviper",
+  "cryId": "pokeemerald:audio:sfx/cries/seviper",
+  "baseStats": {
+    "hp": 73,
+    "attack": 100,
+    "defense": 60,
+    "speed": 65,
+    "spAttack": 100,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "attack": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:shed_skin",
+    null,
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:fang_snake",
+  "height": 27,
+  "weight": 525,
+  "description": "Seviper and Zangoose are eternal rivals.  It counters a Zangoose\u0027s dazzling agility  with its swordlike tail, which also oozes  a horrible poison.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:assurance",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:wring_out",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:final_gambit"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/seviper/seviperfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/seviper/seviperfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/seviper/seviperback",
+    "backShiny": "pokeemerald:pokemon:sprite/seviper/seviperbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/seviper/sevipericon",
+    "overworld": "pokeemerald:pokemon:sprite/seviper/seviperoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/seviper/seviperoverworldshiny"
+  }
+}

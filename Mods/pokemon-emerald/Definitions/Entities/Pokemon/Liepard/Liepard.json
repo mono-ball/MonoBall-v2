@@ -1,0 +1,125 @@
+{
+  "id": "pokeemerald:pokemon:liepard",
+  "name": "Liepard",
+  "cryId": "pokeemerald:audio:sfx/cries/liepard",
+  "baseStats": {
+    "hp": 64,
+    "attack": 88,
+    "defense": 50,
+    "speed": 106,
+    "spAttack": 88,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 90,
+  "expYield": 156,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:limber",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:prankster"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:cruel",
+  "height": 11,
+  "weight": 375,
+  "description": "Many Trainers are drawn to their  beautiful form and fur. These Pok\u00E9mon  vanish and appear unexpectedly.  They run silently in the night.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/liepard/liepardfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/liepard/liepardfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/liepard/liepardback",
+    "backShiny": "pokeemerald:pokemon:sprite/liepard/liepardbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/liepard/liepardicon",
+    "overworld": "pokeemerald:pokemon:sprite/liepard/liepardoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/liepard/liepardoverworldshiny"
+  }
+}

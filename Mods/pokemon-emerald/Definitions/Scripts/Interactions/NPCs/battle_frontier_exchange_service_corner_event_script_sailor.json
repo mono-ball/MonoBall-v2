@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_sailor",
+  "name": "battle frontier exchange service corner event script sailor",
+  "description": "NPC interaction: battle frontier exchange service corner event script sailor",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_exchange_service_corner_event_script_sailor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

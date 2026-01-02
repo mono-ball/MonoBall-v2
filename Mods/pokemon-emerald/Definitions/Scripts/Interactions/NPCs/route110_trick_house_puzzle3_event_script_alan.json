@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle3_event_script_alan",
+  "name": "route110 trick house puzzle3 event script alan",
+  "description": "NPC interaction: route110 trick house puzzle3 event script alan",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle3_event_script_alan.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

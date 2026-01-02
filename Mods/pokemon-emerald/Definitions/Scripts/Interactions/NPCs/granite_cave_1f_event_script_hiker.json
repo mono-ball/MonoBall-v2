@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/granite_cave_1f_event_script_hiker",
+  "name": "granite cave 1f event script hiker",
+  "description": "NPC interaction: granite cave 1f event script hiker",
+  "scriptPath": "Scripts/Interactions/NPCs/granite_cave_1f_event_script_hiker.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

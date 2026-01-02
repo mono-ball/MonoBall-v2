@@ -1,0 +1,198 @@
+{
+  "id": "pokeemerald:pokemon:heracross",
+  "name": "Heracross",
+  "cryId": "pokeemerald:audio:sfx/cries/heracross",
+  "baseStats": {
+    "hp": 80,
+    "attack": 125,
+    "defense": 75,
+    "speed": 85,
+    "spAttack": 40,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:single_horn",
+  "height": 15,
+  "weight": 540,
+  "description": "They gather in forests seeking the sweet  sap of trees. It is completely clad in a  steel-hard shell. It is proud of its horn,  which it uses to fling foes.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:arm_thrust"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:throat_chop"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:harden",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:megahorn",
+    "pokeemerald:move:rock_blast"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/heracross/heracrossfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/heracross/heracrossfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/heracross/heracrossfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/heracross/heracrossfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/heracross/heracrossback",
+    "backShiny": "pokeemerald:pokemon:sprite/heracross/heracrossbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/heracross/heracrossbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/heracross/heracrossbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/heracross/heracrossicon",
+    "overworld": "pokeemerald:pokemon:sprite/heracross/heracrossoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/heracross/heracrossoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:heracross/mega",
+      "name": "Heracross",
+      "cryId": "pokeemerald:audio:sfx/cries/heracross-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 185,
+        "defense": 115,
+        "speed": 75,
+        "spAttack": 40,
+        "spDefense": 105
+      },
+      "types": [
+        "pokeemerald:type:bug",
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:skill_link",
+        "pokeemerald:ability:skill_link",
+        "pokeemerald:ability:skill_link"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/heracross/heracrossmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/heracross/heracrossmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/heracross/heracrossmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/heracross/heracrossmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/heracross/heracrossmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/heracross/heracrossmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/heracross/heracrossmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:heracronite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

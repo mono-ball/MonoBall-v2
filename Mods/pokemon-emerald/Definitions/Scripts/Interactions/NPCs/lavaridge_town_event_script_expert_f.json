@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_event_script_expert_f",
+  "name": "lavaridge town event script expert f",
+  "description": "NPC interaction: lavaridge town event script expert f",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_event_script_expert_f.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

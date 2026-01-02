@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:spidops",
+  "name": "Spidops",
+  "cryId": "pokeemerald:audio:sfx/cries/spidops",
+  "baseStats": {
+    "hp": 60,
+    "attack": 79,
+    "defense": 92,
+    "speed": 35,
+    "spAttack": 52,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 120,
+  "expYield": 141,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:insomnia",
+    null,
+    "pokeemerald:ability:stakeout"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:trap",
+  "height": 10,
+  "weight": 165,
+  "description": "It clings to branches and ceilings  using its threads and moves without  a sound. It takes out its prey  before the prey even notices it.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:silk_trap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:circle_throw"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:throat_chop"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:skitter_smack"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/spidops/spidopsfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/spidops/spidopsfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/spidops/spidopsback",
+    "backShiny": "pokeemerald:pokemon:sprite/spidops/spidopsbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/spidops/spidopsicon",
+    "overworld": "pokeemerald:pokemon:sprite/spidops/spidopsoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spidops/spidopsoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_house2_event_script_twin",
+  "name": "mossdeep city house2 event script twin",
+  "description": "NPC interaction: mossdeep city house2 event script twin",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_house2_event_script_twin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

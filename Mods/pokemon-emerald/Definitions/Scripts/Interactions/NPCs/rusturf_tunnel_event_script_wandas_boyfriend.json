@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rusturf_tunnel_event_script_wandas_boyfriend",
+  "name": "rusturf tunnel event script wandas boyfriend",
+  "description": "NPC interaction: rusturf tunnel event script wandas boyfriend",
+  "scriptPath": "Scripts/Interactions/NPCs/rusturf_tunnel_event_script_wandas_boyfriend.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

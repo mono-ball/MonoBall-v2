@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle6_event_script_benny",
+  "name": "route110 trick house puzzle6 event script benny",
+  "description": "NPC interaction: route110 trick house puzzle6 event script benny",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle6_event_script_benny.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

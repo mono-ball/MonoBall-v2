@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/ever_grande_city_drakes_room_event_script_drake",
+  "name": "ever grande city drakes room event script drake",
+  "description": "NPC interaction: ever grande city drakes room event script drake",
+  "scriptPath": "Scripts/Interactions/NPCs/ever_grande_city_drakes_room_event_script_drake.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

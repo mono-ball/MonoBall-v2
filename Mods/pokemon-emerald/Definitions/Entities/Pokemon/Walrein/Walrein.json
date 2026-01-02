@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:walrein",
+  "name": "Walrein",
+  "cryId": "pokeemerald:audio:sfx/cries/walrein",
+  "baseStats": {
+    "hp": 110,
+    "attack": 80,
+    "defense": 90,
+    "speed": 65,
+    "spAttack": 95,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:oblivious"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ice_break",
+  "height": 14,
+  "weight": 1506,
+  "description": "To protect its herd, the leader battles  anything that invades its territory, even  at the cost of its life. Its tusks may snap  off in battle.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:snore"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:hail"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/walrein/walreinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/walrein/walreinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/walrein/walreinback",
+    "backShiny": "pokeemerald:pokemon:sprite/walrein/walreinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/walrein/walreinicon",
+    "overworld": "pokeemerald:pokemon:sprite/walrein/walreinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/walrein/walreinoverworldshiny"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:tyrunt",
+  "name": "Tyrunt",
+  "cryId": "pokeemerald:audio:sfx/cries/tyrunt",
+  "baseStats": {
+    "hp": 58,
+    "attack": 89,
+    "defense": 77,
+    "speed": 48,
+    "spAttack": 45,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 72,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:strong_jaw",
+    null,
+    "pokeemerald:ability:sturdy"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:royal_heir",
+  "height": 8,
+  "weight": 260,
+  "description": "Its immense jaws have enough destructive  force that it can chew up a car. If  something happens that it doesn\u0027t like,  it throws a tantrum and runs wild.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 39,
+      "targetSpeciesId": "pokeemerald:pokemon:tyrantrum"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:horn_drill"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:poison_fang",
+    "pokeemerald:move:rock_polish",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:curse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tyrunt/tyruntfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tyrunt/tyruntfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tyrunt/tyruntback",
+    "backShiny": "pokeemerald:pokemon:sprite/tyrunt/tyruntbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tyrunt/tyrunticon",
+    "overworld": "pokeemerald:pokemon:sprite/tyrunt/tyruntoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tyrunt/tyruntoverworldshiny"
+  }
+}

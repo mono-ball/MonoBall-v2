@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_mart_event_script_woman",
+  "name": "fallarbor town mart event script woman",
+  "description": "NPC interaction: fallarbor town mart event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_mart_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

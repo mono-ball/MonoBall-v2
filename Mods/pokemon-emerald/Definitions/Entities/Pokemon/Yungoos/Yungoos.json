@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:yungoos",
+  "name": "Yungoos",
+  "cryId": "pokeemerald:audio:sfx/cries/yungoos",
+  "baseStats": {
+    "hp": 48,
+    "attack": 70,
+    "defense": 30,
+    "speed": 45,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 51,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stakeout",
+    "pokeemerald:ability:strong_jaw",
+    "pokeemerald:ability:adaptability"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:loitering",
+  "height": 4,
+  "weight": 60,
+  "description": "With its sharp fangs, it will bite anything.  It wanders around in a never-ending  search for food. At dusk, it collapses  and falls asleep on the spot.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:gumshoos"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:rest"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:thunder_fang"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/yungoos/yungoosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/yungoos/yungoosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/yungoos/yungoosback",
+    "backShiny": "pokeemerald:pokemon:sprite/yungoos/yungoosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/yungoos/yungoosicon",
+    "overworld": "pokeemerald:pokemon:sprite/yungoos/yungoosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yungoos/yungoosoverworldshiny"
+  }
+}

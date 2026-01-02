@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner1",
+  "name": "battle frontier battle tower multi partner room event script partner1",
+  "description": "NPC interaction: battle frontier battle tower multi partner room event script partner1",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_tower_multi_partner_room_event_script_partner1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:mudsdale",
+  "name": "Mudsdale",
+  "cryId": "pokeemerald:audio:sfx/cries/mudsdale",
+  "baseStats": {
+    "hp": 100,
+    "attack": 125,
+    "defense": 100,
+    "speed": 35,
+    "spAttack": 55,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 60,
+  "expYield": 175,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:stamina",
+    "pokeemerald:ability:inner_focus"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:draft_horse",
+  "height": 25,
+  "weight": 9200,
+  "description": "Its heavy, mud-covered kicks are its  best means of attack, and it can reduce  large trucks to scrap without breaking  a sweat.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:high_horsepower"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:mega_kick"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mudsdale/mudsdalefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdalefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleback",
+    "backShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdalebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleicon",
+    "overworld": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleoverworldshiny"
+  }
+}

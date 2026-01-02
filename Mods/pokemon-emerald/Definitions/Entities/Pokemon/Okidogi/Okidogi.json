@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:okidogi",
+  "name": "Okidogi",
+  "cryId": "pokeemerald:audio:sfx/cries/okidogi",
+  "baseStats": {
+    "hp": 88,
+    "attack": 128,
+    "defense": 115,
+    "speed": 80,
+    "spAttack": 58,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 3,
+  "expYield": 278,
+  "evYield": {
+    "attack": 3
+  },
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:toxic_chain",
+    null,
+    "pokeemerald:ability:guard_dog"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:retainer",
+  "height": 18,
+  "weight": 920,
+  "description": "After all its muscles were stimulated  by the toxic chain around its neck,  Okidogi transformed and gained  a powerful physique.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:force_palm"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/okidogi/okidogifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/okidogi/okidogifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/okidogi/okidogiback",
+    "backShiny": "pokeemerald:pokemon:sprite/okidogi/okidogibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/okidogi/okidogiicon",
+    "overworld": "pokeemerald:pokemon:sprite/okidogi/okidogioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/okidogi/okidogioverworldshiny"
+  },
+  "isLegendary": true
+}

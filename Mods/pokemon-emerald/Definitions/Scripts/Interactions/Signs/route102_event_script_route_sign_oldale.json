@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route102_event_script_route_sign_oldale",
+  "name": "route102 event script route sign oldale",
+  "description": "Sign script: route102 event script route sign oldale",
+  "scriptPath": "Scripts/Signs/route102_event_script_route_sign_oldale.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

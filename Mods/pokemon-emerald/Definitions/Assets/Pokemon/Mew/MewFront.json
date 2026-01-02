@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/mew/mewfront",
+  "name": "Mewfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Mew/MewFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

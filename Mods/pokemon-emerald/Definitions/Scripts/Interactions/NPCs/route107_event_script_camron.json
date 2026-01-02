@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route107_event_script_camron",
+  "name": "route107 event script camron",
+  "description": "NPC interaction: route107 event script camron",
+  "scriptPath": "Scripts/Interactions/NPCs/route107_event_script_camron.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

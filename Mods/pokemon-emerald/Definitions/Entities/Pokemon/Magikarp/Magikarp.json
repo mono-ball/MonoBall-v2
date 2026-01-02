@@ -1,0 +1,72 @@
+{
+  "id": "pokeemerald:pokemon:magikarp",
+  "name": "Magikarp",
+  "cryId": "pokeemerald:audio:sfx/cries/magikarp",
+  "baseStats": {
+    "hp": 20,
+    "attack": 10,
+    "defense": 55,
+    "speed": 80,
+    "spDefense": 20
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 5,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fish",
+  "height": 9,
+  "weight": 100,
+  "description": "Its swimming muscles are weak, so it is  easily washed away by currents. In places  where water pools, you can see many  Magikarp deposited there by the flow.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:gyarados"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:flail"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/magikarp/magikarpfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/magikarp/magikarpfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/magikarp/magikarpback",
+    "backShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/magikarp/magikarpbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/magikarp/magikarpicon",
+    "overworld": "pokeemerald:pokemon:sprite/magikarp/magikarpoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

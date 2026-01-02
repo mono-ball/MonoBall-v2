@@ -1,0 +1,117 @@
+{
+  "id": "pokeemerald:pokemon:feebas",
+  "name": "Feebas",
+  "cryId": "pokeemerald:audio:sfx/cries/feebas",
+  "baseStats": {
+    "hp": 20,
+    "attack": 15,
+    "defense": 20,
+    "speed": 80,
+    "spAttack": 10,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:adaptability"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:fish",
+  "height": 6,
+  "weight": 74,
+  "description": "Feebas live in ponds that are heavily  infested with weeds. Because of its  hopelessly shabby appearance, it  seems as if few Trainers raise it.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:milotic"
+    },
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:milotic"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_PRISM_SCALE",
+      "targetSpeciesId": "pokeemerald:pokemon:milotic"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:flail"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:dragon_breath",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:dragon_pulse",
+    "pokeemerald:move:captivate"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/feebas/feebasfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/feebas/feebasfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/feebas/feebasback",
+    "backShiny": "pokeemerald:pokemon:sprite/feebas/feebasbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/feebas/feebasicon",
+    "overworld": "pokeemerald:pokemon:sprite/feebas/feebasoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/feebas/feebasoverworldshiny"
+  }
+}

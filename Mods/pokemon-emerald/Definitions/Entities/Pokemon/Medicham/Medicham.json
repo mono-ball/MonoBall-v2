@@ -1,0 +1,214 @@
+{
+  "id": "pokeemerald:pokemon:medicham",
+  "name": "Medicham",
+  "cryId": "pokeemerald:audio:sfx/cries/medicham",
+  "baseStats": {
+    "hp": 60,
+    "attack": 60,
+    "defense": 75,
+    "speed": 80,
+    "spAttack": 60,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:fighting",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:pure_power",
+    null,
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:meditate",
+  "height": 13,
+  "weight": 315,
+  "description": "Through crushingly harsh yoga training, it  gained the power to foretell its foe\u0027s  actions. It battles with elegant, dance-  like movement.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:force_palm"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:high_jump_kick"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:acupressure"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:power_trick"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:axe_kick"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/medicham/medichamfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/medicham/medichamfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/medicham/medichamfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/medicham/medichamfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/medicham/medichamback",
+    "backShiny": "pokeemerald:pokemon:sprite/medicham/medichambackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/medicham/medichambackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/medicham/medichambackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/medicham/medichamicon",
+    "overworld": "pokeemerald:pokemon:sprite/medicham/medichamoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/medicham/medichamoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:medicham/mega",
+      "name": "Medicham",
+      "cryId": "pokeemerald:audio:sfx/cries/medicham-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 60,
+        "attack": 100,
+        "defense": 85,
+        "speed": 100,
+        "spAttack": 80,
+        "spDefense": 85
+      },
+      "types": [
+        "pokeemerald:type:fighting",
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pure_power",
+        "pokeemerald:ability:pure_power",
+        "pokeemerald:ability:pure_power"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/medicham/medichammegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/medicham/medichammegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/medicham/medichammegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/medicham/medichammegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/medicham/medichammegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/medicham/medichammegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/medicham/medichammegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:medichamite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

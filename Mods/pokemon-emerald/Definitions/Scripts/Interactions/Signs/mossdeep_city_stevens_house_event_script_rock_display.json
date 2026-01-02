@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/mossdeep_city_stevens_house_event_script_rock_display",
+  "name": "mossdeep city stevens house event script rock display",
+  "description": "Sign script: mossdeep city stevens house event script rock display",
+  "scriptPath": "Scripts/Signs/mossdeep_city_stevens_house_event_script_rock_display.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

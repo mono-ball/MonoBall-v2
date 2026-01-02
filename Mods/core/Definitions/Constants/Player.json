@@ -1,9 +1,9 @@
 {
   "id": "base:constants:player",
   "constants": {
-    "PlayerSpriteSheetId": "base:sprite:players/may/normal",
+    "PlayerSpriteSheetId": "pokeemerald:sprite:characters/players/may/normal",
     "PlayerInitialAnimation": "face_south",
-    "PlayerInitialMapId": "base:map:hoenn/littleroot_town",
+    "PlayerInitialMapId": "pokeemerald:map:hoenn/littleroot_town",
     "PlayerSpawnX": 10,
     "PlayerSpawnY": 8,
     "PlayerMovementSpeed": 4.0,

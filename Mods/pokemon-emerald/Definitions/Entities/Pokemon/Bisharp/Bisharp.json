@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:bisharp",
+  "name": "Bisharp",
+  "cryId": "pokeemerald:audio:sfx/cries/bisharp",
+  "baseStats": {
+    "hp": 65,
+    "attack": 125,
+    "defense": 100,
+    "speed": 70,
+    "spAttack": 60,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "expYield": 172,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:defiant",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:pressure"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:sword_blade",
+  "height": 16,
+  "weight": 700,
+  "description": "This pitiless Pok\u00E9mon commands a group  of Pawniard to hound prey into immobility.  It battles to become the boss, but will be  driven from the group if it loses.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:kingambit"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_burst"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 71,
+      "moveId": "pokeemerald:move:guillotine"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bisharp/bisharpfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bisharp/bisharpfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bisharp/bisharpback",
+    "backShiny": "pokeemerald:pokemon:sprite/bisharp/bisharpbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bisharp/bisharpicon",
+    "overworld": "pokeemerald:pokemon:sprite/bisharp/bisharpoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bisharp/bisharpoverworldshiny"
+  }
+}

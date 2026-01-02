@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:copperajah",
+  "name": "Copperajah",
+  "cryId": "pokeemerald:audio:sfx/cries/copperajah",
+  "baseStats": {
+    "hp": 122,
+    "attack": 130,
+    "defense": 69,
+    "speed": 30,
+    "spAttack": 80,
+    "spDefense": 69
+  },
+  "types": [
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 90,
+  "expYield": 175,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sheer_force",
+    null,
+    "pokeemerald:ability:heavy_metal"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:copperderm",
+  "height": 30,
+  "weight": 6500,
+  "description": "They came over from another region long  ago and worked together with humans.  Their green skin is resistant to water.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:high_horsepower"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/copperajah/copperajahfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/copperajah/copperajahfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/copperajah/copperajahback",
+    "backShiny": "pokeemerald:pokemon:sprite/copperajah/copperajahbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/copperajah/copperajahicon",
+    "overworld": "pokeemerald:pokemon:sprite/copperajah/copperajahoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/copperajah/copperajahoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:copperajah/gmax",
+      "name": "Copperajah",
+      "cryId": "pokeemerald:audio:sfx/cries/copperajah",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 122,
+        "attack": 130,
+        "defense": 69,
+        "speed": 30,
+        "spAttack": 80,
+        "spDefense": 69
+      },
+      "types": [
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:sheer_force",
+        null,
+        "pokeemerald:ability:heavy_metal"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/copperajah/copperajahgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

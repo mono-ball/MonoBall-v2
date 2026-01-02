@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route121_event_script_cristin",
+  "name": "route121 event script cristin",
+  "description": "NPC interaction: route121 event script cristin",
+  "scriptPath": "Scripts/Interactions/NPCs/route121_event_script_cristin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

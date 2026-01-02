@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route124_diving_treasure_hunters_house_event_script_treasure_hunter",
+  "name": "route124 diving treasure hunters house event script treasure hunter",
+  "description": "NPC interaction: route124 diving treasure hunters house event script treasure hunter",
+  "scriptPath": "Scripts/Interactions/NPCs/route124_diving_treasure_hunters_house_event_script_treasure_hunter.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

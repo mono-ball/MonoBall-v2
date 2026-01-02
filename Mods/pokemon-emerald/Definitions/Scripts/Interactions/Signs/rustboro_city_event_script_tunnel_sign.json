@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/rustboro_city_event_script_tunnel_sign",
+  "name": "rustboro city event script tunnel sign",
+  "description": "Sign script: rustboro city event script tunnel sign",
+  "scriptPath": "Scripts/Signs/rustboro_city_event_script_tunnel_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

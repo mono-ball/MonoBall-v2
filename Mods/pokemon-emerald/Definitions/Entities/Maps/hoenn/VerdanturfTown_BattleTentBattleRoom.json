@@ -1,0 +1,106 @@
+{
+  "id": "pokeemerald:map:hoenn/verdanturf_town_battle_tent_battle_room",
+  "name": "VerdanturfTown_BattleTentBattleRoom",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 13,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/b_tower_rs",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/verdanturf_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/verdanturf_town_battle_tent_battle_room/ground",
+      "name": "Ground",
+      "width": 13,
+      "height": 9,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAAAAAA3QAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN0AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAN0AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdAADAAAAAABUAAAAAAAAAAAAAAAAAAADdAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3QAAwAAAAAAAAAAAAAAAAAAAAAAAAAAA3QAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN0AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAN0AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/verdanturf_town_battle_tent_battle_room/objects",
+      "name": "Objects",
+      "width": 13,
+      "height": 9,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC\u002BAAAAFQAAAL4AAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAuAAAAFQAAABUAAAAVAAAA5gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOcAAAAVAAAAFQAAABUAAAC\u002BAAAAFQAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsAAAAFQAAAC4AAAAVAAAAFQAAABUAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7AAAABUAAAAVAAAAFQAAAL4AAAAVAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOwAAAAVAAAAFQAAABUAAAAVAAAAFQAAAOoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADpAAAAFQAAABUAAAAVAAAAAAAAAAAAAAAVAAAAvgAAABUAAAAVAAAAFQAAABUAAAAuAAAAFQAAABUAAAC\u002BAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/verdanturf_town_battle_tent_battle_room/overhead",
+      "name": "Overhead",
+      "width": 13,
+      "height": 9,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAAAAAAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAACAADAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMAAAAAAAgAAwAIAAMACAADA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/battle_tent"
+    }
+  ],
+  "warps": [],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_battle_room/localid_verdanturf_tent_battle_player",
+      "name": "LOCALID_VERDANTURF_TENT_BATTLE_PLAYER",
+      "x": 32,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:npcs/{var_player}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_battle_room/localid_verdanturf_tent_battle_opponent",
+      "name": "LOCALID_VERDANTURF_TENT_BATTLE_OPPONENT",
+      "x": 176,
+      "y": 16,
+      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_battle_room/localid_verdanturf_tent_battle_attendant",
+      "name": "LOCALID_VERDANTURF_TENT_BATTLE_ATTENDANT",
+      "x": 32,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/expertm",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "facingDirection": "right",
+      "elevation": 0
+    }
+  ],
+  "collisions": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_joseph",
+  "name": "route110 event script joseph",
+  "description": "NPC interaction: route110 event script joseph",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_joseph.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

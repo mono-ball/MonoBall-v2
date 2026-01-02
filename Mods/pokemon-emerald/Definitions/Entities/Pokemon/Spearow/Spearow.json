@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:spearow",
+  "name": "Spearow",
+  "cryId": "pokeemerald:audio:sfx/cries/spearow",
+  "baseStats": {
+    "hp": 40,
+    "attack": 60,
+    "defense": 30,
+    "speed": 70,
+    "spAttack": 31,
+    "spDefense": 31
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    null,
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:tiny_bird",
+  "height": 3,
+  "weight": 20,
+  "description": "Its loud cry can be heard over half a mile  away. If its high, keening cry is heard  echoing all around, it is a sign that they  are warning each other of danger.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:fearow"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:drill_peck"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:tri_attack",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:sky_attack",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:feather_dance",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:razor_wind"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/spearow/spearowfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/spearow/spearowfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/spearow/spearowback",
+    "backShiny": "pokeemerald:pokemon:sprite/spearow/spearowbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/spearow/spearowicon",
+    "overworld": "pokeemerald:pokemon:sprite/spearow/spearowoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spearow/spearowoverworldshiny"
+  }
+}

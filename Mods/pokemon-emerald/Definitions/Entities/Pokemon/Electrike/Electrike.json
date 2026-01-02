@@ -1,0 +1,151 @@
+{
+  "id": "pokeemerald:pokemon:electrike",
+  "name": "Electrike",
+  "cryId": "pokeemerald:audio:sfx/cries/electrike",
+  "baseStats": {
+    "hp": 40,
+    "attack": 45,
+    "defense": 40,
+    "speed": 65,
+    "spAttack": 65,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:lightning_rod",
+    "pokeemerald:ability:minus"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:lightning",
+  "height": 6,
+  "weight": 152,
+  "description": "It generates electricity using friction  from the atmosphere. In seasons with  especially arid air, its entire body blazes  with violent showers of sparks.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 26,
+      "targetSpeciesId": "pokeemerald:pokemon:manectric"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:shock_wave"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:discharge",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:electro_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:flame_burst",
+    "pokeemerald:move:eerie_impulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/electrike/electrikefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/electrike/electrikefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/electrike/electrikeback",
+    "backShiny": "pokeemerald:pokemon:sprite/electrike/electrikebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/electrike/electrikeicon",
+    "overworld": "pokeemerald:pokemon:sprite/electrike/electrikeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/electrike/electrikeoverworldshiny"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:bunnelby",
+  "name": "Bunnelby",
+  "cryId": "pokeemerald:audio:sfx/cries/bunnelby",
+  "baseStats": {
+    "hp": 38,
+    "attack": 36,
+    "defense": 38,
+    "speed": 57,
+    "spAttack": 32,
+    "spDefense": 36
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 47,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:cheek_pouch",
+    "pokeemerald:ability:huge_power"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:digging",
+  "height": 4,
+  "weight": 50,
+  "description": "It has ears like shovels. Digging holes  strengthens its ears so much that they  can sever thick roots effortlessly.  Bunnelby dig the whole night through.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:diggersby"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:super_fang"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bunnelby/bunnelbyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bunnelby/bunnelbyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bunnelby/bunnelbyback",
+    "backShiny": "pokeemerald:pokemon:sprite/bunnelby/bunnelbybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bunnelby/bunnelbyicon",
+    "overworld": "pokeemerald:pokemon:sprite/bunnelby/bunnelbyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bunnelby/bunnelbyoverworldshiny"
+  }
+}

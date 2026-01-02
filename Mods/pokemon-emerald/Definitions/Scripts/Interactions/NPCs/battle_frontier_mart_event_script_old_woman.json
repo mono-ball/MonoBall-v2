@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_mart_event_script_old_woman",
+  "name": "battle frontier mart event script old woman",
+  "description": "NPC interaction: battle frontier mart event script old woman",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_mart_event_script_old_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "pokeemerald:script/movement/npcs/wander",
+  "name": "Wander Movement Script",
+  "description": "NPC wanders randomly within a defined range",
+  "scriptPath": "Scripts/Movement/NPCs/wander.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "rangeX",
+      "type": "int",
+      "defaultValue": 0,
+      "description": "Horizontal wander range in tiles"
+    },
+    {
+      "name": "rangeY",
+      "type": "int",
+      "defaultValue": 0,
+      "description": "Vertical wander range in tiles"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:yanma",
+  "name": "Yanma",
+  "cryId": "pokeemerald:audio:sfx/cries/yanma",
+  "baseStats": {
+    "hp": 65,
+    "attack": 65,
+    "defense": 45,
+    "speed": 95,
+    "spAttack": 75,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 75,
+  "evYield": {},
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:speed_boost",
+    "pokeemerald:ability:compound_eyes",
+    "pokeemerald:ability:frisk"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:clear_wing",
+  "height": 12,
+  "weight": 380,
+  "description": "It can see 360 degrees without moving  its eyes. It is a great flier capable of  making sudden stops and turning midair to  quickly chase down targeted prey.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:yanmega"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:bug_buzz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:leech_life",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:silver_wind",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:secret_power"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/yanma/yanmafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/yanma/yanmafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/yanma/yanmaback",
+    "backShiny": "pokeemerald:pokemon:sprite/yanma/yanmabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/yanma/yanmaicon",
+    "overworld": "pokeemerald:pokemon:sprite/yanma/yanmaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yanma/yanmaoverworldshiny"
+  }
+}

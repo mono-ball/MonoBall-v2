@@ -1,0 +1,66 @@
+{
+  "id": "pokeemerald:sprite:door-animations/battle-dome-pre-battle-room",
+  "name": "Battle Dome Pre Battle Room",
+  "type": "Sprite",
+  "texturePath": "Graphics/Maps/Tiles/DoorAnimations/BattleDomePreBattleRoom.png",
+  "frameWidth": 16,
+  "frameHeight": 32,
+  "frameCount": 3,
+  "soundId": "pokeemerald:sound:door-sliding",
+  "metatileId": "pokeemerald:metatile:battledome/door-pre-battle-room",
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 1,
+      "x": 0,
+      "y": 32,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 2,
+      "x": 0,
+      "y": 64,
+      "width": 16,
+      "height": 32
+    }
+  ],
+  "animations": [
+    {
+      "name": "open",
+      "loop": false,
+      "frameIndices": [
+        0,
+        1,
+        2
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "close",
+      "loop": false,
+      "frameIndices": [
+        2,
+        1,
+        0
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "flipHorizontal": false
+    }
+  ]
+}

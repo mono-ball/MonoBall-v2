@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:pheromosa",
+  "name": "Pheromosa",
+  "cryId": "pokeemerald:audio:sfx/cries/pheromosa",
+  "baseStats": {
+    "hp": 71,
+    "attack": 137,
+    "defense": 37,
+    "speed": 151,
+    "spAttack": 137,
+    "spDefense": 37
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:lissome",
+  "height": 18,
+  "weight": 250,
+  "description": "One of the dangerous Ultra Beasts,  it refuses to touch anything, perhaps  because it senses some uncleanness  in this world.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:triple_kick"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:lunge"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:speed_swap"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:quiver_dance"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:high_jump_kick"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pheromosa/pheromosafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pheromosa/pheromosafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pheromosa/pheromosaback",
+    "backShiny": "pokeemerald:pokemon:sprite/pheromosa/pheromosabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pheromosa/pheromosaicon",
+    "overworld": "pokeemerald:pokemon:sprite/pheromosa/pheromosaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pheromosa/pheromosaoverworldshiny"
+  },
+  "isUltraBeast": true
+}

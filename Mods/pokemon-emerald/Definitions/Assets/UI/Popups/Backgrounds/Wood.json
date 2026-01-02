@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:popup:background/wood",
+  "name": "Wood",
+  "type": "Bitmap",
+  "texturePath": "Graphics/UI/Popups/Backgrounds/Wood.png",
+  "width": 80,
+  "height": 24,
+  "description": "Background bitmap for map popup"
+}

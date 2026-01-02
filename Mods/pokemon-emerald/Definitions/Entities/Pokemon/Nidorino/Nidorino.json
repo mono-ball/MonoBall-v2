@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:nidorino",
+  "name": "Nidorino",
+  "cryId": "pokeemerald:audio:sfx/cries/nidorino",
+  "baseStats": {
+    "hp": 61,
+    "attack": 72,
+    "defense": 57,
+    "speed": 65,
+    "spAttack": 55,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "attack": 2
+  },
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:rivalry",
+    "pokeemerald:ability:hustle"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:poison_pin",
+  "height": 9,
+  "weight": 195,
+  "description": "Its horn is harder than a diamond.  If it senses a hostile presence, all the  barbs on its back bristle up at once, and it  challenges the foe with all its might.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_MOON_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:nidoking"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 71,
+      "moveId": "pokeemerald:move:earth_power"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nidorino/nidorinofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nidorino/nidorinofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nidorino/nidorinoback",
+    "backShiny": "pokeemerald:pokemon:sprite/nidorino/nidorinobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nidorino/nidorinoicon",
+    "overworld": "pokeemerald:pokemon:sprite/nidorino/nidorinooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nidorino/nidorinooverworldshiny"
+  }
+}

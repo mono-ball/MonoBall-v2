@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:frillish",
+  "name": "Frillish",
+  "cryId": "pokeemerald:audio:sfx/cries/frillish",
+  "baseStats": {
+    "hp": 55,
+    "attack": 40,
+    "defense": 50,
+    "speed": 40,
+    "spAttack": 65,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 190,
+  "expYield": 67,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:cursed_body",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:floating",
+  "height": 12,
+  "weight": 330,
+  "description": "If its veil-like arms stun and wrap an  opponent, that foe will be dragged  five miles below the surface to its lair,  never to return.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:jellicent"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:water_spout"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:acid_armor",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:pain_split",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:recover",
+    "pokeemerald:move:constrict"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/frillish/frillishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/frillish/frillishfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/frillish/frillishfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/frillish/frillishfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/frillish/frillishback",
+    "backShiny": "pokeemerald:pokemon:sprite/frillish/frillishbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/frillish/frillishbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/frillish/frillishbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/frillish/frillishicon",
+    "overworld": "pokeemerald:pokemon:sprite/frillish/frillishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frillish/frillishoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

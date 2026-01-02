@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_harbor_event_script_capt_stern",
+  "name": "slateport city harbor event script capt stern",
+  "description": "NPC interaction: slateport city harbor event script capt stern",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_harbor_event_script_capt_stern.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

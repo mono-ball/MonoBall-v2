@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_liv",
+  "name": "route103 event script liv",
+  "description": "NPC interaction: route103 event script liv",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_liv.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

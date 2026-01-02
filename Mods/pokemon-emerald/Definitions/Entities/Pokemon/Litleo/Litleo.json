@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:litleo",
+  "name": "Litleo",
+  "cryId": "pokeemerald:audio:sfx/cries/litleo",
+  "baseStats": {
+    "hp": 62,
+    "attack": 50,
+    "defense": 58,
+    "speed": 72,
+    "spAttack": 73,
+    "spDefense": 54
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 220,
+  "expYield": 74,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 223,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rivalry",
+    "pokeemerald:ability:unnerve",
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:lion_cub",
+  "height": 6,
+  "weight": 135,
+  "description": "They set off on their own from their pride  and live by themselves to become stronger.  These hot-blooded Pok\u00E9mon are quick  to start a fight.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:pyroar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:overheat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:entrainment",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:fire_spin",
+    "pokeemerald:move:flare_blitz"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/litleo/litleofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/litleo/litleofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/litleo/litleoback",
+    "backShiny": "pokeemerald:pokemon:sprite/litleo/litleobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/litleo/litleoicon",
+    "overworld": "pokeemerald:pokemon:sprite/litleo/litleooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/litleo/litleooverworldshiny"
+  }
+}

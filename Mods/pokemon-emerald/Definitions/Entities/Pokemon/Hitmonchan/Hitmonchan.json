@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:hitmonchan",
+  "name": "Hitmonchan",
+  "cryId": "pokeemerald:audio:sfx/cries/hitmonchan",
+  "baseStats": {
+    "hp": 50,
+    "attack": 105,
+    "defense": 79,
+    "speed": 76,
+    "spAttack": 35
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 2
+  },
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:iron_fist",
+    "pokeemerald:ability:inner_focus"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:punching",
+  "height": 14,
+  "weight": 502,
+  "description": "A Hitmonchan is said to possess the  spirit of a boxer who aimed to become the  world champion. Having an indomitable  spirit means that it will never give up.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:drain_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:mach_punch"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:vacuum_wave"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bullet_punch"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:ice_punch"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:mega_punch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:focus_punch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanback",
+    "backShiny": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanicon",
+    "overworld": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hitmonchan/hitmonchanoverworldshiny"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:doublade",
+  "name": "Doublade",
+  "cryId": "pokeemerald:audio:sfx/cries/doublade",
+  "baseStats": {
+    "hp": 59,
+    "attack": 110,
+    "defense": 150,
+    "speed": 35,
+    "spAttack": 45,
+    "spDefense": 49
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 90,
+  "expYield": 157,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:no_guard",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:sword",
+  "height": 8,
+  "weight": 45,
+  "description": "When Honedge evolves, it divides into  two swords. The complex attack patterns  of its two swords are unstoppable, even  against those skilled at swordplay.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_DUSK_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:aegislash-shield"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:power_trick"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:sacred_sword"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/doublade/doubladefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/doublade/doubladefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/doublade/doubladeback",
+    "backShiny": "pokeemerald:pokemon:sprite/doublade/doubladebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/doublade/doubladeicon",
+    "overworld": "pokeemerald:pokemon:sprite/doublade/doubladeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/doublade/doubladeoverworldshiny"
+  }
+}

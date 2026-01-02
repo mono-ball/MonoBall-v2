@@ -1,0 +1,161 @@
+{
+  "id": "pokeemerald:pokemon:golduck",
+  "name": "Golduck",
+  "cryId": "pokeemerald:audio:sfx/cries/golduck",
+  "baseStats": {
+    "hp": 80,
+    "attack": 82,
+    "defense": 78,
+    "speed": 85,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:damp",
+    "pokeemerald:ability:cloud_nine",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:duck",
+  "height": 17,
+  "weight": 766,
+  "description": "A Golduck is an adept swimmer.  It sometimes joins competitive swimmers  in training. It uses psychic powers when  its forehead shimmers with light.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:wonder_room"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/golduck/golduckfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/golduck/golduckfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/golduck/golduckback",
+    "backShiny": "pokeemerald:pokemon:sprite/golduck/golduckbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/golduck/golduckicon",
+    "overworld": "pokeemerald:pokemon:sprite/golduck/golduckoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/golduck/golduckoverworldshiny"
+  }
+}

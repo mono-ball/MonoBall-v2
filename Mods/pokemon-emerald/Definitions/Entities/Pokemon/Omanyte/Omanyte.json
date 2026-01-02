@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:omanyte",
+  "name": "Omanyte",
+  "cryId": "pokeemerald:audio:sfx/cries/omanyte",
+  "baseStats": {
+    "hp": 35,
+    "attack": 40,
+    "defense": 100,
+    "speed": 35,
+    "spAttack": 90
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 71,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:spiral",
+  "height": 4,
+  "weight": 75,
+  "description": "One of the ancient and long-since-extinct  Pok\u00E9mon that have been regenerated  from fossils by humans. If attacked,  it withdraws into its hard shell.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:omastar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:bubble_beam",
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:wring_out",
+    "pokeemerald:move:toxic_spikes",
+    "pokeemerald:move:muddy_water",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:whirlpool",
+    "pokeemerald:move:reflect_type"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/omanyte/omanytefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/omanyte/omanytefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/omanyte/omanyteback",
+    "backShiny": "pokeemerald:pokemon:sprite/omanyte/omanytebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/omanyte/omanyteicon",
+    "overworld": "pokeemerald:pokemon:sprite/omanyte/omanyteoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/omanyte/omanyteoverworldshiny"
+  }
+}

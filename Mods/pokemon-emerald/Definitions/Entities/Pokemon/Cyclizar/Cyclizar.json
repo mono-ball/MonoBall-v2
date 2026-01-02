@@ -1,0 +1,132 @@
+{
+  "id": "pokeemerald:pokemon:cyclizar",
+  "name": "Cyclizar",
+  "cryId": "pokeemerald:audio:sfx/cries/cyclizar",
+  "baseStats": {
+    "hp": 70,
+    "attack": 95,
+    "defense": 65,
+    "speed": 121,
+    "spAttack": 85,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 190,
+  "expYield": 175,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:shed_skin",
+    null,
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:mount",
+  "height": 16,
+  "weight": 630,
+  "description": "It can sprint at over 70 mph while  carrying a human. The rider\u0027s body  heat warms Cyclizar\u0027s back and lifts  the Pok\u00E9mon\u0027s spirit.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:breaking_swipe"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:shed_tail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:shift_gear"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:dragon_rush"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:power_whip"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cyclizar/cyclizarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizarfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cyclizar/cyclizarback",
+    "backShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizarbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cyclizar/cyclizaricon",
+    "overworld": "pokeemerald:pokemon:sprite/cyclizar/cyclizaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizaroverworldshiny"
+  }
+}

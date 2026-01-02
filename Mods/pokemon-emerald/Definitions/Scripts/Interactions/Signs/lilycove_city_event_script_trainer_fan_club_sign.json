@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lilycove_city_event_script_trainer_fan_club_sign",
+  "name": "lilycove city event script trainer fan club sign",
+  "description": "Sign script: lilycove city event script trainer fan club sign",
+  "scriptPath": "Scripts/Signs/lilycove_city_event_script_trainer_fan_club_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

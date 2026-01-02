@@ -1,0 +1,25 @@
+{
+  "id": "pokeemerald:field_effect:field-move-streaks-indoors",
+  "name": "Field Move Streaks Indoors",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/FieldMoveStreaksIndoors.png",
+  "frameWidth": 16,
+  "frameHeight": 8,
+  "frameCount": 2,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    }
+  ]
+}

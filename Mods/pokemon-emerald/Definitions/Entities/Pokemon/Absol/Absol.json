@@ -1,0 +1,204 @@
+{
+  "id": "pokeemerald:pokemon:absol",
+  "name": "Absol",
+  "cryId": "pokeemerald:audio:sfx/cries/absol",
+  "baseStats": {
+    "hp": 65,
+    "attack": 130,
+    "defense": 60,
+    "speed": 75,
+    "spAttack": 75,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    "pokeemerald:ability:super_luck",
+    "pokeemerald:ability:justified"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:disaster",
+  "height": 12,
+  "weight": 470,
+  "description": "It sharply senses even subtle changes in  the sky and the land to predict natural  disasters. It is a long-lived Pok\u00E9mon that  has a life-span of 100 years.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:perish_song"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:magic_coat",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:zen_headbutt",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:assurance",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:megahorn",
+    "pokeemerald:move:hex",
+    "pokeemerald:move:perish_song",
+    "pokeemerald:move:play_rough"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/absol/absolfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/absol/absolfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/absol/absolback",
+    "backShiny": "pokeemerald:pokemon:sprite/absol/absolbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/absol/absolicon",
+    "overworld": "pokeemerald:pokemon:sprite/absol/absoloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/absol/absoloverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:absol/mega",
+      "name": "Absol",
+      "cryId": "pokeemerald:audio:sfx/cries/absol-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 65,
+        "attack": 150,
+        "defense": 60,
+        "speed": 115,
+        "spAttack": 115,
+        "spDefense": 60
+      },
+      "types": [
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:magic_bounce",
+        "pokeemerald:ability:magic_bounce",
+        "pokeemerald:ability:magic_bounce"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/absol/absolmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/absol/absolmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/absol/absolmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/absol/absolmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/absol/absolmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/absol/absolmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/absol/absolmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:absolite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route130_event_script_santiago",
+  "name": "route130 event script santiago",
+  "description": "NPC interaction: route130 event script santiago",
+  "scriptPath": "Scripts/Interactions/NPCs/route130_event_script_santiago.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

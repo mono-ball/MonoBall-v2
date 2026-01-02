@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route119_event_script_trainer_tips_decoration",
+  "name": "route119 event script trainer tips decoration",
+  "description": "Sign script: route119 event script trainer tips decoration",
+  "scriptPath": "Scripts/Signs/route119_event_script_trainer_tips_decoration.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

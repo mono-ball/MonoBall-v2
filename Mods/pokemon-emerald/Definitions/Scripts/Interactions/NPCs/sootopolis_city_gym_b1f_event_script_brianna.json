@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_gym_b1f_event_script_brianna",
+  "name": "sootopolis city gym b1f event script brianna",
+  "description": "NPC interaction: sootopolis city gym b1f event script brianna",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_gym_b1f_event_script_brianna.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,167 @@
+{
+  "id": "pokeemerald:pokemon:eternatus",
+  "name": "Eternatus",
+  "cryId": "pokeemerald:audio:sfx/cries/eternatus",
+  "baseStats": {
+    "hp": 140,
+    "attack": 85,
+    "defense": 95,
+    "speed": 130,
+    "spAttack": 145,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 255,
+  "expYield": 345,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:gigantic",
+  "height": 200,
+  "weight": 9500,
+  "description": "The core on its chest absorbs energy  emanating from the lands of the Galar  region. This energy is what allows  Eternatus to stay active.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:cross_poison"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:dynamax_cannon"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:hyper_beam"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:outrage"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/eternatus/eternatusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/eternatus/eternatusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/eternatus/eternatusback",
+    "backShiny": "pokeemerald:pokemon:sprite/eternatus/eternatusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/eternatus/eternatusicon",
+    "overworld": "pokeemerald:pokemon:sprite/eternatus/eternatusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eternatus/eternatusoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:eternatus/eternamax",
+      "name": "Eternatus",
+      "cryId": "pokeemerald:audio:sfx/cries/eternatus-eternamax",
+      "formKey": "eternamax",
+      "baseStats": {
+        "hp": 255,
+        "attack": 115,
+        "defense": 250,
+        "speed": 130,
+        "spAttack": 125,
+        "spDefense": 250
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pressure",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxoverworldshiny"
+      }
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

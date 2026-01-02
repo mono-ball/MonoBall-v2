@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:baxcalibur",
+  "name": "Baxcalibur",
+  "cryId": "pokeemerald:audio:sfx/cries/baxcalibur",
+  "baseStats": {
+    "hp": 115,
+    "attack": 145,
+    "defense": 92,
+    "speed": 87,
+    "spAttack": 75,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 10,
+  "expYield": 300,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:thermal_exchange",
+    null,
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ice_dragon",
+  "height": 21,
+  "weight": 2100,
+  "description": "It launches itself into battle by  flipping upside down and spewing  frigid air from its mouth. It finishes  opponents off with its dorsal blade.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:glaive_rush"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:snowscape"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:breaking_swipe"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:icicle_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swords_dance"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburback",
+    "backShiny": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburicon",
+    "overworld": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/baxcalibur/baxcaliburoverworldshiny"
+  }
+}

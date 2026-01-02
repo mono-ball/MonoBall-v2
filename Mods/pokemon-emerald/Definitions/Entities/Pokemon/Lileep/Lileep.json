@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:lileep",
+  "name": "Lileep",
+  "cryId": "pokeemerald:audio:sfx/cries/lileep",
+  "baseStats": {
+    "hp": 66,
+    "attack": 41,
+    "defense": 77,
+    "speed": 23,
+    "spAttack": 61,
+    "spDefense": 87
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 71,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:suction_cups",
+    null,
+    "pokeemerald:ability:storm_drain"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sea_lily",
+  "height": 10,
+  "weight": 238,
+  "description": "It disguises itself as seaweed by making  its tentacles sway. Unsuspecting prey  that come too close are swallowed whole.  It became extinct 100 million years ago.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:cradily"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:energy_ball"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:recover",
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:wring_out",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:mega_drain",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:stealth_rock"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lileep/lileepfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lileep/lileepfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lileep/lileepback",
+    "backShiny": "pokeemerald:pokemon:sprite/lileep/lileepbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lileep/lileepicon",
+    "overworld": "pokeemerald:pokemon:sprite/lileep/lileepoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lileep/lileepoverworldshiny"
+  }
+}

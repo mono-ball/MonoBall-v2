@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route101_event_script_birchs_bag",
+  "name": "route101 event script birchs bag",
+  "description": "NPC interaction: route101 event script birchs bag",
+  "scriptPath": "Scripts/Interactions/NPCs/route101_event_script_birchs_bag.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

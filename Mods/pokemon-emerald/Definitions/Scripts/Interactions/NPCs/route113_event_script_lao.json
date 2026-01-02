@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route113_event_script_lao",
+  "name": "route113 event script lao",
+  "description": "NPC interaction: route113 event script lao",
+  "scriptPath": "Scripts/Interactions/NPCs/route113_event_script_lao.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

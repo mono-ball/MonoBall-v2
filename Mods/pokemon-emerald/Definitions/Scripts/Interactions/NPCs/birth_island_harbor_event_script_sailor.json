@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/birth_island_harbor_event_script_sailor",
+  "name": "birth island harbor event script sailor",
+  "description": "NPC interaction: birth island harbor event script sailor",
+  "scriptPath": "Scripts/Interactions/NPCs/birth_island_harbor_event_script_sailor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

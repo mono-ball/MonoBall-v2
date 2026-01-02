@@ -1,0 +1,206 @@
+{
+  "id": "pokeemerald:pokemon:gyarados",
+  "name": "Gyarados",
+  "cryId": "pokeemerald:audio:sfx/cries/gyarados",
+  "baseStats": {
+    "hp": 95,
+    "attack": 125,
+    "defense": 79,
+    "speed": 81,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 5,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    null,
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:atrocious",
+  "height": 65,
+  "weight": 2350,
+  "description": "It is an extremely vicious and violent  Pok\u00E9mon. When humans begin to fight,  it will appear and burn everything to the  ground with intensely hot flames.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:waterfall"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gyarados/gyaradosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gyarados/gyaradosfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/gyarados/gyaradosback",
+    "backShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gyarados/gyaradosbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/gyarados/gyaradosicon",
+    "overworld": "pokeemerald:pokemon:sprite/gyarados/gyaradosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:gyarados/mega",
+      "name": "Gyarados",
+      "cryId": "pokeemerald:audio:sfx/cries/gyarados-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 95,
+        "attack": 155,
+        "defense": 109,
+        "speed": 81,
+        "spAttack": 70,
+        "spDefense": 130
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:mold_breaker",
+        "pokeemerald:ability:mold_breaker",
+        "pokeemerald:ability:mold_breaker"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gyarados/gyaradosmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:gyaradosite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

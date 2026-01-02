@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_pokefan_f",
+  "name": "slateport city event script pokefan f",
+  "description": "NPC interaction: slateport city event script pokefan f",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_pokefan_f.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

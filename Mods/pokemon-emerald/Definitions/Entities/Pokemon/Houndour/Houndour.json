@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:houndour",
+  "name": "Houndour",
+  "cryId": "pokeemerald:audio:sfx/cries/houndour",
+  "baseStats": {
+    "hp": 45,
+    "attack": 60,
+    "defense": 30,
+    "speed": 65,
+    "spAttack": 80,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:early_bird",
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:dark",
+  "height": 6,
+  "weight": 108,
+  "description": "Houndour communicate with each other  using a variety of cries to corner their  prey. This Pok\u00E9mon\u0027s remarkable teamwork  is simply unparalleled.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:houndoom"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:comeuppance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:inferno"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:fire_spin",
+    "pokeemerald:move:rage",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:spite",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:beat_up",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:destiny_bond"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/houndour/houndourfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/houndour/houndourfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/houndour/houndourback",
+    "backShiny": "pokeemerald:pokemon:sprite/houndour/houndourbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/houndour/houndouricon",
+    "overworld": "pokeemerald:pokemon:sprite/houndour/houndouroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/houndour/houndouroverworldshiny"
+  }
+}

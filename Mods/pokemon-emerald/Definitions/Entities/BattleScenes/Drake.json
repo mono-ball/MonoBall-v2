@@ -1,0 +1,14 @@
+{
+  "id": "pokeemerald:battlescene:normal/drake",
+  "name": "Drake",
+  "description": "Drake battle background",
+  "category": "elite_four",
+  "backgroundTextureId": "pokeemerald:texture:battle/background/stadium",
+  "playerPlatformTextureId": "pokeemerald:texture:battle/platform/stadium_player",
+  "enemyPlatformTextureId": "pokeemerald:texture:battle/platform/stadium_enemy",
+  "paletteId": "pokeemerald:texture:battle/palette/elite_drake",
+  "defaultMusicId": "pokeemerald:audio:music/battle/elite_four",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

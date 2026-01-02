@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:loudred",
+  "name": "Loudred",
+  "cryId": "pokeemerald:audio:sfx/cries/loudred",
+  "baseStats": {
+    "hp": 84,
+    "attack": 71,
+    "defense": 43,
+    "speed": 48,
+    "spAttack": 71,
+    "spDefense": 43
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 120,
+  "expYield": 126,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:soundproof",
+    null,
+    "pokeemerald:ability:scrappy"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:big_voice",
+  "height": 10,
+  "weight": 405,
+  "description": "It positions the round speakers on its  head to assail foes with ultrasonic waves  at massive volume. It builds power by  stomping the ground.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:exploud"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sleep_talk"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:hyper_voice"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/loudred/loudredfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/loudred/loudredfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/loudred/loudredback",
+    "backShiny": "pokeemerald:pokemon:sprite/loudred/loudredbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/loudred/loudredicon",
+    "overworld": "pokeemerald:pokemon:sprite/loudred/loudredoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/loudred/loudredoverworldshiny"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/togetic/togeticfront",
+  "name": "Togeticfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Togetic/TogeticFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

@@ -1,0 +1,19 @@
+{
+  "id": "pokeemerald:sprite:characters/npcs/generic/regi",
+  "name": "Regi",
+  "type": "Sprite",
+  "texturePath": "Graphics/Characters/Npcs/Generic/Regi.png",
+  "frameWidth": 16,
+  "frameHeight": 32,
+  "frameCount": 1,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

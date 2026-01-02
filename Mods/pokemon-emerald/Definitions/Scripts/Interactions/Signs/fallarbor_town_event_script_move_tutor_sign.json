@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/fallarbor_town_event_script_move_tutor_sign",
+  "name": "fallarbor town event script move tutor sign",
+  "description": "Sign script: fallarbor town event script move tutor sign",
+  "scriptPath": "Scripts/Signs/fallarbor_town_event_script_move_tutor_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

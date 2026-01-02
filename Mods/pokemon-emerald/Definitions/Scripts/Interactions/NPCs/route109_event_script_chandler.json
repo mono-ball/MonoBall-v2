@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_chandler",
+  "name": "route109 event script chandler",
+  "description": "NPC interaction: route109 event script chandler",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_chandler.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

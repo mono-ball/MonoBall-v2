@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_rest_house_event_script_youngster",
+  "name": "safari zone rest house event script youngster",
+  "description": "NPC interaction: safari zone rest house event script youngster",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_rest_house_event_script_youngster.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

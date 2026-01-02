@@ -1,0 +1,186 @@
+{
+  "id": "pokeemerald:pokemon:altaria",
+  "name": "Altaria",
+  "cryId": "pokeemerald:audio:sfx/cries/altaria",
+  "baseStats": {
+    "hp": 75,
+    "attack": 70,
+    "defense": 90,
+    "speed": 80,
+    "spAttack": 70,
+    "spDefense": 105
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    null,
+    "pokeemerald:ability:cloud_nine"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:humming",
+  "height": 11,
+  "weight": 206,
+  "description": "It hums in a beautiful soprano voice.  It flies among white clouds in the blue  sky. It launches intensely hot fireballs  from its mouth.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:cotton_guard"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:perish_song"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:sky_attack"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/altaria/altariafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/altaria/altariafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/altaria/altariaback",
+    "backShiny": "pokeemerald:pokemon:sprite/altaria/altariabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/altaria/altariaicon",
+    "overworld": "pokeemerald:pokemon:sprite/altaria/altariaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/altaria/altariaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:altaria/mega",
+      "name": "Altaria",
+      "cryId": "pokeemerald:audio:sfx/cries/altaria-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 75,
+        "attack": 110,
+        "defense": 110,
+        "speed": 80,
+        "spAttack": 110,
+        "spDefense": 105
+      },
+      "types": [
+        "pokeemerald:type:dragon",
+        "pokeemerald:type:fairy"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pixilate",
+        "pokeemerald:ability:pixilate",
+        "pokeemerald:ability:pixilate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/altaria/altariamegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/altaria/altariamegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/altaria/altariamegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/altaria/altariamegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/altaria/altariamegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/altaria/altariamegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/altaria/altariamegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:altarianite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

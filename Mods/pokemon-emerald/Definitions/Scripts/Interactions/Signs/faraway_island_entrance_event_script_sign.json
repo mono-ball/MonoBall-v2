@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/faraway_island_entrance_event_script_sign",
+  "name": "faraway island entrance event script sign",
+  "description": "Sign script: faraway island entrance event script sign",
+  "scriptPath": "Scripts/Signs/faraway_island_entrance_event_script_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

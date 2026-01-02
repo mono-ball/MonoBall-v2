@@ -64,7 +64,7 @@ public class ConstantsService : IConstantsService
     /// <exception cref="InvalidOperationException">Thrown if any constants fail validation.</exception>
     public void ValidateConstants()
     {
-        var constantDefinitions = _modManager.Registry.GetByType("ConstantsDefinitions");
+        var constantDefinitions = _modManager.Registry.GetByType("Constants");
         var validationRules = new Dictionary<string, ConstantValidationRule>();
 
         // Collect all validation rules from all definitions (later mods override earlier ones)
@@ -264,7 +264,7 @@ public class ConstantsService : IConstantsService
 
     private void LoadConstantsFromMods(IModManager modManager)
     {
-        var constantDefinitions = modManager.Registry.GetByType("ConstantsDefinitions");
+        var constantDefinitions = modManager.Registry.GetByType("Constants");
 
         foreach (var defId in constantDefinitions)
         {

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route102_event_script_rick",
+  "name": "route102 event script rick",
+  "description": "NPC interaction: route102 event script rick",
+  "scriptPath": "Scripts/Interactions/NPCs/route102_event_script_rick.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

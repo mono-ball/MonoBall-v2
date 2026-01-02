@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/volcanion/volcanionback",
+  "name": "Volcanionback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Volcanion/VolcanionBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

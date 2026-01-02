@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/granite_cave_stevens_room_event_script_steven",
+  "name": "granite cave stevens room event script steven",
+  "description": "NPC interaction: granite cave stevens room event script steven",
+  "scriptPath": "Scripts/Interactions/NPCs/granite_cave_stevens_room_event_script_steven.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

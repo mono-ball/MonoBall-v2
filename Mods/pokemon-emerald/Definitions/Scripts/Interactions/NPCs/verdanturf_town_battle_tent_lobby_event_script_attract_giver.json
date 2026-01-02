@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_attract_giver",
+  "name": "verdanturf town battle tent lobby event script attract giver",
+  "description": "NPC interaction: verdanturf town battle tent lobby event script attract giver",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_battle_tent_lobby_event_script_attract_giver.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/tauros/taurosfront",
+  "name": "Taurosfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Tauros/TaurosFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

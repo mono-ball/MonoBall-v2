@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/ever_grande_city_event_script_victory_road_sign",
+  "name": "ever grande city event script victory road sign",
+  "description": "Sign script: ever grande city event script victory road sign",
+  "scriptPath": "Scripts/Signs/ever_grande_city_event_script_victory_road_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

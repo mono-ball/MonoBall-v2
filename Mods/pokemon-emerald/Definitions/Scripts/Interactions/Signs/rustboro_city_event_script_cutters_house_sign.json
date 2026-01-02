@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/rustboro_city_event_script_cutters_house_sign",
+  "name": "rustboro city event script cutters house sign",
+  "description": "Sign script: rustboro city event script cutters house sign",
+  "scriptPath": "Scripts/Signs/rustboro_city_event_script_cutters_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

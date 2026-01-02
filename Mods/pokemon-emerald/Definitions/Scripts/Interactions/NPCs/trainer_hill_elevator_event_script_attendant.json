@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/trainer_hill_elevator_event_script_attendant",
+  "name": "trainer hill elevator event script attendant",
+  "description": "NPC interaction: trainer hill elevator event script attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/trainer_hill_elevator_event_script_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

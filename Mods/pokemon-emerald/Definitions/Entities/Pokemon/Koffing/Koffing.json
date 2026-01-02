@@ -1,0 +1,162 @@
+{
+  "id": "pokeemerald:pokemon:koffing",
+  "name": "Koffing",
+  "cryId": "pokeemerald:audio:sfx/cries/koffing",
+  "baseStats": {
+    "hp": 40,
+    "attack": 65,
+    "defense": 95,
+    "speed": 35,
+    "spAttack": 60
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    "pokeemerald:ability:neutralizing_gas",
+    "pokeemerald:ability:stench"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:poison_gas",
+  "height": 6,
+  "weight": 10,
+  "description": "Getting up close to a Koffing will give  you a chance to observe, through its thin  skin, the toxic gases swirling inside. It  blows up at the slightest stimulation.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:weezing"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:weezing-galar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sludge"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:screech",
+    "pokeemerald:move:psywave",
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:pain_split",
+    "pokeemerald:move:grudge",
+    "pokeemerald:move:spite",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:toxic_spikes",
+    "pokeemerald:move:venom_drench"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/koffing/koffingfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/koffing/koffingfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/koffing/koffingback",
+    "backShiny": "pokeemerald:pokemon:sprite/koffing/koffingbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/koffing/koffingicon",
+    "overworld": "pokeemerald:pokemon:sprite/koffing/koffingoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/koffing/koffingoverworldshiny"
+  }
+}

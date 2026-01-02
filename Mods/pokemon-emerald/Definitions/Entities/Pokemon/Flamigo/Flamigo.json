@@ -1,0 +1,133 @@
+{
+  "id": "pokeemerald:pokemon:flamigo",
+  "name": "Flamigo",
+  "cryId": "pokeemerald:audio:sfx/cries/flamigo",
+  "baseStats": {
+    "hp": 82,
+    "attack": 115,
+    "defense": 74,
+    "speed": 90,
+    "spAttack": 75,
+    "spDefense": 64
+  },
+  "types": [
+    "pokeemerald:type:flying",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 100,
+  "expYield": 175,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:scrappy",
+    "pokeemerald:ability:tangled_feet",
+    "pokeemerald:ability:costar"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:synchronize",
+  "height": 16,
+  "weight": 370,
+  "description": "Thanks to a behavior of theirs  known as \u201Csynchronizing,\u201D an entire  flock of these Pok\u00E9mon can attack  simultaneously in perfect harmony.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:mega_kick"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:throat_chop"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:brave_bird"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:quick_guard",
+    "pokeemerald:move:sky_attack"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/flamigo/flamigofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/flamigo/flamigofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/flamigo/flamigoback",
+    "backShiny": "pokeemerald:pokemon:sprite/flamigo/flamigobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/flamigo/flamigoicon",
+    "overworld": "pokeemerald:pokemon:sprite/flamigo/flamigooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/flamigo/flamigooverworldshiny"
+  }
+}

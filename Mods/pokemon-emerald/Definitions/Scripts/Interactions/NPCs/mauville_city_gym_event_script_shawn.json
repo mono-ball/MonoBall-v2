@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_shawn",
+  "name": "mauville city gym event script shawn",
+  "description": "NPC interaction: mauville city gym event script shawn",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_gym_event_script_shawn.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

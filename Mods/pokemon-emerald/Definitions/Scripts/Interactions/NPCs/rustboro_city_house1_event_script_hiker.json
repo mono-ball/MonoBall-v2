@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_house1_event_script_hiker",
+  "name": "rustboro city house1 event script hiker",
+  "description": "NPC interaction: rustboro city house1 event script hiker",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_house1_event_script_hiker.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

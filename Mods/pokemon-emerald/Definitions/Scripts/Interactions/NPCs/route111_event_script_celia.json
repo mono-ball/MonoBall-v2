@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_celia",
+  "name": "route111 event script celia",
+  "description": "NPC interaction: route111 event script celia",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_celia.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

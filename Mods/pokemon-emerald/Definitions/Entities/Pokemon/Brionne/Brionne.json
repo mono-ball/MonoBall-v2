@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:brionne",
+  "name": "Brionne",
+  "cryId": "pokeemerald:audio:sfx/cries/brionne",
+  "baseStats": {
+    "hp": 60,
+    "attack": 69,
+    "defense": 69,
+    "speed": 50,
+    "spAttack": 91,
+    "spDefense": 81
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 147,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:liquid_voice"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:pop_star",
+  "height": 6,
+  "weight": 175,
+  "description": "It cares deeply for its companions.  When its Trainer is feeling down, it  performs a cheery dance with a sequence  of water balloons  to try and help.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:primarina"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/brionne/brionnefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/brionne/brionnefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/brionne/brionneback",
+    "backShiny": "pokeemerald:pokemon:sprite/brionne/brionnebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/brionne/brionneicon",
+    "overworld": "pokeemerald:pokemon:sprite/brionne/brionneoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/brionne/brionneoverworldshiny"
+  }
+}

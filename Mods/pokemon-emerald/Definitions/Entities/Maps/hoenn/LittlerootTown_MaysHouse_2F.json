@@ -1,0 +1,306 @@
+{
+  "id": "pokeemerald:map:hoenn/littleroot_town_mays_house_2f",
+  "name": "LittlerootTown_MaysHouse_2F",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 9,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/littleroot",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/littleroot_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/littleroot_town_mays_house_2f/ground",
+      "name": "Ground",
+      "width": 9,
+      "height": 8,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/littleroot_town_mays_house_2f/objects",
+      "name": "Objects",
+      "width": 9,
+      "height": 8,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/littleroot_town_mays_house_2f/overhead",
+      "name": "Overhead",
+      "width": 9,
+      "height": 8,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/brendans_mays_house"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/littleroot_town_mays_house_2f/warp_to_littleroot_town_mays_house_1f",
+      "name": "Warp to littleroot_town_mays_house_1f",
+      "x": 16,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/littleroot_town_mays_house_1f",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_mays_house_2f/sign_playershouse2feventscriptgamecube",
+      "name": "Sign: PlayersHouse_2F_EventScript_GameCube",
+      "x": 80,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/players_house_2f_event_script_game_cube",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_mays_house_2f/sign_playershouse2feventscriptnotebook",
+      "name": "Sign: PlayersHouse_2F_EventScript_Notebook",
+      "x": 112,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/players_house_2f_event_script_notebook",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_mays_house_2f/sign_littleroottownmayshouse2feventscriptwallclock",
+      "name": "Sign: LittlerootTown_MaysHouse_2F_EventScript_WallClock",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_mays_house_2f_event_script_wall_clock",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_mays_house_2f/sign_littleroottownmayshouse2feventscriptpc",
+      "name": "Sign: LittlerootTown_MaysHouse_2F_EventScript_PC",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_mays_house_2f_event_script_pc",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/localid_rivals_house_2f_rival",
+      "name": "LOCALID_RIVALS_HOUSE_2F_RIVAL",
+      "x": 16,
+      "y": 16,
+      "spriteId": "pokeemerald:sprite:npcs/rubysapphiremay/rubysapphiremay",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/rivals_house_2f_event_script_rival",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_rival_bedroom",
+      "facingDirection": "down",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_1",
+      "name": "NPC_1",
+      "x": 0,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/1",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_2",
+      "name": "NPC_2",
+      "x": 16,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/{var_player}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/2",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_3",
+      "name": "NPC_3",
+      "x": 32,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/{var_2}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/3",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_4",
+      "name": "NPC_4",
+      "x": 48,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/{var_3}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/4",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_5",
+      "name": "NPC_5",
+      "x": 64,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/{var_4}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/5",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_6",
+      "name": "NPC_6",
+      "x": 80,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/{var_5}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/6",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_7",
+      "name": "NPC_7",
+      "x": 0,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/{var_6}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/7",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_8",
+      "name": "NPC_8",
+      "x": 16,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/{var_7}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/8",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_9",
+      "name": "NPC_9",
+      "x": 32,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/{var_8}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/9",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_10",
+      "name": "NPC_10",
+      "x": 48,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/{var_9}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/10",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_11",
+      "name": "NPC_11",
+      "x": 64,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/{var_a}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/11",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_12",
+      "name": "NPC_12",
+      "x": 80,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/{var_b}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:decoration/12",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/localid_players_house_2f_mom",
+      "name": "LOCALID_PLAYERS_HOUSE_2F_MOM",
+      "x": 16,
+      "y": 16,
+      "spriteId": "pokeemerald:sprite:npcs/mom",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_players_bedroom_mom",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_14",
+      "name": "NPC_14",
+      "x": 48,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:objects/dolls/pichudoll",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_2f_pichu_doll",
+      "facingDirection": "down",
+      "elevation": 4
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_mays_house_2f/npc_15",
+      "name": "NPC_15",
+      "x": 80,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_mays_house_2f_event_script_rivals_poke_ball",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_2f_poke_ball",
+      "elevation": 0
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/littleroot_town_mays_house_2f/elevation_0",
+      "name": "Collision_0",
+      "width": 9,
+      "height": 8,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQABAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ]
+}

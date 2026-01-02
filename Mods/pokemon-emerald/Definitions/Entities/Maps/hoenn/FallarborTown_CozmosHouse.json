@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:map:hoenn/fallarbor_town_cozmos_house",
+  "name": "FallarborTown_CozmosHouse",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 10,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/fallarbor",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/fallarbor_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/fallarbor_town_cozmos_house/ground",
+      "name": "Ground",
+      "width": 10,
+      "height": 9,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/fallarbor_town_cozmos_house/objects",
+      "name": "Objects",
+      "width": 10,
+      "height": 9,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/fallarbor_town_cozmos_house/overhead",
+      "name": "Overhead",
+      "width": 10,
+      "height": 9,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/fallarbor_town_cozmos_house/warp_to_fallarbor_town",
+      "name": "Warp to fallarbor_town",
+      "x": 48,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/fallarbor_town",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/fallarbor_town_cozmos_house/warp_to_fallarbor_town",
+      "name": "Warp to fallarbor_town",
+      "x": 64,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/fallarbor_town",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/fallarbor_town_cozmos_house/npc_0",
+      "name": "NPC_0",
+      "x": 96,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/scientist1",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/fallarbor_town_cozmos_house_event_script_prof_cozmo",
+      "visibilityFlag": "pokeemerald:flag:visibility/fallarbor_house_prof_cozmo",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/fallarbor_town_cozmos_house/npc_1",
+      "name": "NPC_1",
+      "x": 80,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/woman2",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 0
+      },
+      "interactionId": "pokeemerald:interaction/npcs/fallarbor_town_cozmos_house_event_script_cozmos_wife",
+      "facingDirection": "left",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/fallarbor_town_cozmos_house/elevation_0",
+      "name": "Collision_0",
+      "width": 10,
+      "height": 9,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/fallarbor_town_cozmos_house/elevation_3",
+      "name": "Collision_3",
+      "width": 10,
+      "height": 9,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB"
+    }
+  ]
+}

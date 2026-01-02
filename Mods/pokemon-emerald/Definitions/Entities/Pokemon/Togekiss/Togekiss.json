@@ -1,0 +1,181 @@
+{
+  "id": "pokeemerald:pokemon:togekiss",
+  "name": "Togekiss",
+  "cryId": "pokeemerald:audio:sfx/cries/togekiss",
+  "baseStats": {
+    "hp": 85,
+    "attack": 50,
+    "defense": 95,
+    "speed": 80,
+    "spAttack": 120,
+    "spDefense": 115
+  },
+  "catchRate": 30,
+  "expYield": 273,
+  "evYield": {
+    "spAttack": 2,
+    "spDefense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:hustle",
+    "pokeemerald:ability:serene_grace",
+    "pokeemerald:ability:super_luck"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:jubilee",
+  "height": 15,
+  "weight": 380,
+  "description": "As everyone knows, it visits peaceful  regions, bringing them gifts of kindness  and sweet blessings. It will never appear  where there is strife.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fairy_wind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sky_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aura_sphere"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:extreme_speed"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tri_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metronome"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:follow_me"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:life_dew"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/togekiss/togekissfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/togekiss/togekissfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/togekiss/togekissback",
+    "backShiny": "pokeemerald:pokemon:sprite/togekiss/togekissbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/togekiss/togekissicon",
+    "overworld": "pokeemerald:pokemon:sprite/togekiss/togekissoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/togekiss/togekissoverworldshiny"
+  }
+}

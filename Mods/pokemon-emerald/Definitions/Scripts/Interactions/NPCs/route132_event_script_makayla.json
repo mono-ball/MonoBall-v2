@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route132_event_script_makayla",
+  "name": "route132 event script makayla",
+  "description": "NPC interaction: route132 event script makayla",
+  "scriptPath": "Scripts/Interactions/NPCs/route132_event_script_makayla.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

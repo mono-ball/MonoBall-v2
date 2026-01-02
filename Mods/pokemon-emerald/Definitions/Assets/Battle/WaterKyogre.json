@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/water_kyogre",
+  "name": "Kyogre Battle",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/WaterKyogre/WaterKyogre.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/water",
+  "description": "Battle environment background for Kyogre Battle"
+}

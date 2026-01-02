@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sky_pillar_outside_event_script_wallace",
+  "name": "sky pillar outside event script wallace",
+  "description": "NPC interaction: sky pillar outside event script wallace",
+  "scriptPath": "Scripts/Interactions/NPCs/sky_pillar_outside_event_script_wallace.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

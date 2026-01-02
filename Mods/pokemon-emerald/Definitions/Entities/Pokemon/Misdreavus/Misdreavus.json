@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:misdreavus",
+  "name": "Misdreavus",
+  "cryId": "pokeemerald:audio:sfx/cries/misdreavus",
+  "baseStats": {
+    "hp": 60,
+    "attack": 60,
+    "defense": 60,
+    "speed": 85,
+    "spAttack": 85,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:screech",
+  "height": 7,
+  "weight": 10,
+  "description": "A Misdreavus frightens people with a  creepy, sobbing cry. It apparently uses  its red spheres to absorb the fear of foes  as its nutrition.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_DUSK_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:mismagius"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:perish_song"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:power_gem"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:screech",
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:imprison",
+    "pokeemerald:move:memento",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:shadow_sneak",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:spite",
+    "pokeemerald:move:ominous_wind",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:wonder_room",
+    "pokeemerald:move:me_first"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/misdreavus/misdreavusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/misdreavus/misdreavusback",
+    "backShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/misdreavus/misdreavusicon",
+    "overworld": "pokeemerald:pokemon:sprite/misdreavus/misdreavusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavusoverworldshiny"
+  }
+}

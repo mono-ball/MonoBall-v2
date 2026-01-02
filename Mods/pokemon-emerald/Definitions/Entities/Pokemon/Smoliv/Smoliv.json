@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:smoliv",
+  "name": "Smoliv",
+  "cryId": "pokeemerald:audio:sfx/cries/smoliv",
+  "baseStats": {
+    "hp": 41,
+    "attack": 35,
+    "defense": 45,
+    "speed": 30,
+    "spAttack": 58,
+    "spDefense": 51
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 52,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:early_bird",
+    null,
+    "pokeemerald:ability:harvest"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:olive",
+  "height": 3,
+  "weight": 65,
+  "description": "This Pok\u00E9mon converts nutrients  into oil, which it stores in the fruit  on its head. It can easily go a whole  week without eating or drinking.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:dolliv"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:grassy_terrain"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:energy_ball"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:terrain_pulse"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:memento",
+    "pokeemerald:move:strength_sap",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:weather_ball"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/smoliv/smolivfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/smoliv/smolivfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/smoliv/smolivback",
+    "backShiny": "pokeemerald:pokemon:sprite/smoliv/smolivbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/smoliv/smolivicon",
+    "overworld": "pokeemerald:pokemon:sprite/smoliv/smolivoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/smoliv/smolivoverworldshiny"
+  }
+}

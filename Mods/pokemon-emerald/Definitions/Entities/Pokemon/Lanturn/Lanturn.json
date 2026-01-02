@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:lanturn",
+  "name": "Lanturn",
+  "cryId": "pokeemerald:audio:sfx/cries/lanturn",
+  "baseStats": {
+    "hp": 125,
+    "attack": 58,
+    "defense": 58,
+    "speed": 67,
+    "spAttack": 76,
+    "spDefense": 76
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:volt_absorb",
+    "pokeemerald:ability:illuminate",
+    "pokeemerald:ability:water_absorb"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:light",
+  "height": 12,
+  "weight": 225,
+  "description": "The light-emitting orbs on its back are  very bright. They are formed from a part of  its dorsal fin. This Pok\u00E9mon illuminates  the inky darkness of deep seas.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:eerie_impulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lanturn/lanturnfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lanturn/lanturnfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lanturn/lanturnback",
+    "backShiny": "pokeemerald:pokemon:sprite/lanturn/lanturnbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lanturn/lanturnicon",
+    "overworld": "pokeemerald:pokemon:sprite/lanturn/lanturnoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lanturn/lanturnoverworldshiny"
+  }
+}

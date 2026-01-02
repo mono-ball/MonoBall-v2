@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route134_event_script_aaron",
+  "name": "route134 event script aaron",
+  "description": "NPC interaction: route134 event script aaron",
+  "scriptPath": "Scripts/Interactions/NPCs/route134_event_script_aaron.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

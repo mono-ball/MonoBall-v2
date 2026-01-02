@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:mudbray",
+  "name": "Mudbray",
+  "cryId": "pokeemerald:audio:sfx/cries/mudbray",
+  "baseStats": {
+    "hp": 70,
+    "attack": 100,
+    "defense": 70,
+    "speed": 45,
+    "spAttack": 45,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 190,
+  "expYield": 77,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:stamina",
+    "pokeemerald:ability:inner_focus"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:donkey",
+  "height": 10,
+  "weight": 1100,
+  "description": "The mud stuck to Mudbray\u0027s hooves  enhances its grip and its powerful running  gait. Eating dirt, making mud, and playing  in the mire form its daily routine.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:mudsdale"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:high_horsepower"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:mega_kick"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:magnitude",
+    "pokeemerald:move:close_combat",
+    "pokeemerald:move:mud_bomb"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mudbray/mudbrayfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mudbray/mudbrayfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mudbray/mudbrayback",
+    "backShiny": "pokeemerald:pokemon:sprite/mudbray/mudbraybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mudbray/mudbrayicon",
+    "overworld": "pokeemerald:pokemon:sprite/mudbray/mudbrayoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mudbray/mudbrayoverworldshiny"
+  }
+}

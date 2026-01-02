@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_house1_event_script_woman",
+  "name": "mossdeep city house1 event script woman",
+  "description": "NPC interaction: mossdeep city house1 event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_house1_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

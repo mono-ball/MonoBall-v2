@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:cinderace",
+  "name": "Cinderace",
+  "cryId": "pokeemerald:audio:sfx/cries/cinderace",
+  "baseStats": {
+    "hp": 80,
+    "attack": 116,
+    "defense": 75,
+    "speed": 119,
+    "spAttack": 65,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:libero"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:striker",
+  "height": 14,
+  "weight": 330,
+  "description": "It juggles a pebble with its feet,  turning it into a burning soccer ball.  Its shots strike opponents hard and  leave them scorched.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:pyro_ball"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:court_change"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cinderace/cinderacefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cinderace/cinderacefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cinderace/cinderaceback",
+    "backShiny": "pokeemerald:pokemon:sprite/cinderace/cinderacebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cinderace/cinderaceicon",
+    "overworld": "pokeemerald:pokemon:sprite/cinderace/cinderaceoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cinderace/cinderaceoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:cinderace/gmax",
+      "name": "Cinderace",
+      "cryId": "pokeemerald:audio:sfx/cries/cinderace",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 80,
+        "attack": 116,
+        "defense": 75,
+        "speed": 119,
+        "spAttack": 65,
+        "spDefense": 75
+      },
+      "types": [
+        "pokeemerald:type:fire"
+      ],
+      "abilities": [
+        "pokeemerald:ability:blaze",
+        null,
+        "pokeemerald:ability:libero"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/cinderace/cinderacegmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

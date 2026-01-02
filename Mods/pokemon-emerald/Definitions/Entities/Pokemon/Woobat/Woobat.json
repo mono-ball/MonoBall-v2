@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:woobat",
+  "name": "Woobat",
+  "cryId": "pokeemerald:audio:sfx/cries/woobat",
+  "baseStats": {
+    "attack": 45,
+    "defense": 43,
+    "speed": 72,
+    "spAttack": 55,
+    "spDefense": 43
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:unaware",
+    "pokeemerald:ability:klutz",
+    "pokeemerald:ability:simple"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:bat",
+  "height": 4,
+  "weight": 21,
+  "description": "Its habitat is dark forests and caves.  Suction from its nostrils enables it  to stick to cave walls during sleep.  It leaves a heart-shaped mark behind.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:swoobat"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:simple_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:charm",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:synchronoise",
+    "pokeemerald:move:stored_power",
+    "pokeemerald:move:roost",
+    "pokeemerald:move:flatter",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:venom_drench",
+    "pokeemerald:move:psycho_shift"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/woobat/woobatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/woobat/woobatfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/woobat/woobatback",
+    "backShiny": "pokeemerald:pokemon:sprite/woobat/woobatbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/woobat/woobaticon",
+    "overworld": "pokeemerald:pokemon:sprite/woobat/woobatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/woobat/woobatoverworldshiny"
+  }
+}

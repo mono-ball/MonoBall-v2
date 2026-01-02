@@ -1,0 +1,174 @@
+{
+  "id": "pokeemerald:pokemon:weavile",
+  "name": "Weavile",
+  "cryId": "pokeemerald:audio:sfx/cries/weavile",
+  "baseStats": {
+    "hp": 70,
+    "attack": 120,
+    "defense": 65,
+    "speed": 125,
+    "spAttack": 45,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1,
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:pickpocket"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:sharp_claw",
+  "height": 11,
+  "weight": 340,
+  "description": "They travel in groups of four or five,  leaving signs for one another on trees  and rocks. They bring down their prey  with coordinated attacks.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:dark_pulse"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/weavile/weavilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/weavile/weavilefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/weavile/weavilefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/weavile/weavilefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/weavile/weavileback",
+    "backShiny": "pokeemerald:pokemon:sprite/weavile/weavilebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/weavile/weavilebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/weavile/weavilebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/weavile/weavileicon",
+    "overworld": "pokeemerald:pokemon:sprite/weavile/weavileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/weavile/weavileoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

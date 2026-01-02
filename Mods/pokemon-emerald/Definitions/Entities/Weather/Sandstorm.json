@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:weather:outdoor/sandstorm",
+  "name": "Sandstorm",
+  "description": "Sandstorm weather condition",
+  "category": "outdoor",
+  "intensity": 1,
+  "affectsBattle": true,
+  "effectScriptId": "pokeemerald:script:weather/sandstorm",
+  "graphicsId": "pokeemerald:weather:graphics/sandstorm",
+  "screenTintOpacity": 0,
+  "reducesVisibility": true,
+  "visibilityRange": 5
+}

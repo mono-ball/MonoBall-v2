@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/underwater_sealed_chamber_event_script_braille",
+  "name": "underwater sealed chamber event script braille",
+  "description": "Sign script: underwater sealed chamber event script braille",
+  "scriptPath": "Scripts/Signs/underwater_sealed_chamber_event_script_braille.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

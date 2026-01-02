@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_event_script_old_rod_fisherman",
+  "name": "dewford town event script old rod fisherman",
+  "description": "NPC interaction: dewford town event script old rod fisherman",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_event_script_old_rod_fisherman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

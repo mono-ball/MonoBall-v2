@@ -1,0 +1,11 @@
+{
+  "id": "pokeemerald:sprite:ui/interface/scroll-indicator",
+  "name": "Scroll Indicator",
+  "type": "Sprite",
+  "texturePath": "Graphics/UI/Interface/ScrollIndicator.png",
+  "width": 16,
+  "height": 32,
+  "frameWidth": 8,
+  "frameHeight": 8,
+  "frameCount": 2
+}

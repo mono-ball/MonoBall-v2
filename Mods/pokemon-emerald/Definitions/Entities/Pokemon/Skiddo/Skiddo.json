@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:skiddo",
+  "name": "Skiddo",
+  "cryId": "pokeemerald:audio:sfx/cries/skiddo",
+  "baseStats": {
+    "hp": 66,
+    "attack": 65,
+    "defense": 48,
+    "speed": 52,
+    "spAttack": 62,
+    "spDefense": 57
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 200,
+  "expYield": 70,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sap_sipper",
+    null,
+    "pokeemerald:ability:grass_pelt"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mount",
+  "height": 9,
+  "weight": 310,
+  "description": "If it has sunshine and water, it doesn\u0027t  need to eat, because it can generate  energy from the leaves on its back.  It has a placid disposition.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 32,
+      "targetSpeciesId": "pokeemerald:pokemon:gogoat"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:worry_seed"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:horn_leech"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:leaf_blade"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:milk_drink",
+    "pokeemerald:move:grassy_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skiddo/skiddofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skiddo/skiddofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skiddo/skiddoback",
+    "backShiny": "pokeemerald:pokemon:sprite/skiddo/skiddobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skiddo/skiddoicon",
+    "overworld": "pokeemerald:pokemon:sprite/skiddo/skiddooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skiddo/skiddooverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_event_script_rival",
+  "name": "rustboro city event script rival",
+  "description": "NPC interaction: rustboro city event script rival",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_event_script_rival.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

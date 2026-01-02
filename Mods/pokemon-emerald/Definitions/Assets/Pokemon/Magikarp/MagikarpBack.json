@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/magikarp/magikarpback",
+  "name": "Magikarpback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Magikarp/MagikarpBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

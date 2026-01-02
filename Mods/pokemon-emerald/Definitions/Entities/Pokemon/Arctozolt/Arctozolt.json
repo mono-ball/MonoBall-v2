@@ -1,0 +1,128 @@
+{
+  "id": "pokeemerald:pokemon:arctozolt",
+  "name": "Arctozolt",
+  "cryId": "pokeemerald:audio:sfx/cries/arctozolt",
+  "baseStats": {
+    "hp": 90,
+    "attack": 100,
+    "defense": 90,
+    "speed": 55,
+    "spAttack": 90,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "expYield": 177,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:volt_absorb",
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:slush_rush"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:fossil",
+  "height": 23,
+  "weight": 1500,
+  "description": "The shaking of its freezing upper half is  what generates its electricity. It has a  hard time walking around.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:avalanche"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:bolt_beak"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:icicle_crash"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:blizzard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/arctozolt/arctozoltfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/arctozolt/arctozoltfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/arctozolt/arctozoltback",
+    "backShiny": "pokeemerald:pokemon:sprite/arctozolt/arctozoltbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/arctozolt/arctozolticon",
+    "overworld": "pokeemerald:pokemon:sprite/arctozolt/arctozoltoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arctozolt/arctozoltoverworldshiny"
+  }
+}

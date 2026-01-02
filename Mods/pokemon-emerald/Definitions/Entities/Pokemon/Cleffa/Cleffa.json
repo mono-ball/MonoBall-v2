@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:cleffa",
+  "name": "Cleffa",
+  "cryId": "pokeemerald:audio:sfx/cries/cleffa",
+  "baseStats": {
+    "hp": 50,
+    "attack": 25,
+    "defense": 28,
+    "speed": 15,
+    "spAttack": 45,
+    "spDefense": 55
+  },
+  "catchRate": 150,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 191,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 140,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:cute_charm",
+    "pokeemerald:ability:magic_guard",
+    "pokeemerald:ability:friend_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:star_shape",
+  "height": 3,
+  "weight": 30,
+  "description": "On nights with many shooting stars,  Cleffa can be seen dancing in a ring.  They dance until daybreak, when they  quench their thirst with the morning dew.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:clefairy"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:charm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:soft_boiled",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:present",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:belly_drum",
+    "pokeemerald:move:splash",
+    "pokeemerald:move:mimic",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:covet",
+    "pokeemerald:move:aromatherapy",
+    "pokeemerald:move:stored_power",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:misty_terrain",
+    "pokeemerald:move:heal_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cleffa/cleffafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cleffa/cleffafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cleffa/cleffaback",
+    "backShiny": "pokeemerald:pokemon:sprite/cleffa/cleffabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cleffa/cleffaicon",
+    "overworld": "pokeemerald:pokemon:sprite/cleffa/cleffaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cleffa/cleffaoverworldshiny"
+  }
+}

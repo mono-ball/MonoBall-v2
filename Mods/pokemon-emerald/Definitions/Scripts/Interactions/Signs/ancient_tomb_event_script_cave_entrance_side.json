@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/ancient_tomb_event_script_cave_entrance_side",
+  "name": "ancient tomb event script cave entrance side",
+  "description": "Sign script: ancient tomb event script cave entrance side",
+  "scriptPath": "Scripts/Signs/ancient_tomb_event_script_cave_entrance_side.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

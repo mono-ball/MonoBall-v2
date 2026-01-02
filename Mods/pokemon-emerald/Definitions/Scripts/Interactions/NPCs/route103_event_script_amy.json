@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_amy",
+  "name": "route103 event script amy",
+  "description": "NPC interaction: route103 event script amy",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_amy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

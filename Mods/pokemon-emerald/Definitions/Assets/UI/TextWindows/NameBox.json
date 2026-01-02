@@ -1,0 +1,54 @@
+{
+  "id": "pokeemerald:textwindow:tilesheet/name_box",
+  "displayName": "Name Box",
+  "type": "TileSheet",
+  "texturePath": "Graphics/UI/TextWindows/NameBox.png",
+  "tileWidth": 8,
+  "tileHeight": 8,
+  "tileCount": 6,
+  "tiles": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 8,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 2,
+      "x": 16,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 3,
+      "x": 0,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 4,
+      "x": 8,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 5,
+      "x": 16,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    }
+  ],
+  "description": "Text window tile sheet from Pokemon Emerald (GBA tile-based rendering)"
+}

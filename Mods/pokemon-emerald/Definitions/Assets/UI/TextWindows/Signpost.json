@@ -1,0 +1,47 @@
+{
+  "id": "pokeemerald:textwindow:tilesheet/signpost",
+  "displayName": "Signpost",
+  "type": "TileSheet",
+  "texturePath": "Graphics/UI/TextWindows/Signpost.png",
+  "tileWidth": 8,
+  "tileHeight": 8,
+  "tileCount": 5,
+  "tiles": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 8,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 2,
+      "x": 16,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 3,
+      "x": 24,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 4,
+      "x": 32,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    }
+  ],
+  "description": "Text window tile sheet from Pokemon Emerald (GBA tile-based rendering)"
+}

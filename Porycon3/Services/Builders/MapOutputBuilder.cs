@@ -21,9 +21,12 @@ public class MapOutputBuilder
         MapData mapData,
         List<SharedLayerData> layers,
         TilesetPairKey tilesetPair,
+        int primaryTileCount,
+        string primaryTilesetType,
+        string secondaryTilesetType,
         List<CollisionLayerData> collisionLayers,
-        string weatherId,
-        string battleSceneId)
+        string? weatherId,
+        string? battleSceneId)
     {
         var normalizedName = IdTransformer.Normalize(mapName);
 
@@ -52,7 +55,11 @@ public class MapOutputBuilder
             encounterDataJson = (string?)null,
             customPropertiesJson = (string?)null,
             layers = BuildLayers(layers, normalizedName),
-            tilesets = new[] { new { firstGid = 1, tilesetId = SharedTilesetRegistry.GenerateTilesetId(tilesetPair) } },
+            tilesets = new[]
+            {
+                new { firstGid = 1, tilesetId = IdTransformer.TilesetId(tilesetPair.PrimaryTileset, primaryTilesetType) },
+                new { firstGid = primaryTileCount + 1, tilesetId = IdTransformer.TilesetId(tilesetPair.SecondaryTileset, secondaryTilesetType) }
+            },
             warps = BuildWarps(mapData.Warps, normalizedName),
             triggers = BuildTriggers(mapData.CoordEvents, normalizedName),
             interactions = BuildInteractions(mapData.BgEvents, normalizedName),

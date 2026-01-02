@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_woods_event_script_james",
+  "name": "petalburg woods event script james",
+  "description": "NPC interaction: petalburg woods event script james",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_woods_event_script_james.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

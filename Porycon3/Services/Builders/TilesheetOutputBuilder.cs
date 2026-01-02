@@ -27,7 +27,7 @@ public class TilesheetOutputBuilder
 
     private void SaveTilesheetImage(SharedTilesetResult result)
     {
-        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Tilesets",
+        var graphicsDir = Path.Combine(_outputPath, "Graphics", "Maps", "Tilesets",
             result.TilesetType == "primary" ? "Primary" : "Secondary");
         Directory.CreateDirectory(graphicsDir);
         var imagePath = Path.Combine(graphicsDir, $"{result.TilesetName}.png");
@@ -36,11 +36,11 @@ public class TilesheetOutputBuilder
 
     private void SaveTilesheetDefinition(SharedTilesetResult result)
     {
-        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Tilesets", result.TilesetType);
+        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", result.TilesetType);
         Directory.CreateDirectory(defsDir);
 
         var tilesArray = BuildTilesArray(result);
-        var texturePath = $"Graphics/Tilesets/{(result.TilesetType == "primary" ? "Primary" : "Secondary")}/{result.TilesetName}.png";
+        var texturePath = $"Graphics/Maps/Tilesets/{(result.TilesetType == "primary" ? "Primary" : "Secondary")}/{result.TilesetName}.png";
 
         var tilesetJson = new
         {

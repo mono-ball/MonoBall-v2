@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route125_event_script_presley",
+  "name": "route125 event script presley",
+  "description": "NPC interaction: route125 event script presley",
+  "scriptPath": "Scripts/Interactions/NPCs/route125_event_script_presley.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

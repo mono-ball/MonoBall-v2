@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:battlescene:normal/gym",
+  "name": "Gym",
+  "description": "Gym battle background",
+  "category": "gym",
+  "backgroundTextureId": "pokeemerald:texture:battle/background/building",
+  "playerPlatformTextureId": "pokeemerald:texture:battle/platform/building_player",
+  "enemyPlatformTextureId": "pokeemerald:texture:battle/platform/building_enemy",
+  "paletteId": "pokeemerald:texture:battle/palette/gym",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

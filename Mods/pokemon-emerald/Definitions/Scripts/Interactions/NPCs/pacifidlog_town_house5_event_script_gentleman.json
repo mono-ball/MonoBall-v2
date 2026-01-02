@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_house5_event_script_gentleman",
+  "name": "pacifidlog town house5 event script gentleman",
+  "description": "NPC interaction: pacifidlog town house5 event script gentleman",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_house5_event_script_gentleman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

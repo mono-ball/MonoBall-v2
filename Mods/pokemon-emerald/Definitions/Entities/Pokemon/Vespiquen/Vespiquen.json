@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:vespiquen",
+  "name": "Vespiquen",
+  "cryId": "pokeemerald:audio:sfx/cries/vespiquen",
+  "baseStats": {
+    "hp": 70,
+    "attack": 80,
+    "defense": 102,
+    "speed": 40,
+    "spAttack": 80,
+    "spDefense": 102
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:beehive",
+  "height": 12,
+  "weight": 385,
+  "description": "It houses its colony in cells in its body  and releases various pheromones to  make those grubs do its bidding.  There is only one in a colony.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:attack_order"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:defend_order"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/vespiquen/vespiquenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquenfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/vespiquen/vespiquenback",
+    "backShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquenbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/vespiquen/vespiquenicon",
+    "overworld": "pokeemerald:pokemon:sprite/vespiquen/vespiquenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquenoverworldshiny"
+  }
+}

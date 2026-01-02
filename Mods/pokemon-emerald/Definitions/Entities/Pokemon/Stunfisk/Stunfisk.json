@@ -1,0 +1,188 @@
+{
+  "id": "pokeemerald:pokemon:stunfisk",
+  "name": "Stunfisk",
+  "cryId": "pokeemerald:audio:sfx/cries/stunfisk",
+  "baseStats": {
+    "hp": 109,
+    "attack": 66,
+    "defense": 84,
+    "speed": 32,
+    "spAttack": 81,
+    "spDefense": 99
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 75,
+  "expYield": 165,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:limber",
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:trap",
+  "height": 7,
+  "weight": 110,
+  "description": "It conceals itself in the mud of the  seashore. Then it waits. When prey touch  it, it delivers a jolt of electricity.  It smiles when transmitting electricity.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:revenge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:fissure"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:earth_power",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:spite",
+    "pokeemerald:move:spark",
+    "pokeemerald:move:pain_split",
+    "pokeemerald:move:eerie_impulse",
+    "pokeemerald:move:reflect_type",
+    "pokeemerald:move:me_first"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/stunfisk/stunfiskfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/stunfisk/stunfiskback",
+    "backShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/stunfisk/stunfiskicon",
+    "overworld": "pokeemerald:pokemon:sprite/stunfisk/stunfiskoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:stunfisk/galar",
+      "name": "Stunfisk",
+      "cryId": "pokeemerald:audio:sfx/cries/stunfisk",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 109,
+        "attack": 81,
+        "defense": 99,
+        "speed": 32,
+        "spAttack": 66,
+        "spDefense": 84
+      },
+      "types": [
+        "pokeemerald:type:ground",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:mimicry",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

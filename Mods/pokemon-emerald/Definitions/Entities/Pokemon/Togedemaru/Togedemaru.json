@@ -1,0 +1,175 @@
+{
+  "id": "pokeemerald:pokemon:togedemaru",
+  "name": "Togedemaru",
+  "cryId": "pokeemerald:audio:sfx/cries/togedemaru",
+  "baseStats": {
+    "hp": 65,
+    "attack": 98,
+    "defense": 63,
+    "speed": 96,
+    "spAttack": 40,
+    "spDefense": 73
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 180,
+  "expYield": 152,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:iron_barbs",
+    "pokeemerald:ability:lightning_rod",
+    "pokeemerald:ability:sturdy"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:roly-poly",
+  "height": 3,
+  "weight": 33,
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:zing_zap"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:spiky_shield"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:present",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:twineedle",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:disarming_voice"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/togedemaru/togedemarufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/togedemaru/togedemarufrontshiny",
+    "back": "pokeemerald:pokemon:sprite/togedemaru/togedemaruback",
+    "backShiny": "pokeemerald:pokemon:sprite/togedemaru/togedemarubackshiny",
+    "icon": "pokeemerald:pokemon:sprite/togedemaru/togedemaruicon",
+    "overworld": "pokeemerald:pokemon:sprite/togedemaru/togedemaruoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/togedemaru/togedemaruoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:togedemaru/totem",
+      "name": "Togedemaru",
+      "cryId": "pokeemerald:audio:sfx/cries/togedemaru",
+      "formKey": "totem",
+      "baseStats": {
+        "hp": 65,
+        "attack": 98,
+        "defense": 63,
+        "speed": 96,
+        "spAttack": 40,
+        "spDefense": 73
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:sturdy",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/togedemaru/togedemarutotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:totem"
+    }
+  ]
+}

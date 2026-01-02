@@ -1,0 +1,190 @@
+{
+  "id": "pokeemerald:map:hoenn/slateport_city_battle_tent_lobby",
+  "name": "SlateportCity_BattleTentLobby",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 13,
+  "height": 10,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/b_tower_rs",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/slateport_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/slateport_city_battle_tent_lobby/ground",
+      "name": "Ground",
+      "width": 13,
+      "height": 10,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/slateport_city_battle_tent_lobby/objects",
+      "name": "Objects",
+      "width": 13,
+      "height": 10,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/slateport_city_battle_tent_lobby/overhead",
+      "name": "Overhead",
+      "width": 13,
+      "height": 10,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/battle_tent"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/slateport_city_battle_tent_lobby/warp_to_slateport_city",
+      "name": "Warp to slateport_city",
+      "x": 96,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/slateport_city",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/slateport_city_battle_tent_lobby/warp_to_slateport_city",
+      "name": "Warp to slateport_city",
+      "x": 112,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/slateport_city",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "pokeemerald:interaction:hoenn/slateport_city_battle_tent_lobby/sign_slateportcitybattletentlobbyeventscriptrulesboard",
+      "name": "Sign: SlateportCity_BattleTentLobby_EventScript_RulesBoard",
+      "x": 64,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_rules_board",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/slateport_city_battle_tent_lobby/localid_slateport_tent_attendant",
+      "name": "LOCALID_SLATEPORT_TENT_ATTENDANT",
+      "x": 96,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/scientist1",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_attendant",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/slateport_city_battle_tent_lobby/npc_1",
+      "name": "NPC_1",
+      "x": 16,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/sailor",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_torment_giver",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/slateport_city_battle_tent_lobby/npc_2",
+      "name": "NPC_2",
+      "x": 48,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/man3",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_man",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/slateport_city_battle_tent_lobby/npc_3",
+      "name": "NPC_3",
+      "x": 16,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:npcs/girl1",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_girl",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/slateport_city_battle_tent_lobby/npc_4",
+      "name": "NPC_4",
+      "x": 176,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:npcs/woman2",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_woman",
+      "facingDirection": "left",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/slateport_city_battle_tent_lobby/elevation_0",
+      "name": "Collision_0",
+      "width": 13,
+      "height": 10,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEAAAAAAAAAAAABAQEBAQEBAQABAQEBAQEBAAEBAAAAAAABAQEBAQABAAAAAAAAAAEAAQEAAQEBAQABAQEBAAEAAAEBAQEAAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAQEAAAAAAAAAAAABAQ=="
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/slateport_city_battle_tent_lobby/elevation_3",
+      "name": "Collision_3",
+      "width": 13,
+      "height": 10,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAABAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ]
+}

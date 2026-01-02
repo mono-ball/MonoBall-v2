@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:ducklett",
+  "name": "Ducklett",
+  "cryId": "pokeemerald:audio:sfx/cries/ducklett",
+  "baseStats": {
+    "hp": 62,
+    "attack": 44,
+    "defense": 50,
+    "speed": 55,
+    "spAttack": 44,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 190,
+  "expYield": 61,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:big_pecks",
+    "pokeemerald:ability:hydration"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:water_bird",
+  "height": 5,
+  "weight": 55,
+  "description": "These bird Pok\u00E9mon are excellent divers.  They are better at swimming than flying,  and they happily eat their favorite food,  peat moss, as they dive underwater.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:swanna"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:brave_bird"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:hurricane"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:gust",
+    "pokeemerald:move:air_cutter",
+    "pokeemerald:move:mirror_move",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:lucky_chant",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:aqua_jet"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ducklett/ducklettfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ducklett/ducklettfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ducklett/ducklettback",
+    "backShiny": "pokeemerald:pokemon:sprite/ducklett/ducklettbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ducklett/duckletticon",
+    "overworld": "pokeemerald:pokemon:sprite/ducklett/ducklettoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ducklett/ducklettoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/battle_frontier_battle_dome_lobby_event_script_show_doubles_results",
+  "name": "battle frontier battle dome lobby event script show doubles results",
+  "description": "Sign script: battle frontier battle dome lobby event script show doubles results",
+  "scriptPath": "Scripts/Signs/battle_frontier_battle_dome_lobby_event_script_show_doubles_results.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

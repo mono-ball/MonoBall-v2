@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_hall_event_script_psychic_m",
+  "name": "dewford town hall event script psychic m",
+  "description": "NPC interaction: dewford town hall event script psychic m",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_hall_event_script_psychic_m.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

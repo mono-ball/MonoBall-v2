@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:roggenrola",
+  "name": "Roggenrola",
+  "cryId": "pokeemerald:audio:sfx/cries/roggenrola",
+  "baseStats": {
+    "hp": 55,
+    "attack": 75,
+    "defense": 85,
+    "speed": 15,
+    "spAttack": 25,
+    "spDefense": 25
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 255,
+  "expYield": 56,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:weak_armor",
+    "pokeemerald:ability:sand_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:mantle",
+  "height": 4,
+  "weight": 180,
+  "description": "The hexagonal cavity is its ear.  It walks in the direction of sounds it  hears, but if the sounds cease, it panics  and topples over.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:boldore"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:magnitude",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:autotomize",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:lock_on",
+    "pokeemerald:move:heavy_slam",
+    "pokeemerald:move:take_down",
+    "pokeemerald:move:gravity",
+    "pokeemerald:move:wide_guard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/roggenrola/roggenrolafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrolafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaback",
+    "backShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrolabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaicon",
+    "overworld": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaoverworldshiny"
+  }
+}

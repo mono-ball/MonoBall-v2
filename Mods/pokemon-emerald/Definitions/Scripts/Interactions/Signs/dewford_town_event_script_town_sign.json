@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/dewford_town_event_script_town_sign",
+  "name": "dewford town event script town sign",
+  "description": "Sign script: dewford town event script town sign",
+  "scriptPath": "Scripts/Signs/dewford_town_event_script_town_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_gym_event_script_gym_guide",
+  "name": "mossdeep city gym event script gym guide",
+  "description": "NPC interaction: mossdeep city gym event script gym guide",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_gym_event_script_gym_guide.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

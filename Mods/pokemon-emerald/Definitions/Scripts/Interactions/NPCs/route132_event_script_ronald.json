@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route132_event_script_ronald",
+  "name": "route132 event script ronald",
+  "description": "NPC interaction: route132 event script ronald",
+  "scriptPath": "Scripts/Interactions/NPCs/route132_event_script_ronald.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

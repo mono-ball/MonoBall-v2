@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:quilava",
+  "name": "Quilava",
+  "cryId": "pokeemerald:audio:sfx/cries/quilava",
+  "baseStats": {
+    "hp": 58,
+    "attack": 64,
+    "defense": 58,
+    "speed": 80,
+    "spAttack": 80,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 142,
+  "evYield": {
+    "speed": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:flash_fire"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:volcano",
+  "height": 9,
+  "weight": 190,
+  "description": "It intimidates foes with intense gusts of  flames and superheated air. Its quick  nimbleness lets it dodge attacks even  while scorching an enemy.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:typhlosion"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:typhlosion-hisui"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 75,
+      "moveId": "pokeemerald:move:eruption"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/quilava/quilavafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/quilava/quilavafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/quilava/quilavaback",
+    "backShiny": "pokeemerald:pokemon:sprite/quilava/quilavabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/quilava/quilavaicon",
+    "overworld": "pokeemerald:pokemon:sprite/quilava/quilavaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quilava/quilavaoverworldshiny"
+  }
+}

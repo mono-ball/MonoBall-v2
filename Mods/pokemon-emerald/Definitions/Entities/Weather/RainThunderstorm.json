@@ -1,0 +1,14 @@
+{
+  "id": "pokeemerald:weather:outdoor/rain_thunderstorm",
+  "name": "Rain Thunderstorm",
+  "description": "Rain Thunderstorm weather condition",
+  "category": "outdoor",
+  "intensity": 1.5,
+  "affectsBattle": true,
+  "ambientSoundId": "pokeemerald:audio:sfx/ambient/thunder",
+  "effectScriptId": "pokeemerald:script:weather/thunderstorm",
+  "graphicsId": "pokeemerald:weather:graphics/rain",
+  "screenTintOpacity": 0,
+  "reducesVisibility": true,
+  "visibilityRange": 6
+}

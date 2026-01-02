@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_department_store_elevator_event_script_attendant",
+  "name": "lilycove city department store elevator event script attendant",
+  "description": "NPC interaction: lilycove city department store elevator event script attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_department_store_elevator_event_script_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

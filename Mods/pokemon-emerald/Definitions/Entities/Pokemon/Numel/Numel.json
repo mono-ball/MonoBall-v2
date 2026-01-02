@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:numel",
+  "name": "Numel",
+  "cryId": "pokeemerald:audio:sfx/cries/numel",
+  "baseStats": {
+    "hp": 60,
+    "attack": 60,
+    "defense": 40,
+    "speed": 35,
+    "spAttack": 65,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:simple",
+    "pokeemerald:ability:own_tempo"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:numb",
+  "height": 7,
+  "weight": 240,
+  "description": "A Numel stores boiling magma in the hump  on its back. It is a hardy Pok\u00E9mon that can  transport a 220-pound load. It has served  humans at work since long ago.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 33,
+      "targetSpeciesId": "pokeemerald:pokemon:camerupt"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:howl",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:mud_bomb",
+    "pokeemerald:move:heat_wave",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:iron_head",
+    "pokeemerald:move:growth",
+    "pokeemerald:move:heavy_slam"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/numel/numelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/numel/numelfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/numel/numelfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/numel/numelfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/numel/numelback",
+    "backShiny": "pokeemerald:pokemon:sprite/numel/numelbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/numel/numelbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/numel/numelbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/numel/numelicon",
+    "overworld": "pokeemerald:pokemon:sprite/numel/numeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/numel/numeloverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

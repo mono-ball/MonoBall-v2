@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:pokemon:veluza",
+  "name": "Veluza",
+  "cryId": "pokeemerald:audio:sfx/cries/veluza",
+  "baseStats": {
+    "hp": 90,
+    "attack": 102,
+    "defense": 73,
+    "speed": 70,
+    "spAttack": 78,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 100,
+  "expYield": 167,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:mold_breaker",
+    null,
+    "pokeemerald:ability:sharpness"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:jettison",
+  "height": 25,
+  "weight": 900,
+  "description": "Veluza has excellent regenerative  capabilities. It sheds spare flesh  from its body to boost its agility,  then charges at its prey.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:aqua_cutter"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:fillet_away"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:final_gambit"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:recover",
+    "pokeemerald:move:thrash"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/veluza/veluzafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/veluza/veluzafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/veluza/veluzaback",
+    "backShiny": "pokeemerald:pokemon:sprite/veluza/veluzabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/veluza/veluzaicon",
+    "overworld": "pokeemerald:pokemon:sprite/veluza/veluzaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/veluza/veluzaoverworldshiny"
+  }
+}

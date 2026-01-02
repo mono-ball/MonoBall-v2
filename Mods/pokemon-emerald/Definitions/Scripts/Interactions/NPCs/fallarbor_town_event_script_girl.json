@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_event_script_girl",
+  "name": "fallarbor town event script girl",
+  "description": "NPC interaction: fallarbor town event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

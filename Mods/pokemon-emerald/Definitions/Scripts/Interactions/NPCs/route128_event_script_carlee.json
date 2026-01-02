@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route128_event_script_carlee",
+  "name": "route128 event script carlee",
+  "description": "NPC interaction: route128 event script carlee",
+  "scriptPath": "Scripts/Interactions/NPCs/route128_event_script_carlee.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

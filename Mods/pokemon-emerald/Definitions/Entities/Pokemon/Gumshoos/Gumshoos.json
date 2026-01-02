@@ -1,0 +1,170 @@
+{
+  "id": "pokeemerald:pokemon:gumshoos",
+  "name": "Gumshoos",
+  "cryId": "pokeemerald:audio:sfx/cries/gumshoos",
+  "baseStats": {
+    "hp": 88,
+    "attack": 110,
+    "defense": 60,
+    "speed": 45,
+    "spAttack": 55,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 127,
+  "expYield": 146,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stakeout",
+    "pokeemerald:ability:strong_jaw",
+    "pokeemerald:ability:adaptability"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:stakeout",
+  "height": 7,
+  "weight": 142,
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:rest"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gumshoos/gumshoosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gumshoos/gumshoosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gumshoos/gumshoosback",
+    "backShiny": "pokeemerald:pokemon:sprite/gumshoos/gumshoosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gumshoos/gumshoosicon",
+    "overworld": "pokeemerald:pokemon:sprite/gumshoos/gumshoosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gumshoos/gumshoosoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:gumshoos/totem",
+      "name": "Gumshoos",
+      "cryId": "pokeemerald:audio:sfx/cries/gumshoos",
+      "formKey": "totem",
+      "baseStats": {
+        "hp": 88,
+        "attack": 110,
+        "defense": 60,
+        "speed": 45,
+        "spAttack": 55,
+        "spDefense": 60
+      },
+      "types": [
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:adaptability",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gumshoos/gumshoostotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:totem"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "pokeemerald:pokemon:charcadet",
+  "name": "Charcadet",
+  "cryId": "pokeemerald:audio:sfx/cries/charcadet",
+  "baseStats": {
+    "hp": 40,
+    "attack": 50,
+    "defense": 40,
+    "speed": 35,
+    "spAttack": 50,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 90,
+  "expYield": 51,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    null,
+    "pokeemerald:ability:flame_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_child",
+  "height": 6,
+  "weight": 105,
+  "description": "Burnt charcoal came to life and  became a Pok\u00E9mon. Possessing a fiery  fighting spirit, Charcadet will  battle even tough opponents.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_AUSPICIOUS_ARMOR",
+      "targetSpeciesId": "pokeemerald:pokemon:armarouge"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_MALICIOUS_ARMOR",
+      "targetSpeciesId": "pokeemerald:pokemon:ceruledge"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:lava_plume"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:spite"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/charcadet/charcadetfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/charcadet/charcadetfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/charcadet/charcadetback",
+    "backShiny": "pokeemerald:pokemon:sprite/charcadet/charcadetbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/charcadet/charcadeticon",
+    "overworld": "pokeemerald:pokemon:sprite/charcadet/charcadetoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charcadet/charcadetoverworldshiny"
+  }
+}

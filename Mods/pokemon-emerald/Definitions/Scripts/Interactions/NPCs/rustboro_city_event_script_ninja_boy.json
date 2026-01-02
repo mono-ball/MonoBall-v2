@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_event_script_ninja_boy",
+  "name": "rustboro city event script ninja boy",
+  "description": "NPC interaction: rustboro city event script ninja boy",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_event_script_ninja_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

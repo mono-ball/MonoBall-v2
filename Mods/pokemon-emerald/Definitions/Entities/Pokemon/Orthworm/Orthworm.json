@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:orthworm",
+  "name": "Orthworm",
+  "cryId": "pokeemerald:audio:sfx/cries/orthworm",
+  "baseStats": {
+    "hp": 70,
+    "attack": 85,
+    "defense": 145,
+    "speed": 65,
+    "spAttack": 60,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 25,
+  "expYield": 240,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:earth_eater",
+    null,
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:earthworm",
+  "height": 25,
+  "weight": 3100,
+  "description": "When attacked, this Pok\u00E9mon will  wield the tendrils on its body like  fists and pelt the opponent with a  storm of punches.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:iron_tail"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:shed_tail"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:coil",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:metal_burst"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/orthworm/orthwormfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/orthworm/orthwormfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/orthworm/orthwormback",
+    "backShiny": "pokeemerald:pokemon:sprite/orthworm/orthwormbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/orthworm/orthwormicon",
+    "overworld": "pokeemerald:pokemon:sprite/orthworm/orthwormoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/orthworm/orthwormoverworldshiny"
+  }
+}

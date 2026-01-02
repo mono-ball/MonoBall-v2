@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_gym_event_script_cristian",
+  "name": "dewford town gym event script cristian",
+  "description": "NPC interaction: dewford town gym event script cristian",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_gym_event_script_cristian.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

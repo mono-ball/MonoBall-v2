@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_move_deleters_house_event_script_move_deleter",
+  "name": "lilycove city move deleters house event script move deleter",
+  "description": "NPC interaction: lilycove city move deleters house event script move deleter",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_move_deleters_house_event_script_move_deleter.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,190 @@
+{
+  "id": "pokeemerald:pokemon:ursaluna",
+  "name": "Ursaluna",
+  "cryId": "pokeemerald:audio:sfx/cries/ursaluna",
+  "baseStats": {
+    "hp": 130,
+    "attack": 140,
+    "defense": 105,
+    "speed": 50,
+    "spAttack": 45,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 20,
+  "expYield": 275,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:bulletproof",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:peat",
+  "height": 24,
+  "weight": 2900,
+  "description": "Swampy terrain gives Ursaluna its burly  physique and newfound capacity to  manipulate peat at will.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:headlong_rush"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:snore"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:high_horsepower"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:hammer_arm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ursaluna/ursalunafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ursaluna/ursalunafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ursaluna/ursalunaback",
+    "backShiny": "pokeemerald:pokemon:sprite/ursaluna/ursalunabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ursaluna/ursalunaicon",
+    "overworld": "pokeemerald:pokemon:sprite/ursaluna/ursalunaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ursaluna/ursalunaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:ursaluna/bloodmoon",
+      "name": "Ursaluna",
+      "cryId": "pokeemerald:audio:sfx/cries/ursaluna",
+      "formKey": "bloodmoon",
+      "baseStats": {
+        "hp": 113,
+        "attack": 70,
+        "defense": 120,
+        "speed": 52,
+        "spAttack": 135,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:ground",
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:minds_eye",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonback",
+        "backShiny": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonicon",
+        "overworld": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/ursaluna/ursalunabloodmoonoverworldshiny"
+      }
+    }
+  ]
+}

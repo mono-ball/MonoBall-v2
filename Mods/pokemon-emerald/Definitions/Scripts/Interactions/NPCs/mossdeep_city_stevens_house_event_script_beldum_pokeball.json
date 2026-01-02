@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_beldum_pokeball",
+  "name": "mossdeep city stevens house event script beldum pokeball",
+  "description": "NPC interaction: mossdeep city stevens house event script beldum pokeball",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_stevens_house_event_script_beldum_pokeball.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

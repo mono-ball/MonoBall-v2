@@ -48,7 +48,7 @@ public class ConvertCommandExecutor
         AnsiConsole.Write(new FigletText("Porycon3")
             .LeftJustified()
             .Color(Color.Cyan1));
-        AnsiConsole.MarkupLine("[grey]Pokemon Map Converter for pokeemerald-expansion[/]");
+        AnsiConsole.MarkupLine("[grey]Pokemon Data Converter for pokeemerald-expansion[/]");
         AnsiConsole.WriteLine();
 
         try
@@ -115,6 +115,10 @@ public class ConvertCommandExecutor
         var sharedTilesetCount = converter.FinalizeSharedTilesets();
         AnsiConsole.MarkupLine($"[blue]Generated {sharedTilesetCount} shared tileset(s)[/]");
 
+        // Write all pending maps with resolved GID offsets
+        var mapCount = converter.WriteAllPendingMaps();
+        AnsiConsole.MarkupLine($"[blue]Wrote {mapCount} map definition(s)[/]");
+
         // Run extractors
         RunExtractors(converter);
 
@@ -156,7 +160,7 @@ public class ConvertCommandExecutor
                     new TaskDescriptionColumn(),
                     new ProgressBarColumn(),
                     new PercentageColumn(),
-                    new RemainingTimeColumn(),
+                    new ElapsedTimeColumn(),
                     new SpinnerColumn())
                 .Start(ctx =>
                 {
@@ -174,6 +178,13 @@ public class ConvertCommandExecutor
             _progress.SetTilesetTotal(tilesetCount);
             _progress.SetTilesetCompleted(tilesetCount);
             AnsiConsole.MarkupLine($"[green]{tilesetCount} shared tilesets[/]");
+
+            if (_cts.IsCancellationRequested) return 1;
+
+            // Phase 2b: Write pending maps with resolved GID offsets
+            AnsiConsole.Markup("[magenta]Writing map definitions...[/] ");
+            var mapDefCount = converter.WriteAllPendingMaps();
+            AnsiConsole.MarkupLine($"[green]{mapDefCount} maps[/]");
 
             if (_cts.IsCancellationRequested) return 1;
         }
@@ -196,7 +207,7 @@ public class ConvertCommandExecutor
                     new TaskDescriptionColumn(),
                     new ProgressBarColumn(),
                     new PercentageColumn(),
-                    new RemainingTimeColumn(),
+                    new ElapsedTimeColumn(),
                     new SpinnerColumn())
                 .Start(ctx => RunExtractorsWithProgress(converter, ctx));
         }
@@ -287,10 +298,11 @@ public class ConvertCommandExecutor
             return;
         }
 
-        // Create a progress task for each extractor
+        // Create a progress task for each extractor (maxValue: 100 for percentage)
+        // Use autoStart: false so each task's timer starts when it actually begins
         var tasks = extractors.Select(e =>
         {
-            var task = ctx.AddTask($"[dim]{e.Name}[/]", autoStart: true, maxValue: 1);
+            var task = ctx.AddTask($"[dim]{e.Name}[/]", autoStart: false, maxValue: 100);
             _progress.RegisterExtractor(e.Name);
             return (Extractor: e, Task: task);
         }).ToList();
@@ -304,12 +316,20 @@ public class ConvertCommandExecutor
             {
                 _progress.UpdateExtractor(extractor.Name, ExtractorState.Skipped);
                 task.Description = $"[yellow]{extractor.Name}[/] [dim](skipped)[/]";
-                task.Increment(1);
+                task.Value = 100;
                 return;
             }
 
+            // Start the task timer now that this extractor is actually running
+            task.StartTask();
             task.Description = $"[blue]{extractor.Name}[/]";
             _progress.UpdateExtractor(extractor.Name, ExtractorState.Running);
+
+            // Set up progress callback to update the task dynamically
+            extractor.ProgressCallback = new Progress<double>(progress =>
+            {
+                task.Value = progress * 100;
+            });
 
             var sw = Stopwatch.StartNew();
             try
@@ -332,7 +352,8 @@ public class ConvertCommandExecutor
                 task.Description = $"[red]{extractor.Name}[/] [dim](error)[/]";
             }
 
-            task.Increment(1);
+            task.Value = 100; // Ensure it shows 100% when done
+            task.StopTask(); // Stop the timer
         });
     }
 
@@ -351,6 +372,7 @@ public class ConvertCommandExecutor
                 new TaskDescriptionColumn(),
                 new ProgressBarColumn(),
                 new PercentageColumn(),
+                new ElapsedTimeColumn(),
                 new SpinnerColumn())
             .Start(ctx => RunExtractorsWithProgress(converter, ctx));
 

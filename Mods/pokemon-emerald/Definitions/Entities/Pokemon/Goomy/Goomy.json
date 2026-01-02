@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:goomy",
+  "name": "Goomy",
+  "cryId": "pokeemerald:audio:sfx/cries/goomy",
+  "baseStats": {
+    "hp": 45,
+    "attack": 50,
+    "defense": 35,
+    "speed": 40,
+    "spAttack": 55,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 60,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:sap_sipper",
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:gooey"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:soft_tissue",
+  "height": 3,
+  "weight": 28,
+  "description": "Its source of protection is its slimy,  germ-laden mucous membrane. Anyone  who touches it will need some thorough  hand-washing.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:sliggoo"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:sliggoo-hisui"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:muddy_water"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:acid_armor",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:poison_tail",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/goomy/goomyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/goomy/goomyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/goomy/goomyback",
+    "backShiny": "pokeemerald:pokemon:sprite/goomy/goomybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/goomy/goomyicon",
+    "overworld": "pokeemerald:pokemon:sprite/goomy/goomyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/goomy/goomyoverworldshiny"
+  }
+}

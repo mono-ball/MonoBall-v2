@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route102_event_script_tiana",
+  "name": "route102 event script tiana",
+  "description": "NPC interaction: route102 event script tiana",
+  "scriptPath": "Scripts/Interactions/NPCs/route102_event_script_tiana.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

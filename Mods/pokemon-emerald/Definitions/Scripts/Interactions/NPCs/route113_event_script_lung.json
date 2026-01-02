@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route113_event_script_lung",
+  "name": "route113 event script lung",
+  "description": "NPC interaction: route113 event script lung",
+  "scriptPath": "Scripts/Interactions/NPCs/route113_event_script_lung.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

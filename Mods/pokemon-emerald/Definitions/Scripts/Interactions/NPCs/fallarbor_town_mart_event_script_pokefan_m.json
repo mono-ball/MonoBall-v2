@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_mart_event_script_pokefan_m",
+  "name": "fallarbor town mart event script pokefan m",
+  "description": "NPC interaction: fallarbor town mart event script pokefan m",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_mart_event_script_pokefan_m.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

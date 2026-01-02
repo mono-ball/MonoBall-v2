@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/slateport_city_event_script_market_sign",
+  "name": "slateport city event script market sign",
+  "description": "Sign script: slateport city event script market sign",
+  "scriptPath": "Scripts/Signs/slateport_city_event_script_market_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

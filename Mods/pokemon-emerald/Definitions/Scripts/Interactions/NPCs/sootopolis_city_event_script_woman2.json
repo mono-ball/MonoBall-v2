@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_event_script_woman2",
+  "name": "sootopolis city event script woman2",
+  "description": "NPC interaction: sootopolis city event script woman2",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_event_script_woman2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:mareep",
+  "name": "Mareep",
+  "cryId": "pokeemerald:audio:sfx/cries/mareep",
+  "baseStats": {
+    "hp": 55,
+    "attack": 40,
+    "defense": 40,
+    "speed": 35,
+    "spAttack": 65,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 235,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:static",
+    null,
+    "pokeemerald:ability:plus"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:wool",
+  "height": 6,
+  "weight": 78,
+  "description": "Its fluffy wool rubs together and builds  a static charge. The more energy is  charged, the more brightly the lightbulb  at the tip of its tail glows.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 15,
+      "targetSpeciesId": "pokeemerald:pokemon:flaaffy"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:cotton_spore"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:cotton_guard"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:take_down",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:odor_sleuth",
+    "pokeemerald:move:charge",
+    "pokeemerald:move:flatter",
+    "pokeemerald:move:sand_attack",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:eerie_impulse",
+    "pokeemerald:move:electric_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mareep/mareepfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mareep/mareepfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mareep/mareepback",
+    "backShiny": "pokeemerald:pokemon:sprite/mareep/mareepbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mareep/mareepicon",
+    "overworld": "pokeemerald:pokemon:sprite/mareep/mareepoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mareep/mareepoverworldshiny"
+  }
+}

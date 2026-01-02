@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/golem/golemback",
+  "name": "Golemback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Golem/GolemBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_department_store_rooftop_event_script_thirsty_man",
+  "name": "lilycove city department store rooftop event script thirsty man",
+  "description": "NPC interaction: lilycove city department store rooftop event script thirsty man",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_department_store_rooftop_event_script_thirsty_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

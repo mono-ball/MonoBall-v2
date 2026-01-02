@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/prof_birch_event_script_rate_pokedex_or_register",
+  "name": "prof birch event script rate pokedex or register",
+  "description": "NPC interaction: prof birch event script rate pokedex or register",
+  "scriptPath": "Scripts/Interactions/NPCs/prof_birch_event_script_rate_pokedex_or_register.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

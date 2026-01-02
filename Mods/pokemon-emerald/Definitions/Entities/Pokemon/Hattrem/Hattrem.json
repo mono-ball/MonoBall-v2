@@ -1,0 +1,124 @@
+{
+  "id": "pokeemerald:pokemon:hattrem",
+  "name": "Hattrem",
+  "cryId": "pokeemerald:audio:sfx/cries/hattrem",
+  "baseStats": {
+    "hp": 57,
+    "attack": 40,
+    "defense": 65,
+    "speed": 49,
+    "spAttack": 86,
+    "spDefense": 73
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 120,
+  "expYield": 130,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:healer",
+    "pokeemerald:ability:anticipation",
+    "pokeemerald:ability:magic_bounce"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:serene",
+  "height": 6,
+  "weight": 48,
+  "description": "No matter who you are, if you bring strong  emotions near this Pok\u00E9mon, it will silence  you violently.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 42,
+      "targetSpeciesId": "pokeemerald:pokemon:hatterene"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:healing_wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hattrem/hattremfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hattrem/hattremfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hattrem/hattremback",
+    "backShiny": "pokeemerald:pokemon:sprite/hattrem/hattrembackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hattrem/hattremicon",
+    "overworld": "pokeemerald:pokemon:sprite/hattrem/hattremoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hattrem/hattremoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/faraway_island_entrance_event_script_sailor",
+  "name": "faraway island entrance event script sailor",
+  "description": "NPC interaction: faraway island entrance event script sailor",
+  "scriptPath": "Scripts/Interactions/NPCs/faraway_island_entrance_event_script_sailor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

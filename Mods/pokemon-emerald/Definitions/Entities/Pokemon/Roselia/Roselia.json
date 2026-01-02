@@ -1,0 +1,177 @@
+{
+  "id": "pokeemerald:pokemon:roselia",
+  "name": "Roselia",
+  "cryId": "pokeemerald:audio:sfx/cries/roselia",
+  "baseStats": {
+    "hp": 50,
+    "attack": 60,
+    "defense": 45,
+    "speed": 65,
+    "spAttack": 100,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 150,
+  "evYield": {},
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:leaf_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:thorn",
+  "height": 3,
+  "weight": 20,
+  "description": "A Roselia that drinks nutritionally rich  springwater blooms with lovely flowers.  The fragrance of its flowers has the  effect of making its foes careless.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SHINY_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:roserade"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:worry_seed"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:petal_blizzard"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:petal_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:pin_missile",
+    "pokeemerald:move:cotton_spore",
+    "pokeemerald:move:sleep_powder",
+    "pokeemerald:move:razor_leaf",
+    "pokeemerald:move:mind_reader",
+    "pokeemerald:move:leaf_storm",
+    "pokeemerald:move:seed_bomb",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:grass_whistle",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:power_whip"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/roselia/roseliafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/roselia/roseliafrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/roselia/roseliafrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/roselia/roseliafrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/roselia/roseliaback",
+    "backShiny": "pokeemerald:pokemon:sprite/roselia/roseliabackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/roselia/roseliabackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/roselia/roseliabackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/roselia/roseliaicon",
+    "overworld": "pokeemerald:pokemon:sprite/roselia/roseliaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/roselia/roseliaoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

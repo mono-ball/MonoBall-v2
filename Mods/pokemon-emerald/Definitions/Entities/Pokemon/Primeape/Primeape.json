@@ -1,0 +1,168 @@
+{
+  "id": "pokeemerald:pokemon:primeape",
+  "name": "Primeape",
+  "cryId": "pokeemerald:audio:sfx/cries/primeape",
+  "baseStats": {
+    "hp": 65,
+    "attack": 105,
+    "defense": 60,
+    "speed": 95,
+    "spAttack": 60
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:anger_point",
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:pig_monkey",
+  "height": 10,
+  "weight": 320,
+  "description": "When it becomes furious, its blood  circulation becomes more robust, and  its muscles are made stronger. But it  also becomes much less intelligent.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:annihilape"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:seismic_toss"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:cross_chop"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:rage_fist"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:final_gambit"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/primeape/primeapefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/primeape/primeapefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/primeape/primeapeback",
+    "backShiny": "pokeemerald:pokemon:sprite/primeape/primeapebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/primeape/primeapeicon",
+    "overworld": "pokeemerald:pokemon:sprite/primeape/primeapeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/primeape/primeapeoverworldshiny"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:poochyena",
+  "name": "Poochyena",
+  "cryId": "pokeemerald:audio:sfx/cries/poochyena",
+  "baseStats": {
+    "hp": 35,
+    "attack": 55,
+    "defense": 35,
+    "speed": 35,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 255,
+  "expYield": 56,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:quick_feet",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:bite",
+  "height": 5,
+  "weight": 136,
+  "description": "It savagely threatens foes with bared  fangs. It chases after fleeing targets  tenaciously. It turns tail and runs,  however, if the foe strikes back.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:mightyena"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:poison_fang",
+    "pokeemerald:move:covet",
+    "pokeemerald:move:leer",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:play_rough"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/poochyena/poochyenafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/poochyena/poochyenafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/poochyena/poochyenaback",
+    "backShiny": "pokeemerald:pokemon:sprite/poochyena/poochyenabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/poochyena/poochyenaicon",
+    "overworld": "pokeemerald:pokemon:sprite/poochyena/poochyenaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/poochyena/poochyenaoverworldshiny"
+  }
+}

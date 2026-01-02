@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/special/end",
+  "name": "End",
+  "audioPath": "Audio/Music/Special/End.ogg",
+  "volume": 0.28,
+  "loop": true,
+  "loopStartSamples": 38347,
+  "loopLengthSamples": 4462300
+}

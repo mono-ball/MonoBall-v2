@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route121_event_script_joy",
+  "name": "route121 event script joy",
+  "description": "NPC interaction: route121 event script joy",
+  "scriptPath": "Scripts/Interactions/NPCs/route121_event_script_joy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/meowth/meowthfront",
+  "name": "Meowthfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Meowth/MeowthFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

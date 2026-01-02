@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/sandslash/sandslashback",
+  "name": "Sandslashback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Sandslash/SandslashBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_house4_event_script_skitty",
+  "name": "mossdeep city house4 event script skitty",
+  "description": "NPC interaction: mossdeep city house4 event script skitty",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_house4_event_script_skitty.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

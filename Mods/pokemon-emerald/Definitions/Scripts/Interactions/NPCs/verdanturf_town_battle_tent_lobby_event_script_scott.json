@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_scott",
+  "name": "verdanturf town battle tent lobby event script scott",
+  "description": "NPC interaction: verdanturf town battle tent lobby event script scott",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_battle_tent_lobby_event_script_scott.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

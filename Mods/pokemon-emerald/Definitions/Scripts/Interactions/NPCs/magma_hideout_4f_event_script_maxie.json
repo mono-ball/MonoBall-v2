@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/magma_hideout_4f_event_script_maxie",
+  "name": "magma hideout 4f event script maxie",
+  "description": "NPC interaction: magma hideout 4f event script maxie",
+  "scriptPath": "Scripts/Interactions/NPCs/magma_hideout_4f_event_script_maxie.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

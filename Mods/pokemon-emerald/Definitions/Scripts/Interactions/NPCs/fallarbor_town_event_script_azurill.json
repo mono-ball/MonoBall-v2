@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_event_script_azurill",
+  "name": "fallarbor town event script azurill",
+  "description": "NPC interaction: fallarbor town event script azurill",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_event_script_azurill.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

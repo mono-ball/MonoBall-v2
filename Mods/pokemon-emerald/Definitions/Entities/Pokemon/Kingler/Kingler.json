@@ -1,0 +1,182 @@
+{
+  "id": "pokeemerald:pokemon:kingler",
+  "name": "Kingler",
+  "cryId": "pokeemerald:audio:sfx/cries/kingler",
+  "baseStats": {
+    "hp": 55,
+    "attack": 130,
+    "defense": 115,
+    "speed": 75,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:pincer",
+  "height": 13,
+  "weight": 600,
+  "description": "It waves its huge, oversized claw in the  air to communicate with others.  But since the claw is so heavy, this  Pok\u00E9mon quickly tires.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:crabhammer"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:guillotine"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kingler/kinglerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kingler/kinglerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kingler/kinglerback",
+    "backShiny": "pokeemerald:pokemon:sprite/kingler/kinglerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kingler/kinglericon",
+    "overworld": "pokeemerald:pokemon:sprite/kingler/kingleroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kingler/kingleroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:kingler/gmax",
+      "name": "Kingler",
+      "cryId": "pokeemerald:audio:sfx/cries/kingler",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 55,
+        "attack": 130,
+        "defense": 115,
+        "speed": 75,
+        "spAttack": 50,
+        "spDefense": 50
+      },
+      "types": [
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:hyper_cutter",
+        "pokeemerald:ability:shell_armor",
+        "pokeemerald:ability:sheer_force"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/kingler/kinglergmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/kingler/kinglergmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/kingler/kinglergmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/kingler/kinglergmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/kingler/kinglergmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/kingler/kinglergmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kingler/kinglergmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

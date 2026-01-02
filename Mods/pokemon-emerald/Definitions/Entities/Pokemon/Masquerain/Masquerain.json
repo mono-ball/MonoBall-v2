@@ -1,0 +1,133 @@
+{
+  "id": "pokeemerald:pokemon:masquerain",
+  "name": "Masquerain",
+  "cryId": "pokeemerald:audio:sfx/cries/masquerain",
+  "baseStats": {
+    "hp": 70,
+    "attack": 60,
+    "defense": 62,
+    "spDefense": 82
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 75,
+  "expYield": 159,
+  "evYield": {
+    "spAttack": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    null,
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:eyeball",
+  "height": 8,
+  "weight": 36,
+  "description": "It intimidates foes with the large eyelike  patterns on its antennae. Because it can\u0027t  fly if its wings get wet, it shelters itself  from rain under large trees and eaves.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:quiver_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/masquerain/masquerainfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/masquerain/masquerainfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/masquerain/masquerainback",
+    "backShiny": "pokeemerald:pokemon:sprite/masquerain/masquerainbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/masquerain/masquerainicon",
+    "overworld": "pokeemerald:pokemon:sprite/masquerain/masquerainoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/masquerain/masquerainoverworldshiny"
+  }
+}

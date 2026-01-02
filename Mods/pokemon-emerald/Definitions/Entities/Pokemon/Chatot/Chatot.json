@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:chatot",
+  "name": "Chatot",
+  "cryId": "pokeemerald:audio:sfx/cries/chatot",
+  "baseStats": {
+    "hp": 76,
+    "attack": 65,
+    "defense": 45,
+    "speed": 91,
+    "spAttack": 92,
+    "spDefense": 42
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:tangled_feet",
+    "pokeemerald:ability:big_pecks"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:music_note",
+  "height": 5,
+  "weight": 19,
+  "description": "It mimics the cries of other Pok\u00E9mon to  trick them into thinking it\u0027s one of them.  This way they won\u0027t attack it. It can  also learn and speak human words.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:chatter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confide"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:chatter"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:mimic"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:parting_shot"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:hyper_voice"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:encore",
+    "pokeemerald:move:night_shade",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:defog",
+    "pokeemerald:move:air_cutter",
+    "pokeemerald:move:boomburst"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chatot/chatotfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chatot/chatotfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chatot/chatotback",
+    "backShiny": "pokeemerald:pokemon:sprite/chatot/chatotbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chatot/chatoticon",
+    "overworld": "pokeemerald:pokemon:sprite/chatot/chatotoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chatot/chatotoverworldshiny"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "id": "base:behavior:movement/hidden",
-  "name": "Hidden/Invisible Behavior",
-  "description": "NPC is invisible and does not move or interact",
-  "scriptId": "base:script:movement/hidden",
-  "parameterOverrides": {}
-}

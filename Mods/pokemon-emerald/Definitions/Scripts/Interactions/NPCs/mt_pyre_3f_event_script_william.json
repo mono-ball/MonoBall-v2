@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_pyre_3f_event_script_william",
+  "name": "mt pyre 3f event script william",
+  "description": "NPC interaction: mt pyre 3f event script william",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_pyre_3f_event_script_william.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

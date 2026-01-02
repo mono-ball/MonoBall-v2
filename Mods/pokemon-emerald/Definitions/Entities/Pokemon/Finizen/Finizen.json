@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:finizen",
+  "name": "Finizen",
+  "cryId": "pokeemerald:audio:sfx/cries/finizen",
+  "baseStats": {
+    "hp": 70,
+    "attack": 45,
+    "defense": 40,
+    "speed": 75,
+    "spAttack": 45,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 200,
+  "expYield": 63,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:water_veil",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:dolphin",
+  "height": 13,
+  "weight": 602,
+  "description": "Its water ring is made from  seawater mixed with a sticky fluid that  Finizen secretes from its blowhole.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 38,
+      "targetSpeciesId": "pokeemerald:pokemon:palafin-zero"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:boomburst",
+    "pokeemerald:move:bounce",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:tickle"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/finizen/finizenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/finizen/finizenfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/finizen/finizenback",
+    "backShiny": "pokeemerald:pokemon:sprite/finizen/finizenbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/finizen/finizenicon",
+    "overworld": "pokeemerald:pokemon:sprite/finizen/finizenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/finizen/finizenoverworldshiny"
+  }
+}

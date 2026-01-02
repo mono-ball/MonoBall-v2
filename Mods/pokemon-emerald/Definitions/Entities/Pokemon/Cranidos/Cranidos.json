@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:cranidos",
+  "name": "Cranidos",
+  "cryId": "pokeemerald:audio:sfx/cries/cranidos",
+  "baseStats": {
+    "hp": 67,
+    "attack": 125,
+    "defense": 40,
+    "speed": 58,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:mold_breaker",
+    null,
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:head_butt",
+  "height": 9,
+  "weight": 315,
+  "description": "A lifelong jungle dweller from 100 million  years ago, its skull is as hard as iron.   It would snap obstructing trees with  headbutts.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:rampardos"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:leer",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:hammer_arm",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:iron_head"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cranidos/cranidosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cranidos/cranidosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cranidos/cranidosback",
+    "backShiny": "pokeemerald:pokemon:sprite/cranidos/cranidosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cranidos/cranidosicon",
+    "overworld": "pokeemerald:pokemon:sprite/cranidos/cranidosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cranidos/cranidosoverworldshiny"
+  }
+}

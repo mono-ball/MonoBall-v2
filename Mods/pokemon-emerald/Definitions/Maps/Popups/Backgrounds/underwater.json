@@ -1,9 +1,0 @@
-{
-  "id": "base:popup:background/underwater",
-  "name": "Underwater",
-  "type": "Bitmap",
-  "texturePath": "Graphics/Maps/Popups/Backgrounds/underwater.png",
-  "width": 80,
-  "height": 24,
-  "description": "Background bitmap for map popup"
-}

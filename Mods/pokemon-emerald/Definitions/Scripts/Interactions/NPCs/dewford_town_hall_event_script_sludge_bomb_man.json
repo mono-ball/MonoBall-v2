@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_hall_event_script_sludge_bomb_man",
+  "name": "dewford town hall event script sludge bomb man",
+  "description": "NPC interaction: dewford town hall event script sludge bomb man",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_hall_event_script_sludge_bomb_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

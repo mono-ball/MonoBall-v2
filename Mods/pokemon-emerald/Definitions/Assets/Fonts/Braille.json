@@ -1,0 +1,12 @@
+{
+  "id": "pokeemerald:font:braille",
+  "name": "Braille",
+  "type": "Font",
+  "texturePath": "Graphics/Fonts/Braille.png",
+  "glyphWidth": 8,
+  "glyphHeight": 16,
+  "glyphsPerRow": 32,
+  "characterMapId": "pokeemerald:charmap:latin",
+  "lineHeight": 16,
+  "baseline": 14
+}

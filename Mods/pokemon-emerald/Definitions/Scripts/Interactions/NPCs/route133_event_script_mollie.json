@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route133_event_script_mollie",
+  "name": "route133 event script mollie",
+  "description": "NPC interaction: route133 event script mollie",
+  "scriptPath": "Scripts/Interactions/NPCs/route133_event_script_mollie.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

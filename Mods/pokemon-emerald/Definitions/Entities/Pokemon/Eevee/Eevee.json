@@ -1,0 +1,272 @@
+{
+  "id": "pokeemerald:pokemon:eevee",
+  "name": "Eevee",
+  "cryId": "pokeemerald:audio:sfx/cries/eevee",
+  "baseStats": {
+    "hp": 55,
+    "attack": 55,
+    "defense": 50,
+    "speed": 55,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:adaptability",
+    "pokeemerald:ability:anticipation"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:evolution",
+  "height": 3,
+  "weight": 65,
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:jolteon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_WATER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:vaporeon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_FIRE_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:flareon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:sylveon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:espeon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:umbreon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:leafeon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_LEAF_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:leafeon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:glaceon"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_ICE_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:glaceon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:charm",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:covet",
+    "pokeemerald:move:detect",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:stored_power",
+    "pokeemerald:move:synchronoise",
+    "pokeemerald:move:captivate"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/eevee/eeveefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/eevee/eeveefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/eevee/eeveefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/eevee/eeveefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/eevee/eeveeback",
+    "backShiny": "pokeemerald:pokemon:sprite/eevee/eeveebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/eevee/eeveebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/eevee/eeveebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/eevee/eeveeicon",
+    "overworld": "pokeemerald:pokemon:sprite/eevee/eeveeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eeveeoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:eevee/starter",
+      "name": "Eevee",
+      "cryId": "pokeemerald:audio:sfx/cries/eevee",
+      "formKey": "starter",
+      "baseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 70,
+        "speed": 75,
+        "spAttack": 65,
+        "spDefense": 85
+      },
+      "types": [
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:run_away",
+        "pokeemerald:ability:adaptability",
+        "pokeemerald:ability:anticipation"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/eevee/eeveestarterfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/eevee/eeveestarterfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/eevee/eeveestarterback",
+        "backShiny": "pokeemerald:pokemon:sprite/eevee/eeveestarterbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/eevee/eeveestartericon",
+        "overworld": "pokeemerald:pokemon:sprite/eevee/eeveestarteroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eeveestarteroverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:eevee/gmax",
+      "name": "Eevee",
+      "cryId": "pokeemerald:audio:sfx/cries/eevee",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:run_away",
+        "pokeemerald:ability:adaptability",
+        "pokeemerald:ability:anticipation"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/eevee/eeveegmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/eevee/eeveegmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/eevee/eeveegmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/eevee/eeveegmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/eevee/eeveegmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/eevee/eeveegmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eeveegmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

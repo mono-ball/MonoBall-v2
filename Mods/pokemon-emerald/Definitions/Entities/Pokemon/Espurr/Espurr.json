@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:espurr",
+  "name": "Espurr",
+  "cryId": "pokeemerald:audio:sfx/cries/espurr",
+  "baseStats": {
+    "hp": 62,
+    "attack": 48,
+    "defense": 54,
+    "speed": 68,
+    "spAttack": 63,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 190,
+  "expYield": 71,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:infiltrator",
+    "pokeemerald:ability:own_tempo"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:restraint",
+  "height": 3,
+  "weight": 35,
+  "description": "It has enough psychic energy to blast  everything within 300 feet of itself.  The organ that emits its intense psychic  power is sheltered by its ears.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:meowstic-m"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:meowstic-f"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:psyshock"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:trick",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:assist",
+    "pokeemerald:move:barrier"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/espurr/espurrfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/espurr/espurrfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/espurr/espurrback",
+    "backShiny": "pokeemerald:pokemon:sprite/espurr/espurrbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/espurr/espurricon",
+    "overworld": "pokeemerald:pokemon:sprite/espurr/espurroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/espurr/espurroverworldshiny"
+  }
+}

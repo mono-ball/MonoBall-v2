@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/taillow/taillowfront",
+  "name": "Taillowfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Taillow/TaillowFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

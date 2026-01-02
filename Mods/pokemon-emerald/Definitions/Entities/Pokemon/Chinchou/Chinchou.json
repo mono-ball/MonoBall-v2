@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:pokemon:chinchou",
+  "name": "Chinchou",
+  "cryId": "pokeemerald:audio:sfx/cries/chinchou",
+  "baseStats": {
+    "hp": 75,
+    "attack": 38,
+    "defense": 38,
+    "speed": 67,
+    "spAttack": 56,
+    "spDefense": 56
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:volt_absorb",
+    "pokeemerald:ability:illuminate",
+    "pokeemerald:ability:water_absorb"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:angler",
+  "height": 5,
+  "weight": 120,
+  "description": "When it senses danger, it discharges  positive and negative electricity from its  two antennae. It lives in depths beyond  sunlight\u0027s reach.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 27,
+      "targetSpeciesId": "pokeemerald:pokemon:lanturn"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:flail",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:whirlpool",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:soak"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chinchou/chinchoufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chinchou/chinchoufrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chinchou/chinchouback",
+    "backShiny": "pokeemerald:pokemon:sprite/chinchou/chinchoubackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chinchou/chinchouicon",
+    "overworld": "pokeemerald:pokemon:sprite/chinchou/chinchouoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chinchou/chinchouoverworldshiny"
+  }
+}

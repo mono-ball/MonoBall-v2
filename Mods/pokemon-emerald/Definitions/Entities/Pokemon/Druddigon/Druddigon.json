@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:druddigon",
+  "name": "Druddigon",
+  "cryId": "pokeemerald:audio:sfx/cries/druddigon",
+  "baseStats": {
+    "hp": 77,
+    "attack": 120,
+    "defense": 90,
+    "speed": 48,
+    "spAttack": 60,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 170,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon",
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:rough_skin",
+    "pokeemerald:ability:sheer_force",
+    "pokeemerald:ability:mold_breaker"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:cave",
+  "height": 16,
+  "weight": 1390,
+  "description": "It warms its body by absorbing sunlight  with its wings. When its body temperature  falls, it can no longer move. It uses its  sharp claws to catch prey.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:poison_tail",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:glare",
+    "pokeemerald:move:sucker_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/druddigon/druddigonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/druddigon/druddigonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/druddigon/druddigonback",
+    "backShiny": "pokeemerald:pokemon:sprite/druddigon/druddigonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/druddigon/druddigonicon",
+    "overworld": "pokeemerald:pokemon:sprite/druddigon/druddigonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/druddigon/druddigonoverworldshiny"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "pokeemerald:pokemon:wiglett",
+  "name": "Wiglett",
+  "cryId": "pokeemerald:audio:sfx/cries/wiglett",
+  "baseStats": {
+    "hp": 10,
+    "attack": 55,
+    "defense": 25,
+    "speed": 95,
+    "spAttack": 35,
+    "spDefense": 25
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 255,
+  "expYield": 49,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gooey",
+    "pokeemerald:ability:rattled",
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:garden_eel",
+  "height": 12,
+  "weight": 18,
+  "description": "This Pok\u00E9mon can pick up the scent  of a Veluza just over 65 feet away  and will hide itself in the sand.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 26,
+      "targetSpeciesId": "pokeemerald:pokemon:wugtrio"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:throat_chop"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:liquidation"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:final_gambit",
+    "pokeemerald:move:memento"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wiglett/wiglettfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wiglett/wiglettfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wiglett/wiglettback",
+    "backShiny": "pokeemerald:pokemon:sprite/wiglett/wiglettbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wiglett/wigletticon",
+    "overworld": "pokeemerald:pokemon:sprite/wiglett/wiglettoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wiglett/wiglettoverworldshiny"
+  }
+}

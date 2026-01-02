@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:ceruledge",
+  "name": "Ceruledge",
+  "cryId": "pokeemerald:audio:sfx/cries/ceruledge",
+  "baseStats": {
+    "hp": 75,
+    "attack": 125,
+    "defense": 80,
+    "speed": 85,
+    "spAttack": 60,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 25,
+  "expYield": 263,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 20,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    null,
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:fire_blades",
+  "height": 16,
+  "weight": 620,
+  "description": "The fiery blades on its arms burn  fiercely with the lingering  resentment of a sword wielder who fell  before accomplishing their goal.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shadow_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:solar_blade"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:bitter_blade"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ceruledge/ceruledgefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ceruledge/ceruledgefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ceruledge/ceruledgeback",
+    "backShiny": "pokeemerald:pokemon:sprite/ceruledge/ceruledgebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ceruledge/ceruledgeicon",
+    "overworld": "pokeemerald:pokemon:sprite/ceruledge/ceruledgeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ceruledge/ceruledgeoverworldshiny"
+  }
+}

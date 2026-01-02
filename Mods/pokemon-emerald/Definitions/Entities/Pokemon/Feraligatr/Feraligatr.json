@@ -1,0 +1,195 @@
+{
+  "id": "pokeemerald:pokemon:feraligatr",
+  "name": "Feraligatr",
+  "cryId": "pokeemerald:audio:sfx/cries/feraligatr",
+  "baseStats": {
+    "hp": 85,
+    "attack": 105,
+    "defense": 100,
+    "speed": 78,
+    "spAttack": 79,
+    "spDefense": 83
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "attack": 2,
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:big_jaw",
+  "height": 23,
+  "weight": 888,
+  "description": "It opens its huge mouth to intimidate  enemies. In battle, it runs using its thick  and powerful hind legs to charge the  foe with incredible speed.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/feraligatr/feraligatrfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/feraligatr/feraligatrfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/feraligatr/feraligatrback",
+    "backShiny": "pokeemerald:pokemon:sprite/feraligatr/feraligatrbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/feraligatr/feraligatricon",
+    "overworld": "pokeemerald:pokemon:sprite/feraligatr/feraligatroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/feraligatr/feraligatroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:feraligatr/mega",
+      "name": "Feraligatr",
+      "cryId": "pokeemerald:audio:sfx/cries/feraligatr",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 85,
+        "attack": 160,
+        "defense": 125,
+        "speed": 78,
+        "spAttack": 89,
+        "spDefense": 93
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:torrent",
+        null,
+        "pokeemerald:ability:sheer_force"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/feraligatr/feraligatrmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:feraligite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

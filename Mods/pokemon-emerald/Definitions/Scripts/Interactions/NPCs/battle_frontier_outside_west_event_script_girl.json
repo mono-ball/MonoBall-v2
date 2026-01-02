@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_outside_west_event_script_girl",
+  "name": "battle frontier outside west event script girl",
+  "description": "NPC interaction: battle frontier outside west event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_outside_west_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

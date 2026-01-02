@@ -1,0 +1,88 @@
+{
+  "id": "pokeemerald:pokemon:smeargle",
+  "name": "Smeargle",
+  "cryId": "pokeemerald:audio:sfx/cries/smeargle",
+  "baseStats": {
+    "hp": 55,
+    "attack": 20,
+    "defense": 35,
+    "speed": 75,
+    "spAttack": 20,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:technician",
+    "pokeemerald:ability:moody"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:painter",
+  "height": 12,
+  "weight": 580,
+  "description": "A Smeargle marks its territory using a  fluid that leaks out from the tip of its  tail. About 5,000 different marks left by  this Pok\u00E9mon have been found.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 61,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 71,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 81,
+      "moveId": "pokeemerald:move:sketch"
+    },
+    {
+      "level": 91,
+      "moveId": "pokeemerald:move:sketch"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/smeargle/smearglefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/smeargle/smearglefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/smeargle/smeargleback",
+    "backShiny": "pokeemerald:pokemon:sprite/smeargle/smearglebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/smeargle/smeargleicon",
+    "overworld": "pokeemerald:pokemon:sprite/smeargle/smeargleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/smeargle/smeargleoverworldshiny"
+  }
+}

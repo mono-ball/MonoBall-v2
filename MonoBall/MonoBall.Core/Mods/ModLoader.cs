@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using MonoBall.Core.ECS;
+using MonoBall.Core.ECS.Events;
 using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Mods.TypeInference;
 using MonoBall.Core.Mods.Utilities;
 using Serilog;
 
@@ -443,8 +446,18 @@ public class ModLoader : IDisposable
         sortedMods.Add(mod);
     }
 
+    // Static readonly strategy array (singleton instances, stateless strategies)
+    private static readonly ITypeInferenceStrategy[] DefaultStrategies =
+        new ITypeInferenceStrategy[]
+        {
+            HardcodedPathInferenceStrategy.Instance, // Tier 1: Fastest (no I/O)
+            DirectoryNameInferenceStrategy.Instance, // Tier 2: Fast (no I/O)
+            JsonTypeOverrideStrategy.Instance, // Tier 3: Slow (JSON parsing)
+            ModManifestInferenceStrategy.Instance, // Tier 4: Validation
+        };
+
     /// <summary>
-    ///     Loads all definitions from a mod.
+    ///     Loads all definitions from a mod using convention-based discovery.
     /// </summary>
     private void LoadModDefinitions(ModManifest mod, List<string> errors)
     {
@@ -454,77 +467,190 @@ public class ModLoader : IDisposable
             );
 
         _logger.Debug(
-            "Loading definitions for mod {ModId} from {ContentFolderCount} content folders",
-            mod.Id,
-            mod.ContentFolders.Count
+            "Loading definitions for mod {ModId} using convention-based discovery",
+            mod.Id
         );
 
-        // Load definitions from each content folder type
-        foreach (var (folderType, relativePath) in mod.ContentFolders)
+        // Enumerate all JSON files in the mod
+        var jsonFiles = mod.ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories);
+
+        foreach (var jsonFile in jsonFiles)
         {
-            if (string.IsNullOrEmpty(relativePath))
+            // Skip mod.json itself
+            if (jsonFile.Equals("mod.json", StringComparison.OrdinalIgnoreCase))
                 continue;
 
-            var normalizedPath = ModPathNormalizer.Normalize(relativePath);
-            var jsonFiles = ModPathFilter.FilterByContentFolder(
-                mod.ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories),
-                normalizedPath
-            );
+            // Try path-based inference first (no I/O)
+            JsonDocument? jsonDoc = null;
+            bool createdJsonDoc = false; // Track if we created the document
+            string definitionType;
 
-            foreach (var jsonFile in jsonFiles)
-                LoadDefinitionFromFile(mod.ModSource, jsonFile, folderType, mod, errors);
+            try
+            {
+                // Attempt inference without parsing JSON (fast path)
+                definitionType = InferDefinitionType(jsonFile, null, mod);
+            }
+            catch (InvalidOperationException)
+            {
+                // Path-based inference failed - parse JSON for $type field (lazy parsing)
+                try
+                {
+                    var jsonContent = mod.ModSource.ReadTextFile(jsonFile);
+                    jsonDoc = JsonDocument.Parse(jsonContent);
+                    createdJsonDoc = true; // Mark as created by us
+
+                    // Try inference again with JSON document
+                    definitionType = InferDefinitionType(jsonFile, jsonDoc, mod);
+                }
+                catch (Exception parseEx)
+                {
+                    var errorMsg = $"Failed to parse JSON file '{jsonFile}': {parseEx.Message}";
+                    errors.Add(errorMsg);
+                    _logger.Error(parseEx, "Failed to parse JSON file {FilePath}", jsonFile);
+                    continue; // Skip this file, continue with others (error recovery)
+                }
+            }
+
+            // Load definition with inferred type (reuse jsonDoc if available)
+            DefinitionLoadResult loadResult;
+            try
+            {
+                loadResult = LoadDefinitionFromFile(
+                    mod.ModSource,
+                    jsonFile,
+                    definitionType,
+                    mod,
+                    jsonDoc
+                );
+            }
+            finally
+            {
+                // Only dispose JsonDocument if we created it (not if LoadDefinitionFromFile reuses it)
+                // LoadDefinitionFromFile clones JsonElements, so it doesn't need the document after return
+                if (createdJsonDoc)
+                    jsonDoc?.Dispose();
+            }
+
+            if (loadResult.IsError)
+            {
+                errors.Add(loadResult.Error!);
+                _logger.Warning(
+                    "Failed to load definition from mod {ModId}, file {FilePath}: {Error}",
+                    mod.Id,
+                    jsonFile,
+                    loadResult.Error
+                );
+                continue; // Skip this file, continue with others (error recovery)
+            }
+
+            // Fire event for systems to react (ECS/Event integration)
+            var discoveredEvent = new DefinitionDiscoveredEvent
+            {
+                ModId = mod.Id,
+                DefinitionType = definitionType,
+                DefinitionId = loadResult.Metadata!.Id,
+                FilePath = jsonFile,
+                SourceModId = loadResult.Metadata.OriginalModId,
+                Operation = loadResult.Metadata.Operation,
+            };
+            EventBus.Send(ref discoveredEvent);
         }
-
-        // Load script definitions from Definitions/Scripts/ subdirectories
-        var scriptJsonFiles = mod
-            .ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories)
-            .Where(p =>
-                p.StartsWith("Definitions/Scripts/", StringComparison.Ordinal)
-                || p.StartsWith("Definitions\\Scripts\\", StringComparison.Ordinal)
-            );
-
-        foreach (var jsonFile in scriptJsonFiles)
-            LoadDefinitionFromFile(mod.ModSource, jsonFile, "Script", mod, errors);
-
-        // Load behavior definitions from Definitions/Behaviors/ subdirectories
-        var behaviorJsonFiles = mod
-            .ModSource.EnumerateFiles("*.json", SearchOption.AllDirectories)
-            .Where(p =>
-                p.StartsWith("Definitions/Behaviors/", StringComparison.Ordinal)
-                || p.StartsWith("Definitions\\Behaviors\\", StringComparison.Ordinal)
-            );
-
-        foreach (var jsonFile in behaviorJsonFiles)
-            LoadDefinitionFromFile(mod.ModSource, jsonFile, "Behavior", mod, errors);
     }
 
     /// <summary>
-    ///     Loads a single definition from a file.
+    ///     Main type inference method using Chain of Responsibility pattern.
     /// </summary>
-    private void LoadDefinitionFromFile(
+    private string InferDefinitionType(string filePath, JsonDocument? jsonDoc, ModManifest mod)
+    {
+        var normalizedPath = ModPathNormalizer.Normalize(filePath);
+
+        var context = new TypeInferenceContext
+        {
+            FilePath = filePath,
+            NormalizedPath = normalizedPath,
+            JsonDocument = jsonDoc,
+            Mod = mod,
+            Logger = _logger,
+        };
+
+        // Chain of Responsibility: Try each strategy in order
+        foreach (var strategy in DefaultStrategies)
+        {
+            var inferredType = strategy.InferType(context);
+            if (inferredType != null)
+            {
+                // Validate inferred type if mod.json declares custom types
+                ValidateInferredType(inferredType, context);
+                return inferredType;
+            }
+        }
+
+        // All strategies failed - throw exception (fail fast, per project rules)
+        throw new InvalidOperationException(
+            $"Could not infer definition type for '{filePath}'. "
+                + "Ensure file follows convention-based directory structure or specify $type field in JSON."
+        );
+    }
+
+    /// <summary>
+    ///     Validates inferred type against mod.json customDefinitionTypes if present.
+    /// </summary>
+    private void ValidateInferredType(string inferredType, TypeInferenceContext context)
+    {
+        if (
+            context.Mod.CustomDefinitionTypes != null
+            && !context.Mod.CustomDefinitionTypes.ContainsValue(inferredType)
+        )
+        {
+            context.Logger.Warning(
+                "Inferred type '{Type}' not declared in mod.json customDefinitionTypes for {Path}. "
+                    + "Consider adding it to customDefinitionTypes for documentation.",
+                inferredType,
+                context.FilePath
+            );
+        }
+    }
+
+    /// <summary>
+    ///     Loads a single definition from a file with unified error handling.
+    ///     Preserves $operation support (Create/Modify/Extend/Replace).
+    /// </summary>
+    private DefinitionLoadResult LoadDefinitionFromFile(
         IModSource modSource,
         string relativePath,
         string definitionType,
         ModManifest mod,
-        List<string> errors
+        JsonDocument? existingJsonDoc = null // Reuse parsed JSON if available
     )
     {
+        JsonDocument? jsonDoc = null;
         try
         {
-            var jsonContent = modSource.ReadTextFile(relativePath);
-            var jsonDoc = JsonDocument.Parse(jsonContent);
+            // Reuse existing JsonDocument if provided, otherwise parse
+            if (existingJsonDoc != null)
+            {
+                jsonDoc = existingJsonDoc;
+            }
+            else
+            {
+                var jsonContent = modSource.ReadTextFile(relativePath);
+                jsonDoc = JsonDocument.Parse(jsonContent);
+            }
 
+            // Extract definition ID from JSON
             if (!jsonDoc.RootElement.TryGetProperty("id", out var idElement))
             {
-                errors.Add($"Definition file '{relativePath}' is missing 'id' field");
-                return;
+                return DefinitionLoadResult.Failure(
+                    $"Definition file '{relativePath}' in mod '{mod.Id}' is missing required 'id' field."
+                );
             }
 
             var id = idElement.GetString();
             if (string.IsNullOrEmpty(id))
             {
-                errors.Add($"Definition file '{relativePath}' has empty 'id' field");
-                return;
+                return DefinitionLoadResult.Failure(
+                    $"Definition file '{relativePath}' in mod '{mod.Id}' has empty 'id' field."
+                );
             }
 
             // Determine operation type (defaults to Create, but can be specified)
@@ -543,62 +669,81 @@ public class ModLoader : IDisposable
 
             // Check if definition already exists
             var existing = _registry.GetById(id);
+            DefinitionMetadata metadata;
+
             if (existing != null)
             {
-                // Apply operation
+                // Apply operation (Modify/Extend/Replace)
                 var finalData = jsonDoc.RootElement;
                 if (
                     operation == DefinitionOperation.Modify
                     || operation == DefinitionOperation.Extend
                 )
+                {
                     finalData = JsonElementMerger.Merge(
                         existing.Data,
                         jsonDoc.RootElement,
                         operation == DefinitionOperation.Extend
                     );
+                }
                 // For Replace, use the new data as-is
 
-                var metadata = new DefinitionMetadata
+                metadata = new DefinitionMetadata
                 {
                     Id = id,
                     OriginalModId = existing.OriginalModId,
                     LastModifiedByModId = mod.Id,
                     Operation = operation,
                     DefinitionType = definitionType,
-                    Data = finalData,
-                    SourcePath = relativePath, // Already relative, no conversion needed
+                    Data = finalData, // Use Data (JsonElement), not RawJson
+                    SourcePath = relativePath,
                 };
-
-                _registry.Register(metadata);
             }
             else
             {
-                // New definition
-                var metadata = new DefinitionMetadata
+                // New definition - clone JsonElement to avoid disposal issues
+                metadata = new DefinitionMetadata
                 {
                     Id = id,
                     OriginalModId = mod.Id,
                     LastModifiedByModId = mod.Id,
                     Operation = DefinitionOperation.Create,
                     DefinitionType = definitionType,
-                    Data = jsonDoc.RootElement,
-                    SourcePath = relativePath, // Already relative, no conversion needed
+                    Data = jsonDoc.RootElement.Clone(), // Clone to avoid disposal issues
+                    SourcePath = relativePath,
                 };
-
-                _registry.Register(metadata);
             }
+
+            // Register in registry
+            _registry.Register(metadata);
+
+            // Only dispose if we created the JsonDocument (not if it was passed in)
+            if (existingJsonDoc == null)
+            {
+                jsonDoc.Dispose();
+            }
+
+            return DefinitionLoadResult.Success(metadata);
         }
         catch (JsonException ex)
         {
-            var errorMessage = $"JSON error in definition file '{relativePath}': {ex.Message}";
-            _logger.Error(ex, errorMessage);
-            errors.Add(errorMessage);
+            return DefinitionLoadResult.Failure(
+                $"JSON error in definition file '{relativePath}' in mod '{mod.Id}': {ex.Message}"
+            );
         }
         catch (Exception ex)
         {
-            var errorMessage = $"Error loading definition from '{relativePath}': {ex.Message}";
-            _logger.Error(ex, errorMessage);
-            errors.Add(errorMessage);
+            return DefinitionLoadResult.Failure(
+                $"Error loading definition from '{relativePath}' in mod '{mod.Id}': {ex.Message}"
+            );
+        }
+        finally
+        {
+            // Ensure disposal if we created the document and an exception occurred
+            if (existingJsonDoc == null && jsonDoc != null)
+            {
+                jsonDoc.Dispose();
+            }
         }
     }
 

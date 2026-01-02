@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/petalburg_woods_event_script_sign1",
+  "name": "petalburg woods event script sign1",
+  "description": "Sign script: petalburg woods event script sign1",
+  "scriptPath": "Scripts/Signs/petalburg_woods_event_script_sign1.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

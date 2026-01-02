@@ -1,0 +1,207 @@
+{
+  "id": "pokeemerald:pokemon:ampharos",
+  "name": "Ampharos",
+  "cryId": "pokeemerald:audio:sfx/cries/ampharos",
+  "baseStats": {
+    "hp": 90,
+    "attack": 75,
+    "speed": 55,
+    "spAttack": 115,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 45,
+  "expYield": 255,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:static",
+    null,
+    "pokeemerald:ability:plus"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:light",
+  "height": 14,
+  "weight": 615,
+  "description": "It gives off so much light that it can be  seen even from space. People in the old  days used its light to send signals back  and forth with others far away.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magnetic_flux"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:cotton_spore"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:cotton_guard"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ampharos/ampharosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ampharos/ampharosback",
+    "backShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ampharos/ampharosicon",
+    "overworld": "pokeemerald:pokemon:sprite/ampharos/ampharosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:ampharos/mega",
+      "name": "Ampharos",
+      "cryId": "pokeemerald:audio:sfx/cries/ampharos-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 90,
+        "attack": 95,
+        "speed": 45,
+        "spAttack": 165,
+        "spDefense": 110
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:mold_breaker",
+        "pokeemerald:ability:mold_breaker",
+        "pokeemerald:ability:mold_breaker"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/ampharos/ampharosmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:ampharosite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

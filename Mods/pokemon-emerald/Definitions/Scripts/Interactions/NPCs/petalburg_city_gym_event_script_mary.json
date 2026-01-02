@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_city_gym_event_script_mary",
+  "name": "petalburg city gym event script mary",
+  "description": "NPC interaction: petalburg city gym event script mary",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_city_gym_event_script_mary.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

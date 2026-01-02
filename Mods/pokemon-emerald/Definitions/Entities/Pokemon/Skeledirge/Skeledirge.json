@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:skeledirge",
+  "name": "Skeledirge",
+  "cryId": "pokeemerald:audio:sfx/cries/skeledirge",
+  "baseStats": {
+    "hp": 104,
+    "attack": 75,
+    "defense": 100,
+    "speed": 66,
+    "spAttack": 110,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:singer",
+  "height": 16,
+  "weight": 3265,
+  "description": "Skeledirge\u0027s gentle singing  soothes the souls of all that hear it. It  burns its enemies to a crisp with  flames of over 5,400 degrees Fahrenheit.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:torch_song"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:overheat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skeledirge/skeledirgefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skeledirge/skeledirgefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skeledirge/skeledirgeback",
+    "backShiny": "pokeemerald:pokemon:sprite/skeledirge/skeledirgebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skeledirge/skeledirgeicon",
+    "overworld": "pokeemerald:pokemon:sprite/skeledirge/skeledirgeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skeledirge/skeledirgeoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_cozmos_house_event_script_cozmos_wife",
+  "name": "fallarbor town cozmos house event script cozmos wife",
+  "description": "NPC interaction: fallarbor town cozmos house event script cozmos wife",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_cozmos_house_event_script_cozmos_wife.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

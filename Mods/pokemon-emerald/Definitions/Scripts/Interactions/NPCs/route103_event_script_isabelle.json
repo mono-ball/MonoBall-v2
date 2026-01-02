@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_isabelle",
+  "name": "route103 event script isabelle",
+  "description": "NPC interaction: route103 event script isabelle",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_isabelle.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,9 +1,0 @@
-{
-  "id": "base:popup:background/stone",
-  "name": "Stone",
-  "type": "Bitmap",
-  "texturePath": "Graphics/Maps/Popups/Backgrounds/stone.png",
-  "width": 80,
-  "height": 24,
-  "description": "Background bitmap for map popup"
-}

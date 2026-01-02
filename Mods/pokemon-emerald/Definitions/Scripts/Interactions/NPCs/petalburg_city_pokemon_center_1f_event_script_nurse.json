@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_city_pokemon_center_1f_event_script_nurse",
+  "name": "petalburg city pokemon center 1f event script nurse",
+  "description": "NPC interaction: petalburg city pokemon center 1f event script nurse",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_city_pokemon_center_1f_event_script_nurse.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

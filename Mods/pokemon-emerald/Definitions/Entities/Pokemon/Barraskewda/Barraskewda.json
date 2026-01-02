@@ -1,0 +1,113 @@
+{
+  "id": "pokeemerald:pokemon:barraskewda",
+  "name": "Barraskewda",
+  "cryId": "pokeemerald:audio:sfx/cries/barraskewda",
+  "baseStats": {
+    "hp": 61,
+    "attack": 123,
+    "defense": 60,
+    "speed": 136,
+    "spAttack": 60,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "expYield": 172,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:propeller_tail"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:skewer",
+  "height": 13,
+  "weight": 300,
+  "description": "This Pok\u00E9mon has a jaw that\u0027s as sharp  as a spear and as strong as steel.  Apparently Barraskewda\u0027s flesh is  surprisingly tasty, too.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:throat_chop"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/barraskewda/barraskewdafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/barraskewda/barraskewdafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/barraskewda/barraskewdaback",
+    "backShiny": "pokeemerald:pokemon:sprite/barraskewda/barraskewdabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/barraskewda/barraskewdaicon",
+    "overworld": "pokeemerald:pokemon:sprite/barraskewda/barraskewdaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/barraskewda/barraskewdaoverworldshiny"
+  }
+}

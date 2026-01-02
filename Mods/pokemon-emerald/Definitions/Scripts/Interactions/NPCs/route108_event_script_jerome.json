@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route108_event_script_jerome",
+  "name": "route108 event script jerome",
+  "description": "NPC interaction: route108 event script jerome",
+  "scriptPath": "Scripts/Interactions/NPCs/route108_event_script_jerome.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

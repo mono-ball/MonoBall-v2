@@ -1,0 +1,232 @@
+{
+  "id": "pokeemerald:map:hoenn/battle_frontier_exchange_service_corner",
+  "name": "BattleFrontier_ExchangeServiceCorner",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 15,
+  "height": 11,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/b_tower_rs",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/battle_frontier",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_exchange_service_corner/ground",
+      "name": "Ground",
+      "width": 15,
+      "height": 11,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_exchange_service_corner/objects",
+      "name": "Objects",
+      "width": 15,
+      "height": 11,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/battle_frontier_exchange_service_corner/overhead",
+      "name": "Overhead",
+      "width": 15,
+      "height": 11,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/battle_frontier_exchange_service_corner/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 112,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/battle_frontier_outside_east",
+      "targetX": 6,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/battle_frontier_exchange_service_corner/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 96,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/battle_frontier_outside_east",
+      "targetX": 6,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/battle_frontier_exchange_service_corner/warp_to_battle_frontier_outside_east",
+      "name": "Warp to battle_frontier_outside_east",
+      "x": 128,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/battle_frontier_outside_east",
+      "targetX": 6,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_0",
+      "name": "NPC_0",
+      "x": 64,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/teala",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_decor_clerk1",
+      "facingDirection": "left",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_1",
+      "name": "NPC_1",
+      "x": 0,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/richboy",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_rich_boy",
+      "facingDirection": "right",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_2",
+      "name": "NPC_2",
+      "x": 0,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/pokefanf",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_pokefan_f",
+      "facingDirection": "down",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_3",
+      "name": "NPC_3",
+      "x": 224,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/sailor",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_sailor",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_4",
+      "name": "NPC_4",
+      "x": 16,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/man5",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_man",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_5",
+      "name": "NPC_5",
+      "x": 80,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/teala",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_decor_clerk2",
+      "facingDirection": "down",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_6",
+      "name": "NPC_6",
+      "x": 144,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/teala",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_vitamin_clerk",
+      "facingDirection": "down",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_7",
+      "name": "NPC_7",
+      "x": 160,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/teala",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_hold_item_clerk",
+      "facingDirection": "right",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/battle_frontier_exchange_service_corner/npc_8",
+      "name": "NPC_8",
+      "x": 192,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:npcs/girl1",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_girl",
+      "elevation": 0
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/battle_frontier_exchange_service_corner/elevation_0",
+      "name": "Collision_0",
+      "width": 15,
+      "height": 11,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAQEBAQEBAQEBAAAAAAAAAQEBAAAAAQEBAAAAAAAAAQAAAAAAAAABAAAAAAAAAQAAAAAAAAABAAAAAAAAAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAEB"
+    }
+  ]
+}

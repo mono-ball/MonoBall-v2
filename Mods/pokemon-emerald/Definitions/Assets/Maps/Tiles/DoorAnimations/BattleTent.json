@@ -1,0 +1,77 @@
+{
+  "id": "pokeemerald:sprite:door-animations/battle-tent",
+  "name": "Battle Tent",
+  "type": "Sprite",
+  "texturePath": "Graphics/Maps/Tiles/DoorAnimations/BattleTent.png",
+  "frameWidth": 16,
+  "frameHeight": 32,
+  "frameCount": 4,
+  "soundId": "pokeemerald:sound:door-sliding",
+  "metatileId": "pokeemerald:metatile:slateport/door-battle-tent",
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 1,
+      "x": 0,
+      "y": 32,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 2,
+      "x": 0,
+      "y": 64,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 3,
+      "x": 0,
+      "y": 96,
+      "width": 16,
+      "height": 32
+    }
+  ],
+  "animations": [
+    {
+      "name": "open",
+      "loop": false,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "close",
+      "loop": false,
+      "frameIndices": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "flipHorizontal": false
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_old_man",
+  "name": "route110 event script old man",
+  "description": "NPC interaction: route110 event script old man",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_old_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

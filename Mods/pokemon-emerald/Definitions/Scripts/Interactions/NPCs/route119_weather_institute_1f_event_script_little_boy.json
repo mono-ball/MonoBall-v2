@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_little_boy",
+  "name": "route119 weather institute 1f event script little boy",
+  "description": "NPC interaction: route119 weather institute 1f event script little boy",
+  "scriptPath": "Scripts/Interactions/NPCs/route119_weather_institute_1f_event_script_little_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

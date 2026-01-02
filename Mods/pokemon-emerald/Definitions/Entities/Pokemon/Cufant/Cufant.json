@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:cufant",
+  "name": "Cufant",
+  "cryId": "pokeemerald:audio:sfx/cries/cufant",
+  "baseStats": {
+    "hp": 72,
+    "attack": 80,
+    "defense": 49,
+    "speed": 40,
+    "spAttack": 40,
+    "spDefense": 49
+  },
+  "types": [
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 190,
+  "expYield": 66,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sheer_force",
+    null,
+    "pokeemerald:ability:heavy_metal"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:copperderm",
+  "height": 12,
+  "weight": 1000,
+  "description": "It digs up the ground with its trunk.  It\u0027s also very strong, being able to  carry loads of over five tons without any  problem at all.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:copperajah"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:high_horsepower"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:belch",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:defense_curl"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cufant/cufantfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cufant/cufantfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cufant/cufantback",
+    "backShiny": "pokeemerald:pokemon:sprite/cufant/cufantbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cufant/cufanticon",
+    "overworld": "pokeemerald:pokemon:sprite/cufant/cufantoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cufant/cufantoverworldshiny"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:snorunt",
+  "name": "Snorunt",
+  "cryId": "pokeemerald:audio:sfx/cries/snorunt",
+  "baseStats": {
+    "hp": 50,
+    "attack": 50,
+    "defense": 50,
+    "speed": 50,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:moody"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:snow_hat",
+  "height": 7,
+  "weight": 168,
+  "description": "They tend to move about in groups of  around five Snorunt. In snowy regions,  it is said that when they are seen late at  night, snowfall will arrive by morning.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 42,
+      "targetSpeciesId": "pokeemerald:pokemon:glalie"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_DAWN_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:froslass"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:frost_breath"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:snowscape"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:weather_ball"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:blizzard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:block",
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:weather_ball",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:hex",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:switcheroo"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/snorunt/snoruntfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/snorunt/snoruntfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/snorunt/snoruntback",
+    "backShiny": "pokeemerald:pokemon:sprite/snorunt/snoruntbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/snorunt/snorunticon",
+    "overworld": "pokeemerald:pokemon:sprite/snorunt/snoruntoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snorunt/snoruntoverworldshiny"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "pokeemerald:pokemon:obstagoon",
+  "name": "Obstagoon",
+  "cryId": "pokeemerald:audio:sfx/cries/obstagoon",
+  "baseStats": {
+    "hp": 93,
+    "attack": 90,
+    "defense": 101,
+    "speed": 95,
+    "spAttack": 60,
+    "spDefense": 81
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 45,
+  "expYield": 260,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:reckless",
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:blocking",
+  "height": 16,
+  "weight": 460,
+  "description": "Its voice is staggering in volume.  Obstagoon has a tendency to take on a  threatening posture and shout--this move  is known as Obstruct.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:obstruct"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:obstruct"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:cross_chop"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:submission"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/obstagoon/obstagoonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/obstagoon/obstagoonback",
+    "backShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/obstagoon/obstagoonicon",
+    "overworld": "pokeemerald:pokemon:sprite/obstagoon/obstagoonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoonoverworldshiny"
+  }
+}

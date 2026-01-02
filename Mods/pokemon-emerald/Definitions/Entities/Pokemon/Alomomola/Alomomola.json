@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:pokemon:alomomola",
+  "name": "Alomomola",
+  "cryId": "pokeemerald:audio:sfx/cries/alomomola",
+  "baseStats": {
+    "hp": 165,
+    "attack": 75,
+    "defense": 80,
+    "speed": 65,
+    "spAttack": 40,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 75,
+  "expYield": 165,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:healer",
+    "pokeemerald:ability:hydration",
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:caring",
+  "height": 12,
+  "weight": 316,
+  "description": "When they find a wounded Pok\u00E9mon,  they embrace it and bring it to shore.  The special membrane enveloping  Alomomola has the ability to heal wounds.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:healing_wish"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:pain_split",
+    "pokeemerald:move:refresh",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/alomomola/alomomolafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/alomomola/alomomolafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/alomomola/alomomolaback",
+    "backShiny": "pokeemerald:pokemon:sprite/alomomola/alomomolabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/alomomola/alomomolaicon",
+    "overworld": "pokeemerald:pokemon:sprite/alomomola/alomomolaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/alomomola/alomomolaoverworldshiny"
+  }
+}

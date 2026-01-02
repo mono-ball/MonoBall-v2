@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:pikipek",
+  "name": "Pikipek",
+  "cryId": "pokeemerald:audio:sfx/cries/pikipek",
+  "baseStats": {
+    "hp": 35,
+    "attack": 75,
+    "defense": 30,
+    "speed": 65,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 255,
+  "expYield": 53,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:skill_link",
+    "pokeemerald:ability:pickup"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:woodpecker",
+  "height": 3,
+  "weight": 12,
+  "description": "This Pok\u00E9mon feeds on berries, whose  leftover seeds become the ammunition for  the attacks it fires off from its mouth.  It uses holes in trees for nesting.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 14,
+      "targetSpeciesId": "pokeemerald:pokemon:trumbeak"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:hyper_voice"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:brave_bird",
+    "pokeemerald:move:boomburst",
+    "pokeemerald:move:mirror_move",
+    "pokeemerald:move:tailwind",
+    "pokeemerald:move:uproar"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pikipek/pikipekfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pikipek/pikipekfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pikipek/pikipekback",
+    "backShiny": "pokeemerald:pokemon:sprite/pikipek/pikipekbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pikipek/pikipekicon",
+    "overworld": "pokeemerald:pokemon:sprite/pikipek/pikipekoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pikipek/pikipekoverworldshiny"
+  }
+}

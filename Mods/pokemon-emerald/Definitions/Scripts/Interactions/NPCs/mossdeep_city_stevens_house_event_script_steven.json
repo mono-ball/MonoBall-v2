@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_steven",
+  "name": "mossdeep city stevens house event script steven",
+  "description": "NPC interaction: mossdeep city stevens house event script steven",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_stevens_house_event_script_steven.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

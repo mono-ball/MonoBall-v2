@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:sneasler",
+  "name": "Sneasler",
+  "cryId": "pokeemerald:audio:sfx/cries/sneasler",
+  "baseStats": {
+    "hp": 80,
+    "attack": 130,
+    "defense": 60,
+    "speed": 120,
+    "spAttack": 40,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:fighting",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 20,
+  "expYield": 102,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:poison_touch"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:free_climb",
+  "height": 13,
+  "weight": 430,
+  "description": "Because of its wicked poison and daunting  physical prowess, no other species could  hope to best it on frozen highlands. It  prefers solitude and doesn\u0027t form packs.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:dire_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sneasler/sneaslerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sneasler/sneaslerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sneasler/sneaslerback",
+    "backShiny": "pokeemerald:pokemon:sprite/sneasler/sneaslerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sneasler/sneaslericon",
+    "overworld": "pokeemerald:pokemon:sprite/sneasler/sneasleroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sneasler/sneasleroverworldshiny"
+  }
+}

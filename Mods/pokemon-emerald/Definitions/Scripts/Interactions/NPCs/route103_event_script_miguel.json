@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_miguel",
+  "name": "route103 event script miguel",
+  "description": "NPC interaction: route103 event script miguel",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_miguel.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

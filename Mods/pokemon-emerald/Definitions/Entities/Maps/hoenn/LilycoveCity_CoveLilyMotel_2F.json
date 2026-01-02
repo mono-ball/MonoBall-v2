@@ -1,0 +1,184 @@
+{
+  "id": "pokeemerald:map:hoenn/lilycove_city_cove_lily_motel_2f",
+  "name": "LilycoveCity_CoveLilyMotel_2F",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 12,
+  "height": 9,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/lilycove",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/lilycove_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/lilycove_city_cove_lily_motel_2f/ground",
+      "name": "Ground",
+      "width": 12,
+      "height": 9,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/lilycove_city_cove_lily_motel_2f/objects",
+      "name": "Objects",
+      "width": 12,
+      "height": 9,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/lilycove_city_cove_lily_motel_2f/overhead",
+      "name": "Overhead",
+      "width": 12,
+      "height": 9,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/lilycove_city_cove_lily_motel_2f/warp_to_lilycove_city_cove_lily_motel_1f",
+      "name": "Warp to lilycove_city_cove_lily_motel_1f",
+      "x": 32,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/lilycove_city_cove_lily_motel_1f",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_0",
+      "name": "NPC_0",
+      "x": 64,
+      "y": 96,
+      "spriteId": "pokeemerald:sprite:npcs/man3",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_game_designer",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_1",
+      "name": "NPC_1",
+      "x": 16,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/scientist1",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_graphic_artist",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_2",
+      "name": "NPC_2",
+      "x": 112,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/fatman",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_fat_man",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_3",
+      "name": "NPC_3",
+      "x": 160,
+      "y": 48,
+      "spriteId": "pokeemerald:sprite:npcs/man4",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_programmer",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_4",
+      "name": "NPC_4",
+      "x": 112,
+      "y": 48,
+      "spriteId": "pokeemerald:sprite:npcs/gameboykid",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_game_boy_kid",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_5",
+      "name": "NPC_5",
+      "x": 64,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/woman2",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_woman",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_cove_lily_motel_2f/npc_6",
+      "name": "NPC_6",
+      "x": 16,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:npcs/scott",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_2f_event_script_scott",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_scott",
+      "facingDirection": "right",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/lilycove_city_cove_lily_motel_2f/elevation_0",
+      "name": "Collision_0",
+      "width": 12,
+      "height": 9,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEAAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAABAQAAAAABAQAAAAABAQAAAAABAQAAAAAAAAAAAAAAAAAAAAABAQAAAAABAQAAAAABAQAAAAABAQAAAAAAAAAAAAAAAAAA"
+    }
+  ]
+}

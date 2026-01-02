@@ -1,0 +1,164 @@
+{
+  "id": "pokeemerald:pokemon:sentret",
+  "name": "Sentret",
+  "cryId": "pokeemerald:audio:sfx/cries/sentret",
+  "baseStats": {
+    "hp": 35,
+    "attack": 46,
+    "defense": 34,
+    "speed": 20,
+    "spAttack": 35,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:frisk"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:scout",
+  "height": 8,
+  "weight": 60,
+  "description": "They take turns standing guard when it  is time to sleep. The sentry awakens the  others if it senses danger. If one becomes  separated, it turns sleepless with fear.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 15,
+      "targetSpeciesId": "pokeemerald:pokemon:furret"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:follow_me"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:hyper_voice"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:slash",
+    "pokeemerald:move:focus_energy",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:trick",
+    "pokeemerald:move:assist",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:covet",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:baby_doll_eyes"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sentret/sentretfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sentret/sentretfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sentret/sentretback",
+    "backShiny": "pokeemerald:pokemon:sprite/sentret/sentretbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sentret/sentreticon",
+    "overworld": "pokeemerald:pokemon:sprite/sentret/sentretoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sentret/sentretoverworldshiny"
+  }
+}

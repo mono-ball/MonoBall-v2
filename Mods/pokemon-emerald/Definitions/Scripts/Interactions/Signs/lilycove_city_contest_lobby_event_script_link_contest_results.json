@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lilycove_city_contest_lobby_event_script_link_contest_results",
+  "name": "lilycove city contest lobby event script link contest results",
+  "description": "Sign script: lilycove city contest lobby event script link contest results",
+  "scriptPath": "Scripts/Signs/lilycove_city_contest_lobby_event_script_link_contest_results.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

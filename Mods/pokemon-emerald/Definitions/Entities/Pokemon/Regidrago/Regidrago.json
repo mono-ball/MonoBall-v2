@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:regidrago",
+  "name": "Regidrago",
+  "cryId": "pokeemerald:audio:sfx/cries/regidrago",
+  "baseStats": {
+    "hp": 200,
+    "attack": 100,
+    "defense": 50,
+    "speed": 80,
+    "spAttack": 100,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:dragons_maw",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:dragon_orb",
+  "height": 21,
+  "weight": 2000,
+  "description": "An academic theory proposes that  Regidrago\u0027s arms were once the head of an  ancient dragon Pok\u00E9mon. The theory  remains unproven.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:dragon_energy"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:hyper_beam"
+    },
+    {
+      "level": 78,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/regidrago/regidragofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/regidrago/regidragofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/regidrago/regidragoback",
+    "backShiny": "pokeemerald:pokemon:sprite/regidrago/regidragobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/regidrago/regidragoicon",
+    "overworld": "pokeemerald:pokemon:sprite/regidrago/regidragooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/regidrago/regidragooverworldshiny"
+  },
+  "isLegendary": true
+}

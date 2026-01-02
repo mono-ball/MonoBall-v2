@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_southeast_event_script_rich_boy",
+  "name": "safari zone southeast event script rich boy",
+  "description": "NPC interaction: safari zone southeast event script rich boy",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_southeast_event_script_rich_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

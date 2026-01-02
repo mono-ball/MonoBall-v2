@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/verdanturf_town_event_script_rusturf_tunnel_sign",
+  "name": "verdanturf town event script rusturf tunnel sign",
+  "description": "Sign script: verdanturf town event script rusturf tunnel sign",
+  "scriptPath": "Scripts/Signs/verdanturf_town_event_script_rusturf_tunnel_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

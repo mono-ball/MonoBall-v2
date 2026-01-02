@@ -1,0 +1,162 @@
+{
+  "id": "pokeemerald:pokemon:pangoro",
+  "name": "Pangoro",
+  "cryId": "pokeemerald:audio:sfx/cries/pangoro",
+  "baseStats": {
+    "hp": 95,
+    "attack": 124,
+    "defense": 78,
+    "speed": 58,
+    "spAttack": 69,
+    "spDefense": 71
+  },
+  "types": [
+    "pokeemerald:type:fighting",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 65,
+  "expYield": 173,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:iron_fist",
+    "pokeemerald:ability:mold_breaker",
+    "pokeemerald:ability:scrappy"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:daunting",
+  "height": 21,
+  "weight": 1360,
+  "description": "It boasts superb physical strength.  Those who wish to become Pangoro\u0027s  Trainer have no choice but to converse  with their fists.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bullet_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:arm_thrust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:circle_throw"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:low_sweep"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:vital_throw"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:parting_shot"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:entrainment"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:hammer_arm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pangoro/pangorofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pangoro/pangorofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pangoro/pangoroback",
+    "backShiny": "pokeemerald:pokemon:sprite/pangoro/pangorobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pangoro/pangoroicon",
+    "overworld": "pokeemerald:pokemon:sprite/pangoro/pangorooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pangoro/pangorooverworldshiny"
+  }
+}

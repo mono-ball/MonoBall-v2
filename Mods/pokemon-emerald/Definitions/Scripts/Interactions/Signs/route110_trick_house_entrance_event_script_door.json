@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route110_trick_house_entrance_event_script_door",
+  "name": "route110 trick house entrance event script door",
+  "description": "Sign script: route110 trick house entrance event script door",
+  "scriptPath": "Scripts/Signs/route110_trick_house_entrance_event_script_door.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_woods_event_script_lyle",
+  "name": "petalburg woods event script lyle",
+  "description": "NPC interaction: petalburg woods event script lyle",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_woods_event_script_lyle.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

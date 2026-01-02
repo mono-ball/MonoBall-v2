@@ -1,0 +1,11 @@
+{
+  "id": "pokeemerald:sprite:ui/interface/mon-markings",
+  "name": "Mon Markings",
+  "type": "Sprite",
+  "texturePath": "Graphics/UI/Interface/MonMarkings.png",
+  "width": 32,
+  "height": 128,
+  "frameWidth": 8,
+  "frameHeight": 8,
+  "frameCount": 6
+}

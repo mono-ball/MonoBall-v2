@@ -1,0 +1,48 @@
+{
+  "id": "pokeemerald:pokemon:mr-rime",
+  "name": "Mr. Rime",
+  "cryId": "pokeemerald:audio:sfx/cries/mr-rime",
+  "baseStats": {
+    "hp": 80,
+    "attack": 85,
+    "defense": 75,
+    "speed": 70,
+    "spAttack": 110,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 182,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:tangled_feet",
+    "pokeemerald:ability:screen_cleaner",
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:comedian",
+  "height": 15,
+  "weight": 582,
+  "description": "It\u0027s highly skilled at tap-dancing. It  waves its cane of ice in time with its  graceful movements.",
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mrrime/mrrimefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mrrime/mrrimefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mrrime/mrrimeback",
+    "backShiny": "pokeemerald:pokemon:sprite/mrrime/mrrimebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mrrime/mrrimeicon",
+    "overworld": "pokeemerald:pokemon:sprite/mrrime/mrrimeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mrrime/mrrimeoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/common_event_script_wireless_club_attendant",
+  "name": "common event script wireless club attendant",
+  "description": "NPC interaction: common event script wireless club attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/common_event_script_wireless_club_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

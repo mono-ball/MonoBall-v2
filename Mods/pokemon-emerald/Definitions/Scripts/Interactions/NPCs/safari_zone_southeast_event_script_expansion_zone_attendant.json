@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_southeast_event_script_expansion_zone_attendant",
+  "name": "safari zone southeast event script expansion zone attendant",
+  "description": "NPC interaction: safari zone southeast event script expansion zone attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_southeast_event_script_expansion_zone_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

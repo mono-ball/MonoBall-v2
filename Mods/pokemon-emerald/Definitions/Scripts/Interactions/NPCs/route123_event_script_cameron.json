@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route123_event_script_cameron",
+  "name": "route123 event script cameron",
+  "description": "NPC interaction: route123 event script cameron",
+  "scriptPath": "Scripts/Interactions/NPCs/route123_event_script_cameron.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

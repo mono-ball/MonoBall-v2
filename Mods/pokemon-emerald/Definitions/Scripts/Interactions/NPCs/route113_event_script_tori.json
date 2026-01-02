@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route113_event_script_tori",
+  "name": "route113 event script tori",
+  "description": "NPC interaction: route113 event script tori",
+  "scriptPath": "Scripts/Interactions/NPCs/route113_event_script_tori.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

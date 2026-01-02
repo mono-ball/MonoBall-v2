@@ -1,0 +1,217 @@
+{
+  "id": "pokeemerald:pokemon:sneasel",
+  "name": "Sneasel",
+  "cryId": "pokeemerald:audio:sfx/cries/sneasel",
+  "baseStats": {
+    "hp": 55,
+    "attack": 95,
+    "defense": 55,
+    "speed": 115,
+    "spAttack": 35,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:pickpocket"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:sharp_claw",
+  "height": 9,
+  "weight": 280,
+  "description": "A Sneasel scales trees by punching its  hooked claws into the bark. It seeks out  unguarded nests and steals eggs for food  while the parents are away.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:weavile"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_RAZOR_CLAW",
+      "targetSpeciesId": "pokeemerald:pokemon:weavile"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:slash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:counter",
+    "pokeemerald:move:spite",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:double_hit",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:ice_shard",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:assist",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:icicle_crash",
+    "pokeemerald:move:throat_chop"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sneasel/sneaselfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/sneasel/sneaselfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/sneasel/sneaselback",
+    "backShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/sneasel/sneaselbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/sneasel/sneaselicon",
+    "overworld": "pokeemerald:pokemon:sprite/sneasel/sneaseloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sneasel/sneaseloverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:sneasel/hisui",
+      "name": "Sneasel",
+      "cryId": "pokeemerald:audio:sfx/cries/sneasel",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "spAttack": 35,
+        "spDefense": 75
+      },
+      "types": [
+        "pokeemerald:type:fighting",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:inner_focus",
+        "pokeemerald:ability:keen_eye",
+        "pokeemerald:ability:pickpocket"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

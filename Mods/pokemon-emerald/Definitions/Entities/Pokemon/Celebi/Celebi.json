@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:celebi",
+  "name": "Celebi",
+  "cryId": "pokeemerald:audio:sfx/cries/celebi",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "speed": 100,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 300,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:time_travel",
+  "height": 6,
+  "weight": 50,
+  "description": "This Pok\u00E9mon came from the future by  crossing over time. It is thought that so  long as Celebi appears, a bright and  shining future awaits us.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:heal_bell"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:healing_wish"
+    },
+    {
+      "level": 90,
+      "moveId": "pokeemerald:move:leaf_storm"
+    },
+    {
+      "level": 100,
+      "moveId": "pokeemerald:move:perish_song"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/celebi/celebifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/celebi/celebifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/celebi/celebiback",
+    "backShiny": "pokeemerald:pokemon:sprite/celebi/celebibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/celebi/celebiicon",
+    "overworld": "pokeemerald:pokemon:sprite/celebi/celebioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/celebi/celebioverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

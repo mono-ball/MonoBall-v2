@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:floatzel",
+  "name": "Floatzel",
+  "cryId": "pokeemerald:audio:sfx/cries/floatzel",
+  "baseStats": {
+    "hp": 85,
+    "attack": 105,
+    "defense": 55,
+    "speed": 115,
+    "spAttack": 85,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:water_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:sea_weasel",
+  "height": 11,
+  "weight": 335,
+  "description": "Its flotation sac developed as a result  of pursuing aquatic prey. It can double  as a rubber raft. It assists in the rescues  of drowning people.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/floatzel/floatzelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/floatzel/floatzelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/floatzel/floatzelback",
+    "backShiny": "pokeemerald:pokemon:sprite/floatzel/floatzelbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/floatzel/floatzelbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/floatzel/floatzelbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/floatzel/floatzelicon",
+    "overworld": "pokeemerald:pokemon:sprite/floatzel/floatzeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/floatzel/floatzeloverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

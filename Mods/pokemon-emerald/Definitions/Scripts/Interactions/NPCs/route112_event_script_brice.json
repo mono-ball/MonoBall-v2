@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route112_event_script_brice",
+  "name": "route112 event script brice",
+  "description": "NPC interaction: route112 event script brice",
+  "scriptPath": "Scripts/Interactions/NPCs/route112_event_script_brice.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

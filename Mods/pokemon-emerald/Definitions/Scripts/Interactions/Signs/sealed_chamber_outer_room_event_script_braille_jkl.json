@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/sealed_chamber_outer_room_event_script_braille_jkl",
+  "name": "sealed chamber outer room event script braille jkl",
+  "description": "Sign script: sealed chamber outer room event script braille jkl",
+  "scriptPath": "Scripts/Signs/sealed_chamber_outer_room_event_script_braille_jkl.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:skrelp",
+  "name": "Skrelp",
+  "cryId": "pokeemerald:audio:sfx/cries/skrelp",
+  "baseStats": {
+    "hp": 50,
+    "attack": 60,
+    "defense": 60,
+    "speed": 30,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 225,
+  "expYield": 64,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:poison_touch",
+    "pokeemerald:ability:adaptability"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mock_kelp",
+  "height": 5,
+  "weight": 73,
+  "description": "Camouflaged as rotten kelp, it hides  from foes while storing up power for its  evolution. They spray liquid poison on  prey that approach unawares.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 48,
+      "targetSpeciesId": "pokeemerald:pokemon:dragalge"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:toxic_spikes",
+    "pokeemerald:move:play_rough",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:acid_armor",
+    "pokeemerald:move:venom_drench"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skrelp/skrelpfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skrelp/skrelpfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skrelp/skrelpback",
+    "backShiny": "pokeemerald:pokemon:sprite/skrelp/skrelpbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skrelp/skrelpicon",
+    "overworld": "pokeemerald:pokemon:sprite/skrelp/skrelpoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skrelp/skrelpoverworldshiny"
+  }
+}

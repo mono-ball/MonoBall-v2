@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_event_script_kiri",
+  "name": "sootopolis city event script kiri",
+  "description": "NPC interaction: sootopolis city event script kiri",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_event_script_kiri.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

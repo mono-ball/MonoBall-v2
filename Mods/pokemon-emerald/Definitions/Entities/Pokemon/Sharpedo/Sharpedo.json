@@ -1,0 +1,184 @@
+{
+  "id": "pokeemerald:pokemon:sharpedo",
+  "name": "Sharpedo",
+  "cryId": "pokeemerald:audio:sfx/cries/sharpedo",
+  "baseStats": {
+    "hp": 70,
+    "attack": 120,
+    "defense": 40,
+    "speed": 95,
+    "spAttack": 95,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:rough_skin",
+    null,
+    "pokeemerald:ability:speed_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:brutal",
+  "height": 18,
+  "weight": 888,
+  "description": "The vicious and sly gangster of the sea.  Its skin is specially textured to minimize  drag in water. Its speed tops out at over  75 miles per hour.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:take_down"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sharpedo/sharpedofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sharpedo/sharpedoback",
+    "backShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sharpedo/sharpedoicon",
+    "overworld": "pokeemerald:pokemon:sprite/sharpedo/sharpedooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedooverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:sharpedo/mega",
+      "name": "Sharpedo",
+      "cryId": "pokeemerald:audio:sfx/cries/sharpedo-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 70,
+        "attack": 140,
+        "defense": 70,
+        "speed": 105,
+        "spAttack": 110,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:strong_jaw",
+        "pokeemerald:ability:strong_jaw",
+        "pokeemerald:ability:strong_jaw"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:sharpedonite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:shedinja",
+  "name": "Shedinja",
+  "cryId": "pokeemerald:audio:sfx/cries/shedinja",
+  "baseStats": {
+    "hp": 1,
+    "attack": 90,
+    "defense": 45,
+    "speed": 40,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:wonder_guard",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:shed",
+  "height": 8,
+  "weight": 12,
+  "description": "A peculiar Pok\u00E9mon that floats in air even  though its wings remain completely still.  The inside of its body is hollow and  utterly dark.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:grudge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:mind_reader"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:spite"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:phantom_force"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shedinja/shedinjafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shedinja/shedinjafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/shedinja/shedinjaback",
+    "backShiny": "pokeemerald:pokemon:sprite/shedinja/shedinjabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/shedinja/shedinjaicon",
+    "overworld": "pokeemerald:pokemon:sprite/shedinja/shedinjaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shedinja/shedinjaoverworldshiny"
+  }
+}

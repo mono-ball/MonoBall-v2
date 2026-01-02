@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:diggersby",
+  "name": "Diggersby",
+  "cryId": "pokeemerald:audio:sfx/cries/diggersby",
+  "baseStats": {
+    "hp": 85,
+    "attack": 56,
+    "defense": 77,
+    "speed": 78,
+    "spAttack": 50,
+    "spDefense": 77
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 127,
+  "expYield": 148,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:cheek_pouch",
+    "pokeemerald:ability:huge_power"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:digging",
+  "height": 10,
+  "weight": 424,
+  "description": "With its powerful ears it reduces dense  bedrock to rubble. It can be a big help  at construction sites. When it\u0027s finished  digging, it lounges about lazily.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:hammer_arm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/diggersby/diggersbyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/diggersby/diggersbyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/diggersby/diggersbyback",
+    "backShiny": "pokeemerald:pokemon:sprite/diggersby/diggersbybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/diggersby/diggersbyicon",
+    "overworld": "pokeemerald:pokemon:sprite/diggersby/diggersbyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/diggersby/diggersbyoverworldshiny"
+  }
+}

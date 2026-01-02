@@ -1,0 +1,28 @@
+{
+  "id": "pokeemerald:weather:graphics/underwater_bubbles",
+  "name": "Underwater Bubbles",
+  "type": "TileSheet",
+  "texturePath": "Graphics/Weather/UnderwaterBubbles/Bubble.png",
+  "tileWidth": 8,
+  "tileHeight": 8,
+  "tileCount": 2,
+  "tiles": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 0,
+      "y": 8,
+      "width": 8,
+      "height": 8
+    }
+  ],
+  "spriteWidth": 8,
+  "spriteHeight": 8,
+  "description": "Underwater bubble particles"
+}

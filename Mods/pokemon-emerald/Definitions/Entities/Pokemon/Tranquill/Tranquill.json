@@ -1,0 +1,128 @@
+{
+  "id": "pokeemerald:pokemon:tranquill",
+  "name": "Tranquill",
+  "cryId": "pokeemerald:audio:sfx/cries/tranquill",
+  "baseStats": {
+    "hp": 62,
+    "attack": 77,
+    "defense": 62,
+    "speed": 65,
+    "spAttack": 50,
+    "spDefense": 42
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 120,
+  "expYield": 125,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:big_pecks",
+    "pokeemerald:ability:super_luck",
+    "pokeemerald:ability:rivalry"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:wild_pigeon",
+  "height": 6,
+  "weight": 150,
+  "description": "No matter where in the world it goes,  it knows where its nest is, so it can  always return to its Trainer\u0027s location  regardless of the distance.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 32,
+      "targetSpeciesId": "pokeemerald:pokemon:unfezant"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:sky_attack"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tranquill/tranquillfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tranquill/tranquillfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tranquill/tranquillback",
+    "backShiny": "pokeemerald:pokemon:sprite/tranquill/tranquillbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tranquill/tranquillicon",
+    "overworld": "pokeemerald:pokemon:sprite/tranquill/tranquilloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tranquill/tranquilloverworldshiny"
+  }
+}

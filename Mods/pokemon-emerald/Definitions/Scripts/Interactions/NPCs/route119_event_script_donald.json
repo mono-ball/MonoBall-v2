@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route119_event_script_donald",
+  "name": "route119 event script donald",
+  "description": "NPC interaction: route119 event script donald",
+  "scriptPath": "Scripts/Interactions/NPCs/route119_event_script_donald.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

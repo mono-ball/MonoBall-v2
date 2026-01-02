@@ -1,0 +1,87 @@
+{
+  "id": "pokeemerald:pokemon:applin",
+  "name": "Applin",
+  "cryId": "pokeemerald:audio:sfx/cries/applin",
+  "baseStats": {
+    "hp": 40,
+    "attack": 40,
+    "defense": 80,
+    "speed": 20,
+    "spAttack": 40,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 255,
+  "expYield": 52,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:ripen",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:bulletproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:apple_core",
+  "height": 2,
+  "weight": 5,
+  "description": "It spends its entire life inside an  apple. It hides from its natural enemies,  bird Pok\u00E9mon, by pretending it\u0027s just an  apple and nothing more.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_TART_APPLE",
+      "targetSpeciesId": "pokeemerald:pokemon:flapple"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SWEET_APPLE",
+      "targetSpeciesId": "pokeemerald:pokemon:appletun"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SYRUPY_APPLE",
+      "targetSpeciesId": "pokeemerald:pokemon:dipplin"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:recycle"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/applin/applinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/applin/applinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/applin/applinback",
+    "backShiny": "pokeemerald:pokemon:sprite/applin/applinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/applin/applinicon",
+    "overworld": "pokeemerald:pokemon:sprite/applin/applinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/applin/applinoverworldshiny"
+  }
+}

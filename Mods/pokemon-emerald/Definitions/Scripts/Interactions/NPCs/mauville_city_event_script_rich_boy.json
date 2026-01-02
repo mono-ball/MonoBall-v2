@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_event_script_rich_boy",
+  "name": "mauville city event script rich boy",
+  "description": "NPC interaction: mauville city event script rich boy",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_event_script_rich_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

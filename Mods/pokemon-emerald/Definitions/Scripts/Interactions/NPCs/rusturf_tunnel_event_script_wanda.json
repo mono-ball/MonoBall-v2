@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rusturf_tunnel_event_script_wanda",
+  "name": "rusturf tunnel event script wanda",
+  "description": "NPC interaction: rusturf tunnel event script wanda",
+  "scriptPath": "Scripts/Interactions/NPCs/rusturf_tunnel_event_script_wanda.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

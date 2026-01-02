@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/koffing/koffingfront",
+  "name": "Koffingfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Koffing/KoffingFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

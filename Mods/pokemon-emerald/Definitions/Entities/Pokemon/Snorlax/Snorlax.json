@@ -1,0 +1,257 @@
+{
+  "id": "pokeemerald:pokemon:snorlax",
+  "name": "Snorlax",
+  "cryId": "pokeemerald:audio:sfx/cries/snorlax",
+  "baseStats": {
+    "hp": 160,
+    "attack": 110,
+    "defense": 65,
+    "speed": 30,
+    "spAttack": 65
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 25,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:immunity",
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:gluttony"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:sleeping",
+  "height": 21,
+  "weight": 4600,
+  "description": "Snorlax\u0027s typical day consists of nothing  more than eating and sleeping. It is such  a docile Pok\u00E9mon that there are children  who use its big belly as a place to play.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metronome"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recycle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:snore"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sleep_talk"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:high_horsepower"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:belly_drum"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:lick",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:belch",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/snorlax/snorlaxfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/snorlax/snorlaxback",
+    "backShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/snorlax/snorlaxicon",
+    "overworld": "pokeemerald:pokemon:sprite/snorlax/snorlaxoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:snorlax/gmax",
+      "name": "Snorlax",
+      "cryId": "pokeemerald:audio:sfx/cries/snorlax",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 160,
+        "attack": 110,
+        "defense": 65,
+        "speed": 30,
+        "spAttack": 65
+      },
+      "types": [
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:immunity",
+        "pokeemerald:ability:thick_fat",
+        "pokeemerald:ability:gluttony"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

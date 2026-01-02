@@ -1,0 +1,171 @@
+{
+  "id": "pokeemerald:pokemon:flareon",
+  "name": "Flareon",
+  "cryId": "pokeemerald:audio:sfx/cries/flareon",
+  "baseStats": {
+    "hp": 65,
+    "attack": 130,
+    "defense": 60,
+    "speed": 65,
+    "spDefense": 110
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:guts"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:flame",
+  "height": 9,
+  "weight": 250,
+  "description": "Flareon\u0027s fluffy fur releases heat into  the air so that its body does not get  excessively hot. Its body temperature can  rise to a maximum of 1,650 degrees F.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/flareon/flareonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/flareon/flareonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/flareon/flareonback",
+    "backShiny": "pokeemerald:pokemon:sprite/flareon/flareonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/flareon/flareonicon",
+    "overworld": "pokeemerald:pokemon:sprite/flareon/flareonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/flareon/flareonoverworldshiny"
+  }
+}

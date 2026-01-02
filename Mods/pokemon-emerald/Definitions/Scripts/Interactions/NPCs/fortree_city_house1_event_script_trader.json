@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_house1_event_script_trader",
+  "name": "fortree city house1 event script trader",
+  "description": "NPC interaction: fortree city house1 event script trader",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_house1_event_script_trader.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

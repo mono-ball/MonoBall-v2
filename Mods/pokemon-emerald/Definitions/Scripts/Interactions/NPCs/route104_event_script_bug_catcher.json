@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route104_event_script_bug_catcher",
+  "name": "route104 event script bug catcher",
+  "description": "NPC interaction: route104 event script bug catcher",
+  "scriptPath": "Scripts/Interactions/NPCs/route104_event_script_bug_catcher.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

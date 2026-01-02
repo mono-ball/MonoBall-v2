@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:blacephalon",
+  "name": "Blacephalon",
+  "cryId": "pokeemerald:audio:sfx/cries/blacephalon",
+  "baseStats": {
+    "hp": 53,
+    "attack": 127,
+    "defense": 53,
+    "speed": 107,
+    "spAttack": 151,
+    "spDefense": 79
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:fireworks",
+  "height": 18,
+  "weight": 130,
+  "description": "It slithers toward people and explode  its head without warning. It is  one kind of Ultra Beast.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:magic_coat"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:mystical_fire"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:trick"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:mind_blown"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/blacephalon/blacephalonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/blacephalon/blacephalonback",
+    "backShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/blacephalon/blacephalonicon",
+    "overworld": "pokeemerald:pokemon:sprite/blacephalon/blacephalonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalonoverworldshiny"
+  },
+  "isUltraBeast": true
+}

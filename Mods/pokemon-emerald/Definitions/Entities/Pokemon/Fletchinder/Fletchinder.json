@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:fletchinder",
+  "name": "Fletchinder",
+  "cryId": "pokeemerald:audio:sfx/cries/fletchinder",
+  "baseStats": {
+    "hp": 62,
+    "attack": 73,
+    "defense": 55,
+    "speed": 84,
+    "spAttack": 56,
+    "spDefense": 52
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 120,
+  "expYield": 134,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:flame_body",
+    null,
+    "pokeemerald:ability:gale_wings"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:ember",
+  "height": 7,
+  "weight": 160,
+  "description": "From its beak, it expels embers that set  the tall grass on fire. Then it pounces on  any bewildered Pok\u00E9mon that pop out of  the grass.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:talonflame"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:steel_wing"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:fly"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/fletchinder/fletchinderfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinderfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/fletchinder/fletchinderback",
+    "backShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinderbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/fletchinder/fletchindericon",
+    "overworld": "pokeemerald:pokemon:sprite/fletchinder/fletchinderoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinderoverworldshiny"
+  }
+}

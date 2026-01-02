@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:zeraora",
+  "name": "Zeraora",
+  "cryId": "pokeemerald:audio:sfx/cries/zeraora",
+  "baseStats": {
+    "hp": 88,
+    "attack": 112,
+    "defense": 75,
+    "speed": 143,
+    "spAttack": 102,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:volt_absorb",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:thunderclap",
+  "height": 15,
+  "weight": 445,
+  "description": "It approaches its enemies at the speed  of lightning, then tears them limb from  limb with its sharp claws.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_up_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:volt_switch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:plasma_fists"
+    },
+    {
+      "level": 96,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/zeraora/zeraorafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/zeraora/zeraorafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/zeraora/zeraoraback",
+    "backShiny": "pokeemerald:pokemon:sprite/zeraora/zeraorabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/zeraora/zeraoraicon",
+    "overworld": "pokeemerald:pokemon:sprite/zeraora/zeraoraoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zeraora/zeraoraoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

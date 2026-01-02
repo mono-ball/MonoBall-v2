@@ -1,0 +1,210 @@
+{
+  "id": "pokeemerald:pokemon:aggron",
+  "name": "Aggron",
+  "cryId": "pokeemerald:audio:sfx/cries/aggron",
+  "baseStats": {
+    "hp": 70,
+    "attack": 110,
+    "defense": 180,
+    "speed": 50,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:heavy_metal"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:iron_armor",
+  "height": 21,
+  "weight": 3600,
+  "description": "Its iron horns grow longer a little at  a time. They are used to determine the  Aggron\u0027s age. The gouges in its armor are  worn with pride as mementos from battles.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:iron_tail"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:metal_burst"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/aggron/aggronfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/aggron/aggronfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/aggron/aggronback",
+    "backShiny": "pokeemerald:pokemon:sprite/aggron/aggronbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/aggron/aggronicon",
+    "overworld": "pokeemerald:pokemon:sprite/aggron/aggronoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/aggron/aggronoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:aggron/mega",
+      "name": "Aggron",
+      "cryId": "pokeemerald:audio:sfx/cries/aggron-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 70,
+        "attack": 140,
+        "defense": 230,
+        "speed": 50,
+        "spAttack": 60,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:filter",
+        "pokeemerald:ability:filter",
+        "pokeemerald:ability:filter"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/aggron/aggronmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/aggron/aggronmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/aggron/aggronmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/aggron/aggronmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/aggron/aggronmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/aggron/aggronmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/aggron/aggronmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:aggronite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

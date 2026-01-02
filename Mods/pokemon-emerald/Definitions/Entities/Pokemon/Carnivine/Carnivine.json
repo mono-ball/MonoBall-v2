@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:carnivine",
+  "name": "Carnivine",
+  "cryId": "pokeemerald:audio:sfx/cries/carnivine",
+  "baseStats": {
+    "hp": 74,
+    "attack": 100,
+    "defense": 72,
+    "speed": 46,
+    "spAttack": 90,
+    "spDefense": 72
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 200,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:bug_catcher",
+  "height": 14,
+  "weight": 270,
+  "description": "Hanging from branches using its  tentacles, it looks like a plant.  It attracts prey with its sweet-smelling  saliva, then chomps down.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:grass_knot"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:leaf_tornado"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:power_whip"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:sleep_powder",
+    "pokeemerald:move:stun_spore",
+    "pokeemerald:move:razor_leaf",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:magical_leaf",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:rage_powder",
+    "pokeemerald:move:grass_whistle",
+    "pokeemerald:move:acid_spray"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/carnivine/carnivinefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/carnivine/carnivinefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/carnivine/carnivineback",
+    "backShiny": "pokeemerald:pokemon:sprite/carnivine/carnivinebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/carnivine/carnivineicon",
+    "overworld": "pokeemerald:pokemon:sprite/carnivine/carnivineoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carnivine/carnivineoverworldshiny"
+  }
+}

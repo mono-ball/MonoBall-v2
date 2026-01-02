@@ -1,0 +1,182 @@
+{
+  "id": "pokeemerald:map:hoenn/route110_seaside_cycling_road_north_entrance",
+  "name": "Route110_SeasideCyclingRoadNorthEntrance",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 15,
+  "height": 6,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/slateport",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/route_110",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/route110_seaside_cycling_road_north_entrance/ground",
+      "name": "Ground",
+      "width": 15,
+      "height": 6,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/route110_seaside_cycling_road_north_entrance/objects",
+      "name": "Objects",
+      "width": 15,
+      "height": 6,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/route110_seaside_cycling_road_north_entrance/overhead",
+      "name": "Overhead",
+      "width": 15,
+      "height": 6,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/shop"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 16,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/route110",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 32,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/route110",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 192,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/route110",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/route110_seaside_cycling_road_north_entrance/warp_to_route110",
+      "name": "Warp to route110",
+      "x": 208,
+      "y": 80,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/route110",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [
+    {
+      "id": "pokeemerald:trigger:hoenn/route110_seaside_cycling_road_north_entrance/trigger_var_temp_1_0",
+      "name": "Trigger: VAR_TEMP_1 == 0",
+      "x": 112,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_1",
+      "value": 0,
+      "triggerId": "pokeemerald:script:trigger/route110_seaside_cycling_road_north_entrance_event_script_bike_check",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route110_seaside_cycling_road_north_entrance/trigger_var_temp_1_1",
+      "name": "Trigger: VAR_TEMP_1 == 1",
+      "x": 80,
+      "y": 64,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_temp_1",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/route110_seaside_cycling_road_north_entrance_event_script_clear_cycling_road",
+      "elevation": 3
+    }
+  ],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/route110_seaside_cycling_road_north_entrance/npc_0",
+      "name": "NPC_0",
+      "x": 112,
+      "y": 32,
+      "spriteId": "pokeemerald:sprite:npcs/martemployee",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/route110_seaside_cycling_road_north_entrance_event_script_clerk",
+      "facingDirection": "down",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/route110_seaside_cycling_road_north_entrance/elevation_0",
+      "name": "Collision_0",
+      "width": 15,
+      "height": 6,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/route110_seaside_cycling_road_north_entrance/elevation_3",
+      "name": "Collision_3",
+      "width": 15,
+      "height": 6,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAABAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQEBAQAAAAAB"
+    }
+  ]
+}

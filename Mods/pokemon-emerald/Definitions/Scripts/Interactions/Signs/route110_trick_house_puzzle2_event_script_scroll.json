@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route110_trick_house_puzzle2_event_script_scroll",
+  "name": "route110 trick house puzzle2 event script scroll",
+  "description": "Sign script: route110 trick house puzzle2 event script scroll",
+  "scriptPath": "Scripts/Signs/route110_trick_house_puzzle2_event_script_scroll.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

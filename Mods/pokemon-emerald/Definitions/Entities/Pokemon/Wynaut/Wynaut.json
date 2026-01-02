@@ -1,0 +1,91 @@
+{
+  "id": "pokeemerald:pokemon:wynaut",
+  "name": "Wynaut",
+  "cryId": "pokeemerald:audio:sfx/cries/wynaut",
+  "baseStats": {
+    "hp": 95,
+    "attack": 23,
+    "defense": 48,
+    "speed": 23,
+    "spAttack": 23,
+    "spDefense": 48
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 125,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:shadow_tag",
+    null,
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:bright",
+  "height": 6,
+  "weight": 140,
+  "description": "A Wynaut loves to eat sweet fruits.  It cleverly picks fruits using its earlike  arms. They gather in fruit gardens, drawn  by the fragrance.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 15,
+      "targetSpeciesId": "pokeemerald:pokemon:wobbuffet"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:amnesia"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:counter",
+    "pokeemerald:move:safeguard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wynaut/wynautfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wynaut/wynautfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wynaut/wynautback",
+    "backShiny": "pokeemerald:pokemon:sprite/wynaut/wynautbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wynaut/wynauticon",
+    "overworld": "pokeemerald:pokemon:sprite/wynaut/wynautoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wynaut/wynautoverworldshiny"
+  }
+}

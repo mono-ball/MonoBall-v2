@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_gym_event_script_takao",
+  "name": "dewford town gym event script takao",
+  "description": "NPC interaction: dewford town gym event script takao",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_gym_event_script_takao.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

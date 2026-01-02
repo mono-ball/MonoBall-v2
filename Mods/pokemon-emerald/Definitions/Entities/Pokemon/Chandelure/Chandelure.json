@@ -1,0 +1,178 @@
+{
+  "id": "pokeemerald:pokemon:chandelure",
+  "name": "Chandelure",
+  "cryId": "pokeemerald:audio:sfx/cries/chandelure",
+  "baseStats": {
+    "hp": 60,
+    "attack": 55,
+    "defense": 90,
+    "speed": 80,
+    "spAttack": 145,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:flame_body",
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:luring",
+  "height": 10,
+  "weight": 343,
+  "description": "Being consumed in Chandelure\u0027s flame burns  up the spirit, leaving the body behind.  By waving the flames on its arms, it puts  its foes into a hypnotic trance.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:inferno"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chandelure/chandelurefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chandelure/chandelurefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chandelure/chandelureback",
+    "backShiny": "pokeemerald:pokemon:sprite/chandelure/chandelurebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chandelure/chandelureicon",
+    "overworld": "pokeemerald:pokemon:sprite/chandelure/chandelureoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chandelure/chandelureoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:chandelure/mega",
+      "name": "Chandelure",
+      "cryId": "pokeemerald:audio:sfx/cries/chandelure",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 110,
+        "speed": 90,
+        "spAttack": 175,
+        "spDefense": 110
+      },
+      "types": [
+        "pokeemerald:type:ghost",
+        "pokeemerald:type:fire"
+      ],
+      "abilities": [
+        "pokeemerald:ability:flash_fire",
+        "pokeemerald:ability:flame_body",
+        "pokeemerald:ability:infiltrator"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/chandelure/chandeluremegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/chandelure/chandeluremegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/chandelure/chandeluremegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/chandelure/chandeluremegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/chandelure/chandeluremegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/chandelure/chandeluremegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/chandelure/chandeluremegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:chandelurite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

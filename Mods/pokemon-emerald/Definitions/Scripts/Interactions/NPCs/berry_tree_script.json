@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/berry_tree_script",
+  "name": "berry tree script",
+  "description": "NPC interaction: berry tree script",
+  "scriptPath": "Scripts/Interactions/NPCs/berry_tree_script.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

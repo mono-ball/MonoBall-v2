@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_pyramid_lobby_event_script_hint_giver",
+  "name": "battle frontier battle pyramid lobby event script hint giver",
+  "description": "NPC interaction: battle frontier battle pyramid lobby event script hint giver",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_pyramid_lobby_event_script_hint_giver.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

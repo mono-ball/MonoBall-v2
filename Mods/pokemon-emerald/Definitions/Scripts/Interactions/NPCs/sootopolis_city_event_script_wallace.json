@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_event_script_wallace",
+  "name": "sootopolis city event script wallace",
+  "description": "NPC interaction: sootopolis city event script wallace",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_event_script_wallace.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

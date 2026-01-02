@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:fearow",
+  "name": "Fearow",
+  "cryId": "pokeemerald:audio:sfx/cries/fearow",
+  "baseStats": {
+    "hp": 65,
+    "attack": 90,
+    "defense": 65,
+    "speed": 100,
+    "spAttack": 61,
+    "spDefense": 61
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    null,
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:beak",
+  "height": 12,
+  "weight": 380,
+  "description": "Its long neck and elongated beak are  ideal for catching prey in soil or water.  It deftly moves this extended and skinny  beak to pluck prey.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:drill_run"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:drill_run"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/fearow/fearowfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/fearow/fearowfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/fearow/fearowback",
+    "backShiny": "pokeemerald:pokemon:sprite/fearow/fearowbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/fearow/fearowicon",
+    "overworld": "pokeemerald:pokemon:sprite/fearow/fearowoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fearow/fearowoverworldshiny"
+  }
+}

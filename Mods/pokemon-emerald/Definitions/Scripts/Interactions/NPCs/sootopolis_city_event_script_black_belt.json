@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_event_script_black_belt",
+  "name": "sootopolis city event script black belt",
+  "description": "NPC interaction: sootopolis city event script black belt",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_event_script_black_belt.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

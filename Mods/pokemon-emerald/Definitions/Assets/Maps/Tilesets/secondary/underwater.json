@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:tileset:secondary/underwater",
+  "name": "underwater",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/underwater.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 103,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 112,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 9,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 10,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_6d"
+    },
+    {
+      "localTileId": 23,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 24,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 32,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 33,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 34,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 35,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 36,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 37,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 40,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_2a",
+      "animation": [
+        {
+          "tileId": 48,
+          "durationMs": 133
+        },
+        {
+          "tileId": 100,
+          "durationMs": 133
+        },
+        {
+          "tileId": 101,
+          "durationMs": 133
+        },
+        {
+          "tileId": 102,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 48,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_22",
+      "animation": [
+        {
+          "tileId": 48,
+          "durationMs": 133
+        },
+        {
+          "tileId": 100,
+          "durationMs": 133
+        },
+        {
+          "tileId": 101,
+          "durationMs": 133
+        },
+        {
+          "tileId": 102,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 49,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 50,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 55,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_6c"
+    },
+    {
+      "localTileId": 90,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 91,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 92,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 93,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 94,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 95,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 96,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 97,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 98,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    }
+  ]
+}

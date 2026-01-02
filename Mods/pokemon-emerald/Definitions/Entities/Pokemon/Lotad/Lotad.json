@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:lotad",
+  "name": "Lotad",
+  "cryId": "pokeemerald:audio:sfx/cries/lotad",
+  "baseStats": {
+    "hp": 40,
+    "attack": 30,
+    "defense": 30,
+    "speed": 30,
+    "spAttack": 40,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:rain_dish",
+    "pokeemerald:ability:own_tempo"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:water_weed",
+  "height": 5,
+  "weight": 26,
+  "description": "This Pok\u00E9mon lives in ponds with clean  water. It is known to ferry small Pok\u00E9mon  across ponds by carrying them on the  broad leaf on its head.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 14,
+      "targetSpeciesId": "pokeemerald:pokemon:lombre"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:energy_ball"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:razor_leaf",
+    "pokeemerald:move:sweet_scent",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:water_gun",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:teeter_dance"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lotad/lotadfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lotad/lotadfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lotad/lotadback",
+    "backShiny": "pokeemerald:pokemon:sprite/lotad/lotadbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lotad/lotadicon",
+    "overworld": "pokeemerald:pokemon:sprite/lotad/lotadoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lotad/lotadoverworldshiny"
+  }
+}

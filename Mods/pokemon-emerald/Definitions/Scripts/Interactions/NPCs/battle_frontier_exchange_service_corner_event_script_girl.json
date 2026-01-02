@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_girl",
+  "name": "battle frontier exchange service corner event script girl",
+  "description": "NPC interaction: battle frontier exchange service corner event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_exchange_service_corner_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

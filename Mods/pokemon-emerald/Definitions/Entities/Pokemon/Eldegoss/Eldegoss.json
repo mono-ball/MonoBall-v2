@@ -1,0 +1,120 @@
+{
+  "id": "pokeemerald:pokemon:eldegoss",
+  "name": "Eldegoss",
+  "cryId": "pokeemerald:audio:sfx/cries/eldegoss",
+  "baseStats": {
+    "hp": 60,
+    "attack": 50,
+    "defense": 90,
+    "speed": 60,
+    "spAttack": 80,
+    "spDefense": 120
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 75,
+  "expYield": 161,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:cotton_down",
+    "pokeemerald:ability:regenerator",
+    "pokeemerald:ability:effect_spore"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:cotton_bloom",
+  "height": 5,
+  "weight": 25,
+  "description": "The seeds attached to its cotton fluff  are full of nutrients. It spreads them  on the wind so that plants and other  Pok\u00E9mon can benefit from them.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:cotton_spore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:cotton_spore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:leaf_tornado"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:leaf_storm"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:cotton_guard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/eldegoss/eldegossfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/eldegoss/eldegossfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/eldegoss/eldegossback",
+    "backShiny": "pokeemerald:pokemon:sprite/eldegoss/eldegossbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/eldegoss/eldegossicon",
+    "overworld": "pokeemerald:pokemon:sprite/eldegoss/eldegossoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eldegoss/eldegossoverworldshiny"
+  }
+}

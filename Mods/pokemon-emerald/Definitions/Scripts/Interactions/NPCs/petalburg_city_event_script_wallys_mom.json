@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_city_event_script_wallys_mom",
+  "name": "petalburg city event script wallys mom",
+  "description": "NPC interaction: petalburg city event script wallys mom",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_city_event_script_wallys_mom.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

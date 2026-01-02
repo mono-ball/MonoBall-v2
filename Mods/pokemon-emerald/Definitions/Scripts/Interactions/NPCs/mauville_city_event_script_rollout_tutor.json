@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_event_script_rollout_tutor",
+  "name": "mauville city event script rollout tutor",
+  "description": "NPC interaction: mauville city event script rollout tutor",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_event_script_rollout_tutor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_interviewer",
+  "name": "lilycove city pokemon trainer fan club event script interviewer",
+  "description": "NPC interaction: lilycove city pokemon trainer fan club event script interviewer",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_pokemon_trainer_fan_club_event_script_interviewer.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

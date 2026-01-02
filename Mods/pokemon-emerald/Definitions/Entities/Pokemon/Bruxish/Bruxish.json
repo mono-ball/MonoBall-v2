@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:bruxish",
+  "name": "Bruxish",
+  "cryId": "pokeemerald:audio:sfx/cries/bruxish",
+  "baseStats": {
+    "hp": 68,
+    "attack": 105,
+    "defense": 70,
+    "speed": 92,
+    "spAttack": 70,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 80,
+  "expYield": 166,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:dazzling",
+    "pokeemerald:ability:strong_jaw",
+    "pokeemerald:ability:wonder_skin"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:gnash_teeth",
+  "height": 9,
+  "weight": 190,
+  "description": "It stuns its prey with its psychic powers  and then grinds them to mush with its  strong teeth. Even Shellder\u0027s shell is no  match for it.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:psychic_fangs"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:poison_fang",
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:rage"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bruxish/bruxishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bruxish/bruxishfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bruxish/bruxishback",
+    "backShiny": "pokeemerald:pokemon:sprite/bruxish/bruxishbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bruxish/bruxishicon",
+    "overworld": "pokeemerald:pokemon:sprite/bruxish/bruxishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bruxish/bruxishoverworldshiny"
+  }
+}

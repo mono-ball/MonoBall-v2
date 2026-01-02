@@ -1,0 +1,114 @@
+{
+  "id": "pokeemerald:pokemon:chewtle",
+  "name": "Chewtle",
+  "cryId": "pokeemerald:audio:sfx/cries/chewtle",
+  "baseStats": {
+    "hp": 50,
+    "attack": 64,
+    "defense": 50,
+    "speed": 44,
+    "spAttack": 38,
+    "spDefense": 38
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 255,
+  "expYield": 57,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:strong_jaw",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:snapping",
+  "height": 3,
+  "weight": 85,
+  "description": "Apparently the itch of its teething  impels it to snap its jaws at anything  in front of it.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 22,
+      "targetSpeciesId": "pokeemerald:pokemon:drednaw"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:jaw_lock"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:body_slam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:skull_bash",
+    "pokeemerald:move:gastro_acid",
+    "pokeemerald:move:dragon_tail"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chewtle/chewtlefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chewtle/chewtlefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chewtle/chewtleback",
+    "backShiny": "pokeemerald:pokemon:sprite/chewtle/chewtlebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chewtle/chewtleicon",
+    "overworld": "pokeemerald:pokemon:sprite/chewtle/chewtleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chewtle/chewtleoverworldshiny"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "id": "pokeemerald:pokemon:elekid",
+  "name": "Elekid",
+  "cryId": "pokeemerald:audio:sfx/cries/elekid",
+  "baseStats": {
+    "hp": 45,
+    "attack": 63,
+    "defense": 37,
+    "speed": 95,
+    "spAttack": 65,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 63,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:static",
+    null,
+    "pokeemerald:ability:vital_spirit"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:electric",
+  "height": 6,
+  "weight": 235,
+  "description": "If it touches metal and discharges the  electricity it has stored in its body, an  Elekid begins swinging its arms in circles  to recharge itself.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:electabuzz"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:shock_wave"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:thunderbolt"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:karate_chop",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:rolling_kick",
+    "pokeemerald:move:meditate",
+    "pokeemerald:move:cross_chop",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:hammer_arm",
+    "pokeemerald:move:focus_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/elekid/elekidfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/elekid/elekidfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/elekid/elekidback",
+    "backShiny": "pokeemerald:pokemon:sprite/elekid/elekidbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/elekid/elekidicon",
+    "overworld": "pokeemerald:pokemon:sprite/elekid/elekidoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/elekid/elekidoverworldshiny"
+  }
+}

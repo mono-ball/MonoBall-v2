@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:oddish",
+  "name": "Oddish",
+  "cryId": "pokeemerald:audio:sfx/cries/oddish",
+  "baseStats": {
+    "hp": 45,
+    "attack": 50,
+    "defense": 55,
+    "speed": 30,
+    "spAttack": 75
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:chlorophyll",
+    null,
+    "pokeemerald:ability:run_away"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:weed",
+  "height": 5,
+  "weight": 54,
+  "description": "This Pok\u00E9mon grows by absorbing moonlight.  During the daytime, it buries itself in the  ground, leaving only its leaves exposed to  avoid detection by its enemies.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 21,
+      "targetSpeciesId": "pokeemerald:pokemon:gloom"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:grassy_terrain"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:petal_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:razor_leaf",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:ingrain",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:teeter_dance",
+    "pokeemerald:move:secret_power",
+    "pokeemerald:move:nature_power",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:strength_sap"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/oddish/oddishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/oddish/oddishfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/oddish/oddishback",
+    "backShiny": "pokeemerald:pokemon:sprite/oddish/oddishbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/oddish/oddishicon",
+    "overworld": "pokeemerald:pokemon:sprite/oddish/oddishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/oddish/oddishoverworldshiny"
+  }
+}

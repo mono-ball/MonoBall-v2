@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_victor",
+  "name": "route111 event script victor",
+  "description": "NPC interaction: route111 event script victor",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_victor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

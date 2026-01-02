@@ -1,0 +1,102 @@
+{
+  "id": "pokeemerald:sprite:characters/players/brendan/fieldmove",
+  "name": "Fieldmove",
+  "type": "Sprite",
+  "texturePath": "Graphics/Characters/Players/Brendan/FieldMove.png",
+  "frameWidth": 16,
+  "frameHeight": 32,
+  "frameCount": 10,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 2,
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 3,
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 4,
+      "x": 64,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 5,
+      "x": 80,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 6,
+      "x": 96,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 7,
+      "x": 112,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 8,
+      "x": 128,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 9,
+      "x": 144,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    }
+  ],
+  "animations": [
+    {
+      "name": "field_move",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.13333333333333333
+      ],
+      "flipHorizontal": false
+    }
+  ]
+}

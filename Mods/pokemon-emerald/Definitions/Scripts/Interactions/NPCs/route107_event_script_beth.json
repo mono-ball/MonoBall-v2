@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route107_event_script_beth",
+  "name": "route107 event script beth",
+  "description": "NPC interaction: route107 event script beth",
+  "scriptPath": "Scripts/Interactions/NPCs/route107_event_script_beth.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/sandslash/sandslashfront",
+  "name": "Sandslashfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Sandslash/SandslashFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

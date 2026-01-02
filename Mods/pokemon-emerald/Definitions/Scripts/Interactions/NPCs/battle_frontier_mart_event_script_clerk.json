@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_mart_event_script_clerk",
+  "name": "battle frontier mart event script clerk",
+  "description": "NPC interaction: battle frontier mart event script clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_mart_event_script_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

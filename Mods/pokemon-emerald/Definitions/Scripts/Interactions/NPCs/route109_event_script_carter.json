@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_carter",
+  "name": "route109 event script carter",
+  "description": "NPC interaction: route109 event script carter",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_carter.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:stufful",
+  "name": "Stufful",
+  "cryId": "pokeemerald:audio:sfx/cries/stufful",
+  "baseStats": {
+    "hp": 70,
+    "attack": 75,
+    "defense": 50,
+    "speed": 50,
+    "spAttack": 45,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 140,
+  "expYield": 68,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:fluffy",
+    "pokeemerald:ability:klutz",
+    "pokeemerald:ability:cute_charm"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:flailing",
+  "height": 5,
+  "weight": 68,
+  "description": "Despite its adorable appearance, when it  gets angry and flails about, its arms and  legs could knock a pro wrestler sprawling.  It\u0027s an incredibly dangerous Pok\u00E9mon.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 27,
+      "targetSpeciesId": "pokeemerald:pokemon:bewear"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:force_palm",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:stomping_tantrum"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/stufful/stuffulfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/stufful/stuffulfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/stufful/stuffulback",
+    "backShiny": "pokeemerald:pokemon:sprite/stufful/stuffulbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/stufful/stuffulicon",
+    "overworld": "pokeemerald:pokemon:sprite/stufful/stuffuloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stufful/stuffuloverworldshiny"
+  }
+}

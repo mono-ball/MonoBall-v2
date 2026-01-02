@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:miraidon",
+  "name": "Miraidon",
+  "cryId": "pokeemerald:audio:sfx/cries/miraidon",
+  "baseStats": {
+    "hp": 100,
+    "attack": 85,
+    "defense": 100,
+    "speed": 135,
+    "spAttack": 135,
+    "spDefense": 115
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 3,
+  "expYield": 335,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 50,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:hadron_engine",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:paradox",
+  "height": 35,
+  "weight": 2400,
+  "description": "This seems to be the Iron Serpent  mentioned in an Violet Book. The  Iron Serpent is said to have turned the  land to ash with its lightning.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:shock_wave"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:parabolic_charge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:electro_drift"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:thunder"
+    },
+    {
+      "level": 91,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 98,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/miraidon/miraidonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/miraidon/miraidonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/miraidon/miraidonback",
+    "backShiny": "pokeemerald:pokemon:sprite/miraidon/miraidonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/miraidon/miraidonicon",
+    "overworld": "pokeemerald:pokemon:sprite/miraidon/miraidonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/miraidon/miraidonoverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route133_event_script_warren",
+  "name": "route133 event script warren",
+  "description": "NPC interaction: route133 event script warren",
+  "scriptPath": "Scripts/Interactions/NPCs/route133_event_script_warren.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

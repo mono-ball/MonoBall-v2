@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/foongus/foongusfront",
+  "name": "Foongusfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Foongus/FoongusFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

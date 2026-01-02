@@ -1,0 +1,128 @@
+{
+  "id": "pokeemerald:pokemon:silicobra",
+  "name": "Silicobra",
+  "cryId": "pokeemerald:audio:sfx/cries/silicobra",
+  "baseStats": {
+    "hp": 52,
+    "attack": 57,
+    "defense": 75,
+    "speed": 46,
+    "spAttack": 35,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 255,
+  "expYield": 63,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sand_spit",
+    "pokeemerald:ability:shed_skin",
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:sand_snake",
+  "height": 22,
+  "weight": 76,
+  "description": "As it digs, it swallows sand and stores  it in its neck pouch. The pouch can hold  more than 17 pounds of sand.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:sandaconda"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:sand_tomb"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:dragon_rush",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:belch",
+    "pokeemerald:move:poison_tail"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/silicobra/silicobrafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/silicobra/silicobrafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/silicobra/silicobraback",
+    "backShiny": "pokeemerald:pokemon:sprite/silicobra/silicobrabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/silicobra/silicobraicon",
+    "overworld": "pokeemerald:pokemon:sprite/silicobra/silicobraoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/silicobra/silicobraoverworldshiny"
+  }
+}

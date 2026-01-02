@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:gorebyss",
+  "name": "Gorebyss",
+  "cryId": "pokeemerald:audio:sfx/cries/gorebyss",
+  "baseStats": {
+    "hp": 55,
+    "attack": 84,
+    "defense": 105,
+    "speed": 52,
+    "spAttack": 114,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:hydration"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:south_sea",
+  "height": 18,
+  "weight": 226,
+  "description": "A Gorebyss siphons the body fluids of prey  through its thin, tubular mouth. Its light  pink body color turns vivid when it  finishes feeding.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gorebyss/gorebyssfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gorebyss/gorebyssfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gorebyss/gorebyssback",
+    "backShiny": "pokeemerald:pokemon:sprite/gorebyss/gorebyssbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gorebyss/gorebyssicon",
+    "overworld": "pokeemerald:pokemon:sprite/gorebyss/gorebyssoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gorebyss/gorebyssoverworldshiny"
+  }
+}

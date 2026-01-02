@@ -1,0 +1,120 @@
+{
+  "id": "pokeemerald:pokemon:bounsweet",
+  "name": "Bounsweet",
+  "cryId": "pokeemerald:audio:sfx/cries/bounsweet",
+  "baseStats": {
+    "hp": 42,
+    "attack": 30,
+    "defense": 38,
+    "speed": 32,
+    "spAttack": 30,
+    "spDefense": 38
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 235,
+  "expYield": 42,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:leaf_guard",
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:sweet_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:fruit",
+  "height": 3,
+  "weight": 32,
+  "description": "A delectable aroma pours from its body.   Bounsweet\u0027s sweat can be watered down  into a juice with just the right amount  of sweetness.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:steenee"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:teeter_dance"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:grass_whistle",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:play_rough",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:acupressure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bounsweet/bounsweetfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweetfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bounsweet/bounsweetback",
+    "backShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweetbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bounsweet/bounsweeticon",
+    "overworld": "pokeemerald:pokemon:sprite/bounsweet/bounsweetoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweetoverworldshiny"
+  }
+}

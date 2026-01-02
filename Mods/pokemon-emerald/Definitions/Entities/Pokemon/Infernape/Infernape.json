@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:infernape",
+  "name": "Infernape",
+  "cryId": "pokeemerald:audio:sfx/cries/infernape",
+  "baseStats": {
+    "hp": 76,
+    "attack": 104,
+    "defense": 71,
+    "speed": 108,
+    "spAttack": 104,
+    "spDefense": 71
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 267,
+  "evYield": {
+    "attack": 1,
+    "speed": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:iron_fist"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:flame",
+  "height": 12,
+  "weight": 550,
+  "description": "Its crown of fire is indicative of its  fiery nature. It uses a special kind of  martial arts involving all of its limbs to  take on any opponent.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:slack_off"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mach_punch"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:raging_fury"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/infernape/infernapefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/infernape/infernapefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/infernape/infernapeback",
+    "backShiny": "pokeemerald:pokemon:sprite/infernape/infernapebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/infernape/infernapeicon",
+    "overworld": "pokeemerald:pokemon:sprite/infernape/infernapeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/infernape/infernapeoverworldshiny"
+  }
+}

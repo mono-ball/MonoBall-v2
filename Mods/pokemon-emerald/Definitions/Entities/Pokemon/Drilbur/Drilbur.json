@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:drilbur",
+  "name": "Drilbur",
+  "cryId": "pokeemerald:audio:sfx/cries/drilbur",
+  "baseStats": {
+    "hp": 60,
+    "attack": 85,
+    "defense": 40,
+    "speed": 68,
+    "spAttack": 30,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 120,
+  "expYield": 66,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sand_rush",
+    "pokeemerald:ability:sand_force",
+    "pokeemerald:ability:mold_breaker"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:mole",
+  "height": 3,
+  "weight": 85,
+  "description": "It can dig through the ground at a  speed of 30 mph by spinning its body.  It could give a car running aboveground  a good race.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 31,
+      "targetSpeciesId": "pokeemerald:pokemon:excadrill"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crush_claw"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:drill_run"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:fissure"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:iron_defense",
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:earth_power",
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:metal_sound",
+    "pokeemerald:move:submission",
+    "pokeemerald:move:skull_bash",
+    "pokeemerald:move:rock_climb"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/drilbur/drilburfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/drilbur/drilburfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/drilbur/drilburback",
+    "backShiny": "pokeemerald:pokemon:sprite/drilbur/drilburbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/drilbur/drilburicon",
+    "overworld": "pokeemerald:pokemon:sprite/drilbur/drilburoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drilbur/drilburoverworldshiny"
+  }
+}

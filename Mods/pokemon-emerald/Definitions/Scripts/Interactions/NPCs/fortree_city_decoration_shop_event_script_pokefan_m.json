@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_decoration_shop_event_script_pokefan_m",
+  "name": "fortree city decoration shop event script pokefan m",
+  "description": "NPC interaction: fortree city decoration shop event script pokefan m",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_decoration_shop_event_script_pokefan_m.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,120 @@
+{
+  "id": "pokeemerald:pokemon:dracovish",
+  "name": "Dracovish",
+  "cryId": "pokeemerald:audio:sfx/cries/dracovish",
+  "baseStats": {
+    "hp": 90,
+    "attack": 90,
+    "defense": 100,
+    "speed": 75,
+    "spAttack": 70,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 177,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:strong_jaw",
+    "pokeemerald:ability:sand_rush"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:fossil",
+  "height": 23,
+  "weight": 2150,
+  "description": "Powerful legs and jaws made it the apex  predator of its time. Its own overhunting  of its prey was what drove it to  extinction.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:fishious_rend"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:dragon_rush"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:waterfall"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dracovish/dracovishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dracovish/dracovishfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dracovish/dracovishback",
+    "backShiny": "pokeemerald:pokemon:sprite/dracovish/dracovishbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dracovish/dracovishicon",
+    "overworld": "pokeemerald:pokemon:sprite/dracovish/dracovishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dracovish/dracovishoverworldshiny"
+  }
+}

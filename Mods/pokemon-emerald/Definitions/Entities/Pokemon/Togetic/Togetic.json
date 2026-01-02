@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:togetic",
+  "name": "Togetic",
+  "cryId": "pokeemerald:audio:sfx/cries/togetic",
+  "baseStats": {
+    "hp": 55,
+    "attack": 40,
+    "defense": 85,
+    "speed": 40,
+    "spAttack": 80,
+    "spDefense": 105
+  },
+  "catchRate": 75,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:hustle",
+    "pokeemerald:ability:serene_grace",
+    "pokeemerald:ability:super_luck"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:happiness",
+  "height": 6,
+  "weight": 32,
+  "description": "It is said to be a Pok\u00E9mon that brings good  fortune. When it spots someone who is pure  of heart, a Togetic appears and shares its  happiness with that person.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_SHINY_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:togekiss"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fairy_wind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fairy_wind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:metronome"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:follow_me"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:soft_boiled",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/togetic/togeticfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/togetic/togeticfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/togetic/togeticback",
+    "backShiny": "pokeemerald:pokemon:sprite/togetic/togeticbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/togetic/togeticicon",
+    "overworld": "pokeemerald:pokemon:sprite/togetic/togeticoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/togetic/togeticoverworldshiny"
+  }
+}

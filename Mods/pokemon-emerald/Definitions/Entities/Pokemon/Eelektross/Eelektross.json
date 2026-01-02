@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:eelektross",
+  "name": "Eelektross",
+  "cryId": "pokeemerald:audio:sfx/cries/eelektross",
+  "baseStats": {
+    "hp": 85,
+    "attack": 115,
+    "defense": 80,
+    "speed": 50,
+    "spAttack": 105,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:elefish",
+  "height": 21,
+  "weight": 805,
+  "description": "They crawl out of the ocean using their  arms. They will attack prey on shore and  immediately drag it into the ocean, with  their sucker mouths.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crush_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:wild_charge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/eelektross/eelektrossfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/eelektross/eelektrossback",
+    "backShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/eelektross/eelektrossicon",
+    "overworld": "pokeemerald:pokemon:sprite/eelektross/eelektrossoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:eelektross/mega",
+      "name": "Eelektross",
+      "cryId": "pokeemerald:audio:sfx/cries/eelektross",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 85,
+        "attack": 145,
+        "defense": 80,
+        "speed": 80,
+        "spAttack": 135,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:eelektrossite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

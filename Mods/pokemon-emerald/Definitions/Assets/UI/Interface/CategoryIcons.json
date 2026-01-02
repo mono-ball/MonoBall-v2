@@ -1,0 +1,11 @@
+{
+  "id": "pokeemerald:sprite:ui/interface/category-icons",
+  "name": "Category Icons",
+  "type": "Sprite",
+  "texturePath": "Graphics/UI/Interface/CategoryIcons.png",
+  "width": 16,
+  "height": 48,
+  "frameWidth": 32,
+  "frameHeight": 16,
+  "frameCount": 3
+}

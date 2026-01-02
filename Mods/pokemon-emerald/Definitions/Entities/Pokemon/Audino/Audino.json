@@ -1,0 +1,213 @@
+{
+  "id": "pokeemerald:pokemon:audino",
+  "name": "Audino",
+  "cryId": "pokeemerald:audio:sfx/cries/audino",
+  "baseStats": {
+    "hp": 103,
+    "attack": 60,
+    "defense": 86,
+    "speed": 50,
+    "spAttack": 60,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 390,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:healer",
+    "pokeemerald:ability:regenerator",
+    "pokeemerald:ability:klutz"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:hearing",
+  "height": 11,
+  "weight": 310,
+  "description": "Its auditory sense is astounding.  Using the feelers on its ears, it can tell  how someone is feeling or when an egg  might hatch.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:simple_beam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:entrainment"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:wish",
+    "pokeemerald:move:heal_bell",
+    "pokeemerald:move:lucky_chant",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:sweet_kiss",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:healing_wish",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:draining_kiss"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/audino/audinofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/audino/audinofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/audino/audinoback",
+    "backShiny": "pokeemerald:pokemon:sprite/audino/audinobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/audino/audinoicon",
+    "overworld": "pokeemerald:pokemon:sprite/audino/audinooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/audino/audinooverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:audino/mega",
+      "name": "Audino",
+      "cryId": "pokeemerald:audio:sfx/cries/audino-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 103,
+        "attack": 60,
+        "defense": 126,
+        "speed": 50,
+        "spAttack": 80,
+        "spDefense": 126
+      },
+      "types": [
+        "pokeemerald:type:normal",
+        "pokeemerald:type:fairy"
+      ],
+      "abilities": [
+        "pokeemerald:ability:healer",
+        "pokeemerald:ability:healer",
+        "pokeemerald:ability:healer"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/audino/audinomegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/audino/audinomegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/audino/audinomegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/audino/audinomegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/audino/audinomegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/audino/audinomegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/audino/audinomegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:audinite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

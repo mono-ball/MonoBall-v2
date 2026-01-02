@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:carracosta",
+  "name": "Carracosta",
+  "cryId": "pokeemerald:audio:sfx/cries/carracosta",
+  "baseStats": {
+    "hp": 74,
+    "attack": 108,
+    "defense": 133,
+    "speed": 32,
+    "spAttack": 83,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 45,
+  "expYield": 173,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:solid_rock",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:prototurtle",
+  "height": 12,
+  "weight": 810,
+  "description": "They can live both in the ocean and  on land. Incredible jaw strength enables  them to chew up steel beams and rocks  along with their prey.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:shell_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/carracosta/carracostafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/carracosta/carracostafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/carracosta/carracostaback",
+    "backShiny": "pokeemerald:pokemon:sprite/carracosta/carracostabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/carracosta/carracostaicon",
+    "overworld": "pokeemerald:pokemon:sprite/carracosta/carracostaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carracosta/carracostaoverworldshiny"
+  }
+}

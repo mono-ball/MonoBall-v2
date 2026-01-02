@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:volcanion",
+  "name": "Volcanion",
+  "cryId": "pokeemerald:audio:sfx/cries/volcanion",
+  "baseStats": {
+    "hp": 80,
+    "attack": 110,
+    "defense": 120,
+    "speed": 70,
+    "spAttack": 130,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:water_absorb",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:steam",
+  "height": 17,
+  "weight": 1950,
+  "description": "It lets out billows of steam from the arms  on its back and disappears into the dense  fog. It\u0027s said to live in mountains where  humans do not tread.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:steam_eruption"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:weather_ball"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:scald"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 78,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 90,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/volcanion/volcanionfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/volcanion/volcanionfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/volcanion/volcanionback",
+    "backShiny": "pokeemerald:pokemon:sprite/volcanion/volcanionbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/volcanion/volcanionicon",
+    "overworld": "pokeemerald:pokemon:sprite/volcanion/volcanionoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/volcanion/volcanionoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

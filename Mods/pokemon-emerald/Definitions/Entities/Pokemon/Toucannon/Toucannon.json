@@ -1,0 +1,134 @@
+{
+  "id": "pokeemerald:pokemon:toucannon",
+  "name": "Toucannon",
+  "cryId": "pokeemerald:audio:sfx/cries/toucannon",
+  "baseStats": {
+    "hp": 80,
+    "attack": 120,
+    "defense": 75,
+    "speed": 60,
+    "spAttack": 75,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:skill_link",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:cannon",
+  "height": 11,
+  "weight": 260,
+  "description": "When it battles, within its beak, its  internal gases ignite, explosively  launching seeds with enough power to  pulverize boulders.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:beak_blast"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hyper_voice"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/toucannon/toucannonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/toucannon/toucannonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/toucannon/toucannonback",
+    "backShiny": "pokeemerald:pokemon:sprite/toucannon/toucannonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/toucannon/toucannonicon",
+    "overworld": "pokeemerald:pokemon:sprite/toucannon/toucannonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toucannon/toucannonoverworldshiny"
+  }
+}

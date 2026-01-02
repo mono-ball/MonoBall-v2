@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_house2_event_script_sleep_talk_tutor",
+  "name": "fortree city house2 event script sleep talk tutor",
+  "description": "NPC interaction: fortree city house2 event script sleep talk tutor",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_house2_event_script_sleep_talk_tutor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

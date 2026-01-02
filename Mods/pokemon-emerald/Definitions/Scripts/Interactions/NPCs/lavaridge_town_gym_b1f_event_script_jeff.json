@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_gym_b1f_event_script_jeff",
+  "name": "lavaridge town gym b1f event script jeff",
+  "description": "NPC interaction: lavaridge town gym b1f event script jeff",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_gym_b1f_event_script_jeff.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

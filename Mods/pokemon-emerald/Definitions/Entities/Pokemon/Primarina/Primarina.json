@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:primarina",
+  "name": "Primarina",
+  "cryId": "pokeemerald:audio:sfx/cries/primarina",
+  "baseStats": {
+    "hp": 80,
+    "attack": 74,
+    "defense": 74,
+    "speed": 60,
+    "spAttack": 126,
+    "spDefense": 116
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:liquid_voice"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:soloist",
+  "height": 18,
+  "weight": 440,
+  "description": "It controls its water balloons with song.  The melody is learned from others of  its kind and is passed down from one  generation to the next.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:sparkling_aria"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:misty_terrain"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/primarina/primarinafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/primarina/primarinafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/primarina/primarinaback",
+    "backShiny": "pokeemerald:pokemon:sprite/primarina/primarinabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/primarina/primarinaicon",
+    "overworld": "pokeemerald:pokemon:sprite/primarina/primarinaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/primarina/primarinaoverworldshiny"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "id": "pokeemerald:pokemon:alakazam",
+  "name": "Alakazam",
+  "cryId": "pokeemerald:audio:sfx/cries/alakazam",
+  "baseStats": {
+    "hp": 55,
+    "attack": 50,
+    "defense": 45,
+    "speed": 120,
+    "spAttack": 135
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 50,
+  "expYield": 250,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 63,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:magic_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:psi",
+  "height": 15,
+  "weight": 480,
+  "description": "While it has strong psychic abilities and  high intelligence, an Alakazam\u0027s muscles  are very weak. It uses psychic power to  move its body.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:kinesis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:calm_mind"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/alakazam/alakazamfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/alakazam/alakazamfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/alakazam/alakazamfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/alakazam/alakazamfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/alakazam/alakazamback",
+    "backShiny": "pokeemerald:pokemon:sprite/alakazam/alakazambackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/alakazam/alakazambackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/alakazam/alakazambackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/alakazam/alakazamicon",
+    "overworld": "pokeemerald:pokemon:sprite/alakazam/alakazamoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/alakazam/alakazamoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:alakazam/mega",
+      "name": "Alakazam",
+      "cryId": "pokeemerald:audio:sfx/cries/alakazam-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 55,
+        "attack": 50,
+        "defense": 65,
+        "speed": 150,
+        "spAttack": 175,
+        "spDefense": 105
+      },
+      "types": [
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:trace",
+        "pokeemerald:ability:trace",
+        "pokeemerald:ability:trace"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/alakazam/alakazammegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/alakazam/alakazammegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/alakazam/alakazammegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/alakazam/alakazammegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/alakazam/alakazammegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/alakazam/alakazammegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/alakazam/alakazammegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:alakazite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_wattson",
+  "name": "mauville city gym event script wattson",
+  "description": "NPC interaction: mauville city gym event script wattson",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_gym_event_script_wattson.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,179 @@
+{
+  "id": "pokeemerald:pokemon:rockruff",
+  "name": "Rockruff",
+  "cryId": "pokeemerald:audio:sfx/cries/rockruff",
+  "baseStats": {
+    "hp": 45,
+    "attack": 65,
+    "defense": 40,
+    "speed": 60,
+    "spAttack": 30,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 190,
+  "expYield": 56,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:steadfast"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:puppy",
+  "height": 5,
+  "weight": 92,
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:lycanroc-midday"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:lycanroc-midnight"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:thrash"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rockruff/rockrufffront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rockruff/rockrufffrontshiny",
+    "back": "pokeemerald:pokemon:sprite/rockruff/rockruffback",
+    "backShiny": "pokeemerald:pokemon:sprite/rockruff/rockruffbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/rockruff/rockrufficon",
+    "overworld": "pokeemerald:pokemon:sprite/rockruff/rockruffoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rockruff/rockruffoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:rockruff/own-tempo",
+      "name": "Rockruff",
+      "cryId": "pokeemerald:audio:sfx/cries/rockruff",
+      "formKey": "own-tempo",
+      "baseStats": {
+        "hp": 45,
+        "attack": 65,
+        "defense": 40,
+        "speed": 60,
+        "spAttack": 30,
+        "spDefense": 40
+      },
+      "types": [
+        "pokeemerald:type:rock"
+      ],
+      "abilities": [
+        "pokeemerald:ability:own_tempo",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempofront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempofrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempoback",
+        "backShiny": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempobackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempoicon",
+        "overworld": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempooverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rockruff/rockruffowntempooverworldshiny"
+      }
+    }
+  ]
+}

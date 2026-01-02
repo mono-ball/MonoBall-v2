@@ -1,0 +1,173 @@
+{
+  "id": "pokeemerald:pokemon:flapple",
+  "name": "Flapple",
+  "cryId": "pokeemerald:audio:sfx/cries/flapple",
+  "baseStats": {
+    "hp": 70,
+    "attack": 110,
+    "defense": 80,
+    "speed": 70,
+    "spAttack": 95,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 170,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:ripen",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:hustle"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:apple_wing",
+  "height": 3,
+  "weight": 10,
+  "description": "It ate a sour apple, and that induced its  evolution. In its cheeks, it stores an acid  capable of causing chemical burns.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recycle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:grav_apple"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:fly"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:dragon_rush"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/flapple/flapplefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/flapple/flapplefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/flapple/flappleback",
+    "backShiny": "pokeemerald:pokemon:sprite/flapple/flapplebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/flapple/flappleicon",
+    "overworld": "pokeemerald:pokemon:sprite/flapple/flappleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/flapple/flappleoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:flapple/gmax",
+      "name": "Flapple",
+      "cryId": "pokeemerald:audio:sfx/cries/flapple",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 70,
+        "attack": 110,
+        "defense": 80,
+        "speed": 70,
+        "spAttack": 95,
+        "spDefense": 60
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:ripen",
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:hustle"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/flapple/flapplegmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/flapple/flapplegmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/flapple/flapplegmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/flapple/flapplegmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/flapple/flapplegmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/flapple/flapplegmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/flapple/flapplegmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

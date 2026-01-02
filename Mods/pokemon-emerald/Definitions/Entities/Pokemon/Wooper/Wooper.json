@@ -1,0 +1,208 @@
+{
+  "id": "pokeemerald:pokemon:wooper",
+  "name": "Wooper",
+  "cryId": "pokeemerald:audio:sfx/cries/wooper",
+  "baseStats": {
+    "hp": 55,
+    "attack": 45,
+    "defense": 45,
+    "speed": 15,
+    "spAttack": 25,
+    "spDefense": 25
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:damp",
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:water_fish",
+  "height": 4,
+  "weight": 85,
+  "description": "Wooper usually live in water but come  out onto land seeking food occasionally.  On land, they coat their bodies with a  gooey, toxic film.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:quagsire"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:earthquake"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:double_kick",
+    "pokeemerald:move:recover",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:acid_spray",
+    "pokeemerald:move:guard_swap",
+    "pokeemerald:move:eerie_impulse",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wooper/wooperfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wooper/wooperfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/wooper/wooperfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/wooper/wooperfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/wooper/wooperback",
+    "backShiny": "pokeemerald:pokemon:sprite/wooper/wooperbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/wooper/wooperbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/wooper/wooperbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/wooper/woopericon",
+    "overworld": "pokeemerald:pokemon:sprite/wooper/wooperoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wooper/wooperoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:wooper/paldea",
+      "name": "Wooper",
+      "cryId": "pokeemerald:audio:sfx/cries/wooper",
+      "formKey": "paldea",
+      "baseStats": {
+        "hp": 55,
+        "attack": 45,
+        "defense": 45,
+        "speed": 15,
+        "spAttack": 25,
+        "spDefense": 25
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:ground"
+      ],
+      "abilities": [
+        "pokeemerald:ability:poison_point",
+        "pokeemerald:ability:water_absorb",
+        "pokeemerald:ability:unaware"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/wooper/wooperpaldeafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/wooper/wooperpaldeafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaback",
+        "backShiny": "pokeemerald:pokemon:sprite/wooper/wooperpaldeabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaicon",
+        "overworld": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:paldea"
+    }
+  ]
+}

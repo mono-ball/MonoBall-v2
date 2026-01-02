@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route129_event_script_clarence",
+  "name": "route129 event script clarence",
+  "description": "NPC interaction: route129 event script clarence",
+  "scriptPath": "Scripts/Interactions/NPCs/route129_event_script_clarence.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

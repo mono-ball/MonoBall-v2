@@ -1,0 +1,63 @@
+{
+  "id": "pokeemerald:field_effect:splash",
+  "name": "Splash",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/Splash.png",
+  "frameWidth": 16,
+  "frameHeight": 8,
+  "frameCount": 2,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    }
+  ],
+  "animations": [
+    {
+      "name": "default",
+      "loop": false,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667
+      ]
+    },
+    {
+      "name": "continuous",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.1,
+        0.1,
+        0.13333333333333333,
+        0.13333333333333333,
+        0.1,
+        0.1
+      ]
+    }
+  ]
+}

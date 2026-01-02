@@ -1,0 +1,233 @@
+{
+  "id": "pokeemerald:pokemon:raticate",
+  "name": "Raticate",
+  "cryId": "pokeemerald:audio:sfx/cries/raticate",
+  "baseStats": {
+    "hp": 55,
+    "attack": 81,
+    "defense": 60,
+    "speed": 97,
+    "spAttack": 50
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 127,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:hustle"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mouse",
+  "height": 7,
+  "weight": 185,
+  "description": "A Raticate\u0027s sturdy fangs grow steadily.  To keep them ground down, it gnaws on  rocks and logs. It may even chew on the  walls of houses.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:endeavor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/raticate/raticatefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticatefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/raticate/raticatefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/raticate/raticatefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/raticate/raticateback",
+    "backShiny": "pokeemerald:pokemon:sprite/raticate/raticatebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/raticate/raticatebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/raticate/raticatebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/raticate/raticateicon",
+    "overworld": "pokeemerald:pokemon:sprite/raticate/raticateoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticateoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:raticate/alola-totem",
+      "name": "Raticate",
+      "cryId": "pokeemerald:audio:sfx/cries/raticate",
+      "formKey": "alola-totem",
+      "baseStats": {
+        "hp": 75,
+        "attack": 71,
+        "defense": 70,
+        "speed": 77,
+        "spAttack": 40,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:dark",
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:thick_fat",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolatotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:raticate/alola",
+      "name": "Raticate",
+      "cryId": "pokeemerald:audio:sfx/cries/raticate",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 75,
+        "attack": 71,
+        "defense": 70,
+        "speed": 77,
+        "spAttack": 40,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:dark",
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:hustle",
+        "pokeemerald:ability:thick_fat"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/raticate/raticatealolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/raticate/raticatealolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/raticate/raticatealolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/raticate/raticatealolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

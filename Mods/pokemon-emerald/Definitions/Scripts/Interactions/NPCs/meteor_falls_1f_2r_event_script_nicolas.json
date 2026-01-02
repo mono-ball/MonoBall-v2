@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/meteor_falls_1f_2r_event_script_nicolas",
+  "name": "meteor falls 1f 2 r event script nicolas",
+  "description": "NPC interaction: meteor falls 1f 2 r event script nicolas",
+  "scriptPath": "Scripts/Interactions/NPCs/meteor_falls_1f_2r_event_script_nicolas.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

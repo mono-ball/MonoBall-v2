@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route116_event_script_joey",
+  "name": "route116 event script joey",
+  "description": "NPC interaction: route116 event script joey",
+  "scriptPath": "Scripts/Interactions/NPCs/route116_event_script_joey.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

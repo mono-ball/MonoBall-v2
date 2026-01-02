@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route125_event_script_kim",
+  "name": "route125 event script kim",
+  "description": "NPC interaction: route125 event script kim",
+  "scriptPath": "Scripts/Interactions/NPCs/route125_event_script_kim.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

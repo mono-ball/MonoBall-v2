@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_anthony",
+  "name": "route110 event script anthony",
+  "description": "NPC interaction: route110 event script anthony",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_anthony.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

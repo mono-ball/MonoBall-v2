@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/aqua_hideout_b2f_event_script_matt",
+  "name": "aqua hideout b2f event script matt",
+  "description": "NPC interaction: aqua hideout b2f event script matt",
+  "scriptPath": "Scripts/Interactions/NPCs/aqua_hideout_b2f_event_script_matt.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

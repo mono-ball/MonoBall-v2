@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_gym_event_script_darius",
+  "name": "fortree city gym event script darius",
+  "description": "NPC interaction: fortree city gym event script darius",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_gym_event_script_darius.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

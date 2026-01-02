@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_outside_east_event_script_twin",
+  "name": "battle frontier outside east event script twin",
+  "description": "NPC interaction: battle frontier outside east event script twin",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_outside_east_event_script_twin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

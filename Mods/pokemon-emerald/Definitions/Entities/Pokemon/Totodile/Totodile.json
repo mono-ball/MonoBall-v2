@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:totodile",
+  "name": "Totodile",
+  "cryId": "pokeemerald:audio:sfx/cries/totodile",
+  "baseStats": {
+    "hp": 50,
+    "attack": 65,
+    "defense": 64,
+    "speed": 43,
+    "spAttack": 44,
+    "spDefense": 48
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:big_jaw",
+  "height": 6,
+  "weight": 95,
+  "description": "Despite its small body, Totodile\u0027s jaws  are very powerful. While it may think it is  just playfully nipping, its bite has enough  strength to cause serious injury.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:croconaw"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:water_sport",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:block",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:flatter"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/totodile/totodilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/totodile/totodilefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/totodile/totodileback",
+    "backShiny": "pokeemerald:pokemon:sprite/totodile/totodilebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/totodile/totodileicon",
+    "overworld": "pokeemerald:pokemon:sprite/totodile/totodileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/totodile/totodileoverworldshiny"
+  }
+}

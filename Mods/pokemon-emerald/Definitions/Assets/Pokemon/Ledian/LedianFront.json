@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/ledian/ledianfront",
+  "name": "Ledianfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Ledian/LedianFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

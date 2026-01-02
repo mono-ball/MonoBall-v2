@@ -1,0 +1,14 @@
+{
+  "id": "pokeemerald:weather:outdoor/underwater_bubbles",
+  "name": "Underwater Bubbles",
+  "description": "Underwater Bubbles weather condition",
+  "category": "outdoor",
+  "intensity": 0.5,
+  "affectsBattle": false,
+  "effectScriptId": "pokeemerald:script:weather/bubbles",
+  "graphicsId": "pokeemerald:weather:graphics/underwater_bubbles",
+  "screenTint": "#0066CC",
+  "screenTintOpacity": 0.2,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

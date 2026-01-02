@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:roserade",
+  "name": "Roserade",
+  "cryId": "pokeemerald:audio:sfx/cries/roserade",
+  "baseStats": {
+    "hp": 60,
+    "attack": 70,
+    "speed": 90,
+    "spAttack": 125,
+    "spDefense": 105
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 75,
+  "expYield": 258,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:bouquet",
+  "height": 9,
+  "weight": 145,
+  "description": "Its sweet aroma attracts prey.  With the movements of a dancer,  it strikes with whips that are densely  lined with poison thorns.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:grassy_terrain"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:venom_drench"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:petal_blizzard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:petal_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:worry_seed"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/roserade/roseradefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/roserade/roseradefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/roserade/roseradefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/roserade/roseradefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/roserade/roseradeback",
+    "backShiny": "pokeemerald:pokemon:sprite/roserade/roseradebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/roserade/roseradebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/roserade/roseradebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/roserade/roseradeicon",
+    "overworld": "pokeemerald:pokemon:sprite/roserade/roseradeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/roserade/roseradeoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

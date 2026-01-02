@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:comfey",
+  "name": "Comfey",
+  "cryId": "pokeemerald:audio:sfx/cries/comfey",
+  "baseStats": {
+    "hp": 51,
+    "attack": 52,
+    "defense": 90,
+    "speed": 100,
+    "spAttack": 82,
+    "spDefense": 110
+  },
+  "types": [
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 60,
+  "expYield": 170,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:flower_veil",
+    "pokeemerald:ability:triage",
+    "pokeemerald:ability:natural_cure"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:posy_picker",
+  "height": 1,
+  "weight": 3,
+  "description": "It attaches flowers to its nutritious  vine. Baths prepared with the flowers  from its vine have a relaxing effect, so  this Pok\u00E9mon is a hit with many people.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:grass_knot"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:floral_healing"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:petal_blizzard"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:petal_dance"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:grassy_terrain"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:lucky_chant"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/comfey/comfeyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/comfey/comfeyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/comfey/comfeyback",
+    "backShiny": "pokeemerald:pokemon:sprite/comfey/comfeybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/comfey/comfeyicon",
+    "overworld": "pokeemerald:pokemon:sprite/comfey/comfeyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/comfey/comfeyoverworldshiny"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:crocalor",
+  "name": "Crocalor",
+  "cryId": "pokeemerald:audio:sfx/cries/crocalor",
+  "baseStats": {
+    "hp": 81,
+    "attack": 55,
+    "defense": 78,
+    "speed": 49,
+    "spAttack": 90,
+    "spDefense": 58
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 144,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_croc",
+  "height": 10,
+  "weight": 307,
+  "description": "The combination of Crocalor\u0027s fire  energy and overflowing vitality has  caused an egg-shaped fireball to  appear on the Pok\u00E9mon\u0027s head.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:skeledirge"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:fire_blast"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/crocalor/crocalorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/crocalor/crocalorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/crocalor/crocalorback",
+    "backShiny": "pokeemerald:pokemon:sprite/crocalor/crocalorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/crocalor/crocaloricon",
+    "overworld": "pokeemerald:pokemon:sprite/crocalor/crocaloroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/crocalor/crocaloroverworldshiny"
+  }
+}

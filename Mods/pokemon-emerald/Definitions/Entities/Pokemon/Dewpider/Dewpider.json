@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:dewpider",
+  "name": "Dewpider",
+  "cryId": "pokeemerald:audio:sfx/cries/dewpider",
+  "baseStats": {
+    "hp": 38,
+    "attack": 40,
+    "defense": 52,
+    "speed": 27,
+    "spAttack": 40,
+    "spDefense": 72
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 200,
+  "expYield": 54,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:water_bubble",
+    null,
+    "pokeemerald:ability:water_absorb"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:water_bubble",
+  "height": 3,
+  "weight": 40,
+  "description": "It crawls onto the land in search of food.  When it comes across enemies or potential  prey, this Pok\u00E9mon smashes its  water-bubble-covered head into them.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 22,
+      "targetSpeciesId": "pokeemerald:pokemon:araquanid"
+    },
+    {
+      "method": "pokeemerald:evolution_method:none",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:araquanid-totem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:infestation"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:entrainment"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:lunge"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:leech_life"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:mirror_coat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:power_split",
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:sticky_web"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dewpider/dewpiderfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dewpider/dewpiderfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dewpider/dewpiderback",
+    "backShiny": "pokeemerald:pokemon:sprite/dewpider/dewpiderbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dewpider/dewpidericon",
+    "overworld": "pokeemerald:pokemon:sprite/dewpider/dewpideroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dewpider/dewpideroverworldshiny"
+  }
+}

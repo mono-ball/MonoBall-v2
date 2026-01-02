@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:spectrier",
+  "name": "Spectrier",
+  "cryId": "pokeemerald:audio:sfx/cries/spectrier",
+  "baseStats": {
+    "hp": 100,
+    "attack": 65,
+    "defense": 60,
+    "speed": 130,
+    "spAttack": 145,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:grim_neigh",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:swift_horse",
+  "height": 20,
+  "weight": 445,
+  "description": "It probes its surroundings with all its  senses save one--it doesn\u0027t use its sense  of sight. Spectrier\u0027s kicks are said to  separate soul from body.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:nasty_plot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/spectrier/spectrierfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/spectrier/spectrierfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/spectrier/spectrierback",
+    "backShiny": "pokeemerald:pokemon:sprite/spectrier/spectrierbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/spectrier/spectriericon",
+    "overworld": "pokeemerald:pokemon:sprite/spectrier/spectrieroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spectrier/spectrieroverworldshiny"
+  },
+  "isLegendary": true
+}

@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:naganadel",
+  "name": "Naganadel",
+  "cryId": "pokeemerald:audio:sfx/cries/naganadel",
+  "baseStats": {
+    "hp": 73,
+    "attack": 73,
+    "defense": 73,
+    "speed": 121,
+    "spAttack": 127,
+    "spDefense": 73
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:poison_pin",
+  "height": 36,
+  "weight": 1500,
+  "description": "It stores hundreds of liters of poisonous  liquid inside its body. It is one of the  organisms known as UBs.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:venom_drench"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:dragon_rush"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/naganadel/naganadelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/naganadel/naganadelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/naganadel/naganadelback",
+    "backShiny": "pokeemerald:pokemon:sprite/naganadel/naganadelbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/naganadel/naganadelicon",
+    "overworld": "pokeemerald:pokemon:sprite/naganadel/naganadeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/naganadel/naganadeloverworldshiny"
+  },
+  "isUltraBeast": true
+}

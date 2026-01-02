@@ -1,0 +1,24 @@
+{
+  "id": "pokeemerald:pokemon:sprite/stunfisk/stunfiskicon",
+  "name": "Stunfiskicon",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Stunfisk/StunfiskIcon.png",
+  "spriteType": "icon",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "frameCount": 2,
+  "animations": [
+    {
+      "name": "bounce",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:ferroseed",
+  "name": "Ferroseed",
+  "cryId": "pokeemerald:audio:sfx/cries/ferroseed",
+  "baseStats": {
+    "hp": 44,
+    "attack": 50,
+    "defense": 91,
+    "speed": 10,
+    "spAttack": 24,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 255,
+  "expYield": 61,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:iron_barbs",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:thorn_seed",
+  "height": 6,
+  "weight": 188,
+  "description": "It absorbs the iron it finds in the rock  while clinging to the ceiling of caves.  When threatened, it attacks by shooting  a barrage of spikes.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:ferrothorn"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:seed_bomb",
+    "pokeemerald:move:gravity",
+    "pokeemerald:move:rock_climb",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:acid_spray"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ferroseed/ferroseedfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseedfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ferroseed/ferroseedback",
+    "backShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseedbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ferroseed/ferroseedicon",
+    "overworld": "pokeemerald:pokemon:sprite/ferroseed/ferroseedoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseedoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_outside_west_event_script_old_man",
+  "name": "battle frontier outside west event script old man",
+  "description": "NPC interaction: battle frontier outside west event script old man",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_outside_west_event_script_old_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

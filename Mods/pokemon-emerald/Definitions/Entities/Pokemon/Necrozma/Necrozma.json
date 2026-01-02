@@ -1,0 +1,247 @@
+{
+  "id": "pokeemerald:pokemon:necrozma",
+  "name": "Necrozma",
+  "cryId": "pokeemerald:audio:sfx/cries/necrozma",
+  "baseStats": {
+    "hp": 97,
+    "attack": 107,
+    "defense": 101,
+    "speed": 79,
+    "spAttack": 127,
+    "spDefense": 89
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "attack": 1,
+    "spAttack": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:prism_armor",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:prism",
+  "height": 24,
+  "weight": 2300,
+  "description": "Reminiscent of the Ultra Beasts, this  life-form, apparently asleep underground,  is thought to have come from another  world in ancient times.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:morning_sun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge_beam"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:photon_geyser"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:prismatic_laser"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/necrozma/necrozmafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/necrozma/necrozmaback",
+    "backShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/necrozma/necrozmaicon",
+    "overworld": "pokeemerald:pokemon:sprite/necrozma/necrozmaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:necrozma/ultra",
+      "name": "Necrozma",
+      "cryId": "pokeemerald:audio:sfx/cries/necrozma-ultra",
+      "formKey": "ultra",
+      "baseStats": {
+        "hp": 97,
+        "attack": 167,
+        "defense": 97,
+        "speed": 129,
+        "spAttack": 167,
+        "spDefense": 97
+      },
+      "types": [
+        "pokeemerald:type:psychic",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:neuroforce",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/necrozma/necrozmaultrafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaultrafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/necrozma/necrozmaultraback",
+        "backShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaultrabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/necrozma/necrozmaultraicon",
+        "overworld": "pokeemerald:pokemon:sprite/necrozma/necrozmaultraoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaultraoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:ultra_burst",
+      "transformItem": "pokeemerald:item:ultranecrozium_z",
+      "transformMethod": "pokeemerald:transform_method:ultra_burst"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:necrozma/dawn-wings",
+      "name": "Necrozma",
+      "cryId": "pokeemerald:audio:sfx/cries/necrozma-dawn-wings",
+      "formKey": "dawn-wings",
+      "baseStats": {
+        "hp": 97,
+        "attack": 113,
+        "defense": 109,
+        "speed": 77,
+        "spAttack": 157,
+        "spDefense": 127
+      },
+      "types": [
+        "pokeemerald:type:psychic",
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:prism_armor",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsback",
+        "backShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsicon",
+        "overworld": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmadawnwingsoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:necrozma/dusk-mane",
+      "name": "Necrozma",
+      "cryId": "pokeemerald:audio:sfx/cries/necrozma-dusk-mane",
+      "formKey": "dusk-mane",
+      "baseStats": {
+        "hp": 97,
+        "attack": 157,
+        "defense": 127,
+        "speed": 77,
+        "spAttack": 113,
+        "spDefense": 109
+      },
+      "types": [
+        "pokeemerald:type:psychic",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:prism_armor",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmanefront",
+        "frontShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmanefrontshiny",
+        "back": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmaneback",
+        "backShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmanebackshiny",
+        "icon": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmaneicon",
+        "overworld": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmaneoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/necrozma/necrozmaduskmaneoverworldshiny"
+      }
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

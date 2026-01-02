@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/evolution/evolution",
+  "name": "Evolution",
+  "audioPath": "Audio/Music/Evolution/Evolution.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "loopStartSamples": 705600,
+  "loopLengthSamples": 705600
+}

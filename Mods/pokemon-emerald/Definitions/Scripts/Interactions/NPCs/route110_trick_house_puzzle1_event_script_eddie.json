@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle1_event_script_eddie",
+  "name": "route110 trick house puzzle1 event script eddie",
+  "description": "NPC interaction: route110 trick house puzzle1 event script eddie",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle1_event_script_eddie.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

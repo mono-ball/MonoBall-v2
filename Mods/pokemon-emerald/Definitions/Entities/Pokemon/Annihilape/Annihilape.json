@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:annihilape",
+  "name": "Annihilape",
+  "cryId": "pokeemerald:audio:sfx/cries/annihilape",
+  "baseStats": {
+    "hp": 110,
+    "attack": 115,
+    "defense": 80,
+    "speed": 90,
+    "spAttack": 50,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:fighting",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "expYield": 268,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:rage_monkey",
+  "height": 12,
+  "weight": 560,
+  "description": "When its anger rose beyond a  critical point, this Pok\u00E9mon gained power  that is unfettered by the limits of  its physical body.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shadow_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:seismic_toss"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:cross_chop"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:rage_fist"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:final_gambit"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/annihilape/annihilapefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/annihilape/annihilapefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/annihilape/annihilapeback",
+    "backShiny": "pokeemerald:pokemon:sprite/annihilape/annihilapebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/annihilape/annihilapeicon",
+    "overworld": "pokeemerald:pokemon:sprite/annihilape/annihilapeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/annihilape/annihilapeoverworldshiny"
+  }
+}

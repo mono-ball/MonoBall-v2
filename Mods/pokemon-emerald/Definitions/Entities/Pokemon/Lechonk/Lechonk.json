@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:lechonk",
+  "name": "Lechonk",
+  "cryId": "pokeemerald:audio:sfx/cries/lechonk",
+  "baseStats": {
+    "hp": 54,
+    "attack": 45,
+    "defense": 40,
+    "speed": 35,
+    "spAttack": 35,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 51,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:aroma_veil",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:thick_fat"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:hog",
+  "height": 5,
+  "weight": 102,
+  "description": "It searches for food all day. It  possesses a keen sense of smell but  doesn\u0027t use it for anything other  than foraging.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:oinkologne-m"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:oinkologne-f"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:thief"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:endeavor",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:stuff_cheeks",
+    "pokeemerald:move:swallow"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lechonk/lechonkfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lechonk/lechonkfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lechonk/lechonkback",
+    "backShiny": "pokeemerald:pokemon:sprite/lechonk/lechonkbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lechonk/lechonkicon",
+    "overworld": "pokeemerald:pokemon:sprite/lechonk/lechonkoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lechonk/lechonkoverworldshiny"
+  }
+}

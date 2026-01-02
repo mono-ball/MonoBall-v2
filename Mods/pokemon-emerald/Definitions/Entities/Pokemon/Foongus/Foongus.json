@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:foongus",
+  "name": "Foongus",
+  "cryId": "pokeemerald:audio:sfx/cries/foongus",
+  "baseStats": {
+    "hp": 69,
+    "attack": 55,
+    "defense": 45,
+    "speed": 15,
+    "spAttack": 55,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 190,
+  "expYield": 59,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:effect_spore",
+    null,
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:mushroom",
+  "height": 2,
+  "weight": 10,
+  "description": "It lures Pok\u00E9mon in with its pattern that  looks just like a Pok\u00E9 Ball, then releases  its poison spores. Why it resembles a  Pok\u00E9 Ball is unknown.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 39,
+      "targetSpeciesId": "pokeemerald:pokemon:amoonguss"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:rage_powder"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:solar_beam"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:spore"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:gastro_acid",
+    "pokeemerald:move:growth",
+    "pokeemerald:move:poison_powder",
+    "pokeemerald:move:stun_spore",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:body_slam"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/foongus/foongusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/foongus/foongusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/foongus/foongusback",
+    "backShiny": "pokeemerald:pokemon:sprite/foongus/foongusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/foongus/foongusicon",
+    "overworld": "pokeemerald:pokemon:sprite/foongus/foongusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/foongus/foongusoverworldshiny"
+  }
+}

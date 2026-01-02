@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/routes/surf",
+  "name": "Surf",
+  "audioPath": "Audio/Music/Routes/Surf.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "loopStartSamples": 48402,
+  "loopLengthSamples": 3097755
+}

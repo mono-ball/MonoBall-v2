@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/aqua_hideout_1f_event_script_hideout_entrance_grunt1",
+  "name": "aqua hideout 1f event script hideout entrance grunt1",
+  "description": "NPC interaction: aqua hideout 1f event script hideout entrance grunt1",
+  "scriptPath": "Scripts/Interactions/NPCs/aqua_hideout_1f_event_script_hideout_entrance_grunt1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

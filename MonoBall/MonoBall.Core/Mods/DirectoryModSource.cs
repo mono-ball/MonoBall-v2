@@ -135,6 +135,7 @@ public class DirectoryModSource : IModSource, IDisposable
 
     /// <summary>
     ///     Enumerates all files in the mod source matching a pattern.
+    ///     Ignores hidden files and directories (starting with '.').
     /// </summary>
     /// <param name="searchPattern">File pattern (e.g., "*.json").</param>
     /// <param name="searchOption">Search option (TopDirectoryOnly or AllDirectories).</param>
@@ -153,6 +154,10 @@ public class DirectoryModSource : IModSource, IDisposable
             var relativePath = Path.GetRelativePath(SourcePath, file);
             var normalized = ModPathNormalizer.Normalize(relativePath);
 
+            // Skip hidden files and directories (starting with '.')
+            if (IsHiddenPath(normalized))
+                continue;
+
             // For TopDirectoryOnly, filter out paths with directory separators
             if (searchOption == SearchOption.TopDirectoryOnly)
                 if (normalized.Contains("/", StringComparison.Ordinal))
@@ -160,6 +165,23 @@ public class DirectoryModSource : IModSource, IDisposable
 
             yield return normalized;
         }
+    }
+
+    /// <summary>
+    ///     Checks if a path contains any hidden files or directories (starting with '.').
+    /// </summary>
+    /// <param name="path">The normalized path to check.</param>
+    /// <returns>True if the path contains hidden files or directories.</returns>
+    private static bool IsHiddenPath(string path)
+    {
+        // Check each path component for hidden files/directories
+        var parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+        foreach (var part in parts)
+        {
+            if (part.Length > 0 && part[0] == '.')
+                return true;
+        }
+        return false;
     }
 
     /// <summary>

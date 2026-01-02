@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_wandas_house_event_script_wandas_boyfriend",
+  "name": "verdanturf town wandas house event script wandas boyfriend",
+  "description": "NPC interaction: verdanturf town wandas house event script wandas boyfriend",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_wandas_house_event_script_wandas_boyfriend.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

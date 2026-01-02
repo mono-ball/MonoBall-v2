@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_aqua_poochyena",
+  "name": "mt chimney event script aqua poochyena",
+  "description": "NPC interaction: mt chimney event script aqua poochyena",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_aqua_poochyena.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

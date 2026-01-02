@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/seafloor_cavern_room3_event_script_shelly",
+  "name": "seafloor cavern room3 event script shelly",
+  "description": "NPC interaction: seafloor cavern room3 event script shelly",
+  "scriptPath": "Scripts/Interactions/NPCs/seafloor_cavern_room3_event_script_shelly.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

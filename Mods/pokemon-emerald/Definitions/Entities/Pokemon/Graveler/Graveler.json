@@ -1,0 +1,190 @@
+{
+  "id": "pokeemerald:pokemon:graveler",
+  "name": "Graveler",
+  "cryId": "pokeemerald:audio:sfx/cries/graveler",
+  "baseStats": {
+    "hp": 55,
+    "attack": 95,
+    "defense": 115,
+    "speed": 35,
+    "spAttack": 45,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rock",
+  "height": 10,
+  "weight": 1050,
+  "description": "They descend from mountains by tumbling  down steep slopes. They are so brutal,  they smash aside obstructing trees and  massive boulders with thunderous tackles.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:golem"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_LINKING_CORD",
+      "targetSpeciesId": "pokeemerald:pokemon:golem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/graveler/gravelerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/graveler/gravelerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/graveler/gravelerback",
+    "backShiny": "pokeemerald:pokemon:sprite/graveler/gravelerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/graveler/gravelericon",
+    "overworld": "pokeemerald:pokemon:sprite/graveler/graveleroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/graveler/graveleroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:graveler/alola",
+      "name": "Graveler",
+      "cryId": "pokeemerald:audio:sfx/cries/graveler",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "spAttack": 45,
+        "spDefense": 45
+      },
+      "types": [
+        "pokeemerald:type:rock",
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:magnet_pull",
+        "pokeemerald:ability:sturdy",
+        "pokeemerald:ability:galvanize"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/graveler/graveleralolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/graveler/graveleralolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/graveler/graveleralolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/graveler/graveleralolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/graveler/graveleralolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/graveler/graveleralolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/graveler/graveleralolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

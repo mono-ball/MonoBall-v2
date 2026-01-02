@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_pyre_5f_event_script_atsushi",
+  "name": "mt pyre 5f event script atsushi",
+  "description": "NPC interaction: mt pyre 5f event script atsushi",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_pyre_5f_event_script_atsushi.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

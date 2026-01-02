@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route112_event_script_hiker",
+  "name": "route112 event script hiker",
+  "description": "NPC interaction: route112 event script hiker",
+  "scriptPath": "Scripts/Interactions/NPCs/route112_event_script_hiker.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/fortree_city_gym_event_script_right_gym_statue",
+  "name": "fortree city gym event script right gym statue",
+  "description": "Sign script: fortree city gym event script right gym statue",
+  "scriptPath": "Scripts/Signs/fortree_city_gym_event_script_right_gym_statue.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

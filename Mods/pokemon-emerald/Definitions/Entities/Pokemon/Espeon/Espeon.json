@@ -1,0 +1,175 @@
+{
+  "id": "pokeemerald:pokemon:espeon",
+  "name": "Espeon",
+  "cryId": "pokeemerald:audio:sfx/cries/espeon",
+  "baseStats": {
+    "hp": 65,
+    "attack": 65,
+    "defense": 60,
+    "speed": 110,
+    "spAttack": 130,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:magic_bounce"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sun",
+  "height": 9,
+  "weight": 265,
+  "description": "An Espeon is extremely loyal to any  Trainer it considers to be worthy. It is  said to have developed precognitive  powers to protect its Trainer from harm.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:morning_sun"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:power_swap"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/espeon/espeonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/espeon/espeonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/espeon/espeonback",
+    "backShiny": "pokeemerald:pokemon:sprite/espeon/espeonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/espeon/espeonicon",
+    "overworld": "pokeemerald:pokemon:sprite/espeon/espeonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/espeon/espeonoverworldshiny"
+  }
+}

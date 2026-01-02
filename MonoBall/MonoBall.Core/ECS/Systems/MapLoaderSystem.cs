@@ -42,6 +42,8 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
     private readonly Dictionary<string, Vector2> _mapPositions = new(); // Map positions in tile coordinates
 
+    private readonly Dictionary<string, List<TilesetReference>> _mapTilesetRefs = new(); // Map tileset references for GID resolution
+
     private readonly DefinitionRegistry _registry;
     private readonly IResourceManager _resourceManager;
     private readonly IVariableSpriteResolver? _variableSpriteResolver;
@@ -147,6 +149,21 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         _mapChunkEntities[mapId] = new List<Entity>();
         _mapConnectionEntities[mapId] = new List<Entity>();
         _mapNpcEntities[mapId] = new List<Entity>();
+
+        // Store tileset references for GID resolution (sorted by firstGid descending)
+        if (mapDefinition.Tilesets != null && mapDefinition.Tilesets.Count > 0)
+        {
+            // Validate tileset ranges don't overlap incorrectly
+            ValidateTilesetRanges(mapId, mapDefinition.Tilesets);
+
+            _mapTilesetRefs[mapId] = mapDefinition
+                .Tilesets.OrderByDescending(t => t.FirstGid)
+                .ToList();
+        }
+        else
+        {
+            _mapTilesetRefs[mapId] = new List<TilesetReference>();
+        }
 
         // Preload tilesets referenced by this map
         PreloadTilesets(mapDefinition);
@@ -410,7 +427,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
     private void PreloadTilesets(MapDefinition mapDefinition)
     {
-        if (mapDefinition.TilesetRefs == null || mapDefinition.TilesetRefs.Count == 0)
+        if (mapDefinition.Tilesets == null || mapDefinition.Tilesets.Count == 0)
         {
             _logger.Warning("Map {MapId} has no tileset references", mapDefinition.Id);
             return;
@@ -418,10 +435,10 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         _logger.Information(
             "Preloading {Count} tileset(s) for map {MapId}",
-            mapDefinition.TilesetRefs.Count,
+            mapDefinition.Tilesets.Count,
             mapDefinition.Id
         );
-        foreach (var tilesetRef in mapDefinition.TilesetRefs)
+        foreach (var tilesetRef in mapDefinition.Tilesets)
         {
             _logger.Debug(
                 "Loading tileset {TilesetId} (firstGid: {FirstGid})",
@@ -561,13 +578,18 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 layer.LayerId
             );
 
-            // Determine tileset for this layer (use first tileset for now)
-            var tilesetId = string.Empty;
-            var firstGid = 1;
-            if (mapDefinition.TilesetRefs != null && mapDefinition.TilesetRefs.Count > 0)
+            // Get tileset references for this map (sorted by firstGid descending)
+            var tilesetRefs = _mapTilesetRefs.TryGetValue(mapDefinition.Id, out var refs)
+                ? refs
+                : new List<TilesetReference>();
+
+            // Determine default tileset (first one, for backward compatibility with TileDataComponent)
+            var defaultTilesetId = string.Empty;
+            var defaultFirstGid = 1;
+            if (tilesetRefs.Count > 0)
             {
-                tilesetId = mapDefinition.TilesetRefs[0].TilesetId;
-                firstGid = mapDefinition.TilesetRefs[0].FirstGid;
+                defaultTilesetId = tilesetRefs[tilesetRefs.Count - 1].TilesetId; // Last = lowest firstGid
+                defaultFirstGid = tilesetRefs[tilesetRefs.Count - 1].FirstGid;
             }
 
             // Create chunks
@@ -612,31 +634,39 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                         var gid = chunkTileIndices[i];
                         if (gid > 0)
                         {
-                            var localTileId = gid - firstGid;
-                            if (localTileId >= 0)
-                                try
-                                {
-                                    var animation = _resourceManager.GetTileAnimation(
-                                        tilesetId,
-                                        localTileId
-                                    );
-                                    if (animation != null && animation.Count > 0)
+                            // Resolve tileset for this GID
+                            var (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(
+                                gid,
+                                tilesetRefs
+                            );
+                            if (!string.IsNullOrEmpty(resolvedTilesetId))
+                            {
+                                var localTileId = gid - resolvedFirstGid;
+                                if (localTileId >= 0)
+                                    try
                                     {
-                                        var animState = new TileAnimationState
+                                        var animation = _resourceManager.GetTileAnimation(
+                                            resolvedTilesetId,
+                                            localTileId
+                                        );
+                                        if (animation != null && animation.Count > 0)
                                         {
-                                            AnimationTilesetId = tilesetId,
-                                            AnimationLocalTileId = localTileId,
-                                            CurrentFrameIndex = 0,
-                                            ElapsedTime = 0.0f,
-                                        };
-                                        animatedTiles[i] = animState;
-                                        hasAnimatedTiles = true;
+                                            var animState = new TileAnimationState
+                                            {
+                                                AnimationTilesetId = resolvedTilesetId,
+                                                AnimationLocalTileId = localTileId,
+                                                CurrentFrameIndex = 0,
+                                                ElapsedTime = 0.0f,
+                                            };
+                                            animatedTiles[i] = animState;
+                                            hasAnimatedTiles = true;
+                                        }
                                     }
-                                }
-                                catch
-                                {
-                                    // Tile animation not found, skip
-                                }
+                                    catch
+                                    {
+                                        // Tile animation not found, skip
+                                    }
+                            }
                         }
                     }
                 }
@@ -665,9 +695,9 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                         },
                         new TileDataComponent
                         {
-                            TilesetId = tilesetId,
+                            TilesetId = defaultTilesetId, // Default tileset (resolved per-tile in renderer)
                             TileIndices = chunkTileIndices,
-                            FirstGid = firstGid,
+                            FirstGid = defaultFirstGid, // Default firstGid (resolved per-tile in renderer)
                             HasAnimatedTiles = hasAnimatedTiles,
                         },
                         new PositionComponent { Position = chunkPosition },
@@ -694,9 +724,9 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                         },
                         new TileDataComponent
                         {
-                            TilesetId = tilesetId,
+                            TilesetId = defaultTilesetId, // Default tileset (resolved per-tile in renderer)
                             TileIndices = chunkTileIndices,
-                            FirstGid = firstGid,
+                            FirstGid = defaultFirstGid, // Default firstGid (resolved per-tile in renderer)
                             HasAnimatedTiles = hasAnimatedTiles,
                         },
                         new PositionComponent { Position = chunkPosition },
@@ -1429,9 +1459,9 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         // Find tileset reference to get firstGid
         var firstGid = 1;
-        if (mapDefinition.TilesetRefs != null)
+        if (mapDefinition.Tilesets != null)
         {
-            var tilesetRef = mapDefinition.TilesetRefs.FirstOrDefault(tr =>
+            var tilesetRef = mapDefinition.Tilesets.FirstOrDefault(tr =>
                 tr.TilesetId == border.TilesetId
             );
             if (tilesetRef != null)
@@ -1517,5 +1547,35 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             BottomSourceRects = bottomSourceRects,
             TopSourceRects = topSourceRects,
         };
+    }
+
+    /// <summary>
+    ///     Validates that tileset firstGid ranges don't overlap incorrectly.
+    ///     Logs warnings for overlapping ranges but doesn't fail map loading.
+    /// </summary>
+    /// <param name="mapId">The map ID for logging.</param>
+    /// <param name="tilesets">The tileset references to validate.</param>
+    private void ValidateTilesetRanges(string mapId, List<TilesetReference> tilesets)
+    {
+        if (tilesets == null || tilesets.Count <= 1)
+            return;
+
+        var sorted = tilesets.OrderByDescending(t => t.FirstGid).ToList();
+        for (int i = 0; i < sorted.Count - 1; i++)
+        {
+            // Check if tileset ranges overlap incorrectly (lower firstGid >= higher firstGid)
+            if (sorted[i].FirstGid <= sorted[i + 1].FirstGid)
+            {
+                _logger.Warning(
+                    "Map {MapId} has overlapping tileset firstGids: {Tileset1} (firstGid: {Gid1}) and {Tileset2} (firstGid: {Gid2}). "
+                    + "Tileset resolution may be incorrect.",
+                    mapId,
+                    sorted[i].TilesetId,
+                    sorted[i].FirstGid,
+                    sorted[i + 1].TilesetId,
+                    sorted[i + 1].FirstGid
+                );
+            }
+        }
     }
 }

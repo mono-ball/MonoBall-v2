@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_rocket_launch_counter",
+  "name": "mossdeep city space center 1f event script rocket launch counter",
+  "description": "NPC interaction: mossdeep city space center 1f event script rocket launch counter",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_space_center_1f_event_script_rocket_launch_counter.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

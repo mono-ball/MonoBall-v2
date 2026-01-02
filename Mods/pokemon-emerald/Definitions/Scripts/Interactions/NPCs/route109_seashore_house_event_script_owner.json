@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_seashore_house_event_script_owner",
+  "name": "route109 seashore house event script owner",
+  "description": "NPC interaction: route109 seashore house event script owner",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_seashore_house_event_script_owner.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

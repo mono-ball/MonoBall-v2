@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_event_script_twin",
+  "name": "rustboro city event script twin",
+  "description": "NPC interaction: rustboro city event script twin",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_event_script_twin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

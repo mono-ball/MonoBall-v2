@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:cubchoo",
+  "name": "Cubchoo",
+  "cryId": "pokeemerald:audio:sfx/cries/cubchoo",
+  "baseStats": {
+    "hp": 55,
+    "attack": 70,
+    "defense": 40,
+    "speed": 40,
+    "spAttack": 60,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 120,
+  "expYield": 61,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:slush_rush",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:chill",
+  "height": 5,
+  "weight": 85,
+  "description": "Its nose is always running.  Their snot is a barometer of health.  When healthy, their snot is sticky and  the power of their ice moves increases.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 37,
+      "targetSpeciesId": "pokeemerald:pokemon:beartic"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:frost_breath"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:snowscape"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:assurance",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:play_rough"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cubchoo/cubchoofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cubchoo/cubchooback",
+    "backShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cubchoo/cubchooicon",
+    "overworld": "pokeemerald:pokemon:sprite/cubchoo/cubchoooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoooverworldshiny"
+  }
+}

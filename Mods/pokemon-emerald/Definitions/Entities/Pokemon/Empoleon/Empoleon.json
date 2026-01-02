@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:empoleon",
+  "name": "Empoleon",
+  "cryId": "pokeemerald:audio:sfx/cries/empoleon",
+  "baseStats": {
+    "hp": 84,
+    "attack": 86,
+    "defense": 88,
+    "speed": 60,
+    "spAttack": 111,
+    "spDefense": 101
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:competitive"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:emperor",
+  "height": 17,
+  "weight": 845,
+  "description": "The three horns that extend from its  beak attest to its power. It avoids  unnecessary disputes, but it will decimate  anything that threatens its pride.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/empoleon/empoleonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/empoleon/empoleonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/empoleon/empoleonback",
+    "backShiny": "pokeemerald:pokemon:sprite/empoleon/empoleonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/empoleon/empoleonicon",
+    "overworld": "pokeemerald:pokemon:sprite/empoleon/empoleonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/empoleon/empoleonoverworldshiny"
+  }
+}

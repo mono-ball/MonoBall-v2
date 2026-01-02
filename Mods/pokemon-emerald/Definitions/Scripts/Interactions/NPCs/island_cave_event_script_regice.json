@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/island_cave_event_script_regice",
+  "name": "island cave event script regice",
+  "description": "NPC interaction: island cave event script regice",
+  "scriptPath": "Scripts/Interactions/NPCs/island_cave_event_script_regice.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

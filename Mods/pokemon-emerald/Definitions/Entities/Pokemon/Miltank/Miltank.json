@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:miltank",
+  "name": "Miltank",
+  "cryId": "pokeemerald:audio:sfx/cries/miltank",
+  "baseStats": {
+    "hp": 95,
+    "attack": 80,
+    "defense": 105,
+    "speed": 100,
+    "spAttack": 40,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:scrappy",
+    "pokeemerald:ability:sap_sipper"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:milk_cow",
+  "height": 12,
+  "weight": 755,
+  "description": "It gives over five gallons of milk daily.  Its sweet milk is enjoyed by children and  grown-ups alike. People who can\u0027t drink  milk turn it into yogurt and eat it instead.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:heal_bell"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:milk_drink"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:high_horsepower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:present",
+    "pokeemerald:move:reversal",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:dizzy_punch",
+    "pokeemerald:move:hammer_arm",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:heart_stamp",
+    "pokeemerald:move:belch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/miltank/miltankfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/miltank/miltankfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/miltank/miltankback",
+    "backShiny": "pokeemerald:pokemon:sprite/miltank/miltankbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/miltank/miltankicon",
+    "overworld": "pokeemerald:pokemon:sprite/miltank/miltankoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/miltank/miltankoverworldshiny"
+  }
+}

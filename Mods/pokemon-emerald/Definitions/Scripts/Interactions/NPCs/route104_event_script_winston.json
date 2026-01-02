@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route104_event_script_winston",
+  "name": "route104 event script winston",
+  "description": "NPC interaction: route104 event script winston",
+  "scriptPath": "Scripts/Interactions/NPCs/route104_event_script_winston.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

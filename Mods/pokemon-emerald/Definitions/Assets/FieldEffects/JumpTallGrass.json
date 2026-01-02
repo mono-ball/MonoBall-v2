@@ -1,0 +1,57 @@
+{
+  "id": "pokeemerald:field_effect:jump-tall-grass",
+  "name": "Jump Tall Grass",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/JumpTallGrass.png",
+  "frameWidth": 16,
+  "frameHeight": 8,
+  "frameCount": 4,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 2,
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 3,
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    }
+  ],
+  "animations": [
+    {
+      "name": "default",
+      "loop": false,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frameDurations": [
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333
+      ]
+    }
+  ]
+}

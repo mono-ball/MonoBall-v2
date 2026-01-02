@@ -1,0 +1,192 @@
+{
+  "id": "pokeemerald:pokemon:groudon",
+  "name": "Groudon",
+  "cryId": "pokeemerald:audio:sfx/cries/groudon",
+  "baseStats": {
+    "hp": 100,
+    "attack": 150,
+    "defense": 140,
+    "speed": 90,
+    "spAttack": 100,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 3,
+  "expYield": 335,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:drought",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:continent",
+  "height": 35,
+  "weight": 9500,
+  "description": "Groudon has appeared in mythology as the  creator of the land. It sleeps in magma  underground and is said to make volcanoes  erupt on awakening.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:precipice_blades"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:fissure"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 81,
+      "moveId": "pokeemerald:move:solar_beam"
+    },
+    {
+      "level": 90,
+      "moveId": "pokeemerald:move:eruption"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/groudon/groudonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/groudon/groudonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/groudon/groudonback",
+    "backShiny": "pokeemerald:pokemon:sprite/groudon/groudonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/groudon/groudonicon",
+    "overworld": "pokeemerald:pokemon:sprite/groudon/groudonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/groudon/groudonoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:groudon/primal",
+      "name": "Groudon",
+      "cryId": "pokeemerald:audio:sfx/cries/groudon-primal",
+      "formKey": "primal",
+      "baseStats": {
+        "hp": 100,
+        "attack": 180,
+        "defense": 160,
+        "speed": 90,
+        "spAttack": 150,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:ground",
+        "pokeemerald:type:fire"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/groudon/groudonprimalfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/groudon/groudonprimalfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/groudon/groudonprimalback",
+        "backShiny": "pokeemerald:pokemon:sprite/groudon/groudonprimalbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/groudon/groudonprimalicon",
+        "overworld": "pokeemerald:pokemon:sprite/groudon/groudonprimaloverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/groudon/groudonprimaloverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:primal",
+      "transformItem": "pokeemerald:item:red_orb",
+      "transformMethod": "pokeemerald:transform_method:primal_reversion"
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

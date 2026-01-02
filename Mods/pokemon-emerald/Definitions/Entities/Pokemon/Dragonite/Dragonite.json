@@ -1,0 +1,227 @@
+{
+  "id": "pokeemerald:pokemon:dragonite",
+  "name": "Dragonite",
+  "cryId": "pokeemerald:audio:sfx/cries/dragonite",
+  "baseStats": {
+    "hp": 91,
+    "attack": 134,
+    "defense": 95,
+    "speed": 80,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 300,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:inner_focus",
+    null,
+    "pokeemerald:ability:multiscale"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:dragon",
+  "height": 22,
+  "weight": 2100,
+  "description": "It can circle the globe in just 16 hours.  It is a kindhearted Pok\u00E9mon that leads  lost and foundering ships in a storm  to the safety of land.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:extreme_speed"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:dragon_rush"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:dragon_dance"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dragonite/dragonitefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dragonite/dragonitefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dragonite/dragoniteback",
+    "backShiny": "pokeemerald:pokemon:sprite/dragonite/dragonitebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dragonite/dragoniteicon",
+    "overworld": "pokeemerald:pokemon:sprite/dragonite/dragoniteoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dragonite/dragoniteoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:dragonite/mega",
+      "name": "Dragonite",
+      "cryId": "pokeemerald:audio:sfx/cries/dragonite",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 91,
+        "attack": 124,
+        "defense": 115,
+        "speed": 100,
+        "spAttack": 145,
+        "spDefense": 125
+      },
+      "types": [
+        "pokeemerald:type:dragon",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:inner_focus",
+        null,
+        "pokeemerald:ability:multiscale"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/dragonite/dragonitemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/dragonite/dragonitemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/dragonite/dragonitemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/dragonite/dragonitemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/dragonite/dragonitemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/dragonite/dragonitemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/dragonite/dragonitemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:dragoninite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

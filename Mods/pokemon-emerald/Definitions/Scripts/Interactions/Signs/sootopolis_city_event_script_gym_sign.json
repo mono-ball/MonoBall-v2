@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/sootopolis_city_event_script_gym_sign",
+  "name": "sootopolis city event script gym sign",
+  "description": "Sign script: sootopolis city event script gym sign",
+  "scriptPath": "Scripts/Signs/sootopolis_city_event_script_gym_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

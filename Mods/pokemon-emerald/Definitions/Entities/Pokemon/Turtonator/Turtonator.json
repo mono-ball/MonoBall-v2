@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:turtonator",
+  "name": "Turtonator",
+  "cryId": "pokeemerald:audio:sfx/cries/turtonator",
+  "baseStats": {
+    "hp": 60,
+    "attack": 78,
+    "defense": 135,
+    "speed": 36,
+    "spAttack": 91,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 70,
+  "expYield": 170,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:shell_armor",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:blast_turtle",
+  "height": 20,
+  "weight": 2120,
+  "description": "The shell on its back is chemically  unstable and explodes violently if struck.  The hole in its stomach is its weak point.  It gushes fire from its nostrils.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:shell_trap"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:head_smash",
+    "pokeemerald:move:fire_spin"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/turtonator/turtonatorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/turtonator/turtonatorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/turtonator/turtonatorback",
+    "backShiny": "pokeemerald:pokemon:sprite/turtonator/turtonatorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/turtonator/turtonatoricon",
+    "overworld": "pokeemerald:pokemon:sprite/turtonator/turtonatoroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/turtonator/turtonatoroverworldshiny"
+  }
+}

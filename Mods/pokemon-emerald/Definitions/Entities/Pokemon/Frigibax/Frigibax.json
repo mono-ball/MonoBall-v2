@@ -1,0 +1,131 @@
+{
+  "id": "pokeemerald:pokemon:frigibax",
+  "name": "Frigibax",
+  "cryId": "pokeemerald:audio:sfx/cries/frigibax",
+  "baseStats": {
+    "hp": 65,
+    "attack": 75,
+    "defense": 45,
+    "speed": 55,
+    "spAttack": 35,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "expYield": 64,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:thermal_exchange",
+    null,
+    "pokeemerald:ability:ice_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:ice_fin",
+  "height": 5,
+  "weight": 170,
+  "description": "This Pok\u00E9mon lives in forests and  craggy areas. Using the power of its  dorsal fin, it cools the inside of its  nest like a refrigerator.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:arctibax"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:icicle_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swords_dance"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:dragon_rush",
+    "pokeemerald:move:freeze_dry",
+    "pokeemerald:move:icicle_spear"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/frigibax/frigibaxfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/frigibax/frigibaxfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/frigibax/frigibaxback",
+    "backShiny": "pokeemerald:pokemon:sprite/frigibax/frigibaxbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/frigibax/frigibaxicon",
+    "overworld": "pokeemerald:pokemon:sprite/frigibax/frigibaxoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frigibax/frigibaxoverworldshiny"
+  }
+}

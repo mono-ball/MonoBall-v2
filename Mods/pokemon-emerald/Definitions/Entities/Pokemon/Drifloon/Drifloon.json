@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:drifloon",
+  "name": "Drifloon",
+  "cryId": "pokeemerald:audio:sfx/cries/drifloon",
+  "baseStats": {
+    "hp": 90,
+    "attack": 50,
+    "defense": 34,
+    "speed": 70,
+    "spAttack": 60,
+    "spDefense": 44
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 125,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:aftermath",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:flare_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:balloon",
+  "height": 4,
+  "weight": 12,
+  "description": "Because of the way it floats aimlessly,  an old folktale calls it a \u201CSignpost for  Wandering Spirits.\u201D Children holding  them sometimes vanish.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 28,
+      "targetSpeciesId": "pokeemerald:pokemon:drifblim"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:memento",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:weather_ball",
+    "pokeemerald:move:clear_smog",
+    "pokeemerald:move:defog",
+    "pokeemerald:move:tailwind"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/drifloon/drifloonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/drifloon/drifloonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/drifloon/drifloonback",
+    "backShiny": "pokeemerald:pokemon:sprite/drifloon/drifloonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/drifloon/drifloonicon",
+    "overworld": "pokeemerald:pokemon:sprite/drifloon/drifloonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drifloon/drifloonoverworldshiny"
+  }
+}

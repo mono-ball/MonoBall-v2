@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:kabutops",
+  "name": "Kabutops",
+  "cryId": "pokeemerald:audio:sfx/cries/kabutops",
+  "baseStats": {
+    "hp": 60,
+    "attack": 115,
+    "defense": 105,
+    "speed": 80,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 173,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:battle_armor",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:shellfish",
+  "height": 13,
+  "weight": 405,
+  "description": "Kabutops once swam underwater to hunt   for prey. It was apparently evolving from  being a water dweller to living on land as  evident from changes in its gills and legs.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:leech_life"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kabutops/kabutopsfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kabutops/kabutopsfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kabutops/kabutopsback",
+    "backShiny": "pokeemerald:pokemon:sprite/kabutops/kabutopsbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kabutops/kabutopsicon",
+    "overworld": "pokeemerald:pokemon:sprite/kabutops/kabutopsoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kabutops/kabutopsoverworldshiny"
+  }
+}

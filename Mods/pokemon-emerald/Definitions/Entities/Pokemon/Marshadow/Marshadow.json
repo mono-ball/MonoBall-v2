@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:marshadow",
+  "name": "Marshadow",
+  "cryId": "pokeemerald:audio:sfx/cries/marshadow",
+  "baseStats": {
+    "hp": 90,
+    "attack": 125,
+    "defense": 80,
+    "speed": 125,
+    "spAttack": 90,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:fighting",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "attack": 2,
+    "speed": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:technician",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:gloomdwellr",
+  "height": 7,
+  "weight": 222,
+  "description": "Able to conceal itself in the shadows of  others, it never appears before humans,  so its very existence is the stuff of myth.  This Pok\u00E9mon is craven and cowering.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:shadow_punch"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:force_palm"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:drain_punch"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:spectral_thief"
+    },
+    {
+      "level": 81,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 90,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 99,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/marshadow/marshadowfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/marshadow/marshadowfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/marshadow/marshadowback",
+    "backShiny": "pokeemerald:pokemon:sprite/marshadow/marshadowbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/marshadow/marshadowicon",
+    "overworld": "pokeemerald:pokemon:sprite/marshadow/marshadowoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/marshadow/marshadowoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

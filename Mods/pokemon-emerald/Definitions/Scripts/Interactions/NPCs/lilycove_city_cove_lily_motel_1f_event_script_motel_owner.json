@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_cove_lily_motel_1f_event_script_motel_owner",
+  "name": "lilycove city cove lily motel 1f event script motel owner",
+  "description": "NPC interaction: lilycove city cove lily motel 1f event script motel owner",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_cove_lily_motel_1f_event_script_motel_owner.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

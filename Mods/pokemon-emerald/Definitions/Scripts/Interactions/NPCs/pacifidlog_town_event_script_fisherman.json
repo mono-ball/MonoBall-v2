@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_event_script_fisherman",
+  "name": "pacifidlog town event script fisherman",
+  "description": "NPC interaction: pacifidlog town event script fisherman",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_event_script_fisherman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

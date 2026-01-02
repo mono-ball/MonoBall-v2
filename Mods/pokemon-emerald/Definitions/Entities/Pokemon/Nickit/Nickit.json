@@ -1,0 +1,120 @@
+{
+  "id": "pokeemerald:pokemon:nickit",
+  "name": "Nickit",
+  "cryId": "pokeemerald:audio:sfx/cries/nickit",
+  "baseStats": {
+    "hp": 40,
+    "attack": 28,
+    "defense": 28,
+    "speed": 50,
+    "spAttack": 47,
+    "spDefense": 52
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 255,
+  "expYield": 49,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:stakeout"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:fox",
+  "height": 6,
+  "weight": 89,
+  "description": "Aided by the soft pads on its feet, it  silently raids the food stores of other  Pok\u00E9mon. It survives off its  ill-gotten gains.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:thievul"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:tail_slap"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:foul_play"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:quick_guard",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:howl",
+    "pokeemerald:move:torment"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nickit/nickitfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nickit/nickitfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nickit/nickitback",
+    "backShiny": "pokeemerald:pokemon:sprite/nickit/nickitbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nickit/nickiticon",
+    "overworld": "pokeemerald:pokemon:sprite/nickit/nickitoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nickit/nickitoverworldshiny"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:surskit",
+  "name": "Surskit",
+  "cryId": "pokeemerald:audio:sfx/cries/surskit",
+  "baseStats": {
+    "hp": 40,
+    "attack": 30,
+    "defense": 32,
+    "speed": 65,
+    "spAttack": 50,
+    "spDefense": 52
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 200,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:rain_dish"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:pond_skater",
+  "height": 5,
+  "weight": 17,
+  "description": "They gather on puddles after evening  downpours, gliding across the surface  of water as if sliding. It secretes honey  with a sweet aroma from its head.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 22,
+      "targetSpeciesId": "pokeemerald:pokemon:masquerain"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:sticky_web"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:mind_reader",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:bug_bite",
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:fell_stinger",
+    "pokeemerald:move:power_split",
+    "pokeemerald:move:lunge"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/surskit/surskitfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/surskit/surskitfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/surskit/surskitback",
+    "backShiny": "pokeemerald:pokemon:sprite/surskit/surskitbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/surskit/surskiticon",
+    "overworld": "pokeemerald:pokemon:sprite/surskit/surskitoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/surskit/surskitoverworldshiny"
+  }
+}

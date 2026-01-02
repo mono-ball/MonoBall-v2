@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/verdanturf_town_event_script_wandas_house_sign",
+  "name": "verdanturf town event script wandas house sign",
+  "description": "Sign script: verdanturf town event script wandas house sign",
+  "scriptPath": "Scripts/Signs/verdanturf_town_event_script_wandas_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

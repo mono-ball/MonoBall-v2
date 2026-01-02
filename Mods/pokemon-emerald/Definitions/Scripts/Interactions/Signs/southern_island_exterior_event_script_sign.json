@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/southern_island_exterior_event_script_sign",
+  "name": "southern island exterior event script sign",
+  "description": "Sign script: southern island exterior event script sign",
+  "scriptPath": "Scripts/Signs/southern_island_exterior_event_script_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_fat_man",
+  "name": "battle frontier lounge3 event script fat man",
+  "description": "NPC interaction: battle frontier lounge3 event script fat man",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_lounge3_event_script_fat_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

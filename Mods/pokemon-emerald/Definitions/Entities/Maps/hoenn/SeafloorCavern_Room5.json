@@ -1,0 +1,190 @@
+{
+  "id": "pokeemerald:map:hoenn/seafloor_cavern_room5",
+  "name": "SeafloorCavern_Room5",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:underground",
+  "width": 20,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/mt_chimney",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/seafloor_cavern",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/seafloor_cavern_room5/ground",
+      "name": "Ground",
+      "width": 20,
+      "height": 20,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "ZwEAAAAAAABnAQAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAAAAAAGcBAABnAQAAZwEAAHsBAAB9AQAAfQEAAH0BAAB/AQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAfQEAAH0BAAB9AQAAfQEAAH0BAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAAB9AQAAfQEAAH0BAAB9AQAAfQEAAGcBAABnAQAAlQEAAJUBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAJUBAACVAQAAfQEAAH0BAAB9AQAAZwEAAHsBAAB9AQAAfwEAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAB9AQAAfQEAAH0BAABnAQAAfQEAAH0BAAB9AQAAZwEAAAAAAABnAQAAZwEAAGcBAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAAAAAAAAZwEAAJUBAACVAQAAlQEAAGcBAACVAQAAlQEAAJUBAABnAQAAZwEAAAAAAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAZwEAAGcBAAAAAAAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAAAAAAGcBAABnAQAAZwEAAGcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAAAAAAGcBAAAAAAAAZwEAAGcBAABnAQAAZwEAAJUBAACVAQAAZwEAAKsBAACsAQAAsQEAAGcBAACVAQAAlQEAAGcBAABnAQAAZwEAAAAAAABnAQAAlQEAAAAAAABnAQAAZwEAAGcBAABnAQAAAAAAAGcBAABnAQAAZwEAAGcBAAB7AQAAfQEAAH0BAAB/AQAAZwEAAGcBAABnAQAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAABnAQAAZwEAAGcBAABnAQAAewEAAH0BAAB9AQAAfQEAAH0BAABnAQAAZwEAAGcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAewEAAH0BAAB9AQAAfQEAAH0BAAB9AQAAfQEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAAB9AQAAfQEAAH0BAAB9AQAAfQEAAH0BAACVAQAAZwEAAJUBAACVAQAAZwEAAGcBAABnAQAAqwEAAKwBAACxAQAAZwEAAJUBAACVAQAAZwEAAJUBAAB9AQAAfQEAAH0BAACVAQAAlQEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAJUBAACVAQAAlQEAAGcBAABnAQAAZwEAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/seafloor_cavern_room5/objects",
+      "name": "Objects",
+      "width": 20,
+      "height": 20,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "aAEAAGkBAABrAQAAjAEAAI0BAACOAQAAawEAAGsBAABrAQAAawEAAGsBAABsAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAbgEAAGkBAACPAQAAkAEAAJEBAABrAQAAawEAAGsBAABrAQAAbAEAAG8BAABoAQAAaAEAAHwBAAB\u002BAQAAfgEAAH4BAACAAQAAaAEAAGgBAABuAQAAbgEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABvAQAAbwEAAGgBAABoAQAAgQEAAGoBAMBqAQDAagEAwIMBAABoAQAAaAEAAG4BAABuAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAG8BAABvAQAAaAEAAGgBAACBAQAAagEAwGoBAMBqAQDAgwEAAGgBAABoAQAAcgEAAHIBAAByAQAAcgEAAHIBAACXAQAAZwEAAGcBAABnAQAAbwEAAG8BAABoAQAAaAEAAHIBAAByAQAAzgEAAGoBAMCDAQAAaAEAAHwBAAB\u002BAQAAgAEAAGgBAABoAQAAaAEAAG4BAACXAQAAZwEAAGcBAABvAQAAkgEAAGsBAABrAQAAawEAAGwBAACBAQAAagEAwIMBAABoAQAAgQEAAGoBAMCDAQAAaAEAAGkBAABrAQAAcAEAAG4BAABnAQAAZwEAAJIBAABrAQAAawEAAGsBAABsAQAAbwEAAHIBAAByAQAAcgEAAGgBAAByAQAAcgEAAHIBAABoAQAAbgEAAGkBAABrAQAAcAEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAG8BAABvAQAAaAEAAGgBAABoAQAAaAEAAGgBAABpAQAAawEAAGsBAABwAQAAbgEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAbwEAAJIBAABrAQAAawEAAGsBAABsAQAAaAEAAG4BAABpAQAAawEAAGsBAABwAQAAZwEAAGcBAABnAQAAcQEAAHIBAACXAQAAZwEAAGcBAACSAQAAawEAAGsBAABrAQAAbAEAAG8BAABoAQAAbgEAAG4BAABnAQAAZwEAAGcBAABnAQAAZwEAAHEBAABvAQAAaAEAAG4BAACXAQAAZwEAAGcBAABnAQAAZwEAAGcBAABvAQAAbwEAAGgBAABuAQAAbgEAAGcBAABnAQAAZwEAAGcBAABnAQAAbwEAAG8BAABoAQAAbgEAAG4BAABnAQAAZwEAAGcBAABnAQAAZwEAAG8BAABvAQAAaAEAAG4BAABuAQAAZwEAAGcBAABxAQAAcgEAAJcBAABvAQAAbwEAAGgBAABuAQAAbgEAAGcBAABnAQAAsgEAAGcBAABnAQAAbwEAAG8BAABoAQAAbgEAAG4BAABnAQAAZwEAAG8BAABzAQAAbgEAAG8BAABvAQAAaAEAAHIBAAByAQAAcgEAAGoBAMBqAQDAagEAwHIBAAByAQAAcgEAAGgBAABuAQAAbgEAAGcBAABxAQAAcgEAAHMBAABuAQAAbwEAAJIBAABrAQAAbAEAAGgBAABoAQAAaAEAAGgBAAB8AQAAfgEAAH4BAACAAQAAaAEAAG4BAABuAQAAZwEAAJIBAABrAQAAawEAAHABAACSAQAAawEAAGwBAABvAQAAaAEAAGgBAABoAQAAfAEAAIIBAIBqAQDAagEAwIMBAABoAQAAbgEAAG4BAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAbwEAAG8BAABoAQAAfAEAAH4BAACCAQCAagEAwGoBAMBqAQDAgwEAAGgBAABuAQAAbgEAAGcBAABnAQAAZwEAAGcBAACyAQAAZwEAAGcBAABvAQAAbwEAAGgBAACBAQAAagEAwGoBAMBqAQDAagEAwM8BAAByAQAAaAEAAHIBAAByAQAAcgEAAHIBAAByAQAAagEAwGoBAMBqAQDAcgEAAHIBAAByAQAAaAEAAHIBAADOAQAAagEAwM8BAAByAQAAcgEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAHIBAAByAQAAcgEAAGgBAABoAQAAaAEAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/seafloor_cavern_room5/overhead",
+      "name": "Overhead",
+      "width": 20,
+      "height": 20,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAGoBAAAAAAAAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAABqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAAAAAAAAAAAAAAAAAABqAQDAagEAwAAAAAAAAAAAAAAAAAAAAABqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAAAAAAAAAAABqAQAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAagEAwAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwAAAAABqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMAAAAAAAAAAAGoBAMAAAAAAAAAAAAAAAAAAAAAAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/cave"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/seafloor_cavern_room5/warp_to_seafloor_cavern_room1",
+      "name": "Warp to seafloor_cavern_room1",
+      "x": 64,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/seafloor_cavern_room1",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/seafloor_cavern_room5/warp_to_seafloor_cavern_room4",
+      "name": "Warp to seafloor_cavern_room4",
+      "x": 240,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/seafloor_cavern_room4",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/seafloor_cavern_room5/warp_to_seafloor_cavern_room4",
+      "name": "Warp to seafloor_cavern_room4",
+      "x": 112,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/seafloor_cavern_room4",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room5/npc_0",
+      "name": "NPC_0",
+      "x": 48,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "visibilityFlag": "pokeemerald:flag:temporary/11",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room5/npc_1",
+      "name": "NPC_1",
+      "x": 64,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "visibilityFlag": "pokeemerald:flag:temporary/12",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room5/npc_2",
+      "name": "NPC_2",
+      "x": 176,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "visibilityFlag": "pokeemerald:flag:temporary/13",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room5/npc_3",
+      "name": "NPC_3",
+      "x": 48,
+      "y": 208,
+      "spriteId": "pokeemerald:sprite:objects/misc/breakablerock",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/event_script_rock_smash",
+      "visibilityFlag": "pokeemerald:flag:temporary/15",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room5/npc_4",
+      "name": "NPC_4",
+      "x": 208,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:objects/misc/breakablerock",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/event_script_rock_smash",
+      "visibilityFlag": "pokeemerald:flag:temporary/16",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room5/npc_5",
+      "name": "NPC_5",
+      "x": 192,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "visibilityFlag": "pokeemerald:flag:temporary/14",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/seafloor_cavern_room5/elevation_0",
+      "name": "Collision_0",
+      "width": 20,
+      "height": 20,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAABAQEBAQEBAQEBAQEBAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAAAAAQEBAQEBAQEBAQEBAQEBAQEBAAABAQEBAQEBAQEBAQEBAQEBAQEAAAEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAEBAQEBAQEBAQEBAQAAAAAAAAAAAQEBAQEBAQEBAQEBAAAAAQEBAAABAQEBAQEBAQEAAAAAAAEBAQEBAAAAAAABAQEBAQAAAAAAAQEBAQEAAAAAAAEBAQEBAAABAQEBAQEBAQAAAAAAAQEBAQEAAAEBAQEBAQEBAQEBAQEBAQEBAQABAQEBAQEBAQEBAQEBAQEBAQEBAAEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAQEBAQEBAQEBAQEBAQAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ=="
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:shinx",
+  "name": "Shinx",
+  "cryId": "pokeemerald:audio:sfx/cries/shinx",
+  "baseStats": {
+    "hp": 45,
+    "attack": 65,
+    "defense": 34,
+    "speed": 45,
+    "spAttack": 40,
+    "spDefense": 34
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 235,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rivalry",
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:guts"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:flash",
+  "height": 5,
+  "weight": 95,
+  "description": "It rapidly contracts and relaxes its  muscles to generate electricity. Its  body shines if endangered. It flees  while the foe is momentarily blinded.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 15,
+      "targetSpeciesId": "pokeemerald:pokemon:luxio"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:volt_switch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:wild_charge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:ice_fang",
+    "pokeemerald:move:fire_fang",
+    "pokeemerald:move:thunder_fang",
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:howl",
+    "pokeemerald:move:take_down",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:double_kick",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:eerie_impulse",
+    "pokeemerald:move:fake_tears"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shinx/shinxfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shinx/shinxfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/shinx/shinxfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/shinx/shinxfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/shinx/shinxback",
+    "backShiny": "pokeemerald:pokemon:sprite/shinx/shinxbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/shinx/shinxbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/shinx/shinxbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/shinx/shinxicon",
+    "overworld": "pokeemerald:pokemon:sprite/shinx/shinxoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shinx/shinxoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

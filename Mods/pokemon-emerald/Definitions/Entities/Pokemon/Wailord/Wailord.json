@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:wailord",
+  "name": "Wailord",
+  "cryId": "pokeemerald:audio:sfx/cries/wailord",
+  "baseStats": {
+    "hp": 170,
+    "attack": 90,
+    "defense": 45,
+    "speed": 60,
+    "spAttack": 90,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:water_veil",
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:pressure"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:float_whale",
+  "height": 145,
+  "weight": 3980,
+  "description": "It breathes through nostrils that it  raises above the sea. By inhaling to its  maximum capacity, a Wailord can dive close  to 10,000 feet beneath the waves.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:water_spout"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wailord/wailordfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wailord/wailordfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wailord/wailordback",
+    "backShiny": "pokeemerald:pokemon:sprite/wailord/wailordbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wailord/wailordicon",
+    "overworld": "pokeemerald:pokemon:sprite/wailord/wailordoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wailord/wailordoverworldshiny"
+  }
+}

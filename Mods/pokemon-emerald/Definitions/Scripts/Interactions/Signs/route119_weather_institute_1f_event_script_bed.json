@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route119_weather_institute_1f_event_script_bed",
+  "name": "route119 weather institute 1f event script bed",
+  "description": "Sign script: route119 weather institute 1f event script bed",
+  "scriptPath": "Scripts/Signs/route119_weather_institute_1f_event_script_bed.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

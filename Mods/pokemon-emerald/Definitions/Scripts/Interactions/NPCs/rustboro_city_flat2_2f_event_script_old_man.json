@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_flat2_2f_event_script_old_man",
+  "name": "rustboro city flat2 2f event script old man",
+  "description": "NPC interaction: rustboro city flat2 2f event script old man",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_flat2_2f_event_script_old_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

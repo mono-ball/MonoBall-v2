@@ -1,0 +1,151 @@
+{
+  "id": "pokeemerald:pokemon:elgyem",
+  "name": "Elgyem",
+  "cryId": "pokeemerald:audio:sfx/cries/elgyem",
+  "baseStats": {
+    "hp": 55,
+    "attack": 55,
+    "defense": 55,
+    "speed": 30,
+    "spAttack": 85,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 255,
+  "expYield": 67,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:telepathy",
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:analytic"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:cerebral",
+  "height": 5,
+  "weight": 90,
+  "description": "It psychically squeezes the brain of  its foe, causing unendurable headaches.  Rumors of its origin are linked to a UFO  crash site in the desert 50 years ago.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 42,
+      "targetSpeciesId": "pokeemerald:pokemon:beheeyem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:power_split"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:wonder_room"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:psychic"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:teleport",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:power_swap",
+    "pokeemerald:move:guard_swap",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:cosmic_power",
+    "pokeemerald:move:ally_switch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/elgyem/elgyemfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/elgyem/elgyemfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/elgyem/elgyemback",
+    "backShiny": "pokeemerald:pokemon:sprite/elgyem/elgyembackshiny",
+    "icon": "pokeemerald:pokemon:sprite/elgyem/elgyemicon",
+    "overworld": "pokeemerald:pokemon:sprite/elgyem/elgyemoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/elgyem/elgyemoverworldshiny"
+  }
+}

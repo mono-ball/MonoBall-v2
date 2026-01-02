@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:nidoqueen",
+  "name": "Nidoqueen",
+  "cryId": "pokeemerald:audio:sfx/cries/nidoqueen",
+  "baseStats": {
+    "hp": 90,
+    "defense": 87,
+    "speed": 76,
+    "spAttack": 75
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 45,
+  "expYield": 253,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:rivalry",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:drill",
+  "height": 13,
+  "weight": 600,
+  "description": "It is adept at sending foes flying with  harsh tackles using its tough, scaly body.  This Pok\u00E9mon is at its strongest when  it is defending its young.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sludge_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:superpower"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenback",
+    "backShiny": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenicon",
+    "overworld": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nidoqueen/nidoqueenoverworldshiny"
+  }
+}

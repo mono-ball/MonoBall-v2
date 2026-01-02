@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route123_event_script_route_sign_mt_pyre",
+  "name": "route123 event script route sign mt pyre",
+  "description": "Sign script: route123 event script route sign mt pyre",
+  "scriptPath": "Scripts/Signs/route123_event_script_route_sign_mt_pyre.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

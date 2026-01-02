@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_kecleon5",
+  "name": "route120 event script kecleon5",
+  "description": "NPC interaction: route120 event script kecleon5",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_kecleon5.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

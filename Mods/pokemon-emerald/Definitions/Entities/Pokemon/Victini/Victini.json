@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:victini",
+  "name": "Victini",
+  "cryId": "pokeemerald:audio:sfx/cries/victini",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "speed": 100,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:victory_star",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:victory",
+  "height": 4,
+  "weight": 40,
+  "description": "This Pok\u00E9mon brings victory.  It is said that Trainers with Victini  always win, regardless of the type  of encounter.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:v_create"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:searing_shot"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:overheat"
+    },
+    {
+      "level": 91,
+      "moveId": "pokeemerald:move:final_gambit"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/victini/victinifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/victini/victinifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/victini/victiniback",
+    "backShiny": "pokeemerald:pokemon:sprite/victini/victinibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/victini/victiniicon",
+    "overworld": "pokeemerald:pokemon:sprite/victini/victinioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/victini/victinioverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

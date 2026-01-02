@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route108_event_script_tara",
+  "name": "route108 event script tara",
+  "description": "NPC interaction: route108 event script tara",
+  "scriptPath": "Scripts/Interactions/NPCs/route108_event_script_tara.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

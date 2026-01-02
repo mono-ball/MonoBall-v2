@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/special/c-comm-center",
+  "name": "C Comm Center",
+  "audioPath": "Audio/Music/Special/CCommCenter.ogg",
+  "volume": 0.63,
+  "loop": true,
+  "loopStartSamples": 88200,
+  "loopLengthSamples": 1411200
+}

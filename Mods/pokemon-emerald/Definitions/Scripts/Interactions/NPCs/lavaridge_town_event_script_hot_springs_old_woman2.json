@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_event_script_hot_springs_old_woman2",
+  "name": "lavaridge town event script hot springs old woman2",
+  "description": "NPC interaction: lavaridge town event script hot springs old woman2",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_event_script_hot_springs_old_woman2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

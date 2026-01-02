@@ -1,0 +1,125 @@
+{
+  "id": "pokeemerald:pokemon:capsakid",
+  "name": "Capsakid",
+  "cryId": "pokeemerald:audio:sfx/cries/capsakid",
+  "baseStats": {
+    "hp": 50,
+    "attack": 62,
+    "defense": 40,
+    "speed": 50,
+    "spAttack": 62,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 190,
+  "expYield": 61,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:chlorophyll",
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:klutz"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:spicy_pepper",
+  "height": 3,
+  "weight": 30,
+  "description": "The more sunlight this Pok\u00E9mon  bathes in, the more spicy chemicals are  produced by its body, and thus the  spicier its moves become.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_FIRE_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:scovillain"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:solar_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:thief"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:ingrain",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:rage_powder",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:worry_seed"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/capsakid/capsakidfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/capsakid/capsakidfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/capsakid/capsakidback",
+    "backShiny": "pokeemerald:pokemon:sprite/capsakid/capsakidbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/capsakid/capsakidicon",
+    "overworld": "pokeemerald:pokemon:sprite/capsakid/capsakidoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/capsakid/capsakidoverworldshiny"
+  }
+}

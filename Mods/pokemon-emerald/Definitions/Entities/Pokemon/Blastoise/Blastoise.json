@@ -1,0 +1,221 @@
+{
+  "id": "pokeemerald:pokemon:blastoise",
+  "name": "Blastoise",
+  "cryId": "pokeemerald:audio:sfx/cries/blastoise",
+  "baseStats": {
+    "hp": 79,
+    "attack": 83,
+    "defense": 100,
+    "speed": 78,
+    "spAttack": 85
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "spDefense": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:rain_dish"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:shellfish",
+  "height": 16,
+  "weight": 855,
+  "description": "The waterspouts that protrude from its  shell are highly accurate. Their bullets of  water can precisely nail tin cans from  a distance of over 160 feet.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/blastoise/blastoisefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/blastoise/blastoiseback",
+    "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/blastoise/blastoiseicon",
+    "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoiseoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoiseoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:blastoise/gmax",
+      "name": "Blastoise",
+      "cryId": "pokeemerald:audio:sfx/cries/blastoise",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "speed": 78,
+        "spAttack": 85
+      },
+      "types": [
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:torrent",
+        null,
+        "pokeemerald:ability:rain_dish"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:blastoise/mega",
+      "name": "Blastoise",
+      "cryId": "pokeemerald:audio:sfx/cries/blastoise-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 79,
+        "attack": 103,
+        "defense": 120,
+        "speed": 78,
+        "spAttack": 135,
+        "spDefense": 115
+      },
+      "types": [
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:mega_launcher",
+        "pokeemerald:ability:mega_launcher",
+        "pokeemerald:ability:mega_launcher"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/blastoise/blastoisemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:blastoisinite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_camper",
+  "name": "battle frontier battle factory lobby event script camper",
+  "description": "NPC interaction: battle frontier battle factory lobby event script camper",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_factory_lobby_event_script_camper.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

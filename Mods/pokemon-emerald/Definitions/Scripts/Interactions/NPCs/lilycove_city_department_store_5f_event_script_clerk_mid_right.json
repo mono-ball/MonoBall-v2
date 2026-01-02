@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_department_store_5f_event_script_clerk_mid_right",
+  "name": "lilycove city department store 5f event script clerk mid right",
+  "description": "NPC interaction: lilycove city department store 5f event script clerk mid right",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_department_store_5f_event_script_clerk_mid_right.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

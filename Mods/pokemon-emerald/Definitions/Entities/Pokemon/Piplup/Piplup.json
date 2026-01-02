@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:piplup",
+  "name": "Piplup",
+  "cryId": "pokeemerald:audio:sfx/cries/piplup",
+  "baseStats": {
+    "hp": 53,
+    "attack": 51,
+    "defense": 53,
+    "speed": 40,
+    "spAttack": 61,
+    "spDefense": 56
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:competitive"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:penguin",
+  "height": 4,
+  "weight": 52,
+  "description": "A poor walker, it often falls down. However,  its strong pride makes it puff up its chest  without a care. It\u0027s difficult to bond with  since it won\u0027t listen to its Trainer.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:prinplup"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_hit",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:feather_dance",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:power_trip"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/piplup/piplupfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/piplup/piplupfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/piplup/piplupback",
+    "backShiny": "pokeemerald:pokemon:sprite/piplup/piplupbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/piplup/piplupicon",
+    "overworld": "pokeemerald:pokemon:sprite/piplup/piplupoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/piplup/piplupoverworldshiny"
+  }
+}

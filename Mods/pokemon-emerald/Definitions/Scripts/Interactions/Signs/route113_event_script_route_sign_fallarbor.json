@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route113_event_script_route_sign_fallarbor",
+  "name": "route113 event script route sign fallarbor",
+  "description": "Sign script: route113 event script route sign fallarbor",
+  "scriptPath": "Scripts/Signs/route113_event_script_route_sign_fallarbor.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

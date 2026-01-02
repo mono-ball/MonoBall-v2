@@ -1,0 +1,163 @@
+{
+  "id": "pokeemerald:pokemon:amaura",
+  "name": "Amaura",
+  "cryId": "pokeemerald:audio:sfx/cries/amaura",
+  "baseStats": {
+    "hp": 77,
+    "attack": 59,
+    "defense": 50,
+    "speed": 46,
+    "spAttack": 67,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "expYield": 72,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:refrigerate",
+    null,
+    "pokeemerald:ability:snow_warning"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:tundra",
+  "height": 13,
+  "weight": 252,
+  "description": "This ancient Pok\u00E9mon was restored from  part of its body that had been frozen in  ice for over 100 million years. It lived in a  cold land where there were no predators.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 39,
+      "targetSpeciesId": "pokeemerald:pokemon:aurorus"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:nature_power"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:hail"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:haze",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:magnet_rise",
+    "pokeemerald:move:discharge"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/amaura/amaurafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/amaura/amaurafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/amaura/amauraback",
+    "backShiny": "pokeemerald:pokemon:sprite/amaura/amaurabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/amaura/amauraicon",
+    "overworld": "pokeemerald:pokemon:sprite/amaura/amauraoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/amaura/amauraoverworldshiny"
+  }
+}

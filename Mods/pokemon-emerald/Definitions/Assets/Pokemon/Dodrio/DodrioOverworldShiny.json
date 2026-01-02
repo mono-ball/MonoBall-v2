@@ -1,0 +1,78 @@
+{
+  "id": "pokeemerald:pokemon:sprite/dodrio/dodriooverworldshiny",
+  "name": "Dodriooverworldshiny",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Dodrio/DodrioOverworldShiny.png",
+  "spriteType": "overworld",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "frameCount": 6,
+  "animations": [
+    {
+      "name": "face_down",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        1
+      ]
+    },
+    {
+      "name": "walk_down",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "name": "face_up",
+      "loop": true,
+      "frameIndices": [
+        2
+      ],
+      "frameDurations": [
+        1
+      ]
+    },
+    {
+      "name": "walk_up",
+      "loop": true,
+      "frameIndices": [
+        2,
+        3
+      ],
+      "frameDurations": [
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "name": "face_side",
+      "loop": true,
+      "frameIndices": [
+        4
+      ],
+      "frameDurations": [
+        1
+      ]
+    },
+    {
+      "name": "walk_side",
+      "loop": true,
+      "frameIndices": [
+        4,
+        5
+      ],
+      "frameDurations": [
+        0.25,
+        0.25
+      ]
+    }
+  ]
+}

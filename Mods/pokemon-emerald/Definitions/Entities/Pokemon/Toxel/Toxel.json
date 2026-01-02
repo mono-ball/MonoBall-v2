@@ -1,0 +1,100 @@
+{
+  "id": "pokeemerald:pokemon:toxel",
+  "name": "Toxel",
+  "cryId": "pokeemerald:audio:sfx/cries/toxel",
+  "baseStats": {
+    "hp": 40,
+    "attack": 38,
+    "defense": 35,
+    "speed": 40,
+    "spAttack": 54,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 75,
+  "expYield": 48,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rattled",
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:klutz"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:baby",
+  "height": 4,
+  "weight": 110,
+  "description": "It stores poison in an internal poison  sac and secretes that poison through its  skin. If you touch this Pok\u00E9mon, a  tingling sensation follows.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:toxtricity-amped"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:toxtricity-low-key"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tearful_look"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:endeavor",
+    "pokeemerald:move:metal_sound",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/toxel/toxelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/toxel/toxelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/toxel/toxelback",
+    "backShiny": "pokeemerald:pokemon:sprite/toxel/toxelbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/toxel/toxelicon",
+    "overworld": "pokeemerald:pokemon:sprite/toxel/toxeloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toxel/toxeloverworldshiny"
+  }
+}

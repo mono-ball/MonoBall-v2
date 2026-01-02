@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/golem/golemfront",
+  "name": "Golemfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Golem/GolemFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

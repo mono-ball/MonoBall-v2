@@ -1,0 +1,39 @@
+{
+  "id": "pokeemerald:field_effect:short-grass",
+  "name": "Short Grass",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/ShortGrass.png",
+  "frameWidth": 16,
+  "frameHeight": 16,
+  "frameCount": 2,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "animations": [
+    {
+      "name": "default",
+      "loop": false,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.06666666666666667,
+        0.06666666666666667
+      ]
+    }
+  ]
+}

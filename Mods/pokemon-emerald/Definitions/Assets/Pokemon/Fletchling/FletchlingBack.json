@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/fletchling/fletchlingback",
+  "name": "Fletchlingback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Fletchling/FletchlingBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

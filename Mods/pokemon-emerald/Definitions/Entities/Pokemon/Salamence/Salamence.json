@@ -1,0 +1,192 @@
+{
+  "id": "pokeemerald:pokemon:salamence",
+  "name": "Salamence",
+  "cryId": "pokeemerald:audio:sfx/cries/salamence",
+  "baseStats": {
+    "hp": 95,
+    "attack": 135,
+    "defense": 80,
+    "speed": 100,
+    "spAttack": 110,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 300,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    null,
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:dragon",
+  "height": 15,
+  "weight": 1026,
+  "description": "After many long years, its cellular  structure underwent a sudden mutation to  grow wings. When angered, it loses all  thought and rampages out of control.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fly"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dual_wingbeat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 73,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/salamence/salamencefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/salamence/salamencefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/salamence/salamenceback",
+    "backShiny": "pokeemerald:pokemon:sprite/salamence/salamencebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/salamence/salamenceicon",
+    "overworld": "pokeemerald:pokemon:sprite/salamence/salamenceoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/salamence/salamenceoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:salamence/mega",
+      "name": "Salamence",
+      "cryId": "pokeemerald:audio:sfx/cries/salamence-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 95,
+        "attack": 145,
+        "defense": 130,
+        "speed": 120,
+        "spAttack": 120,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:dragon",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:aerilate",
+        "pokeemerald:ability:aerilate",
+        "pokeemerald:ability:aerilate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/salamence/salamencemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/salamence/salamencemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/salamence/salamencemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/salamence/salamencemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/salamence/salamencemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/salamence/salamencemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/salamence/salamencemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:salamencite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

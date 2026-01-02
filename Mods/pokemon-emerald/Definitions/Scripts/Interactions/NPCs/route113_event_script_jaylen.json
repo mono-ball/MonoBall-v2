@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route113_event_script_jaylen",
+  "name": "route113 event script jaylen",
+  "description": "NPC interaction: route113 event script jaylen",
+  "scriptPath": "Scripts/Interactions/NPCs/route113_event_script_jaylen.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

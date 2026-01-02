@@ -1,0 +1,162 @@
+{
+  "id": "pokeemerald:pokemon:purugly",
+  "name": "Purugly",
+  "cryId": "pokeemerald:audio:sfx/cries/purugly",
+  "baseStats": {
+    "hp": 71,
+    "attack": 82,
+    "defense": 64,
+    "speed": 112,
+    "spAttack": 64,
+    "spDefense": 59
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:tiger_cat",
+  "height": 10,
+  "weight": 438,
+  "description": "It is a brazen brute that barges its way  into another Pok\u00E9mon\u0027s nest and claims  it as its own. It binds its body with its  tails to make itself look bigger.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:hone_claws"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/purugly/puruglyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/purugly/puruglyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/purugly/puruglyback",
+    "backShiny": "pokeemerald:pokemon:sprite/purugly/puruglybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/purugly/puruglyicon",
+    "overworld": "pokeemerald:pokemon:sprite/purugly/puruglyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/purugly/puruglyoverworldshiny"
+  }
+}

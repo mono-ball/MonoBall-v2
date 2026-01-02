@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_mart_event_script_fat_man",
+  "name": "sootopolis city mart event script fat man",
+  "description": "NPC interaction: sootopolis city mart event script fat man",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_mart_event_script_fat_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

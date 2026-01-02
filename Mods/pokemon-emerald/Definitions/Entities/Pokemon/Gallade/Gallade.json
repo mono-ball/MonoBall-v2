@@ -1,0 +1,270 @@
+{
+  "id": "pokeemerald:pokemon:gallade",
+  "name": "Gallade",
+  "cryId": "pokeemerald:audio:sfx/cries/gallade",
+  "baseStats": {
+    "hp": 68,
+    "attack": 125,
+    "defense": 65,
+    "speed": 80,
+    "spAttack": 65,
+    "spDefense": 115
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 259,
+  "evYield": {
+    "attack": 3
+  },
+  "eggCycles": 20,
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:steadfast",
+    "pokeemerald:ability:sharpness",
+    "pokeemerald:ability:justified"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:blade",
+  "height": 16,
+  "weight": 520,
+  "description": "A master of courtesy and swordsmanship,  it fights using extending swords on its  elbows when trying to protect someone.  It can sense what its foe is thinking.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sacred_sword"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dream_eater"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_cutter"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gallade/galladefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gallade/galladefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gallade/galladeback",
+    "backShiny": "pokeemerald:pokemon:sprite/gallade/galladebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gallade/galladeicon",
+    "overworld": "pokeemerald:pokemon:sprite/gallade/galladeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gallade/galladeoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:gallade/mega",
+      "name": "Gallade",
+      "cryId": "pokeemerald:audio:sfx/cries/gallade-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 68,
+        "attack": 165,
+        "defense": 95,
+        "speed": 110,
+        "spAttack": 65,
+        "spDefense": 115
+      },
+      "types": [
+        "pokeemerald:type:psychic",
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:inner_focus",
+        "pokeemerald:ability:inner_focus",
+        "pokeemerald:ability:inner_focus"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/gallade/gallademegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/gallade/gallademegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/gallade/gallademegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/gallade/gallademegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/gallade/gallademegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/gallade/gallademegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gallade/gallademegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:galladite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

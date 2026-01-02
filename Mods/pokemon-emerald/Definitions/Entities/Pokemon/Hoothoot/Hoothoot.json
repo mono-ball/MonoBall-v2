@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:hoothoot",
+  "name": "Hoothoot",
+  "cryId": "pokeemerald:audio:sfx/cries/hoothoot",
+  "baseStats": {
+    "hp": 60,
+    "attack": 30,
+    "defense": 30,
+    "speed": 50,
+    "spAttack": 36,
+    "spDefense": 56
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:tinted_lens"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:owl",
+  "height": 7,
+  "weight": 212,
+  "description": "It has an internal organ that senses  the earth\u0027s rotation. Using this special  organ, a Hoothoot begins hooting at  precisely the same time every day.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:noctowl"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:dream_eater"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mirror_move",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:wing_attack",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:sky_attack",
+    "pokeemerald:move:feather_dance",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:night_shade",
+    "pokeemerald:move:defog",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:hurricane"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hoothoot/hoothootfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothootfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hoothoot/hoothootback",
+    "backShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothootbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hoothoot/hoothooticon",
+    "overworld": "pokeemerald:pokemon:sprite/hoothoot/hoothootoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothootoverworldshiny"
+  }
+}

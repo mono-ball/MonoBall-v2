@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:weather:outdoor/sunny_clouds",
+  "name": "Sunny Clouds",
+  "description": "Sunny Clouds weather condition",
+  "category": "outdoor",
+  "intensity": 1,
+  "affectsBattle": false,
+  "effectScriptId": "pokeemerald:script:weather/clouds",
+  "graphicsId": "pokeemerald:weather:graphics/clouds",
+  "screenTintOpacity": 0,
+  "reducesVisibility": false,
+  "visibilityRange": 10
+}

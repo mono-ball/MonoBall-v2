@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/littleroot_town_brendans_house_2f_event_script_wall_clock",
+  "name": "littleroot town brendans house 2f event script wall clock",
+  "description": "Sign script: littleroot town brendans house 2f event script wall clock",
+  "scriptPath": "Scripts/Signs/littleroot_town_brendans_house_2f_event_script_wall_clock.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/stadium_phoebe",
+  "name": "Phoebe",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/StadiumPhoebe/StadiumPhoebe.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/stadium",
+  "description": "Battle environment background for Phoebe"
+}

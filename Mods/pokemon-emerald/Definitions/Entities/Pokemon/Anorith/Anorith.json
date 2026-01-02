@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:anorith",
+  "name": "Anorith",
+  "cryId": "pokeemerald:audio:sfx/cries/anorith",
+  "baseStats": {
+    "hp": 45,
+    "attack": 95,
+    "defense": 50,
+    "speed": 75,
+    "spAttack": 40,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 45,
+  "expYield": 71,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:battle_armor",
+    null,
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:old_shrimp",
+  "height": 7,
+  "weight": 125,
+  "description": "It was resurrected from a fossil using the  power of science. It swims by undulating  the eight wings at its sides. They were  feet that adapted to life in the sea.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:armaldo"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:crush_claw"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:x_scissor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:sand_attack",
+    "pokeemerald:move:cross_poison",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:iron_defense",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:aqua_jet"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/anorith/anorithfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/anorith/anorithfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/anorith/anorithback",
+    "backShiny": "pokeemerald:pokemon:sprite/anorith/anorithbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/anorith/anorithicon",
+    "overworld": "pokeemerald:pokemon:sprite/anorith/anorithoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/anorith/anorithoverworldshiny"
+  }
+}

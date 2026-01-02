@@ -1,0 +1,125 @@
+{
+  "id": "pokeemerald:pokemon:glastrier",
+  "name": "Glastrier",
+  "cryId": "pokeemerald:audio:sfx/cries/glastrier",
+  "baseStats": {
+    "hp": 100,
+    "attack": 145,
+    "defense": 130,
+    "speed": 30,
+    "spAttack": 65,
+    "spDefense": 110
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:chilling_neigh",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:wild_horse",
+  "height": 22,
+  "weight": 8000,
+  "description": "Glastrier emits intense cold from its  hooves. It\u0027s also a belligerent Pok\u00E9mon--  anything it wants, it takes by force.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:avalanche"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:icicle_crash"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:swords_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/glastrier/glastrierfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/glastrier/glastrierfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/glastrier/glastrierback",
+    "backShiny": "pokeemerald:pokemon:sprite/glastrier/glastrierbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/glastrier/glastriericon",
+    "overworld": "pokeemerald:pokemon:sprite/glastrier/glastrieroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/glastrier/glastrieroverworldshiny"
+  },
+  "isLegendary": true
+}

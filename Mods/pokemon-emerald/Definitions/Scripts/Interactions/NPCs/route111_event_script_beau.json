@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_beau",
+  "name": "route111 event script beau",
+  "description": "NPC interaction: route111 event script beau",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_beau.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

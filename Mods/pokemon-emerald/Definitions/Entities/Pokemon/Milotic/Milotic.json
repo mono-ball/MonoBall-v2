@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:milotic",
+  "name": "Milotic",
+  "cryId": "pokeemerald:audio:sfx/cries/milotic",
+  "baseStats": {
+    "hp": 95,
+    "attack": 60,
+    "defense": 79,
+    "speed": 81,
+    "spAttack": 100,
+    "spDefense": 125
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:marvel_scale",
+    "pokeemerald:ability:competitive",
+    "pokeemerald:ability:cute_charm"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:tender",
+  "height": 62,
+  "weight": 1620,
+  "description": "It is said to live at the bottom of  large lakes. Considered to be the most  beautiful of all Pok\u00E9mon, it has been  depicted in paintings and statues.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:twister"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/milotic/miloticfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/milotic/miloticfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/milotic/miloticfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/milotic/miloticfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/milotic/miloticback",
+    "backShiny": "pokeemerald:pokemon:sprite/milotic/miloticbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/milotic/miloticbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/milotic/miloticbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/milotic/miloticicon",
+    "overworld": "pokeemerald:pokemon:sprite/milotic/miloticoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/milotic/miloticoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

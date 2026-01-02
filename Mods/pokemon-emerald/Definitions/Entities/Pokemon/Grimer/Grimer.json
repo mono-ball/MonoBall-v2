@@ -1,0 +1,207 @@
+{
+  "id": "pokeemerald:pokemon:grimer",
+  "name": "Grimer",
+  "cryId": "pokeemerald:audio:sfx/cries/grimer",
+  "baseStats": {
+    "hp": 80,
+    "attack": 80,
+    "defense": 50,
+    "speed": 25,
+    "spAttack": 40
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stench",
+    "pokeemerald:ability:sticky_hold",
+    "pokeemerald:ability:poison_touch"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sludge",
+  "height": 9,
+  "weight": 300,
+  "description": "Born from polluted sludge in the sea,  Grimer\u0027s favorite food is anything filthy.  They feed on wastewater pumped out from  factories.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 38,
+      "targetSpeciesId": "pokeemerald:pokemon:muk"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sludge"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sludge_wave"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:gunk_shot"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:memento"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:haze",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:lick",
+    "pokeemerald:move:imprison",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:shadow_punch",
+    "pokeemerald:move:shadow_sneak",
+    "pokeemerald:move:stockpile",
+    "pokeemerald:move:swallow",
+    "pokeemerald:move:spit_up",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:acid_spray",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/grimer/grimerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/grimer/grimerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/grimer/grimerback",
+    "backShiny": "pokeemerald:pokemon:sprite/grimer/grimerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/grimer/grimericon",
+    "overworld": "pokeemerald:pokemon:sprite/grimer/grimeroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grimer/grimeroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:grimer/alola",
+      "name": "Grimer",
+      "cryId": "pokeemerald:audio:sfx/cries/grimer",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 80,
+        "attack": 80,
+        "defense": 50,
+        "speed": 25,
+        "spAttack": 40,
+        "spDefense": 50
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:poison_touch",
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:power_of_alchemy"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/grimer/grimeralolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/grimer/grimeralolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/grimer/grimeralolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/grimer/grimeralolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/grimer/grimeralolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/grimer/grimeralolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/grimer/grimeralolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:prinplup",
+  "name": "Prinplup",
+  "cryId": "pokeemerald:audio:sfx/cries/prinplup",
+  "baseStats": {
+    "hp": 64,
+    "attack": 66,
+    "defense": 68,
+    "speed": 50,
+    "spAttack": 81,
+    "spDefense": 76
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:competitive"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:penguin",
+  "height": 8,
+  "weight": 230,
+  "description": "Because every Prinplup considers itself  to be the most important, they can never  form a group. It searches for prey in  icy seas.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:empoleon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/prinplup/prinplupfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/prinplup/prinplupfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/prinplup/prinplupback",
+    "backShiny": "pokeemerald:pokemon:sprite/prinplup/prinplupbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/prinplup/prinplupicon",
+    "overworld": "pokeemerald:pokemon:sprite/prinplup/prinplupoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/prinplup/prinplupoverworldshiny"
+  }
+}

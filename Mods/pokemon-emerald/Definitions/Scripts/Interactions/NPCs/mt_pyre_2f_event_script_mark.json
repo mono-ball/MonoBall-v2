@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_pyre_2f_event_script_mark",
+  "name": "mt pyre 2f event script mark",
+  "description": "NPC interaction: mt pyre 2f event script mark",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_pyre_2f_event_script_mark.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/abandoned_ship_hidden_floor_corridors_event_script_room2_door",
+  "name": "abandoned ship hidden floor corridors event script room2 door",
+  "description": "Sign script: abandoned ship hidden floor corridors event script room2 door",
+  "scriptPath": "Scripts/Signs/abandoned_ship_hidden_floor_corridors_event_script_room2_door.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

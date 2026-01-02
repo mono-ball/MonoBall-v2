@@ -1,0 +1,215 @@
+{
+  "id": "pokeemerald:pokemon:kyurem",
+  "name": "Kyurem",
+  "cryId": "pokeemerald:audio:sfx/cries/kyurem",
+  "baseStats": {
+    "hp": 125,
+    "attack": 130,
+    "defense": 90,
+    "speed": 95,
+    "spAttack": 130,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "hp": 1,
+    "attack": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:boundary",
+  "height": 30,
+  "weight": 3250,
+  "description": "This legendary ice Pok\u00E9mon waits for a  hero to fill in the missing parts of its  body with truth or ideals. Its body became  frozen when its energy leaked out.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:glaciate"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kyurem/kyuremfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kyurem/kyuremback",
+    "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyurembackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kyurem/kyuremicon",
+    "overworld": "pokeemerald:pokemon:sprite/kyurem/kyuremoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:kyurem/black",
+      "name": "Kyurem",
+      "cryId": "pokeemerald:audio:sfx/cries/kyurem-black",
+      "formKey": "black",
+      "baseStats": {
+        "hp": 125,
+        "attack": 170,
+        "defense": 100,
+        "speed": 95,
+        "spAttack": 120,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:dragon",
+        "pokeemerald:type:ice"
+      ],
+      "abilities": [
+        "pokeemerald:ability:teravolt",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/kyurem/kyuremblackfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremblackfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/kyurem/kyuremblackback",
+        "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremblackbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/kyurem/kyuremblackicon",
+        "overworld": "pokeemerald:pokemon:sprite/kyurem/kyuremblackoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremblackoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:kyurem/white",
+      "name": "Kyurem",
+      "cryId": "pokeemerald:audio:sfx/cries/kyurem-white",
+      "formKey": "white",
+      "baseStats": {
+        "hp": 125,
+        "attack": 120,
+        "defense": 90,
+        "speed": 95,
+        "spAttack": 170,
+        "spDefense": 100
+      },
+      "types": [
+        "pokeemerald:type:dragon",
+        "pokeemerald:type:ice"
+      ],
+      "abilities": [
+        "pokeemerald:ability:turboblaze",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/kyurem/kyuremwhitefront",
+        "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremwhitefrontshiny",
+        "back": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteback",
+        "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremwhitebackshiny",
+        "icon": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteicon",
+        "overworld": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteoverworldshiny"
+      }
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

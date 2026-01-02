@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:map:hoenn/sky_pillar_1f",
+  "name": "SkyPillar_1F",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:underground",
+  "width": 14,
+  "height": 14,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/mt_chimney",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/sky_pillar",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/sky_pillar_1f/ground",
+      "name": "Ground",
+      "width": 14,
+      "height": 14,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4AQAAAAAAAAAAAAAAAAAAAAAAALgBAAAAAAAAAAAAAAAAAAAAAAAAugEAAAAAAAAAAAAAAAAAAAAAAAC6AQAAugEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAugEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6AQAAugEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAugEAAAAAAAAAAAAAugEAALoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAugEAALoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALoBAAAAAAAAAAAAAAAAAAC6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAugEAAAAAAAAAAAAAugEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAugEAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/sky_pillar_1f/objects",
+      "name": "Objects",
+      "width": 14,
+      "height": 14,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "sAEAALABAACwAQAAsAEAALABAACwAQAAsAEAALABAACwAQAAsQEAALIBAACzAQAAsAEAALABAAC0AQAAtAEAALQBAAC0AQAAtAEAALQBAAC0AQAAtAEAALQBAAC1AQAAtgEAALcBAAC0AQAAtAEAALgBAAC4AQAAuAEAALgBAAC4AQAAuAEAALgBAAC5AQAAuAEAALgBAAC4AQAAuAEAALkBAAC4AQAAugEAALoBAAC6AQAAuwEAALoBAAC6AQAAugEAALoBAAC5AQAAuwEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAuwEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC8AQAAvQEAAL0BAAC9AQAAvQEAAL4BAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC5AQAAugEAAL8BAADAAQAAwAEAAMABAADAAQAAvwEAgLoBAAC6AQAAugEAALoBAAC5AQAAuwEAALoBAAC6AQAAwAEAAMABAADAAQAAwAEAAMABAADAAQAAuQEAALoBAAC6AQAAuwEAALkBAAC6AQAAugEAALoBAADAAQAAwAEAAMABAADAAQAAwAEAAMABAAC6AQAAuQEAALsBAAC6AQAAugEAALoBAAC6AQAAugEAAMABAADAAQAAwAEAAMABAADAAQAAwAEAALoBAAC6AQAAugEAALsBAAC6AQAAugEAALoBAAC5AQAAwQEAAMIBAADCAQAAwgEAAMIBAADBAQCAugEAALoBAAC6AQAAuQEAALoBAAC6AQAAuwEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALkBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC6AQAAugEAALoBAAC7AQAAugEAALoBAAC6AQAAugEAALoBAADDAQAAwwEAwLoBAAC6AQAAugEAALoBAAC6AQAAuQEAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/sky_pillar_1f/overhead",
+      "name": "Overhead",
+      "width": 14,
+      "height": 14,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "fwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMAAAAAAfwEAwH8BAMB/AQDAfwEAwAAAAAB/AQDAfwEAwH8BAMB/AQDAAAAAAH8BAMB/AQDAfwEAwH8BAMAAAAAAAAAAAH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAAAAAAH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMAAAAAAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMAAAAAAAAAAAH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAAAAAAH8BAMB/AQDAAAAAAAAAAAB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAAAAAAAAAAAB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwAAAAAB/AQDAfwEAwH8BAMAAAAAAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAAAAAAH8BAMB/AQDAAAAAAH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwAAAAAB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMAAAAAAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAfwEAwH8BAMB/AQDAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/pacifidlog"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/sky_pillar_1f/warp_to_sky_pillar_outside",
+      "name": "Warp to sky_pillar_outside",
+      "x": 96,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sky_pillar_outside",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/sky_pillar_1f/warp_to_sky_pillar_outside",
+      "name": "Warp to sky_pillar_outside",
+      "x": 112,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sky_pillar_outside",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/sky_pillar_1f/warp_to_sky_pillar_2f",
+      "name": "Warp to sky_pillar_2f",
+      "x": 160,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sky_pillar_2f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/sky_pillar_1f/elevation_0",
+      "name": "Collision_0",
+      "width": 14,
+      "height": 14,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAEBAQAAAAAAAAABAAAAAAEAAAAAAQAAAAABAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAQEBAQEAAAAAAAABAAEBAQEBAQAAAAABAQAAAQEBAQEBAQAAAQEAAAABAQEBAQEAAQEAAAAAAAEBAQEBAQAAAAEAAAABAQEBAQEBAAAAAQAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAQ=="
+    }
+  ]
+}

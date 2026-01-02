@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:snivy",
+  "name": "Snivy",
+  "cryId": "pokeemerald:audio:sfx/cries/snivy",
+  "baseStats": {
+    "hp": 45,
+    "attack": 45,
+    "defense": 55,
+    "speed": 63,
+    "spAttack": 45,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 62,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:contrary"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:grass_snake",
+  "height": 6,
+  "weight": 81,
+  "description": "It is very intelligent and calm.  Being exposed to lots of sunlight makes  its movements swifter. When they are  not feeling well, their tails droop.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 17,
+      "targetSpeciesId": "pokeemerald:pokemon:servine"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:glare",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:magical_leaf",
+    "pokeemerald:move:sweet_scent",
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:twister",
+    "pokeemerald:move:grassy_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/snivy/snivyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/snivy/snivyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/snivy/snivyback",
+    "backShiny": "pokeemerald:pokemon:sprite/snivy/snivybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/snivy/snivyicon",
+    "overworld": "pokeemerald:pokemon:sprite/snivy/snivyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snivy/snivyoverworldshiny"
+  }
+}

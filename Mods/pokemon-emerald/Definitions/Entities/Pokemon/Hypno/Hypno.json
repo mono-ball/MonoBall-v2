@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:hypno",
+  "name": "Hypno",
+  "cryId": "pokeemerald:audio:sfx/cries/hypno",
+  "baseStats": {
+    "hp": 85,
+    "attack": 73,
+    "defense": 70,
+    "speed": 67,
+    "spDefense": 115
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:forewarn",
+    "pokeemerald:ability:inner_focus"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:hypnosis",
+  "height": 16,
+  "weight": 756,
+  "description": "The arcing movement and glitter of the  pendulum in a Hypno\u0027s hand lull the foe  into deep hypnosis. While searching for  prey, it polishes the pendulum.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:future_sight"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hypno/hypnofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hypno/hypnofrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/hypno/hypnofrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/hypno/hypnofrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/hypno/hypnoback",
+    "backShiny": "pokeemerald:pokemon:sprite/hypno/hypnobackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/hypno/hypnobackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/hypno/hypnobackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/hypno/hypnoicon",
+    "overworld": "pokeemerald:pokemon:sprite/hypno/hypnooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hypno/hypnooverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

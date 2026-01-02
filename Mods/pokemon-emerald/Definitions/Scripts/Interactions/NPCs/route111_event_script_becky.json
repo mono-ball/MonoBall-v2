@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_becky",
+  "name": "route111 event script becky",
+  "description": "NPC interaction: route111 event script becky",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_becky.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

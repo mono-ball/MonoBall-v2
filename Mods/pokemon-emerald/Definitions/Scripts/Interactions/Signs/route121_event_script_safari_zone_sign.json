@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route121_event_script_safari_zone_sign",
+  "name": "route121 event script safari zone sign",
+  "description": "Sign script: route121 event script safari zone sign",
+  "scriptPath": "Scripts/Signs/route121_event_script_safari_zone_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

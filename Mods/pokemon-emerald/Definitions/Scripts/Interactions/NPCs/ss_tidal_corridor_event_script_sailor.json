@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_sailor",
+  "name": "ss tidal corridor event script sailor",
+  "description": "NPC interaction: ss tidal corridor event script sailor",
+  "scriptPath": "Scripts/Interactions/NPCs/ss_tidal_corridor_event_script_sailor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

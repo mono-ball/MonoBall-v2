@@ -1,0 +1,18 @@
+{
+  "id": "pokeemerald:field_effect:deoxys-rock-fragment-top-left",
+  "name": "Deoxys Rock Fragment Top Left",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/DeoxysRockFragmentTopLeft.png",
+  "frameWidth": 8,
+  "frameHeight": 8,
+  "frameCount": 1,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 8,
+      "height": 8
+    }
+  ]
+}

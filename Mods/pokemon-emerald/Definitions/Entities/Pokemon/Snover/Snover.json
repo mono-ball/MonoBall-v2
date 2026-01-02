@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:snover",
+  "name": "Snover",
+  "cryId": "pokeemerald:audio:sfx/cries/snover",
+  "baseStats": {
+    "hp": 60,
+    "attack": 62,
+    "defense": 50,
+    "speed": 40,
+    "spAttack": 62,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:snow_warning",
+    null,
+    "pokeemerald:ability:soundproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:frost_tree",
+  "height": 10,
+  "weight": 505,
+  "description": "During cold seasons, it migrates to the  mountain\u0027s lower reaches. Seemingly  curious about people, they gather around  footsteps they find on snowy mountains.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:abomasnow"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:magical_leaf",
+    "pokeemerald:move:seed_bomb",
+    "pokeemerald:move:growth",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:skull_bash",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:bullet_seed"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/snover/snoverfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/snover/snoverfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/snover/snoverfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/snover/snoverfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/snover/snoverback",
+    "backShiny": "pokeemerald:pokemon:sprite/snover/snoverbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/snover/snoverbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/snover/snoverbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/snover/snovericon",
+    "overworld": "pokeemerald:pokemon:sprite/snover/snoveroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snover/snoveroverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

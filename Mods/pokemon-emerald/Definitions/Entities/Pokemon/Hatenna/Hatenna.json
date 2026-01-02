@@ -1,0 +1,126 @@
+{
+  "id": "pokeemerald:pokemon:hatenna",
+  "name": "Hatenna",
+  "cryId": "pokeemerald:audio:sfx/cries/hatenna",
+  "baseStats": {
+    "hp": 42,
+    "attack": 30,
+    "defense": 45,
+    "speed": 39,
+    "spAttack": 56,
+    "spDefense": 53
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 235,
+  "expYield": 53,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:healer",
+    "pokeemerald:ability:anticipation",
+    "pokeemerald:ability:magic_bounce"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:calm",
+  "height": 4,
+  "weight": 34,
+  "description": "Via the protrusion on its head, it senses  other creatures\u0027 emotions. If you don\u0027t  have a calm disposition, it will never  warm up to you.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 32,
+      "targetSpeciesId": "pokeemerald:pokemon:hattrem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aromatic_mist"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dazzling_gleam"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:healing_wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aromatic_mist",
+    "pokeemerald:move:nuzzle",
+    "pokeemerald:move:after_you",
+    "pokeemerald:move:quash"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hatenna/hatennafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hatenna/hatennafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hatenna/hatennaback",
+    "backShiny": "pokeemerald:pokemon:sprite/hatenna/hatennabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hatenna/hatennaicon",
+    "overworld": "pokeemerald:pokemon:sprite/hatenna/hatennaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hatenna/hatennaoverworldshiny"
+  }
+}

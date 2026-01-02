@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:bramblin",
+  "name": "Bramblin",
+  "cryId": "pokeemerald:audio:sfx/cries/bramblin",
+  "baseStats": {
+    "hp": 40,
+    "attack": 65,
+    "defense": 30,
+    "speed": 60,
+    "spAttack": 45,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 190,
+  "expYield": 55,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:wind_rider",
+    null,
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:tumbleweed",
+  "height": 6,
+  "weight": 6,
+  "description": "A soul unable to move on to the  afterlife was blown around by the wind  until it got tangled up with dried  grass and became a Pok\u00E9mon.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:brambleghast"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:infestation"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:phantom_force"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:power_whip"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:thief"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:beat_up",
+    "pokeemerald:move:block",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:shadow_sneak",
+    "pokeemerald:move:strength_sap"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bramblin/bramblinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bramblin/bramblinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bramblin/bramblinback",
+    "backShiny": "pokeemerald:pokemon:sprite/bramblin/bramblinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bramblin/bramblinicon",
+    "overworld": "pokeemerald:pokemon:sprite/bramblin/bramblinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bramblin/bramblinoverworldshiny"
+  }
+}

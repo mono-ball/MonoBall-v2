@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -7,6 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Maps;
+using MonoBall.Core.Maps.Utilities;
+using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using Serilog;
@@ -16,7 +19,7 @@ namespace MonoBall.Core.ECS.Systems;
 /// <summary>
 ///     System responsible for rendering tile chunks using SpriteBatch.
 /// </summary>
-public class MapRendererSystem : BaseSystem<World, float>
+public partial class MapRendererSystem : BaseSystem<World, float>
 {
     private readonly ICameraService _cameraService;
 
@@ -30,11 +33,15 @@ public class MapRendererSystem : BaseSystem<World, float>
     )> _chunkList = new();
 
     private readonly QueryDescription _chunkQueryDescription;
+    private readonly DefinitionRegistry _definitionRegistry;
     private readonly GraphicsDevice _graphicsDevice;
 
     private readonly ILogger _logger;
     private readonly RenderTargetManager? _renderTargetManager;
     private readonly IResourceManager _resourceManager;
+
+    // Cache tileset refs per map to avoid repeated lookups
+    private readonly Dictionary<string, List<TilesetReference>> _mapTilesetRefsCache = new();
     private readonly ShaderManagerSystem? _shaderManagerSystem;
     private readonly ShaderRendererSystem? _shaderRendererSystem;
     private PerformanceStatsSystem? _performanceStatsSystem;
@@ -52,11 +59,13 @@ public class MapRendererSystem : BaseSystem<World, float>
     /// <param name="shaderManagerSystem">The shader manager system for tile layer shaders (optional).</param>
     /// <param name="shaderRendererSystem">The shader renderer system for shader stacking (optional).</param>
     /// <param name="renderTargetManager">The render target manager for shader stacking (optional).</param>
+    /// <param name="definitionRegistry">The definition registry for looking up map definitions.</param>
     public MapRendererSystem(
         World world,
         GraphicsDevice graphicsDevice,
         IResourceManager resourceManager,
         ICameraService cameraService,
+        DefinitionRegistry definitionRegistry,
         ILogger logger,
         ShaderManagerSystem? shaderManagerSystem = null,
         ShaderRendererSystem? shaderRendererSystem = null,
@@ -68,6 +77,8 @@ public class MapRendererSystem : BaseSystem<World, float>
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
+        _definitionRegistry =
+            definitionRegistry ?? throw new ArgumentNullException(nameof(definitionRegistry));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _shaderManagerSystem = shaderManagerSystem;
         _shaderRendererSystem = shaderRendererSystem;
@@ -411,11 +422,37 @@ public class MapRendererSystem : BaseSystem<World, float>
             return 0;
         }
 
-        // Get tileset texture
-        Texture2D tilesetTexture;
+        // Get map ID from chunk's MapComponent to resolve tileset refs
+        string mapId;
+        if (!World.Has<MapComponent>(chunkEntity))
+        {
+            _logger.Warning(
+                "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) has no MapComponent",
+                pos.Position.X,
+                pos.Position.Y
+            );
+            return 0;
+        }
+
+        ref var mapComp = ref World.Get<MapComponent>(chunkEntity);
+        mapId = mapComp.MapId;
+
+        // Get tileset references for this map (cached)
+        var tilesetRefs = GetTilesetRefsForMap(mapId);
+        if (tilesetRefs.Count == 0)
+        {
+            _logger.Warning(
+                "MapRendererSystem.RenderChunk: Map {MapId} has no tileset references",
+                mapId
+            );
+            return 0;
+        }
+
+        // Get default tileset texture (for tiles that don't need resolution)
+        Texture2D defaultTilesetTexture;
         try
         {
-            tilesetTexture = _resourceManager.LoadTexture(data.TilesetId);
+            defaultTilesetTexture = _resourceManager.LoadTexture(data.TilesetId);
         }
         catch (Exception ex)
         {
@@ -429,11 +466,11 @@ public class MapRendererSystem : BaseSystem<World, float>
             return 0;
         }
 
-        // Get tileset definition for tile dimensions
-        TilesetDefinition tilesetDefinition;
+        // Get default tileset definition for tile dimensions
+        TilesetDefinition defaultTilesetDefinition;
         try
         {
-            tilesetDefinition = _resourceManager.GetTilesetDefinition(data.TilesetId);
+            defaultTilesetDefinition = _resourceManager.GetTilesetDefinition(data.TilesetId);
         }
         catch (Exception ex)
         {
@@ -465,13 +502,40 @@ public class MapRendererSystem : BaseSystem<World, float>
                 if (tileIndex >= data.TileIndices.Length)
                     continue;
 
-                var gid = data.TileIndices[tileIndex];
+                var rawGidWithFlags = data.TileIndices[tileIndex];
 
-                // Skip empty tiles (GID 0 or negative)
+                // Extract raw GID (strips flip flags from high bits)
+                var gid = TileConstants.GetRawGid(rawGidWithFlags);
+
+                // Skip empty tiles (GID 0)
                 if (gid <= 0)
                 {
                     emptyTiles++;
                     continue;
+                }
+
+                // Extract flip flags
+                var flipH = TileConstants.IsFlippedHorizontally(rawGidWithFlags);
+                var flipV = TileConstants.IsFlippedVertically(rawGidWithFlags);
+                var spriteEffects = SpriteEffects.None;
+                if (flipH)
+                    spriteEffects |= SpriteEffects.FlipHorizontally;
+                if (flipV)
+                    spriteEffects |= SpriteEffects.FlipVertically;
+
+                // Resolve tileset resources for this GID (DRY - shared logic)
+                var (tilesetTexture, tilesetDefinition, resolvedTilesetId, resolvedFirstGid) =
+                    ResolveTilesetResources(
+                        gid,
+                        tilesetRefs,
+                        data.TilesetId,
+                        defaultTilesetTexture,
+                        defaultTilesetDefinition
+                    );
+                if (tilesetTexture == null || tilesetDefinition == null)
+                {
+                    invalidGids++;
+                    continue; // Skip tile if tileset cannot be resolved or loaded
                 }
 
                 // Calculate source rectangle for this tile
@@ -479,15 +543,20 @@ public class MapRendererSystem : BaseSystem<World, float>
                 try
                 {
                     sourceRect = _resourceManager.CalculateTilesetSourceRectangle(
-                        data.TilesetId,
+                        resolvedTilesetId,
                         gid,
-                        data.FirstGid
+                        resolvedFirstGid
                     );
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    _logger.Debug(
+                        ex,
+                        "Failed to calculate source rectangle for GID {Gid} in tileset {TilesetId}",
+                        gid,
+                        resolvedTilesetId
+                    );
                     invalidGids++;
-                    // Invalid source rectangle - skip tile (no logging needed, happens frequently)
                     continue;
                 }
 
@@ -497,8 +566,18 @@ public class MapRendererSystem : BaseSystem<World, float>
                     pos.Position.Y + y * tilesetDefinition.TileHeight
                 );
 
-                // Draw the tile
-                _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect, color);
+                // Draw the tile with flip effects
+                _spriteBatch!.Draw(
+                    tilesetTexture,
+                    tilePosition,
+                    sourceRect,
+                    color,
+                    0f, // rotation
+                    Vector2.Zero, // origin
+                    1f, // scale
+                    spriteEffects,
+                    0f // layerDepth
+                );
 
                 tilesRendered++;
             }
@@ -531,13 +610,36 @@ public class MapRendererSystem : BaseSystem<World, float>
                 if (tileIndex >= data.TileIndices.Length)
                     continue;
 
-                var gid = data.TileIndices[tileIndex];
+                var rawGidWithFlags = data.TileIndices[tileIndex];
 
-                // Skip empty tiles (GID 0 or negative)
+                // Extract raw GID (strips flip flags from high bits)
+                var gid = TileConstants.GetRawGid(rawGidWithFlags);
+
+                // Skip empty tiles (GID 0)
                 if (gid <= 0)
                 {
                     emptyTiles++;
                     continue;
+                }
+
+                // Extract flip flags
+                var flipH = TileConstants.IsFlippedHorizontally(rawGidWithFlags);
+                var flipV = TileConstants.IsFlippedVertically(rawGidWithFlags);
+                var spriteEffects = SpriteEffects.None;
+                if (flipH)
+                    spriteEffects |= SpriteEffects.FlipHorizontally;
+                if (flipV)
+                    spriteEffects |= SpriteEffects.FlipVertically;
+
+                // Resolve tileset for this GID first (needed for animation lookup)
+                var (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(
+                    gid,
+                    tilesetRefs
+                );
+                if (string.IsNullOrEmpty(resolvedTilesetId))
+                {
+                    invalidGids++;
+                    continue; // Skip tile if tileset cannot be resolved
                 }
 
                 // Determine render GID (use animated frame if this tile is animated)
@@ -547,6 +649,7 @@ public class MapRendererSystem : BaseSystem<World, float>
                     && animData.AnimatedTiles.TryGetValue(tileIndex, out var animState)
                 )
                 {
+                    // Animation tileset should match resolved tileset (set during map loading)
                     // Get animation frames from cache
                     var frames = _resourceManager.GetCachedTileAnimation(
                         animState.AnimationTilesetId,
@@ -559,10 +662,24 @@ public class MapRendererSystem : BaseSystem<World, float>
                         && animState.CurrentFrameIndex < frames.Count
                     )
                     {
-                        // Use current animation frame's tile ID
+                        // Use current animation frame's tile ID (add resolved firstGid, not data.FirstGid)
                         var currentFrame = frames[animState.CurrentFrameIndex];
-                        renderGid = currentFrame.TileId + data.FirstGid;
+                        renderGid = currentFrame.TileId + resolvedFirstGid;
                     }
+                }
+
+                // Resolve tileset resources for render GID (DRY - shared logic)
+                var (animTilesetTexture, animTilesetDefinition, _, _) = ResolveTilesetResources(
+                    renderGid,
+                    tilesetRefs,
+                    data.TilesetId,
+                    defaultTilesetTexture,
+                    defaultTilesetDefinition
+                );
+                if (animTilesetTexture == null || animTilesetDefinition == null)
+                {
+                    invalidGids++;
+                    continue; // Skip tile if tileset cannot be resolved or loaded
                 }
 
                 // Calculate source rectangle for this tile
@@ -570,26 +687,42 @@ public class MapRendererSystem : BaseSystem<World, float>
                 try
                 {
                     sourceRect = _resourceManager.CalculateTilesetSourceRectangle(
-                        data.TilesetId,
+                        resolvedTilesetId,
                         renderGid,
-                        data.FirstGid
+                        resolvedFirstGid
                     );
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    _logger.Debug(
+                        ex,
+                        "Failed to calculate source rectangle for GID {Gid} (renderGid: {RenderGid}) in tileset {TilesetId}",
+                        gid,
+                        renderGid,
+                        resolvedTilesetId
+                    );
                     invalidGids++;
-                    // Invalid source rectangle - skip tile (no logging needed, happens frequently)
                     continue;
                 }
 
                 // Calculate world position for this tile
                 var tilePosition = new Vector2(
-                    pos.Position.X + x * tilesetDefinition.TileWidth,
-                    pos.Position.Y + y * tilesetDefinition.TileHeight
+                    pos.Position.X + x * animTilesetDefinition.TileWidth,
+                    pos.Position.Y + y * animTilesetDefinition.TileHeight
                 );
 
-                // Draw the tile
-                _spriteBatch!.Draw(tilesetTexture, tilePosition, sourceRect, color);
+                // Draw the tile with flip effects
+                _spriteBatch!.Draw(
+                    animTilesetTexture,
+                    tilePosition,
+                    sourceRect,
+                    color,
+                    0f, // rotation
+                    Vector2.Zero, // origin
+                    1f, // scale
+                    spriteEffects,
+                    0f // layerDepth
+                );
 
                 tilesRendered++;
             }
@@ -598,5 +731,27 @@ public class MapRendererSystem : BaseSystem<World, float>
         // Chunk rendered - no logging needed (empty chunks are normal, happens every frame)
 
         return tilesRendered;
+    }
+
+    /// <summary>
+    ///     Gets tileset references for a map, caching them for performance.
+    /// </summary>
+    private List<TilesetReference> GetTilesetRefsForMap(string mapId)
+    {
+        if (_mapTilesetRefsCache.TryGetValue(mapId, out var cached))
+            return cached;
+
+        // Look up map definition from registry
+        var mapDefinition = _definitionRegistry.GetById<MapDefinition>(mapId);
+        if (mapDefinition?.Tilesets == null || mapDefinition.Tilesets.Count == 0)
+        {
+            _mapTilesetRefsCache[mapId] = new List<TilesetReference>();
+            return _mapTilesetRefsCache[mapId];
+        }
+
+        // Sort by firstGid descending for GID resolution
+        var sortedRefs = mapDefinition.Tilesets.OrderByDescending(t => t.FirstGid).ToList();
+        _mapTilesetRefsCache[mapId] = sortedRefs;
+        return sortedRefs;
     }
 }

@@ -1,0 +1,216 @@
+{
+  "id": "pokeemerald:pokemon:blaziken",
+  "name": "Blaziken",
+  "cryId": "pokeemerald:audio:sfx/cries/blaziken",
+  "baseStats": {
+    "hp": 80,
+    "attack": 120,
+    "defense": 70,
+    "speed": 80,
+    "spAttack": 110,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:speed_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:blaze",
+  "height": 19,
+  "weight": 520,
+  "description": "It learns martial arts that use punches  and kicks. Every several years, its old  feathers burn off, and new, supple  feathers grow back in their place.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:blaze_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:brave_bird"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/blaziken/blazikenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/blaziken/blazikenfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/blaziken/blazikenback",
+    "backShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/blaziken/blazikenbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/blaziken/blazikenicon",
+    "overworld": "pokeemerald:pokemon:sprite/blaziken/blazikenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenoverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:blaziken/mega",
+      "name": "Blaziken",
+      "cryId": "pokeemerald:audio:sfx/cries/blaziken-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 160,
+        "defense": 80,
+        "speed": 100,
+        "spAttack": 130,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:speed_boost",
+        "pokeemerald:ability:speed_boost",
+        "pokeemerald:ability:speed_boost"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/blaziken/blazikenmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/blaziken/blazikenmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/blaziken/blazikenmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/blaziken/blazikenmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/blaziken/blazikenmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:blazikenite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:pokemon:banette",
+  "name": "Banette",
+  "cryId": "pokeemerald:audio:sfx/cries/banette",
+  "baseStats": {
+    "hp": 64,
+    "attack": 115,
+    "defense": 65,
+    "speed": 65,
+    "spAttack": 83,
+    "spDefense": 63
+  },
+  "types": [
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:cursed_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:marionette",
+  "height": 11,
+  "weight": 125,
+  "description": "An abandoned plush doll became this  Pok\u00E9mon. They are said to live in garbage  dumps and wander about in search of the  children that threw them away.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spite"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:trick"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:phantom_force"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/banette/banettefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/banette/banettefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/banette/banetteback",
+    "backShiny": "pokeemerald:pokemon:sprite/banette/banettebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/banette/banetteicon",
+    "overworld": "pokeemerald:pokemon:sprite/banette/banetteoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/banette/banetteoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:banette/mega",
+      "name": "Banette",
+      "cryId": "pokeemerald:audio:sfx/cries/banette-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 64,
+        "attack": 165,
+        "defense": 75,
+        "speed": 75,
+        "spAttack": 93,
+        "spDefense": 83
+      },
+      "types": [
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:prankster",
+        "pokeemerald:ability:prankster",
+        "pokeemerald:ability:prankster"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/banette/banettemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/banette/banettemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/banette/banettemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/banette/banettemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/banette/banettemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/banette/banettemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/banette/banettemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:banettite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

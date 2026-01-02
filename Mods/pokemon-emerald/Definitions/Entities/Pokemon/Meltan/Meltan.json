@@ -1,0 +1,89 @@
+{
+  "id": "pokeemerald:pokemon:meltan",
+  "name": "Meltan",
+  "cryId": "pokeemerald:audio:sfx/cries/meltan",
+  "baseStats": {
+    "hp": 46,
+    "attack": 65,
+    "defense": 65,
+    "speed": 34,
+    "spAttack": 55,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:magnet_pull",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:hex_nut",
+  "height": 2,
+  "weight": 80,
+  "description": "It melts particles of iron and other metals  found in the subsoil, so it can absorb them  into its body of molten steel.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flash_cannon"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/meltan/meltanfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/meltan/meltanfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/meltan/meltanback",
+    "backShiny": "pokeemerald:pokemon:sprite/meltan/meltanbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/meltan/meltanicon",
+    "overworld": "pokeemerald:pokemon:sprite/meltan/meltanoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/meltan/meltanoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

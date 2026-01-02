@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:phantump",
+  "name": "Phantump",
+  "cryId": "pokeemerald:audio:sfx/cries/phantump",
+  "baseStats": {
+    "hp": 43,
+    "attack": 70,
+    "defense": 48,
+    "speed": 38,
+    "spAttack": 50,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 120,
+  "expYield": 62,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:harvest"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:stump",
+  "height": 4,
+  "weight": 70,
+  "description": "According to legend, medicine to cure  any illness can be made by plucking the  green leaves on its head, brewing them,  and boiling down the liquid.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:trevenant"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_LINKING_CORD",
+      "targetSpeciesId": "pokeemerald:pokemon:trevenant"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:branch_poke"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:horn_leech"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:phantom_force"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:forests_curse"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:grudge",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:imprison",
+    "pokeemerald:move:venom_drench",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/phantump/phantumpfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/phantump/phantumpfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/phantump/phantumpback",
+    "backShiny": "pokeemerald:pokemon:sprite/phantump/phantumpbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/phantump/phantumpicon",
+    "overworld": "pokeemerald:pokemon:sprite/phantump/phantumpoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/phantump/phantumpoverworldshiny"
+  }
+}

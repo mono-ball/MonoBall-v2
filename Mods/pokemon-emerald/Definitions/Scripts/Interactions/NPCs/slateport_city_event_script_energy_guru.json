@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_energy_guru",
+  "name": "slateport city event script energy guru",
+  "description": "NPC interaction: slateport city event script energy guru",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_energy_guru.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

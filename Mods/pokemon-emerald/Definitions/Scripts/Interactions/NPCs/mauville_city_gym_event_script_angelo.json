@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_angelo",
+  "name": "mauville city gym event script angelo",
+  "description": "NPC interaction: mauville city gym event script angelo",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_gym_event_script_angelo.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

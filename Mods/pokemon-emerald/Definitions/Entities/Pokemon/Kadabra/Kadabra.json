@@ -1,0 +1,170 @@
+{
+  "id": "pokeemerald:pokemon:kadabra",
+  "name": "Kadabra",
+  "cryId": "pokeemerald:audio:sfx/cries/kadabra",
+  "baseStats": {
+    "hp": 40,
+    "attack": 35,
+    "defense": 30,
+    "speed": 105,
+    "spAttack": 120
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 100,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 63,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:magic_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:psi",
+  "height": 13,
+  "weight": 565,
+  "description": "It is rumored that a boy with psychic  abilities suddenly transformed into  Kadabra while he was assisting research  into extrasensory powers.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:alakazam"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_LINKING_CORD",
+      "targetSpeciesId": "pokeemerald:pokemon:alakazam"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:kinesis"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:calm_mind"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kadabra/kadabrafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrafrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/kadabra/kadabrafrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrafrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/kadabra/kadabraback",
+    "backShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrabackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/kadabra/kadabrabackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrabackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/kadabra/kadabraicon",
+    "overworld": "pokeemerald:pokemon:sprite/kadabra/kadabraoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kadabra/kadabraoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

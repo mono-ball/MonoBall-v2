@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/disguise_rock",
+  "name": "Disguise (Rock) Movement Script",
+  "description": "NPC disguised as a rock or mountain (e.g., Kecleon)",
+  "scriptPath": "Scripts/Movement/NPCs/disguise_rock.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

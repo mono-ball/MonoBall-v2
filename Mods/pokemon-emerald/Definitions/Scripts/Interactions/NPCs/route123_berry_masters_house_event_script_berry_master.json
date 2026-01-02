@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route123_berry_masters_house_event_script_berry_master",
+  "name": "route123 berry masters house event script berry master",
+  "description": "NPC interaction: route123 berry masters house event script berry master",
+  "scriptPath": "Scripts/Interactions/NPCs/route123_berry_masters_house_event_script_berry_master.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

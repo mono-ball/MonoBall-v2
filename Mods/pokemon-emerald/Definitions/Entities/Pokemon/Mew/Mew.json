@@ -1,0 +1,99 @@
+{
+  "id": "pokeemerald:pokemon:mew",
+  "name": "Mew",
+  "cryId": "pokeemerald:audio:sfx/cries/mew",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "speed": 100,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 300,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:new_species",
+  "height": 4,
+  "weight": 40,
+  "description": "A Mew is said to possess the genes of all  Pok\u00E9mon. It is capable of making itself  invisible at will, so it entirely avoids  notice even if it approaches people.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:reflect_type"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:metronome"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:transform"
+    },
+    {
+      "level": 90,
+      "moveId": "pokeemerald:move:aura_sphere"
+    },
+    {
+      "level": 100,
+      "moveId": "pokeemerald:move:psychic"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mew/mewfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mew/mewfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mew/mewback",
+    "backShiny": "pokeemerald:pokemon:sprite/mew/mewbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mew/mewicon",
+    "overworld": "pokeemerald:pokemon:sprite/mew/mewoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mew/mewoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

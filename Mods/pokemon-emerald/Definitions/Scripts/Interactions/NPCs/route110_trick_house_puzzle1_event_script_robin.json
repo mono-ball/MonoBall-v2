@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle1_event_script_robin",
+  "name": "route110 trick house puzzle1 event script robin",
+  "description": "NPC interaction: route110 trick house puzzle1 event script robin",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle1_event_script_robin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

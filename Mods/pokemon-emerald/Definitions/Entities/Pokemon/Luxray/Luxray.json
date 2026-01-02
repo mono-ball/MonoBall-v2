@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:luxray",
+  "name": "Luxray",
+  "cryId": "pokeemerald:audio:sfx/cries/luxray",
+  "baseStats": {
+    "hp": 80,
+    "attack": 120,
+    "defense": 79,
+    "speed": 70,
+    "spAttack": 95,
+    "spDefense": 79
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 45,
+  "expYield": 262,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rivalry",
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:guts"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:gleam_eyes",
+  "height": 14,
+  "weight": 420,
+  "description": "It has eyes which can see through  anything. Luxray\u0027s ability to see  through objects comes in handy when  it\u0027s scouting for danger.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:electric_terrain"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:volt_switch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:wild_charge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/luxray/luxrayfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/luxray/luxrayfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/luxray/luxrayfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/luxray/luxrayfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/luxray/luxrayback",
+    "backShiny": "pokeemerald:pokemon:sprite/luxray/luxraybackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/luxray/luxraybackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/luxray/luxraybackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/luxray/luxrayicon",
+    "overworld": "pokeemerald:pokemon:sprite/luxray/luxrayoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/luxray/luxrayoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

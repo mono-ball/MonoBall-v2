@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:swoobat",
+  "name": "Swoobat",
+  "cryId": "pokeemerald:audio:sfx/cries/swoobat",
+  "baseStats": {
+    "hp": 67,
+    "attack": 57,
+    "defense": 55,
+    "speed": 114,
+    "spAttack": 77,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 149,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:unaware",
+    "pokeemerald:ability:klutz",
+    "pokeemerald:ability:simple"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:courting",
+  "height": 9,
+  "weight": 105,
+  "description": "Anyone who comes into contact with  the ultrasonic waves emitted by a  courting male experiences a positive  mood shift.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:simple_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/swoobat/swoobatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/swoobat/swoobatfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/swoobat/swoobatback",
+    "backShiny": "pokeemerald:pokemon:sprite/swoobat/swoobatbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/swoobat/swoobaticon",
+    "overworld": "pokeemerald:pokemon:sprite/swoobat/swoobatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swoobat/swoobatoverworldshiny"
+  }
+}

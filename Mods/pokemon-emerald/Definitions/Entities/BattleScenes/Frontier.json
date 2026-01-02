@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:battlescene:normal/frontier",
+  "name": "Frontier",
+  "description": "Frontier battle background",
+  "category": "frontier",
+  "backgroundTextureId": "pokeemerald:texture:battle/background/building",
+  "playerPlatformTextureId": "pokeemerald:texture:battle/platform/building_player",
+  "enemyPlatformTextureId": "pokeemerald:texture:battle/platform/building_enemy",
+  "paletteId": "pokeemerald:texture:battle/palette/frontier",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

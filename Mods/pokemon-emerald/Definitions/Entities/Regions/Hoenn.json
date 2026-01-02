@@ -1,0 +1,17 @@
+{
+  "id": "pokeemerald:region:hoenn",
+  "name": "Hoenn",
+  "displayName": "Hoenn",
+  "description": "The Hoenn region",
+  "regionMapTextureId": "pokeemerald:texture:region/map/hoenn",
+  "startingMapId": "pokeemerald:map:hoenn/littleroot_town",
+  "startingX": 5,
+  "startingY": 8,
+  "startingDirection": "down",
+  "defaultFlyMapId": "pokeemerald:map:hoenn/littleroot_town",
+  "defaultFlyX": 5,
+  "defaultFlyY": 8,
+  "regionalDexId": "pokeemerald:pokedex:hoenn/regional",
+  "sortOrder": 3,
+  "isPlayable": true
+}

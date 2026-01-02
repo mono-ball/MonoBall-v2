@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_pokemon_center_1f_event_script_nurse",
+  "name": "pacifidlog town pokemon center 1f event script nurse",
+  "description": "NPC interaction: pacifidlog town pokemon center 1f event script nurse",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_pokemon_center_1f_event_script_nurse.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

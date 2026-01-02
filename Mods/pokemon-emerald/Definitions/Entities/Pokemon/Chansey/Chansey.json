@@ -1,0 +1,211 @@
+{
+  "id": "pokeemerald:pokemon:chansey",
+  "name": "Chansey",
+  "cryId": "pokeemerald:audio:sfx/cries/chansey",
+  "baseStats": {
+    "hp": 250,
+    "attack": 5,
+    "defense": 5,
+    "speed": 50,
+    "spDefense": 105
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 254,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 140,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:serene_grace",
+    "pokeemerald:ability:healer"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:egg",
+  "height": 11,
+  "weight": 346,
+  "description": "Chansey lay nutritionally excellent eggs  every day. The eggs are so delicious, they  are eagerly devoured by even those people  who have lost their appetite.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:blissey"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:heal_pulse"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:soft_boiled"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:healing_wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:soft_boiled",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:present",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:heal_bell",
+    "pokeemerald:move:aromatherapy",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:gravity",
+    "pokeemerald:move:mud_bomb",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:seismic_toss"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chansey/chanseyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chansey/chanseyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chansey/chanseyback",
+    "backShiny": "pokeemerald:pokemon:sprite/chansey/chanseybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chansey/chanseyicon",
+    "overworld": "pokeemerald:pokemon:sprite/chansey/chanseyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chansey/chanseyoverworldshiny"
+  }
+}

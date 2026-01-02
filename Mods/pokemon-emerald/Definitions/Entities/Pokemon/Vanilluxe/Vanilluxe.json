@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:vanilluxe",
+  "name": "Vanilluxe",
+  "cryId": "pokeemerald:audio:sfx/cries/vanilluxe",
+  "baseStats": {
+    "hp": 71,
+    "attack": 95,
+    "defense": 85,
+    "speed": 79,
+    "spAttack": 110,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:snow_warning",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:snowstorm",
+  "height": 13,
+  "weight": 575,
+  "description": "Each of its two heads has a brain, and  when they are in agreement, it attacks  its enemies by exhaling a violent blizzard.  It makes snow clouds inside its body.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:weather_ball"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:icicle_crash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:avalanche"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hail"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:icicle_spear"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:mirror_coat"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:ice_beam"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxeback",
+    "backShiny": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxeicon",
+    "overworld": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vanilluxe/vanilluxeoverworldshiny"
+  }
+}

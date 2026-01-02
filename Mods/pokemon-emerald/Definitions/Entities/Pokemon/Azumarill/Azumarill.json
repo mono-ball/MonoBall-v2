@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:azumarill",
+  "name": "Azumarill",
+  "cryId": "pokeemerald:audio:sfx/cries/azumarill",
+  "baseStats": {
+    "hp": 100,
+    "attack": 50,
+    "defense": 80,
+    "speed": 50,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 75,
+  "expYield": 210,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:huge_power",
+    "pokeemerald:ability:sap_sipper"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:aqua_rabbit",
+  "height": 8,
+  "weight": 285,
+  "description": "It lives in water virtually all day long.  Its body color and pattern act as  camouflage that makes it tough for  enemies to spot in water.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/azumarill/azumarillfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/azumarill/azumarillfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/azumarill/azumarillback",
+    "backShiny": "pokeemerald:pokemon:sprite/azumarill/azumarillbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/azumarill/azumarillicon",
+    "overworld": "pokeemerald:pokemon:sprite/azumarill/azumarilloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/azumarill/azumarilloverworldshiny"
+  }
+}

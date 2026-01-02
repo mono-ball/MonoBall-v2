@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:charjabug",
+  "name": "Charjabug",
+  "cryId": "pokeemerald:audio:sfx/cries/charjabug",
+  "baseStats": {
+    "hp": 57,
+    "attack": 82,
+    "defense": 95,
+    "speed": 36,
+    "spAttack": 55,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 120,
+  "expYield": 140,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:battery",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:battery",
+  "height": 5,
+  "weight": 105,
+  "description": "From the food it digests, it generates  electricity, and it stores this energy in  its electric sac. On camping trips, people  are grateful to have one around.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:vikavolt"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:vikavolt"
+    },
+    {
+      "method": "pokeemerald:evolution_method:none",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:vikavolt-totem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:discharge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/charjabug/charjabugfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/charjabug/charjabugfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/charjabug/charjabugback",
+    "backShiny": "pokeemerald:pokemon:sprite/charjabug/charjabugbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/charjabug/charjabugicon",
+    "overworld": "pokeemerald:pokemon:sprite/charjabug/charjabugoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charjabug/charjabugoverworldshiny"
+  }
+}

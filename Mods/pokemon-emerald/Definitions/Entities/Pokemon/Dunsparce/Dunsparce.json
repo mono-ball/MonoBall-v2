@@ -1,0 +1,180 @@
+{
+  "id": "pokeemerald:pokemon:dunsparce",
+  "name": "Dunsparce",
+  "cryId": "pokeemerald:audio:sfx/cries/dunsparce",
+  "baseStats": {
+    "hp": 100,
+    "attack": 70,
+    "defense": 70,
+    "speed": 45,
+    "spAttack": 65,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 190,
+  "expYield": 145,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:serene_grace",
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:land_snake",
+  "height": 15,
+  "weight": 140,
+  "description": "Its drill-tipped tail is used to burrow into  the ground backwards. This Pok\u00E9mon is  known to make its nest in complex shapes  deep under the ground.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:dudunsparce-two-segment"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:dudunsparce-three-segment"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:drill_run"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:hyper_drill"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_rush"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:endeavor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:bide",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:trump_card",
+    "pokeemerald:move:magic_coat",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:secret_power",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:hex"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dunsparce/dunsparcefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparcefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dunsparce/dunsparceback",
+    "backShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparcebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dunsparce/dunsparceicon",
+    "overworld": "pokeemerald:pokemon:sprite/dunsparce/dunsparceoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparceoverworldshiny"
+  }
+}

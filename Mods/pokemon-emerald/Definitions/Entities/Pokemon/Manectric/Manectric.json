@@ -1,0 +1,174 @@
+{
+  "id": "pokeemerald:pokemon:manectric",
+  "name": "Manectric",
+  "cryId": "pokeemerald:audio:sfx/cries/manectric",
+  "baseStats": {
+    "hp": 70,
+    "attack": 75,
+    "defense": 60,
+    "speed": 105,
+    "spAttack": 105,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:lightning_rod",
+    "pokeemerald:ability:minus"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:discharge",
+  "height": 15,
+  "weight": 402,
+  "description": "Because lightning falls in their vicinities,  Manectric were thought to have been born  from lightning. In battle, they create  thunderclouds.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:shock_wave"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:thunder"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:electric_terrain"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/manectric/manectricfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/manectric/manectricfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/manectric/manectricback",
+    "backShiny": "pokeemerald:pokemon:sprite/manectric/manectricbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/manectric/manectricicon",
+    "overworld": "pokeemerald:pokemon:sprite/manectric/manectricoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/manectric/manectricoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:manectric/mega",
+      "name": "Manectric",
+      "cryId": "pokeemerald:audio:sfx/cries/manectric-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 70,
+        "attack": 75,
+        "defense": 80,
+        "speed": 135,
+        "spAttack": 135,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:intimidate",
+        "pokeemerald:ability:intimidate",
+        "pokeemerald:ability:intimidate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/manectric/manectricmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/manectric/manectricmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/manectric/manectricmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/manectric/manectricmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/manectric/manectricmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/manectric/manectricmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/manectric/manectricmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:manectite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

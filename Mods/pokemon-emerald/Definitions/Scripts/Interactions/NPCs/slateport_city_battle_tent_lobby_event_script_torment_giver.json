@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_torment_giver",
+  "name": "slateport city battle tent lobby event script torment giver",
+  "description": "NPC interaction: slateport city battle tent lobby event script torment giver",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_battle_tent_lobby_event_script_torment_giver.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

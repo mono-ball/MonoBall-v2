@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_south_event_script_man",
+  "name": "safari zone south event script man",
+  "description": "NPC interaction: safari zone south event script man",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_south_event_script_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

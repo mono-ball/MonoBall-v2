@@ -1,28 +1,9 @@
 {
   "id": "pokemon:emerald",
-  "name": "Pokemon Emerald",
-  "author": "MonoBall Team",
+  "name": "Pokemon Hoenn",
+  "author": "Porycon3",
   "version": "1.0.0",
-  "description": "Pokemon Emerald content",
-  "priority": 10,
-  "contentFolders": {
-    "Root": "",
-    "Graphics": "Graphics",
-    "Audio": "Audio",
-    "Scripts": "Scripts",
-    "ScriptDefinitions": "Definitions/Scripts",
-    "TileBehaviorDefinitions": "Definitions/TileBehaviors",
-    "BehaviorDefinitions": "Definitions/Behaviors",
-    "SpriteDefinitions": "Definitions/Sprites",
-    "TilesetDefinitions": "Definitions/Maps/Tilesets",
-    "MapDefinitions": "Definitions/Maps/Regions",
-    "AudioDefinitions": "Definitions/Audio",
-    "TextWindowDefinitions": "Definitions/TextWindow",
-    "PopupBackgroundDefinitions": "Definitions/Maps/Popups/Backgrounds",
-    "PopupOutlineDefinitions": "Definitions/Maps/Popups/Outlines",
-    "PopupThemeDefinitions": "Definitions/Maps/Popups/Themes",
-    "MapSectionDefinitions": "Definitions/Maps/Sections"
-  },
+  "description": "Converted content from pokeemerald-expansion (hoenn region)",
   "patches": [],
   "dependencies": [
     "base:monoball-core"

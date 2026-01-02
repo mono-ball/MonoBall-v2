@@ -1,0 +1,136 @@
+{
+  "id": "pokeemerald:pokemon:ferrothorn",
+  "name": "Ferrothorn",
+  "cryId": "pokeemerald:audio:sfx/cries/ferrothorn",
+  "baseStats": {
+    "hp": 74,
+    "attack": 94,
+    "defense": 131,
+    "speed": 20,
+    "spAttack": 54,
+    "spDefense": 116
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 90,
+  "expYield": 171,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:iron_barbs",
+    null,
+    "pokeemerald:ability:anticipation"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:thorn_pod",
+  "height": 10,
+  "weight": 1100,
+  "description": "It fights by swinging around its three  spiky feelers and shooting spikes.  A hit from these steel spikes can reduce  a boulder to rubble.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:power_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornback",
+    "backShiny": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornicon",
+    "overworld": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ferrothorn/ferrothornoverworldshiny"
+  }
+}

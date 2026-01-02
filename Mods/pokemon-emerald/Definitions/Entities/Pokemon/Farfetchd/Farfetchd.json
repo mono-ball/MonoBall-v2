@@ -1,0 +1,189 @@
+{
+  "id": "pokeemerald:pokemon:farfetchd",
+  "name": "Farfetch\u0027d",
+  "cryId": "pokeemerald:audio:sfx/cries/farfetchd",
+  "baseStats": {
+    "hp": 52,
+    "defense": 55,
+    "speed": 60,
+    "spAttack": 58
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:defiant"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:wild_duck",
+  "height": 8,
+  "weight": 150,
+  "description": "It is always seen with a stick from a plant.  Apparently, there are good sticks and bad  sticks. This Pok\u00E9mon occasionally fights  with others over choice sticks.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:cut"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:brave_bird"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:mirror_move",
+    "pokeemerald:move:gust",
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:feather_dance",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:covet",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:leaf_blade",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:roost",
+    "pokeemerald:move:trump_card",
+    "pokeemerald:move:simple_beam",
+    "pokeemerald:move:first_impression",
+    "pokeemerald:move:final_gambit"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/farfetchd/farfetchdfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/farfetchd/farfetchdback",
+    "backShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/farfetchd/farfetchdicon",
+    "overworld": "pokeemerald:pokemon:sprite/farfetchd/farfetchdoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:farfetchd/galar",
+      "name": "Farfetch\u0027d",
+      "cryId": "pokeemerald:audio:sfx/cries/farfetchd",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 52,
+        "defense": 55,
+        "speed": 55,
+        "spAttack": 58,
+        "spDefense": 62
+      },
+      "types": [
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:steadfast",
+        null,
+        "pokeemerald:ability:scrappy"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

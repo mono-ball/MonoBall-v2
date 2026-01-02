@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_south_event_script_exit_attendant",
+  "name": "safari zone south event script exit attendant",
+  "description": "NPC interaction: safari zone south event script exit attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_south_event_script_exit_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

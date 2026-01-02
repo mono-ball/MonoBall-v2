@@ -1,0 +1,195 @@
+{
+  "id": "pokeemerald:pokemon:kecleon",
+  "name": "Kecleon",
+  "cryId": "pokeemerald:audio:sfx/cries/kecleon",
+  "baseStats": {
+    "hp": 60,
+    "attack": 90,
+    "defense": 70,
+    "speed": 40,
+    "spAttack": 60,
+    "spDefense": 120
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 200,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:color_change",
+    null,
+    "pokeemerald:ability:protean"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:color_swap",
+  "height": 10,
+  "weight": 220,
+  "description": "A Pok\u00E9mon that has the ability to alter its  body colors to match its surroundings.  A Kecleon reverts to its original colors if  it is startled.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thief"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:shadow_claw"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:substitute"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:foul_play"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:disable",
+    "pokeemerald:move:magic_coat",
+    "pokeemerald:move:trick",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:dizzy_punch",
+    "pokeemerald:move:recover",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:foul_play",
+    "pokeemerald:move:camouflage",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kecleon/kecleonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kecleon/kecleonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kecleon/kecleonback",
+    "backShiny": "pokeemerald:pokemon:sprite/kecleon/kecleonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kecleon/kecleonicon",
+    "overworld": "pokeemerald:pokemon:sprite/kecleon/kecleonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kecleon/kecleonoverworldshiny"
+  }
+}

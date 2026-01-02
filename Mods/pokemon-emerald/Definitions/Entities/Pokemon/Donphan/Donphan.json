@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:donphan",
+  "name": "Donphan",
+  "cryId": "pokeemerald:audio:sfx/cries/donphan",
+  "baseStats": {
+    "hp": 90,
+    "attack": 120,
+    "defense": 120,
+    "speed": 50,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 1,
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    null,
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:armor",
+  "height": 11,
+  "weight": 1200,
+  "description": "A Donphan is so strong it can easily haul  a dump truck. Its hide has toughened to a  rock-hard state. An ordinary sort of  attack won\u0027t even leave a scratch.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/donphan/donphanfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/donphan/donphanfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/donphan/donphanfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/donphan/donphanfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/donphan/donphanback",
+    "backShiny": "pokeemerald:pokemon:sprite/donphan/donphanbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/donphan/donphanbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/donphan/donphanbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/donphan/donphanicon",
+    "overworld": "pokeemerald:pokemon:sprite/donphan/donphanoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/donphan/donphanoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

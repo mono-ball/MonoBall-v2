@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:popup:background/underwater",
+  "name": "Underwater",
+  "type": "Bitmap",
+  "texturePath": "Graphics/UI/Popups/Backgrounds/Underwater.png",
+  "width": 80,
+  "height": 24,
+  "description": "Background bitmap for map popup"
+}

@@ -1,0 +1,126 @@
+{
+  "id": "pokeemerald:pokemon:dachsbun",
+  "name": "Dachsbun",
+  "cryId": "pokeemerald:audio:sfx/cries/dachsbun",
+  "baseStats": {
+    "hp": 57,
+    "attack": 80,
+    "defense": 115,
+    "speed": 95,
+    "spAttack": 50,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 90,
+  "expYield": 167,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:well_baked_body",
+    null,
+    "pokeemerald:ability:aroma_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:dog",
+  "height": 5,
+  "weight": 149,
+  "description": "The pleasant aroma that emanates  from this Pok\u00E9mon\u0027s body helps  wheat grow, so Dachsbun has been  treasured by farming villages.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dachsbun/dachsbunfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dachsbun/dachsbunfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dachsbun/dachsbunback",
+    "backShiny": "pokeemerald:pokemon:sprite/dachsbun/dachsbunbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dachsbun/dachsbunicon",
+    "overworld": "pokeemerald:pokemon:sprite/dachsbun/dachsbunoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dachsbun/dachsbunoverworldshiny"
+  }
+}

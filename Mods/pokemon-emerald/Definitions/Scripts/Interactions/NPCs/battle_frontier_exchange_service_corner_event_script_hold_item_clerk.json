@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_hold_item_clerk",
+  "name": "battle frontier exchange service corner event script hold item clerk",
+  "description": "NPC interaction: battle frontier exchange service corner event script hold item clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_exchange_service_corner_event_script_hold_item_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

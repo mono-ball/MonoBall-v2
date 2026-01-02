@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:shuckle",
+  "name": "Shuckle",
+  "cryId": "pokeemerald:audio:sfx/cries/shuckle",
+  "baseStats": {
+    "hp": 20,
+    "attack": 10,
+    "defense": 230,
+    "speed": 5,
+    "spAttack": 10,
+    "spDefense": 230
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "defense": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:contrary"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:mold",
+  "height": 6,
+  "weight": 205,
+  "description": "A Shuckle hides under rocks, keeping its  body concealed inside its shell while  eating stored berries. The berries mix with  its body fluids to become a juice.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:power_split"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:power_trick"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:shell_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:sweet_scent",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:acupressure",
+    "pokeemerald:move:sand_tomb",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:acid",
+    "pokeemerald:move:rock_blast",
+    "pokeemerald:move:final_gambit"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shuckle/shucklefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shuckle/shucklefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/shuckle/shuckleback",
+    "backShiny": "pokeemerald:pokemon:sprite/shuckle/shucklebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/shuckle/shuckleicon",
+    "overworld": "pokeemerald:pokemon:sprite/shuckle/shuckleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shuckle/shuckleoverworldshiny"
+  }
+}

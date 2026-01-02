@@ -1,0 +1,46 @@
+{
+  "id": "pokeemerald:field_effect:spotlight",
+  "name": "Spotlight",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/Spotlight.png",
+  "frameWidth": 48,
+  "frameHeight": 24,
+  "frameCount": 5,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 48,
+      "height": 24
+    },
+    {
+      "index": 1,
+      "x": 0,
+      "y": 24,
+      "width": 48,
+      "height": 24
+    },
+    {
+      "index": 2,
+      "x": 0,
+      "y": 48,
+      "width": 48,
+      "height": 24
+    },
+    {
+      "index": 3,
+      "x": 0,
+      "y": 72,
+      "width": 48,
+      "height": 24
+    },
+    {
+      "index": 4,
+      "x": 0,
+      "y": 96,
+      "width": 48,
+      "height": 24
+    }
+  ]
+}

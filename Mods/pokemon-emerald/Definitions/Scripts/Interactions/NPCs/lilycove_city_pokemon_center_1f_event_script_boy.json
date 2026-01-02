@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_pokemon_center_1f_event_script_boy",
+  "name": "lilycove city pokemon center 1f event script boy",
+  "description": "NPC interaction: lilycove city pokemon center 1f event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_pokemon_center_1f_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

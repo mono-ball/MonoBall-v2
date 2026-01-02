@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:duosion",
+  "name": "Duosion",
+  "cryId": "pokeemerald:audio:sfx/cries/duosion",
+  "baseStats": {
+    "hp": 65,
+    "attack": 40,
+    "defense": 50,
+    "speed": 30,
+    "spAttack": 125,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 100,
+  "expYield": 130,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overcoat",
+    "pokeemerald:ability:magic_guard",
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:mitosis",
+  "height": 6,
+  "weight": 80,
+  "description": "When their brains, now divided in two,  are thinking the same thoughts,  these Pok\u00E9mon exhibit their maximized  psychic power.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 41,
+      "targetSpeciesId": "pokeemerald:pokemon:reuniclus"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:skill_swap"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:wonder_room"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/duosion/duosionfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/duosion/duosionfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/duosion/duosionback",
+    "backShiny": "pokeemerald:pokemon:sprite/duosion/duosionbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/duosion/duosionicon",
+    "overworld": "pokeemerald:pokemon:sprite/duosion/duosionoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/duosion/duosionoverworldshiny"
+  }
+}

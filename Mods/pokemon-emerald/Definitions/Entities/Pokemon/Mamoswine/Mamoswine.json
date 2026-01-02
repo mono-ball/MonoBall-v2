@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:mamoswine",
+  "name": "Mamoswine",
+  "cryId": "pokeemerald:audio:sfx/cries/mamoswine",
+  "baseStats": {
+    "hp": 110,
+    "attack": 130,
+    "defense": 80,
+    "speed": 80,
+    "spAttack": 70,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 50,
+  "expYield": 265,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:thick_fat"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:twin_tusk",
+  "height": 25,
+  "weight": 2910,
+  "description": "A frozen Mamoswine was dug from ice  dating back 10,000 years. It woke up to  much amazement. This Pok\u00E9mon has been  around for a long, long, long time.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mamoswine/mamoswinefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mamoswine/mamoswinefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/mamoswine/mamoswinefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/mamoswine/mamoswinefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/mamoswine/mamoswineback",
+    "backShiny": "pokeemerald:pokemon:sprite/mamoswine/mamoswinebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mamoswine/mamoswineicon",
+    "overworld": "pokeemerald:pokemon:sprite/mamoswine/mamoswineoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mamoswine/mamoswineoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

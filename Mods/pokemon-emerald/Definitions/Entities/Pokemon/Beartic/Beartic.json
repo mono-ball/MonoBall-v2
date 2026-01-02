@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:beartic",
+  "name": "Beartic",
+  "cryId": "pokeemerald:audio:sfx/cries/beartic",
+  "baseStats": {
+    "hp": 95,
+    "defense": 80,
+    "speed": 50,
+    "spAttack": 70,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:slush_rush",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:freezing",
+  "height": 26,
+  "weight": 2600,
+  "description": "It freezes its breath to create fangs  and claws of ice to fight with.  Very able in the water, it swims around  in northern seas and catches prey.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:icicle_crash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:frost_breath"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:snowscape"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:sheer_cold"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/beartic/bearticfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/beartic/bearticfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/beartic/bearticback",
+    "backShiny": "pokeemerald:pokemon:sprite/beartic/bearticbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/beartic/bearticicon",
+    "overworld": "pokeemerald:pokemon:sprite/beartic/bearticoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beartic/bearticoverworldshiny"
+  }
+}

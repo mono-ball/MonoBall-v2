@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/ever_grande_city_sidneys_room_event_script_sidney",
+  "name": "ever grande city sidneys room event script sidney",
+  "description": "NPC interaction: ever grande city sidneys room event script sidney",
+  "scriptPath": "Scripts/Interactions/NPCs/ever_grande_city_sidneys_room_event_script_sidney.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

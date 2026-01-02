@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_rival",
+  "name": "littleroot town professor birchs lab event script rival",
+  "description": "NPC interaction: littleroot town professor birchs lab event script rival",
+  "scriptPath": "Scripts/Interactions/NPCs/littleroot_town_professor_birchs_lab_event_script_rival.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

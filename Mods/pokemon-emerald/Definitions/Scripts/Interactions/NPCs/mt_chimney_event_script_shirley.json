@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_shirley",
+  "name": "mt chimney event script shirley",
+  "description": "NPC interaction: mt chimney event script shirley",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_shirley.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

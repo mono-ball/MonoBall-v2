@@ -1,0 +1,197 @@
+{
+  "id": "pokeemerald:pokemon:geodude",
+  "name": "Geodude",
+  "cryId": "pokeemerald:audio:sfx/cries/geodude",
+  "baseStats": {
+    "hp": 40,
+    "attack": 80,
+    "defense": 100,
+    "speed": 20,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rock",
+  "height": 4,
+  "weight": 200,
+  "description": "It climbs mountain paths using only the  power of its arms. Because they look just  like boulders lining paths, hikers may step  on them without noticing.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:graveler"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:block",
+    "pokeemerald:move:hammer_arm",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:rock_climb",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:autotomize",
+    "pokeemerald:move:wide_guard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/geodude/geodudefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/geodude/geodudefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/geodude/geodudeback",
+    "backShiny": "pokeemerald:pokemon:sprite/geodude/geodudebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/geodude/geodudeicon",
+    "overworld": "pokeemerald:pokemon:sprite/geodude/geodudeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/geodude/geodudeoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:geodude/alola",
+      "name": "Geodude",
+      "cryId": "pokeemerald:audio:sfx/cries/geodude",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 40,
+        "attack": 80,
+        "defense": 100,
+        "speed": 20,
+        "spAttack": 30,
+        "spDefense": 30
+      },
+      "types": [
+        "pokeemerald:type:rock",
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:magnet_pull",
+        "pokeemerald:ability:sturdy",
+        "pokeemerald:ability:galvanize"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/geodude/geodudealolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/geodude/geodudealolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/geodude/geodudealolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/geodude/geodudealolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/geodude/geodudealolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/geodude/geodudealolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/geodude/geodudealolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

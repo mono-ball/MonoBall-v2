@@ -1,0 +1,124 @@
+{
+  "id": "pokeemerald:pokemon:stonjourner",
+  "name": "Stonjourner",
+  "cryId": "pokeemerald:audio:sfx/cries/stonjourner",
+  "baseStats": {
+    "hp": 100,
+    "attack": 125,
+    "defense": 135,
+    "speed": 70,
+    "spAttack": 20,
+    "spDefense": 20
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 60,
+  "expYield": 165,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:power_spot",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:big_rock",
+  "height": 25,
+  "weight": 5200,
+  "description": "It stands in grasslands, watching the  sun\u0027s descent from zenith to horizon. This  Pok\u00E9mon has a talent for delivering  dynamic kicks.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:mega_kick"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:curse",
+    "pokeemerald:move:ancient_power"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/stonjourner/stonjournerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjournerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/stonjourner/stonjournerback",
+    "backShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjournerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/stonjourner/stonjournericon",
+    "overworld": "pokeemerald:pokemon:sprite/stonjourner/stonjourneroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjourneroverworldshiny"
+  }
+}

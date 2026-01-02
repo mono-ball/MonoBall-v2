@@ -164,7 +164,7 @@ public class ArchiveModSource : IModSource, IDisposable
         var toc = GetTOC();
 
         // Get or create compiled regex pattern
-        Regex pattern;
+        Regex? pattern;
         lock (_patternCacheLock)
         {
             if (!_patternCache.TryGetValue(searchPattern, out pattern))
@@ -179,6 +179,10 @@ public class ArchiveModSource : IModSource, IDisposable
 
         foreach (var path in toc.Keys)
         {
+            // Skip hidden files and directories (starting with '.')
+            if (IsHiddenPath(path))
+                continue;
+
             var fileName = Path.GetFileName(path);
             if (pattern.IsMatch(fileName))
             {
@@ -191,6 +195,23 @@ public class ArchiveModSource : IModSource, IDisposable
                 yield return path;
             }
         }
+    }
+
+    /// <summary>
+    ///     Checks if a path contains any hidden files or directories (starting with '.').
+    /// </summary>
+    /// <param name="path">The normalized path to check.</param>
+    /// <returns>True if the path contains hidden files or directories.</returns>
+    private static bool IsHiddenPath(string path)
+    {
+        // Check each path component for hidden files/directories
+        var parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+        foreach (var part in parts)
+        {
+            if (part.Length > 0 && part[0] == '.')
+                return true;
+        }
+        return false;
     }
 
     /// <summary>

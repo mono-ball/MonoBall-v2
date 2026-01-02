@@ -318,6 +318,12 @@ public class SharedTilesetBuilder : IDisposable
     public int SecondaryTileCount => _secondaryBuilder.UniqueTileCount;
     public int Columns => Math.Min(TilesPerRow, Math.Max(1, UniqueTileCount));
 
+    /// <summary>Actual tileset type (from folder structure) for the primary slot tileset.</summary>
+    public string PrimaryTilesetType => _primaryBuilder.TilesetType;
+
+    /// <summary>Actual tileset type (from folder structure) for the secondary slot tileset.</summary>
+    public string SecondaryTilesetType => _secondaryBuilder.TilesetType;
+
     public List<TileAnimation> GetAnimations()
     {
         var all = new List<TileAnimation>();

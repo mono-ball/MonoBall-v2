@@ -57,14 +57,14 @@ public class MidiToOggConverter
             // Ensure we have at least 1 second of audio (some MIDI files may report 0 length)
             if (totalSeconds < 0.1)
             {
-                Console.WriteLine($"[MidiToOggConverter] Warning: MIDI file has very short duration ({totalSeconds}s): {midiPath}");
+                // Very short duration, use minimum
                 totalSeconds = 1.0; // Default to 1 second minimum
             }
 
             var totalSamples = (int)(totalSeconds * _sampleRate);
             if (totalSamples <= 0)
             {
-                Console.WriteLine($"[MidiToOggConverter] Error: Invalid sample count ({totalSamples}) for {midiPath}");
+                // Invalid sample count, conversion failed
                 return new ConversionResult(false, 0, 0, _sampleRate);
             }
 
@@ -127,10 +127,9 @@ public class MidiToOggConverter
                 loopLength,
                 _sampleRate);
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"[MidiToOggConverter] Error converting {midiPath}: {ex.Message}");
-            Console.WriteLine($"[MidiToOggConverter] Stack trace: {ex.StackTrace}");
+            // Conversion error - result.Success will be false
             return new ConversionResult(false, 0, 0, _sampleRate);
         }
     }

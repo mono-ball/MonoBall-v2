@@ -1,0 +1,69 @@
+{
+  "id": "pokeemerald:field_effect:deep-sand-footprints",
+  "name": "Deep Sand Footprints",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/DeepSandFootprints.png",
+  "frameWidth": 16,
+  "frameHeight": 16,
+  "frameCount": 2,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "animations": [
+    {
+      "name": "south",
+      "loop": false,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ],
+      "flipVertical": true
+    },
+    {
+      "name": "north",
+      "loop": false,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ]
+    },
+    {
+      "name": "west",
+      "loop": false,
+      "frameIndices": [
+        1
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ]
+    },
+    {
+      "name": "east",
+      "loop": false,
+      "frameIndices": [
+        1
+      ],
+      "frameDurations": [
+        0.016666666666666666
+      ],
+      "flipHorizontal": true
+    }
+  ]
+}

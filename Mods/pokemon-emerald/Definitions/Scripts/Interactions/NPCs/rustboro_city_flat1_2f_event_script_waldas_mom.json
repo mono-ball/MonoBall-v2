@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_flat1_2f_event_script_waldas_mom",
+  "name": "rustboro city flat1 2f event script waldas mom",
+  "description": "NPC interaction: rustboro city flat1 2f event script waldas mom",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_flat1_2f_event_script_waldas_mom.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

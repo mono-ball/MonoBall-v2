@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:pecharunt",
+  "name": "Pecharunt",
+  "cryId": "pokeemerald:audio:sfx/cries/pecharunt",
+  "baseStats": {
+    "hp": 88,
+    "attack": 88,
+    "defense": 160,
+    "speed": 88,
+    "spAttack": 88,
+    "spDefense": 88
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 3,
+  "expYield": 300,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:poison_puppeteer",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:subjugation",
+  "height": 3,
+  "weight": 3,
+  "description": "It feeds others toxic mochi that  draw out desires and capabilities.  Those who eat the mochi fall under  Pecharunt\u0027s control, chained to its will.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:parting_shot"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:malignant_chain"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:recover"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pecharunt/pecharuntfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pecharunt/pecharuntfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pecharunt/pecharuntback",
+    "backShiny": "pokeemerald:pokemon:sprite/pecharunt/pecharuntbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pecharunt/pecharunticon",
+    "overworld": "pokeemerald:pokemon:sprite/pecharunt/pecharuntoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pecharunt/pecharuntoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

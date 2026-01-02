@@ -1,0 +1,150 @@
+{
+  "id": "pokeemerald:pokemon:sandaconda",
+  "name": "Sandaconda",
+  "cryId": "pokeemerald:audio:sfx/cries/sandaconda",
+  "baseStats": {
+    "hp": 72,
+    "attack": 107,
+    "defense": 125,
+    "speed": 71,
+    "spAttack": 65,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 120,
+  "expYield": 179,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sand_spit",
+    "pokeemerald:ability:shed_skin",
+    "pokeemerald:ability:sand_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:sand_snake",
+  "height": 38,
+  "weight": 655,
+  "description": "When it contracts its body, over 220  pounds of sand sprays from its nose. If  it ever runs out of sand, it becomes  disheartened.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:sand_tomb"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sandaconda/sandacondafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sandaconda/sandacondaback",
+    "backShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sandaconda/sandacondaicon",
+    "overworld": "pokeemerald:pokemon:sprite/sandaconda/sandacondaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:sandaconda/gmax",
+      "name": "Sandaconda",
+      "cryId": "pokeemerald:audio:sfx/cries/sandaconda",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 72,
+        "attack": 107,
+        "defense": 125,
+        "speed": 71,
+        "spAttack": 65,
+        "spDefense": 70
+      },
+      "types": [
+        "pokeemerald:type:ground"
+      ],
+      "abilities": [
+        "pokeemerald:ability:sand_spit",
+        "pokeemerald:ability:shed_skin",
+        "pokeemerald:ability:sand_veil"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_event_script_boy",
+  "name": "fortree city event script boy",
+  "description": "NPC interaction: fortree city event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

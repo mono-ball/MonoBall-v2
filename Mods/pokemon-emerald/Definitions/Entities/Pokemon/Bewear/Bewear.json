@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:bewear",
+  "name": "Bewear",
+  "cryId": "pokeemerald:audio:sfx/cries/bewear",
+  "baseStats": {
+    "hp": 120,
+    "attack": 125,
+    "defense": 80,
+    "speed": 60,
+    "spAttack": 55,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 70,
+  "expYield": 175,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:fluffy",
+    "pokeemerald:ability:klutz",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:strong_arm",
+  "height": 21,
+  "weight": 1350,
+  "description": "This Pok\u00E9mon has the habit of hugging its  companions. Many Trainers have left this  world after their spines were squashed  by its hug.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bewear/bewearfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bewear/bewearfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bewear/bewearback",
+    "backShiny": "pokeemerald:pokemon:sprite/bewear/bewearbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bewear/bewearicon",
+    "overworld": "pokeemerald:pokemon:sprite/bewear/bewearoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bewear/bewearoverworldshiny"
+  }
+}

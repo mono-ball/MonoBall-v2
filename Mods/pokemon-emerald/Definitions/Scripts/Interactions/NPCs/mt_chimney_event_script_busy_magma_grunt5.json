@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_busy_magma_grunt5",
+  "name": "mt chimney event script busy magma grunt5",
+  "description": "NPC interaction: mt chimney event script busy magma grunt5",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_busy_magma_grunt5.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

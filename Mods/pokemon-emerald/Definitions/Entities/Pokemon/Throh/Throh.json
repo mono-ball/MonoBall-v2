@@ -1,0 +1,131 @@
+{
+  "id": "pokeemerald:pokemon:throh",
+  "name": "Throh",
+  "cryId": "pokeemerald:audio:sfx/cries/throh",
+  "baseStats": {
+    "hp": 120,
+    "attack": 100,
+    "defense": 85,
+    "speed": 45,
+    "spAttack": 30,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 163,
+  "evYield": {
+    "hp": 2
+  },
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:mold_breaker"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:judo",
+  "height": 13,
+  "weight": 555,
+  "description": "When it tightens its belt, it becomes  stronger. Wild Throh use vines to weave  their own belts. It changes belts as it  gets more powerful.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:circle_throw"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:revenge"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:storm_throw"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:vital_throw"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:seismic_toss"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/throh/throhfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/throh/throhfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/throh/throhback",
+    "backShiny": "pokeemerald:pokemon:sprite/throh/throhbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/throh/throhicon",
+    "overworld": "pokeemerald:pokemon:sprite/throh/throhoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/throh/throhoverworldshiny"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "id": "pokeemerald:pokemon:scolipede",
+  "name": "Scolipede",
+  "cryId": "pokeemerald:audio:sfx/cries/scolipede",
+  "baseStats": {
+    "hp": 60,
+    "defense": 89,
+    "speed": 112,
+    "spAttack": 55,
+    "spDefense": 69
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "expYield": 243,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:speed_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:megapede",
+  "height": 25,
+  "weight": 2005,
+  "description": "With quick movements, it chases down  its foes, attacking relentlessly with its  horns until it prevails. Then it finishes  them off with deadly poison.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:venom_drench"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 74,
+      "moveId": "pokeemerald:move:megahorn"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/scolipede/scolipedefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/scolipede/scolipedefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/scolipede/scolipedeback",
+    "backShiny": "pokeemerald:pokemon:sprite/scolipede/scolipedebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/scolipede/scolipedeicon",
+    "overworld": "pokeemerald:pokemon:sprite/scolipede/scolipedeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/scolipede/scolipedeoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:scolipede/mega",
+      "name": "Scolipede",
+      "cryId": "pokeemerald:audio:sfx/cries/scolipede",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 60,
+        "attack": 140,
+        "defense": 149,
+        "speed": 62,
+        "spAttack": 75,
+        "spDefense": 99
+      },
+      "types": [
+        "pokeemerald:type:bug",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:poison_point",
+        "pokeemerald:ability:swarm",
+        "pokeemerald:ability:speed_boost"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/scolipede/scolipedemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/scolipede/scolipedemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/scolipede/scolipedemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/scolipede/scolipedemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/scolipede/scolipedemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/scolipede/scolipedemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/scolipede/scolipedemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:scolipite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

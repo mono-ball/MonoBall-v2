@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:pokemon:nymble",
+  "name": "Nymble",
+  "cryId": "pokeemerald:audio:sfx/cries/nymble",
+  "baseStats": {
+    "hp": 33,
+    "attack": 46,
+    "defense": 40,
+    "speed": 45,
+    "spAttack": 21,
+    "spDefense": 25
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 190,
+  "expYield": 42,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 20,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    null,
+    "pokeemerald:ability:tinted_lens"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:grasshopper",
+  "height": 2,
+  "weight": 10,
+  "description": "It has its third set of legs folded  up. When it\u0027s in a tough spot, this  Pok\u00E9mon jumps over 30 feet using the  strength of its legs.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:lokix"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:first_impression"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:counter",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:thief"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:counter",
+    "pokeemerald:move:skitter_smack"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nymble/nymblefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nymble/nymblefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nymble/nymbleback",
+    "backShiny": "pokeemerald:pokemon:sprite/nymble/nymblebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nymble/nymbleicon",
+    "overworld": "pokeemerald:pokemon:sprite/nymble/nymbleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nymble/nymbleoverworldshiny"
+  }
+}

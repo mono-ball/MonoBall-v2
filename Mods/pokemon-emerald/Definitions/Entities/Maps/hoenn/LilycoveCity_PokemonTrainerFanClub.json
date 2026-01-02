@@ -1,0 +1,216 @@
+{
+  "id": "pokeemerald:map:hoenn/lilycove_city_pokemon_trainer_fan_club",
+  "name": "LilycoveCity_PokemonTrainerFanClub",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 12,
+  "height": 14,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/lilycove",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/lilycove_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/lilycove_city_pokemon_trainer_fan_club/ground",
+      "name": "Ground",
+      "width": 12,
+      "height": 14,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/lilycove_city_pokemon_trainer_fan_club/objects",
+      "name": "Objects",
+      "width": 12,
+      "height": 14,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/lilycove_city_pokemon_trainer_fan_club/overhead",
+      "name": "Overhead",
+      "width": 12,
+      "height": 14,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/lilycove_city_pokemon_trainer_fan_club/warp_to_lilycove_city",
+      "name": "Warp to lilycove_city",
+      "x": 96,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/lilycove_city",
+      "targetX": 5,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/lilycove_city_pokemon_trainer_fan_club/warp_to_lilycove_city",
+      "name": "Warp to lilycove_city",
+      "x": 80,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/lilycove_city",
+      "targetX": 5,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_lass",
+      "name": "LOCALID_TRAINER_FAN_CLUB_LASS",
+      "x": 48,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:npcs/lass",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_lass",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_man",
+      "name": "LOCALID_TRAINER_FAN_CLUB_MAN",
+      "x": 128,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:npcs/man4",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_man",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_pokefan_m",
+      "name": "LOCALID_TRAINER_FAN_CLUB_POKEFAN_M",
+      "x": 96,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_pokefan_m",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_little_girl",
+      "name": "LOCALID_TRAINER_FAN_CLUB_LITTLE_GIRL",
+      "x": 80,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:npcs/littlegirl",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_little_girl",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_ninja_boy",
+      "name": "LOCALID_TRAINER_FAN_CLUB_NINJA_BOY",
+      "x": 112,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_ninja_boy",
+      "visibilityFlag": "pokeemerald:flag:visibility/fanclub_little_boy",
+      "facingDirection": "up",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_boy",
+      "name": "LOCALID_TRAINER_FAN_CLUB_BOY",
+      "x": 16,
+      "y": 144,
+      "spriteId": "pokeemerald:sprite:npcs/boy2",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_boy",
+      "visibilityFlag": "pokeemerald:flag:visibility/fanclub_boy",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_woman",
+      "name": "LOCALID_TRAINER_FAN_CLUB_WOMAN",
+      "x": 48,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:npcs/woman3",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_woman",
+      "visibilityFlag": "pokeemerald:flag:visibility/fanclub_lady",
+      "facingDirection": "right",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/localid_trainer_fan_club_expert_f",
+      "name": "LOCALID_TRAINER_FAN_CLUB_EXPERT_F",
+      "x": 160,
+      "y": 160,
+      "spriteId": "pokeemerald:sprite:npcs/expertf",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_expert_f",
+      "visibilityFlag": "pokeemerald:flag:visibility/fanclub_old_lady",
+      "facingDirection": "left",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/lilycove_city_pokemon_trainer_fan_club/npc_8",
+      "name": "NPC_8",
+      "x": 176,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:npcs/boy1",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_pokemon_trainer_fan_club_event_script_interviewer",
+      "visibilityFlag": "pokeemerald:flag:visibility/lilycove_fan_club_interviewer",
+      "facingDirection": "down",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/lilycove_city_pokemon_trainer_fan_club/elevation_0",
+      "name": "Collision_0",
+      "width": 12,
+      "height": 14,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAAQEBAQEBAAAAAAAAAQEBAAAAAAEBAQEAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  ]
+}

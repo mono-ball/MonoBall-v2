@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_gym_1f_event_script_gerald",
+  "name": "lavaridge town gym 1f event script gerald",
+  "description": "NPC interaction: lavaridge town gym 1f event script gerald",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_gym_1f_event_script_gerald.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

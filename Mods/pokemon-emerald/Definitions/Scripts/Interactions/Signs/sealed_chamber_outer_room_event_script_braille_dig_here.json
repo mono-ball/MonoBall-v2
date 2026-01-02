@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/sealed_chamber_outer_room_event_script_braille_dig_here",
+  "name": "sealed chamber outer room event script braille dig here",
+  "description": "Sign script: sealed chamber outer room event script braille dig here",
+  "scriptPath": "Scripts/Signs/sealed_chamber_outer_room_event_script_braille_dig_here.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

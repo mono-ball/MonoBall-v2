@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:heatran",
+  "name": "Heatran",
+  "cryId": "pokeemerald:audio:sfx/cries/heatran",
+  "baseStats": {
+    "hp": 91,
+    "attack": 90,
+    "defense": 106,
+    "speed": 77,
+    "spAttack": 130,
+    "spDefense": 106
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 3,
+  "expYield": 300,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    null,
+    "pokeemerald:ability:flame_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:lava_dome",
+  "height": 17,
+  "weight": 4300,
+  "description": "Boiling blood, like magma, circulates  through its body. It dwells in volcanic  caves, using its cross-shaped feet  to crawl on ceilings and walls.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:heat_wave"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:magma_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/heatran/heatranfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/heatran/heatranfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/heatran/heatranback",
+    "backShiny": "pokeemerald:pokemon:sprite/heatran/heatranbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/heatran/heatranicon",
+    "overworld": "pokeemerald:pokemon:sprite/heatran/heatranoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/heatran/heatranoverworldshiny"
+  },
+  "isLegendary": true
+}

@@ -1,0 +1,46 @@
+{
+  "id": "pokeemerald:pokemon:mr-mime",
+  "name": "Mr. Mime",
+  "cryId": "pokeemerald:audio:sfx/cries/mr-mime",
+  "baseStats": {
+    "hp": 40,
+    "attack": 45,
+    "defense": 65,
+    "speed": 90,
+    "spAttack": 100
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:soundproof",
+    "pokeemerald:ability:filter",
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:barrier",
+  "height": 13,
+  "weight": 545,
+  "description": "A Mr. Mime is a master of pantomime. It can  convince others that something unseeable  actually exists. Once believed, the  imaginary object does become real.",
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mrmime/mrmimefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mrmime/mrmimefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mrmime/mrmimeback",
+    "backShiny": "pokeemerald:pokemon:sprite/mrmime/mrmimebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mrmime/mrmimeicon",
+    "overworld": "pokeemerald:pokemon:sprite/mrmime/mrmimeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mrmime/mrmimeoverworldshiny"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "id": "pokeemerald:pokemon:ponyta",
+  "name": "Ponyta",
+  "cryId": "pokeemerald:audio:sfx/cries/ponyta",
+  "baseStats": {
+    "hp": 50,
+    "attack": 85,
+    "defense": 55,
+    "speed": 90,
+    "spAttack": 65,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:flash_fire",
+    "pokeemerald:ability:flame_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:fire_horse",
+  "height": 10,
+  "weight": 300,
+  "description": "A Ponyta is very weak at birth. It can  barely stand up. Its legs become stronger  as it stumbles and falls while trying to  keep up with its parent.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:rapidash"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:flame_wheel",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:double_kick",
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:horn_drill",
+    "pokeemerald:move:morning_sun",
+    "pokeemerald:move:low_kick",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:ally_switch",
+    "pokeemerald:move:high_horsepower"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ponyta/ponytafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ponyta/ponytafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ponyta/ponytaback",
+    "backShiny": "pokeemerald:pokemon:sprite/ponyta/ponytabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ponyta/ponytaicon",
+    "overworld": "pokeemerald:pokemon:sprite/ponyta/ponytaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ponyta/ponytaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:ponyta/galar",
+      "name": "Ponyta",
+      "cryId": "pokeemerald:audio:sfx/cries/ponyta",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 50,
+        "attack": 85,
+        "defense": 55,
+        "speed": 90,
+        "spAttack": 65,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:run_away",
+        "pokeemerald:ability:pastel_veil",
+        "pokeemerald:ability:anticipation"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/ponyta/ponytagalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/ponyta/ponytagalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/ponyta/ponytagalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/ponyta/ponytagalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/ponyta/ponytagalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/ponyta/ponytagalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/ponyta/ponytagalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

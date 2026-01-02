@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route108_event_script_missy",
+  "name": "route108 event script missy",
+  "description": "NPC interaction: route108 event script missy",
+  "scriptPath": "Scripts/Interactions/NPCs/route108_event_script_missy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

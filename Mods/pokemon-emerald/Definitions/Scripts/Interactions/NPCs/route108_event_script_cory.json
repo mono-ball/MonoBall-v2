@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route108_event_script_cory",
+  "name": "route108 event script cory",
+  "description": "NPC interaction: route108 event script cory",
+  "scriptPath": "Scripts/Interactions/NPCs/route108_event_script_cory.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

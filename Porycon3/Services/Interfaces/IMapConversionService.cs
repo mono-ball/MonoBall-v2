@@ -24,6 +24,11 @@ public interface IMapConversionService
     int FinalizeSharedTilesets();
 
     /// <summary>
+    /// Write all pending maps after tileset finalization provides actual tile counts.
+    /// </summary>
+    int WriteAllPendingMaps();
+
+    /// <summary>
     /// Generate additional definitions (Weather, BattleScenes, Region, etc.).
     /// </summary>
     Dictionary<string, ExtractionResult> GenerateDefinitions();

@@ -1,0 +1,151 @@
+{
+  "id": "pokeemerald:pokemon:dwebble",
+  "name": "Dwebble",
+  "cryId": "pokeemerald:audio:sfx/cries/dwebble",
+  "baseStats": {
+    "hp": 50,
+    "attack": 65,
+    "defense": 85,
+    "speed": 55,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 190,
+  "expYield": 65,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:rock_inn",
+  "height": 3,
+  "weight": 145,
+  "description": "It makes a hole in a stone of a suitable  size. If that rock breaks, the Pok\u00E9mon  remains agitated until it locates  a replacement.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:crustle"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:rock_wrecker"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:iron_defense",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:sand_tomb",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:block",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:rototiller"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dwebble/dwebblefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dwebble/dwebblefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dwebble/dwebbleback",
+    "backShiny": "pokeemerald:pokemon:sprite/dwebble/dwebblebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dwebble/dwebbleicon",
+    "overworld": "pokeemerald:pokemon:sprite/dwebble/dwebbleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dwebble/dwebbleoverworldshiny"
+  }
+}

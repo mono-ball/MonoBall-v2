@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_woman1",
+  "name": "slateport city event script woman1",
+  "description": "NPC interaction: slateport city event script woman1",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_woman1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

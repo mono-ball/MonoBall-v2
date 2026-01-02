@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/unown/unownbackshiny",
+  "name": "Unownbackshiny",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Unown/UnownBackShiny.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

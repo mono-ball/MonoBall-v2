@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/ss_tidal_lower_deck_event_script_phillip",
+  "name": "ss tidal lower deck event script phillip",
+  "description": "NPC interaction: ss tidal lower deck event script phillip",
+  "scriptPath": "Scripts/Interactions/NPCs/ss_tidal_lower_deck_event_script_phillip.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:quaquaval",
+  "name": "Quaquaval",
+  "cryId": "pokeemerald:audio:sfx/cries/quaquaval",
+  "baseStats": {
+    "hp": 85,
+    "attack": 120,
+    "defense": 80,
+    "speed": 85,
+    "spAttack": 85,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:dancer",
+  "height": 18,
+  "weight": 619,
+  "description": "A single kick from a Quaquaval can  send a truck rolling. This Pok\u00E9mon  uses its powerful legs to perform  striking dances from far-off lands.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:aqua_step"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:low_sweep"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:aqua_cutter"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:mega_kick"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:wave_crash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/quaquaval/quaquavalfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/quaquaval/quaquavalfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/quaquaval/quaquavalback",
+    "backShiny": "pokeemerald:pokemon:sprite/quaquaval/quaquavalbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/quaquaval/quaquavalicon",
+    "overworld": "pokeemerald:pokemon:sprite/quaquaval/quaquavaloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quaquaval/quaquavaloverworldshiny"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:gogoat",
+  "name": "Gogoat",
+  "cryId": "pokeemerald:audio:sfx/cries/gogoat",
+  "baseStats": {
+    "hp": 123,
+    "attack": 100,
+    "defense": 62,
+    "speed": 68,
+    "spAttack": 97,
+    "spDefense": 81
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 186,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sap_sipper",
+    null,
+    "pokeemerald:ability:grass_pelt"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mount",
+  "height": 17,
+  "weight": 910,
+  "description": "It can tell how its trainer is feeling by  subtle shifts in the grip on its horns. This  empathetic sense lets them run as if one  being. They inhabit mountainous regions.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:worry_seed"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:bulk_up"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:horn_leech"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:milk_drink"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gogoat/gogoatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gogoat/gogoatfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gogoat/gogoatback",
+    "backShiny": "pokeemerald:pokemon:sprite/gogoat/gogoatbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gogoat/gogoaticon",
+    "overworld": "pokeemerald:pokemon:sprite/gogoat/gogoatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gogoat/gogoatoverworldshiny"
+  }
+}

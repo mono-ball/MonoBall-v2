@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_pokemon_center_1f_event_script_girl",
+  "name": "pacifidlog town pokemon center 1f event script girl",
+  "description": "NPC interaction: pacifidlog town pokemon center 1f event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_pokemon_center_1f_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

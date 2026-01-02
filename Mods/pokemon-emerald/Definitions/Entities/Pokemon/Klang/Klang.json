@@ -1,0 +1,130 @@
+{
+  "id": "pokeemerald:pokemon:klang",
+  "name": "Klang",
+  "cryId": "pokeemerald:audio:sfx/cries/klang",
+  "baseStats": {
+    "hp": 60,
+    "attack": 80,
+    "defense": 95,
+    "speed": 50,
+    "spAttack": 70,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 60,
+  "expYield": 154,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:plus",
+    "pokeemerald:ability:minus",
+    "pokeemerald:ability:clear_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:gear",
+  "height": 6,
+  "weight": 510,
+  "description": "A minigear and big gear comprise its  body. Spinning minigears are rotated  at high speed and repeatedly fired away.  It is dangerous if the gears don\u0027t return.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 49,
+      "targetSpeciesId": "pokeemerald:pokemon:klinklang"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charge_beam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:gear_grind"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:lock_on"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:shift_gear"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/klang/klangfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/klang/klangfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/klang/klangback",
+    "backShiny": "pokeemerald:pokemon:sprite/klang/klangbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/klang/klangicon",
+    "overworld": "pokeemerald:pokemon:sprite/klang/klangoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/klang/klangoverworldshiny"
+  }
+}

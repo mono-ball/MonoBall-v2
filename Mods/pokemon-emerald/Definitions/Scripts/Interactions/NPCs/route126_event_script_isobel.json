@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route126_event_script_isobel",
+  "name": "route126 event script isobel",
+  "description": "NPC interaction: route126 event script isobel",
+  "scriptPath": "Scripts/Interactions/NPCs/route126_event_script_isobel.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

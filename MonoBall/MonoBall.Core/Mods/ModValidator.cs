@@ -234,62 +234,65 @@ public class ModValidator
             return;
         }
 
-        foreach (var (folderType, relativePath) in manifest.ContentFolders)
+        // Enumerate all JSON files using convention-based discovery (no contentFolders needed)
+        var jsonFiles = modSource.EnumerateFiles("*.json", SearchOption.AllDirectories);
+
+        foreach (var jsonFile in jsonFiles)
         {
-            if (string.IsNullOrEmpty(relativePath))
+            // Skip mod.json itself
+            if (jsonFile.Equals("mod.json", StringComparison.OrdinalIgnoreCase))
                 continue;
 
-            var normalizedPath = ModPathNormalizer.Normalize(relativePath);
-            var jsonFiles = ModPathFilter.FilterByContentFolder(
-                modSource.EnumerateFiles("*.json", SearchOption.AllDirectories),
-                normalizedPath
-            );
+            try
+            {
+                var jsonContent = modSource.ReadTextFile(jsonFile);
+                var jsonDoc = JsonDocument.Parse(jsonContent);
 
-            foreach (var jsonFile in jsonFiles)
-                try
+                if (jsonDoc.RootElement.TryGetProperty("id", out var idElement))
                 {
-                    var jsonContent = modSource.ReadTextFile(jsonFile);
-                    var jsonDoc = JsonDocument.Parse(jsonContent);
-
-                    if (jsonDoc.RootElement.TryGetProperty("id", out var idElement))
+                    var id = idElement.GetString();
+                    if (!string.IsNullOrEmpty(id))
                     {
-                        var id = idElement.GetString();
-                        if (!string.IsNullOrEmpty(id))
-                        {
-                            if (!definitionIds.ContainsKey(id))
-                                definitionIds[id] = new List<DefinitionLocation>();
+                        if (!definitionIds.ContainsKey(id))
+                            definitionIds[id] = new List<DefinitionLocation>();
 
-                            definitionIds[id]
-                                .Add(
-                                    new DefinitionLocation
-                                    {
-                                        ModId = manifest.Id,
-                                        FilePath = jsonFile, // Store relative path
-                                    }
-                                );
-                        }
+                        definitionIds[id]
+                            .Add(
+                                new DefinitionLocation
+                                {
+                                    ModId = manifest.Id,
+                                    FilePath = jsonFile, // Store relative path
+                                }
+                            );
                     }
+                }
 
-                    // Validate shader definitions
-                    if (folderType == "Shaders")
-                        ValidateShaderDefinition(jsonFile, jsonDoc, modSource, issues);
-                }
-                catch (JsonException ex)
-                {
-                    issues.Add(
-                        new ValidationIssue
-                        {
-                            Severity = ValidationSeverity.Error,
-                            Message = $"Invalid JSON in definition file: {ex.Message}",
-                            ModId = manifest.Id,
-                            FilePath = jsonFile,
-                        }
-                    );
-                }
-                catch
-                {
-                    // Skip other errors during validation
-                }
+                // Validate shader definitions (check path instead of folderType)
+                var normalizedPath = ModPathNormalizer.Normalize(jsonFile);
+                if (
+                    normalizedPath.StartsWith(
+                        "definitions/assets/shaders/",
+                        StringComparison.OrdinalIgnoreCase
+                    )
+                )
+                    ValidateShaderDefinition(jsonFile, jsonDoc, modSource, issues);
+            }
+            catch (JsonException ex)
+            {
+                issues.Add(
+                    new ValidationIssue
+                    {
+                        Severity = ValidationSeverity.Error,
+                        Message = $"Invalid JSON in definition file: {ex.Message}",
+                        ModId = manifest.Id,
+                        FilePath = jsonFile,
+                    }
+                );
+            }
+            catch
+            {
+                // Skip other errors during validation
+            }
         }
     }
 

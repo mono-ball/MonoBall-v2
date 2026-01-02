@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_clarissa",
+  "name": "route120 event script clarissa",
+  "description": "NPC interaction: route120 event script clarissa",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_clarissa.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

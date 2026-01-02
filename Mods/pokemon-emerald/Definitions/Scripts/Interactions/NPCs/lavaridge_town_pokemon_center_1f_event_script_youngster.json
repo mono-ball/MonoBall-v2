@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_pokemon_center_1f_event_script_youngster",
+  "name": "lavaridge town pokemon center 1f event script youngster",
+  "description": "NPC interaction: lavaridge town pokemon center 1f event script youngster",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_pokemon_center_1f_event_script_youngster.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/roulette_event_script_table2",
+  "name": "roulette event script table2",
+  "description": "Sign script: roulette event script table2",
+  "scriptPath": "Scripts/Signs/roulette_event_script_table2.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

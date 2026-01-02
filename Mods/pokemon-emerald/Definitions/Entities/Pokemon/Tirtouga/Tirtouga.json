@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:tirtouga",
+  "name": "Tirtouga",
+  "cryId": "pokeemerald:audio:sfx/cries/tirtouga",
+  "baseStats": {
+    "hp": 54,
+    "attack": 78,
+    "defense": 103,
+    "speed": 22,
+    "spAttack": 53,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 45,
+  "expYield": 71,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:solid_rock",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:prototurtle",
+  "height": 7,
+  "weight": 165,
+  "description": "Reputed to be the ancestor of most  turtle Pok\u00E9mon, it lived in warm seas  about a hundred million years ago.  It was restored from a fossil.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 37,
+      "targetSpeciesId": "pokeemerald:pokemon:carracosta"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:shell_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:rock_throw",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:iron_defense",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:whirlpool",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:guard_swap",
+    "pokeemerald:move:liquidation"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tirtouga/tirtougafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtougafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tirtouga/tirtougaback",
+    "backShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtougabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tirtouga/tirtougaicon",
+    "overworld": "pokeemerald:pokemon:sprite/tirtouga/tirtougaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtougaoverworldshiny"
+  }
+}

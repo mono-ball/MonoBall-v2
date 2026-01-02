@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route133_event_script_linda",
+  "name": "route133 event script linda",
+  "description": "NPC interaction: route133 event script linda",
+  "scriptPath": "Scripts/Interactions/NPCs/route133_event_script_linda.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

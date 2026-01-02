@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/slowpoke/slowpokefront",
+  "name": "Slowpokefront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Slowpoke/SlowpokeFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

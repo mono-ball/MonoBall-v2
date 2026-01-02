@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route123_event_script_frederick",
+  "name": "route123 event script frederick",
+  "description": "NPC interaction: route123 event script frederick",
+  "scriptPath": "Scripts/Interactions/NPCs/route123_event_script_frederick.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

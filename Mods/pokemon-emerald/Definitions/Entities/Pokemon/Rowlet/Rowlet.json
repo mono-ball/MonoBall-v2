@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:rowlet",
+  "name": "Rowlet",
+  "cryId": "pokeemerald:audio:sfx/cries/rowlet",
+  "baseStats": {
+    "hp": 68,
+    "attack": 55,
+    "defense": 55,
+    "speed": 42,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 64,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:long_reach"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:grass_quill",
+  "height": 3,
+  "weight": 15,
+  "description": "This wary Pok\u00E9mon uses photosynthesis  to store up energy during the day, while  becoming active at night. Silently it  glides, drawing near to its target.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 17,
+      "targetSpeciesId": "pokeemerald:pokemon:dartrix"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:leafage"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:brave_bird"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:curse",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:ominous_wind",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:defog"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rowlet/rowletfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rowlet/rowletfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/rowlet/rowletback",
+    "backShiny": "pokeemerald:pokemon:sprite/rowlet/rowletbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/rowlet/rowleticon",
+    "overworld": "pokeemerald:pokemon:sprite/rowlet/rowletoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rowlet/rowletoverworldshiny"
+  }
+}

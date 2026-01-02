@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route115_event_script_kyra",
+  "name": "route115 event script kyra",
+  "description": "NPC interaction: route115 event script kyra",
+  "scriptPath": "Scripts/Interactions/NPCs/route115_event_script_kyra.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

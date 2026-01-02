@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:tyrantrum",
+  "name": "Tyrantrum",
+  "cryId": "pokeemerald:audio:sfx/cries/tyrantrum",
+  "baseStats": {
+    "hp": 82,
+    "attack": 121,
+    "defense": 119,
+    "speed": 71,
+    "spAttack": 69,
+    "spDefense": 59
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 182,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:strong_jaw",
+    null,
+    "pokeemerald:ability:rock_head"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:despot",
+  "height": 25,
+  "weight": 2700,
+  "description": "Thanks to its gargantuan jaws, which could  shred thick metal plates as if they were  paper, it was invincible in the ancient  world it once inhabited.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:horn_drill"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:giga_impact"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumback",
+    "backShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumicon",
+    "overworld": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumoverworldshiny"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "id": "pokeemerald:pokemon:zapdos",
+  "name": "Zapdos",
+  "cryId": "pokeemerald:audio:sfx/cries/zapdos",
+  "baseStats": {
+    "hp": 90,
+    "attack": 90,
+    "defense": 85,
+    "speed": 100,
+    "spAttack": 125
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 80,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:static"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:electric",
+  "height": 16,
+  "weight": 526,
+  "description": "Zapdos is a legendary bird Pok\u00E9mon that  has the ability to control electricity.  It usually lives in thunderclouds. It gains  power if it is stricken by lightning bolts.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:thunder"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:magnetic_flux"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:zap_cannon"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/zapdos/zapdosfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/zapdos/zapdosback",
+    "backShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/zapdos/zapdosicon",
+    "overworld": "pokeemerald:pokemon:sprite/zapdos/zapdosoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:zapdos/galar",
+      "name": "Zapdos",
+      "cryId": "pokeemerald:audio:sfx/cries/zapdos",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 90,
+        "attack": 125,
+        "defense": 90,
+        "speed": 100,
+        "spAttack": 85,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:fighting",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:defiant",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/zapdos/zapdosgalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/zapdos/zapdosgalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosgalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ],
+  "isLegendary": true
+}

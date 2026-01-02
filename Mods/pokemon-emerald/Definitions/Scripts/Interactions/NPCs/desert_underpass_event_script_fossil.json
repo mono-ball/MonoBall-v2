@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/desert_underpass_event_script_fossil",
+  "name": "desert underpass event script fossil",
+  "description": "NPC interaction: desert underpass event script fossil",
+  "scriptPath": "Scripts/Interactions/NPCs/desert_underpass_event_script_fossil.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

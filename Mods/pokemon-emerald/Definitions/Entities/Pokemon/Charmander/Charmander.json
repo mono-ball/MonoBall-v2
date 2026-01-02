@@ -1,0 +1,162 @@
+{
+  "id": "pokeemerald:pokemon:charmander",
+  "name": "Charmander",
+  "cryId": "pokeemerald:audio:sfx/cries/charmander",
+  "baseStats": {
+    "hp": 39,
+    "attack": 52,
+    "defense": 43,
+    "speed": 65,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:solar_power"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:lizard",
+  "height": 6,
+  "weight": 85,
+  "description": "The flame that burns at the tip of its  tail is an indication of its emotions.  The flame wavers when Charmander is  happy, and blazes when it is enraged.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:charmeleon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:inferno"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:belly_drum",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:outrage",
+    "pokeemerald:move:beat_up",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:dragon_rush",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:flare_blitz",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dragon_pulse",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:air_cutter"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/charmander/charmanderfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/charmander/charmanderfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/charmander/charmanderback",
+    "backShiny": "pokeemerald:pokemon:sprite/charmander/charmanderbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/charmander/charmandericon",
+    "overworld": "pokeemerald:pokemon:sprite/charmander/charmanderoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charmander/charmanderoverworldshiny"
+  }
+}

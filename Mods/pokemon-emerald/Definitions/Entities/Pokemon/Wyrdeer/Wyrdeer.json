@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:wyrdeer",
+  "name": "Wyrdeer",
+  "cryId": "pokeemerald:audio:sfx/cries/wyrdeer",
+  "baseStats": {
+    "hp": 103,
+    "attack": 105,
+    "defense": 72,
+    "speed": 65,
+    "spAttack": 105,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 263,
+  "evYield": {
+    "attack": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:sap_sipper"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:big_horn",
+  "height": 18,
+  "weight": 951,
+  "description": "The black orbs shine with an uncanny light  when it is erecting invisible barriers.  The fur shed from its beard retains heat  and is useful for winter clothing.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:psyshield_bash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:megahorn"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerback",
+    "backShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeericon",
+    "overworld": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeeroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeeroverworldshiny"
+  }
+}

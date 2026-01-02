@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:torracat",
+  "name": "Torracat",
+  "cryId": "pokeemerald:audio:sfx/cries/torracat",
+  "baseStats": {
+    "hp": 65,
+    "attack": 85,
+    "defense": 50,
+    "speed": 90,
+    "spAttack": 80,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 147,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:intimidate"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_cat",
+  "height": 7,
+  "weight": 250,
+  "description": "At its throat, it bears a bell of fire. The  bell rings brightly whenever this Pok\u00E9mon  spits fire. With a single punch, it can bend  an iron bar right over.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:incineroar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/torracat/torracatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/torracat/torracatfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/torracat/torracatback",
+    "backShiny": "pokeemerald:pokemon:sprite/torracat/torracatbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/torracat/torracaticon",
+    "overworld": "pokeemerald:pokemon:sprite/torracat/torracatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/torracat/torracatoverworldshiny"
+  }
+}

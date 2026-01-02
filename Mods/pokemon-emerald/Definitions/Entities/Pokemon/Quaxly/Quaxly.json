@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:pokemon:quaxly",
+  "name": "Quaxly",
+  "cryId": "pokeemerald:audio:sfx/cries/quaxly",
+  "baseStats": {
+    "hp": 55,
+    "attack": 65,
+    "defense": 45,
+    "speed": 50,
+    "spAttack": 50,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 62,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:duckling",
+  "height": 5,
+  "weight": 61,
+  "description": "Its strong legs let it easily swim  around in even fast-flowing rivers.  It likes to keep things tidy and is  prone to overthinking things.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:quaxwell"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:aqua_cutter"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:liquidation"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:detect",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:roost"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/quaxly/quaxlyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/quaxly/quaxlyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/quaxly/quaxlyback",
+    "backShiny": "pokeemerald:pokemon:sprite/quaxly/quaxlybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/quaxly/quaxlyicon",
+    "overworld": "pokeemerald:pokemon:sprite/quaxly/quaxlyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quaxly/quaxlyoverworldshiny"
+  }
+}

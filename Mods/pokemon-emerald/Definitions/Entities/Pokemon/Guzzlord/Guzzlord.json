@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:guzzlord",
+  "name": "Guzzlord",
+  "cryId": "pokeemerald:audio:sfx/cries/guzzlord",
+  "baseStats": {
+    "hp": 223,
+    "attack": 101,
+    "defense": 53,
+    "speed": 43,
+    "spAttack": 97,
+    "spDefense": 53
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:junkivore",
+  "height": 55,
+  "weight": 8880,
+  "description": "A dangerous Ultra Beast, it has gobbled  mountains and swallowed whole buildings,  according to reports. But for some reason  its droppings have never been found.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:stomping_tantrum"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:dragon_rush"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/guzzlord/guzzlordfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/guzzlord/guzzlordfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/guzzlord/guzzlordback",
+    "backShiny": "pokeemerald:pokemon:sprite/guzzlord/guzzlordbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/guzzlord/guzzlordicon",
+    "overworld": "pokeemerald:pokemon:sprite/guzzlord/guzzlordoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/guzzlord/guzzlordoverworldshiny"
+  },
+  "isUltraBeast": true
+}

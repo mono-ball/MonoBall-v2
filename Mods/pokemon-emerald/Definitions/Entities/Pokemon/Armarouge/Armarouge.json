@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:armarouge",
+  "name": "Armarouge",
+  "cryId": "pokeemerald:audio:sfx/cries/armarouge",
+  "baseStats": {
+    "hp": 85,
+    "attack": 60,
+    "defense": 100,
+    "speed": 75,
+    "spAttack": 125,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 25,
+  "expYield": 263,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 20,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:flash_fire",
+    null,
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_warrior",
+  "height": 15,
+  "weight": 850,
+  "description": "Armarouge evolved through the use  of a set of armor that belonged to  a distinguished warrior. This  Pok\u00E9mon is incredibly loyal.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mystical_fire"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:expanding_force"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:armor_cannon"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:taunt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/armarouge/armarougefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/armarouge/armarougefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/armarouge/armarougeback",
+    "backShiny": "pokeemerald:pokemon:sprite/armarouge/armarougebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/armarouge/armarougeicon",
+    "overworld": "pokeemerald:pokemon:sprite/armarouge/armarougeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/armarouge/armarougeoverworldshiny"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "id": "pokeemerald:pokemon:barbaracle",
+  "name": "Barbaracle",
+  "cryId": "pokeemerald:audio:sfx/cries/barbaracle",
+  "baseStats": {
+    "hp": 72,
+    "attack": 105,
+    "defense": 115,
+    "speed": 68,
+    "spAttack": 54,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 175,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:tough_claws",
+    "pokeemerald:ability:sniper",
+    "pokeemerald:ability:pickpocket"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:collective",
+  "height": 13,
+  "weight": 960,
+  "description": "Barbaracle\u0027s legs and hands have minds  of their own, and they will move  independently. But they usually follow  the head\u0027s orders.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:skull_bash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:cross_chop"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/barbaracle/barbaraclefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/barbaracle/barbaracleback",
+    "backShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/barbaracle/barbaracleicon",
+    "overworld": "pokeemerald:pokemon:sprite/barbaracle/barbaracleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracleoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:barbaracle/mega",
+      "name": "Barbaracle",
+      "cryId": "pokeemerald:audio:sfx/cries/barbaracle",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 72,
+        "attack": 140,
+        "defense": 130,
+        "speed": 88,
+        "spAttack": 64,
+        "spDefense": 106
+      },
+      "types": [
+        "pokeemerald:type:rock",
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:tough_claws",
+        "pokeemerald:ability:sniper",
+        "pokeemerald:ability:pickpocket"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:barbaracite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

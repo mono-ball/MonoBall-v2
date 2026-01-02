@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_pokemon_center_1f_event_script_school_kid",
+  "name": "battle frontier pokemon center 1f event script school kid",
+  "description": "NPC interaction: battle frontier pokemon center 1f event script school kid",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_pokemon_center_1f_event_script_school_kid.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

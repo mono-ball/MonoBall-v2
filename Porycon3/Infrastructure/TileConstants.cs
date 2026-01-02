@@ -26,6 +26,12 @@ public static class TileConstants
     /// <summary>Flip diagonal flag for GID encoding.</summary>
     public const uint FlipDiagonal = 0x20000000;
 
-    /// <summary>Mask to extract base GID without flip flags.</summary>
+    /// <summary>Marker bit to indicate GID is from secondary tileset (used during processing, resolved before output).</summary>
+    public const uint SecondaryMarker = 0x10000000;
+
+    /// <summary>Mask to extract base GID without flip flags or secondary marker.</summary>
     public const uint GidMask = 0x0FFFFFFF;
+
+    /// <summary>Mask for all flag bits (flip flags + secondary marker).</summary>
+    public const uint AllFlagsMask = FlipHorizontal | FlipVertical | FlipDiagonal | SecondaryMarker;
 }

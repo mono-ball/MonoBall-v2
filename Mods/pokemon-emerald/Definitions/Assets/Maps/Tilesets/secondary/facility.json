@@ -1,0 +1,238 @@
+{
+  "id": "pokeemerald:tileset:secondary/facility",
+  "name": "facility",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/facility.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 277,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 288,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:interaction/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    },
+    {
+      "localTileId": 2,
+      "interactionId": "pokeemerald:interaction/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    },
+    {
+      "localTileId": 14,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 15,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 24,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 25,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 26,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 27,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 28,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 57,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 59,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north"
+    },
+    {
+      "localTileId": 60,
+      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 61,
+      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 68,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 69,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 70,
+      "interactionId": "pokeemerald:interaction/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north"
+    },
+    {
+      "localTileId": 74,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 115,
+      "interactionId": "pokeemerald:interaction/tiles/trainer_see_all_directions"
+    },
+    {
+      "localTileId": 127,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 138,
+      "interactionId": "pokeemerald:interaction/tiles/trainer_see_all_directions"
+    },
+    {
+      "localTileId": 140,
+      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 142,
+      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "collisionId": "pokeemerald:collision:ice_cracked"
+    },
+    {
+      "localTileId": 148,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 165,
+      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "collisionId": "pokeemerald:collision:ice_cracked"
+    },
+    {
+      "localTileId": 166,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_6d"
+    },
+    {
+      "localTileId": 167,
+      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "collisionId": "pokeemerald:collision:ice_cracked"
+    },
+    {
+      "localTileId": 174,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_up"
+    },
+    {
+      "localTileId": 175,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_up"
+    },
+    {
+      "localTileId": 177,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 178,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 179,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 185,
+      "interactionId": "pokeemerald:interaction/tiles/trainer_see_all_directions"
+    },
+    {
+      "localTileId": 195,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 196,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 198,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 199,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 200,
+      "interactionId": "pokeemerald:interaction/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 214,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 220,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 221,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 223,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 228,
+      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 231,
+      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 234,
+      "interactionId": "pokeemerald:interaction/tiles/thin_ice",
+      "collisionId": "pokeemerald:collision:ice"
+    },
+    {
+      "localTileId": 248,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 253,
+      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+    },
+    {
+      "localTileId": 255,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 256,
+      "interactionId": "pokeemerald:interaction/tiles/unknown_e6"
+    },
+    {
+      "localTileId": 264,
+      "interactionId": "pokeemerald:interaction/tiles/ice_spin_right"
+    },
+    {
+      "localTileId": 265,
+      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "collisionId": "pokeemerald:collision:ice_cracked"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:pachirisu",
+  "name": "Pachirisu",
+  "cryId": "pokeemerald:audio:sfx/cries/pachirisu",
+  "baseStats": {
+    "hp": 60,
+    "attack": 45,
+    "defense": 70,
+    "speed": 95,
+    "spAttack": 45,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 200,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 100,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:volt_absorb"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:elesquirrel",
+  "height": 4,
+  "weight": 39,
+  "description": "A pair may be seen rubbing their cheek  pouches together in an effort to share  stored electricity. It stores them with  berries in tree holes.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:thunder"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:covet",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:flatter",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:tail_whip",
+    "pokeemerald:move:follow_me",
+    "pokeemerald:move:charge",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:ion_deluge",
+    "pokeemerald:move:baby_doll_eyes"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pachirisu/pachirisufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisufrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/pachirisu/pachirisufrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisufrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/pachirisu/pachirisuback",
+    "backShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisubackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pachirisu/pachirisuicon",
+    "overworld": "pokeemerald:pokemon:sprite/pachirisu/pachirisuoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisuoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

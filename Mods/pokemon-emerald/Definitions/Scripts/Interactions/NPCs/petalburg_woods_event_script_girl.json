@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_woods_event_script_girl",
+  "name": "petalburg woods event script girl",
+  "description": "NPC interaction: petalburg woods event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_woods_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

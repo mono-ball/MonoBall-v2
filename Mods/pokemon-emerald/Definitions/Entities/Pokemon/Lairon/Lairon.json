@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:lairon",
+  "name": "Lairon",
+  "cryId": "pokeemerald:audio:sfx/cries/lairon",
+  "baseStats": {
+    "hp": 60,
+    "attack": 90,
+    "defense": 140,
+    "speed": 40,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 35,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:heavy_metal"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:iron_armor",
+  "height": 9,
+  "weight": 1200,
+  "description": "When two Lairon meet in the wild, they  fight for territory by bashing into each  other with their steel bodies. The sound  of their collision carries for miles.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 42,
+      "targetSpeciesId": "pokeemerald:pokemon:aggron"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:iron_tail"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 76,
+      "moveId": "pokeemerald:move:metal_burst"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lairon/laironfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lairon/laironfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lairon/laironback",
+    "backShiny": "pokeemerald:pokemon:sprite/lairon/laironbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lairon/laironicon",
+    "overworld": "pokeemerald:pokemon:sprite/lairon/laironoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lairon/laironoverworldshiny"
+  }
+}

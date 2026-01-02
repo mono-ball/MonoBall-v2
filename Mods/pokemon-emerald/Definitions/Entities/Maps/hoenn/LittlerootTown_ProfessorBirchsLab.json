@@ -1,0 +1,337 @@
+{
+  "id": "pokeemerald:map:hoenn/littleroot_town_professor_birchs_lab",
+  "name": "LittlerootTown_ProfessorBirchsLab",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 13,
+  "height": 13,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/birch_lab",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/littleroot_town",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/littleroot_town_professor_birchs_lab/ground",
+      "name": "Ground",
+      "width": 13,
+      "height": 13,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/littleroot_town_professor_birchs_lab/objects",
+      "name": "Objects",
+      "width": 13,
+      "height": 13,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/littleroot_town_professor_birchs_lab/overhead",
+      "name": "Overhead",
+      "width": 13,
+      "height": 13,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/lab"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/littleroot_town_professor_birchs_lab/warp_to_littleroot_town",
+      "name": "Warp to littleroot_town",
+      "x": 96,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/littleroot_town",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/littleroot_town_professor_birchs_lab/warp_to_littleroot_town",
+      "name": "Warp to littleroot_town",
+      "x": 112,
+      "y": 192,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/littleroot_town",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptmachine",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Machine",
+      "x": 160,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_machine",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptmachine",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Machine",
+      "x": 176,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_machine",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbook",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Book",
+      "x": 112,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_book",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbook",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Book",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_book",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbookshelf",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+      "x": 16,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_bookshelf",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbookshelf",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+      "x": 0,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_bookshelf",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbookshelf",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+      "x": 16,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_bookshelf",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbookshelf",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+      "x": 32,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_bookshelf",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptbookshelf",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+      "x": 48,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_bookshelf",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptpc",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+      "x": 64,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_pc",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptpc",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_pc",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptpc",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+      "x": 16,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_pc",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptpc",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+      "x": 16,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_pc",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptpc",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+      "x": 176,
+      "y": 160,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_pc",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/littleroot_town_professor_birchs_lab/sign_littleroottownprofessorbirchslabeventscriptpc",
+      "name": "Sign: LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+      "x": 176,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_pc",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_professor_birchs_lab/localid_birchs_lab_aide",
+      "name": "LOCALID_BIRCHS_LAB_AIDE",
+      "x": 144,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:npcs/scientist1",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_aide",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_professor_birchs_lab/localid_birchs_lab_birch",
+      "name": "LOCALID_BIRCHS_LAB_BIRCH",
+      "x": 96,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/profbirch",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_birch",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_birch",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_professor_birchs_lab/localid_birchs_lab_rival",
+      "name": "LOCALID_BIRCHS_LAB_RIVAL",
+      "x": 112,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_rival",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_rival",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_professor_birchs_lab/localid_birchs_lab_cyndaquil_ball",
+      "name": "LOCALID_BIRCHS_LAB_CYNDAQUIL_BALL",
+      "x": 96,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_cyndaquil",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_pokeball_cyndaquil",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_professor_birchs_lab/localid_birchs_lab_totodile_ball",
+      "name": "LOCALID_BIRCHS_LAB_TOTODILE_BALL",
+      "x": 96,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_totodile",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_pokeball_totodile",
+      "facingDirection": "down",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/littleroot_town_professor_birchs_lab/localid_birchs_lab_chikorita_ball",
+      "name": "LOCALID_BIRCHS_LAB_CHIKORITA_BALL",
+      "x": 96,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_professor_birchs_lab_event_script_chikorita",
+      "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_pokeball_chikorita",
+      "facingDirection": "down",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/littleroot_town_professor_birchs_lab/elevation_0",
+      "name": "Collision_0",
+      "width": 13,
+      "height": 13,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAEAAAAAAAAAAAEBAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAQEBAQAAAAAAAAEBAAEBAQEAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAQEBAAAAAAAAAAAAAQABAQAAAAAAAAAAAAEBAAAAAQAAAAAAAAAAAA=="
+    }
+  ]
+}

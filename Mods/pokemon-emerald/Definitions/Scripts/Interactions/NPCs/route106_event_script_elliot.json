@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route106_event_script_elliot",
+  "name": "route106 event script elliot",
+  "description": "NPC interaction: route106 event script elliot",
+  "scriptPath": "Scripts/Interactions/NPCs/route106_event_script_elliot.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

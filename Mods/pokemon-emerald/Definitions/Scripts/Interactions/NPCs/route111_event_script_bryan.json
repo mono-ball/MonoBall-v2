@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route111_event_script_bryan",
+  "name": "route111 event script bryan",
+  "description": "NPC interaction: route111 event script bryan",
+  "scriptPath": "Scripts/Interactions/NPCs/route111_event_script_bryan.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:pawniard",
+  "name": "Pawniard",
+  "cryId": "pokeemerald:audio:sfx/cries/pawniard",
+  "baseStats": {
+    "hp": 45,
+    "attack": 85,
+    "defense": 70,
+    "speed": 60,
+    "spAttack": 40,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 120,
+  "expYield": 68,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:defiant",
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:pressure"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:sharp_blade",
+  "height": 5,
+  "weight": 102,
+  "description": "Ignoring their injuries, groups attack by  sinking the blades that cover their bodies  into their prey. If battling dulls them, it  sharpens them on stones by the river.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 52,
+      "targetSpeciesId": "pokeemerald:pokemon:bisharp"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:guillotine"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:psycho_cut",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:quick_guard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pawniard/pawniardfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pawniard/pawniardfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pawniard/pawniardback",
+    "backShiny": "pokeemerald:pokemon:sprite/pawniard/pawniardbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pawniard/pawniardicon",
+    "overworld": "pokeemerald:pokemon:sprite/pawniard/pawniardoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pawniard/pawniardoverworldshiny"
+  }
+}

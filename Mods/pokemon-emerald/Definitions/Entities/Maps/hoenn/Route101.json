@@ -1,0 +1,296 @@
+{
+  "id": "pokeemerald:map:hoenn/route101",
+  "name": "Route101",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:route",
+  "width": 20,
+  "height": 20,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/routes/route101",
+  "weatherId": "pokeemerald:weather:outdoor/sunny",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/route_101",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": false,
+  "connections": {
+    "north": {
+      "mapId": "pokeemerald:map:hoenn/oldale_town",
+      "offset": 0
+    },
+    "south": {
+      "mapId": "pokeemerald:map:hoenn/littleroot_town",
+      "offset": 0
+    }
+  },
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/route101/ground",
+      "name": "Ground",
+      "width": 20,
+      "height": 20,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAABUAAAAVAAAAFQAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAFQAAABUAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAFQAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/route101/objects",
+      "name": "Objects",
+      "width": 20,
+      "height": 20,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "tQAAALYAAAC1AAAAtgAAALUAAAC2AAAAtQAAAL0AAABaAAAAWwAAAFwAAAAVAAAAvwAAALYAAAC1AAAAtgAAALUAAAC2AAAAtQAAALYAAAC3AAAAuAAAALcAAAC4AAAAtwAAALgAAAC3AAAAEwAAAGEAAABiAAAAYwAAABUAAAAUAAAAuAAAALcAAAC4AAAAtwAAALgAAAC3AAAAuAAAALUAAAC2AAAAvgAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAC\u002BAAAAvgAAAL4AAAC1AAAAtgAAALUAAAC2AAAAtwAAABMAAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAvgAAAL4AAAC\u002BAAAAvgAAALcAAAC4AAAAtwAAALgAAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAvgAAAL4AAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAvgAAAL4AAAC1AAAAtgAAAL4AAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAL4AAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAvgAAABQAAAC4AAAAtQAAAL0AAAC\u002BAAAAvgAAABUAAAAVAAAAuQAAADUAAAA1AAAANQAAAKEAAAC/AAAAvQAAAL4AAAC\u002BAAAAvgAAAL4AAAAVAAAAFQAAABUAAAC3AAAAuAAAAJ0AAAA1AAAANQAAADUAAAA2AAAAFQAAABUAAAAVAAAAFQAAALcAAAC4AAAAtQAAAL0AAAAVAAAAFQAAAFcAAABZAAAAFQAAALUAAAC2AAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAtQAAALYAAAC3AAAAEwAAABUAAABXAAAAWwAAAFwAAAAVAAAAtwAAALgAAAC1AAAAvQAAABUAAAA9AAAAFQAAAFcAAABYAAAAWQAAABUAAAAUAAAAEwAAAL4AAAC\u002BAAAAFQAAAGEAAABbAAAAWwAAAFkAAAC1AAAAtgAAALcAAAC4AAAAFQAAAFcAAABYAAAAWwAAAFsAAABcAAAAFQAAAL4AAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAFQAAAGEAAABbAAAAXAAAALcAAAC4AAAAtQAAALYAAAAVAAAAYQAAAFsAAABbAAAAWwAAAGMAAAAVAAAAvgAAAL4AAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAFQAAAGEAAABjAAAAtQAAALYAAAC3AAAAEwAAABUAAAAVAAAAYQAAAGIAAABjAAAAFQAAABUAAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAvgAAAL4AAAAVAAAAFQAAABUAAAC3AAAAEwAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAAJ0AAAA1AAAANQAAAKEAAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAvgAAABUAAAAVAAAAFQAAAL4AAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAL8AAAC9AAAAvgAAAL4AAAAVAAAAFQAAAL8AAAC2AAAAvgAAAL4AAAC\u002BAAAAvgAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAtwAAALgAAAC\u002BAAAAvgAAABUAAAAVAAAAtwAAALgAAAC1AAAAvQAAAL4AAAC\u002BAAAAvgAAAL4AAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAC1AAAAtgAAALUAAAC2AAAAtQAAALYAAAC1AAAAtgAAALcAAAC4AAAAvgAAAL4AAAC\u002BAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAALcAAAC4AAAAtwAAALgAAAC3AAAAuAAAALcAAAC4AAAAtQAAALYAAAC1AAAAtgAAALUAAAC2AAAAtQAAALYAAAC1AAAAvQAAABUAAAAVAAAAtQAAALYAAAC1AAAAtgAAALUAAAC2AAAAtQAAALYAAAC3AAAAuAAAALcAAAC4AAAAtwAAALgAAAC3AAAAuAAAALcAAAC4AAAAFQAAABUAAAC3AAAAuAAAALcAAAC4AAAAtwAAALgAAAC3AAAAuAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/route101/overhead",
+      "name": "Overhead",
+      "width": 20,
+      "height": 20,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAAMAAAACwAAAAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAAMAAAACwAAAAwAAAALAAAADAAAAAsAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAwAAAALAAAADAAAAAsAAAAMAAAACwAAAAwAAAALAAAADAAAAAsAAAACAADAAgAAwAwAAAALAAAADAAAAAsAAAAMAAAACwAAAAwAAAALAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAACwAAAAwAAAALAAAAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAACwAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 359,
+      "tilesetId": "pokeemerald:tileset:secondary/petalburg"
+    }
+  ],
+  "warps": [],
+  "triggers": [
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_1",
+      "name": "Trigger: VAR_ROUTE101_STATE == 1",
+      "x": 160,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_start_birch_rescue",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_1",
+      "name": "Trigger: VAR_ROUTE101_STATE == 1",
+      "x": 176,
+      "y": 304,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 1,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_start_birch_rescue",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 160,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_south",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 176,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_south",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 96,
+      "y": 256,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_west",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 96,
+      "y": 240,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_west",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 96,
+      "y": 272,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_west",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 96,
+      "y": 288,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_west",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:trigger:hoenn/route101/trigger_var_route101_state_2",
+      "name": "Trigger: VAR_ROUTE101_STATE == 2",
+      "x": 112,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "variable": "pokeemerald:variable:hoenn/var_route101_state",
+      "value": 2,
+      "triggerId": "pokeemerald:script:trigger/route101_event_script_prevent_exit_north",
+      "elevation": 3
+    }
+  ],
+  "interactions": [
+    {
+      "id": "pokeemerald:interaction:hoenn/route101/sign_route101eventscriptroutesign",
+      "name": "Sign: Route101_EventScript_RouteSign",
+      "x": 80,
+      "y": 144,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/route101_event_script_route_sign",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/route101/npc_0",
+      "name": "NPC_0",
+      "x": 256,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:npcs/youngster",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/route101_event_script_youngster",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/route101/localid_route101_birch",
+      "name": "LOCALID_ROUTE101_BIRCH",
+      "x": 144,
+      "y": 208,
+      "spriteId": "pokeemerald:sprite:npcs/profbirch",
+      "behaviorId": "pokeemerald:script/movement/npcs/jog",
+      "visibilityFlag": "pokeemerald:flag:visibility/route_101_birch_zigzagoon_battle",
+      "facingDirection": "right",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/route101/npc_2",
+      "name": "NPC_2",
+      "x": 112,
+      "y": 224,
+      "spriteId": "pokeemerald:sprite:objects/misc/birchsbag",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/route101_event_script_birchs_bag",
+      "visibilityFlag": "pokeemerald:flag:visibility/route_101_birch_starters_bag",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/route101/localid_route101_zigzagoon",
+      "name": "LOCALID_ROUTE101_ZIGZAGOON",
+      "x": 160,
+      "y": 208,
+      "spriteId": "pokeemerald:sprite:pokemon/zigzagoonold",
+      "behaviorId": "pokeemerald:script/movement/npcs/jog",
+      "visibilityFlag": "pokeemerald:flag:visibility/route_101_zigzagoon",
+      "facingDirection": "left",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/route101/npc_4",
+      "name": "NPC_4",
+      "x": 80,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:npcs/profbirch",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/prof_birch_event_script_rate_pokedex_or_register",
+      "visibilityFlag": "pokeemerald:flag:visibility/route_101_birch",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:hoenn/route101/npc_5",
+      "name": "NPC_5",
+      "x": 32,
+      "y": 208,
+      "spriteId": "pokeemerald:sprite:npcs/boy2",
+      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 1
+      },
+      "interactionId": "pokeemerald:interaction/npcs/route101_event_script_boy",
+      "visibilityFlag": "pokeemerald:flag:visibility/route_101_boy",
+      "facingDirection": "left",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/route101/elevation_0",
+      "name": "Collision_0",
+      "width": 20,
+      "height": 20,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEAAAAAAQEBAQEBAQEBAQEBAQEBAQAAAAABAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAABAQEBAQAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAQEBAQEBAQAAAAAAAAABAQEBAQEBAAAAAAEBAQEAAAAAAAEBAAAAAAAAAAAAAQEBAQAAAAAAAQEBAQABAAAAAAABAQAAAAAAAAABAQEBAAAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAAAAQEBAQAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAEBAAAAAAAAAAAAAAAAAQEAAAAAAQEBAQAAAAAAAAAAAAABAQEBAQEBAQEBAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAQAAAQEBAQEBAQEBAQEBAQEBAQEBAAABAQEBAQEBAQ=="
+    },
+    {
+      "id": "pokeemerald:collision:hoenn/route101/elevation_3",
+      "name": "Collision_3",
+      "width": 20,
+      "height": 20,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_nurse",
+  "name": "sootopolis city pokemon center 1f event script nurse",
+  "description": "NPC interaction: sootopolis city pokemon center 1f event script nurse",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_pokemon_center_1f_event_script_nurse.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route115_event_script_route_sign_rustboro",
+  "name": "route115 event script route sign rustboro",
+  "description": "Sign script: route115 event script route sign rustboro",
+  "scriptPath": "Scripts/Signs/route115_event_script_route_sign_rustboro.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

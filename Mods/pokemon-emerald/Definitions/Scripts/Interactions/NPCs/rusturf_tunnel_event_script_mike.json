@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rusturf_tunnel_event_script_mike",
+  "name": "rusturf tunnel event script mike",
+  "description": "NPC interaction: rusturf tunnel event script mike",
+  "scriptPath": "Scripts/Interactions/NPCs/rusturf_tunnel_event_script_mike.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

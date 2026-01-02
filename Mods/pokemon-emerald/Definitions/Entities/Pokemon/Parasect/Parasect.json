@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:parasect",
+  "name": "Parasect",
+  "cryId": "pokeemerald:audio:sfx/cries/parasect",
+  "baseStats": {
+    "hp": 60,
+    "attack": 95,
+    "defense": 80,
+    "speed": 30,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "attack": 2,
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:effect_spore",
+    "pokeemerald:ability:dry_skin",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:mushroom",
+  "height": 10,
+  "weight": 295,
+  "description": "Parasect are known to infest the roots of  large trees en masse and drain nutrients.  When an infested tree dies, they move  onto another tree all at once.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:cross_poison"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:spore"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:rage_powder"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:x_scissor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/parasect/parasectfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/parasect/parasectfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/parasect/parasectback",
+    "backShiny": "pokeemerald:pokemon:sprite/parasect/parasectbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/parasect/parasecticon",
+    "overworld": "pokeemerald:pokemon:sprite/parasect/parasectoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/parasect/parasectoverworldshiny"
+  }
+}

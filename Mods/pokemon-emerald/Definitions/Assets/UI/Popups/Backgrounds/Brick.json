@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:popup:background/brick",
+  "name": "Brick",
+  "type": "Bitmap",
+  "texturePath": "Graphics/UI/Popups/Backgrounds/Brick.png",
+  "width": 80,
+  "height": 24,
+  "description": "Background bitmap for map popup"
+}

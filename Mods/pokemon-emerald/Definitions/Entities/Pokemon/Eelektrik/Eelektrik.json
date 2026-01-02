@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:eelektrik",
+  "name": "Eelektrik",
+  "cryId": "pokeemerald:audio:sfx/cries/eelektrik",
+  "baseStats": {
+    "hp": 65,
+    "attack": 85,
+    "defense": 70,
+    "speed": 40,
+    "spAttack": 75,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 60,
+  "expYield": 142,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:elefish",
+  "height": 12,
+  "weight": 220,
+  "description": "These Pok\u00E9mon have a big appetite.  It wraps itself around its prey and  paralyzes it with electricity from the  round spots on its sides. Then it chomps.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:eelektross"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge_beam"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:thunderbolt"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 69,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 74,
+      "moveId": "pokeemerald:move:thrash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/eelektrik/eelektrikfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrikfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/eelektrik/eelektrikback",
+    "backShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrikbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/eelektrik/eelektrikicon",
+    "overworld": "pokeemerald:pokemon:sprite/eelektrik/eelektrikoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrikoverworldshiny"
+  }
+}

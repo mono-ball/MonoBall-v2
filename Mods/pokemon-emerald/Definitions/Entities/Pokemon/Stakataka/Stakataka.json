@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:stakataka",
+  "name": "Stakataka",
+  "cryId": "pokeemerald:audio:sfx/cries/stakataka",
+  "baseStats": {
+    "hp": 61,
+    "attack": 131,
+    "defense": 211,
+    "speed": 13,
+    "spAttack": 53,
+    "spDefense": 101
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:rampart",
+  "height": 55,
+  "weight": 8200,
+  "description": "It appeared from an Ultra Wormhole. Each  one appears to be made up of many life-  forms stacked one on top of each other.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/stakataka/stakatakafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/stakataka/stakatakafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/stakataka/stakatakaback",
+    "backShiny": "pokeemerald:pokemon:sprite/stakataka/stakatakabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/stakataka/stakatakaicon",
+    "overworld": "pokeemerald:pokemon:sprite/stakataka/stakatakaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stakataka/stakatakaoverworldshiny"
+  },
+  "isUltraBeast": true
+}

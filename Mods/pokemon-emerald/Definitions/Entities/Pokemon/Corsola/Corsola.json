@@ -1,0 +1,188 @@
+{
+  "id": "pokeemerald:pokemon:corsola",
+  "name": "Corsola",
+  "cryId": "pokeemerald:audio:sfx/cries/corsola",
+  "baseStats": {
+    "attack": 55,
+    "speed": 35,
+    "spAttack": 65
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "defense": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:hustle",
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:regenerator"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:coral",
+  "height": 6,
+  "weight": 50,
+  "description": "Corsola live in warm southern seas.  If the sea becomes polluted, the beautiful  coral stalks become discolored and crumble  away in tatters.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:mirror_coat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:screech",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:ingrain",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:icicle_spear",
+    "pokeemerald:move:nature_power",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:head_smash",
+    "pokeemerald:move:camouflage",
+    "pokeemerald:move:liquidation"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/corsola/corsolafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/corsola/corsolafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/corsola/corsolaback",
+    "backShiny": "pokeemerald:pokemon:sprite/corsola/corsolabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/corsola/corsolaicon",
+    "overworld": "pokeemerald:pokemon:sprite/corsola/corsolaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/corsola/corsolaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:corsola/galar",
+      "name": "Corsola",
+      "cryId": "pokeemerald:audio:sfx/cries/corsola",
+      "formKey": "galar",
+      "baseStats": {
+        "attack": 55,
+        "speed": 30,
+        "spAttack": 65
+      },
+      "types": [
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:weak_armor",
+        null,
+        "pokeemerald:ability:cursed_body"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/corsola/corsolagalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/corsola/corsolagalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/corsola/corsolagalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/corsola/corsolagalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/corsola/corsolagalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/corsola/corsolagalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/corsola/corsolagalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

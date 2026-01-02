@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:bergmite",
+  "name": "Bergmite",
+  "cryId": "pokeemerald:audio:sfx/cries/bergmite",
+  "baseStats": {
+    "hp": 55,
+    "attack": 69,
+    "defense": 85,
+    "speed": 28,
+    "spAttack": 32,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 190,
+  "expYield": 61,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:sturdy"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ice_chunk",
+  "height": 10,
+  "weight": 995,
+  "description": "It blocks opponents\u0027 attacks with the ice  that shields its body. It uses cold air to  repair any cracks with new ice. They live  in herds on snowy mountains.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 37,
+      "targetSpeciesId": "pokeemerald:pokemon:avalugg"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 37,
+      "targetSpeciesId": "pokeemerald:pokemon:avalugg-hisui"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:avalanche"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:recover",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:barrier",
+    "pokeemerald:move:mirror_coat"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bergmite/bergmitefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bergmite/bergmitefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bergmite/bergmiteback",
+    "backShiny": "pokeemerald:pokemon:sprite/bergmite/bergmitebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bergmite/bergmiteicon",
+    "overworld": "pokeemerald:pokemon:sprite/bergmite/bergmiteoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bergmite/bergmiteoverworldshiny"
+  }
+}

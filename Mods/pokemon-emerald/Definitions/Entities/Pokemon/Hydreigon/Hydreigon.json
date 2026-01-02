@@ -1,0 +1,164 @@
+{
+  "id": "pokeemerald:pokemon:hydreigon",
+  "name": "Hydreigon",
+  "cryId": "pokeemerald:audio:sfx/cries/hydreigon",
+  "baseStats": {
+    "hp": 92,
+    "attack": 105,
+    "defense": 90,
+    "speed": 98,
+    "spAttack": 125,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:brutal",
+  "height": 18,
+  "weight": 1600,
+  "description": "This brutal Pok\u00E9mon travels the skies on  its six wings. The heads on their arms do  not have brains. They use all three heads  to consume and destroy everything.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tri_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:work_up"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:dragon_rush"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 76,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hydreigon/hydreigonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hydreigon/hydreigonback",
+    "backShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hydreigon/hydreigonicon",
+    "overworld": "pokeemerald:pokemon:sprite/hydreigon/hydreigonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigonoverworldshiny"
+  }
+}

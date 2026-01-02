@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/oldale_town_pokemon_center_1f_event_script_nurse",
+  "name": "oldale town pokemon center 1f event script nurse",
+  "description": "NPC interaction: oldale town pokemon center 1f event script nurse",
+  "scriptPath": "Scripts/Interactions/NPCs/oldale_town_pokemon_center_1f_event_script_nurse.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,136 @@
+{
+  "id": "pokeemerald:pokemon:manaphy",
+  "name": "Manaphy",
+  "cryId": "pokeemerald:audio:sfx/cries/manaphy",
+  "baseStats": {
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "speed": 100,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 3,
+  "expYield": 300,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:hydration",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:seafaring",
+  "height": 3,
+  "weight": 14,
+  "description": "Water makes up 80% of its body.  It starts its life with a wondrous power  that permits it to bond with any kind  of Pok\u00E9mon.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_glow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:heart_swap"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:acid_armor"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 61,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 69,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 76,
+      "moveId": "pokeemerald:move:take_heart"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/manaphy/manaphyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/manaphy/manaphyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/manaphy/manaphyback",
+    "backShiny": "pokeemerald:pokemon:sprite/manaphy/manaphybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/manaphy/manaphyicon",
+    "overworld": "pokeemerald:pokemon:sprite/manaphy/manaphyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/manaphy/manaphyoverworldshiny"
+  },
+  "isMythical": true,
+  "isFrontierBanned": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route116_event_script_trainer_tips_b_to_stop_evolution",
+  "name": "route116 event script trainer tips b to stop evolution",
+  "description": "Sign script: route116 event script trainer tips b to stop evolution",
+  "scriptPath": "Scripts/Signs/route116_event_script_trainer_tips_b_to_stop_evolution.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

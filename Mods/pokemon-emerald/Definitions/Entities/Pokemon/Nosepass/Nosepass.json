@@ -1,0 +1,168 @@
+{
+  "id": "pokeemerald:pokemon:nosepass",
+  "name": "Nosepass",
+  "cryId": "pokeemerald:audio:sfx/cries/nosepass",
+  "baseStats": {
+    "hp": 30,
+    "attack": 45,
+    "defense": 135,
+    "speed": 30,
+    "spAttack": 45,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:magnet_pull",
+    "pokeemerald:ability:sand_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:compass",
+  "height": 10,
+  "weight": 970,
+  "description": "Its body emits a powerful magnetism.  It feeds on prey that is pulled in by the  force. Its magnetism is stronger in cold  seasons.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:probopass"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_THUNDER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:probopass"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:lock_on"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:magnitude",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:block",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:wide_guard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/nosepass/nosepassfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/nosepass/nosepassfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/nosepass/nosepassback",
+    "backShiny": "pokeemerald:pokemon:sprite/nosepass/nosepassbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/nosepass/nosepassicon",
+    "overworld": "pokeemerald:pokemon:sprite/nosepass/nosepassoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nosepass/nosepassoverworldshiny"
+  }
+}

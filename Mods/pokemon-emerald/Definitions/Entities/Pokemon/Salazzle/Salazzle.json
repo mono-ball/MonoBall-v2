@@ -1,0 +1,193 @@
+{
+  "id": "pokeemerald:pokemon:salazzle",
+  "name": "Salazzle",
+  "cryId": "pokeemerald:audio:sfx/cries/salazzle",
+  "baseStats": {
+    "hp": 68,
+    "attack": 64,
+    "defense": 60,
+    "speed": 117,
+    "spAttack": 111,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 168,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:corrosion",
+    null,
+    "pokeemerald:ability:oblivious"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:toxic_lizard",
+  "height": 12,
+  "weight": 222,
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fire_lash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:toxic"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/salazzle/salazzlefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/salazzle/salazzlefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/salazzle/salazzleback",
+    "backShiny": "pokeemerald:pokemon:sprite/salazzle/salazzlebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/salazzle/salazzleicon",
+    "overworld": "pokeemerald:pokemon:sprite/salazzle/salazzleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/salazzle/salazzleoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:salazzle/totem",
+      "name": "Salazzle",
+      "cryId": "pokeemerald:audio:sfx/cries/salazzle",
+      "formKey": "totem",
+      "baseStats": {
+        "hp": 68,
+        "attack": 64,
+        "defense": 60,
+        "speed": 117,
+        "spAttack": 111,
+        "spDefense": 60
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:fire"
+      ],
+      "abilities": [
+        "pokeemerald:ability:corrosion",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/salazzle/salazzletotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/salazzle/salazzletotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/salazzle/salazzletotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/salazzle/salazzletotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/salazzle/salazzletotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/salazzle/salazzletotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/salazzle/salazzletotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:totem"
+    }
+  ]
+}

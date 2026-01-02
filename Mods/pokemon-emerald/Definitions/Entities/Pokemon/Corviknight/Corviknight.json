@@ -1,0 +1,171 @@
+{
+  "id": "pokeemerald:pokemon:corviknight",
+  "name": "Corviknight",
+  "cryId": "pokeemerald:audio:sfx/cries/corviknight",
+  "baseStats": {
+    "hp": 98,
+    "attack": 87,
+    "defense": 105,
+    "speed": 67,
+    "spAttack": 53,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:flying",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "expYield": 248,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    "pokeemerald:ability:unnerve",
+    "pokeemerald:ability:mirror_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:raven",
+  "height": 22,
+  "weight": 750,
+  "description": "This Pok\u00E9mon reigns supreme in the skies  of the Galar region. The black luster of  its steel body could drive terror into  the heart of any foe.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:steel_wing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_trip"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:brave_bird"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/corviknight/corviknightfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/corviknight/corviknightback",
+    "backShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/corviknight/corviknighticon",
+    "overworld": "pokeemerald:pokemon:sprite/corviknight/corviknightoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:corviknight/gmax",
+      "name": "Corviknight",
+      "cryId": "pokeemerald:audio:sfx/cries/corviknight",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 98,
+        "attack": 87,
+        "defense": 105,
+        "speed": 67,
+        "spAttack": 53,
+        "spDefense": 85
+      },
+      "types": [
+        "pokeemerald:type:flying",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pressure",
+        "pokeemerald:ability:unnerve",
+        "pokeemerald:ability:mirror_armor"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

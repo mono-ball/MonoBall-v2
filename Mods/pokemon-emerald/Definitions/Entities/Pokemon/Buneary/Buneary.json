@@ -1,0 +1,173 @@
+{
+  "id": "pokeemerald:pokemon:buneary",
+  "name": "Buneary",
+  "cryId": "pokeemerald:audio:sfx/cries/buneary",
+  "baseStats": {
+    "hp": 55,
+    "attack": 66,
+    "defense": 44,
+    "speed": 85,
+    "spAttack": 44,
+    "spDefense": 56
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:klutz",
+    "pokeemerald:ability:limber"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rabbit",
+  "height": 4,
+  "weight": 55,
+  "description": "You can tell how it feels by the way  it rolls its ears. When it\u0027s scared,  both ears are rolled up. When it senses  danger, it perks them up.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:lopunny"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:entrainment"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:healing_wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:sweet_kiss",
+    "pokeemerald:move:double_hit",
+    "pokeemerald:move:low_kick",
+    "pokeemerald:move:sky_uppercut",
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:circle_throw",
+    "pokeemerald:move:copycat",
+    "pokeemerald:move:teeter_dance",
+    "pokeemerald:move:cosmic_power",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/buneary/bunearyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/buneary/bunearyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/buneary/bunearyback",
+    "backShiny": "pokeemerald:pokemon:sprite/buneary/bunearybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/buneary/bunearyicon",
+    "overworld": "pokeemerald:pokemon:sprite/buneary/bunearyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/buneary/bunearyoverworldshiny"
+  }
+}

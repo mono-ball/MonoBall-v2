@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/abandoned_ship_rooms2_b1f_event_script_camper",
+  "name": "abandoned ship rooms2 b1f event script camper",
+  "description": "NPC interaction: abandoned ship rooms2 b1f event script camper",
+  "scriptPath": "Scripts/Interactions/NPCs/abandoned_ship_rooms2_b1f_event_script_camper.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

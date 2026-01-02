@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:drifblim",
+  "name": "Drifblim",
+  "cryId": "pokeemerald:audio:sfx/cries/drifblim",
+  "baseStats": {
+    "hp": 150,
+    "attack": 80,
+    "defense": 44,
+    "speed": 80,
+    "spAttack": 90,
+    "spDefense": 54
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:aftermath",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:flare_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:blimp",
+  "height": 12,
+  "weight": 150,
+  "description": "Even while under careful observation,  large flocks of Drifblim flying at dusk  will inexplicably disappear from view.  No one knows where they go.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:phantom_force"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:strength_sap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/drifblim/drifblimfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/drifblim/drifblimfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/drifblim/drifblimback",
+    "backShiny": "pokeemerald:pokemon:sprite/drifblim/drifblimbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/drifblim/drifblimicon",
+    "overworld": "pokeemerald:pokemon:sprite/drifblim/drifblimoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drifblim/drifblimoverworldshiny"
+  }
+}

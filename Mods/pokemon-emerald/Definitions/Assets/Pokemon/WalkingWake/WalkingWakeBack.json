@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/walking_wake/walkingwakeback",
+  "name": "Walkingwakeback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/WalkingWake/WalkingWakeBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

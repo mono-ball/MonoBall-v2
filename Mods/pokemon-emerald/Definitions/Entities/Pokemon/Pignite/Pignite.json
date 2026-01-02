@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:pignite",
+  "name": "Pignite",
+  "cryId": "pokeemerald:audio:sfx/cries/pignite",
+  "baseStats": {
+    "hp": 90,
+    "attack": 93,
+    "defense": 55,
+    "speed": 55,
+    "spAttack": 70,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 146,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:thick_fat"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_pig",
+  "height": 10,
+  "weight": 555,
+  "description": "The more it eats, the more fuel it has  to make the fire in its stomach stronger.  When it is angered, the intensity of the  flame increases.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:emboar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:arm_thrust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:heat_crash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:head_smash"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pignite/pignitefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pignite/pignitefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pignite/pigniteback",
+    "backShiny": "pokeemerald:pokemon:sprite/pignite/pignitebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pignite/pigniteicon",
+    "overworld": "pokeemerald:pokemon:sprite/pignite/pigniteoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pignite/pigniteoverworldshiny"
+  }
+}

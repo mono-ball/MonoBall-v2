@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/new_mauville_inside_event_script_generator",
+  "name": "new mauville inside event script generator",
+  "description": "Sign script: new mauville inside event script generator",
+  "scriptPath": "Scripts/Signs/new_mauville_inside_event_script_generator.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,195 @@
+{
+  "id": "pokeemerald:pokemon:qwilfish",
+  "name": "Qwilfish",
+  "cryId": "pokeemerald:audio:sfx/cries/qwilfish",
+  "baseStats": {
+    "hp": 65,
+    "attack": 95,
+    "speed": 85,
+    "spAttack": 55,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:intimidate"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:balloon",
+  "height": 5,
+  "weight": 39,
+  "description": "A Qwilfish uses the pressure of water  it swallows to shoot toxic quills all at  once from all over its body. It finds  swimming to be somewhat challenging.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:minimize"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spikes"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:acupressure"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:flail",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:bubble_beam",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:water_pulse",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:acid_spray"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/qwilfish/qwilfishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/qwilfish/qwilfishfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/qwilfish/qwilfishback",
+    "backShiny": "pokeemerald:pokemon:sprite/qwilfish/qwilfishbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/qwilfish/qwilfishicon",
+    "overworld": "pokeemerald:pokemon:sprite/qwilfish/qwilfishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/qwilfish/qwilfishoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:qwilfish/hisui",
+      "name": "Qwilfish",
+      "cryId": "pokeemerald:audio:sfx/cries/qwilfish",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 65,
+        "attack": 95,
+        "speed": 85,
+        "spAttack": 55,
+        "spDefense": 55
+      },
+      "types": [
+        "pokeemerald:type:dark",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:poison_point",
+        "pokeemerald:ability:swift_swim",
+        "pokeemerald:ability:intimidate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/qwilfish/qwilfishhisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

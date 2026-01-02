@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:omastar",
+  "name": "Omastar",
+  "cryId": "pokeemerald:audio:sfx/cries/omastar",
+  "baseStats": {
+    "hp": 70,
+    "attack": 60,
+    "defense": 125,
+    "speed": 55,
+    "spAttack": 115
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:spiral",
+  "height": 10,
+  "weight": 350,
+  "description": "An Omastar uses its tentacles to capture  its prey. It is believed to have become  extinct because its shell grew too large,  making its movements slow and ponderous.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/omastar/omastarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/omastar/omastarfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/omastar/omastarback",
+    "backShiny": "pokeemerald:pokemon:sprite/omastar/omastarbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/omastar/omastaricon",
+    "overworld": "pokeemerald:pokemon:sprite/omastar/omastaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/omastar/omastaroverworldshiny"
+  }
+}

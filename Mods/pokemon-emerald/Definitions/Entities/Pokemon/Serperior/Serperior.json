@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:serperior",
+  "name": "Serperior",
+  "cryId": "pokeemerald:audio:sfx/cries/serperior",
+  "baseStats": {
+    "hp": 75,
+    "attack": 75,
+    "defense": 95,
+    "speed": 113,
+    "spAttack": 75,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:contrary"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:regal",
+  "height": 33,
+  "weight": 630,
+  "description": "They raise their heads to intimidate foes,  but only give it their all when fighting  powerful opponents who are not fazed  by the glare from its noble eyes.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/serperior/serperiorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/serperior/serperiorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/serperior/serperiorback",
+    "backShiny": "pokeemerald:pokemon:sprite/serperior/serperiorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/serperior/serperioricon",
+    "overworld": "pokeemerald:pokemon:sprite/serperior/serperioroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/serperior/serperioroverworldshiny"
+  }
+}

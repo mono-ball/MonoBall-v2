@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:spinarak",
+  "name": "Spinarak",
+  "cryId": "pokeemerald:audio:sfx/cries/spinarak",
+  "baseStats": {
+    "hp": 40,
+    "attack": 60,
+    "defense": 40,
+    "speed": 30,
+    "spAttack": 40,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:insomnia",
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:string_spit",
+  "height": 5,
+  "weight": 85,
+  "description": "The web it spins can be considered its  second nervous system. It is said that a  Spinarak determines its prey by the tiny  vibrations it feels through the web.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 22,
+      "targetSpeciesId": "pokeemerald:pokemon:ariados"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:infestation"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:cross_poison"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:toxic_thread"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:sonic_boom",
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:signal_beam",
+    "pokeemerald:move:toxic_spikes",
+    "pokeemerald:move:twineedle",
+    "pokeemerald:move:electroweb",
+    "pokeemerald:move:rage_powder",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:megahorn",
+    "pokeemerald:move:lunge"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/spinarak/spinarakfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/spinarak/spinarakfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/spinarak/spinarakback",
+    "backShiny": "pokeemerald:pokemon:sprite/spinarak/spinarakbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/spinarak/spinarakicon",
+    "overworld": "pokeemerald:pokemon:sprite/spinarak/spinarakoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spinarak/spinarakoverworldshiny"
+  }
+}

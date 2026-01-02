@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:pokemon:wooloo",
+  "name": "Wooloo",
+  "cryId": "pokeemerald:audio:sfx/cries/wooloo",
+  "baseStats": {
+    "hp": 42,
+    "attack": 40,
+    "defense": 55,
+    "speed": 48,
+    "spAttack": 40,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "expYield": 122,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:fluffy",
+    "pokeemerald:ability:run_away",
+    "pokeemerald:ability:bulletproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:sheep",
+  "height": 6,
+  "weight": 60,
+  "description": "Its curly fleece is such an effective  cushion that this Pok\u00E9mon could fall off  a cliff and stand right back up at the  bottom, unharmed.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:dubwool"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:guard_swap"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:cotton_guard"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:counter"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wooloo/wooloofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wooloo/wooloofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wooloo/woolooback",
+    "backShiny": "pokeemerald:pokemon:sprite/wooloo/wooloobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wooloo/woolooicon",
+    "overworld": "pokeemerald:pokemon:sprite/wooloo/wooloooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wooloo/wooloooverworldshiny"
+  }
+}

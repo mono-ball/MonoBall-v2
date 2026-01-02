@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route121_safari_zone_entrance_event_script_trainer_tip_sign",
+  "name": "route121 safari zone entrance event script trainer tip sign",
+  "description": "Sign script: route121 safari zone entrance event script trainer tip sign",
+  "scriptPath": "Scripts/Signs/route121_safari_zone_entrance_event_script_trainer_tip_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

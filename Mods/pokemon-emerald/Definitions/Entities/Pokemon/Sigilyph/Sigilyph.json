@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:sigilyph",
+  "name": "Sigilyph",
+  "cryId": "pokeemerald:audio:sfx/cries/sigilyph",
+  "baseStats": {
+    "hp": 72,
+    "attack": 58,
+    "defense": 80,
+    "speed": 97,
+    "spAttack": 103,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 172,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:wonder_skin",
+    "pokeemerald:ability:magic_guard",
+    "pokeemerald:ability:tinted_lens"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:avianoid",
+  "height": 14,
+  "weight": 140,
+  "description": "The guardians of an ancient city, they  always fly the same route while keeping  watch for invaders. They use their  psychic power to attack enemies.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:sky_attack"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:skill_swap"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:stored_power",
+    "pokeemerald:move:psycho_shift",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:roost",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:future_sight"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sigilyph/sigilyphfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyphfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sigilyph/sigilyphback",
+    "backShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyphbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sigilyph/sigilyphicon",
+    "overworld": "pokeemerald:pokemon:sprite/sigilyph/sigilyphoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyphoverworldshiny"
+  }
+}

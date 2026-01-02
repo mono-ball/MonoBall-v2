@@ -1,0 +1,130 @@
+{
+  "id": "pokeemerald:pokemon:pyukumuku",
+  "name": "Pyukumuku",
+  "cryId": "pokeemerald:audio:sfx/cries/pyukumuku",
+  "baseStats": {
+    "hp": 55,
+    "attack": 60,
+    "defense": 130,
+    "speed": 5,
+    "spAttack": 30,
+    "spDefense": 130
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "expYield": 144,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:innards_out",
+    null,
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:sea_cucumber",
+  "height": 3,
+  "weight": 12,
+  "description": "It lives in shallow seas, such as areas  near a beach. The sticky mucous that  covers their bodies can be used to soothe  sunburned skin. How convenient!",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:purify"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:memento"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:venom_drench",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:spite"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukufrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuback",
+    "backShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukubackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuicon",
+    "overworld": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuoverworldshiny"
+  }
+}

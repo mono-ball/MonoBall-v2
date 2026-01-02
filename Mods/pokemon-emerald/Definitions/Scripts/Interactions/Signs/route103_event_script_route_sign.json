@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route103_event_script_route_sign",
+  "name": "route103 event script route sign",
+  "description": "Sign script: route103 event script route sign",
+  "scriptPath": "Scripts/Signs/route103_event_script_route_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

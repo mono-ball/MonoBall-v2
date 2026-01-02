@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_space_center_2f_event_script_tabitha",
+  "name": "mossdeep city space center 2f event script tabitha",
+  "description": "NPC interaction: mossdeep city space center 2f event script tabitha",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_space_center_2f_event_script_tabitha.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/gloom/gloomfront",
+  "name": "Gloomfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Gloom/GloomFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

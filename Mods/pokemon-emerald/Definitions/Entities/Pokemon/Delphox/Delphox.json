@@ -1,0 +1,204 @@
+{
+  "id": "pokeemerald:pokemon:delphox",
+  "name": "Delphox",
+  "cryId": "pokeemerald:audio:sfx/cries/delphox",
+  "baseStats": {
+    "hp": 75,
+    "attack": 69,
+    "defense": 72,
+    "speed": 104,
+    "spAttack": 114,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:magician"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fox",
+  "height": 15,
+  "weight": 390,
+  "description": "It gazes into the flame at the tip of its  branch to achieve a focused state, which  allows it to see into the future. It uses  psychic power to incinerate its foes.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:mystical_fire"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:magic_room"
+    },
+    {
+      "level": 74,
+      "moveId": "pokeemerald:move:fire_blast"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/delphox/delphoxfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/delphox/delphoxfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/delphox/delphoxback",
+    "backShiny": "pokeemerald:pokemon:sprite/delphox/delphoxbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/delphox/delphoxicon",
+    "overworld": "pokeemerald:pokemon:sprite/delphox/delphoxoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/delphox/delphoxoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:delphox/mega",
+      "name": "Delphox",
+      "cryId": "pokeemerald:audio:sfx/cries/delphox",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 75,
+        "attack": 69,
+        "defense": 72,
+        "speed": 134,
+        "spAttack": 159,
+        "spDefense": 125
+      },
+      "types": [
+        "pokeemerald:type:fire",
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:blaze",
+        null,
+        "pokeemerald:ability:magician"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/delphox/delphoxmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/delphox/delphoxmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/delphox/delphoxmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/delphox/delphoxmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/delphox/delphoxmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/delphox/delphoxmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/delphox/delphoxmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:delphoxite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

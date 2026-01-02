@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_paul",
+  "name": "route109 event script paul",
+  "description": "NPC interaction: route109 event script paul",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_paul.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:unfezant",
+  "name": "Unfezant",
+  "cryId": "pokeemerald:audio:sfx/cries/unfezant",
+  "baseStats": {
+    "hp": 80,
+    "defense": 80,
+    "speed": 93,
+    "spAttack": 65,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 244,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:big_pecks",
+    "pokeemerald:ability:super_luck",
+    "pokeemerald:ability:rivalry"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:proud",
+  "height": 12,
+  "weight": 290,
+  "description": "Males have plumage on their heads.  The females\u0027 flying abilities surpass  those of the males. They will only let  themselves feel close to their Trainers.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:sky_attack"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/unfezant/unfezantfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/unfezant/unfezantfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/unfezant/unfezantback",
+    "backShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/unfezant/unfezantbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/unfezant/unfezanticon",
+    "overworld": "pokeemerald:pokemon:sprite/unfezant/unfezantoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route104_pretty_petal_flower_shop_event_script_shop_owner",
+  "name": "route104 pretty petal flower shop event script shop owner",
+  "description": "NPC interaction: route104 pretty petal flower shop event script shop owner",
+  "scriptPath": "Scripts/Interactions/NPCs/route104_pretty_petal_flower_shop_event_script_shop_owner.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

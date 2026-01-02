@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/charizard/charizardback",
+  "name": "Charizardback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Charizard/CharizardBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

@@ -1,0 +1,175 @@
+{
+  "id": "pokeemerald:pokemon:psyduck",
+  "name": "Psyduck",
+  "cryId": "pokeemerald:audio:sfx/cries/psyduck",
+  "baseStats": {
+    "hp": 50,
+    "attack": 52,
+    "defense": 48,
+    "speed": 55,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:damp",
+    "pokeemerald:ability:cloud_nine",
+    "pokeemerald:ability:swift_swim"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:duck",
+  "height": 8,
+  "weight": 196,
+  "description": "When its headache intensifies, it starts  using strange powers. However, it has no  recollection of its powers, so it always  looks befuddled and bewildered.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 33,
+      "targetSpeciesId": "pokeemerald:pokemon:golduck"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:wonder_room"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:future_sight",
+    "pokeemerald:move:cross_chop",
+    "pokeemerald:move:refresh",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:mud_bomb",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:secret_power",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:synchronoise",
+    "pokeemerald:move:simple_beam",
+    "pokeemerald:move:clear_smog"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/psyduck/psyduckfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/psyduck/psyduckfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/psyduck/psyduckback",
+    "backShiny": "pokeemerald:pokemon:sprite/psyduck/psyduckbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/psyduck/psyduckicon",
+    "overworld": "pokeemerald:pokemon:sprite/psyduck/psyduckoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/psyduck/psyduckoverworldshiny"
+  }
+}

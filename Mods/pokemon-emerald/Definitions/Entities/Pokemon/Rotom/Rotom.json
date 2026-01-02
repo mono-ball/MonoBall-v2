@@ -1,0 +1,291 @@
+{
+  "id": "pokeemerald:pokemon:rotom",
+  "name": "Rotom",
+  "cryId": "pokeemerald:audio:sfx/cries/rotom",
+  "baseStats": {
+    "hp": 50,
+    "attack": 50,
+    "defense": 77,
+    "speed": 91,
+    "spAttack": 95,
+    "spDefense": 77
+  },
+  "types": [
+    "pokeemerald:type:electric",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:plasma",
+  "height": 3,
+  "weight": 3,
+  "description": "Its body is composed of plasma and loves  to surprise others. One boy\u0027s invention led  to the development of many machines that  can use of Rotom\u0027s unique capabilities.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:shock_wave"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:substitute"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:trick"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:uproar"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rotom/rotomfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/rotom/rotomback",
+    "backShiny": "pokeemerald:pokemon:sprite/rotom/rotombackshiny",
+    "icon": "pokeemerald:pokemon:sprite/rotom/rotomicon",
+    "overworld": "pokeemerald:pokemon:sprite/rotom/rotomoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:rotom/mow",
+      "name": "Rotom",
+      "cryId": "pokeemerald:audio:sfx/cries/rotom",
+      "formKey": "mow",
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "speed": 86,
+        "spAttack": 105,
+        "spDefense": 107
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:grass"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rotom/rotommowfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotommowfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotommowback",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotommowbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotommowicon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotommowoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotommowoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:rotom/fan",
+      "name": "Rotom",
+      "cryId": "pokeemerald:audio:sfx/cries/rotom",
+      "formKey": "fan",
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "speed": 86,
+        "spAttack": 105,
+        "spDefense": 107
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rotom/rotomfanfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomfanfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotomfanback",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomfanbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotomfanicon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomfanoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomfanoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:rotom/frost",
+      "name": "Rotom",
+      "cryId": "pokeemerald:audio:sfx/cries/rotom",
+      "formKey": "frost",
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "speed": 86,
+        "spAttack": 105,
+        "spDefense": 107
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:ice"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rotom/rotomfrostfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrostfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotomfrostback",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrostbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotomfrosticon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomfrostoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrostoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:rotom/wash",
+      "name": "Rotom",
+      "cryId": "pokeemerald:audio:sfx/cries/rotom",
+      "formKey": "wash",
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "speed": 86,
+        "spAttack": 105,
+        "spDefense": 107
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rotom/rotomwashfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomwashfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotomwashback",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomwashbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotomwashicon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomwashoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomwashoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:rotom/heat",
+      "name": "Rotom",
+      "cryId": "pokeemerald:audio:sfx/cries/rotom",
+      "formKey": "heat",
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "speed": 86,
+        "spAttack": 105,
+        "spDefense": 107
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:fire"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/rotom/rotomheatfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomheatfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotomheatback",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomheatbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotomheaticon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomheatoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomheatoverworldshiny"
+      }
+    }
+  ]
+}

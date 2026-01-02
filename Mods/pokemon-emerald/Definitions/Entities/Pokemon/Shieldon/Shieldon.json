@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:shieldon",
+  "name": "Shieldon",
+  "cryId": "pokeemerald:audio:sfx/cries/shieldon",
+  "baseStats": {
+    "hp": 30,
+    "attack": 42,
+    "defense": 118,
+    "speed": 30,
+    "spAttack": 42,
+    "spDefense": 88
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    null,
+    "pokeemerald:ability:soundproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:shield",
+  "height": 5,
+  "weight": 570,
+  "description": "This Pok\u00E9mon lived in primeval jungles.  Few enemies would have been willing to  square off against its heavily armored  face, so it\u0027s thought.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:bastiodon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:metal_burst"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:heavy_slam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:focus_energy",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:rock_blast",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:guard_split"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shieldon/shieldonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shieldon/shieldonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/shieldon/shieldonback",
+    "backShiny": "pokeemerald:pokemon:sprite/shieldon/shieldonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/shieldon/shieldonicon",
+    "overworld": "pokeemerald:pokemon:sprite/shieldon/shieldonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shieldon/shieldonoverworldshiny"
+  }
+}

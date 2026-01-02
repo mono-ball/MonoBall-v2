@@ -1,0 +1,124 @@
+{
+  "id": "pokeemerald:pokemon:poipole",
+  "name": "Poipole",
+  "cryId": "pokeemerald:audio:sfx/cries/poipole",
+  "baseStats": {
+    "hp": 67,
+    "attack": 73,
+    "defense": 67,
+    "speed": 73,
+    "spAttack": 73,
+    "spDefense": 67
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:poison_pin",
+  "height": 6,
+  "weight": 18,
+  "description": "This Ultra Beast is well enough  liked to be chosen as a  first partner in its own world.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:naganadel"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:venom_drench"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:toxic"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/poipole/poipolefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/poipole/poipolefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/poipole/poipoleback",
+    "backShiny": "pokeemerald:pokemon:sprite/poipole/poipolebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/poipole/poipoleicon",
+    "overworld": "pokeemerald:pokemon:sprite/poipole/poipoleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/poipole/poipoleoverworldshiny"
+  },
+  "isUltraBeast": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_battle_tent_lobby_event_script_lass",
+  "name": "fallarbor town battle tent lobby event script lass",
+  "description": "NPC interaction: fallarbor town battle tent lobby event script lass",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_battle_tent_lobby_event_script_lass.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,126 @@
+{
+  "id": "pokeemerald:pokemon:carkol",
+  "name": "Carkol",
+  "cryId": "pokeemerald:audio:sfx/cries/carkol",
+  "baseStats": {
+    "hp": 80,
+    "attack": 60,
+    "defense": 90,
+    "speed": 50,
+    "spAttack": 60,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 120,
+  "expYield": 144,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:steam_engine",
+    "pokeemerald:ability:flame_body",
+    "pokeemerald:ability:flash_fire"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:coal",
+  "height": 11,
+  "weight": 780,
+  "description": "It forms coal inside its body. Coal  dropped by this Pok\u00E9mon once helped fuel  the lives of people in the Galar region.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 34,
+      "targetSpeciesId": "pokeemerald:pokemon:coalossal"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:heat_crash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/carkol/carkolfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/carkol/carkolfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/carkol/carkolback",
+    "backShiny": "pokeemerald:pokemon:sprite/carkol/carkolbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/carkol/carkolicon",
+    "overworld": "pokeemerald:pokemon:sprite/carkol/carkoloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carkol/carkoloverworldshiny"
+  }
+}

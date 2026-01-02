@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_name_raters_house_event_script_name_rater",
+  "name": "slateport city name raters house event script name rater",
+  "description": "NPC interaction: slateport city name raters house event script name rater",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_name_raters_house_event_script_name_rater.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

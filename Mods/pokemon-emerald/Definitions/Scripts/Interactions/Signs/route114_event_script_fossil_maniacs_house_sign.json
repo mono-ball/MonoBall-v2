@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route114_event_script_fossil_maniacs_house_sign",
+  "name": "route114 event script fossil maniacs house sign",
+  "description": "Sign script: route114 event script fossil maniacs house sign",
+  "scriptPath": "Scripts/Signs/route114_event_script_fossil_maniacs_house_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,183 @@
+{
+  "id": "pokeemerald:pokemon:vikavolt",
+  "name": "Vikavolt",
+  "cryId": "pokeemerald:audio:sfx/cries/vikavolt",
+  "baseStats": {
+    "hp": 77,
+    "attack": 70,
+    "defense": 90,
+    "speed": 43,
+    "spAttack": 145,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:stag_beetle",
+  "height": 15,
+  "weight": 450,
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:thunderbolt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:guillotine"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:fly"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:zap_cannon"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/vikavolt/vikavoltfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavoltfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/vikavolt/vikavoltback",
+    "backShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavoltbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/vikavolt/vikavolticon",
+    "overworld": "pokeemerald:pokemon:sprite/vikavolt/vikavoltoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavoltoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:vikavolt/totem",
+      "name": "Vikavolt",
+      "cryId": "pokeemerald:audio:sfx/cries/vikavolt",
+      "formKey": "totem",
+      "baseStats": {
+        "hp": 77,
+        "attack": 70,
+        "defense": 90,
+        "speed": 43,
+        "spAttack": 145,
+        "spDefense": 75
+      },
+      "types": [
+        "pokeemerald:type:bug",
+        "pokeemerald:type:electric"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemback",
+        "backShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotembackshiny",
+        "icon": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemicon",
+        "overworld": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:totem"
+    }
+  ]
+}

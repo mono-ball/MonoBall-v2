@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/littleroot_town_event_script_town_sign",
+  "name": "littleroot town event script town sign",
+  "description": "Sign script: littleroot town event script town sign",
+  "scriptPath": "Scripts/Signs/littleroot_town_event_script_town_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

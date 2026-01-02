@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/southern_island_exterior_event_script_sailor",
+  "name": "southern island exterior event script sailor",
+  "description": "NPC interaction: southern island exterior event script sailor",
+  "scriptPath": "Scripts/Interactions/NPCs/southern_island_exterior_event_script_sailor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

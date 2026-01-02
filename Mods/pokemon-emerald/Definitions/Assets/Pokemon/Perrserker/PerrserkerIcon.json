@@ -1,0 +1,24 @@
+{
+  "id": "pokeemerald:pokemon:sprite/perrserker/perrserkericon",
+  "name": "Perrserkericon",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Perrserker/PerrserkerIcon.png",
+  "spriteType": "icon",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "frameCount": 2,
+  "animations": [
+    {
+      "name": "bounce",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route116_event_script_devon_employee",
+  "name": "route116 event script devon employee",
+  "description": "NPC interaction: route116 event script devon employee",
+  "scriptPath": "Scripts/Interactions/NPCs/route116_event_script_devon_employee.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

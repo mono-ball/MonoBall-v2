@@ -1,0 +1,161 @@
+{
+  "id": "pokeemerald:pokemon:entei",
+  "name": "Entei",
+  "cryId": "pokeemerald:audio:sfx/cries/entei",
+  "baseStats": {
+    "hp": 115,
+    "attack": 115,
+    "defense": 85,
+    "speed": 100,
+    "spAttack": 90,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "hp": 1,
+    "attack": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 80,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:inner_focus"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:volcano",
+  "height": 21,
+  "weight": 1980,
+  "description": "Entei embodies the passion of magma.  It is thought to have been born in the  eruption of a volcano. It blasts fire that  consumes all that it touches.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sacred_fire"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:extreme_speed"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 78,
+      "moveId": "pokeemerald:move:eruption"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/entei/enteifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/entei/enteifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/entei/enteiback",
+    "backShiny": "pokeemerald:pokemon:sprite/entei/enteibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/entei/enteiicon",
+    "overworld": "pokeemerald:pokemon:sprite/entei/enteioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/entei/enteioverworldshiny"
+  },
+  "isLegendary": true
+}

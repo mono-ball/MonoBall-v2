@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_ty",
+  "name": "slateport city event script ty",
+  "description": "NPC interaction: slateport city event script ty",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_ty.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route119_event_script_greg",
+  "name": "route119 event script greg",
+  "description": "NPC interaction: route119 event script greg",
+  "scriptPath": "Scripts/Interactions/NPCs/route119_event_script_greg.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

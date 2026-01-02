@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_herb_shop_event_script_expert_m",
+  "name": "lavaridge town herb shop event script expert m",
+  "description": "NPC interaction: lavaridge town herb shop event script expert m",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_herb_shop_event_script_expert_m.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

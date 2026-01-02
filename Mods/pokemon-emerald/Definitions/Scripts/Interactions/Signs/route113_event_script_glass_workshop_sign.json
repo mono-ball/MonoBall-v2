@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route113_event_script_glass_workshop_sign",
+  "name": "route113 event script glass workshop sign",
+  "description": "Sign script: route113 event script glass workshop sign",
+  "scriptPath": "Scripts/Signs/route113_event_script_glass_workshop_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

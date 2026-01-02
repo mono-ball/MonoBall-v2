@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route116_event_script_clark",
+  "name": "route116 event script clark",
+  "description": "NPC interaction: route116 event script clark",
+  "scriptPath": "Scripts/Interactions/NPCs/route116_event_script_clark.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

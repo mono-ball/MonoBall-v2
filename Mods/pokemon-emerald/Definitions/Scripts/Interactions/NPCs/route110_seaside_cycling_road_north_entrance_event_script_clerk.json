@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_seaside_cycling_road_north_entrance_event_script_clerk",
+  "name": "route110 seaside cycling road north entrance event script clerk",
+  "description": "NPC interaction: route110 seaside cycling road north entrance event script clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_seaside_cycling_road_north_entrance_event_script_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

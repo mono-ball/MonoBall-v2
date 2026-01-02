@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:wailmer",
+  "name": "Wailmer",
+  "cryId": "pokeemerald:audio:sfx/cries/wailmer",
+  "baseStats": {
+    "hp": 130,
+    "attack": 70,
+    "defense": 35,
+    "speed": 60,
+    "spAttack": 70,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 125,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:water_veil",
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:pressure"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ball_whale",
+  "height": 20,
+  "weight": 1300,
+  "description": "While this Pok\u00E9mon usually lives in the sea,  it can survive on land, although not too  long. It loses vitality if its body becomes  dried out.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:wailord"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:water_spout"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:soak",
+    "pokeemerald:move:zen_headbutt",
+    "pokeemerald:move:clear_smog"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wailmer/wailmerfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wailmer/wailmerfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wailmer/wailmerback",
+    "backShiny": "pokeemerald:pokemon:sprite/wailmer/wailmerbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wailmer/wailmericon",
+    "overworld": "pokeemerald:pokemon:sprite/wailmer/wailmeroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wailmer/wailmeroverworldshiny"
+  }
+}

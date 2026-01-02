@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:purrloin",
+  "name": "Purrloin",
+  "cryId": "pokeemerald:audio:sfx/cries/purrloin",
+  "baseStats": {
+    "hp": 41,
+    "attack": 50,
+    "defense": 37,
+    "speed": 66,
+    "spAttack": 50,
+    "spDefense": 37
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 255,
+  "expYield": 56,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:limber",
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:prankster"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:devious",
+  "height": 4,
+  "weight": 101,
+  "description": "Their deceptively cute act is the  perfect ruse. They steal from people for  fun, but their victims can\u0027t help but  forgive them.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:liepard"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:pay_day",
+    "pokeemerald:move:foul_play",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:covet",
+    "pokeemerald:move:copycat"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/purrloin/purrloinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/purrloin/purrloinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/purrloin/purrloinback",
+    "backShiny": "pokeemerald:pokemon:sprite/purrloin/purrloinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/purrloin/purrloinicon",
+    "overworld": "pokeemerald:pokemon:sprite/purrloin/purrloinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/purrloin/purrloinoverworldshiny"
+  }
+}

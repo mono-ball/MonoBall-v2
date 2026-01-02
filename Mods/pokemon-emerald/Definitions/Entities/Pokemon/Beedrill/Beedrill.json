@@ -1,0 +1,185 @@
+{
+  "id": "pokeemerald:pokemon:beedrill",
+  "name": "Beedrill",
+  "cryId": "pokeemerald:audio:sfx/cries/beedrill",
+  "baseStats": {
+    "hp": 65,
+    "defense": 40,
+    "speed": 75,
+    "spAttack": 45
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "expYield": 198,
+  "evYield": {
+    "attack": 2,
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    null,
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:poison_bee",
+  "height": 10,
+  "weight": 295,
+  "description": "A Beedrill is extremely territorial.  For safety reasons, no one should ever  approach its nest. If angered, they will  attack in a swarm.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:fell_stinger"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/beedrill/beedrillfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/beedrill/beedrillback",
+    "backShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/beedrill/beedrillicon",
+    "overworld": "pokeemerald:pokemon:sprite/beedrill/beedrilloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beedrill/beedrilloverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:beedrill/mega",
+      "name": "Beedrill",
+      "cryId": "pokeemerald:audio:sfx/cries/beedrill-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 65,
+        "defense": 40,
+        "speed": 145,
+        "spAttack": 15,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:bug",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:adaptability",
+        "pokeemerald:ability:adaptability",
+        "pokeemerald:ability:adaptability"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/beedrill/beedrillmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:beedrillite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

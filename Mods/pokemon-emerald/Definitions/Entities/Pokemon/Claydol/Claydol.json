@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:claydol",
+  "name": "Claydol",
+  "cryId": "pokeemerald:audio:sfx/cries/claydol",
+  "baseStats": {
+    "hp": 60,
+    "attack": 70,
+    "defense": 105,
+    "speed": 75,
+    "spAttack": 70,
+    "spDefense": 120
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:clay_doll",
+  "height": 15,
+  "weight": 1080,
+  "description": "A Claydol sleeps while hovering in midair.  Its arms are separate from its body.  They are kept floating by the Pok\u00E9mon\u0027s  manipulation of psychic power.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:hyper_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hyper_beam"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rock_tomb"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:power_trick"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:power_split"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/claydol/claydolfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/claydol/claydolfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/claydol/claydolback",
+    "backShiny": "pokeemerald:pokemon:sprite/claydol/claydolbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/claydol/claydolicon",
+    "overworld": "pokeemerald:pokemon:sprite/claydol/claydoloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/claydol/claydoloverworldshiny"
+  }
+}

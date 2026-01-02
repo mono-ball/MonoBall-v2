@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lilycove_city_lilycove_museum_1f_event_script_old_painting",
+  "name": "lilycove city lilycove museum 1f event script old painting",
+  "description": "Sign script: lilycove city lilycove museum 1f event script old painting",
+  "scriptPath": "Scripts/Signs/lilycove_city_lilycove_museum_1f_event_script_old_painting.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

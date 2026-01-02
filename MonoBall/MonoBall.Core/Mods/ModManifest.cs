@@ -45,10 +45,11 @@ public class ModManifest
     public int Priority { get; set; } = 0;
 
     /// <summary>
-    ///     Mapping of content folder types to their relative paths within the mod directory.
+    ///     Optional mapping of custom definition types to paths for documentation/validation.
+    ///     This is optional - custom types work automatically through directory name inference.
     /// </summary>
-    [JsonPropertyName("contentFolders")]
-    public Dictionary<string, string> ContentFolders { get; set; } = new();
+    [JsonPropertyName("customDefinitionTypes")]
+    public Dictionary<string, string>? CustomDefinitionTypes { get; set; }
 
     /// <summary>
     ///     List of plugin script file paths relative to the mod root.

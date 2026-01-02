@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle5_event_script_mechadoll2",
+  "name": "route110 trick house puzzle5 event script mechadoll2",
+  "description": "NPC interaction: route110 trick house puzzle5 event script mechadoll2",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle5_event_script_mechadoll2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

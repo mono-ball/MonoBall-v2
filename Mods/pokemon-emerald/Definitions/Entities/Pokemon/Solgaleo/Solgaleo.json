@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:solgaleo",
+  "name": "Solgaleo",
+  "cryId": "pokeemerald:audio:sfx/cries/solgaleo",
+  "baseStats": {
+    "hp": 137,
+    "attack": 137,
+    "defense": 107,
+    "speed": 97,
+    "spAttack": 113,
+    "spDefense": 89
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:full_metal_body",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:sunne",
+  "height": 34,
+  "weight": 2300,
+  "description": "It is said to live in another world.  The intense light it radiates from the  surface of its body can make the darkest  of nights light up like midday.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:sunsteel_strike"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:teleport"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:morning_sun"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:metal_burst"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:solar_beam"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:flare_blitz"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:giga_impact"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/solgaleo/solgaleofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/solgaleo/solgaleofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/solgaleo/solgaleoback",
+    "backShiny": "pokeemerald:pokemon:sprite/solgaleo/solgaleobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/solgaleo/solgaleoicon",
+    "overworld": "pokeemerald:pokemon:sprite/solgaleo/solgaleooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/solgaleo/solgaleooverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

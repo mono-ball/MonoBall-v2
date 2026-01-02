@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_melissa",
+  "name": "mt chimney event script melissa",
+  "description": "NPC interaction: mt chimney event script melissa",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_melissa.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

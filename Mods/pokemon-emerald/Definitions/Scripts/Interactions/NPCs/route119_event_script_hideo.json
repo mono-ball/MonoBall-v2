@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route119_event_script_hideo",
+  "name": "route119 event script hideo",
+  "description": "NPC interaction: route119 event script hideo",
+  "scriptPath": "Scripts/Interactions/NPCs/route119_event_script_hideo.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

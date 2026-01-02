@@ -88,7 +88,7 @@ public class DoorAnimationExtractor : ExtractorBase
         }
 
         // Copy the sprite sheet
-        var outputPngPath = GetGraphicsPath("DoorAnimations", $"{pascalName}.png");
+        var outputPngPath = GetGraphicsPath("Maps", "Tiles", "DoorAnimations", $"{pascalName}.png");
         File.Copy(pngFile, outputPngPath, overwrite: true);
 
         // Build frames array (frames are stacked vertically)
@@ -136,7 +136,7 @@ public class DoorAnimationExtractor : ExtractorBase
             id = $"{IdTransformer.Namespace}:sprite:door-animations/{fileName.Replace("_", "-")}",
             name = FormatName(fileName),
             type = "Sprite",
-            texturePath = $"Graphics/DoorAnimations/{pascalName}.png",
+            texturePath = $"Graphics/Maps/Tiles/DoorAnimations/{pascalName}.png",
             frameWidth,
             frameHeight,
             frameCount,
@@ -146,7 +146,7 @@ public class DoorAnimationExtractor : ExtractorBase
             animations
         };
 
-        var defPath = GetDefinitionPath("DoorAnimations", $"{pascalName}.json");
+        var defPath = GetDefinitionPath("Maps", "Tiles", "DoorAnimations", $"{pascalName}.json");
         var json = JsonSerializer.Serialize(definition, JsonOptions.Default);
         File.WriteAllText(defPath, json);
 

@@ -1,0 +1,66 @@
+{
+  "id": "pokeemerald:pokemon:cosmog",
+  "name": "Cosmog",
+  "cryId": "pokeemerald:audio:sfx/cries/cosmog",
+  "baseStats": {
+    "hp": 43,
+    "attack": 29,
+    "defense": 31,
+    "speed": 37,
+    "spAttack": 29,
+    "spDefense": 31
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 40,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:unaware",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:nebula",
+  "height": 2,
+  "weight": 1,
+  "description": "In ages past, it was called the child of  the stars. It\u0027s said to be a Pok\u00E9mon from  another world, but no specific details  are known.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 43,
+      "targetSpeciesId": "pokeemerald:pokemon:cosmoem"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:teleport"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cosmog/cosmogfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cosmog/cosmogfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cosmog/cosmogback",
+    "backShiny": "pokeemerald:pokemon:sprite/cosmog/cosmogbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cosmog/cosmogicon",
+    "overworld": "pokeemerald:pokemon:sprite/cosmog/cosmogoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cosmog/cosmogoverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

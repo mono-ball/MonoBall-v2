@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/ss_tidal_rooms_event_script_jed",
+  "name": "ss tidal rooms event script jed",
+  "description": "NPC interaction: ss tidal rooms event script jed",
+  "scriptPath": "Scripts/Interactions/NPCs/ss_tidal_rooms_event_script_jed.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

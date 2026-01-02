@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/special/rg-oak-lab",
+  "name": "Rg Oak Lab",
+  "audioPath": "Audio/Music/Special/RgOakLab.ogg",
+  "volume": 0.59,
+  "loop": true,
+  "loopStartSamples": 44100,
+  "loopLengthSamples": 705600
+}

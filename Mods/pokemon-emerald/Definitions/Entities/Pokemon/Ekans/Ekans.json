@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:ekans",
+  "name": "Ekans",
+  "cryId": "pokeemerald:audio:sfx/cries/ekans",
+  "baseStats": {
+    "hp": 35,
+    "attack": 60,
+    "defense": 44,
+    "speed": 55,
+    "spAttack": 40
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:shed_skin",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:snake",
+  "height": 20,
+  "weight": 69,
+  "description": "An Ekans curls itself up in a spiral while  it rests. This position allows it to quickly  respond to an enemy from any direction  with a threat from its upraised head.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 22,
+      "targetSpeciesId": "pokeemerald:pokemon:arbok"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:gunk_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:spite",
+    "pokeemerald:move:beat_up",
+    "pokeemerald:move:poison_fang",
+    "pokeemerald:move:scary_face",
+    "pokeemerald:move:poison_tail",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:switcheroo",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:snatch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ekans/ekansfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ekans/ekansfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ekans/ekansback",
+    "backShiny": "pokeemerald:pokemon:sprite/ekans/ekansbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ekans/ekansicon",
+    "overworld": "pokeemerald:pokemon:sprite/ekans/ekansoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ekans/ekansoverworldshiny"
+  }
+}

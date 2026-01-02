@@ -1,0 +1,194 @@
+{
+  "id": "pokeemerald:pokemon:sandslash",
+  "name": "Sandslash",
+  "cryId": "pokeemerald:audio:sfx/cries/sandslash",
+  "baseStats": {
+    "hp": 75,
+    "attack": 100,
+    "defense": 110,
+    "speed": 65,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sand_veil",
+    null,
+    "pokeemerald:ability:sand_rush"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:mouse",
+  "height": 10,
+  "weight": 295,
+  "description": "It curls up in a ball to protect itself from  enemy attacks. It also curls up to prevent  heatstroke during the daytime when  temperatures rise sharply.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crush_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 61,
+      "moveId": "pokeemerald:move:earthquake"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sandslash/sandslashfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sandslash/sandslashback",
+    "backShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sandslash/sandslashicon",
+    "overworld": "pokeemerald:pokemon:sprite/sandslash/sandslashoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:sandslash/alola",
+      "name": "Sandslash",
+      "cryId": "pokeemerald:audio:sfx/cries/sandslash",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 120,
+        "speed": 65,
+        "spAttack": 25,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:ice",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:snow_cloak",
+        null,
+        "pokeemerald:ability:slush_rush"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/sandslash/sandslashalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

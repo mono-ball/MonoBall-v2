@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lavaridge_town_pokemon_center_1f_event_script_woman",
+  "name": "lavaridge town pokemon center 1f event script woman",
+  "description": "NPC interaction: lavaridge town pokemon center 1f event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/lavaridge_town_pokemon_center_1f_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

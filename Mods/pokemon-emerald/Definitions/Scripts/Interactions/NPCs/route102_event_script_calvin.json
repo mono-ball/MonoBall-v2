@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route102_event_script_calvin",
+  "name": "route102 event script calvin",
+  "description": "NPC interaction: route102 event script calvin",
+  "scriptPath": "Scripts/Interactions/NPCs/route102_event_script_calvin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

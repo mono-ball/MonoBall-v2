@@ -1,0 +1,188 @@
+{
+  "id": "pokeemerald:pokemon:zorua",
+  "name": "Zorua",
+  "cryId": "pokeemerald:audio:sfx/cries/zorua",
+  "baseStats": {
+    "hp": 40,
+    "attack": 65,
+    "defense": 40,
+    "speed": 65,
+    "spAttack": 80,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 75,
+  "expYield": 66,
+  "evYield": {
+    "spAttack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:illusion",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:tricky_fox",
+  "height": 7,
+  "weight": 125,
+  "description": "To protect themselves from danger, they  hide their true identities by transforming  into people and Pok\u00E9mon. Apparently, it  often transforms into a silent child.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:zoroark"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:night_daze"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:foul_play"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:detect",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:dark_pulse",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:memento",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:extrasensory",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:copycat"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/zorua/zoruafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/zorua/zoruafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/zorua/zoruaback",
+    "backShiny": "pokeemerald:pokemon:sprite/zorua/zoruabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/zorua/zoruaicon",
+    "overworld": "pokeemerald:pokemon:sprite/zorua/zoruaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zorua/zoruaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:zorua/hisui",
+      "name": "Zorua",
+      "cryId": "pokeemerald:audio:sfx/cries/zorua",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 35,
+        "attack": 60,
+        "defense": 40,
+        "speed": 70,
+        "spAttack": 85,
+        "spDefense": 40
+      },
+      "types": [
+        "pokeemerald:type:normal",
+        "pokeemerald:type:ghost"
+      ],
+      "abilities": [
+        "pokeemerald:ability:illusion",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/zorua/zoruahisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/zorua/zoruahisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/zorua/zoruahisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/zorua/zoruahisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/zorua/zoruahisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/zorua/zoruahisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/zorua/zoruahisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

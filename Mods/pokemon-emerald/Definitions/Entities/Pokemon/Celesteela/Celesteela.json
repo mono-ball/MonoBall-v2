@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:celesteela",
+  "name": "Celesteela",
+  "cryId": "pokeemerald:audio:sfx/cries/celesteela",
+  "baseStats": {
+    "hp": 97,
+    "attack": 101,
+    "defense": 103,
+    "speed": 61,
+    "spAttack": 107,
+    "spDefense": 101
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1,
+    "defense": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:launch",
+  "height": 92,
+  "weight": 9999,
+  "description": "It appeared from the Ultra Wormhole.  One kind of Ultra Beast, witnesses saw  it flying across the sky by expelling gas  from its two arms.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:skull_bash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/celesteela/celesteelafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/celesteela/celesteelafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/celesteela/celesteelaback",
+    "backShiny": "pokeemerald:pokemon:sprite/celesteela/celesteelabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/celesteela/celesteelaicon",
+    "overworld": "pokeemerald:pokemon:sprite/celesteela/celesteelaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/celesteela/celesteelaoverworldshiny"
+  },
+  "isUltraBeast": true
+}

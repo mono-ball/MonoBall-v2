@@ -1,0 +1,130 @@
+{
+  "id": "pokeemerald:pokemon:grafaiai",
+  "name": "Grafaiai",
+  "cryId": "pokeemerald:audio:sfx/cries/grafaiai",
+  "baseStats": {
+    "hp": 63,
+    "attack": 95,
+    "defense": 65,
+    "speed": 110,
+    "spAttack": 80,
+    "spDefense": 72
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 90,
+  "expYield": 170,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:unburden",
+    "pokeemerald:ability:poison_touch",
+    "pokeemerald:ability:prankster"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:toxic_monkey",
+  "height": 7,
+  "weight": 272,
+  "description": "Each Grafaiai paints its own  individual pattern, and it will paint that  same pattern over and over again  throughout its life.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:doodle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:substitute"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:gunk_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/grafaiai/grafaiaifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/grafaiai/grafaiaifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/grafaiai/grafaiaiback",
+    "backShiny": "pokeemerald:pokemon:sprite/grafaiai/grafaiaibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/grafaiai/grafaiaiicon",
+    "overworld": "pokeemerald:pokemon:sprite/grafaiai/grafaiaioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grafaiai/grafaiaioverworldshiny"
+  }
+}

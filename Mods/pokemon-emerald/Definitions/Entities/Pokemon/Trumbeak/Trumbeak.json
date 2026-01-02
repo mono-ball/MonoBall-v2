@@ -1,0 +1,135 @@
+{
+  "id": "pokeemerald:pokemon:trumbeak",
+  "name": "Trumbeak",
+  "cryId": "pokeemerald:audio:sfx/cries/trumbeak",
+  "baseStats": {
+    "hp": 55,
+    "attack": 85,
+    "defense": 50,
+    "speed": 75,
+    "spAttack": 40,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 120,
+  "expYield": 124,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:skill_link",
+    "pokeemerald:ability:pickup"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:bugle_beak",
+  "height": 6,
+  "weight": 148,
+  "description": "By bending its beak, it can produce a  variety of calls and brand itself a noisy  nuisance for its neighbors. It eats  berries and stores their seeds in its beak.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 28,
+      "targetSpeciesId": "pokeemerald:pokemon:toucannon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hyper_voice"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/trumbeak/trumbeakfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/trumbeak/trumbeakfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/trumbeak/trumbeakback",
+    "backShiny": "pokeemerald:pokemon:sprite/trumbeak/trumbeakbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/trumbeak/trumbeakicon",
+    "overworld": "pokeemerald:pokemon:sprite/trumbeak/trumbeakoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/trumbeak/trumbeakoverworldshiny"
+  }
+}

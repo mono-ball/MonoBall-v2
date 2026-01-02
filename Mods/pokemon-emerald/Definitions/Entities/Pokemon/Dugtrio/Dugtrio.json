@@ -1,0 +1,174 @@
+{
+  "id": "pokeemerald:pokemon:dugtrio",
+  "name": "Dugtrio",
+  "cryId": "pokeemerald:audio:sfx/cries/dugtrio",
+  "baseStats": {
+    "hp": 35,
+    "defense": 50,
+    "speed": 120,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 50,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sand_veil",
+    "pokeemerald:ability:arena_trap",
+    "pokeemerald:ability:sand_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mole",
+  "height": 7,
+  "weight": 333,
+  "description": "Because the triplets originally split from  one body, they think exactly alike.  They work cooperatively to burrow  endlessly through the ground.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tri_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:fissure"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dugtrio/dugtriofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dugtrio/dugtriofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dugtrio/dugtrioback",
+    "backShiny": "pokeemerald:pokemon:sprite/dugtrio/dugtriobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dugtrio/dugtrioicon",
+    "overworld": "pokeemerald:pokemon:sprite/dugtrio/dugtriooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dugtrio/dugtriooverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:dugtrio/alola",
+      "name": "Dugtrio",
+      "cryId": "pokeemerald:audio:sfx/cries/dugtrio",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 35,
+        "attack": 100,
+        "defense": 60,
+        "speed": 110,
+        "spAttack": 50,
+        "spDefense": 70
+      },
+      "types": [
+        "pokeemerald:type:ground",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:sand_veil",
+        "pokeemerald:ability:tangling_hair",
+        "pokeemerald:ability:sand_force"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/dugtrio/dugtrioalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

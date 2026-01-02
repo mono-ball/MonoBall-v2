@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route119_weather_institute_2f_event_script_weather_scientist",
+  "name": "route119 weather institute 2f event script weather scientist",
+  "description": "NPC interaction: route119 weather institute 2f event script weather scientist",
+  "scriptPath": "Scripts/Interactions/NPCs/route119_weather_institute_2f_event_script_weather_scientist.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

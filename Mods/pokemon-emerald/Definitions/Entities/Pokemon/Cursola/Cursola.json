@@ -1,0 +1,137 @@
+{
+  "id": "pokeemerald:pokemon:cursola",
+  "name": "Cursola",
+  "cryId": "pokeemerald:audio:sfx/cries/cursola",
+  "baseStats": {
+    "hp": 60,
+    "attack": 95,
+    "defense": 50,
+    "speed": 30,
+    "spAttack": 145,
+    "spDefense": 130
+  },
+  "types": [
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 30,
+  "expYield": 179,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:weak_armor",
+    null,
+    "pokeemerald:ability:perish_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:coral",
+  "height": 10,
+  "weight": 4,
+  "description": "Its shell is overflowing with its  heightened otherworldly energy. The  ectoplasm serves as protection for this  Pok\u00E9mon\u0027s core spirit.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:perish_song"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:spite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:strength_sap"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:grudge"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:mirror_coat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cursola/cursolafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cursola/cursolafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cursola/cursolaback",
+    "backShiny": "pokeemerald:pokemon:sprite/cursola/cursolabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cursola/cursolaicon",
+    "overworld": "pokeemerald:pokemon:sprite/cursola/cursolaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cursola/cursolaoverworldshiny"
+  }
+}

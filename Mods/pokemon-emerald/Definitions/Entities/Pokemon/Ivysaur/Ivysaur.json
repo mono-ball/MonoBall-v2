@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:ivysaur",
+  "name": "Ivysaur",
+  "cryId": "pokeemerald:audio:sfx/cries/ivysaur",
+  "baseStats": {
+    "hp": 60,
+    "attack": 62,
+    "defense": 63,
+    "speed": 60,
+    "spAttack": 80,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:chlorophyll"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:seed",
+  "height": 10,
+  "weight": 130,
+  "description": "To support its bulb, Ivysaur\u0027s legs  grow sturdy. If it spends more time lying in  the sunlight, the bud will soon bloom into  a large flower.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 32,
+      "targetSpeciesId": "pokeemerald:pokemon:venusaur"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:worry_seed"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:power_whip"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:solar_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ivysaur/ivysaurfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaurfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ivysaur/ivysaurback",
+    "backShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaurbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ivysaur/ivysauricon",
+    "overworld": "pokeemerald:pokemon:sprite/ivysaur/ivysauroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysauroverworldshiny"
+  }
+}

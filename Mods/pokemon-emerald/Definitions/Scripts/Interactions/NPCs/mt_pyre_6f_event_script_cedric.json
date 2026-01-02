@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_pyre_6f_event_script_cedric",
+  "name": "mt pyre 6f event script cedric",
+  "description": "NPC interaction: mt pyre 6f event script cedric",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_pyre_6f_event_script_cedric.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

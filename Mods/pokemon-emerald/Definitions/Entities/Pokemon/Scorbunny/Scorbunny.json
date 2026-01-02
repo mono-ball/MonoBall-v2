@@ -1,0 +1,125 @@
+{
+  "id": "pokeemerald:pokemon:scorbunny",
+  "name": "Scorbunny",
+  "cryId": "pokeemerald:audio:sfx/cries/scorbunny",
+  "baseStats": {
+    "hp": 50,
+    "attack": 71,
+    "defense": 40,
+    "speed": 69,
+    "spAttack": 40,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 62,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:libero"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:rabbit",
+  "height": 3,
+  "weight": 45,
+  "description": "A warm-up of running around gets fire  energy coursing through this Pok\u00E9mon\u0027s  body. Once that happens, it\u0027s ready to  fight at full power.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:raboot"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:high_jump_kick",
+    "pokeemerald:move:sand_attack",
+    "pokeemerald:move:sucker_punch",
+    "pokeemerald:move:super_fang"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/scorbunny/scorbunnyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/scorbunny/scorbunnyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/scorbunny/scorbunnyback",
+    "backShiny": "pokeemerald:pokemon:sprite/scorbunny/scorbunnybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/scorbunny/scorbunnyicon",
+    "overworld": "pokeemerald:pokemon:sprite/scorbunny/scorbunnyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/scorbunny/scorbunnyoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_zigzagoon",
+  "name": "route109 event script zigzagoon",
+  "description": "NPC interaction: route109 event script zigzagoon",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_zigzagoon.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

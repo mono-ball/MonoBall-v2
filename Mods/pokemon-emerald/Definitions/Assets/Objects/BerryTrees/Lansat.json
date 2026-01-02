@@ -1,0 +1,54 @@
+{
+  "id": "pokeemerald:sprite:objects/berrytrees/lansat",
+  "name": "Lansat",
+  "type": "Sprite",
+  "texturePath": "Graphics/Objects/BerryTrees/Lansat.png",
+  "frameWidth": 16,
+  "frameHeight": 32,
+  "frameCount": 6,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 2,
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 3,
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 4,
+      "x": 64,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    },
+    {
+      "index": 5,
+      "x": 80,
+      "y": 0,
+      "width": 16,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_decoration_shop_event_script_girl",
+  "name": "fortree city decoration shop event script girl",
+  "description": "NPC interaction: fortree city decoration shop event script girl",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_decoration_shop_event_script_girl.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

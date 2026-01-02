@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:krookodile",
+  "name": "Krookodile",
+  "cryId": "pokeemerald:audio:sfx/cries/krookodile",
+  "baseStats": {
+    "hp": 95,
+    "attack": 117,
+    "speed": 92,
+    "spAttack": 65,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 45,
+  "expYield": 260,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:moxie",
+    "pokeemerald:ability:anger_point"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:intimidate",
+  "height": 15,
+  "weight": 963,
+  "description": "Very violent Pok\u00E9mon, they never allow  their prey to escape. Their jaws are so  powerful, they can crush the body of  an automobile.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:power_trip"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:sand_tomb"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:outrage"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/krookodile/krookodilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/krookodile/krookodilefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/krookodile/krookodileback",
+    "backShiny": "pokeemerald:pokemon:sprite/krookodile/krookodilebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/krookodile/krookodileicon",
+    "overworld": "pokeemerald:pokemon:sprite/krookodile/krookodileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/krookodile/krookodileoverworldshiny"
+  }
+}

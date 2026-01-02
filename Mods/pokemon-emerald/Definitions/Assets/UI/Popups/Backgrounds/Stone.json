@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:popup:background/stone",
+  "name": "Stone",
+  "type": "Bitmap",
+  "texturePath": "Graphics/UI/Popups/Backgrounds/Stone.png",
+  "width": 80,
+  "height": 24,
+  "description": "Background bitmap for map popup"
+}

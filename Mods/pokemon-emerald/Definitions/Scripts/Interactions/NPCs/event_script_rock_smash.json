@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/event_script_rock_smash",
+  "name": "event script rock smash",
+  "description": "NPC interaction: event script rock smash",
+  "scriptPath": "Scripts/Interactions/NPCs/event_script_rock_smash.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

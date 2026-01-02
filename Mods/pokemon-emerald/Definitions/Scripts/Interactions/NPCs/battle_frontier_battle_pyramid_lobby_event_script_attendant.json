@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_pyramid_lobby_event_script_attendant",
+  "name": "battle frontier battle pyramid lobby event script attendant",
+  "description": "NPC interaction: battle frontier battle pyramid lobby event script attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_pyramid_lobby_event_script_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

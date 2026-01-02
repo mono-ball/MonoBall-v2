@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route117_event_script_woman",
+  "name": "route117 event script woman",
+  "description": "NPC interaction: route117 event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/route117_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

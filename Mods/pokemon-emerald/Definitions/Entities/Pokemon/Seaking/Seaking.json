@@ -1,0 +1,128 @@
+{
+  "id": "pokeemerald:pokemon:seaking",
+  "name": "Seaking",
+  "cryId": "pokeemerald:audio:sfx/cries/seaking",
+  "baseStats": {
+    "hp": 80,
+    "attack": 92,
+    "defense": 65,
+    "speed": 68,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:water_veil",
+    "pokeemerald:ability:lightning_rod"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:goldfish",
+  "height": 13,
+  "weight": 390,
+  "description": "It punches holes in boulders on stream-  beds. This is a clever innovation that  prevents its eggs from being attacked or  washed away by the current.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:waterfall"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:horn_drill"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/seaking/seakingfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/seaking/seakingfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/seaking/seakingfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/seaking/seakingfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/seaking/seakingback",
+    "backShiny": "pokeemerald:pokemon:sprite/seaking/seakingbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/seaking/seakingbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/seaking/seakingbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/seaking/seakingicon",
+    "overworld": "pokeemerald:pokemon:sprite/seaking/seakingoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/seaking/seakingoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

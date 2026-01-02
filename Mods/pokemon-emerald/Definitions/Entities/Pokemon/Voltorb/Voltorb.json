@@ -1,0 +1,185 @@
+{
+  "id": "pokeemerald:pokemon:voltorb",
+  "name": "Voltorb",
+  "cryId": "pokeemerald:audio:sfx/cries/voltorb",
+  "baseStats": {
+    "hp": 40,
+    "attack": 30,
+    "defense": 50,
+    "speed": 100,
+    "spAttack": 55,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:soundproof",
+    "pokeemerald:ability:static",
+    "pokeemerald:ability:aftermath"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:ball",
+  "height": 5,
+  "weight": 104,
+  "description": "It bears an uncanny and unexplained  resemblance to a Pok\u00E9 Ball. Because it  explodes at the slightest shock, even  veteran Trainers treat it with caution.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:electrode"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:eerie_impulse"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charge_beam"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:mirror_coat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/voltorb/voltorbfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/voltorb/voltorbfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/voltorb/voltorbback",
+    "backShiny": "pokeemerald:pokemon:sprite/voltorb/voltorbbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/voltorb/voltorbicon",
+    "overworld": "pokeemerald:pokemon:sprite/voltorb/voltorboverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/voltorb/voltorboverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:voltorb/hisui",
+      "name": "Voltorb",
+      "cryId": "pokeemerald:audio:sfx/cries/voltorb",
+      "formKey": "hisui",
+      "baseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "spAttack": 55,
+        "spDefense": 55
+      },
+      "types": [
+        "pokeemerald:type:electric",
+        "pokeemerald:type:grass"
+      ],
+      "abilities": [
+        "pokeemerald:ability:soundproof",
+        "pokeemerald:ability:static",
+        "pokeemerald:ability:aftermath"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuifront",
+        "frontShiny": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuifrontshiny",
+        "back": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuiback",
+        "backShiny": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuibackshiny",
+        "icon": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuiicon",
+        "overworld": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuioverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/voltorb/voltorbhisuioverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:hisui"
+    }
+  ]
+}

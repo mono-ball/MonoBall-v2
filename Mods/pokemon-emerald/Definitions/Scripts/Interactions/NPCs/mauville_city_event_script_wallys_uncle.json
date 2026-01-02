@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_event_script_wallys_uncle",
+  "name": "mauville city event script wallys uncle",
+  "description": "NPC interaction: mauville city event script wallys uncle",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_event_script_wallys_uncle.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

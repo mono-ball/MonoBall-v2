@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/stadium_wallace",
+  "name": "Wallace/Champion",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/StadiumWallace/StadiumWallace.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/stadium",
+  "description": "Battle environment background for Wallace/Champion"
+}

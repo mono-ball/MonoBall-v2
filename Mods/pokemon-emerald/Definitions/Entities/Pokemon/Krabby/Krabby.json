@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:krabby",
+  "name": "Krabby",
+  "cryId": "pokeemerald:audio:sfx/cries/krabby",
+  "baseStats": {
+    "hp": 30,
+    "attack": 105,
+    "defense": 90,
+    "speed": 50,
+    "spAttack": 25,
+    "spDefense": 25
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:shell_armor",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:river_crab",
+  "height": 4,
+  "weight": 65,
+  "description": "Krabby live in holes dug into beaches.  On sandy shores with little in the way  of food, they can be seen squabbling with  each other over territory.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 28,
+      "targetSpeciesId": "pokeemerald:pokemon:kingler"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:razor_shell"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:crabhammer"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:guillotine"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:haze",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:chip_away",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:ally_switch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/krabby/krabbyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/krabby/krabbyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/krabby/krabbyback",
+    "backShiny": "pokeemerald:pokemon:sprite/krabby/krabbybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/krabby/krabbyicon",
+    "overworld": "pokeemerald:pokemon:sprite/krabby/krabbyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/krabby/krabbyoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_gym_event_script_brenden",
+  "name": "dewford town gym event script brenden",
+  "description": "NPC interaction: dewford town gym event script brenden",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_gym_event_script_brenden.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

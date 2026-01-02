@@ -1,0 +1,12 @@
+{
+  "id": "pokeemerald:font:japanese-normal",
+  "name": "Japanese Normal",
+  "type": "Font",
+  "texturePath": "Graphics/Fonts/JapaneseNormal.png",
+  "glyphWidth": 8,
+  "glyphHeight": 16,
+  "glyphsPerRow": 16,
+  "characterMapId": "pokeemerald:charmap:japanese",
+  "lineHeight": 14,
+  "baseline": 12
+}

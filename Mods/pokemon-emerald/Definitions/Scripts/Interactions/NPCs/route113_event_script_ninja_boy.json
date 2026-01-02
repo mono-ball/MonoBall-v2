@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route113_event_script_ninja_boy",
+  "name": "route113 event script ninja boy",
+  "description": "NPC interaction: route113 event script ninja boy",
+  "scriptPath": "Scripts/Interactions/NPCs/route113_event_script_ninja_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,133 @@
+{
+  "id": "pokeemerald:pokemon:leavanny",
+  "name": "Leavanny",
+  "cryId": "pokeemerald:audio:sfx/cries/leavanny",
+  "baseStats": {
+    "hp": 75,
+    "attack": 103,
+    "defense": 80,
+    "speed": 92,
+    "spAttack": 70
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 250,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:chlorophyll",
+    "pokeemerald:ability:overcoat"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:nurturing",
+  "height": 12,
+  "weight": 205,
+  "description": "It keeps its eggs warm with heat from  fermenting leaves. It also uses leaves to  weave warm wrappings for Sewaddle by  using the silk secreted from its mouth.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:entrainment"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:leaf_storm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/leavanny/leavannyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/leavanny/leavannyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/leavanny/leavannyback",
+    "backShiny": "pokeemerald:pokemon:sprite/leavanny/leavannybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/leavanny/leavannyicon",
+    "overworld": "pokeemerald:pokemon:sprite/leavanny/leavannyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/leavanny/leavannyoverworldshiny"
+  }
+}

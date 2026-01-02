@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fortree_city_house1_event_script_zigzagoon",
+  "name": "fortree city house1 event script zigzagoon",
+  "description": "NPC interaction: fortree city house1 event script zigzagoon",
+  "scriptPath": "Scripts/Interactions/NPCs/fortree_city_house1_event_script_zigzagoon.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

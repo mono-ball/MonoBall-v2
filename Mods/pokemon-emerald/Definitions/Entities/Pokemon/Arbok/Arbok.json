@@ -1,0 +1,161 @@
+{
+  "id": "pokeemerald:pokemon:arbok",
+  "name": "Arbok",
+  "cryId": "pokeemerald:audio:sfx/cries/arbok",
+  "baseStats": {
+    "hp": 60,
+    "defense": 69,
+    "speed": 80,
+    "spAttack": 65
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 90,
+  "expYield": 157,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:shed_skin",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:cobra",
+  "height": 35,
+  "weight": 650,
+  "description": "This Pok\u00E9mon has a terrifically strong  constricting power. It can even flatten  steel oil drums. Once it wraps its body  around its foe, escaping is impossible.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:glare"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:acid_spray"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:gunk_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/arbok/arbokfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/arbok/arbokfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/arbok/arbokback",
+    "backShiny": "pokeemerald:pokemon:sprite/arbok/arbokbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/arbok/arbokicon",
+    "overworld": "pokeemerald:pokemon:sprite/arbok/arbokoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arbok/arbokoverworldshiny"
+  }
+}

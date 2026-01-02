@@ -1,0 +1,16 @@
+{
+  "id": "pokeemerald:script/movement/npcs/patrol",
+  "name": "Patrol Movement Script",
+  "description": "NPC follows a defined patrol route with waypoints",
+  "scriptPath": "Scripts/Movement/NPCs/patrol.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": [
+    {
+      "name": "waypoints",
+      "type": "array",
+      "defaultValue": [],
+      "description": "Array of waypoint positions [{x, y}, ...]"
+    }
+  ]
+}

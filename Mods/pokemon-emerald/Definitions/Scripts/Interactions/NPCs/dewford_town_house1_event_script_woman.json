@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_house1_event_script_woman",
+  "name": "dewford town house1 event script woman",
+  "description": "NPC interaction: dewford town house1 event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_house1_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

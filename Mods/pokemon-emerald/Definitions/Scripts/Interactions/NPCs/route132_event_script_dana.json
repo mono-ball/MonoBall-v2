@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route132_event_script_dana",
+  "name": "route132 event script dana",
+  "description": "NPC interaction: route132 event script dana",
+  "scriptPath": "Scripts/Interactions/NPCs/route132_event_script_dana.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

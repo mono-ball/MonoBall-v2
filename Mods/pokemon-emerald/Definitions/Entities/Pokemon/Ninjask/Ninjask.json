@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:ninjask",
+  "name": "Ninjask",
+  "cryId": "pokeemerald:audio:sfx/cries/ninjask",
+  "baseStats": {
+    "hp": 61,
+    "attack": 90,
+    "defense": 45,
+    "speed": 160,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:speed_boost",
+    null,
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:ninja",
+  "height": 8,
+  "weight": 120,
+  "description": "Because it darts about vigorously at high  speed, it is very difficult to see. Hearing  its distinctive cries for too long induces  a headache.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:mind_reader"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:x_scissor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ninjask/ninjaskfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ninjask/ninjaskfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ninjask/ninjaskback",
+    "backShiny": "pokeemerald:pokemon:sprite/ninjask/ninjaskbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ninjask/ninjaskicon",
+    "overworld": "pokeemerald:pokemon:sprite/ninjask/ninjaskoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ninjask/ninjaskoverworldshiny"
+  }
+}

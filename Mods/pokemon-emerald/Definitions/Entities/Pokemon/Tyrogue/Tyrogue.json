@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:tyrogue",
+  "name": "Tyrogue",
+  "cryId": "pokeemerald:audio:sfx/cries/tyrogue",
+  "baseStats": {
+    "hp": 35,
+    "attack": 35,
+    "defense": 35,
+    "speed": 35,
+    "spAttack": 35,
+    "spDefense": 35
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "attack": 1
+  },
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:guts",
+    "pokeemerald:ability:steadfast",
+    "pokeemerald:ability:vital_spirit"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:scuffle",
+  "height": 7,
+  "weight": 210,
+  "description": "Tyrogue become stressed out if they do  not get to train every day. When raising  this Pok\u00E9mon, the Trainer must establish  a regular training schedule.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:hitmonchan"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:hitmonlee"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:hitmontop"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:high_jump_kick",
+    "pokeemerald:move:mach_punch",
+    "pokeemerald:move:mind_reader",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:vacuum_wave",
+    "pokeemerald:move:bullet_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:feint"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tyrogue/tyroguefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tyrogue/tyroguefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tyrogue/tyrogueback",
+    "backShiny": "pokeemerald:pokemon:sprite/tyrogue/tyroguebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tyrogue/tyrogueicon",
+    "overworld": "pokeemerald:pokemon:sprite/tyrogue/tyrogueoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tyrogue/tyrogueoverworldshiny"
+  }
+}

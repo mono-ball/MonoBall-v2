@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:luvdisc",
+  "name": "Luvdisc",
+  "cryId": "pokeemerald:audio:sfx/cries/luvdisc",
+  "baseStats": {
+    "hp": 43,
+    "attack": 30,
+    "defense": 55,
+    "speed": 97,
+    "spAttack": 40,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:hydration"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:rendezvous",
+  "height": 6,
+  "weight": 87,
+  "description": "Luvdisc make the branches of Corsola  their nests. There is a custom from long  ago of giving a Luvdisc as a gift to  express one\u0027s feelings of love.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:draining_kiss"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:baby_doll_eyes"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:safeguard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:splash",
+    "pokeemerald:move:supersonic",
+    "pokeemerald:move:water_sport",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:heal_pulse",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:entrainment"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/luvdisc/luvdiscfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdiscfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/luvdisc/luvdiscback",
+    "backShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdiscbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/luvdisc/luvdiscicon",
+    "overworld": "pokeemerald:pokemon:sprite/luvdisc/luvdiscoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdiscoverworldshiny"
+  }
+}

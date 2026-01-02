@@ -1,0 +1,151 @@
+{
+  "id": "pokeemerald:pokemon:swinub",
+  "name": "Swinub",
+  "cryId": "pokeemerald:audio:sfx/cries/swinub",
+  "baseStats": {
+    "hp": 50,
+    "attack": 50,
+    "defense": 40,
+    "speed": 50,
+    "spAttack": 30,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 225,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:thick_fat"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:pig",
+  "height": 4,
+  "weight": 65,
+  "description": "It roots for food by rubbing its snout  against the ground. Its favorite food is a  mushroom that grows under dried grass.  It occasionally roots out hot springs.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 33,
+      "targetSpeciesId": "pokeemerald:pokemon:piloswine"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:blizzard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:take_down",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:icicle_spear",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:fissure",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:icicle_crash",
+    "pokeemerald:move:freeze_dry"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/swinub/swinubfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/swinub/swinubfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/swinub/swinubback",
+    "backShiny": "pokeemerald:pokemon:sprite/swinub/swinubbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/swinub/swinubicon",
+    "overworld": "pokeemerald:pokemon:sprite/swinub/swinuboverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swinub/swinuboverworldshiny"
+  }
+}

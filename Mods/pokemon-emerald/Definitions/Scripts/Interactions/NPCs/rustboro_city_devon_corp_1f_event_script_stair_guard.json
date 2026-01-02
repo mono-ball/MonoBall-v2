@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_1f_event_script_stair_guard",
+  "name": "rustboro city devon corp 1f event script stair guard",
+  "description": "NPC interaction: rustboro city devon corp 1f event script stair guard",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_devon_corp_1f_event_script_stair_guard.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:map:hoenn/route114_lanettes_house",
+  "name": "Route114_LanettesHouse",
+  "description": "",
+  "regionId": "pokeemerald:region:hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 11,
+  "height": 8,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/fallarbor",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/route_114",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "layers": [
+    {
+      "id": "pokeemerald:layer:hoenn/route114_lanettes_house/ground",
+      "name": "Ground",
+      "width": 11,
+      "height": 8,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/route114_lanettes_house/objects",
+      "name": "Objects",
+      "width": 11,
+      "height": 8,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:hoenn/route114_lanettes_house/overhead",
+      "name": "Overhead",
+      "width": 11,
+      "height": 8,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/building"
+    },
+    {
+      "firstGid": 6,
+      "tilesetId": "pokeemerald:tileset:secondary/lab"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:hoenn/route114_lanettes_house/warp_to_route114",
+      "name": "Warp to route114",
+      "x": 80,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/route114",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:hoenn/route114_lanettes_house/warp_to_route114",
+      "name": "Warp to route114",
+      "x": 96,
+      "y": 112,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/route114",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [
+    {
+      "id": "pokeemerald:interaction:hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptnotebook",
+      "name": "Sign: Route114_LanettesHouse_EventScript_Notebook",
+      "x": 80,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_notebook",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptpc",
+      "name": "Sign: Route114_LanettesHouse_EventScript_PC",
+      "x": 128,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_pc",
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:interaction:hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptpc",
+      "name": "Sign: Route114_LanettesHouse_EventScript_PC",
+      "x": 112,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_pc",
+      "elevation": 0
+    }
+  ],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:hoenn/route114_lanettes_house/npc_0",
+      "name": "NPC_0",
+      "x": 80,
+      "y": 64,
+      "spriteId": "pokeemerald:sprite:npcs/woman2",
+      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_lanette",
+      "visibilityFlag": "pokeemerald:flag:visibility/lanettes_house_lanette",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:hoenn/route114_lanettes_house/elevation_0",
+      "name": "Collision_0",
+      "width": 11,
+      "height": 8,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAAQAAAAAAAAEAAQEBAAEAAQEAAQABAAAAAQABAQABAQEBAQABAAEBAAAAAQEBAAAAAAAAAQEBAQEAAAAAAQEBAQ=="
+    }
+  ]
+}

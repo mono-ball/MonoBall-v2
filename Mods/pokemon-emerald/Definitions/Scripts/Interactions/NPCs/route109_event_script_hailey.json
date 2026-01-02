@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_hailey",
+  "name": "route109 event script hailey",
+  "description": "NPC interaction: route109 event script hailey",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_hailey.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "pokeemerald:pokemon:sprite/marshtomp/marshtompicon",
+  "name": "Marshtompicon",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Marshtomp/MarshtompIcon.png",
+  "spriteType": "icon",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "frameCount": 2,
+  "animations": [
+    {
+      "name": "bounce",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1
+      ],
+      "frameDurations": [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}

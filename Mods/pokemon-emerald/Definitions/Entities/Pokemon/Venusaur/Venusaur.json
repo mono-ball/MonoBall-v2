@@ -1,0 +1,229 @@
+{
+  "id": "pokeemerald:pokemon:venusaur",
+  "name": "Venusaur",
+  "cryId": "pokeemerald:audio:sfx/cries/venusaur",
+  "baseStats": {
+    "hp": 80,
+    "attack": 82,
+    "defense": 83,
+    "speed": 80,
+    "spAttack": 100,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 45,
+  "expYield": 263,
+  "evYield": {
+    "spAttack": 2,
+    "spDefense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:chlorophyll"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:seed",
+  "height": 20,
+  "weight": 1000,
+  "description": "Venusaur\u0027s flower is said to take on vivid  colors if it gets plenty of nutrition and  sunlight. The flower\u0027s aroma soothes the  emotions of people.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:petal_blizzard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:petal_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:sleep_powder"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:worry_seed"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:power_whip"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:solar_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/venusaur/venusaurfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/venusaur/venusaurfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/venusaur/venusaurback",
+    "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/venusaur/venusaurbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/venusaur/venusauricon",
+    "overworld": "pokeemerald:pokemon:sprite/venusaur/venusauroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusauroverworldshiny"
+  },
+  "hasGenderDifferences": true,
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:venusaur/gmax",
+      "name": "Venusaur",
+      "cryId": "pokeemerald:audio:sfx/cries/venusaur",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "speed": 80,
+        "spAttack": 100,
+        "spDefense": 100
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:overgrow",
+        null,
+        "pokeemerald:ability:chlorophyll"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:venusaur/mega",
+      "name": "Venusaur",
+      "cryId": "pokeemerald:audio:sfx/cries/venusaur-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 123,
+        "speed": 80,
+        "spAttack": 122,
+        "spDefense": 120
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:poison"
+      ],
+      "abilities": [
+        "pokeemerald:ability:thick_fat",
+        "pokeemerald:ability:thick_fat",
+        "pokeemerald:ability:thick_fat"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/venusaur/venusaurmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:venusaurite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

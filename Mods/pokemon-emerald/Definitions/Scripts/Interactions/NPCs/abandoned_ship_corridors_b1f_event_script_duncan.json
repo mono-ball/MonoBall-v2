@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/abandoned_ship_corridors_b1f_event_script_duncan",
+  "name": "abandoned ship corridors b1f event script duncan",
+  "description": "NPC interaction: abandoned ship corridors b1f event script duncan",
+  "scriptPath": "Scripts/Interactions/NPCs/abandoned_ship_corridors_b1f_event_script_duncan.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

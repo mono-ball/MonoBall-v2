@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_lounge7_event_script_gentleman",
+  "name": "battle frontier lounge7 event script gentleman",
+  "description": "NPC interaction: battle frontier lounge7 event script gentleman",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_lounge7_event_script_gentleman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

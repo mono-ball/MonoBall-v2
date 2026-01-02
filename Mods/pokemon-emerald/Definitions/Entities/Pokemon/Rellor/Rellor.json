@@ -1,0 +1,116 @@
+{
+  "id": "pokeemerald:pokemon:rellor",
+  "name": "Rellor",
+  "cryId": "pokeemerald:audio:sfx/cries/rellor",
+  "baseStats": {
+    "hp": 41,
+    "attack": 50,
+    "defense": 60,
+    "speed": 30,
+    "spAttack": 31,
+    "spDefense": 58
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 190,
+  "expYield": 54,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:compound_eyes",
+    null,
+    "pokeemerald:ability:shed_skin"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:rolling",
+  "height": 2,
+  "weight": 10,
+  "description": "This Pok\u00E9mon creates a mud ball by  mixing sand and dirt with psychic  energy. It treasures its mud ball more  than its own life.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:rabsca"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:lunge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:thief"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:cosmic_power",
+    "pokeemerald:move:memento",
+    "pokeemerald:move:recover",
+    "pokeemerald:move:weather_ball"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rellor/rellorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rellor/rellorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/rellor/rellorback",
+    "backShiny": "pokeemerald:pokemon:sprite/rellor/rellorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/rellor/relloricon",
+    "overworld": "pokeemerald:pokemon:sprite/rellor/relloroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rellor/relloroverworldshiny"
+  }
+}

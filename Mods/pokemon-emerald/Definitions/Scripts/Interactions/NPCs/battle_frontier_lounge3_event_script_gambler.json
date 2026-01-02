@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_gambler",
+  "name": "battle frontier lounge3 event script gambler",
+  "description": "NPC interaction: battle frontier lounge3 event script gambler",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_lounge3_event_script_gambler.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

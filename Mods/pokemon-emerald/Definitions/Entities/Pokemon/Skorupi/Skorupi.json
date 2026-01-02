@@ -1,0 +1,174 @@
+{
+  "id": "pokeemerald:pokemon:skorupi",
+  "name": "Skorupi",
+  "cryId": "pokeemerald:audio:sfx/cries/skorupi",
+  "baseStats": {
+    "hp": 40,
+    "attack": 50,
+    "defense": 90,
+    "speed": 65,
+    "spAttack": 30,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:battle_armor",
+    "pokeemerald:ability:sniper",
+    "pokeemerald:ability:keen_eye"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:scorpion",
+  "height": 8,
+  "weight": 120,
+  "description": "It grips prey with its tail claws and  injects poison. It tenaciously hangs  on until the poison takes.  It can survive a year without food.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:drapion"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:cross_poison"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:acupressure"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:crunch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:sand_attack",
+    "pokeemerald:move:slash",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:twineedle",
+    "pokeemerald:move:poison_tail"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skorupi/skorupifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skorupi/skorupifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skorupi/skorupiback",
+    "backShiny": "pokeemerald:pokemon:sprite/skorupi/skorupibackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skorupi/skorupiicon",
+    "overworld": "pokeemerald:pokemon:sprite/skorupi/skorupioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skorupi/skorupioverworldshiny"
+  }
+}

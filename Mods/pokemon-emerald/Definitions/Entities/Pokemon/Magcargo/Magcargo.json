@@ -1,0 +1,145 @@
+{
+  "id": "pokeemerald:pokemon:magcargo",
+  "name": "Magcargo",
+  "cryId": "pokeemerald:audio:sfx/cries/magcargo",
+  "baseStats": {
+    "attack": 50,
+    "defense": 120,
+    "speed": 30,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 75,
+  "expYield": 151,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:magma_armor",
+    "pokeemerald:ability:flame_body",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:lava",
+  "height": 8,
+  "weight": 550,
+  "description": "The shell on its back is made of hardened  magma. Tens of thousands of years spent  living in volcanic craters have turned  Magcargo\u0027s bodies into magma.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:flamethrower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/magcargo/magcargofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/magcargo/magcargofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/magcargo/magcargoback",
+    "backShiny": "pokeemerald:pokemon:sprite/magcargo/magcargobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/magcargo/magcargoicon",
+    "overworld": "pokeemerald:pokemon:sprite/magcargo/magcargooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magcargo/magcargooverworldshiny"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "pokeemerald:pokemon:munkidori",
+  "name": "Munkidori",
+  "cryId": "pokeemerald:audio:sfx/cries/munkidori",
+  "baseStats": {
+    "hp": 88,
+    "attack": 75,
+    "defense": 66,
+    "speed": 106,
+    "spAttack": 130,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 3,
+  "expYield": 278,
+  "evYield": {
+    "spAttack": 3
+  },
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:toxic_chain",
+    null,
+    "pokeemerald:ability:frisk"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:retainer",
+  "height": 10,
+  "weight": 122,
+  "description": "The chain is made from toxins that  enhance capabilities. It stimulated  Munkidori\u0027s brain and caused the  Pok\u00E9mon\u0027s psychic powers to bloom.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:sludge_wave"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:parting_shot"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/munkidori/munkidorifront",
+    "frontShiny": "pokeemerald:pokemon:sprite/munkidori/munkidorifrontshiny",
+    "back": "pokeemerald:pokemon:sprite/munkidori/munkidoriback",
+    "backShiny": "pokeemerald:pokemon:sprite/munkidori/munkidoribackshiny",
+    "icon": "pokeemerald:pokemon:sprite/munkidori/munkidoriicon",
+    "overworld": "pokeemerald:pokemon:sprite/munkidori/munkidorioverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/munkidori/munkidorioverworldshiny"
+  },
+  "isLegendary": true
+}

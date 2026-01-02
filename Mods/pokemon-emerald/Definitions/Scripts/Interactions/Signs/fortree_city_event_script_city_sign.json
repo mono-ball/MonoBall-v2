@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/fortree_city_event_script_city_sign",
+  "name": "fortree city event script city sign",
+  "description": "Sign script: fortree city event script city sign",
+  "scriptPath": "Scripts/Signs/fortree_city_event_script_city_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

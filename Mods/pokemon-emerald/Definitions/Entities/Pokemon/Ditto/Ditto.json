@@ -1,0 +1,52 @@
+{
+  "id": "pokeemerald:pokemon:ditto",
+  "name": "Ditto",
+  "cryId": "pokeemerald:audio:sfx/cries/ditto",
+  "baseStats": {
+    "hp": 48,
+    "attack": 48,
+    "defense": 48,
+    "speed": 48,
+    "spAttack": 48,
+    "spDefense": 48
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 35,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:ditto"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:limber",
+    null,
+    "pokeemerald:ability:imposter"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:transform",
+  "height": 3,
+  "weight": 40,
+  "description": "A Ditto rearranges its cell structure to  transform itself. However, if it tries to  change based on its memory, it will get  details wrong.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:transform"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ditto/dittofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ditto/dittofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/ditto/dittoback",
+    "backShiny": "pokeemerald:pokemon:sprite/ditto/dittobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/ditto/dittoicon",
+    "overworld": "pokeemerald:pokemon:sprite/ditto/dittooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ditto/dittooverworldshiny"
+  }
+}

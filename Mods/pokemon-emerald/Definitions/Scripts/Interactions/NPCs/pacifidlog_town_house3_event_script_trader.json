@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_house3_event_script_trader",
+  "name": "pacifidlog town house3 event script trader",
+  "description": "NPC interaction: pacifidlog town house3 event script trader",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_house3_event_script_trader.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

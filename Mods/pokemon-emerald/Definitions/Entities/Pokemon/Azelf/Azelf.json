@@ -1,0 +1,202 @@
+{
+  "id": "pokeemerald:pokemon:azelf",
+  "name": "Azelf",
+  "cryId": "pokeemerald:audio:sfx/cries/azelf",
+  "baseStats": {
+    "hp": 75,
+    "attack": 125,
+    "defense": 70,
+    "speed": 115,
+    "spAttack": 125,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 3,
+  "expYield": 290,
+  "evYield": {
+    "attack": 2,
+    "spAttack": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 80,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 140,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:willpower",
+  "height": 3,
+  "weight": 3,
+  "description": "This Pok\u00E9mon is said to have endowed  humans with the determination needed to  do things. It is thought that Uxie, Mesprit  and Azelf all came from the same egg.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tri_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:snore"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_tail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wonder_room"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magic_room"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ally_switch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:expanding_force"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 77,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 84,
+      "moveId": "pokeemerald:move:mystical_power"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/azelf/azelffront",
+    "frontShiny": "pokeemerald:pokemon:sprite/azelf/azelffrontshiny",
+    "back": "pokeemerald:pokemon:sprite/azelf/azelfback",
+    "backShiny": "pokeemerald:pokemon:sprite/azelf/azelfbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/azelf/azelficon",
+    "overworld": "pokeemerald:pokemon:sprite/azelf/azelfoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/azelf/azelfoverworldshiny"
+  },
+  "isLegendary": true
+}

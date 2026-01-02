@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:monferno",
+  "name": "Monferno",
+  "cryId": "pokeemerald:audio:sfx/cries/monferno",
+  "baseStats": {
+    "hp": 64,
+    "attack": 78,
+    "defense": 52,
+    "speed": 81,
+    "spAttack": 78,
+    "spDefense": 52
+  },
+  "types": [
+    "pokeemerald:type:fire",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 142,
+  "evYield": {
+    "speed": 1,
+    "spAttack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:iron_fist"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:playful",
+  "height": 9,
+  "weight": 220,
+  "description": "It carefully controls the intensity of  the flame on its tail, so as to keep its  foes at an adequate distance.  Its fiery tail is but one weapon.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:infernape"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:mach_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:fire_spin"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:slack_off"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/monferno/monfernofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/monferno/monfernofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/monferno/monfernoback",
+    "backShiny": "pokeemerald:pokemon:sprite/monferno/monfernobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/monferno/monfernoicon",
+    "overworld": "pokeemerald:pokemon:sprite/monferno/monfernooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/monferno/monfernooverworldshiny"
+  }
+}

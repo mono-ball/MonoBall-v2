@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:weather:outdoor/fog_horizontal",
+  "name": "Fog Horizontal",
+  "description": "Fog Horizontal weather condition",
+  "category": "outdoor",
+  "intensity": 0.8,
+  "affectsBattle": false,
+  "effectScriptId": "pokeemerald:script:weather/fog_horizontal",
+  "graphicsId": "pokeemerald:weather:graphics/fog_horizontal",
+  "screenTintOpacity": 0,
+  "reducesVisibility": true,
+  "visibilityRange": 4
+}

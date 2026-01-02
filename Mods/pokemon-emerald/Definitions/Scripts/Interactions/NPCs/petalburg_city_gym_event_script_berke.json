@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_city_gym_event_script_berke",
+  "name": "petalburg city gym event script berke",
+  "description": "NPC interaction: petalburg city gym event script berke",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_city_gym_event_script_berke.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

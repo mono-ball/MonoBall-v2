@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:pokemon:scraggy",
+  "name": "Scraggy",
+  "cryId": "pokeemerald:audio:sfx/cries/scraggy",
+  "baseStats": {
+    "hp": 50,
+    "attack": 75,
+    "defense": 70,
+    "speed": 48,
+    "spAttack": 35,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:dark",
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 180,
+  "expYield": 70,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 35,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:shed_skin",
+    "pokeemerald:ability:moxie",
+    "pokeemerald:ability:intimidate"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:shedding",
+  "height": 6,
+  "weight": 118,
+  "description": "Its skin has a rubbery elasticity, so it  can reduce damage by defensively  pulling its skin up to its neck.  Its skull is massively thick.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 39,
+      "targetSpeciesId": "pokeemerald:pokemon:scrafty"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:facade"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:torment"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:beat_up"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:high_jump_kick"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:focus_punch"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:drain_punch",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:detect",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:zen_headbutt",
+    "pokeemerald:move:quick_guard",
+    "pokeemerald:move:power_up_punch",
+    "pokeemerald:move:acid_spray"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/scraggy/scraggyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/scraggy/scraggyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/scraggy/scraggyback",
+    "backShiny": "pokeemerald:pokemon:sprite/scraggy/scraggybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/scraggy/scraggyicon",
+    "overworld": "pokeemerald:pokemon:sprite/scraggy/scraggyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/scraggy/scraggyoverworldshiny"
+  }
+}

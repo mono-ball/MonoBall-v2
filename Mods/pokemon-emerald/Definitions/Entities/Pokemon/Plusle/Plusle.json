@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:pokemon:plusle",
+  "name": "Plusle",
+  "cryId": "pokeemerald:audio:sfx/cries/plusle",
+  "baseStats": {
+    "hp": 60,
+    "attack": 50,
+    "defense": 40,
+    "speed": 95,
+    "spAttack": 85,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 200,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:plus",
+    null,
+    "pokeemerald:ability:lightning_rod"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:cheering",
+  "height": 4,
+  "weight": 42,
+  "description": "It has the trait of cheering on its fellow  Pok\u00E9mon. By shorting out the electricity  it releases from its paws, it creates  pom-poms for cheering.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:electro_ball"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:last_resort"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:thunder"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:entrainment"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:wish",
+    "pokeemerald:move:sing",
+    "pokeemerald:move:sweet_kiss",
+    "pokeemerald:move:discharge",
+    "pokeemerald:move:lucky_chant",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:tearful_look"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/plusle/pluslefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/plusle/pluslefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/plusle/plusleback",
+    "backShiny": "pokeemerald:pokemon:sprite/plusle/pluslebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/plusle/plusleicon",
+    "overworld": "pokeemerald:pokemon:sprite/plusle/plusleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/plusle/plusleoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/jagged_pass_event_script_magma_hideout_guard",
+  "name": "jagged pass event script magma hideout guard",
+  "description": "NPC interaction: jagged pass event script magma hideout guard",
+  "scriptPath": "Scripts/Interactions/NPCs/jagged_pass_event_script_magma_hideout_guard.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

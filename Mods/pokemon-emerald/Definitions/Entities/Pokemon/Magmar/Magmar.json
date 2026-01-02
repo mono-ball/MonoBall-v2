@@ -1,0 +1,156 @@
+{
+  "id": "pokeemerald:pokemon:magmar",
+  "name": "Magmar",
+  "cryId": "pokeemerald:audio:sfx/cries/magmar",
+  "baseStats": {
+    "hp": 65,
+    "attack": 95,
+    "defense": 57,
+    "speed": 93,
+    "spDefense": 85
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 63,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:flame_body",
+    null,
+    "pokeemerald:ability:vital_spirit"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:spitfire",
+  "height": 13,
+  "weight": 445,
+  "description": "In battle, it blows out intense flames from  all over its body to intimidate its foe.  These fiery bursts create heat waves that  ignite grass and trees in the area.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:trade",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:magmortar"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_MAGMARIZER",
+      "targetSpeciesId": "pokeemerald:pokemon:magmortar"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:flame_wheel"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fire_punch"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:lava_plume"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:low_kick"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:sunny_day"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/magmar/magmarfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/magmar/magmarfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/magmar/magmarback",
+    "backShiny": "pokeemerald:pokemon:sprite/magmar/magmarbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/magmar/magmaricon",
+    "overworld": "pokeemerald:pokemon:sprite/magmar/magmaroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magmar/magmaroverworldshiny"
+  }
+}

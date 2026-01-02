@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route113_event_script_wyatt",
+  "name": "route113 event script wyatt",
+  "description": "NPC interaction: route113 event script wyatt",
+  "scriptPath": "Scripts/Interactions/NPCs/route113_event_script_wyatt.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

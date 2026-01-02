@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:happiny",
+  "name": "Happiny",
+  "cryId": "pokeemerald:audio:sfx/cries/happiny",
+  "baseStats": {
+    "hp": 100,
+    "attack": 5,
+    "defense": 5,
+    "speed": 30,
+    "spAttack": 15,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 130,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 140,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:serene_grace",
+    "pokeemerald:ability:friend_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:playhouse",
+  "height": 6,
+  "weight": 244,
+  "description": "It carries a round white rock in its  belly pouch. If it gets along well with  someone, it will sometimes give that  person the rock.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:chansey"
+    },
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_OVAL_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:chansey"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:covet"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:charm"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:soft_boiled",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:present",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:heal_bell",
+    "pokeemerald:move:aromatherapy",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:gravity",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:mud_bomb",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/happiny/happinyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/happiny/happinyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/happiny/happinyback",
+    "backShiny": "pokeemerald:pokemon:sprite/happiny/happinybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/happiny/happinyicon",
+    "overworld": "pokeemerald:pokemon:sprite/happiny/happinyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/happiny/happinyoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route121_safari_zone_entrance_event_script_welcome_attendant",
+  "name": "route121 safari zone entrance event script welcome attendant",
+  "description": "NPC interaction: route121 safari zone entrance event script welcome attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/route121_safari_zone_entrance_event_script_welcome_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

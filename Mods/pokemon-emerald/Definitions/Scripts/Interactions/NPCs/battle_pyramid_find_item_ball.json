@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_pyramid_find_item_ball",
+  "name": "battle pyramid find item ball",
+  "description": "NPC interaction: battle pyramid find item ball",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_pyramid_find_item_ball.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

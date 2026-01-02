@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route132_event_script_darcy",
+  "name": "route132 event script darcy",
+  "description": "NPC interaction: route132 event script darcy",
+  "scriptPath": "Scripts/Interactions/NPCs/route132_event_script_darcy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

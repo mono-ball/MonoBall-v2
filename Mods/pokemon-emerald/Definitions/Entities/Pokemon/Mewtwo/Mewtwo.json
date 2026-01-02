@@ -1,0 +1,249 @@
+{
+  "id": "pokeemerald:pokemon:mewtwo",
+  "name": "Mewtwo",
+  "cryId": "pokeemerald:audio:sfx/cries/mewtwo",
+  "baseStats": {
+    "hp": 106,
+    "attack": 110,
+    "defense": 90,
+    "speed": 130,
+    "spAttack": 154
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 3,
+  "expYield": 340,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:pressure",
+    null,
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:genetic",
+  "height": 20,
+  "weight": 1220,
+  "description": "A Pok\u00E9mon that was created by genetic  manipulation. However, even though the  scientific power of humans made its body,  they failed to give it a warm heart.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:psycho_cut"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:aura_sphere"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:power_swap"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:guard_swap"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:psystrike"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:future_sight"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mewtwo/mewtwofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mewtwo/mewtwoback",
+    "backShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mewtwo/mewtwoicon",
+    "overworld": "pokeemerald:pokemon:sprite/mewtwo/mewtwooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwooverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:mewtwo/mega-y",
+      "name": "Mewtwo",
+      "cryId": "pokeemerald:audio:sfx/cries/mewtwo-mega-y",
+      "formKey": "mega-y",
+      "baseStats": {
+        "hp": 106,
+        "attack": 150,
+        "defense": 70,
+        "speed": 140,
+        "spAttack": 194,
+        "spDefense": 120
+      },
+      "types": [
+        "pokeemerald:type:psychic"
+      ],
+      "abilities": [
+        "pokeemerald:ability:insomnia",
+        "pokeemerald:ability:insomnia",
+        "pokeemerald:ability:insomnia"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegayfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegayfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegayback",
+        "backShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaybackshiny",
+        "icon": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegayicon",
+        "overworld": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegayoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegayoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:mewtwonite_y",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:mewtwo/mega-x",
+      "name": "Mewtwo",
+      "cryId": "pokeemerald:audio:sfx/cries/mewtwo-mega-x",
+      "formKey": "mega-x",
+      "baseStats": {
+        "hp": 106,
+        "attack": 190,
+        "defense": 100,
+        "speed": 130,
+        "spAttack": 154,
+        "spDefense": 100
+      },
+      "types": [
+        "pokeemerald:type:psychic",
+        "pokeemerald:type:fighting"
+      ],
+      "abilities": [
+        "pokeemerald:ability:steadfast",
+        "pokeemerald:ability:steadfast",
+        "pokeemerald:ability:steadfast"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/mewtwo/mewtwomegaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:mewtwonite_x",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ],
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

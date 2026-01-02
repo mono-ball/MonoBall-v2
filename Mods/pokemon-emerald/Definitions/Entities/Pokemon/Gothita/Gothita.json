@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:gothita",
+  "name": "Gothita",
+  "cryId": "pokeemerald:audio:sfx/cries/gothita",
+  "baseStats": {
+    "hp": 45,
+    "attack": 30,
+    "defense": 50,
+    "speed": 45,
+    "spAttack": 55,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 200,
+  "expYield": 58,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 191,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:competitive",
+    "pokeemerald:ability:shadow_tag"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:fixation",
+  "height": 4,
+  "weight": 58,
+  "description": "They intently observe both Trainers and  Pok\u00E9mon. Apparently, Gothita are looking  at something that only they can see. Their  ribbonlike feelers increase their power.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 32,
+      "targetSpeciesId": "pokeemerald:pokemon:gothorita"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:tickle"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psyshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fake_tears"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:magic_room"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:miracle_eye",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:mean_look",
+    "pokeemerald:move:dark_pulse",
+    "pokeemerald:move:heal_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gothita/gothitafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gothita/gothitafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gothita/gothitaback",
+    "backShiny": "pokeemerald:pokemon:sprite/gothita/gothitabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gothita/gothitaicon",
+    "overworld": "pokeemerald:pokemon:sprite/gothita/gothitaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gothita/gothitaoverworldshiny"
+  }
+}

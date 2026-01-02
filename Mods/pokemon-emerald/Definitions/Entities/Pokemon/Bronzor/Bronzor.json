@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:bronzor",
+  "name": "Bronzor",
+  "cryId": "pokeemerald:audio:sfx/cries/bronzor",
+  "baseStats": {
+    "hp": 57,
+    "attack": 24,
+    "defense": 86,
+    "speed": 23,
+    "spAttack": 24,
+    "spDefense": 86
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    "pokeemerald:ability:heatproof",
+    "pokeemerald:ability:heavy_metal"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:bronze",
+  "height": 5,
+  "weight": 605,
+  "description": "Implements shaped like it were discovered  in ancient tombs. There are researchers  who believe this Pok\u00E9mon reflected like a  mirror in the distant past.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 33,
+      "targetSpeciesId": "pokeemerald:pokemon:bronzong"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hypnosis"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:heavy_slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:future_sight"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/bronzor/bronzorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/bronzor/bronzorfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/bronzor/bronzorback",
+    "backShiny": "pokeemerald:pokemon:sprite/bronzor/bronzorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/bronzor/bronzoricon",
+    "overworld": "pokeemerald:pokemon:sprite/bronzor/bronzoroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bronzor/bronzoroverworldshiny"
+  }
+}

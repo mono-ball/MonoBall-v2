@@ -1,0 +1,125 @@
+{
+  "id": "pokeemerald:pokemon:fuecoco",
+  "name": "Fuecoco",
+  "cryId": "pokeemerald:audio:sfx/cries/fuecoco",
+  "baseStats": {
+    "hp": 67,
+    "attack": 45,
+    "defense": 59,
+    "speed": 36,
+    "spAttack": 63,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 62,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_croc",
+  "height": 4,
+  "weight": 98,
+  "description": "Its flame sac is small, so energy is  always leaking out. This energy is  released from the dent atop  Fuecoco\u0027s head and flickers to and fro.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:crocalor"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:fire_blast"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sunny_day"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:belch",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:slack_off"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/fuecoco/fuecocofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecocofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/fuecoco/fuecocoback",
+    "backShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecocobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/fuecoco/fuecocoicon",
+    "overworld": "pokeemerald:pokemon:sprite/fuecoco/fuecocooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecocooverworldshiny"
+  }
+}

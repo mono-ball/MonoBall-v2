@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_berry_powder_clerk",
+  "name": "slateport city event script berry powder clerk",
+  "description": "NPC interaction: slateport city event script berry powder clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_berry_powder_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,164 @@
+{
+  "id": "pokeemerald:pokemon:probopass",
+  "name": "Probopass",
+  "cryId": "pokeemerald:audio:sfx/cries/probopass",
+  "baseStats": {
+    "hp": 60,
+    "attack": 55,
+    "defense": 145,
+    "speed": 40,
+    "spAttack": 75,
+    "spDefense": 150
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "defense": 1,
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:magnet_pull",
+    "pokeemerald:ability:sand_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:compass",
+  "height": 14,
+  "weight": 3400,
+  "description": "It freely controls three units called  Mini-Noses using magnetic force.  With them, it can attack its foes from  three directions.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:tri_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magnetic_flux"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:magnet_rise"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:block"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:thunder_wave"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:lock_on"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/probopass/probopassfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/probopass/probopassfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/probopass/probopassback",
+    "backShiny": "pokeemerald:pokemon:sprite/probopass/probopassbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/probopass/probopassicon",
+    "overworld": "pokeemerald:pokemon:sprite/probopass/probopassoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/probopass/probopassoverworldshiny"
+  }
+}

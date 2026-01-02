@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_sterns_shipyard_1f_event_script_briney",
+  "name": "slateport city sterns shipyard 1f event script briney",
+  "description": "NPC interaction: slateport city sterns shipyard 1f event script briney",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_sterns_shipyard_1f_event_script_briney.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

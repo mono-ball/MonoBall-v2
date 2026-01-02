@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/abandoned_ship_corridors_1f_event_script_youngster",
+  "name": "abandoned ship corridors 1f event script youngster",
+  "description": "NPC interaction: abandoned ship corridors 1f event script youngster",
+  "scriptPath": "Scripts/Interactions/NPCs/abandoned_ship_corridors_1f_event_script_youngster.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

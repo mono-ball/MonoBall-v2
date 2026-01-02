@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:hitmontop",
+  "name": "Hitmontop",
+  "cryId": "pokeemerald:audio:sfx/cries/hitmontop",
+  "baseStats": {
+    "hp": 50,
+    "attack": 95,
+    "defense": 95,
+    "speed": 70,
+    "spAttack": 35,
+    "spDefense": 110
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "spDefense": 2
+  },
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:technician",
+    "pokeemerald:ability:steadfast"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:handstand",
+  "height": 14,
+  "weight": 480,
+  "description": "Its technique of kicking while spinning is  a remarkable mix of both offense and  defense. Hitmontop travel faster  spinning than they do walking.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:triple_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:gyro_ball"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:endeavor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/hitmontop/hitmontopfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/hitmontop/hitmontopfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/hitmontop/hitmontopback",
+    "backShiny": "pokeemerald:pokemon:sprite/hitmontop/hitmontopbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/hitmontop/hitmontopicon",
+    "overworld": "pokeemerald:pokemon:sprite/hitmontop/hitmontopoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hitmontop/hitmontopoverworldshiny"
+  }
+}

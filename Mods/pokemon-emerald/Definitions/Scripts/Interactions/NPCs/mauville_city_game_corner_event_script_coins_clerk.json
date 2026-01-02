@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_game_corner_event_script_coins_clerk",
+  "name": "mauville city game corner event script coins clerk",
+  "description": "NPC interaction: mauville city game corner event script coins clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_game_corner_event_script_coins_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

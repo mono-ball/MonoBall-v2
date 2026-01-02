@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route119_event_script_doug",
+  "name": "route119 event script doug",
+  "description": "NPC interaction: route119 event script doug",
+  "scriptPath": "Scripts/Interactions/NPCs/route119_event_script_doug.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

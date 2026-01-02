@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:quagsire",
+  "name": "Quagsire",
+  "cryId": "pokeemerald:audio:sfx/cries/quagsire",
+  "baseStats": {
+    "hp": 95,
+    "attack": 85,
+    "defense": 85,
+    "speed": 35,
+    "spAttack": 65,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:damp",
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:water_fish",
+  "height": 14,
+  "weight": 750,
+  "description": "A Quagsire hunts by leaving its mouth wide  open in water and waiting for its prey to  blunder in. Because it doesn\u0027t move, it  does not get very hungry.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mist"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:earthquake"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/quagsire/quagsirefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/quagsire/quagsirefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/quagsire/quagsireback",
+    "backShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/quagsire/quagsirebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/quagsire/quagsireicon",
+    "overworld": "pokeemerald:pokemon:sprite/quagsire/quagsireoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quagsire/quagsireoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

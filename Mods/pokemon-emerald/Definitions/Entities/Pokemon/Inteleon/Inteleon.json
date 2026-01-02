@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:inteleon",
+  "name": "Inteleon",
+  "cryId": "pokeemerald:audio:sfx/cries/inteleon",
+  "baseStats": {
+    "hp": 70,
+    "attack": 85,
+    "defense": 65,
+    "speed": 120,
+    "spAttack": 125,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 265,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:secret_agent",
+  "height": 19,
+  "weight": 452,
+  "description": "It has many hidden capabilities, such as  fingertips that can shoot water and a  membrane on its back that it can use to  glide through the air.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:snipe_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:tearful_look"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/inteleon/inteleonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/inteleon/inteleonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/inteleon/inteleonback",
+    "backShiny": "pokeemerald:pokemon:sprite/inteleon/inteleonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/inteleon/inteleonicon",
+    "overworld": "pokeemerald:pokemon:sprite/inteleon/inteleonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/inteleon/inteleonoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:inteleon/gmax",
+      "name": "Inteleon",
+      "cryId": "pokeemerald:audio:sfx/cries/inteleon",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 70,
+        "attack": 85,
+        "defense": 65,
+        "speed": 120,
+        "spAttack": 125,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:torrent",
+        null,
+        "pokeemerald:ability:sniper"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/inteleon/inteleongmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

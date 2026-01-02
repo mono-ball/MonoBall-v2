@@ -1,0 +1,18 @@
+{
+  "id": "pokeemerald:field_effect:hot-springs-water",
+  "name": "Hot Springs Water",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/HotSpringsWater.png",
+  "frameWidth": 16,
+  "frameHeight": 16,
+  "frameCount": 1,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 16
+    }
+  ]
+}

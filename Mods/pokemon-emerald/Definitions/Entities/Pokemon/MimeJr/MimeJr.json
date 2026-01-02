@@ -1,0 +1,59 @@
+{
+  "id": "pokeemerald:pokemon:mime-jr",
+  "name": "Mime Jr.",
+  "cryId": "pokeemerald:audio:sfx/cries/mime-jr",
+  "baseStats": {
+    "hp": 20,
+    "attack": 25,
+    "defense": 45,
+    "speed": 60,
+    "spAttack": 70,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:psychic",
+    "pokeemerald:type:fairy"
+  ],
+  "catchRate": 145,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:soundproof",
+    "pokeemerald:ability:filter",
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:mime",
+  "height": 6,
+  "weight": 130,
+  "description": "In an attempt to confuse its enemy,  it mimics the enemy\u0027s movements.  Once mimicked, the foe cannot take  its eyes off this Pok\u00E9mon.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:mr-mime"
+    },
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:mr-mime-galar"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mimejr/mimejrfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mimejr/mimejrfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mimejr/mimejrback",
+    "backShiny": "pokeemerald:pokemon:sprite/mimejr/mimejrbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mimejr/mimejricon",
+    "overworld": "pokeemerald:pokemon:sprite/mimejr/mimejroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mimejr/mimejroverworldshiny"
+  }
+}

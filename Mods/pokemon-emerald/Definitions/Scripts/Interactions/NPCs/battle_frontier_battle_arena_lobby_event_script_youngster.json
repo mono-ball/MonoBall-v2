@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_arena_lobby_event_script_youngster",
+  "name": "battle frontier battle arena lobby event script youngster",
+  "description": "NPC interaction: battle frontier battle arena lobby event script youngster",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_arena_lobby_event_script_youngster.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:lickilicky",
+  "name": "Lickilicky",
+  "cryId": "pokeemerald:audio:sfx/cries/lickilicky",
+  "baseStats": {
+    "hp": 110,
+    "attack": 85,
+    "defense": 95,
+    "speed": 50,
+    "spAttack": 80,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 30,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:own_tempo",
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:cloud_nine"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "categoryId": "pokeemerald:category:licking",
+  "height": 17,
+  "weight": 1400,
+  "description": "The long tongue is always soggy with  slobber. The saliva contains a solvent  that causes numbness. Getting too close  to it will leave you soaked with drool.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:power_whip"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:belly_drum"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/lickilicky/lickilickyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/lickilicky/lickilickyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/lickilicky/lickilickyback",
+    "backShiny": "pokeemerald:pokemon:sprite/lickilicky/lickilickybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/lickilicky/lickilickyicon",
+    "overworld": "pokeemerald:pokemon:sprite/lickilicky/lickilickyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lickilicky/lickilickyoverworldshiny"
+  }
+}

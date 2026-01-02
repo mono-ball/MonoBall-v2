@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_pike_three_path_room_event_script_attendant",
+  "name": "battle frontier battle pike three path room event script attendant",
+  "description": "NPC interaction: battle frontier battle pike three path room event script attendant",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_pike_three_path_room_event_script_attendant.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

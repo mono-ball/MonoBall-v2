@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/stadium_frontier",
+  "name": "Battle Frontier",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/StadiumFrontier/StadiumFrontier.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/stadium",
+  "description": "Battle environment background for Battle Frontier"
+}

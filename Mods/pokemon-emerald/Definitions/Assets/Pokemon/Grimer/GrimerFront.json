@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/grimer/grimerfront",
+  "name": "Grimerfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Grimer/GrimerFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

@@ -1,0 +1,12 @@
+{
+  "id": "pokeemerald:battlescene:normal/normal",
+  "name": "Normal",
+  "description": "Normal battle background",
+  "category": "normal",
+  "backgroundTextureId": "pokeemerald:texture:battle/background/tall_grass",
+  "playerPlatformTextureId": "pokeemerald:texture:battle/platform/tall_grass_player",
+  "enemyPlatformTextureId": "pokeemerald:texture:battle/platform/tall_grass_enemy",
+  "hasAnimatedBackground": false,
+  "playerPlatformOffsetY": 0,
+  "enemyPlatformOffsetY": 0
+}

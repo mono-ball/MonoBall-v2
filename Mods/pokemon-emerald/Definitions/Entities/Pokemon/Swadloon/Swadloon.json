@@ -1,0 +1,119 @@
+{
+  "id": "pokeemerald:pokemon:swadloon",
+  "name": "Swadloon",
+  "cryId": "pokeemerald:audio:sfx/cries/swadloon",
+  "baseStats": {
+    "hp": 55,
+    "attack": 63,
+    "defense": 90,
+    "speed": 42,
+    "spAttack": 50,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 120,
+  "expYield": 133,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:leaf_guard",
+    "pokeemerald:ability:chlorophyll",
+    "pokeemerald:ability:overcoat"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:leaf-wrapped",
+  "height": 5,
+  "weight": 73,
+  "description": "Forests where Swadloon live have  superb foliage because the nutrients  they make from fallen leaves nourish  the plant life.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:leavanny"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:flail"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/swadloon/swadloonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/swadloon/swadloonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/swadloon/swadloonback",
+    "backShiny": "pokeemerald:pokemon:sprite/swadloon/swadloonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/swadloon/swadloonicon",
+    "overworld": "pokeemerald:pokemon:sprite/swadloon/swadloonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swadloon/swadloonoverworldshiny"
+  }
+}

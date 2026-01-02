@@ -1,0 +1,260 @@
+{
+  "id": "pokeemerald:pokemon:meowth",
+  "name": "Meowth",
+  "cryId": "pokeemerald:audio:sfx/cries/meowth",
+  "baseStats": {
+    "hp": 40,
+    "attack": 45,
+    "defense": 35,
+    "speed": 90,
+    "spAttack": 40,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:pickup",
+    "pokeemerald:ability:technician",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:scratch_cat",
+  "height": 4,
+  "weight": 42,
+  "description": "Meowth withdraw their sharp claws into  their paws to silently sneak about.  For some reason, this Pok\u00E9mon loves  shiny coins that glitter with light.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 28,
+      "targetSpeciesId": "pokeemerald:pokemon:persian"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:pay_day"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:spite",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:assist",
+    "pokeemerald:move:odor_sleuth",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:last_resort",
+    "pokeemerald:move:punishment",
+    "pokeemerald:move:tail_whip",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:foul_play"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/meowth/meowthfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/meowth/meowthback",
+    "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/meowth/meowthicon",
+    "overworld": "pokeemerald:pokemon:sprite/meowth/meowthoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:meowth/gmax",
+      "name": "Meowth",
+      "cryId": "pokeemerald:audio:sfx/cries/meowth",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "speed": 90,
+        "spAttack": 40,
+        "spDefense": 40
+      },
+      "types": [
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pickup",
+        "pokeemerald:ability:technician",
+        "pokeemerald:ability:unnerve"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/meowth/meowthgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/meowth/meowthgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/meowth/meowthgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/meowth/meowthgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:meowth/galar",
+      "name": "Meowth",
+      "cryId": "pokeemerald:audio:sfx/cries/meowth",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 50,
+        "attack": 65,
+        "defense": 55,
+        "speed": 40,
+        "spAttack": 40,
+        "spDefense": 40
+      },
+      "types": [
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pickup",
+        "pokeemerald:ability:tough_claws",
+        "pokeemerald:ability:unnerve"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/meowth/meowthgalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthgalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/meowth/meowthgalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthgalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/meowth/meowthgalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/meowth/meowthgalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthgalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:meowth/alola",
+      "name": "Meowth",
+      "cryId": "pokeemerald:audio:sfx/cries/meowth",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 35,
+        "speed": 90,
+        "spAttack": 50,
+        "spDefense": 40
+      },
+      "types": [
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:pickup",
+        "pokeemerald:ability:technician",
+        "pokeemerald:ability:rattled"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/meowth/meowthalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/meowth/meowthalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/meowth/meowthalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/meowth/meowthalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/littleroot_town_event_script_boy",
+  "name": "littleroot town event script boy",
+  "description": "NPC interaction: littleroot town event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/littleroot_town_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

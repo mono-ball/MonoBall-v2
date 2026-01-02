@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:pokemon:skuntank",
+  "name": "Skuntank",
+  "cryId": "pokeemerald:audio:sfx/cries/skuntank",
+  "baseStats": {
+    "hp": 103,
+    "attack": 93,
+    "defense": 67,
+    "speed": 84,
+    "spAttack": 71,
+    "spDefense": 61
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stench",
+    "pokeemerald:ability:aftermath",
+    "pokeemerald:ability:keen_eye"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:skunk",
+  "height": 10,
+  "weight": 380,
+  "description": "It attacks by spraying a horribly smelly  fluid from the tip of its tail. The fluid  smells worse the longer it is allowed  to fester.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:explosion"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skuntank/skuntankfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skuntank/skuntankfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skuntank/skuntankback",
+    "backShiny": "pokeemerald:pokemon:sprite/skuntank/skuntankbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skuntank/skuntankicon",
+    "overworld": "pokeemerald:pokemon:sprite/skuntank/skuntankoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skuntank/skuntankoverworldshiny"
+  }
+}

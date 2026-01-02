@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:pokemon:frogadier",
+  "name": "Frogadier",
+  "cryId": "pokeemerald:audio:sfx/cries/frogadier",
+  "baseStats": {
+    "hp": 54,
+    "attack": 63,
+    "defense": 52,
+    "speed": 97,
+    "spAttack": 83,
+    "spDefense": 56
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 142,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:protean"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:bubble_frog",
+  "height": 6,
+  "weight": 109,
+  "description": "It can throw bubble-covered pebbles with  precise control, hitting empty cans up to  a hundred feet away. Frogadier\u0027s swiftness  is unparalleled.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 36,
+      "targetSpeciesId": "pokeemerald:pokemon:greninja"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:substitute"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/frogadier/frogadierfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/frogadier/frogadierfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/frogadier/frogadierback",
+    "backShiny": "pokeemerald:pokemon:sprite/frogadier/frogadierbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/frogadier/frogadiericon",
+    "overworld": "pokeemerald:pokemon:sprite/frogadier/frogadieroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frogadier/frogadieroverworldshiny"
+  }
+}

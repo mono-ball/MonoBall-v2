@@ -1,0 +1,181 @@
+{
+  "id": "pokeemerald:pokemon:weezing",
+  "name": "Weezing",
+  "cryId": "pokeemerald:audio:sfx/cries/weezing",
+  "baseStats": {
+    "hp": 65,
+    "attack": 90,
+    "defense": 120,
+    "speed": 60,
+    "spAttack": 85
+  },
+  "types": [
+    "pokeemerald:type:poison"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:levitate",
+    "pokeemerald:ability:neutralizing_gas",
+    "pokeemerald:ability:stench"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:poison_gas",
+  "height": 12,
+  "weight": 95,
+  "description": "By diluting its toxic gases with a special  process, the highest grade of perfume can  be extracted. To Weezing, gases emanating  from garbage are the ultimate feast.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smog"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_gas"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:heat_wave"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:clear_smog"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sludge"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:self_destruct"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:explosion"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:memento"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/weezing/weezingfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/weezing/weezingfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/weezing/weezingback",
+    "backShiny": "pokeemerald:pokemon:sprite/weezing/weezingbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/weezing/weezingicon",
+    "overworld": "pokeemerald:pokemon:sprite/weezing/weezingoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/weezing/weezingoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:weezing/galar",
+      "name": "Weezing",
+      "cryId": "pokeemerald:audio:sfx/cries/weezing",
+      "formKey": "galar",
+      "baseStats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 120,
+        "speed": 60,
+        "spAttack": 85,
+        "spDefense": 70
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:fairy"
+      ],
+      "abilities": [
+        "pokeemerald:ability:levitate",
+        "pokeemerald:ability:neutralizing_gas",
+        "pokeemerald:ability:misty_surge"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/weezing/weezinggalarfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/weezing/weezinggalarfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/weezing/weezinggalarback",
+        "backShiny": "pokeemerald:pokemon:sprite/weezing/weezinggalarbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/weezing/weezinggalaricon",
+        "overworld": "pokeemerald:pokemon:sprite/weezing/weezinggalaroverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/weezing/weezinggalaroverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:galar"
+    }
+  ]
+}

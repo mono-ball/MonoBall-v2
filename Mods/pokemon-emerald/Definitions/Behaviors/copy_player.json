@@ -1,9 +1,0 @@
-{
-  "id": "base:behavior:movement/copy_player",
-  "name": "Copy Player Behavior",
-  "description": "NPC mimics the player's facing direction or movement",
-  "scriptId": "base:script:movement/copy_player",
-  "parameterOverrides": {
-    "copyMode": "normal"
-  }
-}

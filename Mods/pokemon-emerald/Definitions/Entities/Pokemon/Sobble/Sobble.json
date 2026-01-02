@@ -1,0 +1,130 @@
+{
+  "id": "pokeemerald:pokemon:sobble",
+  "name": "Sobble",
+  "cryId": "pokeemerald:audio:sfx/cries/sobble",
+  "baseStats": {
+    "hp": 50,
+    "attack": 40,
+    "defense": 40,
+    "speed": 70,
+    "spAttack": 70,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 62,
+  "evYield": {
+    "speed": 1,
+    "spDefense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:water_lizard",
+  "height": 3,
+  "weight": 40,
+  "description": "When scared, this Pok\u00E9mon cries.  Its tears pack the chemical punch of 100  onions, and attackers won\u0027t be  able to resist weeping.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:drizzile"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:tearful_look"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:rain_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aqua_jet",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:mist",
+    "pokeemerald:move:haze",
+    "pokeemerald:move:ice_shard",
+    "pokeemerald:move:fell_stinger"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sobble/sobblefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sobble/sobblefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sobble/sobbleback",
+    "backShiny": "pokeemerald:pokemon:sprite/sobble/sobblebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sobble/sobbleicon",
+    "overworld": "pokeemerald:pokemon:sprite/sobble/sobbleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sobble/sobbleoverworldshiny"
+  }
+}

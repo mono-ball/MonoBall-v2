@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:mightyena",
+  "name": "Mightyena",
+  "cryId": "pokeemerald:audio:sfx/cries/mightyena",
+  "baseStats": {
+    "hp": 70,
+    "attack": 90,
+    "defense": 70,
+    "speed": 70,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 127,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    "pokeemerald:ability:quick_feet",
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:bite",
+  "height": 10,
+  "weight": 370,
+  "description": "In the wild, Mightyena live in a pack.  They never defy their leader\u0027s orders.  They defeat foes with perfectly  coordinated teamwork.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:snarl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thief"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:howl"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mightyena/mightyenafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mightyena/mightyenafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mightyena/mightyenaback",
+    "backShiny": "pokeemerald:pokemon:sprite/mightyena/mightyenabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mightyena/mightyenaicon",
+    "overworld": "pokeemerald:pokemon:sprite/mightyena/mightyenaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mightyena/mightyenaoverworldshiny"
+  }
+}

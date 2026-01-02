@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_1f_event_script_ninja_boy",
+  "name": "lilycove city lilycove museum 1f event script ninja boy",
+  "description": "NPC interaction: lilycove city lilycove museum 1f event script ninja boy",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_lilycove_museum_1f_event_script_ninja_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,195 @@
+{
+  "id": "pokeemerald:pokemon:clefairy",
+  "name": "Clefairy",
+  "cryId": "pokeemerald:audio:sfx/cries/clefairy",
+  "baseStats": {
+    "hp": 70,
+    "attack": 45,
+    "defense": 48,
+    "speed": 35,
+    "spAttack": 60
+  },
+  "catchRate": 150,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 191,
+  "eggCycles": 10,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy"
+  ],
+  "friendship": 140,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:cute_charm",
+    "pokeemerald:ability:magic_guard",
+    "pokeemerald:ability:friend_guard"
+  ],
+  "bodyColor": "pokeemerald:body_color:pink",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:fairy",
+  "height": 6,
+  "weight": 75,
+  "description": "On every night of a full moon, they come  out to play. When dawn arrives, the tired  Clefairy go to sleep nestled up against  each other in deep and quiet mountains.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_MOON_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:clefable"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disarming_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:splash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_kiss"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:copycat"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:life_dew"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:metronome"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:gravity"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:meteor_mash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:follow_me"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:cosmic_power"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:moonblast"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:healing_wish"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:soft_boiled",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/clefairy/clefairyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/clefairy/clefairyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/clefairy/clefairyback",
+    "backShiny": "pokeemerald:pokemon:sprite/clefairy/clefairybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/clefairy/clefairyicon",
+    "overworld": "pokeemerald:pokemon:sprite/clefairy/clefairyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clefairy/clefairyoverworldshiny"
+  }
+}

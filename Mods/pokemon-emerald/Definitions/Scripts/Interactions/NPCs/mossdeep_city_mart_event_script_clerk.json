@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_mart_event_script_clerk",
+  "name": "mossdeep city mart event script clerk",
+  "description": "NPC interaction: mossdeep city mart event script clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_mart_event_script_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_jasmine",
+  "name": "route110 event script jasmine",
+  "description": "NPC interaction: route110 event script jasmine",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_jasmine.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

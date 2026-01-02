@@ -1,0 +1,153 @@
+{
+  "id": "pokeemerald:pokemon:chespin",
+  "name": "Chespin",
+  "cryId": "pokeemerald:audio:sfx/cries/chespin",
+  "baseStats": {
+    "hp": 56,
+    "attack": 61,
+    "defense": 65,
+    "speed": 38,
+    "spAttack": 48,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 63,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:bulletproof"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:spiny_nut",
+  "height": 4,
+  "weight": 90,
+  "description": "The quills on its head are usually soft.  When it flexes them, the points become  so hard and sharp that they can pierce  rock without any effort.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:quilladin"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vine_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:pin_missile"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:pain_split"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:wood_hammer"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:belly_drum",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:quick_guard",
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:power_up_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/chespin/chespinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/chespin/chespinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/chespin/chespinback",
+    "backShiny": "pokeemerald:pokemon:sprite/chespin/chespinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/chespin/chespinicon",
+    "overworld": "pokeemerald:pokemon:sprite/chespin/chespinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chespin/chespinoverworldshiny"
+  }
+}

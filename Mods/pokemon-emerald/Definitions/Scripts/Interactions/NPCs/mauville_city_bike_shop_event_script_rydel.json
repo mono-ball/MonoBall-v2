@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mauville_city_bike_shop_event_script_rydel",
+  "name": "mauville city bike shop event script rydel",
+  "description": "NPC interaction: mauville city bike shop event script rydel",
+  "scriptPath": "Scripts/Interactions/NPCs/mauville_city_bike_shop_event_script_rydel.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

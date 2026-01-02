@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route104_event_script_cindy",
+  "name": "route104 event script cindy",
+  "description": "NPC interaction: route104 event script cindy",
+  "scriptPath": "Scripts/Interactions/NPCs/route104_event_script_cindy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

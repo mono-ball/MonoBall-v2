@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:barboach",
+  "name": "Barboach",
+  "cryId": "pokeemerald:audio:sfx/cries/barboach",
+  "baseStats": {
+    "hp": 50,
+    "attack": 48,
+    "defense": 43,
+    "speed": 60,
+    "spAttack": 46,
+    "spDefense": 41
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:anticipation",
+    "pokeemerald:ability:hydration"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:whiskers",
+  "height": 4,
+  "weight": 19,
+  "description": "Its body is covered with a slimy film.  The film acts as a barrier to prevent germs  in muddy water from entering the  Barboach\u0027s body.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:whiscash"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:snore"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:future_sight"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:fissure"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:thrash",
+    "pokeemerald:move:whirlpool",
+    "pokeemerald:move:spark",
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:take_down",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:earth_power",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:muddy_water"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/barboach/barboachfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/barboach/barboachfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/barboach/barboachback",
+    "backShiny": "pokeemerald:pokemon:sprite/barboach/barboachbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/barboach/barboachicon",
+    "overworld": "pokeemerald:pokemon:sprite/barboach/barboachoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/barboach/barboachoverworldshiny"
+  }
+}

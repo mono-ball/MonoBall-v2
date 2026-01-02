@@ -1,0 +1,208 @@
+{
+  "id": "pokeemerald:pokemon:swampert",
+  "name": "Swampert",
+  "cryId": "pokeemerald:audio:sfx/cries/swampert",
+  "baseStats": {
+    "hp": 100,
+    "attack": 110,
+    "defense": 90,
+    "speed": 60,
+    "spAttack": 85,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 45,
+  "expYield": 268,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:mud_fish",
+  "height": 15,
+  "weight": 819,
+  "description": "If it senses the approach of a storm and  a tidal wave, it protects its seaside nest  by piling up boulders. It swims as fast as  a jet ski.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/swampert/swampertfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/swampert/swampertfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/swampert/swampertback",
+    "backShiny": "pokeemerald:pokemon:sprite/swampert/swampertbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/swampert/swamperticon",
+    "overworld": "pokeemerald:pokemon:sprite/swampert/swampertoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swampert/swampertoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:swampert/mega",
+      "name": "Swampert",
+      "cryId": "pokeemerald:audio:sfx/cries/swampert-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 100,
+        "attack": 150,
+        "defense": 110,
+        "speed": 70,
+        "spAttack": 95,
+        "spDefense": 110
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:ground"
+      ],
+      "abilities": [
+        "pokeemerald:ability:swift_swim",
+        "pokeemerald:ability:swift_swim",
+        "pokeemerald:ability:swift_swim"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/swampert/swampertmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/swampert/swampertmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/swampert/swampertmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/swampert/swampertmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/swampert/swampertmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/swampert/swampertmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/swampert/swampertmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:swampertite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

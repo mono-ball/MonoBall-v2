@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/victory_road_b2f_event_script_felix",
+  "name": "victory road b2f event script felix",
+  "description": "NPC interaction: victory road b2f event script felix",
+  "scriptPath": "Scripts/Interactions/NPCs/victory_road_b2f_event_script_felix.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

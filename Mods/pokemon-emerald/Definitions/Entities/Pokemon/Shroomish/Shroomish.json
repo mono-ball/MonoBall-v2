@@ -1,0 +1,142 @@
+{
+  "id": "pokeemerald:pokemon:shroomish",
+  "name": "Shroomish",
+  "cryId": "pokeemerald:audio:sfx/cries/shroomish",
+  "baseStats": {
+    "hp": 60,
+    "attack": 40,
+    "defense": 60,
+    "speed": 35,
+    "spAttack": 40,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:effect_spore",
+    "pokeemerald:ability:poison_heal",
+    "pokeemerald:ability:quick_feet"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mushroom",
+  "height": 4,
+  "weight": 45,
+  "description": "It loves to eat damp, composted soil in  forests. If you enter a forest after a  long rain, you can see many Shroomish  feasting on composted soil.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 23,
+      "targetSpeciesId": "pokeemerald:pokemon:breloom"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:spore"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:charm",
+    "pokeemerald:move:helping_hand",
+    "pokeemerald:move:worry_seed",
+    "pokeemerald:move:wake_up_slap",
+    "pokeemerald:move:seed_bomb",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:drain_punch"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/shroomish/shroomishfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/shroomish/shroomishfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/shroomish/shroomishback",
+    "backShiny": "pokeemerald:pokemon:sprite/shroomish/shroomishbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/shroomish/shroomishicon",
+    "overworld": "pokeemerald:pokemon:sprite/shroomish/shroomishoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shroomish/shroomishoverworldshiny"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route121_event_script_jessica",
+  "name": "route121 event script jessica",
+  "description": "NPC interaction: route121 event script jessica",
+  "scriptPath": "Scripts/Interactions/NPCs/route121_event_script_jessica.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

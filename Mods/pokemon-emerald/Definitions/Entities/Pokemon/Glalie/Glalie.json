@@ -1,0 +1,184 @@
+{
+  "id": "pokeemerald:pokemon:glalie",
+  "name": "Glalie",
+  "cryId": "pokeemerald:audio:sfx/cries/glalie",
+  "baseStats": {
+    "hp": 80,
+    "attack": 80,
+    "defense": 80,
+    "speed": 80,
+    "spAttack": 80,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 75,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:fairy",
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:moody"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:face",
+  "height": 15,
+  "weight": 2565,
+  "description": "A Glalie has the power to instantaneously  freeze moisture in the atmosphere.  A dazzling cloud of diamondlike ice  crystals forms around its body.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:freeze_dry"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sheer_cold"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:icy_wind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:frost_breath"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:snowscape"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:weather_ball"
+    },
+    {
+      "level": 61,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:blizzard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/glalie/glaliefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/glalie/glaliefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/glalie/glalieback",
+    "backShiny": "pokeemerald:pokemon:sprite/glalie/glaliebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/glalie/glalieicon",
+    "overworld": "pokeemerald:pokemon:sprite/glalie/glalieoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/glalie/glalieoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:glalie/mega",
+      "name": "Glalie",
+      "cryId": "pokeemerald:audio:sfx/cries/glalie-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 80,
+        "attack": 120,
+        "defense": 80,
+        "speed": 100,
+        "spAttack": 120,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:ice"
+      ],
+      "abilities": [
+        "pokeemerald:ability:refrigerate",
+        "pokeemerald:ability:refrigerate",
+        "pokeemerald:ability:refrigerate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/glalie/glaliemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/glalie/glaliemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/glalie/glaliemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/glalie/glaliemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/glalie/glaliemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/glalie/glaliemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/glalie/glaliemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:glalitite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

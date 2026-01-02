@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_house2_event_script_boy",
+  "name": "dewford town house2 event script boy",
+  "description": "NPC interaction: dewford town house2 event script boy",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_house2_event_script_boy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

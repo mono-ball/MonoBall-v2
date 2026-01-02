@@ -1,0 +1,182 @@
+{
+  "id": "pokeemerald:pokemon:persian",
+  "name": "Persian",
+  "cryId": "pokeemerald:audio:sfx/cries/persian",
+  "baseStats": {
+    "hp": 65,
+    "attack": 70,
+    "defense": 60,
+    "speed": 115,
+    "spAttack": 65,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:limber",
+    "pokeemerald:ability:technician",
+    "pokeemerald:ability:unnerve"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:classy_cat",
+  "height": 10,
+  "weight": 320,
+  "description": "A Persian\u0027s six bold whiskers sense air  movements to determine what is in its  vicinity. It becomes docile if grabbed  by the whiskers.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:pay_day"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:assurance"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/persian/persianfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/persian/persianfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/persian/persianback",
+    "backShiny": "pokeemerald:pokemon:sprite/persian/persianbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/persian/persianicon",
+    "overworld": "pokeemerald:pokemon:sprite/persian/persianoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/persian/persianoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:persian/alola",
+      "name": "Persian",
+      "cryId": "pokeemerald:audio:sfx/cries/persian",
+      "formKey": "alola",
+      "baseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 60,
+        "speed": 115,
+        "spAttack": 75,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:fur_coat",
+        "pokeemerald:ability:technician",
+        "pokeemerald:ability:rattled"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/persian/persianalolafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/persian/persianalolafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/persian/persianalolaback",
+        "backShiny": "pokeemerald:pokemon:sprite/persian/persianalolabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/persian/persianalolaicon",
+        "overworld": "pokeemerald:pokemon:sprite/persian/persianalolaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/persian/persianalolaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:regional",
+      "region": "pokeemerald:region:alola"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:mudkip",
+  "name": "Mudkip",
+  "cryId": "pokeemerald:audio:sfx/cries/mudkip",
+  "baseStats": {
+    "hp": 50,
+    "attack": 70,
+    "defense": 50,
+    "speed": 40,
+    "spAttack": 50,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:mud_fish",
+  "height": 4,
+  "weight": 76,
+  "description": "On land, it can powerfully lift large  boulders by planting its four feet and  heaving. It sleeps by burying itself in soil  at the water\u0027s edge.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 16,
+      "targetSpeciesId": "pokeemerald:pokemon:marshtomp"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:rock_throw"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:refresh",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:ice_ball",
+    "pokeemerald:move:mirror_coat",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:ancient_power",
+    "pokeemerald:move:whirlpool",
+    "pokeemerald:move:bite",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:mud_bomb",
+    "pokeemerald:move:yawn",
+    "pokeemerald:move:sludge",
+    "pokeemerald:move:avalanche",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:barrier"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/mudkip/mudkipfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/mudkip/mudkipfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/mudkip/mudkipback",
+    "backShiny": "pokeemerald:pokemon:sprite/mudkip/mudkipbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/mudkip/mudkipicon",
+    "overworld": "pokeemerald:pokemon:sprite/mudkip/mudkipoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mudkip/mudkipoverworldshiny"
+  }
+}

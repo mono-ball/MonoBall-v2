@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:cetoddle",
+  "name": "Cetoddle",
+  "cryId": "pokeemerald:audio:sfx/cries/cetoddle",
+  "baseStats": {
+    "hp": 108,
+    "attack": 68,
+    "defense": 45,
+    "speed": 43,
+    "spAttack": 30,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:ice"
+  ],
+  "catchRate": 150,
+  "expYield": 67,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:snow_cloak",
+    "pokeemerald:ability:sheer_force"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:terra_whale",
+  "height": 12,
+  "weight": 450,
+  "description": "This species left the ocean and  began living on land a very long time  ago. It seems to be closely related  to Wailmer.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_ICE_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:cetitan"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:ice_shard"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:avalanche"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:bounce"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:ice_spinner"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 53,
+      "moveId": "pokeemerald:move:blizzard"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:belly_drum",
+    "pokeemerald:move:entrainment",
+    "pokeemerald:move:icicle_crash",
+    "pokeemerald:move:superpower",
+    "pokeemerald:move:yawn"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cetoddle/cetoddlefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cetoddle/cetoddlefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cetoddle/cetoddleback",
+    "backShiny": "pokeemerald:pokemon:sprite/cetoddle/cetoddlebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cetoddle/cetoddleicon",
+    "overworld": "pokeemerald:pokemon:sprite/cetoddle/cetoddleoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cetoddle/cetoddleoverworldshiny"
+  }
+}

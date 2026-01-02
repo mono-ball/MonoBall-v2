@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/bagon/bagonback",
+  "name": "Bagonback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Bagon/BagonBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

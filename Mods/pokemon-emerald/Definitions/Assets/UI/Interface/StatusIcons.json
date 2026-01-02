@@ -1,0 +1,11 @@
+{
+  "id": "pokeemerald:sprite:ui/interface/status-icons",
+  "name": "Status Icons",
+  "type": "Sprite",
+  "texturePath": "Graphics/UI/Interface/StatusIcons.png",
+  "width": 32,
+  "height": 64,
+  "frameWidth": 16,
+  "frameHeight": 8,
+  "frameCount": 7
+}

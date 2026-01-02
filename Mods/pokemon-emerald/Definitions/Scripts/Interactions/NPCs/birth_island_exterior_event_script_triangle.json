@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/birth_island_exterior_event_script_triangle",
+  "name": "birth island exterior event script triangle",
+  "description": "NPC interaction: birth island exterior event script triangle",
+  "scriptPath": "Scripts/Interactions/NPCs/birth_island_exterior_event_script_triangle.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

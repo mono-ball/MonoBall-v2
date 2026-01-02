@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_city_mart_event_script_clerk",
+  "name": "petalburg city mart event script clerk",
+  "description": "NPC interaction: petalburg city mart event script clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_city_mart_event_script_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

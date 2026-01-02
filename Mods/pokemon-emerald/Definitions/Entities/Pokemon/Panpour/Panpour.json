@@ -1,0 +1,167 @@
+{
+  "id": "pokeemerald:pokemon:panpour",
+  "name": "Panpour",
+  "cryId": "pokeemerald:audio:sfx/cries/panpour",
+  "baseStats": {
+    "hp": 50,
+    "attack": 53,
+    "defense": 48,
+    "speed": 64,
+    "spAttack": 53,
+    "spDefense": 48
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 190,
+  "expYield": 63,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gluttony",
+    null,
+    "pokeemerald:ability:torrent"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:spray",
+  "height": 6,
+  "weight": 135,
+  "description": "The water stored inside the tuft of its  head is rich in nutrients. It waters  plants using its tail, plants that  receive its water grow large.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_WATER_STONE",
+      "targetSpeciesId": "pokeemerald:pokemon:simipour"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:water_sport"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:scald"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:fling"
+    },
+    {
+      "level": 31,
+      "moveId": "pokeemerald:move:acrobatics"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:recycle"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:natural_gift"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:crunch"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:covet",
+    "pokeemerald:move:low_kick",
+    "pokeemerald:move:tickle",
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:role_play",
+    "pokeemerald:move:astonish",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:mud_sport",
+    "pokeemerald:move:hydro_pump",
+    "pokeemerald:move:disarming_voice"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/panpour/panpourfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/panpour/panpourfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/panpour/panpourback",
+    "backShiny": "pokeemerald:pokemon:sprite/panpour/panpourbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/panpour/panpouricon",
+    "overworld": "pokeemerald:pokemon:sprite/panpour/panpouroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/panpour/panpouroverworldshiny"
+  }
+}

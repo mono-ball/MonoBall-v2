@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_berry_beauty",
+  "name": "route120 event script berry beauty",
+  "description": "NPC interaction: route120 event script berry beauty",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_berry_beauty.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

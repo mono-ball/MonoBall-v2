@@ -1,0 +1,259 @@
+{
+  "id": "pokeemerald:pokemon:greninja",
+  "name": "Greninja",
+  "cryId": "pokeemerald:audio:sfx/cries/greninja",
+  "baseStats": {
+    "hp": 72,
+    "attack": 95,
+    "defense": 67,
+    "speed": 122,
+    "spAttack": 103,
+    "spDefense": 71
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:dark"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 3
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:protean"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:ninja",
+  "height": 15,
+  "weight": 400,
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:water_shuriken"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:role_play"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:spikes"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:substitute"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/greninja/greninjafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/greninja/greninjaback",
+    "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/greninja/greninjaicon",
+    "overworld": "pokeemerald:pokemon:sprite/greninja/greninjaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjaoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:greninja/mega",
+      "name": "Greninja",
+      "cryId": "pokeemerald:audio:sfx/cries/greninja",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 72,
+        "attack": 125,
+        "defense": 77,
+        "speed": 142,
+        "spAttack": 133,
+        "spDefense": 81
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:torrent",
+        null,
+        "pokeemerald:ability:protean"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/greninja/greninjamegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjamegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/greninja/greninjamegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjamegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/greninja/greninjamegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/greninja/greninjamegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjamegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:greninjite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    },
+    {
+      "id": "pokeemerald:pokemon_form:greninja/ash",
+      "name": "Greninja",
+      "cryId": "pokeemerald:audio:sfx/cries/greninja",
+      "formKey": "ash",
+      "baseStats": {
+        "hp": 72,
+        "attack": 145,
+        "defense": 67,
+        "speed": 132,
+        "spAttack": 153,
+        "spDefense": 71
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:battle_bond",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/greninja/greninjaashfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjaashfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/greninja/greninjaashback",
+        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjaashbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/greninja/greninjaashicon",
+        "overworld": "pokeemerald:pokemon:sprite/greninja/greninjaashoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjaashoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:greninja/battle-bond",
+      "name": "Greninja",
+      "cryId": "pokeemerald:audio:sfx/cries/greninja",
+      "formKey": "battle-bond",
+      "baseStats": {
+        "hp": 72,
+        "attack": 95,
+        "defense": 67,
+        "speed": 122,
+        "spAttack": 103,
+        "spDefense": 71
+      },
+      "types": [
+        "pokeemerald:type:water",
+        "pokeemerald:type:dark"
+      ],
+      "abilities": [
+        "pokeemerald:ability:battle_bond",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondback",
+        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondicon",
+        "overworld": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondoverworldshiny"
+      }
+    }
+  ]
+}

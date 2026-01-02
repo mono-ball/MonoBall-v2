@@ -1,0 +1,152 @@
+{
+  "id": "pokeemerald:pokemon:rabsca",
+  "name": "Rabsca",
+  "cryId": "pokeemerald:audio:sfx/cries/rabsca",
+  "baseStats": {
+    "hp": 75,
+    "attack": 50,
+    "defense": 85,
+    "speed": 45,
+    "spAttack": 115,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 165,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:synchronize",
+    null,
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:rolling",
+  "height": 3,
+  "weight": 35,
+  "description": "The body that supports the ball  barely moves. Therefore, it is thought  that the true body of this Pok\u00E9mon  is actually inside the ball.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:revival_blessing"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:psybeam"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:lunge"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:speed_swap"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:power_swap"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:guard_swap"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:psychic"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:thief"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rabsca/rabscafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rabsca/rabscafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/rabsca/rabscaback",
+    "backShiny": "pokeemerald:pokemon:sprite/rabsca/rabscabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/rabsca/rabscaicon",
+    "overworld": "pokeemerald:pokemon:sprite/rabsca/rabscaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rabsca/rabscaoverworldshiny"
+  }
+}

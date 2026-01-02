@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_trick_house_puzzle7_event_script_patricia",
+  "name": "route110 trick house puzzle7 event script patricia",
+  "description": "NPC interaction: route110 trick house puzzle7 event script patricia",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_trick_house_puzzle7_event_script_patricia.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

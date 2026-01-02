@@ -1,0 +1,127 @@
+{
+  "id": "pokeemerald:pokemon:thwackey",
+  "name": "Thwackey",
+  "cryId": "pokeemerald:audio:sfx/cries/thwackey",
+  "baseStats": {
+    "hp": 70,
+    "attack": 85,
+    "defense": 70,
+    "speed": 80,
+    "spAttack": 55,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 45,
+  "expYield": 147,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:overgrow",
+    null,
+    "pokeemerald:ability:grassy_surge"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:beat",
+  "height": 7,
+  "weight": 140,
+  "description": "The faster a Thwackey can beat out  a rhythm with its two sticks, the more  respect it wins from its peers.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:rillaboom"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:branch_poke"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:endeavor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/thwackey/thwackeyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/thwackey/thwackeyfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/thwackey/thwackeyback",
+    "backShiny": "pokeemerald:pokemon:sprite/thwackey/thwackeybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/thwackey/thwackeyicon",
+    "overworld": "pokeemerald:pokemon:sprite/thwackey/thwackeyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/thwackey/thwackeyoverworldshiny"
+  }
+}

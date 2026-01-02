@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/ss_tidal_corridor_event_script_porthole",
+  "name": "ss tidal corridor event script porthole",
+  "description": "Sign script: ss tidal corridor event script porthole",
+  "scriptPath": "Scripts/Signs/ss_tidal_corridor_event_script_porthole.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

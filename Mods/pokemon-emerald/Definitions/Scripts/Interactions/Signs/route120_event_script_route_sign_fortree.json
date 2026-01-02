@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route120_event_script_route_sign_fortree",
+  "name": "route120 event script route sign fortree",
+  "description": "Sign script: route120 event script route sign fortree",
+  "scriptPath": "Scripts/Signs/route120_event_script_route_sign_fortree.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

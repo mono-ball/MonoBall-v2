@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:pidove",
+  "name": "Pidove",
+  "cryId": "pokeemerald:audio:sfx/cries/pidove",
+  "baseStats": {
+    "hp": 50,
+    "attack": 55,
+    "defense": 50,
+    "speed": 43,
+    "spAttack": 36,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 255,
+  "expYield": 53,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:big_pecks",
+    "pokeemerald:ability:super_luck",
+    "pokeemerald:ability:rivalry"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:tiny_pigeon",
+  "height": 3,
+  "weight": 21,
+  "description": "This very forgetful Pok\u00E9mon will wait for  a new order from its Trainer even though  it already has one. Flocks often gather  in parks and plazas.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 21,
+      "targetSpeciesId": "pokeemerald:pokemon:tranquill"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:feather_dance"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:sky_attack"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:hypnosis",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:wish",
+    "pokeemerald:move:morning_sun",
+    "pokeemerald:move:lucky_chant",
+    "pokeemerald:move:night_slash"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pidove/pidovefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pidove/pidovefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pidove/pidoveback",
+    "backShiny": "pokeemerald:pokemon:sprite/pidove/pidovebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pidove/pidoveicon",
+    "overworld": "pokeemerald:pokemon:sprite/pidove/pidoveoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pidove/pidoveoverworldshiny"
+  }
+}

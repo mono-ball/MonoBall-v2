@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route108_event_script_matthew",
+  "name": "route108 event script matthew",
+  "description": "NPC interaction: route108 event script matthew",
+  "scriptPath": "Scripts/Interactions/NPCs/route108_event_script_matthew.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

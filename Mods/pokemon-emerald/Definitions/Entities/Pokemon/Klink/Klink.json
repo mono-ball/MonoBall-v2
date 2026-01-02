@@ -1,0 +1,130 @@
+{
+  "id": "pokeemerald:pokemon:klink",
+  "name": "Klink",
+  "cryId": "pokeemerald:audio:sfx/cries/klink",
+  "baseStats": {
+    "hp": 40,
+    "attack": 55,
+    "defense": 70,
+    "speed": 30,
+    "spAttack": 45,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 130,
+  "expYield": 60,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 255,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:plus",
+    "pokeemerald:ability:minus",
+    "pokeemerald:ability:clear_body"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:gear",
+  "height": 3,
+  "weight": 210,
+  "description": "Two bodies comprise a fixed pair.  The two minigears that mesh together  are predetermined. Each will rebound from  other minigears without meshing.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 38,
+      "targetSpeciesId": "pokeemerald:pokemon:klang"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:thunder_shock"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:charge_beam"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:discharge"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:gear_grind"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:lock_on"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:shift_gear"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:zap_cannon"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/klink/klinkfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/klink/klinkfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/klink/klinkback",
+    "backShiny": "pokeemerald:pokemon:sprite/klink/klinkbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/klink/klinkicon",
+    "overworld": "pokeemerald:pokemon:sprite/klink/klinkoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/klink/klinkoverworldshiny"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/electrode/electrodebackshiny",
+  "name": "Electrodebackshiny",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Electrode/ElectrodeBackShiny.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

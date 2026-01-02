@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/bulbasaur/bulbasaurfront",
+  "name": "Bulbasaurfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Bulbasaur/BulbasaurFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

@@ -1,0 +1,157 @@
+{
+  "id": "pokeemerald:pokemon:noivern",
+  "name": "Noivern",
+  "cryId": "pokeemerald:audio:sfx/cries/noivern",
+  "baseStats": {
+    "hp": 85,
+    "attack": 70,
+    "defense": 80,
+    "speed": 123,
+    "spAttack": 97,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:flying",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 187,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:infiltrator",
+    "pokeemerald:ability:telepathy"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:sound_wave",
+  "height": 15,
+  "weight": 850,
+  "description": "They fly around on moonless nights and  attack careless prey. The ultrasonic  waves it emits from its ears can reduce  a large boulder to pebbles.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:super_fang"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 51,
+      "moveId": "pokeemerald:move:tailwind"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:hurricane"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:boomburst"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/noivern/noivernfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/noivern/noivernfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/noivern/noivernback",
+    "backShiny": "pokeemerald:pokemon:sprite/noivern/noivernbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/noivern/noivernicon",
+    "overworld": "pokeemerald:pokemon:sprite/noivern/noivernoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/noivern/noivernoverworldshiny"
+  }
+}

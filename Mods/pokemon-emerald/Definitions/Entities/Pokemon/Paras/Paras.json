@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:paras",
+  "name": "Paras",
+  "cryId": "pokeemerald:audio:sfx/cries/paras",
+  "baseStats": {
+    "hp": 35,
+    "attack": 70,
+    "defense": 55,
+    "speed": 25,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 190,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:effect_spore",
+    "pokeemerald:ability:dry_skin",
+    "pokeemerald:ability:damp"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:mushroom",
+  "height": 3,
+  "weight": 54,
+  "description": "A Paras has parasitic tochukaso  mushrooms growing on its back. They grow  by drawing nutrients from the host. They  are valued as a medicine for long life.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 24,
+      "targetSpeciesId": "pokeemerald:pokemon:parasect"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:spore"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:aromatherapy"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:rage_powder"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:x_scissor"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:screech",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:sweet_scent",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:bug_bite",
+    "pokeemerald:move:cross_poison",
+    "pokeemerald:move:agility",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:rototiller",
+    "pokeemerald:move:fell_stinger",
+    "pokeemerald:move:grassy_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/paras/parasfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/paras/parasfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/paras/parasback",
+    "backShiny": "pokeemerald:pokemon:sprite/paras/parasbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/paras/parasicon",
+    "overworld": "pokeemerald:pokemon:sprite/paras/parasoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/paras/parasoverworldshiny"
+  }
+}

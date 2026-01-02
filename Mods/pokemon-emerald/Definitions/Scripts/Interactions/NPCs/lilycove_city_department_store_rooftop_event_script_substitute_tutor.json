@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/lilycove_city_department_store_rooftop_event_script_substitute_tutor",
+  "name": "lilycove city department store rooftop event script substitute tutor",
+  "description": "NPC interaction: lilycove city department store rooftop event script substitute tutor",
+  "scriptPath": "Scripts/Interactions/NPCs/lilycove_city_department_store_rooftop_event_script_substitute_tutor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

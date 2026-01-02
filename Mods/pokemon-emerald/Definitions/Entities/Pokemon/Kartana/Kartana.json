@@ -1,0 +1,131 @@
+{
+  "id": "pokeemerald:pokemon:kartana",
+  "name": "Kartana",
+  "cryId": "pokeemerald:audio:sfx/cries/kartana",
+  "baseStats": {
+    "hp": 59,
+    "attack": 181,
+    "defense": 131,
+    "speed": 109,
+    "spAttack": 59,
+    "spDefense": 31
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:beast_boost",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:drawn_sword",
+  "height": 3,
+  "weight": 1,
+  "description": "This Ultra Beast came from the  Ultra Wormhole. It seems not to attack  enemies on its own, but its sharp body is  a dangerous weapon in itself.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vacuum_wave"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:cut"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:laser_focus"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:sacred_sword"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:guillotine"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kartana/kartanafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kartana/kartanafrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kartana/kartanaback",
+    "backShiny": "pokeemerald:pokemon:sprite/kartana/kartanabackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kartana/kartanaicon",
+    "overworld": "pokeemerald:pokemon:sprite/kartana/kartanaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kartana/kartanaoverworldshiny"
+  },
+  "isUltraBeast": true
+}

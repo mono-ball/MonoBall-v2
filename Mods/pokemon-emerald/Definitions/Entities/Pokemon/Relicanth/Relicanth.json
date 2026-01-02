@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:relicanth",
+  "name": "Relicanth",
+  "cryId": "pokeemerald:audio:sfx/cries/relicanth",
+  "baseStats": {
+    "hp": 100,
+    "attack": 90,
+    "defense": 130,
+    "speed": 55,
+    "spAttack": 45,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 25,
+  "evYield": {
+    "hp": 1,
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 40,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_2"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:rock_head",
+    "pokeemerald:ability:sturdy"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:longevity",
+  "height": 10,
+  "weight": 234,
+  "description": "A Pok\u00E9mon that was once believed to have  been extinct. The species has not changed  its form for 100 million years. It walks on  the seafloor using its pectoral fins.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:head_smash"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:magnitude",
+    "pokeemerald:move:skull_bash",
+    "pokeemerald:move:water_sport",
+    "pokeemerald:move:amnesia",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:aqua_tail",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:muddy_water",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:brine",
+    "pokeemerald:move:zen_headbutt"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/relicanth/relicanthfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/relicanth/relicanthfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/relicanth/relicanthback",
+    "backShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/relicanth/relicanthbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/relicanth/relicanthicon",
+    "overworld": "pokeemerald:pokemon:sprite/relicanth/relicanthoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_aqua_grunt7",
+  "name": "slateport city event script aqua grunt7",
+  "description": "NPC interaction: slateport city event script aqua grunt7",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_aqua_grunt7.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

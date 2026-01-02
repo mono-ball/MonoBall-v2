@@ -1,0 +1,116 @@
+{
+  "id": "pokeemerald:pokemon:gholdengo",
+  "name": "Gholdengo",
+  "cryId": "pokeemerald:audio:sfx/cries/gholdengo",
+  "baseStats": {
+    "hp": 87,
+    "attack": 60,
+    "defense": 95,
+    "speed": 84,
+    "spAttack": 133,
+    "spDefense": 91
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 45,
+  "expYield": 275,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 255,
+  "eggCycles": 50,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:good_as_gold",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:coin_entity",
+  "height": 12,
+  "weight": 300,
+  "description": "It has a sturdy body made up of  stacked coins. Gholdengo overwhelms  its enemies by firing coin after coin  at them in quick succession.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:substitute"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:power_gem"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:make_it_rain"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:memento"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:endure",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/gholdengo/gholdengofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/gholdengo/gholdengoback",
+    "backShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/gholdengo/gholdengoicon",
+    "overworld": "pokeemerald:pokemon:sprite/gholdengo/gholdengooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengooverworldshiny"
+  }
+}

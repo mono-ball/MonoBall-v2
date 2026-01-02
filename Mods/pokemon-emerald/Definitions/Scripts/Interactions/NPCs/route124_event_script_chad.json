@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route124_event_script_chad",
+  "name": "route124 event script chad",
+  "description": "NPC interaction: route124 event script chad",
+  "scriptPath": "Scripts/Interactions/NPCs/route124_event_script_chad.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

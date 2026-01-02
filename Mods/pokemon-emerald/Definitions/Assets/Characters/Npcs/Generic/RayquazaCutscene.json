@@ -1,0 +1,47 @@
+{
+  "id": "pokeemerald:sprite:characters/npcs/generic/rayquazacutscene",
+  "name": "Rayquazacutscene",
+  "type": "Sprite",
+  "texturePath": "Graphics/Characters/Npcs/Generic/RayquazaCutscene.png",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 5,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "index": 1,
+      "x": 64,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "index": 2,
+      "x": 128,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "index": 3,
+      "x": 192,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "index": 4,
+      "x": 256,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": []
+}

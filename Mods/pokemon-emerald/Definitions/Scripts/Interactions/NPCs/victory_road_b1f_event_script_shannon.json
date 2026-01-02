@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/victory_road_b1f_event_script_shannon",
+  "name": "victory road b1f event script shannon",
+  "description": "NPC interaction: victory road b1f event script shannon",
+  "scriptPath": "Scripts/Interactions/NPCs/victory_road_b1f_event_script_shannon.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

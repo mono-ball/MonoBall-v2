@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_battle_palace_lobby_event_script_beauty",
+  "name": "battle frontier battle palace lobby event script beauty",
+  "description": "NPC interaction: battle frontier battle palace lobby event script beauty",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_battle_palace_lobby_event_script_beauty.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

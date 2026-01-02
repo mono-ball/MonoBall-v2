@@ -1,0 +1,197 @@
+{
+  "id": "pokeemerald:pokemon:cramorant",
+  "name": "Cramorant",
+  "cryId": "pokeemerald:audio:sfx/cries/cramorant",
+  "baseStats": {
+    "hp": 70,
+    "attack": 85,
+    "defense": 55,
+    "speed": 85,
+    "spAttack": 85,
+    "spDefense": 95
+  },
+  "types": [
+    "pokeemerald:type:flying",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 166,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:gulp_missile",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:gulp",
+  "height": 8,
+  "weight": 180,
+  "description": "It\u0027s so strong that it can knock out some  opponents in a single hit, but it also may  forget what it\u0027s battling midfight.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:belch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:stockpile"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:spit_up"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swallow"
+    },
+    {
+      "level": 7,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:pluck"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:defog",
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:feather_dance",
+    "pokeemerald:move:aqua_ring",
+    "pokeemerald:move:roost"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cramorant/cramorantfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cramorant/cramorantback",
+    "backShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cramorant/cramoranticon",
+    "overworld": "pokeemerald:pokemon:sprite/cramorant/cramorantoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:cramorant/gorging",
+      "name": "Cramorant",
+      "cryId": "pokeemerald:audio:sfx/cries/cramorant",
+      "formKey": "gorging",
+      "baseStats": {
+        "hp": 70,
+        "attack": 85,
+        "defense": 55,
+        "speed": 85,
+        "spAttack": 85,
+        "spDefense": 95
+      },
+      "types": [
+        "pokeemerald:type:flying",
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:gulp_missile",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingback",
+        "backShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingicon",
+        "overworld": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantgorgingoverworldshiny"
+      }
+    },
+    {
+      "id": "pokeemerald:pokemon_form:cramorant/gulping",
+      "name": "Cramorant",
+      "cryId": "pokeemerald:audio:sfx/cries/cramorant",
+      "formKey": "gulping",
+      "baseStats": {
+        "hp": 70,
+        "attack": 85,
+        "defense": 55,
+        "speed": 85,
+        "spAttack": 85,
+        "spDefense": 95
+      },
+      "types": [
+        "pokeemerald:type:flying",
+        "pokeemerald:type:water"
+      ],
+      "abilities": [
+        "pokeemerald:ability:gulp_missile",
+        null,
+        null
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingback",
+        "backShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingicon",
+        "overworld": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/cramorant/cramorantgulpingoverworldshiny"
+      }
+    }
+  ]
+}

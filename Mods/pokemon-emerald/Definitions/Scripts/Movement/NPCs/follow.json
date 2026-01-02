@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script/movement/npcs/follow",
+  "name": "Follow Movement Script",
+  "description": "NPC follows the player or copies player movement",
+  "scriptPath": "Scripts/Movement/NPCs/follow.csx",
+  "category": "movement",
+  "priority": 500,
+  "parameters": []
+}

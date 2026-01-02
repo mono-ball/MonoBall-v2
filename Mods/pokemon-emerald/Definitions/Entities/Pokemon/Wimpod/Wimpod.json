@@ -1,0 +1,97 @@
+{
+  "id": "pokeemerald:pokemon:wimpod",
+  "name": "Wimpod",
+  "cryId": "pokeemerald:audio:sfx/cries/wimpod",
+  "baseStats": {
+    "hp": 25,
+    "attack": 35,
+    "defense": 40,
+    "speed": 80,
+    "spAttack": 20,
+    "spDefense": 30
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 90,
+  "expYield": 46,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:wimp_out",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:turn_tail",
+  "height": 5,
+  "weight": 120,
+  "description": "This Pok\u00E9mon is a coward. As it desperately  dashes off, the flailing of its many legs  leaves a sparkling clean path in its wake.  It lives on beaches and seabeds.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 30,
+      "targetSpeciesId": "pokeemerald:pokemon:golisopod"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:wide_guard",
+    "pokeemerald:move:harden",
+    "pokeemerald:move:aqua_jet"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/wimpod/wimpodfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/wimpod/wimpodfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/wimpod/wimpodback",
+    "backShiny": "pokeemerald:pokemon:sprite/wimpod/wimpodbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/wimpod/wimpodicon",
+    "overworld": "pokeemerald:pokemon:sprite/wimpod/wimpodoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wimpod/wimpodoverworldshiny"
+  }
+}

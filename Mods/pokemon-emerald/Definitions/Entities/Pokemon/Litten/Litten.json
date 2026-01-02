@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:litten",
+  "name": "Litten",
+  "cryId": "pokeemerald:audio:sfx/cries/litten",
+  "baseStats": {
+    "hp": 45,
+    "attack": 65,
+    "defense": 40,
+    "speed": 70,
+    "spAttack": 60,
+    "spDefense": 40
+  },
+  "types": [
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 64,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:blaze",
+    null,
+    "pokeemerald:ability:intimidate"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:fire_cat",
+  "height": 4,
+  "weight": 43,
+  "description": "While grooming itself, it builds up fur  inside its stomach. It sets the fur alight  and spews fiery attacks, which change  based on how it coughs.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 17,
+      "targetSpeciesId": "pokeemerald:pokemon:torracat"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 3,
+      "moveId": "pokeemerald:move:ember"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:lick"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:thrash"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:flare_blitz"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:nasty_plot",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:crunch",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:revenge",
+    "pokeemerald:move:heat_wave",
+    "pokeemerald:move:power_trip"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/litten/littenfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/litten/littenfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/litten/littenback",
+    "backShiny": "pokeemerald:pokemon:sprite/litten/littenbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/litten/littenicon",
+    "overworld": "pokeemerald:pokemon:sprite/litten/littenoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/litten/littenoverworldshiny"
+  }
+}

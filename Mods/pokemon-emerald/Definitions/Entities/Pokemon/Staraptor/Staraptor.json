@@ -1,0 +1,126 @@
+{
+  "id": "pokeemerald:pokemon:staraptor",
+  "name": "Staraptor",
+  "cryId": "pokeemerald:audio:sfx/cries/staraptor",
+  "baseStats": {
+    "hp": 85,
+    "attack": 120,
+    "defense": 70,
+    "speed": 100,
+    "spAttack": 50
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 243,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:intimidate",
+    null,
+    "pokeemerald:ability:reckless"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:predator",
+  "height": 12,
+  "weight": 249,
+  "description": "When Staravia evolve into Staraptor,  they leave the flock to live alone. It has  a savage nature. It will courageously  challenge foes that are much larger.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:close_combat"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 13,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:endeavor"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 49,
+      "moveId": "pokeemerald:move:brave_bird"
+    },
+    {
+      "level": 57,
+      "moveId": "pokeemerald:move:final_gambit"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/staraptor/staraptorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/staraptor/staraptorfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/staraptor/staraptorfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/staraptor/staraptorfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/staraptor/staraptorback",
+    "backShiny": "pokeemerald:pokemon:sprite/staraptor/staraptorbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/staraptor/staraptoricon",
+    "overworld": "pokeemerald:pokemon:sprite/staraptor/staraptoroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/staraptor/staraptoroverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

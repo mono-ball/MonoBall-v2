@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route109_event_script_lola",
+  "name": "route109 event script lola",
+  "description": "NPC interaction: route109 event script lola",
+  "scriptPath": "Scripts/Interactions/NPCs/route109_event_script_lola.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -13,35 +13,35 @@ public static class BehaviorTransformer
     public static string TransformBehaviorId(string movementType)
     {
         if (string.IsNullOrEmpty(movementType))
-            return $"{IdTransformer.Namespace}:behavior:npcs/stationary";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/stationary";
 
         var name = movementType.StartsWith("MOVEMENT_TYPE_", StringComparison.OrdinalIgnoreCase)
             ? movementType[14..].ToLowerInvariant()
             : movementType.ToLowerInvariant();
 
-        // Categorize movement types
+        // Categorize movement types - reference script definitions directly
         if (name.StartsWith("walk_sequence_"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/patrol";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/patrol";
         if (name.Contains("wander"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/wander";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/wander";
         if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/stationary";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/stationary";
         if (name.Contains("walk") || name.Contains("pace"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/walk";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/walk";
         if (name.Contains("jog") || name.Contains("run"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/jog";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/jog";
         if (name.Contains("copy_player") || name.Contains("follow"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/follow";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/follow";
         if (name.Contains("invisible"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/invisible";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/invisible";
         if (name.Contains("buried"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/buried";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/buried";
         if (name.Contains("tree_disguise"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/disguise_tree";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/disguise_tree";
         if (name.Contains("rock_disguise"))
-            return $"{IdTransformer.Namespace}:behavior:npcs/disguise_rock";
+            return $"{IdTransformer.Namespace}:script/movement/npcs/disguise_rock";
 
-        return $"{IdTransformer.Namespace}:behavior:npcs/{name}";
+        return $"{IdTransformer.Namespace}:script/movement/npcs/{name}";
     }
 
     /// <summary>

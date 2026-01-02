@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route116_event_script_rusturf_tunnel_sign",
+  "name": "route116 event script rusturf tunnel sign",
+  "description": "Sign script: route116 event script rusturf tunnel sign",
+  "scriptPath": "Scripts/Signs/route116_event_script_rusturf_tunnel_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

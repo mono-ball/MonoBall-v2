@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/pacifidlog_town_pokemon_center_1f_event_script_explosion_tutor",
+  "name": "pacifidlog town pokemon center 1f event script explosion tutor",
+  "description": "NPC interaction: pacifidlog town pokemon center 1f event script explosion tutor",
+  "scriptPath": "Scripts/Interactions/NPCs/pacifidlog_town_pokemon_center_1f_event_script_explosion_tutor.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

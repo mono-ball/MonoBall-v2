@@ -1,0 +1,155 @@
+{
+  "id": "pokeemerald:pokemon:volbeat",
+  "name": "Volbeat",
+  "cryId": "pokeemerald:audio:sfx/cries/volbeat",
+  "baseStats": {
+    "hp": 65,
+    "attack": 73,
+    "speed": 85,
+    "spAttack": 47
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 150,
+  "expYield": 151,
+  "evYield": {
+    "speed": 1
+  },
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:illuminate",
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:prankster"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:firefly",
+  "height": 7,
+  "weight": 177,
+  "description": "With their taillights lit, Volbeat fly in  a swarm, drawing geometric designs in the  night sky. They move their nests if their  pond water becomes dirty.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:tail_glow"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:double_edge"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:infestation"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:silver_wind",
+    "pokeemerald:move:trick",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:bug_buzz",
+    "pokeemerald:move:dizzy_punch",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:lunge"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/volbeat/volbeatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/volbeat/volbeatfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/volbeat/volbeatback",
+    "backShiny": "pokeemerald:pokemon:sprite/volbeat/volbeatbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/volbeat/volbeaticon",
+    "overworld": "pokeemerald:pokemon:sprite/volbeat/volbeatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/volbeat/volbeatoverworldshiny"
+  }
+}

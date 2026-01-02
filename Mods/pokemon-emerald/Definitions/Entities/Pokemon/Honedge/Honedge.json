@@ -1,0 +1,141 @@
+{
+  "id": "pokeemerald:pokemon:honedge",
+  "name": "Honedge",
+  "cryId": "pokeemerald:audio:sfx/cries/honedge",
+  "baseStats": {
+    "hp": 45,
+    "attack": 80,
+    "defense": 100,
+    "speed": 28,
+    "spAttack": 35,
+    "spDefense": 37
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 180,
+  "expYield": 65,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:no_guard",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:sword",
+  "height": 8,
+  "weight": 20,
+  "description": "If anyone dares to grab its hilt, it  wraps a blue cloth around that person\u0027s  arm and drains that person\u0027s life  energy completely.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:doublade"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:shadow_sneak"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:autotomize"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:aerial_ace"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:retaliate"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_head"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:power_trick"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:sacred_sword"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:metal_sound",
+    "pokeemerald:move:shadow_sneak",
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:wide_guard"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/honedge/honedgefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/honedge/honedgefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/honedge/honedgeback",
+    "backShiny": "pokeemerald:pokemon:sprite/honedge/honedgebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/honedge/honedgeicon",
+    "overworld": "pokeemerald:pokemon:sprite/honedge/honedgeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/honedge/honedgeoverworldshiny"
+  }
+}

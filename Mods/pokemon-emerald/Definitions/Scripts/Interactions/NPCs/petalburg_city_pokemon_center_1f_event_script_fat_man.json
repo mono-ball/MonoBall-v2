@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/petalburg_city_pokemon_center_1f_event_script_fat_man",
+  "name": "petalburg city pokemon center 1f event script fat man",
+  "description": "NPC interaction: petalburg city pokemon center 1f event script fat man",
+  "scriptPath": "Scripts/Interactions/NPCs/petalburg_city_pokemon_center_1f_event_script_fat_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

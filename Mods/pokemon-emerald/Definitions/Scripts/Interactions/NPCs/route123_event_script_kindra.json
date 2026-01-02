@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route123_event_script_kindra",
+  "name": "route123 event script kindra",
+  "description": "NPC interaction: route123 event script kindra",
+  "scriptPath": "Scripts/Interactions/NPCs/route123_event_script_kindra.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,235 @@
+{
+  "id": "pokeemerald:pokemon:zangoose",
+  "name": "Zangoose",
+  "cryId": "pokeemerald:audio:sfx/cries/zangoose",
+  "baseStats": {
+    "hp": 73,
+    "attack": 115,
+    "defense": 60,
+    "speed": 90,
+    "spAttack": 60,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:immunity",
+    null,
+    "pokeemerald:ability:toxic_boost"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:cat_ferret",
+  "height": 13,
+  "weight": 403,
+  "description": "When it battles, it stands on its hind legs  and attacks with its sharply clawed  forelegs. Its fur bristles if it encounters  any Seviper.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_kick"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:counter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:belly_drum"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:feint"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:final_gambit"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:power_trip"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:crush_claw"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:false_swipe"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:switcheroo"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:close_combat"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:flail",
+    "pokeemerald:move:double_kick",
+    "pokeemerald:move:razor_wind",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:fury_swipes",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:metal_claw",
+    "pokeemerald:move:double_hit",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:final_gambit",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:quick_guard",
+    "pokeemerald:move:belly_drum"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/zangoose/zangoosefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/zangoose/zangoosefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/zangoose/zangooseback",
+    "backShiny": "pokeemerald:pokemon:sprite/zangoose/zangoosebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/zangoose/zangooseicon",
+    "overworld": "pokeemerald:pokemon:sprite/zangoose/zangooseoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zangoose/zangooseoverworldshiny"
+  }
+}

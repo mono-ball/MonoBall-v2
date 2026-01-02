@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route129_event_script_reed",
+  "name": "route129 event script reed",
+  "description": "NPC interaction: route129 event script reed",
+  "scriptPath": "Scripts/Interactions/NPCs/route129_event_script_reed.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,147 @@
+{
+  "id": "pokeemerald:pokemon:trevenant",
+  "name": "Trevenant",
+  "cryId": "pokeemerald:audio:sfx/cries/trevenant",
+  "baseStats": {
+    "hp": 85,
+    "attack": 110,
+    "defense": 76,
+    "speed": 56,
+    "spAttack": 65,
+    "spDefense": 82
+  },
+  "types": [
+    "pokeemerald:type:ghost",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 60,
+  "expYield": 166,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:natural_cure",
+    "pokeemerald:ability:frisk",
+    "pokeemerald:ability:harvest"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:elder_tree",
+  "height": 15,
+  "weight": 710,
+  "description": "Through its roots, it exerts control over  other trees. A deadly curse falls upon  anyone cutting down trees in forests  where Trevenant dwell.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shadow_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:branch_poke"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:will_o_wisp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:horn_leech"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:phantom_force"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:ingrain"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:wood_hammer"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:destiny_bond"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:forests_curse"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/trevenant/trevenantfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/trevenant/trevenantfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/trevenant/trevenantback",
+    "backShiny": "pokeemerald:pokemon:sprite/trevenant/trevenantbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/trevenant/trevenanticon",
+    "overworld": "pokeemerald:pokemon:sprite/trevenant/trevenantoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/trevenant/trevenantoverworldshiny"
+  }
+}

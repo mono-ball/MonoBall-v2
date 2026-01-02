@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:oranguru",
+  "name": "Oranguru",
+  "cryId": "pokeemerald:audio:sfx/cries/oranguru",
+  "baseStats": {
+    "hp": 90,
+    "attack": 60,
+    "defense": 80,
+    "speed": 60,
+    "spAttack": 90,
+    "spDefense": 110
+  },
+  "types": [
+    "pokeemerald:type:normal",
+    "pokeemerald:type:psychic"
+  ],
+  "catchRate": 45,
+  "expYield": 172,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:inner_focus",
+    "pokeemerald:ability:telepathy",
+    "pokeemerald:ability:symbiosis"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:sage",
+  "height": 15,
+  "weight": 760,
+  "description": "Deep in the jungle, high in the lofty  canopy, this Pok\u00E9mon abides. On rare  occasions, it shows up at the beach to  match wits with Slowking.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:confusion"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:after_you"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:calm_mind"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:stored_power"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:psych_up"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:quash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:nasty_plot"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:trick_room"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:psychic"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:instruct"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:foul_play"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:future_sight"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dream_eater",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:extrasensory",
+    "pokeemerald:move:wonder_room",
+    "pokeemerald:move:psychic_terrain"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/oranguru/orangurufront",
+    "frontShiny": "pokeemerald:pokemon:sprite/oranguru/orangurufrontshiny",
+    "back": "pokeemerald:pokemon:sprite/oranguru/oranguruback",
+    "backShiny": "pokeemerald:pokemon:sprite/oranguru/orangurubackshiny",
+    "icon": "pokeemerald:pokemon:sprite/oranguru/oranguruicon",
+    "overworld": "pokeemerald:pokemon:sprite/oranguru/oranguruoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/oranguru/oranguruoverworldshiny"
+  }
+}

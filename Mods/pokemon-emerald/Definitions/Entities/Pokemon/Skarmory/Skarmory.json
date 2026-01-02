@@ -1,0 +1,192 @@
+{
+  "id": "pokeemerald:pokemon:skarmory",
+  "name": "Skarmory",
+  "cryId": "pokeemerald:audio:sfx/cries/skarmory",
+  "baseStats": {
+    "hp": 65,
+    "attack": 80,
+    "defense": 140,
+    "speed": 70,
+    "spAttack": 40,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 25,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:keen_eye",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:armor_bird",
+  "height": 17,
+  "weight": 505,
+  "description": "A Pok\u00E9mon that has a body and wings of  steel. People in the past used feathers  fallen from Skarmory to make swords and  knives.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:fury_attack"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:wing_attack"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:steel_wing"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:payback"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:drill_peck"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:spikes"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:brave_bird"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:drill_peck",
+    "pokeemerald:move:pursuit",
+    "pokeemerald:move:whirlwind",
+    "pokeemerald:move:sky_attack",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:brave_bird",
+    "pokeemerald:move:assurance",
+    "pokeemerald:move:guard_swap",
+    "pokeemerald:move:stealth_rock",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/skarmory/skarmoryfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/skarmory/skarmoryfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/skarmory/skarmoryback",
+    "backShiny": "pokeemerald:pokemon:sprite/skarmory/skarmorybackshiny",
+    "icon": "pokeemerald:pokemon:sprite/skarmory/skarmoryicon",
+    "overworld": "pokeemerald:pokemon:sprite/skarmory/skarmoryoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skarmory/skarmoryoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:skarmory/mega",
+      "name": "Skarmory",
+      "cryId": "pokeemerald:audio:sfx/cries/skarmory",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 65,
+        "attack": 140,
+        "defense": 110,
+        "speed": 110,
+        "spAttack": 40,
+        "spDefense": 100
+      },
+      "types": [
+        "pokeemerald:type:steel",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:keen_eye",
+        "pokeemerald:ability:sturdy",
+        "pokeemerald:ability:weak_armor"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/skarmory/skarmorymegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/skarmory/skarmorymegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/skarmory/skarmorymegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/skarmory/skarmorymegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/skarmory/skarmorymegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/skarmory/skarmorymegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/skarmory/skarmorymegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:skarmorite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

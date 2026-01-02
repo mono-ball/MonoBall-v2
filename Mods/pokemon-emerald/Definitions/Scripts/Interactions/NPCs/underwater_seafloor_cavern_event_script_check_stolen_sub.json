@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
+  "name": "underwater seafloor cavern event script check stolen sub",
+  "description": "NPC interaction: underwater seafloor cavern event script check stolen sub",
+  "scriptPath": "Scripts/Interactions/NPCs/underwater_seafloor_cavern_event_script_check_stolen_sub.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

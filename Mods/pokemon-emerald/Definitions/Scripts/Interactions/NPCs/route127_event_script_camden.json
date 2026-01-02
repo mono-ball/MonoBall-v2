@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route127_event_script_camden",
+  "name": "route127 event script camden",
+  "description": "NPC interaction: route127 event script camden",
+  "scriptPath": "Scripts/Interactions/NPCs/route127_event_script_camden.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

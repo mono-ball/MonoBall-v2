@@ -195,7 +195,7 @@ public class SharedTilesetRegistry : IDisposable
     public static string GenerateTilesetId(TilesetPairKey key)
     {
         var name = GenerateTilesetName(key);
-        return $"base:tileset:shared/{name}";
+        return $"{IdTransformer.Namespace}:tileset:shared/{name}";
     }
 
     /// <summary>

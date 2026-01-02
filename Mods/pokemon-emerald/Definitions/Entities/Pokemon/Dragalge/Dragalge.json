@@ -1,0 +1,172 @@
+{
+  "id": "pokeemerald:pokemon:dragalge",
+  "name": "Dragalge",
+  "cryId": "pokeemerald:audio:sfx/cries/dragalge",
+  "baseStats": {
+    "hp": 65,
+    "attack": 75,
+    "defense": 90,
+    "speed": 44,
+    "spAttack": 97,
+    "spDefense": 123
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 55,
+  "expYield": 173,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:poison_touch",
+    "pokeemerald:ability:adaptability"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:mock_kelp",
+  "height": 18,
+  "weight": 815,
+  "description": "Their poison is strong enough to eat  through the hull of a tanker. Tales are  told of ships that wander into seas where  Dragalge live, never to return.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:double_team"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:sludge_bomb"
+    },
+    {
+      "level": 59,
+      "moveId": "pokeemerald:move:hydro_pump"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:outrage"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dragalge/dragalgefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dragalge/dragalgefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dragalge/dragalgeback",
+    "backShiny": "pokeemerald:pokemon:sprite/dragalge/dragalgebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dragalge/dragalgeicon",
+    "overworld": "pokeemerald:pokemon:sprite/dragalge/dragalgeoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dragalge/dragalgeoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:dragalge/mega",
+      "name": "Dragalge",
+      "cryId": "pokeemerald:audio:sfx/cries/dragalge",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 65,
+        "attack": 85,
+        "defense": 105,
+        "speed": 44,
+        "spAttack": 132,
+        "spDefense": 163
+      },
+      "types": [
+        "pokeemerald:type:poison",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:poison_point",
+        "pokeemerald:ability:poison_touch",
+        "pokeemerald:ability:adaptability"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/dragalge/dragalgemegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/dragalge/dragalgemegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/dragalge/dragalgemegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/dragalge/dragalgemegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/dragalge/dragalgemegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/dragalge/dragalgemegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/dragalge/dragalgemegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:dragalgite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -141,7 +141,7 @@ public class DefinitionGenerator
             var definition = new
             {
                 // Primary key
-                weatherId,
+                id = weatherId,
 
                 // BaseEntity fields
                 name = FormatDisplayName(weatherName),
@@ -194,7 +194,7 @@ public class DefinitionGenerator
             var definition = new
             {
                 // Primary key
-                battleSceneId = sceneId,
+                id = sceneId,
 
                 // BaseEntity fields
                 name = FormatDisplayName(sceneName),
@@ -235,7 +235,7 @@ public class DefinitionGenerator
         var definition = new
         {
             // Primary key
-            regionId = $"{IdTransformer.Namespace}:region:{_region}",
+            id = $"{IdTransformer.Namespace}:region:{_region}",
 
             // BaseEntity fields
             name = regionFormatted,

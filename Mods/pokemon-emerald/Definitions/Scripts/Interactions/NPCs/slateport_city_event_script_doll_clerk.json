@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_event_script_doll_clerk",
+  "name": "slateport city event script doll clerk",
+  "description": "NPC interaction: slateport city event script doll clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_event_script_doll_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

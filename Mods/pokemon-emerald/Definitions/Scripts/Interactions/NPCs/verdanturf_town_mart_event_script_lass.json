@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/verdanturf_town_mart_event_script_lass",
+  "name": "verdanturf town mart event script lass",
+  "description": "NPC interaction: verdanturf town mart event script lass",
+  "scriptPath": "Scripts/Interactions/NPCs/verdanturf_town_mart_event_script_lass.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

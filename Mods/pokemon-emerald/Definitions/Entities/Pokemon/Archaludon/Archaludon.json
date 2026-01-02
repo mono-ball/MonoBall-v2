@@ -1,0 +1,131 @@
+{
+  "id": "pokeemerald:pokemon:archaludon",
+  "name": "Archaludon",
+  "cryId": "pokeemerald:audio:sfx/cries/archaludon",
+  "baseStats": {
+    "hp": 90,
+    "attack": 105,
+    "defense": 130,
+    "speed": 85,
+    "spAttack": 125,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 10,
+  "expYield": 300,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:stamina",
+    "pokeemerald:ability:sturdy",
+    "pokeemerald:ability:stalwart"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:alloy",
+  "height": 20,
+  "weight": 600,
+  "description": "It gathers static electricity  from its surroundings. The beams  it launches when down on all fours  are tremendously powerful.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:electro_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:breaking_swipe"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:metal_burst"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/archaludon/archaludonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/archaludon/archaludonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/archaludon/archaludonback",
+    "backShiny": "pokeemerald:pokemon:sprite/archaludon/archaludonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/archaludon/archaludonicon",
+    "overworld": "pokeemerald:pokemon:sprite/archaludon/archaludonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/archaludon/archaludonoverworldshiny"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "id": "base:behavior:movement/wander",
-  "name": "Wander Behavior",
-  "description": "NPC wanders randomly around the map, changing direction occasionally",
-  "scriptId": "base:script:movement/wander",
-  "parameterOverrides": {}
-}

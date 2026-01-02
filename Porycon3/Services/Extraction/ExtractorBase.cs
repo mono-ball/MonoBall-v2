@@ -25,6 +25,11 @@ public abstract class ExtractorBase : IExtractor
     /// </summary>
     public bool QuietMode { get; set; }
 
+    /// <summary>
+    /// Optional callback to report progress (0.0 to 1.0) during extraction.
+    /// </summary>
+    public IProgress<double>? ProgressCallback { get; set; }
+
     public abstract string Name { get; }
     public abstract string Description { get; }
 
@@ -102,17 +107,19 @@ public abstract class ExtractorBase : IExtractor
     {
         if (QuietMode)
         {
-            // Simple iteration without progress display
-            foreach (var item in items)
+            // Simple iteration without progress display, but report to callback
+            var total = items.Count;
+            for (var i = 0; i < total; i++)
             {
                 try
                 {
-                    processItem(item, null!);
+                    processItem(items[i], null!);
                 }
                 catch (Exception ex)
                 {
-                    AddError(item?.ToString() ?? "unknown", ex.Message, ex);
+                    AddError(items[i]?.ToString() ?? "unknown", ex.Message, ex);
                 }
+                ProgressCallback?.Report((double)(i + 1) / total);
             }
             return;
         }
@@ -160,7 +167,9 @@ public abstract class ExtractorBase : IExtractor
 
         if (QuietMode)
         {
-            // Parallel iteration without progress display
+            // Parallel iteration without progress display, but report to callback
+            var total = items.Count;
+            var completed = 0;
             Parallel.ForEach(items, options, item =>
             {
                 try
@@ -171,6 +180,8 @@ public abstract class ExtractorBase : IExtractor
                 {
                     AddError(item?.ToString() ?? "unknown", ex.Message, ex);
                 }
+                var current = Interlocked.Increment(ref completed);
+                ProgressCallback?.Report((double)current / total);
             });
             return;
         }
@@ -237,6 +248,23 @@ public abstract class ExtractorBase : IExtractor
             .Spinner(Spinner.Known.Dots)
             .SpinnerStyle(Style.Parse("cyan"))
             .Start(status, action);
+    }
+
+    /// <summary>
+    /// Report progress directly (0.0 to 1.0).
+    /// </summary>
+    protected void ReportProgress(double progress)
+    {
+        ProgressCallback?.Report(Math.Clamp(progress, 0.0, 1.0));
+    }
+
+    /// <summary>
+    /// Report progress as completed/total items.
+    /// </summary>
+    protected void ReportProgress(int completed, int total)
+    {
+        if (total > 0)
+            ProgressCallback?.Report((double)completed / total);
     }
 
     #endregion

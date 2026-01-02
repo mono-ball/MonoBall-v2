@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/walking_wake/walkingwakefront",
+  "name": "Walkingwakefront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/WalkingWake/WalkingWakeFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

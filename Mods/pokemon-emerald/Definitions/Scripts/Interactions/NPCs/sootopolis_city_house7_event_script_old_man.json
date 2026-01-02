@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_house7_event_script_old_man",
+  "name": "sootopolis city house7 event script old man",
+  "description": "NPC interaction: sootopolis city house7 event script old man",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_house7_event_script_old_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

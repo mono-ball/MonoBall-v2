@@ -1,0 +1,166 @@
+{
+  "id": "pokeemerald:pokemon:ledyba",
+  "name": "Ledyba",
+  "cryId": "pokeemerald:audio:sfx/cries/ledyba",
+  "baseStats": {
+    "hp": 40,
+    "attack": 20,
+    "defense": 30,
+    "speed": 55,
+    "spAttack": 40,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 255,
+  "evYield": {
+    "spDefense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    "pokeemerald:ability:early_bird",
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:five_star",
+  "height": 10,
+  "weight": 108,
+  "description": "Ledyba communicate using a fluid that  they secrete from where the legs join the  body. They are said to convey feelings to  others by altering the fluid\u0027s scent.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 18,
+      "targetSpeciesId": "pokeemerald:pokemon:ledian"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:swift"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:light_screen"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:reflect"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:safeguard"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:mach_punch"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:roost"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:agility"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:double_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:psybeam",
+    "pokeemerald:move:bide",
+    "pokeemerald:move:silver_wind",
+    "pokeemerald:move:bug_buzz",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:bug_bite",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:drain_punch",
+    "pokeemerald:move:dizzy_punch",
+    "pokeemerald:move:tailwind",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:counter"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/ledyba/ledybafront",
+    "frontShiny": "pokeemerald:pokemon:sprite/ledyba/ledybafrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/ledyba/ledybafrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ledyba/ledybafrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/ledyba/ledybaback",
+    "backShiny": "pokeemerald:pokemon:sprite/ledyba/ledybabackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/ledyba/ledybabackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/ledyba/ledybabackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/ledyba/ledybaicon",
+    "overworld": "pokeemerald:pokemon:sprite/ledyba/ledybaoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ledyba/ledybaoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

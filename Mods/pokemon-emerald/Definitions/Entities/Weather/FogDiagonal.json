@@ -1,0 +1,13 @@
+{
+  "id": "pokeemerald:weather:outdoor/fog_diagonal",
+  "name": "Fog Diagonal",
+  "description": "Fog Diagonal weather condition",
+  "category": "outdoor",
+  "intensity": 0.8,
+  "affectsBattle": false,
+  "effectScriptId": "pokeemerald:script:weather/fog_diagonal",
+  "graphicsId": "pokeemerald:weather:graphics/fog_diagonal",
+  "screenTintOpacity": 0,
+  "reducesVisibility": true,
+  "visibilityRange": 5
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/dewford_town_hall_event_script_twin",
+  "name": "dewford town hall event script twin",
+  "description": "NPC interaction: dewford town hall event script twin",
+  "scriptPath": "Scripts/Interactions/NPCs/dewford_town_hall_event_script_twin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

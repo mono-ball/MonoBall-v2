@@ -1,0 +1,143 @@
+{
+  "id": "pokeemerald:pokemon:golbat",
+  "name": "Golbat",
+  "cryId": "pokeemerald:audio:sfx/cries/golbat",
+  "baseStats": {
+    "hp": 75,
+    "attack": 80,
+    "defense": 70,
+    "speed": 90,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 90,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:inner_focus",
+    null,
+    "pokeemerald:ability:infiltrator"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:bat",
+  "height": 16,
+  "weight": 550,
+  "description": "Its fangs easily puncture even thick  animal hide. It loves to feast on the blood  of people and Pok\u00E9mon. It flits about in  darkness and strikes from behind.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:crobat"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:poison_fang"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:quick_guard"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:venoshock"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:confuse_ray"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 69,
+      "moveId": "pokeemerald:move:leech_life"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:torment",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/golbat/golbatfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/golbat/golbatfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/golbat/golbatfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/golbat/golbatfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/golbat/golbatback",
+    "backShiny": "pokeemerald:pokemon:sprite/golbat/golbatbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/golbat/golbatbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/golbat/golbatbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/golbat/golbaticon",
+    "overworld": "pokeemerald:pokemon:sprite/golbat/golbatoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/golbat/golbatoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

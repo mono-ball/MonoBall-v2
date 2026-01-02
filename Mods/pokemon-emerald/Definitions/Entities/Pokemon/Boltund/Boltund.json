@@ -1,0 +1,119 @@
+{
+  "id": "pokeemerald:pokemon:boltund",
+  "name": "Boltund",
+  "cryId": "pokeemerald:audio:sfx/cries/boltund",
+  "baseStats": {
+    "hp": 69,
+    "attack": 90,
+    "defense": 60,
+    "speed": 121,
+    "spAttack": 90,
+    "spDefense": 60
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 45,
+  "expYield": 172,
+  "evYield": {
+    "speed": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:strong_jaw",
+    null,
+    "pokeemerald:ability:competitive"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:dog",
+  "height": 10,
+  "weight": 340,
+  "description": "This Pok\u00E9mon generates electricity and  channels it into its legs to keep them  going strong. Boltund can run nonstop  for three full days.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:electrify"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:electric_terrain"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/boltund/boltundfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/boltund/boltundfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/boltund/boltundback",
+    "backShiny": "pokeemerald:pokemon:sprite/boltund/boltundbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/boltund/boltundicon",
+    "overworld": "pokeemerald:pokemon:sprite/boltund/boltundoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/boltund/boltundoverworldshiny"
+  }
+}

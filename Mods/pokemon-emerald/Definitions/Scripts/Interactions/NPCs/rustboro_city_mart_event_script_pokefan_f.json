@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_mart_event_script_pokefan_f",
+  "name": "rustboro city mart event script pokefan f",
+  "description": "NPC interaction: rustboro city mart event script pokefan f",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_mart_event_script_pokefan_f.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

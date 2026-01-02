@@ -1,0 +1,123 @@
+{
+  "id": "pokeemerald:pokemon:yamper",
+  "name": "Yamper",
+  "cryId": "pokeemerald:audio:sfx/cries/yamper",
+  "baseStats": {
+    "hp": 59,
+    "attack": 45,
+    "defense": 50,
+    "speed": 26,
+    "spAttack": 40,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:electric"
+  ],
+  "catchRate": 255,
+  "expYield": 54,
+  "evYield": {
+    "hp": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:ball_fetch",
+    null,
+    "pokeemerald:ability:rattled"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:puppy",
+  "height": 3,
+  "weight": 135,
+  "description": "This Pok\u00E9mon is very popular as a  herding dog in the Galar region. As it  runs, it generates electricity from the  base of its tail.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 25,
+      "targetSpeciesId": "pokeemerald:pokemon:boltund"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:nuzzle"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:roar"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:charge"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:wild_charge"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:play_rough"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:sand_attack",
+    "pokeemerald:move:flame_charge",
+    "pokeemerald:move:discharge",
+    "pokeemerald:move:howl"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/yamper/yamperfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/yamper/yamperfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/yamper/yamperback",
+    "backShiny": "pokeemerald:pokemon:sprite/yamper/yamperbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/yamper/yampericon",
+    "overworld": "pokeemerald:pokemon:sprite/yamper/yamperoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yamper/yamperoverworldshiny"
+  }
+}

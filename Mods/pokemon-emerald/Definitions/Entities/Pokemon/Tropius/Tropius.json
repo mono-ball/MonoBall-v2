@@ -1,0 +1,159 @@
+{
+  "id": "pokeemerald:pokemon:tropius",
+  "name": "Tropius",
+  "cryId": "pokeemerald:audio:sfx/cries/tropius",
+  "baseStats": {
+    "hp": 99,
+    "attack": 68,
+    "defense": 83,
+    "speed": 51,
+    "spAttack": 72,
+    "spDefense": 87
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 200,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:chlorophyll",
+    "pokeemerald:ability:solar_power",
+    "pokeemerald:ability:harvest"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:fruit",
+  "height": 20,
+  "weight": 1000,
+  "description": "It flies by flapping its broad leaves.  The bunch of fruit that grows around its  neck is deliciously sweet. In the spring,  it scatters pollen from its neck.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:razor_leaf"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leaf_storm"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:magical_leaf"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:wide_guard"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:air_slash"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:synthesis"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:solar_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:headbutt",
+    "pokeemerald:move:slam",
+    "pokeemerald:move:razor_wind",
+    "pokeemerald:move:leech_seed",
+    "pokeemerald:move:nature_power",
+    "pokeemerald:move:leaf_storm",
+    "pokeemerald:move:synthesis",
+    "pokeemerald:move:curse",
+    "pokeemerald:move:leaf_blade",
+    "pokeemerald:move:dragon_dance",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:natural_gift",
+    "pokeemerald:move:dragon_hammer"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/tropius/tropiusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/tropius/tropiusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/tropius/tropiusback",
+    "backShiny": "pokeemerald:pokemon:sprite/tropius/tropiusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/tropius/tropiusicon",
+    "overworld": "pokeemerald:pokemon:sprite/tropius/tropiusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tropius/tropiusoverworldshiny"
+  }
+}

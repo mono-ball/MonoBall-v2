@@ -1,0 +1,146 @@
+{
+  "id": "pokeemerald:pokemon:reshiram",
+  "name": "Reshiram",
+  "cryId": "pokeemerald:audio:sfx/cries/reshiram",
+  "baseStats": {
+    "hp": 100,
+    "attack": 120,
+    "defense": 100,
+    "speed": 90,
+    "spAttack": 150,
+    "spDefense": 120
+  },
+  "types": [
+    "pokeemerald:type:dragon",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 3,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 255,
+  "eggCycles": 120,
+  "eggGroups": [
+    "pokeemerald:egg_group:no_eggs_discovered"
+  ],
+  "friendship": 0,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:turboblaze",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:vast_white",
+  "height": 32,
+  "weight": 3300,
+  "description": "This Pok\u00E9mon appears in legends. It  sends flames into the air from its tail,  burning up everything around it. It helps  those who want to build a world of truth.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fire_fang"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:noble_roar"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:extrasensory"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:flamethrower"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:fusion_flare"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:fire_blast"
+    },
+    {
+      "level": 72,
+      "moveId": "pokeemerald:move:imprison"
+    },
+    {
+      "level": 80,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 88,
+      "moveId": "pokeemerald:move:blue_flare"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/reshiram/reshiramfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/reshiram/reshiramfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/reshiram/reshiramback",
+    "backShiny": "pokeemerald:pokemon:sprite/reshiram/reshirambackshiny",
+    "icon": "pokeemerald:pokemon:sprite/reshiram/reshiramicon",
+    "overworld": "pokeemerald:pokemon:sprite/reshiram/reshiramoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/reshiram/reshiramoverworldshiny"
+  },
+  "isLegendary": true,
+  "isFrontierBanned": true
+}

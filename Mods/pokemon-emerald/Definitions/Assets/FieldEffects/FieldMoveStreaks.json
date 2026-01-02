@@ -1,0 +1,67 @@
+{
+  "id": "pokeemerald:field_effect:field-move-streaks",
+  "name": "Field Move Streaks",
+  "type": "Sprite",
+  "texturePath": "Graphics/FieldEffects/FieldMoveStreaks.png",
+  "frameWidth": 16,
+  "frameHeight": 8,
+  "frameCount": 8,
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 1,
+      "x": 16,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 2,
+      "x": 32,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 3,
+      "x": 48,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 4,
+      "x": 64,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 5,
+      "x": 80,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 6,
+      "x": 96,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    },
+    {
+      "index": 7,
+      "x": 112,
+      "y": 0,
+      "width": 16,
+      "height": 8
+    }
+  ]
+}

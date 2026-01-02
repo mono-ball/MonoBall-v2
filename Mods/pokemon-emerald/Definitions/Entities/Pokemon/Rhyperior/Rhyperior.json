@@ -1,0 +1,169 @@
+{
+  "id": "pokeemerald:pokemon:rhyperior",
+  "name": "Rhyperior",
+  "cryId": "pokeemerald:audio:sfx/cries/rhyperior",
+  "baseStats": {
+    "hp": 115,
+    "attack": 140,
+    "defense": 130,
+    "speed": 40,
+    "spAttack": 55,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:rock"
+  ],
+  "catchRate": 30,
+  "expYield": 268,
+  "evYield": {
+    "attack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:lightning_rod",
+    "pokeemerald:ability:solid_rock",
+    "pokeemerald:ability:reckless"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:drill",
+  "height": 24,
+  "weight": 2828,
+  "description": "It can launch a rock held in its hand  like a missile by tightening and then  expanding its muscles instantaneously.  Geodude are shot at rare times.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hammer_arm"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bulldoze"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:horn_attack"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:drill_run"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:take_down"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:stone_edge"
+    },
+    {
+      "level": 61,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 68,
+      "moveId": "pokeemerald:move:horn_drill"
+    },
+    {
+      "level": 75,
+      "moveId": "pokeemerald:move:rock_wrecker"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorback",
+    "backShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorbackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorbackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorbackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/rhyperior/rhyperioricon",
+    "overworld": "pokeemerald:pokemon:sprite/rhyperior/rhyperioroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperioroverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

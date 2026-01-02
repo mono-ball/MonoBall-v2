@@ -1,0 +1,165 @@
+{
+  "id": "pokeemerald:pokemon:coalossal",
+  "name": "Coalossal",
+  "cryId": "pokeemerald:audio:sfx/cries/coalossal",
+  "baseStats": {
+    "hp": 110,
+    "attack": 80,
+    "defense": 120,
+    "speed": 30,
+    "spAttack": 80,
+    "spDefense": 90
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:fire"
+  ],
+  "catchRate": 45,
+  "expYield": 255,
+  "evYield": {
+    "defense": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:steam_engine",
+    "pokeemerald:ability:flame_body",
+    "pokeemerald:ability:flash_fire"
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:coal",
+  "height": 28,
+  "weight": 3105,
+  "description": "It\u0027s usually peaceful, but the vandalism  of mines enrages it. Offenders will be  incinerated with flames that reach  2,700 degrees Fahrenheit.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:tar_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smokescreen"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:smack_down"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:flame_charge"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rock_polish"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:incinerate"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:stealth_rock"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:heat_crash"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:rock_blast"
+    },
+    {
+      "level": 63,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:explosion",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:overheat",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/coalossal/coalossalfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/coalossal/coalossalback",
+    "backShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/coalossal/coalossalicon",
+    "overworld": "pokeemerald:pokemon:sprite/coalossal/coalossaloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/coalossal/coalossaloverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:coalossal/gmax",
+      "name": "Coalossal",
+      "cryId": "pokeemerald:audio:sfx/cries/coalossal",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 110,
+        "attack": 80,
+        "defense": 120,
+        "speed": 30,
+        "spAttack": 80,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:rock",
+        "pokeemerald:type:fire"
+      ],
+      "abilities": [
+        "pokeemerald:ability:steam_engine",
+        "pokeemerald:ability:flame_body",
+        "pokeemerald:ability:flash_fire"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

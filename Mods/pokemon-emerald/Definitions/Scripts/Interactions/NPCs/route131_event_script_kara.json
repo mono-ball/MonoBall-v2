@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route131_event_script_kara",
+  "name": "route131 event script kara",
+  "description": "NPC interaction: route131 event script kara",
+  "scriptPath": "Scripts/Interactions/NPCs/route131_event_script_kara.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

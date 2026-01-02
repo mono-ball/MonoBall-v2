@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/oldale_town_event_script_rival",
+  "name": "oldale town event script rival",
+  "description": "NPC interaction: oldale town event script rival",
+  "scriptPath": "Scripts/Interactions/NPCs/oldale_town_event_script_rival.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/mew/mewback",
+  "name": "Mewback",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Mew/MewBack.png",
+  "spriteType": "back",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 1
+}

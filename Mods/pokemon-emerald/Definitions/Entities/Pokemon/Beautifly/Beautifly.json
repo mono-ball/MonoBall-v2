@@ -1,0 +1,154 @@
+{
+  "id": "pokeemerald:pokemon:beautifly",
+  "name": "Beautifly",
+  "cryId": "pokeemerald:audio:sfx/cries/beautifly",
+  "baseStats": {
+    "hp": 60,
+    "attack": 70,
+    "defense": 50,
+    "speed": 65,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:bug",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "expYield": 198,
+  "evYield": {
+    "spAttack": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    null,
+    "pokeemerald:ability:rivalry"
+  ],
+  "bodyColor": "pokeemerald:body_color:yellow",
+  "categoryId": "pokeemerald:category:butterfly",
+  "height": 10,
+  "weight": 284,
+  "description": "Its colorfully patterned wings are its  most prominent feature. It flies through  flower-covered fields collecting pollen.  It attacks ferociously when angered.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gust"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 17,
+      "moveId": "pokeemerald:move:morning_sun"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:air_cutter"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:leech_life"
+    },
+    {
+      "level": 27,
+      "moveId": "pokeemerald:move:attract"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:whirlwind"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 37,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:quiver_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/beautifly/beautiflyfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflyfrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/beautifly/beautiflyfrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflyfrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/beautifly/beautiflyback",
+    "backShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflybackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/beautifly/beautiflybackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflybackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/beautifly/beautiflyicon",
+    "overworld": "pokeemerald:pokemon:sprite/beautifly/beautiflyoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflyoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

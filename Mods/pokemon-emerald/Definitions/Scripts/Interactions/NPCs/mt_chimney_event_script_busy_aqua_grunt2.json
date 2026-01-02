@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_busy_aqua_grunt2",
+  "name": "mt chimney event script busy aqua grunt2",
+  "description": "NPC interaction: mt chimney event script busy aqua grunt2",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_busy_aqua_grunt2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

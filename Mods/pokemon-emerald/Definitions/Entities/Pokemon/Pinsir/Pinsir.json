@@ -1,0 +1,187 @@
+{
+  "id": "pokeemerald:pokemon:pinsir",
+  "name": "Pinsir",
+  "cryId": "pokeemerald:audio:sfx/cries/pinsir",
+  "baseStats": {
+    "hp": 65,
+    "attack": 125,
+    "defense": 100,
+    "speed": 85,
+    "spAttack": 55
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:slow",
+  "abilities": [
+    "pokeemerald:ability:hyper_cutter",
+    "pokeemerald:ability:mold_breaker",
+    "pokeemerald:ability:moxie"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:stag_beetle",
+  "height": 15,
+  "weight": 550,
+  "description": "Their pincers are strong enough to  shatter thick logs. Because they dislike  cold, Pinsir burrow and sleep under  the ground on chilly nights.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:seismic_toss"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:storm_throw"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:vital_throw"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:strength"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:submission"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:guillotine"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:superpower"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:bulk_up",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:fury_attack",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:feint_attack",
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:close_combat",
+    "pokeemerald:move:feint",
+    "pokeemerald:move:me_first",
+    "pokeemerald:move:bug_bite",
+    "pokeemerald:move:superpower"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/pinsir/pinsirfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/pinsir/pinsirback",
+    "backShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/pinsir/pinsiricon",
+    "overworld": "pokeemerald:pokemon:sprite/pinsir/pinsiroverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pinsir/pinsiroverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:pinsir/mega",
+      "name": "Pinsir",
+      "cryId": "pokeemerald:audio:sfx/cries/pinsir-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 65,
+        "attack": 155,
+        "defense": 120,
+        "speed": 105,
+        "spAttack": 65,
+        "spDefense": 90
+      },
+      "types": [
+        "pokeemerald:type:bug",
+        "pokeemerald:type:flying"
+      ],
+      "abilities": [
+        "pokeemerald:ability:aerilate",
+        "pokeemerald:ability:aerilate",
+        "pokeemerald:ability:aerilate"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/pinsir/pinsirmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:pinsirite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

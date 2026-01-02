@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mt_chimney_event_script_tabitha",
+  "name": "mt chimney event script tabitha",
+  "description": "NPC interaction: mt chimney event script tabitha",
+  "scriptPath": "Scripts/Interactions/NPCs/mt_chimney_event_script_tabitha.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

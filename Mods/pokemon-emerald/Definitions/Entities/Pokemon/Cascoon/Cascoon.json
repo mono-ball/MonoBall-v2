@@ -1,0 +1,64 @@
+{
+  "id": "pokeemerald:pokemon:cascoon",
+  "name": "Cascoon",
+  "cryId": "pokeemerald:audio:sfx/cries/cascoon",
+  "baseStats": {
+    "hp": 50,
+    "attack": 35,
+    "defense": 55,
+    "speed": 15,
+    "spAttack": 25,
+    "spDefense": 25
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 120,
+  "expYield": 72,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:shed_skin",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:cocoon",
+  "height": 7,
+  "weight": 115,
+  "description": "To avoid detection by its enemies, it hides  motionlessly beneath large leaves and in  the gaps of branches. It also attaches  dead leaves to its body for camouflage.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 10,
+      "targetSpeciesId": "pokeemerald:pokemon:dustox"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    }
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/cascoon/cascoonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/cascoon/cascoonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/cascoon/cascoonback",
+    "backShiny": "pokeemerald:pokemon:sprite/cascoon/cascoonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/cascoon/cascoonicon",
+    "overworld": "pokeemerald:pokemon:sprite/cascoon/cascoonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cascoon/cascoonoverworldshiny"
+  }
+}

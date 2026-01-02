@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:audio:music/contest/contest-lobby",
+  "name": "Contest Lobby",
+  "audioPath": "Audio/Music/Contest/ContestLobby.ogg",
+  "volume": 0.47,
+  "loop": true,
+  "loopStartSamples": 165375,
+  "loopLengthSamples": 1323000
+}

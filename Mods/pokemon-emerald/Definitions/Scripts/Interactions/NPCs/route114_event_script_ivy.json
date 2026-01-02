@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route114_event_script_ivy",
+  "name": "route114 event script ivy",
+  "description": "NPC interaction: route114 event script ivy",
+  "scriptPath": "Scripts/Interactions/NPCs/route114_event_script_ivy.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,121 @@
+{
+  "id": "pokeemerald:pokemon:grubbin",
+  "name": "Grubbin",
+  "cryId": "pokeemerald:audio:sfx/cries/grubbin",
+  "baseStats": {
+    "hp": 47,
+    "attack": 62,
+    "defense": 45,
+    "speed": 46,
+    "spAttack": 55,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 255,
+  "expYield": 60,
+  "evYield": {
+    "attack": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:larva",
+  "height": 4,
+  "weight": 44,
+  "description": "They often gather near places frequented  by electric Pok\u00E9mon in order to avoid being  attacked by bird Pok\u00E9mon, though it  normally lives underground.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 20,
+      "targetSpeciesId": "pokeemerald:pokemon:charjabug"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:vise_grip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:string_shot"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:bug_bite"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:spark"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dig"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:harden",
+    "pokeemerald:move:electroweb",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:endure"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/grubbin/grubbinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/grubbin/grubbinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/grubbin/grubbinback",
+    "backShiny": "pokeemerald:pokemon:sprite/grubbin/grubbinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/grubbin/grubbinicon",
+    "overworld": "pokeemerald:pokemon:sprite/grubbin/grubbinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grubbin/grubbinoverworldshiny"
+  }
+}

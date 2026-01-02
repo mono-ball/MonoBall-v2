@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/lilycove_city_contest_hall_event_script_smart_stage_sign",
+  "name": "lilycove city contest hall event script smart stage sign",
+  "description": "Sign script: lilycove city contest hall event script smart stage sign",
+  "scriptPath": "Scripts/Signs/lilycove_city_contest_hall_event_script_smart_stage_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

@@ -35,6 +35,8 @@ public class MapConversionService : IMapConversionService
     private readonly BehaviorExtractor _behaviorExtractor;
     private readonly ScriptExtractor _scriptExtractor;
     private readonly SoundExtractor _soundExtractor;
+    private readonly FontExtractor _fontExtractor;
+    private readonly InterfaceExtractor _interfaceExtractor;
 
     // Builders for output generation
     private readonly MapOutputBuilder _outputBuilder;
@@ -42,6 +44,9 @@ public class MapConversionService : IMapConversionService
 
     // Shared tileset registry - reuses tilesets across maps with same tileset pair
     private readonly SharedTilesetRegistry _tilesetRegistry;
+
+    // Pending map data - maps are written after tileset finalization to get correct GID offsets
+    private readonly List<PendingMapData> _pendingMaps = new();
 
     public MapConversionService(
         string inputPath,
@@ -71,6 +76,8 @@ public class MapConversionService : IMapConversionService
         _behaviorExtractor = new BehaviorExtractor(inputPath, outputPath, verbose);
         _scriptExtractor = new ScriptExtractor(inputPath, outputPath, verbose);
         _soundExtractor = new SoundExtractor(inputPath, outputPath, verbose);
+        _fontExtractor = new FontExtractor(inputPath, outputPath, verbose);
+        _interfaceExtractor = new InterfaceExtractor(inputPath, outputPath, verbose);
         _outputBuilder = new MapOutputBuilder(region);
         _tilesheetBuilder = new TilesheetOutputBuilder(outputPath);
         _tilesetRegistry = new SharedTilesetRegistry(inputPath);
@@ -130,8 +137,24 @@ public class MapConversionService : IMapConversionService
             // 5. Build collision layers from map data (one per elevation)
             var collisionLayers = BuildCollisionLayers(mapBin, mapData.Layout.Width, mapData.Layout.Height);
 
-            // 6. Write map output (references shared tileset)
-            WriteOutput(mapName, mapData, layers, sharedBuilder.TilesetPair, collisionLayers);
+            // 6. Transform and track IDs for definition generation
+            var weatherId = MapTransformers.TransformWeatherId(mapData.Metadata.Weather);
+            var battleSceneId = MapTransformers.TransformBattleSceneId(mapData.Metadata.BattleScene);
+            _definitionGenerator.TrackWeatherId(weatherId);
+            _definitionGenerator.TrackBattleSceneId(battleSceneId);
+
+            // 7. Store pending map data (written after tileset finalization for correct GID offsets)
+            lock (_pendingMaps)
+            {
+                _pendingMaps.Add(new PendingMapData(
+                    mapName,
+                    mapData,
+                    layers,
+                    sharedBuilder.TilesetPair,
+                    collisionLayers,
+                    weatherId,
+                    battleSceneId));
+            }
 
             sw.Stop();
             return new ConversionResult
@@ -196,31 +219,35 @@ public class MapConversionService : IMapConversionService
                 // Render metatile and get GIDs with flip flags encoded
                 var result = builder.ProcessMetatile(metatile, metatileId, metatileTileset);
 
+                // Mark secondary GIDs with marker bit (resolved to actual offset when writing maps)
+                var bottomGid = MarkAsSecondary(result.BottomGid, result.IsSecondary);
+                var topGid = MarkAsSecondary(result.TopGid, result.IsSecondary);
+
                 // Distribute GIDs to layers based on layer type
                 switch (metatile.LayerType)
                 {
                     case MetatileLayerType.Normal:
                         // NORMAL: Bottom -> Bg2, Top -> Bg1
-                        bg2Data[mapIndex] = result.BottomGid;
-                        bg1Data[mapIndex] = result.TopGid;
+                        bg2Data[mapIndex] = bottomGid;
+                        bg1Data[mapIndex] = topGid;
                         break;
 
                     case MetatileLayerType.Covered:
                         // COVERED: Bottom -> Bg3, Top -> Bg2
-                        bg3Data[mapIndex] = result.BottomGid;
-                        bg2Data[mapIndex] = result.TopGid;
+                        bg3Data[mapIndex] = bottomGid;
+                        bg2Data[mapIndex] = topGid;
                         break;
 
                     case MetatileLayerType.Split:
                         // SPLIT: Bottom -> Bg3, Top -> Bg1
-                        bg3Data[mapIndex] = result.BottomGid;
-                        bg1Data[mapIndex] = result.TopGid;
+                        bg3Data[mapIndex] = bottomGid;
+                        bg1Data[mapIndex] = topGid;
                         break;
 
                     default:
                         // Default to NORMAL behavior
-                        bg2Data[mapIndex] = result.BottomGid;
-                        bg1Data[mapIndex] = result.TopGid;
+                        bg2Data[mapIndex] = bottomGid;
+                        bg1Data[mapIndex] = topGid;
                         break;
                 }
             }
@@ -248,27 +275,67 @@ public class MapConversionService : IMapConversionService
         return PaletteLoader.LoadTilesetPalettes(result.Value.Path);
     }
 
-    private void WriteOutput(string mapName, MapData mapData, List<SharedLayerData> layers, TilesetPairKey tilesetPair, List<CollisionLayerData> collisionLayers)
+    /// <summary>
+    /// Write all pending maps after tileset finalization provides actual tile counts.
+    /// </summary>
+    public int WriteAllPendingMaps()
     {
+        int count = 0;
         var outputDir = Path.Combine(_outputPath, "Definitions", "Entities", "Maps", _region);
         Directory.CreateDirectory(outputDir);
-        var outputPath = Path.Combine(outputDir, $"{mapName}.json");
 
-        // Transform and track IDs for definition generation
-        var weatherId = MapTransformers.TransformWeatherId(mapData.Metadata.Weather);
-        var battleSceneId = MapTransformers.TransformBattleSceneId(mapData.Metadata.BattleScene);
-        _definitionGenerator.TrackWeatherId(weatherId);
-        _definitionGenerator.TrackBattleSceneId(battleSceneId);
-
-        var output = _outputBuilder.BuildMapOutput(mapName, mapData, layers, tilesetPair, collisionLayers, weatherId, battleSceneId);
-
-        var json = System.Text.Json.JsonSerializer.Serialize(output, new System.Text.Json.JsonSerializerOptions
+        foreach (var pending in _pendingMaps)
         {
-            WriteIndented = true,
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-        });
+            // Get tile counts and types for this tileset pair
+            var builder = _tilesetRegistry.GetBuilder(pending.TilesetPair);
+            var primaryTileCount = builder?.PrimaryTileCount ?? 0;
+            var primaryTilesetType = builder?.PrimaryTilesetType ?? "primary";
+            var secondaryTilesetType = builder?.SecondaryTilesetType ?? "secondary";
 
-        File.WriteAllText(outputPath, json);
+            // Resolve secondary markers in layer data
+            var resolvedLayers = ResolveLayers(pending.Layers, primaryTileCount);
+
+            // Build and write map output
+            var output = _outputBuilder.BuildMapOutput(
+                pending.MapName,
+                pending.MapData,
+                resolvedLayers,
+                pending.TilesetPair,
+                primaryTileCount,
+                primaryTilesetType,
+                secondaryTilesetType,
+                pending.CollisionLayers,
+                pending.WeatherId,
+                pending.BattleSceneId);
+
+            var outputPath = Path.Combine(outputDir, $"{pending.MapName}.json");
+            var json = System.Text.Json.JsonSerializer.Serialize(output, new System.Text.Json.JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+            });
+            File.WriteAllText(outputPath, json);
+            count++;
+        }
+
+        _pendingMaps.Clear();
+        _tilesetRegistry.Dispose(); // Safe to dispose now that all maps are written
+        return count;
+    }
+
+    /// <summary>
+    /// Resolve secondary markers in layer data to actual offsets.
+    /// </summary>
+    private List<SharedLayerData> ResolveLayers(List<SharedLayerData> layers, int primaryTileCount)
+    {
+        return layers.Select(layer => new SharedLayerData
+        {
+            Name = layer.Name,
+            Width = layer.Width,
+            Height = layer.Height,
+            Elevation = layer.Elevation,
+            Data = layer.Data.Select(gid => ResolveSecondaryOffset(gid, primaryTileCount)).ToArray()
+        }).ToList();
     }
 
     /// <summary>
@@ -300,7 +367,7 @@ public class MapConversionService : IMapConversionService
             count++;
         }
 
-        _tilesetRegistry.Dispose();
+        // Note: Don't dispose registry here - WriteAllPendingMaps() needs tile counts
         return count;
     }
 
@@ -357,6 +424,8 @@ public class MapConversionService : IMapConversionService
         yield return _behaviorExtractor;
         yield return _scriptExtractor;
         yield return _soundExtractor;
+        yield return _fontExtractor;
+        yield return _interfaceExtractor;
     }
 
     /// <summary>
@@ -401,4 +470,47 @@ public class MapConversionService : IMapConversionService
             .Select(kv => new CollisionLayerData(width, height, kv.Key, kv.Value))
             .ToList();
     }
+
+    /// <summary>
+    /// Mark a GID as secondary by setting the SecondaryMarker bit.
+    /// The actual offset is resolved later when writing maps, based on actual primary tile count.
+    /// </summary>
+    private static uint MarkAsSecondary(uint gid, bool isSecondary)
+    {
+        if (!isSecondary || gid == 0)
+            return gid;
+
+        // Set the secondary marker bit (will be resolved to actual offset when writing)
+        return gid | SecondaryMarker;
+    }
+
+    /// <summary>
+    /// Resolve secondary marker to actual offset based on primary tile count.
+    /// Called when writing map output after tileset finalization.
+    /// </summary>
+    private static uint ResolveSecondaryOffset(uint gid, int primaryTileCount)
+    {
+        if ((gid & SecondaryMarker) == 0)
+            return gid;
+
+        // Extract flip flags, secondary marker, and base GID
+        var flipFlags = gid & (FlipHorizontal | FlipVertical | FlipDiagonal);
+        var baseGid = gid & GidMask;
+
+        // Add offset (primary count) to base GID, combine with flip flags (without marker)
+        return flipFlags | (baseGid + (uint)primaryTileCount);
+    }
 }
+
+/// <summary>
+/// Stores map data pending write until tileset finalization provides actual tile counts.
+/// </summary>
+public record PendingMapData(
+    string MapName,
+    MapData MapData,
+    List<SharedLayerData> Layers,
+    TilesetPairKey TilesetPair,
+    List<CollisionLayerData> CollisionLayers,
+    string? WeatherId,
+    string? BattleSceneId
+);

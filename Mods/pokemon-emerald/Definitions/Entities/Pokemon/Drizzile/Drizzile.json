@@ -1,0 +1,120 @@
+{
+  "id": "pokeemerald:pokemon:drizzile",
+  "name": "Drizzile",
+  "cryId": "pokeemerald:audio:sfx/cries/drizzile",
+  "baseStats": {
+    "hp": 65,
+    "attack": 60,
+    "defense": 55,
+    "speed": 90,
+    "spAttack": 95,
+    "spDefense": 55
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 147,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 31,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:torrent",
+    null,
+    "pokeemerald:ability:sniper"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:water_lizard",
+  "height": 7,
+  "weight": 115,
+  "description": "A clever combatant, this Pok\u00E9mon battles  using water balloons created with  moisture secreted from its palms.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 35,
+      "targetSpeciesId": "pokeemerald:pokemon:inteleon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bind"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:tearful_look"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:u_turn"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:soak"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:rain_dance"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/drizzile/drizzilefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/drizzile/drizzilefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/drizzile/drizzileback",
+    "backShiny": "pokeemerald:pokemon:sprite/drizzile/drizzilebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/drizzile/drizzileicon",
+    "overworld": "pokeemerald:pokemon:sprite/drizzile/drizzileoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drizzile/drizzileoverworldshiny"
+  }
+}

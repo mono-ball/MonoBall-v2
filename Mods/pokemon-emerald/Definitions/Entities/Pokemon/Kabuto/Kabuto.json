@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:kabuto",
+  "name": "Kabuto",
+  "cryId": "pokeemerald:audio:sfx/cries/kabuto",
+  "baseStats": {
+    "hp": 30,
+    "attack": 80,
+    "defense": 90,
+    "speed": 55,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:rock",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 45,
+  "expYield": 71,
+  "evYield": {
+    "defense": 1
+  },
+  "genderRatio": 31,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:water_3"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:battle_armor",
+    "pokeemerald:ability:weak_armor"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:shellfish",
+  "height": 5,
+  "weight": 115,
+  "description": "It is a Pok\u00E9mon that has been regenerated  from a fossil. However, in rare cases, living  examples have been discovered. Kabuto  have not changed for 300 million years.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 40,
+      "targetSpeciesId": "pokeemerald:pokemon:kabutops"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:harden"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 10,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:aqua_jet"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:ancient_power"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 41,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:leech_life"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:liquidation"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:stone_edge"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:bubble_beam",
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:flail",
+    "pokeemerald:move:knock_off",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:mud_shot",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:screech",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:take_down"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kabuto/kabutofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kabuto/kabutofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kabuto/kabutoback",
+    "backShiny": "pokeemerald:pokemon:sprite/kabuto/kabutobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kabuto/kabutoicon",
+    "overworld": "pokeemerald:pokemon:sprite/kabuto/kabutooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kabuto/kabutooverworldshiny"
+  }
+}

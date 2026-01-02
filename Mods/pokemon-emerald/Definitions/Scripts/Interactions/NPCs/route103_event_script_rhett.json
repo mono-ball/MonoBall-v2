@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route103_event_script_rhett",
+  "name": "route103 event script rhett",
+  "description": "NPC interaction: route103 event script rhett",
+  "scriptPath": "Scripts/Interactions/NPCs/route103_event_script_rhett.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

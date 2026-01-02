@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/inside_of_truck_event_script_moving_box",
+  "name": "inside of truck event script moving box",
+  "description": "Sign script: inside of truck event script moving box",
+  "scriptPath": "Scripts/Signs/inside_of_truck_event_script_moving_box.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

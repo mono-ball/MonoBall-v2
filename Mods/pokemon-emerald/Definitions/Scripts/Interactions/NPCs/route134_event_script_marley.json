@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route134_event_script_marley",
+  "name": "route134 event script marley",
+  "description": "NPC interaction: route134 event script marley",
+  "scriptPath": "Scripts/Interactions/NPCs/route134_event_script_marley.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:seismitoad",
+  "name": "Seismitoad",
+  "cryId": "pokeemerald:audio:sfx/cries/seismitoad",
+  "baseStats": {
+    "hp": 105,
+    "defense": 75,
+    "speed": 74,
+    "spAttack": 85,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:water",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 45,
+  "expYield": 255,
+  "evYield": {
+    "hp": 3
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    "pokeemerald:ability:poison_touch",
+    "pokeemerald:ability:water_absorb"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:vibration",
+  "height": 15,
+  "weight": 620,
+  "description": "It increases the power of its punches  by vibrating the bumps on its fists.  They can also shoot paralyzing liquid  from their head bumps.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:drain_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:drain_punch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:gastro_acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:echoed_voice"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:acid"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:round"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bubble_beam"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:flail"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:uproar"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:aqua_ring"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:hyper_voice"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:muddy_water"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/seismitoad/seismitoadfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/seismitoad/seismitoadfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/seismitoad/seismitoadback",
+    "backShiny": "pokeemerald:pokemon:sprite/seismitoad/seismitoadbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/seismitoad/seismitoadicon",
+    "overworld": "pokeemerald:pokemon:sprite/seismitoad/seismitoadoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/seismitoad/seismitoadoverworldshiny"
+  }
+}

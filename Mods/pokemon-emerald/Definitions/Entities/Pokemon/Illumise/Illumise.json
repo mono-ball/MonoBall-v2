@@ -1,0 +1,160 @@
+{
+  "id": "pokeemerald:pokemon:illumise",
+  "name": "Illumise",
+  "cryId": "pokeemerald:audio:sfx/cries/illumise",
+  "baseStats": {
+    "hp": 65,
+    "attack": 47,
+    "speed": 85,
+    "spAttack": 73
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 150,
+  "expYield": 151,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 254,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug",
+    "pokeemerald:egg_group:human_like"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fluctuating",
+  "abilities": [
+    "pokeemerald:ability:oblivious",
+    "pokeemerald:ability:tinted_lens",
+    "pokeemerald:ability:prankster"
+  ],
+  "bodyColor": "pokeemerald:body_color:purple",
+  "categoryId": "pokeemerald:category:firefly",
+  "height": 6,
+  "weight": 177,
+  "description": "A nocturnal Pok\u00E9mon that becomes active  upon nightfall. It leads a Volbeat swarm  to draw patterns in the night sky. Over 200  different patterns have been confirmed.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:play_nice"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:charm"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:quick_attack"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:struggle_bug"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:moonlight"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:wish"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:flatter"
+    },
+    {
+      "level": 33,
+      "moveId": "pokeemerald:move:zen_headbutt"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:helping_hand"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 43,
+      "moveId": "pokeemerald:move:play_rough"
+    },
+    {
+      "level": 47,
+      "moveId": "pokeemerald:move:infestation"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:metronome",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psych_up",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:thunder_wave",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:baton_pass",
+    "pokeemerald:move:silver_wind",
+    "pokeemerald:move:growth",
+    "pokeemerald:move:encore",
+    "pokeemerald:move:bug_buzz",
+    "pokeemerald:move:captivate",
+    "pokeemerald:move:fake_tears",
+    "pokeemerald:move:confuse_ray",
+    "pokeemerald:move:aromatherapy"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/illumise/illumisefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/illumise/illumisefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/illumise/illumiseback",
+    "backShiny": "pokeemerald:pokemon:sprite/illumise/illumisebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/illumise/illumiseicon",
+    "overworld": "pokeemerald:pokemon:sprite/illumise/illumiseoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/illumise/illumiseoverworldshiny"
+  }
+}

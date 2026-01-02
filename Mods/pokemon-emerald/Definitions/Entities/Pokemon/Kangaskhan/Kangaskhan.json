@@ -1,0 +1,213 @@
+{
+  "id": "pokeemerald:pokemon:kangaskhan",
+  "name": "Kangaskhan",
+  "cryId": "pokeemerald:audio:sfx/cries/kangaskhan",
+  "baseStats": {
+    "hp": 105,
+    "attack": 95,
+    "defense": 80,
+    "speed": 90,
+    "spAttack": 40
+  },
+  "types": [
+    "pokeemerald:type:normal"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 254,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:monster"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:early_bird",
+    "pokeemerald:ability:scrappy",
+    "pokeemerald:ability:inner_focus"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:parent",
+  "height": 22,
+  "weight": 800,
+  "description": "If you come across a young Kangaskhan  playing by itself, never try to catch it.  The baby\u0027s parent is sure to be in the area,  and it will become violently enraged.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:pound"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:fake_out"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:endure"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:reversal"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:outrage"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:last_resort"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:dynamic_punch",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fire_blast",
+    "pokeemerald:move:fire_punch",
+    "pokeemerald:move:flamethrower",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:shock_wave",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_punch",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:stomp",
+    "pokeemerald:move:foresight",
+    "pokeemerald:move:focus_energy",
+    "pokeemerald:move:disable",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:crush_claw",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endeavor",
+    "pokeemerald:move:hammer_arm",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:trump_card",
+    "pokeemerald:move:uproar",
+    "pokeemerald:move:circle_throw"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanback",
+    "backShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanicon",
+    "overworld": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:kangaskhan/mega",
+      "name": "Kangaskhan",
+      "cryId": "pokeemerald:audio:sfx/cries/kangaskhan-mega",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 105,
+        "attack": 125,
+        "defense": 100,
+        "speed": 100,
+        "spAttack": 60,
+        "spDefense": 100
+      },
+      "types": [
+        "pokeemerald:type:normal"
+      ],
+      "abilities": [
+        "pokeemerald:ability:parental_bond",
+        "pokeemerald:ability:parental_bond",
+        "pokeemerald:ability:parental_bond"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:kangaskhanite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/seafloor_cavern_room1_event_script_grunt1",
+  "name": "seafloor cavern room1 event script grunt1",
+  "description": "NPC interaction: seafloor cavern room1 event script grunt1",
+  "scriptPath": "Scripts/Interactions/NPCs/seafloor_cavern_room1_event_script_grunt1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

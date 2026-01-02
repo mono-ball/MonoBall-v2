@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_outside_west_event_script_boy1",
+  "name": "battle frontier outside west event script boy1",
+  "description": "NPC interaction: battle frontier outside west event script boy1",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_outside_west_event_script_boy1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/petalburg_city_event_script_city_sign",
+  "name": "petalburg city event script city sign",
+  "description": "Sign script: petalburg city event script city sign",
+  "scriptPath": "Scripts/Signs/petalburg_city_event_script_city_sign.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

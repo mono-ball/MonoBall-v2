@@ -1,0 +1,126 @@
+{
+  "id": "pokeemerald:pokemon:clodsire",
+  "name": "Clodsire",
+  "cryId": "pokeemerald:audio:sfx/cries/clodsire",
+  "baseStats": {
+    "hp": 130,
+    "attack": 75,
+    "defense": 60,
+    "speed": 20,
+    "spAttack": 45,
+    "spDefense": 100
+  },
+  "types": [
+    "pokeemerald:type:poison",
+    "pokeemerald:type:ground"
+  ],
+  "catchRate": 90,
+  "expYield": 151,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:poison_point",
+    "pokeemerald:ability:water_absorb",
+    "pokeemerald:ability:unaware"
+  ],
+  "bodyColor": "pokeemerald:body_color:brown",
+  "categoryId": "pokeemerald:category:spiny_fish",
+  "height": 18,
+  "weight": 2230,
+  "description": "When attacked, this Pok\u00E9mon will  retaliate by sticking thick spines out  from its body. It\u0027s a risky move  that puts everything on the line.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:amnesia"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tail_whip"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:poison_sting"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:toxic_spikes"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:poison_tail"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 21,
+      "moveId": "pokeemerald:move:yawn"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:poison_jab"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:sludge_wave"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:megahorn"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:toxic"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:earthquake"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/clodsire/clodsirefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/clodsire/clodsirefrontshiny",
+    "back": "pokeemerald:pokemon:sprite/clodsire/clodsireback",
+    "backShiny": "pokeemerald:pokemon:sprite/clodsire/clodsirebackshiny",
+    "icon": "pokeemerald:pokemon:sprite/clodsire/clodsireicon",
+    "overworld": "pokeemerald:pokemon:sprite/clodsire/clodsireoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clodsire/clodsireoverworldshiny"
+  }
+}

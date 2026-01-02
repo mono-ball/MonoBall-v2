@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/slateport_city_battle_tent_lobby_event_script_woman",
+  "name": "slateport city battle tent lobby event script woman",
+  "description": "NPC interaction: slateport city battle tent lobby event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/slateport_city_battle_tent_lobby_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

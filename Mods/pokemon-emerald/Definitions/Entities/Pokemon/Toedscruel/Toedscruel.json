@@ -1,0 +1,140 @@
+{
+  "id": "pokeemerald:pokemon:toedscruel",
+  "name": "Toedscruel",
+  "cryId": "pokeemerald:audio:sfx/cries/toedscruel",
+  "baseStats": {
+    "hp": 80,
+    "attack": 70,
+    "defense": 65,
+    "speed": 100,
+    "spAttack": 80,
+    "spDefense": 120
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:grass"
+  ],
+  "catchRate": 90,
+  "expYield": 180,
+  "evYield": {
+    "spDefense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:mycelium_might",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:black",
+  "categoryId": "pokeemerald:category:woodear",
+  "height": 19,
+  "weight": 580,
+  "description": "These Pok\u00E9mon gather into groups  and form colonies deep within  forests. They absolutely hate it when  strangers approach.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:reflect_type"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:wrap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:stun_spore"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:poison_powder"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:supersonic"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:mega_drain"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:mud_shot"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:seed_bomb"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:spore"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:giga_drain"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:earth_power"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:power_whip"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/toedscruel/toedscruelfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruelfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/toedscruel/toedscruelback",
+    "backShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruelbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/toedscruel/toedscruelicon",
+    "overworld": "pokeemerald:pokemon:sprite/toedscruel/toedscrueloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscrueloverworldshiny"
+  }
+}

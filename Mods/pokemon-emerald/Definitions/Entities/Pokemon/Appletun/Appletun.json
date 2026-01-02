@@ -1,0 +1,177 @@
+{
+  "id": "pokeemerald:pokemon:appletun",
+  "name": "Appletun",
+  "cryId": "pokeemerald:audio:sfx/cries/appletun",
+  "baseStats": {
+    "hp": 110,
+    "attack": 85,
+    "defense": 80,
+    "speed": 30,
+    "spAttack": 100,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 170,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:ripen",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:thick_fat"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:apple_nectar",
+  "height": 4,
+  "weight": 130,
+  "description": "Eating a sweet apple caused its evolution.  A nectarous scent wafts from its body,  luring in the bug Pok\u00E9mon it preys on.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:headbutt"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recycle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:stomp"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:leech_seed"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:apple_acid"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:energy_ball"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/appletun/appletunfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/appletun/appletunfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/appletun/appletunback",
+    "backShiny": "pokeemerald:pokemon:sprite/appletun/appletunbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/appletun/appletunicon",
+    "overworld": "pokeemerald:pokemon:sprite/appletun/appletunoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/appletun/appletunoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:appletun/gmax",
+      "name": "Appletun",
+      "cryId": "pokeemerald:audio:sfx/cries/appletun",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 110,
+        "attack": 85,
+        "defense": 80,
+        "speed": 30,
+        "spAttack": 100,
+        "spDefense": 80
+      },
+      "types": [
+        "pokeemerald:type:grass",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:ripen",
+        "pokeemerald:ability:gluttony",
+        "pokeemerald:ability:thick_fat"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/appletun/appletungmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/appletun/appletungmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/appletun/appletungmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/appletun/appletungmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/appletun/appletungmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/appletun/appletungmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/appletun/appletungmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

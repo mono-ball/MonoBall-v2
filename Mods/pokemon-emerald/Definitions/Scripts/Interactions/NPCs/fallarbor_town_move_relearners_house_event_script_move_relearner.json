@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/fallarbor_town_move_relearners_house_event_script_move_relearner",
+  "name": "fallarbor town move relearners house event script move relearner",
+  "description": "NPC interaction: fallarbor town move relearners house event script move relearner",
+  "scriptPath": "Scripts/Interactions/NPCs/fallarbor_town_move_relearners_house_event_script_move_relearner.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,176 @@
+{
+  "id": "pokeemerald:pokemon:duraludon",
+  "name": "Duraludon",
+  "cryId": "pokeemerald:audio:sfx/cries/duraludon",
+  "baseStats": {
+    "hp": 70,
+    "attack": 95,
+    "defense": 115,
+    "speed": 85,
+    "spAttack": 120,
+    "spDefense": 50
+  },
+  "types": [
+    "pokeemerald:type:steel",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 187,
+  "evYield": {
+    "spAttack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 30,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:light_metal",
+    "pokeemerald:ability:heavy_metal",
+    "pokeemerald:ability:stalwart"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:alloy",
+  "height": 18,
+  "weight": 400,
+  "description": "Its body resembles polished metal, and  it\u0027s both lightweight and strong. The only  drawback is that it rusts easily.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:item",
+      "parameterName": "ITEM_METAL_ALLOY",
+      "targetSpeciesId": "pokeemerald:pokemon:archaludon"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 6,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:metal_sound"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:breaking_swipe"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 48,
+      "moveId": "pokeemerald:move:dragon_claw"
+    },
+    {
+      "level": 54,
+      "moveId": "pokeemerald:move:flash_cannon"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:metal_burst"
+    },
+    {
+      "level": 66,
+      "moveId": "pokeemerald:move:hyper_beam"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:dragon_claw",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:light_screen",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:thunder",
+    "pokeemerald:move:thunderbolt",
+    "pokeemerald:move:thunder_wave"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:slash",
+    "pokeemerald:move:night_slash",
+    "pokeemerald:move:mirror_coat"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/duraludon/duraludonfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/duraludon/duraludonfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/duraludon/duraludonback",
+    "backShiny": "pokeemerald:pokemon:sprite/duraludon/duraludonbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/duraludon/duraludonicon",
+    "overworld": "pokeemerald:pokemon:sprite/duraludon/duraludonoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/duraludon/duraludonoverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:duraludon/gmax",
+      "name": "Duraludon",
+      "cryId": "pokeemerald:audio:sfx/cries/duraludon",
+      "formKey": "gmax",
+      "baseStats": {
+        "hp": 70,
+        "attack": 95,
+        "defense": 115,
+        "speed": 85,
+        "spAttack": 120,
+        "spDefense": 50
+      },
+      "types": [
+        "pokeemerald:type:steel",
+        "pokeemerald:type:dragon"
+      ],
+      "abilities": [
+        "pokeemerald:ability:light_metal",
+        "pokeemerald:ability:heavy_metal",
+        "pokeemerald:ability:stalwart"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxfront",
+        "frontShiny": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxfrontshiny",
+        "back": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxback",
+        "backShiny": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxbackshiny",
+        "icon": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxicon",
+        "overworld": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/duraludon/duraludongmaxoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:gigantamax",
+      "transformMethod": "pokeemerald:transform_method:gigantamax"
+    }
+  ]
+}

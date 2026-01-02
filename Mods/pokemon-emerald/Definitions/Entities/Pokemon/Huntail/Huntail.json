@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:huntail",
+  "name": "Huntail",
+  "cryId": "pokeemerald:audio:sfx/cries/huntail",
+  "baseStats": {
+    "hp": 55,
+    "attack": 104,
+    "defense": 105,
+    "speed": 52,
+    "spAttack": 94,
+    "spDefense": 75
+  },
+  "types": [
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 60,
+  "evYield": {
+    "attack": 1,
+    "defense": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:swift_swim",
+    null,
+    "pokeemerald:ability:water_veil"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:deep_sea",
+  "height": 17,
+  "weight": 270,
+  "description": "To withstand the crushing pressure of  water deep under the sea, its spine is very  thick and sturdy. Its tail, which is shaped  like a small fish, has eyes that light up.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:whirlpool"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:bite"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shell_smash"
+    },
+    {
+      "level": 5,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 9,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 11,
+      "moveId": "pokeemerald:move:rain_dance"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:water_pulse"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:ice_fang"
+    },
+    {
+      "level": 19,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 23,
+      "moveId": "pokeemerald:move:sucker_punch"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:dive"
+    },
+    {
+      "level": 29,
+      "moveId": "pokeemerald:move:baton_pass"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:crunch"
+    },
+    {
+      "level": 39,
+      "moveId": "pokeemerald:move:aqua_tail"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:coil"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:hydro_pump"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snatch",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/huntail/huntailfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/huntail/huntailfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/huntail/huntailback",
+    "backShiny": "pokeemerald:pokemon:sprite/huntail/huntailbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/huntail/huntailicon",
+    "overworld": "pokeemerald:pokemon:sprite/huntail/huntailoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/huntail/huntailoverworldshiny"
+  }
+}

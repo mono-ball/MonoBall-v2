@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/littleroot_town_event_script_twin",
+  "name": "littleroot town event script twin",
+  "description": "NPC interaction: littleroot town event script twin",
+  "scriptPath": "Scripts/Interactions/NPCs/littleroot_town_event_script_twin.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

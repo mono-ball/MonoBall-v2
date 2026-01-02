@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/new_mauville_inside_event_script_voltorb1",
+  "name": "new mauville inside event script voltorb1",
+  "description": "NPC interaction: new mauville inside event script voltorb1",
+  "scriptPath": "Scripts/Interactions/NPCs/new_mauville_inside_event_script_voltorb1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

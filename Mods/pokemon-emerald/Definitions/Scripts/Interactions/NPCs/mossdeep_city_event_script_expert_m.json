@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/mossdeep_city_event_script_expert_m",
+  "name": "mossdeep city event script expert m",
+  "description": "NPC interaction: mossdeep city event script expert m",
+  "scriptPath": "Scripts/Interactions/NPCs/mossdeep_city_event_script_expert_m.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

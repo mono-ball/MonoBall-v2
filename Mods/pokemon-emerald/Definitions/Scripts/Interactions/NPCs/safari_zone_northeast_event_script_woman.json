@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/safari_zone_northeast_event_script_woman",
+  "name": "safari zone northeast event script woman",
+  "description": "NPC interaction: safari zone northeast event script woman",
+  "scriptPath": "Scripts/Interactions/NPCs/safari_zone_northeast_event_script_woman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

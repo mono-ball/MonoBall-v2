@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route120_event_script_lorenzo",
+  "name": "route120 event script lorenzo",
+  "description": "NPC interaction: route120 event script lorenzo",
+  "scriptPath": "Scripts/Interactions/NPCs/route120_event_script_lorenzo.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

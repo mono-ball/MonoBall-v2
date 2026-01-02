@@ -1,0 +1,110 @@
+{
+  "id": "pokeemerald:pokemon:delibird",
+  "name": "Delibird",
+  "cryId": "pokeemerald:audio:sfx/cries/delibird",
+  "baseStats": {
+    "hp": 45,
+    "attack": 55,
+    "defense": 45,
+    "speed": 75,
+    "spAttack": 65,
+    "spDefense": 45
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:flying"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "speed": 1
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:fast",
+  "abilities": [
+    "pokeemerald:ability:vital_spirit",
+    "pokeemerald:ability:hustle",
+    "pokeemerald:ability:insomnia"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:delivery",
+  "height": 9,
+  "weight": 160,
+  "description": "It carries food bundled up in its tail.  There was a famous explorer who  managed to scale Mt. Everest thanks  to a Delibird sharing its food.",
+  "levelUpMoves": [
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:present"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:drill_peck"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fly",
+    "pokeemerald:move:focus_punch",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:mega_kick",
+    "pokeemerald:move:mega_punch",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:seismic_toss",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swift",
+    "pokeemerald:move:thief",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:water_pulse"
+  ],
+  "eggMoves": [
+    "pokeemerald:move:aurora_beam",
+    "pokeemerald:move:quick_attack",
+    "pokeemerald:move:future_sight",
+    "pokeemerald:move:splash",
+    "pokeemerald:move:rapid_spin",
+    "pokeemerald:move:ice_ball",
+    "pokeemerald:move:ice_shard",
+    "pokeemerald:move:ice_punch",
+    "pokeemerald:move:fake_out",
+    "pokeemerald:move:bestow",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:freeze_dry",
+    "pokeemerald:move:destiny_bond",
+    "pokeemerald:move:spikes",
+    "pokeemerald:move:counter"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/delibird/delibirdfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/delibird/delibirdfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/delibird/delibirdback",
+    "backShiny": "pokeemerald:pokemon:sprite/delibird/delibirdbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/delibird/delibirdicon",
+    "overworld": "pokeemerald:pokemon:sprite/delibird/delibirdoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/delibird/delibirdoverworldshiny"
+  }
+}

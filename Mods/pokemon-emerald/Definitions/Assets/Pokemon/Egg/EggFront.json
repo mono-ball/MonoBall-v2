@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/egg/eggfront",
+  "name": "Eggfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Egg/EggFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:pokemon:sprite/volbeat/volbeatfront",
+  "name": "Volbeatfront",
+  "type": "Sprite",
+  "texturePath": "Graphics/Pokemon/Volbeat/VolbeatFront.png",
+  "spriteType": "front",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "frameCount": 2
+}

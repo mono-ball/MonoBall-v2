@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/battle_frontier_exchange_service_corner_event_script_vitamin_clerk",
+  "name": "battle frontier exchange service corner event script vitamin clerk",
+  "description": "NPC interaction: battle frontier exchange service corner event script vitamin clerk",
+  "scriptPath": "Scripts/Interactions/NPCs/battle_frontier_exchange_service_corner_event_script_vitamin_clerk.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

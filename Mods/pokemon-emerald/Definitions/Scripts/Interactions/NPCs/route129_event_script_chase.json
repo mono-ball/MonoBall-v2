@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route129_event_script_chase",
+  "name": "route129 event script chase",
+  "description": "NPC interaction: route129 event script chase",
+  "scriptPath": "Scripts/Interactions/NPCs/route129_event_script_chase.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pokeemerald:battle:environment/stadium_sidney",
+  "name": "Sidney",
+  "type": "Bitmap",
+  "texturePath": "Graphics/Battle/StadiumSidney/StadiumSidney.png",
+  "width": 256,
+  "height": 512,
+  "baseEnvironment": "pokeemerald:battle:environment/stadium",
+  "description": "Battle environment background for Sidney"
+}

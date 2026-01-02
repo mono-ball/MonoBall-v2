@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/profile_man_event_script_man",
+  "name": "profile man event script man",
+  "description": "NPC interaction: profile man event script man",
+  "scriptPath": "Scripts/Interactions/NPCs/profile_man_event_script_man.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

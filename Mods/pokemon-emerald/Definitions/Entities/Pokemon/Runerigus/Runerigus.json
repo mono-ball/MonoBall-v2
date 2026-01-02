@@ -1,0 +1,149 @@
+{
+  "id": "pokeemerald:pokemon:runerigus",
+  "name": "Runerigus",
+  "cryId": "pokeemerald:audio:sfx/cries/runerigus",
+  "baseStats": {
+    "hp": 58,
+    "attack": 95,
+    "defense": 145,
+    "speed": 30,
+    "spAttack": 50,
+    "spDefense": 105
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:ghost"
+  ],
+  "catchRate": 90,
+  "expYield": 169,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 25,
+  "eggGroups": [
+    "pokeemerald:egg_group:mineral",
+    "pokeemerald:egg_group:amorphous"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:wandering_spirit",
+    null,
+    null
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "categoryId": "pokeemerald:category:grudge",
+  "height": 16,
+  "weight": 666,
+  "description": "A powerful curse was woven into an ancient  painting. After absorbing the spirit of  a Yamask, the painting began to move.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:shadow_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:shadow_claw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scary_face"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:haze"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:night_shade"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:disable"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:crafty_shield"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:hex"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:mean_look"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:curse"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:shadow_ball"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:power_split"
+    },
+    {
+      "level": 56,
+      "moveId": "pokeemerald:move:guard_split"
+    },
+    {
+      "level": 62,
+      "moveId": "pokeemerald:move:destiny_bond"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:calm_mind",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:psychic",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:safeguard",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:shadow_ball",
+    "pokeemerald:move:skill_swap",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:thief"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/runerigus/runerigusfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/runerigus/runerigusfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/runerigus/runerigusback",
+    "backShiny": "pokeemerald:pokemon:sprite/runerigus/runerigusbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/runerigus/runerigusicon",
+    "overworld": "pokeemerald:pokemon:sprite/runerigus/runerigusoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/runerigus/runerigusoverworldshiny"
+  }
+}

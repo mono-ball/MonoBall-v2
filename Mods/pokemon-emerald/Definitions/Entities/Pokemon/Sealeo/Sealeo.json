@@ -1,0 +1,158 @@
+{
+  "id": "pokeemerald:pokemon:sealeo",
+  "name": "Sealeo",
+  "cryId": "pokeemerald:audio:sfx/cries/sealeo",
+  "baseStats": {
+    "hp": 90,
+    "attack": 60,
+    "defense": 70,
+    "speed": 45,
+    "spAttack": 75,
+    "spDefense": 70
+  },
+  "types": [
+    "pokeemerald:type:ice",
+    "pokeemerald:type:water"
+  ],
+  "catchRate": 120,
+  "evYield": {
+    "hp": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:water_1",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:thick_fat",
+    "pokeemerald:ability:ice_body",
+    "pokeemerald:ability:oblivious"
+  ],
+  "bodyColor": "pokeemerald:body_color:blue",
+  "categoryId": "pokeemerald:category:ball_roll",
+  "height": 11,
+  "weight": 876,
+  "description": "Sealeo live in herds on ice floes. Using its  powerful flippers, it shatters ice.  It dives into the sea to hunt prey five  times a day.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 44,
+      "targetSpeciesId": "pokeemerald:pokemon:walrein"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:swagger"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rollout"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:defense_curl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:water_gun"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:powder_snow"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:rest"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:snore"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:brine"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:aurora_beam"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:encore"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:body_slam"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:surf"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:blizzard"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:hail"
+    },
+    {
+      "level": 64,
+      "moveId": "pokeemerald:move:sheer_cold"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:blizzard",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:dive",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hail",
+    "pokeemerald:move:ice_beam",
+    "pokeemerald:move:icy_wind",
+    "pokeemerald:move:iron_tail",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:roar",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:surf",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:toxic",
+    "pokeemerald:move:waterfall",
+    "pokeemerald:move:water_pulse"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sealeo/sealeofront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sealeo/sealeofrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sealeo/sealeoback",
+    "backShiny": "pokeemerald:pokemon:sprite/sealeo/sealeobackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sealeo/sealeoicon",
+    "overworld": "pokeemerald:pokemon:sprite/sealeo/sealeooverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sealeo/sealeooverworldshiny"
+  }
+}

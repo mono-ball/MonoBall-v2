@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/route110_event_script_trainer_tips_register_items",
+  "name": "route110 event script trainer tips register items",
+  "description": "Sign script: route110 event script trainer tips register items",
+  "scriptPath": "Scripts/Signs/route110_event_script_trainer_tips_register_items.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

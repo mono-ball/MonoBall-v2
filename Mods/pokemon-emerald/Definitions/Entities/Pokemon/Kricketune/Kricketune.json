@@ -1,0 +1,139 @@
+{
+  "id": "pokeemerald:pokemon:kricketune",
+  "name": "Kricketune",
+  "cryId": "pokeemerald:audio:sfx/cries/kricketune",
+  "baseStats": {
+    "hp": 77,
+    "attack": 85,
+    "defense": 51,
+    "speed": 65,
+    "spAttack": 55,
+    "spDefense": 51
+  },
+  "types": [
+    "pokeemerald:type:bug"
+  ],
+  "catchRate": 45,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 15,
+  "eggGroups": [
+    "pokeemerald:egg_group:bug"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_slow",
+  "abilities": [
+    "pokeemerald:ability:swarm",
+    null,
+    "pokeemerald:ability:technician"
+  ],
+  "bodyColor": "pokeemerald:body_color:red",
+  "categoryId": "pokeemerald:category:cricket",
+  "height": 10,
+  "weight": 255,
+  "description": "It signals its emotions with its melodies.  There is a village that hosts a contest  based on the amazingly variable cries  of this Pok\u00E9mon.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:tackle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:growl"
+    },
+    {
+      "level": 14,
+      "moveId": "pokeemerald:move:absorb"
+    },
+    {
+      "level": 18,
+      "moveId": "pokeemerald:move:sing"
+    },
+    {
+      "level": 22,
+      "moveId": "pokeemerald:move:focus_energy"
+    },
+    {
+      "level": 26,
+      "moveId": "pokeemerald:move:slash"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:x_scissor"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:screech"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:fell_stinger"
+    },
+    {
+      "level": 38,
+      "moveId": "pokeemerald:move:taunt"
+    },
+    {
+      "level": 42,
+      "moveId": "pokeemerald:move:night_slash"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:sticky_web"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:bug_buzz"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:perish_song"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:flash",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rain_dance",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:taunt",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/kricketune/kricketunefront",
+    "frontShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunefrontshiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/kricketune/kricketunefrontfemale",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunefrontfemaleshiny",
+    "back": "pokeemerald:pokemon:sprite/kricketune/kricketuneback",
+    "backShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunebackshiny",
+    "backFemale": "pokeemerald:pokemon:sprite/kricketune/kricketunebackfemale",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunebackfemaleshiny",
+    "icon": "pokeemerald:pokemon:sprite/kricketune/kricketuneicon",
+    "overworld": "pokeemerald:pokemon:sprite/kricketune/kricketuneoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kricketune/kricketuneoverworldshiny"
+  },
+  "hasGenderDifferences": true
+}

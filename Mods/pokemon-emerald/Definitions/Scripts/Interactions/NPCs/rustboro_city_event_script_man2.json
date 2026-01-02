@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/rustboro_city_event_script_man2",
+  "name": "rustboro city event script man2",
+  "description": "NPC interaction: rustboro city event script man2",
+  "scriptPath": "Scripts/Interactions/NPCs/rustboro_city_event_script_man2.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

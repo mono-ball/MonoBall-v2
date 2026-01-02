@@ -1,0 +1,177 @@
+{
+  "id": "pokeemerald:pokemon:excadrill",
+  "name": "Excadrill",
+  "cryId": "pokeemerald:audio:sfx/cries/excadrill",
+  "baseStats": {
+    "hp": 110,
+    "attack": 135,
+    "defense": 60,
+    "speed": 88,
+    "spAttack": 50,
+    "spDefense": 65
+  },
+  "types": [
+    "pokeemerald:type:ground",
+    "pokeemerald:type:steel"
+  ],
+  "catchRate": 60,
+  "expYield": 178,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:sand_rush",
+    "pokeemerald:ability:sand_force",
+    "pokeemerald:ability:mold_breaker"
+  ],
+  "bodyColor": "pokeemerald:body_color:gray",
+  "noFlip": true,
+  "categoryId": "pokeemerald:category:subterrene",
+  "height": 7,
+  "weight": 404,
+  "description": "More than 300 feet below the surface,  they build mazelike nests. Their activity  can be destructive to subway tunnels,  but it can also help with construction.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:horn_drill"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:scratch"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:mud_slap"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:rapid_spin"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:hone_claws"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:fury_swipes"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:metal_claw"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:sandstorm"
+    },
+    {
+      "level": 24,
+      "moveId": "pokeemerald:move:crush_claw"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:rock_slide"
+    },
+    {
+      "level": 34,
+      "moveId": "pokeemerald:move:dig"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 46,
+      "moveId": "pokeemerald:move:drill_run"
+    },
+    {
+      "level": 52,
+      "moveId": "pokeemerald:move:earthquake"
+    },
+    {
+      "level": 58,
+      "moveId": "pokeemerald:move:fissure"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:aerial_ace",
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:cut",
+    "pokeemerald:move:dig",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:double_team",
+    "pokeemerald:move:earthquake",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:mud_slap",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_slide",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:rock_tomb",
+    "pokeemerald:move:sandstorm",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:sludge_bomb",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:strength",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swagger",
+    "pokeemerald:move:swords_dance",
+    "pokeemerald:move:toxic"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/excadrill/excadrillfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/excadrill/excadrillback",
+    "backShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/excadrill/excadrillicon",
+    "overworld": "pokeemerald:pokemon:sprite/excadrill/excadrilloverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/excadrill/excadrilloverworldshiny"
+  },
+  "forms": [
+    {
+      "id": "pokeemerald:pokemon_form:excadrill/mega",
+      "name": "Excadrill",
+      "cryId": "pokeemerald:audio:sfx/cries/excadrill",
+      "formKey": "mega",
+      "baseStats": {
+        "hp": 110,
+        "attack": 165,
+        "defense": 100,
+        "speed": 103,
+        "spAttack": 65,
+        "spDefense": 65
+      },
+      "types": [
+        "pokeemerald:type:ground",
+        "pokeemerald:type:steel"
+      ],
+      "abilities": [
+        "pokeemerald:ability:sand_rush",
+        "pokeemerald:ability:sand_force",
+        "pokeemerald:ability:mold_breaker"
+      ],
+      "sprites": {
+        "front": "pokeemerald:pokemon:sprite/excadrill/excadrillmegafront",
+        "frontShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillmegafrontshiny",
+        "back": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaback",
+        "backShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillmegabackshiny",
+        "icon": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaicon",
+        "overworld": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaoverworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaoverworldshiny"
+      },
+      "formType": "pokeemerald:form_type:mega",
+      "transformItem": "pokeemerald:item:excadrite",
+      "transformMethod": "pokeemerald:transform_method:mega_evolution"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_gentleman",
+  "name": "sootopolis city pokemon center 1f event script gentleman",
+  "description": "NPC interaction: sootopolis city pokemon center 1f event script gentleman",
+  "scriptPath": "Scripts/Interactions/NPCs/sootopolis_city_pokemon_center_1f_event_script_gentleman.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}

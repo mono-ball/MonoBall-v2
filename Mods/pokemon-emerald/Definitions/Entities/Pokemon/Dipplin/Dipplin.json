@@ -1,0 +1,138 @@
+{
+  "id": "pokeemerald:pokemon:dipplin",
+  "name": "Dipplin",
+  "cryId": "pokeemerald:audio:sfx/cries/dipplin",
+  "baseStats": {
+    "hp": 80,
+    "attack": 80,
+    "defense": 110,
+    "speed": 40,
+    "spAttack": 95,
+    "spDefense": 80
+  },
+  "types": [
+    "pokeemerald:type:grass",
+    "pokeemerald:type:dragon"
+  ],
+  "catchRate": 45,
+  "expYield": 170,
+  "evYield": {
+    "defense": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:grass",
+    "pokeemerald:egg_group:dragon"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:erratic",
+  "abilities": [
+    "pokeemerald:ability:supersweet_syrup",
+    "pokeemerald:ability:gluttony",
+    "pokeemerald:ability:sticky_hold"
+  ],
+  "bodyColor": "pokeemerald:body_color:green",
+  "categoryId": "pokeemerald:category:candy_apple",
+  "height": 4,
+  "weight": 44,
+  "description": "Dipplin is two creatures in one Pok\u00E9mon.  Its evolution was triggered by a special  apple grown only in one place.",
+  "evolutions": [
+    {
+      "method": "pokeemerald:evolution_method:level",
+      "parameter": 0,
+      "targetSpeciesId": "pokeemerald:pokemon:hydrapple"
+    }
+  ],
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:double_hit"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:infestation"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:withdraw"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sweet_scent"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:recycle"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:astonish"
+    },
+    {
+      "level": 4,
+      "moveId": "pokeemerald:move:dragon_tail"
+    },
+    {
+      "level": 8,
+      "moveId": "pokeemerald:move:growth"
+    },
+    {
+      "level": 12,
+      "moveId": "pokeemerald:move:dragon_breath"
+    },
+    {
+      "level": 16,
+      "moveId": "pokeemerald:move:protect"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:bullet_seed"
+    },
+    {
+      "level": 28,
+      "moveId": "pokeemerald:move:syrup_bomb"
+    },
+    {
+      "level": 32,
+      "moveId": "pokeemerald:move:dragon_pulse"
+    },
+    {
+      "level": 36,
+      "moveId": "pokeemerald:move:recover"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:energy_ball"
+    },
+    {
+      "level": 44,
+      "moveId": "pokeemerald:move:substitute"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:bullet_seed",
+    "pokeemerald:move:defense_curl",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:giga_drain",
+    "pokeemerald:move:hyper_beam",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:reflect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rollout",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:solar_beam",
+    "pokeemerald:move:sunny_day"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/dipplin/dipplinfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/dipplin/dipplinfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/dipplin/dipplinback",
+    "backShiny": "pokeemerald:pokemon:sprite/dipplin/dipplinbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/dipplin/dipplinicon",
+    "overworld": "pokeemerald:pokemon:sprite/dipplin/dipplinoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dipplin/dipplinoverworldshiny"
+  }
+}

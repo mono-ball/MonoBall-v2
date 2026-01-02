@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:sign/rs_mystery_events_house_event_script_door",
+  "name": "rs mystery events house event script door",
+  "description": "Sign script: rs mystery events house event script door",
+  "scriptPath": "Scripts/Signs/rs_mystery_events_house_event_script_door.csx",
+  "category": "sign",
+  "priority": 500,
+  "parameters": []
+}

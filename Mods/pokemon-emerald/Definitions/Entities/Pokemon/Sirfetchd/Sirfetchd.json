@@ -1,0 +1,144 @@
+{
+  "id": "pokeemerald:pokemon:sirfetchd",
+  "name": "Sirfetch\u0027d",
+  "cryId": "pokeemerald:audio:sfx/cries/sirfetchd",
+  "baseStats": {
+    "hp": 62,
+    "attack": 135,
+    "defense": 95,
+    "speed": 65,
+    "spAttack": 68,
+    "spDefense": 82
+  },
+  "types": [
+    "pokeemerald:type:fighting"
+  ],
+  "catchRate": 45,
+  "expYield": 177,
+  "evYield": {
+    "attack": 2
+  },
+  "genderRatio": 127,
+  "eggCycles": 20,
+  "eggGroups": [
+    "pokeemerald:egg_group:flying",
+    "pokeemerald:egg_group:field"
+  ],
+  "friendship": 70,
+  "growthRate": "pokeemerald:growth_rate:medium_fast",
+  "abilities": [
+    "pokeemerald:ability:steadfast",
+    null,
+    "pokeemerald:ability:scrappy"
+  ],
+  "bodyColor": "pokeemerald:body_color:white",
+  "categoryId": "pokeemerald:category:wild_duck",
+  "height": 8,
+  "weight": 1170,
+  "description": "Only Farfetch\u0027d that have survived many  battles can attain this evolution. When  this Pok\u00E9mon\u0027s leek withers, it will  retire from combat.",
+  "levelUpMoves": [
+    {
+      "level": 0,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:iron_defense"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:first_impression"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:peck"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:sand_attack"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:leer"
+    },
+    {
+      "level": 1,
+      "moveId": "pokeemerald:move:fury_cutter"
+    },
+    {
+      "level": 15,
+      "moveId": "pokeemerald:move:rock_smash"
+    },
+    {
+      "level": 20,
+      "moveId": "pokeemerald:move:brutal_swing"
+    },
+    {
+      "level": 25,
+      "moveId": "pokeemerald:move:detect"
+    },
+    {
+      "level": 30,
+      "moveId": "pokeemerald:move:knock_off"
+    },
+    {
+      "level": 35,
+      "moveId": "pokeemerald:move:defog"
+    },
+    {
+      "level": 40,
+      "moveId": "pokeemerald:move:brick_break"
+    },
+    {
+      "level": 45,
+      "moveId": "pokeemerald:move:swords_dance"
+    },
+    {
+      "level": 50,
+      "moveId": "pokeemerald:move:slam"
+    },
+    {
+      "level": 55,
+      "moveId": "pokeemerald:move:leaf_blade"
+    },
+    {
+      "level": 60,
+      "moveId": "pokeemerald:move:final_gambit"
+    },
+    {
+      "level": 65,
+      "moveId": "pokeemerald:move:brave_bird"
+    },
+    {
+      "level": 70,
+      "moveId": "pokeemerald:move:meteor_assault"
+    }
+  ],
+  "teachableMoves": [
+    "pokeemerald:move:attract",
+    "pokeemerald:move:body_slam",
+    "pokeemerald:move:brick_break",
+    "pokeemerald:move:counter",
+    "pokeemerald:move:double_edge",
+    "pokeemerald:move:endure",
+    "pokeemerald:move:facade",
+    "pokeemerald:move:fury_cutter",
+    "pokeemerald:move:protect",
+    "pokeemerald:move:rest",
+    "pokeemerald:move:rock_smash",
+    "pokeemerald:move:sleep_talk",
+    "pokeemerald:move:snore",
+    "pokeemerald:move:steel_wing",
+    "pokeemerald:move:sunny_day",
+    "pokeemerald:move:swords_dance"
+  ],
+  "sprites": {
+    "front": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdfront",
+    "frontShiny": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdfrontshiny",
+    "back": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdback",
+    "backShiny": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdbackshiny",
+    "icon": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdicon",
+    "overworld": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdoverworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sirfetchd/sirfetchdoverworldshiny"
+  }
+}

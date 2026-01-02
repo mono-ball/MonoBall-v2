@@ -55,39 +55,27 @@ public class BehaviorExtractor : ExtractorBase
 
     protected override int ExecuteExtraction()
     {
-        var behaviorsPath = GetEntityPath("Behaviors");
-        var scriptsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Behaviors");
-
-        EnsureDirectory(behaviorsPath.Replace(Path.GetFileName(behaviorsPath), ""));
+        // Only generate script definitions - maps reference these directly
+        // Layout matches interactions: Scripts/Movement/NPCs/
+        var scriptsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Movement", "NPCs");
         EnsureDirectory(scriptsPath);
 
-        int behaviorCount = 0;
-        int scriptCount = 0;
+        int count = 0;
 
         WithProgress("Extracting behavior definitions", CoreBehaviors, (behavior, task) =>
         {
             SetTaskDescription(task, $"[cyan]Creating[/] [yellow]{behavior.Name}[/]");
 
-            // Generate script definition
             var scriptDef = CreateScriptDefinition(behavior);
-            var scriptFileName = $"{behavior.Id}.json";
-            var scriptFilePath = Path.Combine(scriptsPath, scriptFileName);
-            File.WriteAllText(scriptFilePath, JsonSerializer.Serialize(scriptDef, JsonOptions.Default));
-            scriptCount++;
+            var fileName = $"{behavior.Id}.json";
+            var filePath = Path.Combine(scriptsPath, fileName);
+            File.WriteAllText(filePath, JsonSerializer.Serialize(scriptDef, JsonOptions.Default));
+            count++;
 
-            // Generate behavior definition
-            var behaviorDef = CreateBehaviorDefinition(behavior);
-            var behaviorFileName = $"{behavior.Id}.json";
-            var behaviorFilePath = Path.Combine(OutputPath, "Definitions", "Behaviors", behaviorFileName);
-            EnsureDirectory(Path.GetDirectoryName(behaviorFilePath)!);
-            File.WriteAllText(behaviorFilePath, JsonSerializer.Serialize(behaviorDef, JsonOptions.Default));
-            behaviorCount++;
-
-            LogVerbose($"Created behavior: {behavior.Name}");
+            LogVerbose($"Created behavior script: {behavior.Name}");
         });
 
-        SetCount("Scripts", scriptCount);
-        return behaviorCount;
+        return count;
     }
 
     private object CreateScriptDefinition(BehaviorInfo behavior)
@@ -110,52 +98,14 @@ public class BehaviorExtractor : ExtractorBase
 
         return new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:script:behavior:npcs/{behavior.Id}",
-            ["name"] = $"{behavior.Name} Behavior Script",
+            ["id"] = $"{IdTransformer.Namespace}:script/movement/npcs/{behavior.Id}",
+            ["name"] = $"{behavior.Name} Movement Script",
             ["description"] = behavior.Description,
-            ["scriptPath"] = $"Scripts/Behaviors/{behavior.Id}.csx",
-            ["category"] = "behavior",
+            ["scriptPath"] = $"Scripts/Movement/NPCs/{behavior.Id}.csx",
+            ["category"] = "movement",
             ["priority"] = 500,
             ["parameters"] = parameters
         };
-    }
-
-    private object CreateBehaviorDefinition(BehaviorInfo behavior)
-    {
-        var parameters = new List<object>();
-
-        if (behavior.Parameters != null)
-        {
-            foreach (var (name, type, defaultValue, desc) in behavior.Parameters)
-            {
-                parameters.Add(new Dictionary<string, object>
-                {
-                    ["name"] = name,
-                    ["type"] = type,
-                    ["defaultValue"] = defaultValue,
-                    ["description"] = desc
-                });
-            }
-        }
-
-        var result = new Dictionary<string, object>
-        {
-            ["id"] = $"{IdTransformer.Namespace}:behavior:npcs/{behavior.Id}",
-            ["name"] = $"{behavior.Name} Behavior",
-            ["description"] = behavior.Description,
-            ["scriptId"] = $"{IdTransformer.Namespace}:script:behavior:npcs/{behavior.Id}",
-            ["category"] = behavior.Id
-        };
-
-        // Only include parameters if there are any
-        if (parameters.Count > 0)
-        {
-            result["parameters"] = parameters;
-        }
-
-        result["parameterOverrides"] = new Dictionary<string, object>();
-
-        return result;
     }
 
     private record BehaviorInfo(

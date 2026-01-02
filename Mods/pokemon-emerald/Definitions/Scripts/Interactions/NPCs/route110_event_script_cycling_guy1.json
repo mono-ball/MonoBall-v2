@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:interaction/npcs/route110_event_script_cycling_guy1",
+  "name": "route110 event script cycling guy1",
+  "description": "NPC interaction: route110 event script cycling guy1",
+  "scriptPath": "Scripts/Interactions/NPCs/route110_event_script_cycling_guy1.csx",
+  "category": "npc",
+  "priority": 500,
+  "parameters": []
+}
