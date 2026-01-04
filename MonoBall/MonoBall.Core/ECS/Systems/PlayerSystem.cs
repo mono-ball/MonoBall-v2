@@ -5,6 +5,7 @@ using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.Constants;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Constants;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
@@ -263,7 +264,8 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
                 IsVisible = true,
                 RenderOrder = 100, // Render above NPCs
                 Opacity = 1.0f,
-            }
+            },
+            new ElevationComponent { Value = ElevationConstants.DefaultElevation }
         );
 
         _playerEntity = playerEntity;

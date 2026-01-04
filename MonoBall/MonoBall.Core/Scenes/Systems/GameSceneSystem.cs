@@ -27,15 +27,13 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         GameSceneComponent
     >();
 
+    private readonly ElevationRendererSystem _elevationRendererSystem;
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
-    private readonly MapBorderRendererSystem? _mapBorderRendererSystem;
-    private readonly MapRendererSystem _mapRendererSystem;
     private readonly RenderTargetManager? _renderTargetManager;
     private readonly ShaderManagerSystem? _shaderManagerSystem;
     private readonly ShaderRendererSystem? _shaderRendererSystem;
     private readonly SpriteBatch _spriteBatch;
-    private readonly SpriteRendererSystem? _spriteRendererSystem;
 
     /// <summary>
     ///     Initializes a new instance of the GameSceneSystem.
@@ -43,9 +41,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
     /// <param name="world">The ECS world.</param>
     /// <param name="graphicsDevice">The graphics device.</param>
     /// <param name="spriteBatch">The sprite batch for rendering.</param>
-    /// <param name="mapRendererSystem">The map renderer system.</param>
-    /// <param name="spriteRendererSystem">The sprite renderer system (optional).</param>
-    /// <param name="mapBorderRendererSystem">The map border renderer system (optional).</param>
+    /// <param name="elevationRendererSystem">The elevation-based renderer system.</param>
     /// <param name="shaderManagerSystem">The shader manager system (optional).</param>
     /// <param name="shaderRendererSystem">The shader renderer system (optional).</param>
     /// <param name="renderTargetManager">The render target manager (optional).</param>
@@ -54,9 +50,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         World world,
         GraphicsDevice graphicsDevice,
         SpriteBatch spriteBatch,
-        MapRendererSystem mapRendererSystem,
-        SpriteRendererSystem? spriteRendererSystem = null,
-        MapBorderRendererSystem? mapBorderRendererSystem = null,
+        ElevationRendererSystem elevationRendererSystem,
         ShaderManagerSystem? shaderManagerSystem = null,
         ShaderRendererSystem? shaderRendererSystem = null,
         RenderTargetManager? renderTargetManager = null,
@@ -66,10 +60,9 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
     {
         _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
         _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
-        _mapRendererSystem =
-            mapRendererSystem ?? throw new ArgumentNullException(nameof(mapRendererSystem));
-        _spriteRendererSystem = spriteRendererSystem;
-        _mapBorderRendererSystem = mapBorderRendererSystem;
+        _elevationRendererSystem =
+            elevationRendererSystem
+            ?? throw new ArgumentNullException(nameof(elevationRendererSystem));
         _shaderManagerSystem = shaderManagerSystem;
         _shaderRendererSystem = shaderRendererSystem;
         _renderTargetManager = renderTargetManager;
@@ -247,21 +240,9 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
 
         try
         {
-            // Render maps (pass sceneEntity so shaders can be filtered per-scene)
-            _mapRendererSystem.Render(gameTime, sceneEntity);
-
-            // Render border bottom layer (after maps, before sprites)
-            if (_mapBorderRendererSystem != null)
-                _mapBorderRendererSystem.Render(gameTime);
-
-            // Render sprites (NPCs and Players) (after maps, so sprites appear on top)
-            if (_spriteRendererSystem != null)
-                // Pass sceneEntity so shaders can be filtered per-scene
-                _spriteRendererSystem.Render(gameTime, sceneEntity);
-
-            // Render border top layer (after sprites, so borders appear on top)
-            if (_mapBorderRendererSystem != null)
-                _mapBorderRendererSystem.RenderTopLayer(gameTime);
+            // Render all entities sorted by elevation then Y position
+            // ElevationRendererSystem handles tiles, sprites, and borders in correct order
+            _elevationRendererSystem.Render(gameTime, sceneEntity);
 
             // If we rendered to a render target, now apply post-processing shader stack
             if (renderTarget != null && hasPostProcessing && shaderStack != null)

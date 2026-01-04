@@ -26,11 +26,6 @@ public struct NpcComponent
     public string MapId { get; set; }
 
     /// <summary>
-    ///     The elevation (z-order) of the NPC.
-    /// </summary>
-    public int Elevation { get; set; }
-
-    /// <summary>
     ///     The visibility flag for conditional visibility (null if always visible).
     /// </summary>
     public string? VisibilityFlag { get; set; }

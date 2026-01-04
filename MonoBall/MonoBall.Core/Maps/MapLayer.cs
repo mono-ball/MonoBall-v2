@@ -73,4 +73,11 @@ public class MapLayer
     /// </summary>
     [JsonPropertyName("imagePath")]
     public string? ImagePath { get; set; }
+
+    /// <summary>
+    ///     The elevation (z-order) of the layer (0-15).
+    ///     Used for elevation-based rendering to determine draw order.
+    /// </summary>
+    [JsonPropertyName("elevation")]
+    public int Elevation { get; set; } = 3;
 }

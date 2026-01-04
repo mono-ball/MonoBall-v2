@@ -736,6 +736,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                             RenderOrder = layerIndex,
                             Opacity = layer.Opacity,
                         },
+                        new ElevationComponent { Value = (byte)layer.Elevation },
                         new AnimatedTileDataComponent { AnimatedTiles = animatedTiles }
                     );
                 else
@@ -764,7 +765,8 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                             IsVisible = true,
                             RenderOrder = layerIndex,
                             Opacity = layer.Opacity,
-                        }
+                        },
+                        new ElevationComponent { Value = (byte)layer.Elevation }
                     );
 
                 // Track chunk entity for unloading
@@ -925,6 +927,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         const float defaultNpcMovementSpeed = 3.75f;
 
         // Create NpcComponent with explicit non-null strings to avoid Arch.Core issues
+        // Note: Elevation is now in ElevationComponent, not NpcComponent
         var npcComponent = new NpcComponent
         {
             NpcId =
@@ -941,7 +944,6 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 ?? throw new InvalidOperationException(
                     $"Map definition {mapDefinition.Id} has null Id"
                 ),
-            Elevation = npcDef.Elevation,
             VisibilityFlag = npcDef.VisibilityFlag,
             BehaviorId = npcDef.BehaviorId,
         };
@@ -1071,6 +1073,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
+                new ElevationComponent { Value = (byte)npcDef.Elevation },
                 scriptComp,
                 interactionComponent!.Value
             );
@@ -1095,6 +1098,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
+                new ElevationComponent { Value = (byte)npcDef.Elevation },
                 scriptComp
             );
         }
@@ -1112,6 +1116,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
+                new ElevationComponent { Value = (byte)npcDef.Elevation },
                 scriptComp,
                 interactionComponent!.Value
             );
@@ -1124,7 +1129,8 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (PositionComponent)components[2],
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
-                (ActiveMapEntity)components[5]
+                (ActiveMapEntity)components[5],
+                new ElevationComponent { Value = (byte)npcDef.Elevation }
             );
         }
 

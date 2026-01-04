@@ -108,6 +108,151 @@ public class MapBorderRendererSystem : BaseSystem<World, float>
     }
 
     /// <summary>
+    ///     Renders the bottom layer of border tiles within an existing SpriteBatch session.
+    ///     Used by ElevationRendererSystem for unified rendering.
+    /// </summary>
+    /// <param name="gameTime">The game time.</param>
+    /// <param name="spriteBatch">The active SpriteBatch (must be in an active Begin/End block).</param>
+    public void RenderBottomLayerInBatch(GameTime gameTime, SpriteBatch spriteBatch)
+    {
+        RenderBorderLayerInBatch(gameTime, spriteBatch, false);
+    }
+
+    /// <summary>
+    ///     Renders the top layer of border tiles within an existing SpriteBatch session.
+    ///     Used by ElevationRendererSystem for unified rendering.
+    /// </summary>
+    /// <param name="gameTime">The game time.</param>
+    /// <param name="spriteBatch">The active SpriteBatch (must be in an active Begin/End block).</param>
+    public void RenderTopLayerInBatch(GameTime gameTime, SpriteBatch spriteBatch)
+    {
+        RenderBorderLayerInBatch(gameTime, spriteBatch, true);
+    }
+
+    /// <summary>
+    ///     Shared rendering logic for InBatch methods (renders within existing SpriteBatch session).
+    /// </summary>
+    /// <param name="gameTime">The game time.</param>
+    /// <param name="spriteBatch">The active SpriteBatch.</param>
+    /// <param name="useTopLayer">If true, renders top layer; otherwise renders bottom layer.</param>
+    private void RenderBorderLayerInBatch(
+        GameTime gameTime,
+        SpriteBatch spriteBatch,
+        bool useTopLayer
+    )
+    {
+        // Get active camera
+        var activeCamera = _cameraService.GetActiveCamera();
+        if (!activeCamera.HasValue)
+            return;
+
+        var camera = activeCamera.Value;
+
+        // Cache phase: update cached data if needed
+        UpdateCachedData(camera);
+
+        // Get player map ID
+        var playerMapId = _cachedPlayerMapId;
+        if (playerMapId == null)
+            return;
+
+        // Find player's map border
+        MapBorderInfo? playerMapBorder = null;
+        foreach (var borderInfo in _cachedMapBorders)
+            if (borderInfo.MapId == playerMapId)
+            {
+                playerMapBorder = borderInfo;
+                break;
+            }
+
+        if (!playerMapBorder.HasValue)
+            return;
+
+        var border = playerMapBorder.Value;
+
+        // For top layer, check if border has top layer data
+        if (useTopLayer && !border.Border.HasTopLayer)
+            return;
+
+        // Validate border component arrays
+        var sourceRects = useTopLayer
+            ? border.Border.TopSourceRects
+            : border.Border.BottomSourceRects;
+
+        if (sourceRects == null || sourceRects.Length != 4)
+        {
+            _logger.Warning("Map {MapId} has invalid border source rectangles array", border.MapId);
+            return;
+        }
+
+        // Get camera bounds (use cached if available)
+        var expandedTileBounds = _cachedCameraBounds ?? camera.GetTileViewBounds();
+        if (!_cachedCameraBounds.HasValue)
+        {
+            expandedTileBounds = new Rectangle(
+                expandedTileBounds.X - 1,
+                expandedTileBounds.Y - 1,
+                expandedTileBounds.Width + 2,
+                expandedTileBounds.Height + 2
+            );
+            _cachedCameraBounds = expandedTileBounds;
+        }
+
+        // Check if camera extends beyond map bounds
+        var cameraExtendsBeyondBounds =
+            expandedTileBounds.X < border.MapOriginTileX
+            || expandedTileBounds.Y < border.MapOriginTileY
+            || expandedTileBounds.Right > border.MapRightTile
+            || expandedTileBounds.Bottom > border.MapBottomTile;
+
+        if (!cameraExtendsBeyondBounds)
+            return;
+
+        // Get tileset texture
+        Texture2D tilesetTexture;
+        try
+        {
+            tilesetTexture = _resourceManager.LoadTexture(border.Border.TilesetId);
+        }
+        catch (Exception ex)
+        {
+            _logger.Warning(
+                ex,
+                "Tileset texture not found for border: {TilesetId}",
+                border.Border.TilesetId
+            );
+            return;
+        }
+
+        // Render border tiles (no Begin/End - caller manages SpriteBatch)
+        for (var tileY = expandedTileBounds.Y; tileY < expandedTileBounds.Bottom; tileY++)
+        for (var tileX = expandedTileBounds.X; tileX < expandedTileBounds.Right; tileX++)
+        {
+            if (IsTileInsideAnyMap(tileX, tileY))
+                continue;
+
+            var relativeX = tileX - border.MapOriginTileX;
+            var relativeY = tileY - border.MapOriginTileY;
+
+            var borderTileIndex = MapBorderComponent.GetBorderTileIndex(relativeX, relativeY);
+
+            if (borderTileIndex < 0 || borderTileIndex >= sourceRects.Length)
+                continue;
+
+            var sourceRect = sourceRects[borderTileIndex];
+            if (sourceRect == Rectangle.Empty)
+                continue;
+
+            var tilePixelPosition = new Vector2(
+                tileX * border.TileWidth,
+                tileY * border.TileHeight
+            );
+
+            spriteBatch.Draw(tilesetTexture, tilePixelPosition, sourceRect, Color.White);
+        }
+    }
+
+    /// <summary>
     ///     Shared rendering logic for both bottom and top border layers.
     /// </summary>
     /// <param name="gameTime">The game time.</param>

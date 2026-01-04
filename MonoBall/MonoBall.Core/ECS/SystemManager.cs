@@ -10,6 +10,7 @@ using MonoBall.Core.Audio;
 using MonoBall.Core.Constants;
 using MonoBall.Core.Diagnostics;
 using MonoBall.Core.Diagnostics.Services;
+using MonoBall.Core.ECS.Rendering;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.ECS.Systems.Audio;
@@ -66,7 +67,7 @@ public class SystemManager : IDisposable
     private MapConnectionSystem _mapConnectionSystem = null!; // Initialized in Initialize()
     private MapLoaderSystem _mapLoaderSystem = null!; // Initialized in Initialize()
     private MapMusicSystem _mapMusicSystem = null!; // Initialized in Initialize()
-    private MapRendererSystem _mapRendererSystem = null!; // Initialized in Initialize()
+    private ElevationRendererSystem _elevationRendererSystem = null!; // Initialized in Initialize()
     private MapTransitionDetectionSystem _mapTransitionDetectionSystem = null!; // Initialized in Initialize()
     private MovementSystem _movementSystem = null!; // Initialized in Initialize()
     private MusicPlaybackSystem _musicPlaybackSystem = null!; // Initialized in Initialize()
@@ -91,7 +92,8 @@ public class SystemManager : IDisposable
     private SoundEffectSystem _soundEffectSystem = null!; // Initialized in Initialize()
     private SpriteAnimationSystem _spriteAnimationSystem = null!; // Initialized in Initialize()
     private SpriteBatch? _spriteBatch;
-    private SpriteRendererSystem _spriteRendererSystem = null!; // Initialized in Initialize()
+
+    // SpriteRendererSystem removed - rendering now handled by ElevationRendererSystem
     private SpriteSheetSystem _spriteSheetSystem = null!; // Initialized in Initialize()
 
     private Group<float> _updateSystems = null!; // Initialized in Initialize()
@@ -142,10 +144,10 @@ public class SystemManager : IDisposable
     }
 
     /// <summary>
-    ///     Gets the map renderer system.
+    ///     Gets the elevation renderer system.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
-    public MapRendererSystem MapRendererSystem
+    public ElevationRendererSystem ElevationRendererSystem
     {
         get
         {
@@ -153,7 +155,7 @@ public class SystemManager : IDisposable
                 throw new InvalidOperationException(
                     "Systems are not initialized. Call Initialize() first."
                 );
-            return _mapRendererSystem;
+            return _elevationRendererSystem;
         }
     }
 
@@ -264,10 +266,9 @@ public class SystemManager : IDisposable
         _mapConnectionSystem = null!;
         _cameraSystem = null!;
         _cameraViewportSystem = null!;
-        _mapRendererSystem = null!;
+        _elevationRendererSystem = null!;
         _animatedTileSystem = null!;
         _spriteAnimationSystem = null!;
-        _spriteRendererSystem = null!;
         _spriteSheetSystem = null!;
         _playerSystem = null!;
         _inputSystem = null!;
@@ -784,30 +785,16 @@ public class SystemManager : IDisposable
     }
 
     /// <summary>
-    ///     Creates render systems (map, sprite, border renderers).
+    ///     Creates render systems (elevation-based unified renderer).
     /// </summary>
     private void CreateRenderSystems()
     {
-        // Get shader service (needed for sprite renderer)
-        var shaderService = _game.Services.GetService<IShaderService>();
-
-        // Create render systems
-        _mapRendererSystem = new MapRendererSystem(
-            _world,
-            _graphicsDevice,
-            _resourceManager,
-            _cameraService,
-            _modManager.Registry,
-            LoggerFactory.CreateLogger<MapRendererSystem>(),
-            _shaderManagerSystem,
-            _shaderRendererSystem,
-            _renderTargetManager
-        );
         if (_spriteBatch == null)
             throw new InvalidOperationException(
                 "SpriteBatch is null. Ensure Initialize() was called with a valid SpriteBatch."
             );
-        _mapRendererSystem.SetSpriteBatch(_spriteBatch);
+
+        // Create map border renderer system (needed by ElevationRendererSystem for border integration)
         _mapBorderRendererSystem = new MapBorderRendererSystem(
             _world,
             _graphicsDevice,
@@ -817,18 +804,39 @@ public class SystemManager : IDisposable
             LoggerFactory.CreateLogger<MapBorderRendererSystem>()
         );
         _mapBorderRendererSystem.SetSpriteBatch(_spriteBatch);
-        _spriteRendererSystem = new SpriteRendererSystem(
+
+        // Get shader service for sprite renderer
+        var shaderService = _game.Services.GetService<IShaderService>();
+
+        // Create helper renderers for ElevationRendererSystem
+        var tileChunkRenderer = new TileChunkRenderer(
+            _resourceManager,
+            _modManager.Registry,
+            LoggerFactory.CreateLogger<TileChunkRenderer>()
+        );
+
+        var spriteRenderer = new SpriteRenderer(
+            _graphicsDevice,
+            _resourceManager,
+            LoggerFactory.CreateLogger<SpriteRenderer>(),
+            shaderService
+        );
+
+        // Create unified elevation-based renderer
+        _elevationRendererSystem = new ElevationRendererSystem(
             _world,
             _graphicsDevice,
             _resourceManager,
             _cameraService,
-            LoggerFactory.CreateLogger<SpriteRendererSystem>(),
+            tileChunkRenderer,
+            spriteRenderer,
+            _spriteBatch,
+            LoggerFactory.CreateLogger<ElevationRendererSystem>(),
+            _mapBorderRendererSystem,
             _shaderManagerSystem,
-            shaderService,
             _shaderRendererSystem,
             _renderTargetManager
         );
-        _spriteRendererSystem.SetSpriteBatch(_spriteBatch);
     }
 
     /// <summary>
@@ -973,9 +981,7 @@ public class SystemManager : IDisposable
             _world,
             _graphicsDevice,
             _spriteBatch,
-            _mapRendererSystem,
-            _spriteRendererSystem,
-            _mapBorderRendererSystem,
+            _elevationRendererSystem,
             _shaderManagerSystem,
             _shaderRendererSystem,
             _renderTargetManager,
