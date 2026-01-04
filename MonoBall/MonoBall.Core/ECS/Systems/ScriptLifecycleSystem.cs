@@ -30,6 +30,11 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
         new();
 
     private readonly QueryDescription _queryDescription;
+
+    // Cached collections to avoid allocations in hot paths (per .cursorrules)
+    private readonly HashSet<(Entity Entity, string ScriptDefinitionId)> _currentAttachments =
+        new();
+    private readonly List<(Entity Entity, string ScriptDefinitionId)> _scriptsToRemove = new();
     private readonly DefinitionRegistry _registry;
 
     private readonly Dictionary<
@@ -66,8 +71,12 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
         // Cache QueryDescription in constructor
         _queryDescription = new QueryDescription().WithAll<ScriptAttachmentComponent>();
 
-        // Subscribe to EntityDestroyedEvent
+        // Subscribe to entity destruction to cleanup scripts
+        // Note: Entity creation is handled by MapLoaderSystem calling MarkDirty() when creating entities with scripts
         _subscriptions.Add(EventBus.Subscribe<EntityDestroyedEvent>(OnEntityDestroyed));
+
+        // Mark dirty initially to ensure we process existing entities on first update
+        ScriptChangeTracker.MarkDirty();
     }
 
     /// <summary>
@@ -89,7 +98,16 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
     /// <param name="deltaTime">The elapsed time since last update.</param>
     public override void Update(in float deltaTime)
     {
-        var currentAttachments = new HashSet<(Entity Entity, string ScriptDefinitionId)>();
+        // Only query if scripts have changed
+        if (!ScriptChangeTracker.IsDirty() && _previousAttachments.Count > 0)
+        {
+            return; // Skip this frame - no changes
+        }
+
+        ScriptChangeTracker.MarkClean(); // Mark as processed
+
+        // Clear cached collection instead of allocating new one (per .cursorrules)
+        _currentAttachments.Clear();
 
         // Query entities with ScriptAttachmentComponent
         World.Query(
@@ -112,61 +130,33 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
                     var attachment = kvp.Value;
                     var key = (entity, scriptDefinitionId);
 
-                    // Log all scripts found (for debugging)
-                    _logger.Debug(
-                        "ScriptLifecycleSystem: Found script {ScriptDefinitionId} on entity {EntityId}, IsActive={IsActive}, IsInitialized={IsInitialized}",
-                        scriptDefinitionId,
-                        entity.Id,
-                        attachment.IsActive,
-                        attachment.IsInitialized
-                    );
-
                     if (!attachment.IsActive)
-                    {
-                        _logger.Debug(
-                            "Skipping inactive script {ScriptDefinitionId} on entity {EntityId}",
-                            scriptDefinitionId,
-                            entity.Id
-                        );
                         continue; // Skip inactive scripts
-                    }
 
-                    currentAttachments.Add(key);
+                    _currentAttachments.Add(key);
 
                     // Check if script needs initialization
                     if (!_initializedScripts.Contains(key))
                     {
-                        _logger.Debug(
-                            "Initializing script {ScriptDefinitionId} on entity {EntityId}",
-                            scriptDefinitionId,
-                            entity.Id
-                        );
                         InitializeScript(entity, attachment);
-                    }
-                    else
-                    {
-                        _logger.Debug(
-                            "Script {ScriptDefinitionId} on entity {EntityId} already initialized",
-                            scriptDefinitionId,
-                            entity.Id
-                        );
                     }
                 }
             }
         );
 
         // Cleanup scripts that were removed (component removed or entity destroyed)
-        var scriptsToRemove = new List<(Entity Entity, string ScriptDefinitionId)>();
+        // Clear cached collection instead of allocating new one (per .cursorrules)
+        _scriptsToRemove.Clear();
         foreach (var key in _previousAttachments)
-            if (!currentAttachments.Contains(key))
-                scriptsToRemove.Add(key);
+            if (!_currentAttachments.Contains(key))
+                _scriptsToRemove.Add(key);
 
-        foreach (var key in scriptsToRemove)
+        foreach (var key in _scriptsToRemove)
             CleanupScript(key.Entity, key.ScriptDefinitionId);
 
         // Update previous attachments for next frame
         _previousAttachments.Clear();
-        foreach (var key in currentAttachments)
+        foreach (var key in _currentAttachments)
             _previousAttachments.Add(key);
     }
 
@@ -368,13 +358,17 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
     /// </summary>
     private void OnEntityDestroyed(EntityDestroyedEvent evt)
     {
-        var scriptsToRemove = new List<(Entity Entity, string ScriptDefinitionId)>();
+        // Reuse cached collection to avoid allocations (per .cursorrules)
+        _scriptsToRemove.Clear();
         foreach (var key in _scriptInstances.Keys)
             if (key.Entity.Id == evt.Entity.Id)
-                scriptsToRemove.Add(key);
+                _scriptsToRemove.Add(key);
 
-        foreach (var key in scriptsToRemove)
+        foreach (var key in _scriptsToRemove)
             CleanupScript(key.Entity, key.ScriptDefinitionId);
+
+        if (_scriptsToRemove.Count > 0)
+            ScriptChangeTracker.MarkDirty();
     }
 
     /// <summary>
@@ -402,6 +396,8 @@ public class ScriptLifecycleSystem : BaseSystem<World, float>, IPrioritizedSyste
             _scriptInstances.Clear();
             _initializedScripts.Clear();
             _previousAttachments.Clear();
+            _currentAttachments.Clear();
+            _scriptsToRemove.Clear();
         }
 
         _disposed = true;

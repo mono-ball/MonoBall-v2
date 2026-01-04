@@ -7,6 +7,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
+using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
 using MonoBall.Core.Scripting.Utilities;
@@ -265,7 +266,11 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
             // Get behavior script ID directly (BehaviorId now references ScriptDefinition ID directly)
             if (!string.IsNullOrEmpty(npcComponent.BehaviorId))
             {
-                PauseScript(interactionEntity, npcComponent.BehaviorId);
+                ScriptAttachmentHelper.PauseScript(
+                    World,
+                    interactionEntity,
+                    npcComponent.BehaviorId
+                );
                 _logger.Debug(
                     "Paused behavior script {ScriptId} for NPC {NpcId} during interaction",
                     npcComponent.BehaviorId,
@@ -337,7 +342,11 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
                 // Resume behavior script (BehaviorId now references ScriptDefinition ID directly)
                 if (!string.IsNullOrEmpty(state.BehaviorId))
                 {
-                    ResumeScript(state.InteractionEntity, state.BehaviorId);
+                    ScriptAttachmentHelper.ResumeScript(
+                        World,
+                        state.InteractionEntity,
+                        state.BehaviorId
+                    );
                     _logger.Debug(
                         "Resumed behavior script {ScriptId} for NPC after interaction",
                         state.BehaviorId
@@ -360,54 +369,6 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
                 _activeInteractions.Remove(state.InteractionEntity);
             }
         );
-    }
-
-    /// <summary>
-    ///     Pauses a script by setting its ScriptAttachmentComponent.IsActive to false.
-    ///     Uses cached QueryDescription for performance.
-    /// </summary>
-    /// <param name="entity">The entity that has the script.</param>
-    /// <param name="scriptDefinitionId">The script definition ID to pause.</param>
-    /// <returns>True if the script was found and paused, false otherwise.</returns>
-    private bool PauseScript(Entity entity, string scriptDefinitionId)
-    {
-        if (!World.Has<ScriptAttachmentComponent>(entity))
-            return false;
-
-        // Get the ScriptAttachmentComponent and update the specific script in the collection
-        ref var component = ref World.Get<ScriptAttachmentComponent>(entity);
-        if (component.Scripts == null || !component.Scripts.ContainsKey(scriptDefinitionId))
-            return false;
-
-        var attachment = component.Scripts[scriptDefinitionId];
-        attachment.IsActive = false;
-        component.Scripts[scriptDefinitionId] = attachment;
-        World.Set(entity, component);
-        return true;
-    }
-
-    /// <summary>
-    ///     Resumes a script by setting its ScriptAttachmentComponent.IsActive to true.
-    ///     Uses cached QueryDescription for performance.
-    /// </summary>
-    /// <param name="entity">The entity that has the script.</param>
-    /// <param name="scriptDefinitionId">The script definition ID to resume.</param>
-    /// <returns>True if the script was found and resumed, false otherwise.</returns>
-    private bool ResumeScript(Entity entity, string scriptDefinitionId)
-    {
-        if (!World.Has<ScriptAttachmentComponent>(entity))
-            return false;
-
-        // Get the ScriptAttachmentComponent and update the specific script in the collection
-        ref var component = ref World.Get<ScriptAttachmentComponent>(entity);
-        if (component.Scripts == null || !component.Scripts.ContainsKey(scriptDefinitionId))
-            return false;
-
-        var attachment = component.Scripts[scriptDefinitionId];
-        attachment.IsActive = true;
-        component.Scripts[scriptDefinitionId] = attachment;
-        World.Set(entity, component);
-        return true;
     }
 
     /// <summary>

@@ -1128,6 +1128,10 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             );
         }
 
+        // Mark dirty to notify ScriptLifecycleSystem that scripts were attached (consolidated from all branches)
+        if (hasBehaviorScript || hasInteractionScript)
+            ScriptChangeTracker.MarkDirty();
+
         // Add EntityVariablesComponent AFTER entity creation (if we have merged parameters)
         // This avoids issues with Arch.Core and struct components containing reference types
         if (mergedParameters != null && mergedParameters.Count > 0 && scriptDefForVariables != null)

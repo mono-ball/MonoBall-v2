@@ -2,302 +2,327 @@
 
 ## Overview
 
-This document analyzes the implementation plan against the design document to identify gaps, inconsistencies, and missing elements.
+This document analyzes the implementation plan against the design document to identify missing elements, discrepancies, and areas that need clarification.
 
-## Critical Issues
+---
 
-### Issue 1: Missing Validation in ModLoader
+## Issues Found
 
-**Design Says:**
-> **Validation Points:**
-> 1. **ModLoader**: When loading BehaviorDefinition, validate `parameterOverrides` against referenced ScriptDefinition
-> 2. **MapLoaderSystem**: When creating NPC, validate `behaviorParameters` against ScriptDefinition
-> 3. **ScriptLifecycleSystem**: When building parameters, validate EntityVariablesComponent overrides
+### 1. Missing: Early Return Check Optimization in PreloadAllScripts
 
-**Plan Says:**
-- Only mentions validation in MapLoaderSystem (step 3)
-- Does not mention validation in ModLoader
-- Does not mention validation in ScriptLifecycleSystem
+**Design Location**: Section 6, lines 1257-1287
 
-**Impact:**
-- Invalid parameter overrides in BehaviorDefinition JSON files won't be caught until runtime
-- No early validation during mod loading
+**Issue**: The plan mentions adding an early return check, but doesn't specify the optimization details from the design:
+- Try-catch around cache check (handle errors gracefully)
+- Early exit when finding first uncached script (optimization)
+- Proper logging of cached vs compiled counts
 
-**Fix Required:**
-- Add validation step in ModLoader when loading BehaviorDefinition
-- Validate that `parameterOverrides` keys exist in referenced ScriptDefinition
-- Validate parameter types match ScriptDefinition
-- Log warnings for invalid parameters
+**Plan Location**: Step 1.6, line 218
 
-### Issue 2: Missing EntityVariablesComponent Creation
+**Fix Required**: Add details about:
+- Try-catch wrapper around cache check
+- Early exit optimization (break on first uncached)
+- Logging both cached and compiled counts
 
-**Design Says:**
-> Store merged parameters in `EntityVariablesComponent` with keys like `"script:{scriptId}:param:{paramName}"`
+---
 
-**Plan Says:**
-> Store merged parameters in EntityVariablesComponent with keys: `"script:{scriptId}:param:{paramName}"`
+### 2. Missing: Progress Reporting
 
-**Missing:**
-- Plan doesn't specify when/how EntityVariablesComponent is created
-- Plan doesn't specify if EntityVariablesComponent already exists on entity or needs to be created
-- Plan doesn't specify if EntityVariablesComponent should be added to entity components list
+**Design Location**: Phase 1, line 1620-1621
 
-**Impact:**
-- Unclear implementation details
-- May fail if EntityVariablesComponent doesn't exist on entity
+**Issue**: Design mentions "Add progress reporting - Report compilation progress for better UX" but plan doesn't include this step.
 
-**Fix Required:**
-- Specify that EntityVariablesComponent should be created if it doesn't exist
-- Add EntityVariablesComponent to entity components list in MapLoaderSystem
-- Or: Check if entity already has EntityVariablesComponent and add to it
+**Plan Location**: Phase 1 - not mentioned
 
-### Issue 3: Missing Error Handling for Missing BehaviorDefinition
+**Fix Required**: Add step for progress reporting (optional, but mentioned in design):
+- Report compilation progress during PreloadAllScripts
+- Could use LoadingSceneSystem for progress updates
 
-**Design Says:**
-> Look up `BehaviorDefinition` (not ScriptDefinition directly)
+---
 
-**Plan Says:**
-> Look up `BehaviorDefinition` first, then get `scriptId` from it
+### 3. Missing: Reduce Debug Logging
 
-**Missing:**
-- What happens if BehaviorDefinition is not found?
-- Should it fall back to old behavior (direct ScriptDefinition lookup)?
-- Should it log error and skip script attachment?
-- Should it throw exception?
+**Design Location**: Phase 2, line 1648-1650
 
-**Impact:**
-- Unclear error handling behavior
-- May cause runtime failures or silent failures
+**Issue**: Design mentions "Reduce debug logging - Remove logs from hot paths, Use conditional compilation" but plan doesn't include this.
 
-**Fix Required:**
-- Specify error handling: Log warning, skip script attachment, continue NPC creation
-- Or: Support backward compatibility fallback to direct ScriptDefinition lookup (with deprecation warning)
+**Plan Location**: Phase 2 - not mentioned
 
-### Issue 4: Missing Parameter Type Conversion Details
+**Fix Required**: Add step to reduce debug logging in hot paths:
+- Remove or conditionally compile debug logs in ScriptLifecycleSystem.Update()
+- Remove debug logs from ScriptBase.IsEventForThisEntity()
 
-**Design Says:**
-> Validate parameter types match ScriptDefinition
+---
 
-**Plan Says:**
-> Validate parameter types match ScriptDefinition
+### 4. Missing: Script Instance Pooling (Optional)
 
-**Missing:**
-- How to convert JSON types (number, string, boolean) to C# types (int, float, bool, string, Vector2)?
-- JSON numbers can be int or float - how to distinguish?
-- How to handle Vector2 parameters (string format "X,Y" vs object)?
+**Design Location**: Phase 3, line 1668-1670
 
-**Impact:**
-- Type conversion may fail or be incorrect
-- Parameters may not be correctly deserialized
+**Issue**: Design mentions "Script instance pooling (optional) - Pool stateless scripts, Reduce GC pressure" but plan doesn't include this.
 
-**Fix Required:**
-- Specify type conversion logic:
-  - JSON number → int if ScriptDefinition type is "int"
-  - JSON number → float if ScriptDefinition type is "float"
-  - JSON string → string (or parse as Vector2 if type is "vector2")
-  - JSON boolean → bool
-- Use same conversion logic as ScriptLifecycleSystem.ParseVector2() for Vector2
+**Plan Location**: Phase 3 - not mentioned
 
-### Issue 5: Missing ScriptLifecycleSystem Validation
+**Fix Required**: Add optional step for script instance pooling (can be marked as optional/future)
 
-**Design Says:**
-> 3. **ScriptLifecycleSystem**: When building parameters, validate EntityVariablesComponent overrides
+---
 
-**Plan Says:**
-> The method should already work correctly since MapLoaderSystem will store merged parameters in EntityVariablesComponent. However, add validation and logging to ensure parameters are correctly resolved.
-
-**Missing:**
-- Plan doesn't specify what validation to add
-- Plan doesn't specify how to validate parameters in ScriptLifecycleSystem
-
-**Impact:**
-- Runtime parameter overrides in EntityVariablesComponent won't be validated
-- Invalid parameters may cause script errors
-
-**Fix Required:**
-- Add validation in ScriptLifecycleSystem.BuildScriptParameters():
-  - Validate parameter names exist in ScriptDefinition
-  - Validate parameter types match ScriptDefinition
-  - Validate parameter values are within min/max bounds
-  - Log warnings for invalid parameters
-
-### Issue 6: Parameter Storage Key Format Mismatch
+### 5. Missing: Ref Parameter Handling in ScriptBase
 
-**Design Says:**
-> Store merged parameters in `EntityVariablesComponent` with keys like `"script:{scriptId}:param:{paramName}"`
-
-**Plan Says:**
-> Store merged parameters in EntityVariablesComponent with keys: `"script:{scriptId}:param:{paramName}"`
-
-**Current ScriptLifecycleSystem:**
-- Uses key format: `"script:{scriptId}:param:{paramName}"` (line 251)
-- This matches the design, so this is correct
-
-**Status:** ✅ No issue - format matches
+**Design Location**: Section 5, lines 1184-1193
 
-### Issue 7: Missing TileBehaviorDefinition Implementation
+**Issue**: Design shows two overloads of `IsEventForThisEntity`:
+- `IsEventForThisEntity<TEvent>(TEvent evt)` - for copy
+- `IsEventForThisEntity<TEvent>(ref TEvent evt)` - for ref parameter
 
-**Design Says:**
-> 2. **Create TileBehaviorDefinition class**
->    - Fields: `id`, `name`, `description`, `scriptId`, `flags`, `parameterOverrides`
->    - Load from `Definitions/TileBehaviors/*.json`
+**Plan Location**: Step 2.4, line 322
 
-**Plan Says:**
-- Does not include TileBehaviorDefinition
-- Only focuses on BehaviorDefinition for NPCs
+**Fix Required**: Plan should mention both overloads need to be updated:
+- The ref version copies the struct and calls the copy version
+- Both use compiled expression trees
 
-**Impact:**
-- TileBehaviorDefinition is not implemented
-- Design specifies it but plan doesn't include it
+---
 
-**Fix Required:**
-- Either: Add TileBehaviorDefinition to plan (if needed)
-- Or: Document that TileBehaviorDefinition is out of scope for this implementation
+### 6. Missing: CollectDependencyAssemblies Method Details
 
-### Issue 8: Missing Backward Compatibility Strategy
+**Design Location**: Section 2, lines 797-894
 
-**Design Says:**
-> **Phase 2: Update MapLoaderSystem**
-> - Support both old format (direct ScriptDefinition lookup) and new format
-> - Log warnings when old format is used
+**Issue**: Design shows `CollectDependencyAssemblies()` needs to track temp files, but plan doesn't specify this detail.
 
-**Plan Says:**
-- Replace direct ScriptDefinition lookup with BehaviorDefinition lookup
-- No mention of backward compatibility fallback
+**Plan Location**: Step 1.6, line 238
 
-**Impact:**
-- Existing maps/NPCs that reference ScriptDefinition directly will break
-- No migration path for existing code
+**Fix Required**: Plan should specify:
+- `CollectDependencyAssemblies()` needs to call `_compilationCache.TempFileManager.TrackTempFile()` when creating temp files for compressed mods
+- This is already mentioned but could be more explicit
 
-**Fix Required:**
-- Add backward compatibility: If BehaviorDefinition not found, try direct ScriptDefinition lookup
-- Log deprecation warning when old format is used
-- Document that old format will be removed in future version
+---
 
-### Issue 9: Missing Parameter Merging Implementation Details
+### 7. Missing: ScriptChangeTracker Creation Timing
 
-**Design Says:**
-> Merge parameters: ScriptDefinition defaults + BehaviorDefinition overrides + NPCDefinition overrides
+**Design Location**: Step 1 file list, line 1698
 
-**Plan Says:**
-> Merge parameters from all layers:
-> - Start with ScriptDefinition defaults
-> - Apply BehaviorDefinition.parameterOverrides
-> - Apply NPCDefinition.behaviorParameters (if present)
-
-**Missing:**
-- How to handle nested dictionaries/objects in parameterOverrides?
-- How to handle null/empty parameterOverrides?
-- How to handle missing ScriptDefinition (should fail or skip)?
-- How to handle missing parameters in ScriptDefinition (should skip or use default)?
-
-**Impact:**
-- Unclear merge logic implementation
-- May have edge cases not handled
-
-**Fix Required:**
-- Specify merge algorithm:
-  1. Start with empty Dictionary<string, object>
-  2. If ScriptDefinition exists and has Parameters:
-     - For each parameter in ScriptDefinition.Parameters:
-       - Add parameter.Name → parameter.DefaultValue to dictionary
-  3. If BehaviorDefinition exists and has ParameterOverrides:
-     - For each key-value pair in ParameterOverrides:
-       - Override dictionary[key] = value
-  4. If NPCDefinition has BehaviorParameters:
-     - For each key-value pair in BehaviorParameters:
-       - Override dictionary[key] = value
-  5. Store final dictionary in EntityVariablesComponent
-
-### Issue 10: Missing ScriptDefinition Lookup Error Handling
-
-**Design Says:**
-> Get `scriptId` from BehaviorDefinition, then look up ScriptDefinition
-
-**Plan Says:**
-> Get `scriptId` from BehaviorDefinition, then look up ScriptDefinition
-
-**Missing:**
-- What if ScriptDefinition is not found?
-- What if scriptId is null/empty?
-- Should it log error and skip script attachment?
-
-**Impact:**
-- Unclear error handling for missing ScriptDefinition
-- May cause runtime failures
-
-**Fix Required:**
-- Specify error handling:
-  - If scriptId is null/empty: Log error, skip script attachment
-  - If ScriptDefinition not found: Log error, skip script attachment
-  - Continue NPC creation without script (NPC still created, just no behavior script)
-
-## Medium Priority Issues
-
-### Issue 11: Missing Documentation Updates
-
-**Design Says:**
-> Document field purposes, parameter resolution order
-
-**Plan Says:**
-> No mention of documentation updates
-
-**Impact:**
-- No documentation for new BehaviorDefinition system
-- Users won't know how to use new system
-
-**Fix Required:**
-- Add todo: Update documentation to explain BehaviorDefinition system
-- Document parameter resolution order
-- Document how to create BehaviorDefinitions
-- Document migration from old format
-
-### Issue 12: Missing Test Cases
-
-**Design Says:**
-> Testing considerations listed
-
-**Plan Says:**
-> Testing considerations listed but not as implementation steps
-
-**Impact:**
-- No explicit test implementation steps
-- Testing may be overlooked
-
-**Fix Required:**
-- Add todos for test implementation:
-  - Test BehaviorDefinition lookup
-  - Test parameter merging
-  - Test validation
-  - Test error handling
-  - Test backward compatibility
-
-## Summary
-
-### Critical Issues (Must Fix)
-1. ✅ Missing validation in ModLoader
-2. ✅ Missing EntityVariablesComponent creation details
-3. ✅ Missing error handling for missing BehaviorDefinition
-4. ✅ Missing parameter type conversion details
-5. ✅ Missing ScriptLifecycleSystem validation
-6. ✅ Missing backward compatibility strategy
-7. ✅ Missing parameter merging implementation details
-8. ✅ Missing ScriptDefinition lookup error handling
-
-### Medium Priority Issues (Should Fix)
-9. Missing TileBehaviorDefinition (if needed)
-10. Missing documentation updates
-11. Missing test implementation steps
-
-### Recommendations
-
-1. **Add validation step in ModLoader** when loading BehaviorDefinitions
-2. **Specify EntityVariablesComponent creation** in MapLoaderSystem
-3. **Add error handling** for all lookup failures (BehaviorDefinition, ScriptDefinition)
-4. **Specify parameter type conversion** logic
-5. **Add backward compatibility** fallback to direct ScriptDefinition lookup
-6. **Add detailed parameter merging** algorithm
-7. **Add validation in ScriptLifecycleSystem** for runtime overrides
-8. **Clarify TileBehaviorDefinition** scope (included or out of scope)
+**Issue**: Design lists `ScriptChangeTracker.cs` in Phase 1 file creation list, but it's used in Phase 2.
 
+**Plan Location**: Step 2.1 (Phase 2)
 
+**Analysis**: This is actually correct - ScriptChangeTracker is created in Phase 2 when it's needed. The design's file list is just organizational. No fix needed.
+
+---
+
+### 8. Missing: Helper Method Location Clarification
+
+**Design Location**: Section 3.1 (Phase 3)
+
+**Issue**: Design mentions helper method for script attachment, but doesn't specify exact file location.
+
+**Plan Location**: Step 3.1, line 337
+
+**Fix Required**: Plan correctly says "File to create or modify" but should specify:
+- Prefer creating new file: `MonoBall.Core/ECS/Utilities/ScriptAttachmentHelper.cs`
+- Or add to existing utility if appropriate
+
+---
+
+### 9. Missing: Dispose Pattern Details
+
+**Design Location**: Section 2, lines 899-904
+
+**Issue**: Design shows `ScriptLoaderService.Dispose()` should NOT clear the shared cache, but plan doesn't specify what it should do.
+
+**Plan Location**: Step 1.6, line 242
+
+**Fix Required**: Plan should specify:
+- Dispose should only cleanup plugin scripts
+- Do NOT call `_compilationCache.Clear()` or dispose the cache
+- Temp files are cleaned up by TempFileManager.Dispose() (called when game exits)
+
+---
+
+### 10. Missing: Error Handling in Factory Cache
+
+**Design Location**: Section 1.2, ScriptFactoryCache implementation
+
+**Issue**: Design shows factory creation can return null if compilation fails, but plan doesn't mention error handling.
+
+**Plan Location**: Step 1.2
+
+**Fix Required**: Plan should mention:
+- `GetOrCreateFactory()` returns `Func<ScriptBase>?` (nullable)
+- Returns null if factory creation fails (e.g., no parameterless constructor)
+- `CreateScriptInstance()` should handle null factory with clear exception
+
+---
+
+### 11. Missing: TempFileManager.Dispose Implementation
+
+**Design Location**: Section 1.2, TempFileManager, lines 471-479
+
+**Issue**: Plan mentions TempFileManager implements IDisposable but doesn't specify cleanup details.
+
+**Plan Location**: Step 1.2, Step 3.3
+
+**Fix Required**: Plan should specify:
+- `Dispose()` calls `CleanupAllTempFiles()`
+- Clears the `_tempFiles` dictionary
+- Sets `_disposed` flag
+
+---
+
+### 12. Missing: ScriptChangeTracker Initial State
+
+**Design Location**: Section 4, line 950
+
+**Issue**: Design shows `_isDirty = true` initially (to ensure first query), but plan doesn't mention this.
+
+**Plan Location**: Step 2.1, line 274
+
+**Fix Required**: Plan should specify:
+- `_isDirty` starts as `true` (not `false`)
+- This ensures first Update() call processes existing entities
+- Document why it starts dirty
+
+---
+
+### 13. Missing: EntityCreatedEvent Handler Details
+
+**Design Location**: Section 4, lines 1092-1096
+
+**Issue**: Design shows `OnEntityCreated()` should check if entity has `ScriptAttachmentComponent` before marking dirty, but plan doesn't specify this check.
+
+**Plan Location**: Step 2.2, line 295
+
+**Fix Required**: Plan should specify:
+- `OnEntityCreated()` should check `World.Has<ScriptAttachmentComponent>(evt.Entity)` before calling `MarkDirty()`
+- Only mark dirty if entity actually has scripts
+
+---
+
+### 14. Missing: ScriptAttachmentData Type
+
+**Design Location**: Section 3.1, helper method signature
+
+**Issue**: Plan mentions `ScriptAttachmentData` but doesn't specify where this type comes from.
+
+**Plan Location**: Step 3.1, line 346
+
+**Fix Required**: Plan should specify:
+- `ScriptAttachmentData` is likely in `ScriptAttachmentComponent` or related namespace
+- Verify the exact type name and location before implementation
+
+---
+
+### 15. Missing: Parallel.ForEach Error Handling
+
+**Design Location**: Section 2, lines 651-658
+
+**Issue**: Design shows try-catch around individual script compilation in parallel loop, but plan doesn't specify error handling strategy.
+
+**Plan Location**: Step 1.6, line 219
+
+**Fix Required**: Plan should specify:
+- Each script compilation should be wrapped in try-catch
+- Errors should be logged but not stop parallel compilation
+- Failed scripts are skipped, successful ones continue
+
+---
+
+## Minor Issues / Clarifications
+
+### 16. ScriptChangeTracker File Location
+
+**Design**: `MonoBall.Core/ECS/ScriptChangeTracker.cs`
+**Plan**: `MonoBall.Core/ECS/ScriptChangeTracker.cs`
+**Status**: ✅ Match
+
+### 17. Helper Method Location
+
+**Design**: Mentions helper in GameInitializationHelper or MonoBallGame
+**Plan**: GameInitializationHelper
+**Status**: ✅ Correct (GameInitializationHelper is better location)
+
+### 18. Cache Registration Location
+
+**Design**: `LoadContent()`, after `LoadModsSynchronously()` but before SystemManager
+**Plan**: `LoadContent()`, after `LoadModsSynchronously()` but before SystemManager
+**Status**: ✅ Match
+
+---
+
+## Summary of Required Fixes
+
+### High Priority (Must Fix)
+
+1. ✅ Add early return check optimization details (try-catch, early exit)
+2. ✅ Add ref parameter handling in ScriptBase.IsEventForThisEntity
+3. ✅ Add error handling details for factory cache (nullable return)
+4. ✅ Add ScriptChangeTracker initial state (_isDirty = true)
+5. ✅ Add EntityCreatedEvent handler check (verify entity has component)
+
+### Medium Priority (Should Fix)
+
+6. ✅ Add progress reporting step (optional but mentioned in design)
+7. ✅ Add reduce debug logging step
+8. ✅ Add script instance pooling (optional/future)
+9. ✅ Add Dispose pattern details (what to cleanup, what not to)
+10. ✅ Add temp file cleanup details in TempFileManager.Dispose
+
+### Low Priority (Nice to Have)
+
+11. ✅ Clarify ScriptAttachmentData type location
+12. ✅ Add parallel compilation error handling details
+
+---
+
+## Recommended Plan Updates
+
+### Update Step 1.6 (PreloadAllScripts)
+
+Add:
+- Try-catch around cache check with warning log
+- Early exit optimization (break on first uncached)
+- Logging of cached vs compiled counts
+- Error handling in parallel loop (try-catch per script)
+
+### Update Step 1.2 (Cache Implementations)
+
+Add:
+- ScriptFactoryCache returns nullable `Func<ScriptBase>?`
+- TempFileManager.Dispose() implementation details
+- Error handling for factory compilation failures
+
+### Update Step 2.1 (ScriptChangeTracker)
+
+Add:
+- `_isDirty` starts as `true` (not `false`)
+- Document why it starts dirty
+
+### Update Step 2.2 (ScriptLifecycleSystem)
+
+Add:
+- `OnEntityCreated()` checks `World.Has<ScriptAttachmentComponent>()` before marking dirty
+- Reduce debug logging in Update() method
+
+### Update Step 2.4 (ScriptBase)
+
+Add:
+- Both overloads need updating (copy and ref versions)
+- Ref version copies struct and calls copy version
+
+### Add New Steps
+
+- **Step 1.9**: Add progress reporting (optional)
+- **Step 2.6**: Reduce debug logging in hot paths
+- **Step 3.5**: Script instance pooling (optional/future)
+
+---
+
+## Conclusion
+
+The plan is **mostly complete** but missing several important details from the design:
+
+1. **Error handling details** - try-catch patterns, nullable returns
+2. **Optimization details** - early exit, progress reporting
+3. **Initialization details** - ScriptChangeTracker starts dirty
+4. **Disposal details** - what to cleanup, what not to cleanup
+5. **Optional features** - progress reporting, debug logging reduction, script pooling
+
+Most issues are **missing details** rather than **incorrect information**, which means the plan is on the right track but needs refinement.

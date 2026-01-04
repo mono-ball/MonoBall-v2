@@ -76,6 +76,7 @@ public class SystemManager : IDisposable
     private SceneSystem _sceneSystem = null!; // Initialized in Initialize()
     private ScriptApiProvider? _scriptApiProvider; // Initialized in InitializeCoreServices()
     private ScriptCompilerService? _scriptCompilerService; // Initialized in InitializeCoreServices()
+    private IScriptCompilationCache? _compilationCache; // Retrieved from Game.Services in InitializeCoreServices()
     private ScriptLifecycleSystem? _scriptLifecycleSystem; // Initialized in CreateGameSystems()
     private ScriptLoaderService? _scriptLoaderService; // Initialized in InitializeCoreServices()
     private ShaderAnimationChainSystem? _shaderChainSystem; // Initialized in Initialize(), may be null
@@ -321,6 +322,10 @@ public class SystemManager : IDisposable
         _scriptLifecycleSystem?.Dispose();
         _scriptLifecycleSystem = null;
 
+        // NOTE: Do NOT dispose or clear the compilation cache (_compilationCache)
+        // It's a shared singleton that persists across SystemManager instances
+        // The cache is disposed by Game.Services when the game exits
+
         _isDisposed = true;
     }
 
@@ -477,6 +482,16 @@ public class SystemManager : IDisposable
         // Must be created before render systems that depend on it
         _activeMapFilterService = new ActiveMapFilterService(_world);
 
+        // Get shared script compilation cache from Game.Services
+        _compilationCache = _game.Services.GetService<IScriptCompilationCache>();
+        if (_compilationCache == null)
+        {
+            throw new InvalidOperationException(
+                "IScriptCompilationCache not registered in Game.Services. "
+                    + "Ensure the cache is registered before creating SystemManager."
+            );
+        }
+
         // Create script services (after mods are loaded)
         _scriptCompilerService = new ScriptCompilerService(
             LoggerFactory.CreateLogger<ScriptCompilerService>()
@@ -486,6 +501,7 @@ public class SystemManager : IDisposable
             _modManager.Registry,
             (ModManager)_modManager, // Cast to concrete type as ModManager is internal
             _resourceManager,
+            _compilationCache,
             LoggerFactory.CreateLogger<ScriptLoaderService>()
         );
 

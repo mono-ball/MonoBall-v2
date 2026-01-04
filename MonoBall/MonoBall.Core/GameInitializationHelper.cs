@@ -8,6 +8,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Scripting.Services;
 using Serilog;
 
 namespace MonoBall.Core;
@@ -336,5 +337,37 @@ public static class GameInitializationHelper
         // Create game scene using SceneSystem
         systemManager.CreateGameScene();
         logger.Information("Game scene created");
+    }
+
+    /// <summary>
+    ///     Creates and registers the script compilation cache as a singleton in Game.Services.
+    ///     Must be called before creating any SystemManager.
+    /// </summary>
+    /// <param name="game">The game instance to register the cache with.</param>
+    /// <param name="logger">The logger for logging operations.</param>
+    /// <returns>The created compilation cache instance.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when game is null.</exception>
+    public static IScriptCompilationCache CreateAndRegisterCompilationCache(
+        Game game,
+        ILogger logger
+    )
+    {
+        if (game == null)
+            throw new ArgumentNullException(nameof(game));
+        if (logger == null)
+            throw new ArgumentNullException(nameof(logger));
+
+        var compilationCacheLogger = Log.ForContext("SourceContext", "ScriptCompilationCache");
+        var compilationCache = new ScriptCompilationCache(
+            new ScriptTypeCache(compilationCacheLogger),
+            new DependencyReferenceCache(compilationCacheLogger),
+            new ScriptFactoryCache(compilationCacheLogger),
+            new TempFileManager(compilationCacheLogger)
+        );
+
+        game.Services.AddService(typeof(IScriptCompilationCache), compilationCache);
+        logger.Debug("Registered IScriptCompilationCache singleton");
+
+        return compilationCache;
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Arch.Core;
 using Microsoft.CodeAnalysis;
 using MonoBall.Core.Mods;
@@ -19,7 +21,7 @@ namespace MonoBall.Core.Scripting.Services;
 /// </summary>
 public class ScriptLoaderService : IDisposable
 {
-    private readonly ConcurrentDictionary<string, Type> _compiledScriptTypes = new();
+    private readonly IScriptCompilationCache _compilationCache;
     private readonly ScriptCompilerService _compiler;
     private readonly ILogger _logger;
     private readonly ModManager _modManager;
@@ -35,12 +37,15 @@ public class ScriptLoaderService : IDisposable
     /// <param name="registry">The definition registry.</param>
     /// <param name="modManager">The mod manager.</param>
     /// <param name="resourceManager">The resource manager for loading script files.</param>
+    /// <param name="compilationCache">The shared script compilation cache.</param>
     /// <param name="logger">The logger instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown when any parameter is null.</exception>
     public ScriptLoaderService(
         ScriptCompilerService compiler,
         DefinitionRegistry registry,
         ModManager modManager,
         IResourceManager resourceManager,
+        IScriptCompilationCache compilationCache,
         ILogger logger
     )
     {
@@ -49,6 +54,8 @@ public class ScriptLoaderService : IDisposable
         _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
+        _compilationCache =
+            compilationCache ?? throw new ArgumentNullException(nameof(compilationCache));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -66,38 +73,154 @@ public class ScriptLoaderService : IDisposable
     ///     Compiles and caches script types (not instances).
     ///     Plugin scripts are compiled but NOT initialized here.
     /// </summary>
+    /// <exception cref="InvalidOperationException">
+    ///     Thrown when script compilation fails, registry/mod manager is in invalid state,
+    ///     or script definition metadata is missing.
+    /// </exception>
     public void PreloadAllScripts()
     {
         _logger.Information("Pre-loading all scripts");
 
-        // Load entity-attached scripts from definitions
-        var scriptDefinitionIds = _registry.GetByType("Script");
-        _logger.Debug("Found {Count} script definitions to preload", scriptDefinitionIds.Count());
-        foreach (var scriptDefId in scriptDefinitionIds)
-        {
-            _logger.Debug("Preloading script definition: {ScriptId}", scriptDefId);
-            var scriptDef = _registry.GetById<ScriptDefinition>(scriptDefId);
-            if (scriptDef == null)
-            {
-                _logger.Warning("Script definition not found: {ScriptId}", scriptDefId);
-                continue;
-            }
+        var scriptDefinitionIds = _registry.GetByType("Script").ToList();
+        var totalScripts = scriptDefinitionIds.Count;
 
-            try
-            {
-                LoadScriptFromDefinition(scriptDef);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(
-                    ex,
-                    "Failed to preload script definition {ScriptId}. Continuing with other scripts.",
-                    scriptDefId
-                );
-                // Continue loading other scripts even if one fails
-            }
+        if (totalScripts == 0)
+        {
+            _logger.Information("No scripts to preload");
+            // Still load plugin scripts
+            LoadPluginScripts();
+            return;
         }
 
+        // Quick optimization: check if all scripts are already cached
+        // Note: This is a best-effort check - parallel compilation handles race conditions correctly
+        try
+        {
+            var allCached = true;
+            foreach (var scriptDefId in scriptDefinitionIds)
+            {
+                if (!_compilationCache.TypeCache.TryGetCompiledType(scriptDefId, out _))
+                {
+                    allCached = false;
+                    break; // Early exit - found one that's not cached
+                }
+            }
+
+            if (allCached)
+            {
+                _logger.Information(
+                    "All {Count} scripts already cached, skipping preload",
+                    totalScripts
+                );
+                // Still load plugin scripts
+                LoadPluginScripts();
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.Warning(ex, "Error checking script cache, proceeding with full preload");
+            // Continue with full preload - don't fail fast for cache check errors
+        }
+
+        // Group scripts by mod to share dependency resolution
+        var scriptsByMod = scriptDefinitionIds
+            .GroupBy(id =>
+            {
+                var metadata = _registry.GetById(id);
+                if (metadata == null)
+                {
+                    _logger.Warning(
+                        "Script definition metadata not found for {ScriptId}, using 'unknown' mod",
+                        id
+                    );
+                    return "unknown";
+                }
+                return metadata.OriginalModId;
+            })
+            .ToList();
+
+        var parallelOptions = new ParallelOptions
+        {
+            MaxDegreeOfParallelism = Math.Min(Environment.ProcessorCount, 8), // Cap at 8 threads
+        };
+
+        var processedCount = 0;
+        var cachedCount = 0;
+
+        Parallel.ForEach(
+            scriptsByMod,
+            parallelOptions,
+            modGroup =>
+            {
+                var modId = modGroup.Key;
+                var modManifest = _modManager.GetModManifest(modId);
+
+                if (modManifest == null)
+                {
+                    _logger.Warning("Mod manifest not found for mod {ModId}", modId);
+                    return;
+                }
+
+                // Resolve dependencies once per mod (cached)
+                var dependencyReferences =
+                    _compilationCache.DependencyCache.GetOrResolveDependencies(
+                        modManifest,
+                        ResolveDependencyAssemblies
+                    );
+
+                foreach (var scriptDefId in modGroup)
+                {
+                    // Check cache first (handles race conditions - each script checks individually)
+                    if (_compilationCache.TypeCache.TryGetCompiledType(scriptDefId, out _))
+                    {
+                        Interlocked.Increment(ref cachedCount);
+                        Interlocked.Increment(ref processedCount);
+                        continue; // Already compiled
+                    }
+
+                    try
+                    {
+                        var scriptDef = _registry.GetById<ScriptDefinition>(scriptDefId);
+                        if (scriptDef == null)
+                        {
+                            _logger.Warning("Script definition not found: {ScriptId}", scriptDefId);
+                            continue;
+                        }
+
+                        LoadScriptFromDefinition(scriptDef, dependencyReferences);
+                        Interlocked.Increment(ref processedCount);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error(
+                            ex,
+                            "Failed to preload script definition {ScriptId}",
+                            scriptDefId
+                        );
+                        // Continue with other scripts - don't stop parallel compilation
+                    }
+                }
+            }
+        );
+
+        // Load plugin scripts (not parallelized, as they're typically fewer)
+        LoadPluginScripts();
+
+        _logger.Information(
+            "Pre-loaded {Count} scripts ({Cached} from cache, {Compiled} compiled) and {PluginCount} plugin scripts",
+            processedCount,
+            cachedCount,
+            processedCount - cachedCount,
+            _pluginScriptTypes.Count
+        );
+    }
+
+    /// <summary>
+    ///     Loads plugin scripts from mod manifests.
+    /// </summary>
+    private void LoadPluginScripts()
+    {
         // Load plugin scripts from mod manifests
         foreach (var mod in _modManager.LoadedMods)
             if (mod.Plugins != null && mod.Plugins.Count > 0)
@@ -116,12 +239,6 @@ public class ScriptLoaderService : IDisposable
                         );
                         // Continue loading other scripts even if one fails
                     }
-
-        _logger.Information(
-            "Pre-loaded {EntityScriptCount} entity-attached scripts and {PluginScriptCount} plugin scripts",
-            _compiledScriptTypes.Count,
-            _pluginScriptTypes.Count
-        );
     }
 
     /// <summary>
@@ -141,32 +258,38 @@ public class ScriptLoaderService : IDisposable
             );
 
         _logger.Debug("CreateScriptInstance called for {DefinitionId}", definitionId);
-        if (!_compiledScriptTypes.TryGetValue(definitionId, out var scriptType))
+
+        // Get from shared cache
+        if (!_compilationCache.TypeCache.TryGetCompiledType(definitionId, out var scriptType))
         {
-            var availableScripts = string.Join(", ", _compiledScriptTypes.Keys);
-            var errorMessage =
+            throw new InvalidOperationException(
                 $"Script type not found in cache for definition '{definitionId}'. "
-                + $"Available scripts: {availableScripts}. "
-                + "Ensure the script was pre-loaded during mod loading phase.";
-            _logger.Error(
-                "Script type not found in cache for {DefinitionId}. Available scripts: {AvailableScripts}",
-                definitionId,
-                availableScripts
+                    + "Ensure the script was pre-loaded during mod loading phase."
             );
-            throw new InvalidOperationException(errorMessage);
+        }
+
+        // Use compiled delegate factory (much faster than Activator.CreateInstance)
+        // scriptType is guaranteed non-null here because we throw if TryGetCompiledType returns false
+        var factory = _compilationCache.FactoryCache.GetOrCreateFactory(scriptType!);
+        if (factory == null)
+        {
+            throw new InvalidOperationException(
+                $"Failed to create factory for script type '{scriptType.Name}'. "
+                    + "The script type may not have a parameterless constructor."
+            );
         }
 
         try
         {
-            var instance = Activator.CreateInstance(scriptType) as ScriptBase;
+            var instance = factory();
             if (instance == null)
             {
                 var errorMessage =
                     $"Failed to create script instance for '{definitionId}': "
-                    + "Type does not inherit from ScriptBase. "
+                    + "Factory returned null. "
                     + "This indicates a compilation issue - script type should inherit from ScriptBase.";
                 _logger.Error(
-                    "Failed to create script instance for {DefinitionId}: Type does not inherit from ScriptBase",
+                    "Failed to create script instance for {DefinitionId}: Factory returned null",
                     definitionId
                 );
                 throw new InvalidOperationException(errorMessage);
@@ -209,15 +332,30 @@ public class ScriptLoaderService : IDisposable
             foreach (var scriptTypeKvp in scriptTypes)
                 try
                 {
-                    var instance = Activator.CreateInstance(scriptTypeKvp.Value) as ScriptBase;
+                    // Use compiled delegate factory (much faster than Activator.CreateInstance)
+                    var factory = _compilationCache.FactoryCache.GetOrCreateFactory(
+                        scriptTypeKvp.Value
+                    );
+                    if (factory == null)
+                    {
+                        var errorMessage =
+                            $"Failed to create factory for plugin script '{scriptTypeKvp.Key}': "
+                            + "The script type may not have a parameterless constructor.";
+                        _logger.Error(
+                            "Failed to create factory for plugin script: Type may not have parameterless constructor"
+                        );
+                        throw new InvalidOperationException(errorMessage);
+                    }
+
+                    var instance = factory();
                     if (instance == null)
                     {
                         var errorMessage =
                             $"Failed to create plugin script instance for '{scriptTypeKvp.Key}': "
-                            + "Type does not inherit from ScriptBase. "
+                            + "Factory returned null. "
                             + "This indicates a compilation issue - script type should inherit from ScriptBase.";
                         _logger.Error(
-                            "Failed to create plugin script instance: Type does not inherit from ScriptBase"
+                            "Failed to create plugin script instance: Factory returned null"
                         );
                         throw new InvalidOperationException(errorMessage);
                     }
@@ -279,7 +417,12 @@ public class ScriptLoaderService : IDisposable
     /// <summary>
     ///     Loads and compiles a script from a definition.
     /// </summary>
-    private void LoadScriptFromDefinition(ScriptDefinition scriptDef)
+    /// <param name="scriptDef">The script definition.</param>
+    /// <param name="dependencyReferences">Pre-resolved dependency references.</param>
+    private void LoadScriptFromDefinition(
+        ScriptDefinition scriptDef,
+        List<MetadataReference> dependencyReferences
+    )
     {
         // Get definition metadata to find the original mod
         var definitionMetadata = _registry.GetById(scriptDef.Id);
@@ -321,11 +464,7 @@ public class ScriptLoaderService : IDisposable
             return;
         }
 
-        // Resolve dependency assemblies for this mod
-        var dependencyReferences = ResolveDependencyAssemblies(modManifest);
-
-        // Compile script content directly (works for compressed mods)
-        // CompileScriptContent throws exceptions on failure (fail-fast)
+        // Use pre-resolved dependencies (no need to resolve again)
         try
         {
             var compiledType = _compiler.CompileScriptContent(
@@ -333,7 +472,9 @@ public class ScriptLoaderService : IDisposable
                 scriptDef.ScriptPath,
                 dependencyReferences
             );
-            _compiledScriptTypes[scriptDef.Id] = compiledType;
+
+            // Cache in shared cache
+            _compilationCache.TypeCache.CacheCompiledType(scriptDef.Id, compiledType);
             _logger.Debug("Cached script type for definition: {ScriptId}", scriptDef.Id);
         }
         catch (Exception ex)
@@ -504,6 +645,10 @@ public class ScriptLoaderService : IDisposable
                             $"monoball_{mod.Id}_{Path.GetFileName(assemblyPath)}"
                         );
                         File.WriteAllBytes(tempFile, assemblyBytes);
+
+                        // Track temp file for cleanup
+                        _compilationCache.TempFileManager.TrackTempFile(mod.Id, tempFile);
+
                         reference = MetadataReference.CreateFromFile(tempFile);
                     }
                     else
@@ -601,8 +746,11 @@ public class ScriptLoaderService : IDisposable
                 }
 
             _pluginScriptsByMod.Clear();
-            _compiledScriptTypes.Clear();
             _pluginScriptTypes.Clear();
+
+            // NOTE: Do NOT clear or dispose the shared compilation cache
+            // It's a shared singleton that persists across ScriptLoaderService instances
+            // Temp files are cleaned up by TempFileManager.Dispose() (called when game exits)
         }
     }
 }

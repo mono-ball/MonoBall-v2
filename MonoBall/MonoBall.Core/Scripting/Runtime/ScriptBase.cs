@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Reflection;
 using Arch.Core;
 using MonoBall.Core.ECS;
@@ -17,7 +18,21 @@ namespace MonoBall.Core.Scripting.Runtime;
 /// </summary>
 public abstract class ScriptBase : IDisposable
 {
-    private static readonly ConcurrentDictionary<Type, PropertyInfo?> _entityPropertyCache = new();
+    // Cache compiled property getters: eventType -> Func<object, Entity?>
+    private static readonly ConcurrentDictionary<
+        Type,
+        Func<object, Entity?>?
+    > _entityPropertyGetters = new();
+
+    // Common property names for entity references in events
+    private static readonly string[] EntityPropertyNames = new[]
+    {
+        "Entity",
+        "InteractionEntity",
+        "ShaderEntity",
+        "TargetEntity",
+        "SourceEntity",
+    };
 
     private readonly List<IDisposable> _subscriptions = new();
     private string? _scriptDefinitionId;
@@ -206,7 +221,7 @@ public abstract class ScriptBase : IDisposable
 
     /// <summary>
     ///     Checks if an event belongs to this script's entity.
-    ///     Uses cached reflection to check for Entity property.
+    ///     Uses compiled expression trees for fast property access.
     /// </summary>
     /// <typeparam name="TEvent">The event type.</typeparam>
     /// <param name="evt">The event to check.</param>
@@ -218,25 +233,19 @@ public abstract class ScriptBase : IDisposable
             return false;
 
         var eventType = typeof(TEvent);
-        var entityProp = _entityPropertyCache.GetOrAdd(
-            eventType,
-            t => t.GetProperty("Entity", BindingFlags.Public | BindingFlags.Instance)
-        );
+        var getter = _entityPropertyGetters.GetOrAdd(eventType, CreateEntityPropertyGetter);
 
-        if (entityProp == null)
-            return false;
+        if (getter == null)
+            return false; // Event doesn't have an entity property
 
-        var eventEntityValue = entityProp.GetValue(evt);
-        if (eventEntityValue == null)
-            return false;
-
-        var eventEntity = (Entity)eventEntityValue;
-        return eventEntity.Id == Context.Entity.Value.Id;
+        object boxedEvt = evt;
+        var eventEntity = getter(boxedEvt);
+        return eventEntity.HasValue && eventEntity.Value.Id == Context.Entity.Value.Id;
     }
 
     /// <summary>
     ///     Checks if an event (passed by ref) belongs to this script's entity.
-    ///     Uses cached reflection to check for Entity property.
+    ///     Uses compiled expression trees for fast property access.
     /// </summary>
     /// <typeparam name="TEvent">The event type.</typeparam>
     /// <param name="evt">The event to check (passed by ref).</param>
@@ -247,24 +256,40 @@ public abstract class ScriptBase : IDisposable
         if (!Context.Entity.HasValue)
             return false;
 
-        var eventType = typeof(TEvent);
-        var entityProp = _entityPropertyCache.GetOrAdd(
-            eventType,
-            t => t.GetProperty("Entity", BindingFlags.Public | BindingFlags.Instance)
-        );
-
-        if (entityProp == null)
-            return false;
-
-        // Copy the struct so we can use reflection (can't use reflection directly on ref parameters)
+        // Copy struct for property access (can't use reflection directly on ref parameters)
         var evtCopy = evt;
-        object boxedEvt = evtCopy;
-        var eventEntityValue = entityProp.GetValue(boxedEvt);
-        if (eventEntityValue == null)
-            return false;
+        return IsEventForThisEntity(evtCopy);
+    }
 
-        var eventEntity = (Entity)eventEntityValue;
-        return eventEntity.Id == Context.Entity.Value.Id;
+    /// <summary>
+    ///     Creates a compiled property getter for an event type.
+    ///     Tries common property names (Entity, InteractionEntity, etc.).
+    /// </summary>
+    /// <param name="eventType">The event type.</param>
+    /// <returns>A compiled getter function, or null if no entity property found.</returns>
+    private static Func<object, Entity?>? CreateEntityPropertyGetter(Type eventType)
+    {
+        // Try common property names
+        foreach (var propName in EntityPropertyNames)
+        {
+            var entityProp = eventType.GetProperty(
+                propName,
+                BindingFlags.Public | BindingFlags.Instance
+            );
+            if (entityProp != null && entityProp.PropertyType == typeof(Entity))
+            {
+                // Found matching property, compile getter
+                // Compile: (object evt) => (Entity?)evt.PropertyName
+                var param = Expression.Parameter(typeof(object), "evt");
+                var cast = Expression.Convert(param, eventType);
+                var prop = Expression.Property(cast, entityProp);
+                var convert = Expression.Convert(prop, typeof(Entity?));
+                var lambda = Expression.Lambda<Func<object, Entity?>>(convert, param);
+                return lambda.Compile();
+            }
+        }
+
+        return null; // No entity property found
     }
 
     /// <summary>

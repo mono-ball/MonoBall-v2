@@ -14,6 +14,7 @@ using MonoBall.Core.Mods.Utilities;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scripting.Services;
 using Serilog;
 
 namespace MonoBall.Core;
@@ -149,6 +150,10 @@ public class MonoBallGame : Game
             throw new InvalidOperationException(
                 "ResourceManager not found in Game.Services. Ensure LoadModsSynchronously() created it."
             );
+
+        // CREATE AND REGISTER COMPILATION CACHE BEFORE ANY SYSTEMMANAGER
+        // This ensures both early and async SystemManagers share the same cache
+        GameInitializationHelper.CreateAndRegisterCompilationCache(this, _logger);
 
         // Create sprite batch for early systems
         var loadingSpriteBatch = new SpriteBatch(GraphicsDevice);
@@ -517,6 +522,14 @@ public class MonoBallGame : Game
             var resourceManager = Services.GetService<IResourceManager>();
             if (resourceManager is IDisposable resourceManagerDisposable)
                 resourceManagerDisposable.Dispose();
+
+            // Cleanup temp files from script compilation
+            var compilationCache = Services.GetService<IScriptCompilationCache>();
+            if (compilationCache?.TempFileManager is IDisposable tempFileManagerDisposable)
+            {
+                tempFileManagerDisposable.Dispose();
+                _logger.Debug("Cleaned up script compilation temp files");
+            }
 
             EcsWorld.Reset();
 
