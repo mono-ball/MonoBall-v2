@@ -28,70 +28,132 @@ public class ScriptExtractor : ExtractorBase
         // Scan all map scripts to find script references
         WithStatus("Scanning map scripts...", _ => ScanMapScripts());
 
-        // Create output directories - all under Definitions/Scripts/Interactions
+        // Create output directories - definitions
         var npcInteractionsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "NPCs");
         var tileInteractionsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "Tiles");
-        var triggersPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "Triggers");
+        var triggersPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Triggers");
         var signsPath = Path.Combine(OutputPath, "Definitions", "Scripts", "Interactions", "Signs");
+
+        // Script stub directories - actual .csx files
+        var npcScriptsPath = Path.Combine(OutputPath, "Scripts", "Interactions", "NPCs");
+        var tileScriptsPath = Path.Combine(OutputPath, "Scripts", "Interactions", "Tiles");
+        var signScriptsPath = Path.Combine(OutputPath, "Scripts", "Interactions", "Signs");
+        var triggerScriptsPath = Path.Combine(OutputPath, "Scripts", "Triggers");
 
         EnsureDirectory(npcInteractionsPath);
         EnsureDirectory(tileInteractionsPath);
         EnsureDirectory(triggersPath);
         EnsureDirectory(signsPath);
+        EnsureDirectory(npcScriptsPath);
+        EnsureDirectory(tileScriptsPath);
+        EnsureDirectory(signScriptsPath);
+        EnsureDirectory(triggerScriptsPath);
 
         int npcCount = 0;
         int tileCount = 0;
         int triggerCount = 0;
         int signCount = 0;
 
-        // Generate NPC interaction definitions (parallel)
+        // Generate NPC interaction definitions and stub scripts (parallel)
         var npcList = _npcInteractions.OrderBy(s => s).ToList();
         if (npcList.Count > 0)
         {
             WithParallelProgress("Extracting NPC interactions", npcList, scriptName =>
             {
+                var normalizedName = IdTransformer.Normalize(scriptName);
+
+                // Write definition JSON
                 var def = CreateNpcInteractionDefinition(scriptName);
-                var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
+                var fileName = $"{normalizedName}.json";
                 File.WriteAllText(Path.Combine(npcInteractionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+
+                // Write stub .csx script
+                var scriptFileName = $"{normalizedName}.csx";
+                var scriptFilePath = Path.Combine(npcScriptsPath, scriptFileName);
+                if (!File.Exists(scriptFilePath))
+                {
+                    var stub = GenerateNpcScriptStub(scriptName, normalizedName);
+                    File.WriteAllText(scriptFilePath, stub);
+                }
+
                 Interlocked.Increment(ref npcCount);
             });
         }
 
-        // Generate tile interaction definitions from metatile behaviors
+        // Generate tile interaction definitions and stub scripts from metatile behaviors
         var tileInteractions = GenerateTileInteractionList();
         if (tileInteractions.Count > 0)
         {
             WithParallelProgress("Extracting tile interactions", tileInteractions, name =>
             {
-                var def = CreateTileInteractionDefinition(name);
+                var normalizedName = IdTransformer.Normalize(name);
+
+                // Write definition JSON
+                var def = CreateTileInteractionDefinition(name, normalizedName);
                 var fileName = $"{name}.json";
                 File.WriteAllText(Path.Combine(tileInteractionsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+
+                // Write stub .csx script
+                var scriptFileName = $"{name}.csx";
+                var scriptFilePath = Path.Combine(tileScriptsPath, scriptFileName);
+                if (!File.Exists(scriptFilePath))
+                {
+                    var stub = GenerateTileScriptStub(name, normalizedName);
+                    File.WriteAllText(scriptFilePath, stub);
+                }
+
                 Interlocked.Increment(ref tileCount);
             });
         }
 
-        // Generate trigger script definitions (parallel)
+        // Generate trigger script definitions and stub scripts (parallel)
         var triggerList = _triggerScripts.OrderBy(s => s).ToList();
         if (triggerList.Count > 0)
         {
             WithParallelProgress("Extracting trigger scripts", triggerList, scriptName =>
             {
-                var def = CreateScriptDefinition(scriptName, "trigger", "Triggers");
-                var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
+                var normalizedName = IdTransformer.Normalize(scriptName);
+
+                // Write definition JSON
+                var def = CreateTriggerDefinition(scriptName);
+                var fileName = $"{normalizedName}.json";
                 File.WriteAllText(Path.Combine(triggersPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+
+                // Write stub .csx script
+                var scriptFileName = $"{normalizedName}.csx";
+                var scriptFilePath = Path.Combine(triggerScriptsPath, scriptFileName);
+                if (!File.Exists(scriptFilePath))
+                {
+                    var stub = GenerateTriggerScriptStub(scriptName, normalizedName);
+                    File.WriteAllText(scriptFilePath, stub);
+                }
+
                 Interlocked.Increment(ref triggerCount);
             });
         }
 
-        // Generate sign script definitions (parallel)
+        // Generate sign script definitions and stub scripts (parallel)
         var signList = _signScripts.OrderBy(s => s).ToList();
         if (signList.Count > 0)
         {
             WithParallelProgress("Extracting sign scripts", signList, scriptName =>
             {
-                var def = CreateScriptDefinition(scriptName, "sign", "Signs");
-                var fileName = $"{IdTransformer.Normalize(scriptName)}.json";
+                var normalizedName = IdTransformer.Normalize(scriptName);
+
+                // Write definition JSON
+                var def = CreateSignDefinition(scriptName);
+                var fileName = $"{normalizedName}.json";
                 File.WriteAllText(Path.Combine(signsPath, fileName), JsonSerializer.Serialize(def, JsonOptions.Default));
+
+                // Write stub .csx script
+                var scriptFileName = $"{normalizedName}.csx";
+                var scriptFilePath = Path.Combine(signScriptsPath, scriptFileName);
+                if (!File.Exists(scriptFilePath))
+                {
+                    var stub = GenerateSignScriptStub(scriptName, normalizedName);
+                    File.WriteAllText(scriptFilePath, stub);
+                }
+
                 Interlocked.Increment(ref signCount);
             });
         }
@@ -210,6 +272,11 @@ public class ScriptExtractor : ExtractorBase
                     var interactionId = idProp.GetString();
                     if (string.IsNullOrEmpty(interactionId)) continue;
 
+                    // Skip trigger script IDs - triggers should not be in interactions
+                    if (interactionId.Contains(":script:trigger/", StringComparison.OrdinalIgnoreCase) ||
+                        interactionId.Contains(":script/trigger/", StringComparison.OrdinalIgnoreCase))
+                        continue;
+
                     // Extract script name from interactionId (e.g., "base:interaction/npcs/scriptname")
                     var scriptName = ExtractScriptName(interactionId);
                     if (string.IsNullOrEmpty(scriptName)) continue;
@@ -232,22 +299,27 @@ public class ScriptExtractor : ExtractorBase
                     var interactionId = idProp.GetString();
                     if (string.IsNullOrEmpty(interactionId)) continue;
 
+                    // Skip trigger script IDs - triggers should not be in NPC interactions
+                    if (interactionId.Contains(":script:trigger/", StringComparison.OrdinalIgnoreCase) ||
+                        interactionId.Contains(":script/trigger/", StringComparison.OrdinalIgnoreCase))
+                        continue;
+
                     var scriptName = ExtractScriptName(interactionId);
                     if (!string.IsNullOrEmpty(scriptName))
                         _npcInteractions.Add(scriptName);
                 }
             }
 
-            // Scan triggers
+            // Scan triggers - triggers use "triggerId" field
             if (root.TryGetProperty("triggers", out var triggers))
             {
                 foreach (var trigger in triggers.EnumerateArray())
                 {
-                    if (!trigger.TryGetProperty("scriptId", out var idProp)) continue;
-                    var scriptId = idProp.GetString();
-                    if (string.IsNullOrEmpty(scriptId)) continue;
+                    if (!trigger.TryGetProperty("triggerId", out var idProp)) continue;
+                    var triggerId = idProp.GetString();
+                    if (string.IsNullOrEmpty(triggerId)) continue;
 
-                    var scriptName = ExtractScriptName(scriptId);
+                    var scriptName = ExtractScriptName(triggerId);
                     if (!string.IsNullOrEmpty(scriptName))
                         _triggerScripts.Add(scriptName);
                 }
@@ -261,7 +333,10 @@ public class ScriptExtractor : ExtractorBase
 
     private static string? ExtractScriptName(string interactionId)
     {
-        // Extract the script name from IDs like "base:interaction/npcs/scriptname"
+        // Extract the script name from IDs like:
+        // - "base:interaction/npcs/scriptname" (old format)
+        // - "base:script:interactions/npcs/scriptname" (new format)
+        // - "base:script:interactions/signs/scriptname" (new format)
         var lastSlash = interactionId.LastIndexOf('/');
         if (lastSlash < 0) return null;
         return interactionId[(lastSlash + 1)..];
@@ -274,7 +349,7 @@ public class ScriptExtractor : ExtractorBase
 
         return new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:interaction/npcs/{normalizedName}",
+            ["id"] = IdTransformer.InteractionScriptId(scriptName, "npcs"),
             ["name"] = friendlyName,
             ["description"] = $"NPC interaction: {friendlyName}",
             ["scriptPath"] = $"Scripts/Interactions/NPCs/{normalizedName}.csx",
@@ -284,33 +359,51 @@ public class ScriptExtractor : ExtractorBase
         };
     }
 
-    private object CreateTileInteractionDefinition(string behaviorName)
+    private object CreateTileInteractionDefinition(string behaviorName, string normalizedName)
     {
         var friendlyName = BehaviorToFriendlyName(behaviorName);
         var category = GetTileInteractionCategory(behaviorName);
 
         return new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:interaction/tiles/{behaviorName}",
+            ["id"] = IdTransformer.InteractionScriptId(behaviorName, "tiles"),
             ["name"] = friendlyName,
             ["description"] = $"Tile interaction: {friendlyName}",
+            ["scriptPath"] = $"Scripts/Interactions/Tiles/{behaviorName}.csx",
             ["category"] = category,
             ["priority"] = 500
         };
     }
 
-    private object CreateScriptDefinition(string scriptName, string category, string subfolder)
+    private object CreateTriggerDefinition(string scriptName)
     {
         var normalizedName = IdTransformer.Normalize(scriptName);
         var friendlyName = ScriptToFriendlyName(scriptName);
 
         return new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:script:{category}/{normalizedName}",
+            ["id"] = IdTransformer.TriggerScriptId(scriptName),
             ["name"] = friendlyName,
-            ["description"] = $"{category.ToUpper()[0]}{category[1..]} script: {friendlyName}",
-            ["scriptPath"] = $"Scripts/{subfolder}/{normalizedName}.csx",
-            ["category"] = category,
+            ["description"] = $"Trigger script: {friendlyName}",
+            ["scriptPath"] = $"Scripts/Triggers/{normalizedName}.csx",
+            ["category"] = "trigger",
+            ["priority"] = 500,
+            ["parameters"] = new List<object>()
+        };
+    }
+
+    private object CreateSignDefinition(string scriptName)
+    {
+        var normalizedName = IdTransformer.Normalize(scriptName);
+        var friendlyName = ScriptToFriendlyName(scriptName);
+
+        return new Dictionary<string, object>
+        {
+            ["id"] = IdTransformer.InteractionScriptId(scriptName, "signs"),
+            ["name"] = friendlyName,
+            ["description"] = $"Sign script: {friendlyName}",
+            ["scriptPath"] = $"Scripts/Interactions/Signs/{normalizedName}.csx",
+            ["category"] = "sign",
             ["priority"] = 500,
             ["parameters"] = new List<object>()
         };
@@ -366,4 +459,141 @@ public class ScriptExtractor : ExtractorBase
             return "secret_base";
         return "misc";
     }
+
+    /// <summary>
+    /// Generate a stub .csx script for NPC interactions.
+    /// </summary>
+    private static string GenerateNpcScriptStub(string originalName, string normalizedName)
+    {
+        var friendlyName = ScriptToFriendlyName(originalName);
+        var className = ToPascalCase(normalizedName);
+        return $@"using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// NPC Interaction: {friendlyName}
+/// Original: {originalName}
+/// </summary>
+public class {className} : ScriptBase
+{{
+    public override void Initialize(ScriptContext context)
+    {{
+        base.Initialize(context);
+    }}
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {{
+    }}
+
+    public override void OnUnload()
+    {{
+        base.OnUnload();
+    }}
+}}
+";
+    }
+
+    /// <summary>
+    /// Generate a stub .csx script for sign interactions.
+    /// </summary>
+    private static string GenerateSignScriptStub(string originalName, string normalizedName)
+    {
+        var friendlyName = ScriptToFriendlyName(originalName);
+        var className = ToPascalCase(normalizedName);
+        return $@"using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// Sign Script: {friendlyName}
+/// Original: {originalName}
+/// </summary>
+public class {className} : ScriptBase
+{{
+    public override void Initialize(ScriptContext context)
+    {{
+        base.Initialize(context);
+    }}
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {{
+    }}
+
+    public override void OnUnload()
+    {{
+        base.OnUnload();
+    }}
+}}
+";
+    }
+
+    /// <summary>
+    /// Generate a stub .csx script for tile interactions.
+    /// </summary>
+    private static string GenerateTileScriptStub(string originalName, string normalizedName)
+    {
+        var friendlyName = BehaviorToFriendlyName(originalName);
+        var className = ToPascalCase(normalizedName);
+        return $@"using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// Tile Interaction: {friendlyName}
+/// Original: {originalName}
+/// </summary>
+public class {className} : ScriptBase
+{{
+    public override void Initialize(ScriptContext context)
+    {{
+        base.Initialize(context);
+    }}
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {{
+    }}
+
+    public override void OnUnload()
+    {{
+        base.OnUnload();
+    }}
+}}
+";
+    }
+
+    /// <summary>
+    /// Generate a stub .csx script for trigger scripts.
+    /// </summary>
+    private static string GenerateTriggerScriptStub(string originalName, string normalizedName)
+    {
+        var friendlyName = ScriptToFriendlyName(originalName);
+        var className = ToPascalCase(normalizedName);
+        return $@"using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// Trigger Script: {friendlyName}
+/// Original: {originalName}
+/// </summary>
+public class {className} : ScriptBase
+{{
+    public override void Initialize(ScriptContext context)
+    {{
+        base.Initialize(context);
+    }}
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {{
+    }}
+
+    public override void OnUnload()
+    {{
+        base.OnUnload();
+    }}
+}}
+";
+    }
+
+    /// <summary>
+    /// Convert normalized_name to PascalCase for class names.
+    /// </summary>
+    private static string ToPascalCase(string name) => IdTransformer.ToPascalCase(name);
 }

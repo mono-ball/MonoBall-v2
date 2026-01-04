@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:interaction/npcs/union_room_event_script_attendant",
+  "id": "pokeemerald:script:interactions/npcs/union_room_event_script_attendant",
   "name": "union room event script attendant",
   "description": "NPC interaction: union room event script attendant",
   "scriptPath": "Scripts/Interactions/NPCs/union_room_event_script_attendant.csx",

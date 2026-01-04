@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/rustboro_city_devon_corp_3f_event_script_rare_rocks_display",
+  "id": "pokeemerald:script:interactions/signs/rustboro_city_devon_corp_3f_event_script_rare_rocks_display",
   "name": "rustboro city devon corp 3f event script rare rocks display",
   "description": "Sign script: rustboro city devon corp 3f event script rare rocks display",
-  "scriptPath": "Scripts/Signs/rustboro_city_devon_corp_3f_event_script_rare_rocks_display.csx",
+  "scriptPath": "Scripts/Interactions/Signs/rustboro_city_devon_corp_3f_event_script_rare_rocks_display.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

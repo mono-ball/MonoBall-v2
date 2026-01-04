@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route104_prototype_pretty_petal_flower_shop",
   "name": "Route104_PrototypePrettyPetalFlowerShop",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 15,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route104_prototype_pretty_petal_flower_shop/ground",
+      "id": "pokeemerald:layer:Hoenn/route104_prototype_pretty_petal_flower_shop/ground",
       "name": "Ground",
       "width": 15,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_prototype_pretty_petal_flower_shop/objects",
+      "id": "pokeemerald:layer:Hoenn/route104_prototype_pretty_petal_flower_shop/objects",
       "name": "Objects",
       "width": 15,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_prototype_pretty_petal_flower_shop/overhead",
+      "id": "pokeemerald:layer:Hoenn/route104_prototype_pretty_petal_flower_shop/overhead",
       "name": "Overhead",
       "width": 15,
       "height": 9,
@@ -64,7 +79,7 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pretty_petal_flower_shop"
+      "tilesetId": "pokeemerald:tileset:secondary/prettypetalflowershop"
     }
   ],
   "warps": [],
@@ -73,7 +88,7 @@
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route104_prototype_pretty_petal_flower_shop/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route104_prototype_pretty_petal_flower_shop/elevation_0",
       "name": "Collision_0",
       "width": 15,
       "height": 9,

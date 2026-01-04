@@ -243,6 +243,25 @@ public static class EventBus
     }
 
     /// <summary>
+    ///     Queues an event to be sent on the next frame, even if called from the main thread.
+    ///     This is useful for deferring expensive operations (like message box creation) to avoid
+    ///     blocking during heavy work (like map transitions).
+    /// </summary>
+    /// <typeparam name="T">The event type.</typeparam>
+    /// <param name="eventData">The event data.</param>
+    public static void SendNextFrame<T>(T eventData)
+        where T : struct
+    {
+        // Always queue, even if on main thread, to defer until next frame
+        var captured = eventData;
+        _mainThreadQueue.Enqueue(() =>
+        {
+            var data = captured;
+            Send(ref data);
+        });
+    }
+
+    /// <summary>
     ///     Processes all queued main thread events.
     ///     Call this once per frame from your main game loop Update method.
     /// </summary>

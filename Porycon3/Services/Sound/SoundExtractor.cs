@@ -628,7 +628,7 @@ public class SoundExtractor : ExtractorBase
         string category, bool isSfx, MidiToOggConverter.ConversionResult result, float volume = 1.0f)
     {
         var hasLoop = result.LoopStartSamples > 0 || result.LoopLengthSamples > 0;
-        var kebabName = cleanName.Replace('_', '-');
+        var kebabName = cleanName.Replace('_', '-').ToLowerInvariant();
         var categoryKebab = category.ToLowerInvariant();
         var audioType = isSfx ? "sfx" : "music";
         var id = $"{IdTransformer.Namespace}:audio:{audioType}/{categoryKebab}/{kebabName}";
@@ -662,17 +662,7 @@ public class SoundExtractor : ExtractorBase
             .ToTitleCase(cleanName.Replace('_', ' '));
     }
 
-    private static string ToPascalCase(string snakeCase)
-    {
-        if (string.IsNullOrEmpty(snakeCase))
-            return snakeCase ?? "";
-
-        return string.Concat(
-            snakeCase.Split('_', StringSplitOptions.RemoveEmptyEntries)
-                .Where(part => part.Length > 0)
-                .Select(part => char.ToUpperInvariant(part[0]) + (part.Length > 1 ? part[1..].ToLowerInvariant() : ""))
-        );
-    }
+    private static string ToPascalCase(string snakeCase) => IdTransformer.ToPascalCase(snakeCase);
 
     private int ProcessSoundEffects()
     {
@@ -704,7 +694,7 @@ public class SoundExtractor : ExtractorBase
 
     private void WriteCryDefinition(string jsonPath, string baseName, string pascalName)
     {
-        var kebabName = baseName.Replace('_', '-');
+        var kebabName = baseName.Replace('_', '-').ToLowerInvariant();
         var id = $"{IdTransformer.Namespace}:audio:sfx/cries/{kebabName}";
 
         var json = $$"""

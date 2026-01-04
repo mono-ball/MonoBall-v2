@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/battle_frontier_outside_west_event_script_battle_dome_sign",
+  "id": "pokeemerald:script:interactions/signs/battle_frontier_outside_west_event_script_battle_dome_sign",
   "name": "battle frontier outside west event script battle dome sign",
   "description": "Sign script: battle frontier outside west event script battle dome sign",
-  "scriptPath": "Scripts/Signs/battle_frontier_outside_west_event_script_battle_dome_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/battle_frontier_outside_west_event_script_battle_dome_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

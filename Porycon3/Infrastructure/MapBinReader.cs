@@ -138,6 +138,57 @@ public class MapBinReader : IMapBinReader
     }
 
     /// <summary>
+    /// Reads border.bin which contains metatile indices for map borders.
+    /// Format is same as map.bin: 2 bytes per entry (metatile ID + collision/elevation).
+    /// Typically a 2x2 grid (4 entries, 8 bytes) that tiles infinitely.
+    /// </summary>
+    public ushort[]? ReadBorderBin(string layoutId, int borderWidth, int borderHeight, string? borderPath = null)
+    {
+        if (string.IsNullOrWhiteSpace(layoutId))
+            return null;
+
+        if (borderWidth <= 0 || borderHeight <= 0)
+            return null;
+
+        string borderBinPath;
+        if (!string.IsNullOrEmpty(borderPath))
+        {
+            borderBinPath = Path.Combine(_pokeemeraldPath, borderPath);
+        }
+        else
+        {
+            // Fallback: Convert LAYOUT_ROUTE101 -> Route101
+            var layoutFolder = LayoutIdToFolderName(layoutId);
+            borderBinPath = Path.Combine(_pokeemeraldPath, "data", "layouts", layoutFolder, "border.bin");
+        }
+
+        if (!File.Exists(borderBinPath))
+            return null; // Border is optional
+
+        byte[] bytes;
+        try
+        {
+            bytes = File.ReadAllBytes(borderBinPath);
+        }
+        catch
+        {
+            return null;
+        }
+
+        var expected = borderWidth * borderHeight * 2;
+        if (bytes.Length < expected)
+            return null;
+
+        var result = new ushort[borderWidth * borderHeight];
+        for (int i = 0; i < result.Length; i++)
+        {
+            result[i] = BitConverter.ToUInt16(bytes, i * 2);
+        }
+
+        return result;
+    }
+
+    /// <summary>
     /// Converts LAYOUT_ROUTE101 -> Route101, LAYOUT_LITTLEROOT_TOWN -> LittlerootTown
     /// </summary>
     private static string LayoutIdToFolderName(string layoutId)

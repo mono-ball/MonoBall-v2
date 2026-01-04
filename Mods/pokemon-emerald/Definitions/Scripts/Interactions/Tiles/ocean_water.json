@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/ocean_water",
+  "id": "pokeemerald:script:interactions/tiles/ocean_water",
   "name": "Ocean Water",
   "description": "Tile interaction: Ocean Water",
+  "scriptPath": "Scripts/Interactions/Tiles/ocean_water.csx",
   "category": "water",
   "priority": 500
 }

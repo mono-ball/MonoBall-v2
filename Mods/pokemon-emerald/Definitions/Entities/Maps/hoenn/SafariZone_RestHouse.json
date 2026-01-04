@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/safari_zone_rest_house",
   "name": "SafariZone_RestHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/safari_zone_rest_house/ground",
+      "id": "pokeemerald:layer:Hoenn/safari_zone_rest_house/ground",
       "name": "Ground",
       "width": 10,
       "height": 9,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAAAAAABgAAAAYAAAAAAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/safari_zone_rest_house/objects",
+      "id": "pokeemerald:layer:Hoenn/safari_zone_rest_house/objects",
       "name": "Objects",
       "width": 10,
       "height": 9,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAHAAAABwAAAAcAAAAIAAAABwAAAAcAAAAIAAAABwAAAAcAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/safari_zone_rest_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/safari_zone_rest_house/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 9,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/safari_zone_rest_house/warp_to_safari_zone_southwest",
+      "id": "pokeemerald:warp:Hoenn/safari_zone_rest_house/warp_to_safari_zone_southwest",
       "name": "Warp to safari_zone_southwest",
       "x": 48,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/safari_zone_rest_house/warp_to_safari_zone_southwest",
+      "id": "pokeemerald:warp:Hoenn/safari_zone_rest_house/warp_to_safari_zone_southwest",
       "name": "Warp to safari_zone_southwest",
       "x": 64,
       "y": 128,
@@ -97,42 +112,39 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/safari_zone_rest_house/npc_0",
+      "id": "pokeemerald:npc:Hoenn/safari_zone_rest_house/npc_0",
       "name": "NPC_0",
       "x": 112,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/youngster",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/safari_zone_rest_house_event_script_youngster",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/safari_zone_rest_house_event_script_youngster",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/safari_zone_rest_house/npc_1",
+      "id": "pokeemerald:npc:Hoenn/safari_zone_rest_house/npc_1",
       "name": "NPC_1",
       "x": 128,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/psychicm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/safari_zone_rest_house_event_script_psychic_m",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/safari_zone_rest_house_event_script_psychic_m",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/safari_zone_rest_house/npc_2",
+      "id": "pokeemerald:npc:Hoenn/safari_zone_rest_house/npc_2",
       "name": "NPC_2",
       "x": 32,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/fatman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/safari_zone_rest_house_event_script_fat_man",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/safari_zone_rest_house_event_script_fat_man",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/safari_zone_rest_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/safari_zone_rest_house/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 9,
@@ -142,7 +154,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/safari_zone_rest_house/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/safari_zone_rest_house/elevation_3",
       "name": "Collision_3",
       "width": 10,
       "height": 9,

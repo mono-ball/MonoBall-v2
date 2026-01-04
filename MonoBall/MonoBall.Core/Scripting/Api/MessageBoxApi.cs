@@ -28,6 +28,8 @@ public class MessageBoxApi : IMessageBoxApi
 
     /// <summary>
     ///     Shows a message box with the specified text.
+    ///     The message box is queued to be shown on the next frame to avoid blocking during heavy operations
+    ///     (e.g., map transitions). This prevents lag when showing message boxes during map transitions.
     /// </summary>
     /// <param name="text">The text to display.</param>
     /// <param name="textSpeedOverride">Optional text speed override in seconds per character (null = use player preference).</param>
@@ -45,7 +47,11 @@ public class MessageBoxApi : IMessageBoxApi
             AutoScroll = false,
         };
 
-        EventBus.Send(ref evt);
+        // Always queue the event to defer message box creation until the next frame.
+        // This prevents lag when showing message boxes during heavy operations like map transitions.
+        // Even if called from the main thread, queuing ensures the message box is created
+        // after the current frame's heavy work (map loading, entity creation, etc.) completes.
+        EventBus.SendNextFrame(evt);
     }
 
     /// <summary>

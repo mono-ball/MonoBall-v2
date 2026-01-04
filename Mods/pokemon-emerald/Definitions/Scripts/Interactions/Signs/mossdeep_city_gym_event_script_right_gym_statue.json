@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/mossdeep_city_gym_event_script_right_gym_statue",
+  "id": "pokeemerald:script:interactions/signs/mossdeep_city_gym_event_script_right_gym_statue",
   "name": "mossdeep city gym event script right gym statue",
   "description": "Sign script: mossdeep city gym event script right gym statue",
-  "scriptPath": "Scripts/Signs/mossdeep_city_gym_event_script_right_gym_statue.csx",
+  "scriptPath": "Scripts/Interactions/Signs/mossdeep_city_gym_event_script_right_gym_statue.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

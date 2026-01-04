@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route116_event_script_trainer_tips_bag_has_pockets",
+  "id": "pokeemerald:script:interactions/signs/route116_event_script_trainer_tips_bag_has_pockets",
   "name": "route116 event script trainer tips bag has pockets",
   "description": "Sign script: route116 event script trainer tips bag has pockets",
-  "scriptPath": "Scripts/Signs/route116_event_script_trainer_tips_bag_has_pockets.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route116_event_script_trainer_tips_bag_has_pockets.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

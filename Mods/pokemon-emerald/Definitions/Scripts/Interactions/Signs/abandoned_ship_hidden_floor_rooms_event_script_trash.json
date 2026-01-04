@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/abandoned_ship_hidden_floor_rooms_event_script_trash",
+  "id": "pokeemerald:script:interactions/signs/abandoned_ship_hidden_floor_rooms_event_script_trash",
   "name": "abandoned ship hidden floor rooms event script trash",
   "description": "Sign script: abandoned ship hidden floor rooms event script trash",
-  "scriptPath": "Scripts/Signs/abandoned_ship_hidden_floor_rooms_event_script_trash.csx",
+  "scriptPath": "Scripts/Interactions/Signs/abandoned_ship_hidden_floor_rooms_event_script_trash.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

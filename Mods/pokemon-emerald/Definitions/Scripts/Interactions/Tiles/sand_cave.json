@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/sand_cave",
+  "id": "pokeemerald:script:interactions/tiles/sand_cave",
   "name": "Sand Cave",
   "description": "Tile interaction: Sand Cave",
+  "scriptPath": "Scripts/Interactions/Tiles/sand_cave.csx",
   "category": "misc",
   "priority": 500
 }

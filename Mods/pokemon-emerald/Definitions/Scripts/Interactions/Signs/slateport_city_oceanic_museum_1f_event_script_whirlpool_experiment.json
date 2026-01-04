@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/slateport_city_oceanic_museum_1f_event_script_whirlpool_experiment",
+  "id": "pokeemerald:script:interactions/signs/slateport_city_oceanic_museum_1f_event_script_whirlpool_experiment",
   "name": "slateport city oceanic museum 1f event script whirlpool experiment",
   "description": "Sign script: slateport city oceanic museum 1f event script whirlpool experiment",
-  "scriptPath": "Scripts/Signs/slateport_city_oceanic_museum_1f_event_script_whirlpool_experiment.csx",
+  "scriptPath": "Scripts/Interactions/Signs/slateport_city_oceanic_museum_1f_event_script_whirlpool_experiment.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route119_weather_institute_1f",
   "name": "Route119_WeatherInstitute_1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 20,
   "height": 13,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route119_weather_institute_1f/ground",
+      "id": "pokeemerald:layer:Hoenn/route119_weather_institute_1f/ground",
       "name": "Ground",
       "width": 20,
       "height": 13,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route119_weather_institute_1f/objects",
+      "id": "pokeemerald:layer:Hoenn/route119_weather_institute_1f/objects",
       "name": "Objects",
       "width": 20,
       "height": 13,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route119_weather_institute_1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/route119_weather_institute_1f/overhead",
       "name": "Overhead",
       "width": 20,
       "height": 13,
@@ -69,7 +84,7 @@
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route119_weather_institute_1f/warp_to_route119",
+      "id": "pokeemerald:warp:Hoenn/route119_weather_institute_1f/warp_to_route119",
       "name": "Warp to route119",
       "x": 144,
       "y": 192,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route119_weather_institute_1f/warp_to_route119",
+      "id": "pokeemerald:warp:Hoenn/route119_weather_institute_1f/warp_to_route119",
       "name": "Warp to route119",
       "x": 160,
       "y": 192,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route119_weather_institute_1f/warp_to_route119_weather_institute_2f",
+      "id": "pokeemerald:warp:Hoenn/route119_weather_institute_1f/warp_to_route119_weather_institute_2f",
       "name": "Warp to route119_weather_institute_2f",
       "x": 272,
       "y": 16,
@@ -108,112 +123,109 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
+      "id": "pokeemerald:interaction:Hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
       "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
       "x": 16,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_bed",
+      "interactionId": "pokeemerald:script:interactions/signs/route119_weather_institute_1f_event_script_bed",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
+      "id": "pokeemerald:interaction:Hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
       "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
       "x": 16,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_bed",
+      "interactionId": "pokeemerald:script:interactions/signs/route119_weather_institute_1f_event_script_bed",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
+      "id": "pokeemerald:interaction:Hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
       "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
       "x": 0,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_bed",
+      "interactionId": "pokeemerald:script:interactions/signs/route119_weather_institute_1f_event_script_bed",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
+      "id": "pokeemerald:interaction:Hoenn/route119_weather_institute_1f/sign_route119weatherinstitute1feventscriptbed",
       "name": "Sign: Route119_WeatherInstitute_1F_EventScript_Bed",
       "x": 0,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_bed",
+      "interactionId": "pokeemerald:script:interactions/signs/route119_weather_institute_1f_event_script_bed",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route119_weather_institute_1f/npc_0",
+      "id": "pokeemerald:npc:Hoenn/route119_weather_institute_1f/npc_0",
       "name": "NPC_0",
       "x": 240,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/teamaqua/aquamemberm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_grunt1",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teamaqua/aquamemberm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_grunt1",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
-      "facingDirection": "left",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route119_weather_institute_1f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/route119_weather_institute_1f/npc_1",
       "name": "NPC_1",
       "x": 160,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/teamaqua/aquamemberf",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_grunt4",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teamaqua/aquamemberf",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_grunt4",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route119_weather_institute_1f/npc_2",
+      "id": "pokeemerald:npc:Hoenn/route119_weather_institute_1f/npc_2",
       "name": "NPC_2",
       "x": 80,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/man4",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_institute_worker2",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man4",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_institute_worker2",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_1f_workers",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route119_weather_institute_1f/npc_3",
+      "id": "pokeemerald:npc:Hoenn/route119_weather_institute_1f/npc_3",
       "name": "NPC_3",
       "x": 32,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/man4",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_institute_worker1",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man4",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_institute_worker1",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_1f_workers",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route119_weather_institute_1f/localid_weather_institute_little_boy",
+      "id": "pokeemerald:npc:Hoenn/route119_weather_institute_1f/localid_weather_institute_little_boy",
       "name": "LOCALID_WEATHER_INSTITUTE_LITTLE_BOY",
       "x": 224,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/route119_weather_institute_1f_event_script_little_boy",
+      "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_little_boy",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route119_weather_institute_1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route119_weather_institute_1f/elevation_0",
       "name": "Collision_0",
       "width": 20,
       "height": 13,

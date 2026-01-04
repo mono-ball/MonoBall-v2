@@ -12,13 +12,15 @@ public class TilesetGenerationService
 {
     private readonly TilesetBuilder _tilesetBuilder;
     private readonly string _outputPath;
-    private readonly string _region;
+    private readonly string _regionId;
+    private readonly string _regionPascal;
 
     public TilesetGenerationService(string pokeemeraldPath, string outputPath, string region)
     {
         _tilesetBuilder = new TilesetBuilder(pokeemeraldPath);
         _outputPath = outputPath;
-        _region = region;
+        _regionId = region.ToLowerInvariant();
+        _regionPascal = IdTransformer.ToPascalCase(region);
     }
 
     /// <summary>
@@ -32,7 +34,7 @@ public class TilesetGenerationService
     public Dictionary<TileKey, int> GenerateAllTilesets()
     {
         var allMappings = new Dictionary<TileKey, int>();
-        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", _region);
+        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", _regionPascal);
         Directory.CreateDirectory(tilesetDir);
 
         foreach (var tilesetName in _tilesetBuilder.GetUsedTilesets())
@@ -72,9 +74,9 @@ public class TilesetGenerationService
         IEnumerable<TileKey> usedTiles)
     {
         var normalizedName = IdTransformer.Normalize(mapName);
-        var tilesetId = $"{IdTransformer.Namespace}:tileset:{_region}/{normalizedName}";
+        var tilesetId = $"{IdTransformer.Namespace}:tileset:{_regionId}/{normalizedName}";
 
-        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", _region);
+        var tilesetDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", _regionPascal);
         Directory.CreateDirectory(tilesetDir);
 
         // Add tiles to builder
@@ -150,7 +152,7 @@ public class TilesetGenerationService
 
         var tileset = new
         {
-            id = $"{IdTransformer.Namespace}:tileset:{_region}/{tilesetName}",
+            id = $"{IdTransformer.Namespace}:tileset:{_regionId}/{tilesetName}",
             name = tilesetName,
             type = "tileset",
             columns,

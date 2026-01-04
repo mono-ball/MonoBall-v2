@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/indoor_encounter",
+  "id": "pokeemerald:script:interactions/tiles/indoor_encounter",
   "name": "Indoor Encounter",
   "description": "Tile interaction: Indoor Encounter",
+  "scriptPath": "Scripts/Interactions/Tiles/indoor_encounter.csx",
   "category": "encounter",
   "priority": 500
 }

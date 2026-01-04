@@ -54,28 +54,22 @@ public interface IModManager
     DefinitionMetadata? GetDefinitionMetadata(string id);
 
     /// <summary>
-    ///     Gets the tile width from constants service or mod configuration.
-    ///     Prioritizes constants service if provided, then falls back to mod configuration.
+    ///     Gets the tile width from constants service.
     /// </summary>
-    /// <param name="constantsService">Optional constants service to use. If provided, uses "TileWidth" constant.</param>
+    /// <param name="constantsService">The constants service to use. Must contain "TileWidth" constant.</param>
     /// <returns>The tile width in pixels.</returns>
-    /// <exception cref="System.InvalidOperationException">
-    ///     Thrown if mods are not loaded or no tile width configuration is
-    ///     available.
-    /// </exception>
-    int GetTileWidth(IConstantsService? constantsService = null);
+    /// <exception cref="System.ArgumentNullException">Thrown if constantsService is null.</exception>
+    /// <exception cref="System.InvalidOperationException">Thrown if ConstantsService does not contain TileWidth constant.</exception>
+    int GetTileWidth(IConstantsService constantsService);
 
     /// <summary>
-    ///     Gets the tile height from constants service or mod configuration.
-    ///     Prioritizes constants service if provided, then falls back to mod configuration.
+    ///     Gets the tile height from constants service.
     /// </summary>
-    /// <param name="constantsService">Optional constants service to use. If provided, uses "TileHeight" constant.</param>
+    /// <param name="constantsService">The constants service to use. Must contain "TileHeight" constant.</param>
     /// <returns>The tile height in pixels.</returns>
-    /// <exception cref="System.InvalidOperationException">
-    ///     Thrown if mods are not loaded or no tile height configuration is
-    ///     available.
-    /// </exception>
-    int GetTileHeight(IConstantsService? constantsService = null);
+    /// <exception cref="System.ArgumentNullException">Thrown if constantsService is null.</exception>
+    /// <exception cref="System.InvalidOperationException">Thrown if ConstantsService does not contain TileHeight constant.</exception>
+    int GetTileHeight(IConstantsService constantsService);
 
     /// <summary>
     ///     Checks if the specified mod ID is the core mod.

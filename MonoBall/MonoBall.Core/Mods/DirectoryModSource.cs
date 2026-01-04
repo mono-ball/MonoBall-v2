@@ -209,7 +209,7 @@ public class DirectoryModSource : IModSource, IDisposable
                 );
 
             var jsonContent = ReadTextFile("mod.json");
-            _cachedManifest = ModManifestLoader.LoadFromJson(jsonContent, this, SourcePath);
+            _cachedManifest = ModManifestLoader.LoadFromJson(jsonContent, this);
 
             return _cachedManifest;
         }

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/mauville_city_gym",
   "name": "MauvilleCity_Gym",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 21,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/mauville_city_gym/ground",
+      "id": "pokeemerald:layer:Hoenn/mauville_city_gym/ground",
       "name": "Ground",
       "width": 10,
       "height": 21,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/mauville_city_gym/objects",
+      "id": "pokeemerald:layer:Hoenn/mauville_city_gym/objects",
       "name": "Objects",
       "width": 10,
       "height": 21,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAMAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAMAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAAAAAAAAAAAABQAAAAUAAMAAAAAAAAAAAAAAAAADAAAA"
+      "tileData": "AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAABQAAAAUAAMAAAAAAAAAAAAAAAAABAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/mauville_city_gym/overhead",
+      "id": "pokeemerald:layer:Hoenn/mauville_city_gym/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 21,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADAAAAAAAAAAAAAAAAAAgAAwAIAAMAAAAAAAAAAAAAAAAACAADA"
+      "tileData": "AgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMAAAAAAAAAAAAAAAAACAAAA"
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/mauville_gym"
+      "tilesetId": "pokeemerald:tileset:secondary/mauvillegym"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/mauville_city_gym/warp_to_mauville_city",
+      "id": "pokeemerald:warp:Hoenn/mauville_city_gym/warp_to_mauville_city",
       "name": "Warp to mauville_city",
       "x": 64,
       "y": 320,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/mauville_city_gym/warp_to_mauville_city",
+      "id": "pokeemerald:warp:Hoenn/mauville_city_gym/warp_to_mauville_city",
       "name": "Warp to mauville_city",
       "x": 80,
       "y": 320,
@@ -95,49 +110,49 @@
   ],
   "triggers": [
     {
-      "id": "pokeemerald:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/mauville_city_gym/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 64,
       "y": 192,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/mauville_city_gym_event_script_switch2",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/mauville_city_gym/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 48,
       "y": 144,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/mauville_city_gym_event_script_switch3",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/mauville_city_gym/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 0,
       "y": 240,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/mauville_city_gym_event_script_switch1",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/mauville_city_gym/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/mauville_city_gym/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 128,
       "y": 144,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/mauville_city_gym_event_script_switch4",
       "elevation": 3
@@ -145,109 +160,102 @@
   ],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/mauville_city_gym/sign_mauvillecitygymeventscriptleftgymstatue",
+      "id": "pokeemerald:interaction:Hoenn/mauville_city_gym/sign_mauvillecitygymeventscriptleftgymstatue",
       "name": "Sign: MauvilleCity_Gym_EventScript_LeftGymStatue",
       "x": 48,
       "y": 288,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_left_gym_statue",
+      "interactionId": "pokeemerald:script:interactions/signs/mauville_city_gym_event_script_left_gym_statue",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/mauville_city_gym/sign_mauvillecitygymeventscriptrightgymstatue",
+      "id": "pokeemerald:interaction:Hoenn/mauville_city_gym/sign_mauvillecitygymeventscriptrightgymstatue",
       "name": "Sign: MauvilleCity_Gym_EventScript_RightGymStatue",
       "x": 96,
       "y": 288,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_right_gym_statue",
+      "interactionId": "pokeemerald:script:interactions/signs/mauville_city_gym_event_script_right_gym_statue",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_0",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_0",
       "name": "NPC_0",
       "x": 80,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/gymleaders/wattson",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_wattson",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/wattson",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_wattson",
       "visibilityFlag": "pokeemerald:flag:visibility/mauville_gym_wattson",
-      "facingDirection": "down",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_1",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_1",
       "name": "NPC_1",
       "x": 112,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/man5",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_shawn",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man5",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_shawn",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_2",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_2",
       "name": "NPC_2",
       "x": 16,
       "y": 256,
-      "spriteId": "pokeemerald:sprite:npcs/girl3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_vivian",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_vivian",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_3",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_3",
       "name": "NPC_3",
       "x": 80,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/youngster",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_ben",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_ben",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_4",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_4",
       "name": "NPC_4",
       "x": 16,
       "y": 208,
-      "spriteId": "pokeemerald:sprite:npcs/man5",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_kirk",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man5",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_kirk",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_5",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_5",
       "name": "NPC_5",
       "x": 112,
       "y": 320,
-      "spriteId": "pokeemerald:sprite:npcs/man2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_gym_guide",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_gym_guide",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mauville_city_gym/npc_6",
+      "id": "pokeemerald:npc:Hoenn/mauville_city_gym/npc_6",
       "name": "NPC_6",
       "x": 112,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/maniac",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mauville_city_gym_event_script_angelo",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_gym_event_script_angelo",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/mauville_city_gym/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/mauville_city_gym/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 21,

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/rustboro_city_gym",
   "name": "RustboroCity_Gym",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 20,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_gym/ground",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_gym/ground",
       "name": "Ground",
       "width": 11,
       "height": 20,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_gym/objects",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_gym/objects",
       "name": "Objects",
       "width": 11,
       "height": 20,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAADAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_gym/overhead",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_gym/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 20,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/rustboro_gym"
+      "tilesetId": "pokeemerald:tileset:secondary/rustborogym"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_gym/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_gym/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 80,
       "y": 304,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_gym/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_gym/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 96,
       "y": 304,
@@ -96,86 +111,81 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_gym/sign_rustborocitygymeventscriptleftgymstatue",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_gym/sign_rustborocitygymeventscriptleftgymstatue",
       "name": "Sign: RustboroCity_Gym_EventScript_LeftGymStatue",
       "x": 32,
       "y": 288,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_left_gym_statue",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_gym_event_script_left_gym_statue",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_gym/sign_rustborocitygymeventscriptrightgymstatue",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_gym/sign_rustborocitygymeventscriptrightgymstatue",
       "name": "Sign: RustboroCity_Gym_EventScript_RightGymStatue",
       "x": 128,
       "y": 288,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_right_gym_statue",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_gym_event_script_right_gym_statue",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_gym/npc_0",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_gym/npc_0",
       "name": "NPC_0",
       "x": 80,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/gymleaders/roxanne",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_roxanne",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/roxanne",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_gym_event_script_roxanne",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_gym/npc_1",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_gym/npc_1",
       "name": "NPC_1",
       "x": 80,
       "y": 208,
-      "spriteId": "pokeemerald:sprite:npcs/youngster",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_josh",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_gym_event_script_josh",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_gym/npc_2",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_gym/npc_2",
       "name": "NPC_2",
       "x": 48,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/youngster",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_tommy",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_gym_event_script_tommy",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_gym/npc_3",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_gym/npc_3",
       "name": "NPC_3",
       "x": 48,
       "y": 288,
-      "spriteId": "pokeemerald:sprite:npcs/man2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_gym_guide",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_gym_event_script_gym_guide",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_gym/npc_4",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_gym/npc_4",
       "name": "NPC_4",
       "x": 16,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/hiker",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_gym_event_script_marc",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_gym_event_script_marc",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_gym/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_gym/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 20,
@@ -185,7 +195,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQEBAQEBAQEBAAABAQEBAQEBAQEAAAAAAAAAAAEBAQAAAAEAAQEAAQEBAAAAAQABAQABAQEAAQEBAAAAAAEBAQAAAAAAAQEBAQEBAAEBAAAAAQEBAQEAAQEAAAAAAAEBAQABAQEAAQEAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_gym/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_gym/elevation_3",
       "name": "Collision_3",
       "width": 11,
       "height": 20,

@@ -73,6 +73,39 @@ public class IndividualTilesetBuilder : IDisposable
     }
 
     /// <summary>
+    /// Process a metatile image and return a UNIQUE GID (no deduplication).
+    /// Used for animated metatiles to prevent sharing GIDs with non-animated tiles.
+    /// Thread-safe for parallel processing.
+    ///
+    /// CRITICAL: Does NOT register the hash in lookup tables, so other tiles that
+    /// look identical will NOT deduplicate to this GID. This ensures only the actual
+    /// animated metatile uses this GID, and the animation won't affect similar-looking
+    /// non-animated metatiles.
+    /// </summary>
+    public uint ProcessMetatileImageUnique(int metatileId, Image<Rgba32> image)
+    {
+        lock (_lock)
+        {
+            // Check if already processed
+            if (_processedMetatiles.TryGetValue(metatileId, out var existing))
+                return existing;
+
+            // Force a new unique GID - no deduplication
+            var newGid = _nextGid++;
+            _uniqueImages.Add(image.Clone());
+
+            // DO NOT register hash in lookup tables!
+            // This prevents non-animated metatiles from deduplicating to this GID.
+            // If we registered the hash, then any metatile that looks identical would
+            // share this GID and incorrectly animate.
+
+            _processedMetatiles[metatileId] = (uint)newGid;
+
+            return (uint)newGid;
+        }
+    }
+
+    /// <summary>
     /// Check if a metatile has already been processed.
     /// </summary>
     public bool HasMetatile(int metatileId)
@@ -191,28 +224,38 @@ public class IndividualTilesetBuilder : IDisposable
     /// Tiles with all-default properties (normal interaction, normal terrain, passable) are skipped.
     /// The behavior parameter contains the raw 16-bit attribute value with behavior in bits 0-7.
     /// </summary>
-    public void TrackTileProperty(int gid, int behavior, int terrainType)
+    public void TrackTileProperty(int gid, int behavior, int terrainType, bool forceOverride = false)
     {
         lock (_lock)
         {
-            // Only store if we don't already have properties for this GID
-            if (_tileProperties.ContainsKey(gid))
+            // Only store if we don't already have properties for this GID (unless forcing override)
+            if (_tileProperties.ContainsKey(gid) && !forceOverride)
                 return;
 
             var interactionId = IdTransformer.TileInteractionId(behavior);
             var terrainId = IdTransformer.TerrainTypeId(terrainType);
             var collisionId = IdTransformer.DeriveCollisionId(behavior);
 
-            // Skip tiles with all-default properties (all null)
-            if (interactionId == null && terrainId == null && collisionId == null)
+            // Skip tiles with all-default properties (all null) - but not if forcing override
+            if (!forceOverride && interactionId == null && terrainId == null && collisionId == null)
                 return;
 
-            _tileProperties[gid] = new TileProperty(
-                gid - 1,  // LocalTileId is 0-based
-                interactionId,
-                terrainId,
-                collisionId
-            );
+            // For forced override, remove existing property first
+            if (forceOverride && _tileProperties.ContainsKey(gid))
+            {
+                _tileProperties.Remove(gid);
+            }
+
+            // Only add if there are actual properties to store
+            if (interactionId != null || terrainId != null || collisionId != null)
+            {
+                _tileProperties[gid] = new TileProperty(
+                    gid - 1,  // LocalTileId is 0-based
+                    interactionId,
+                    terrainId,
+                    collisionId
+                );
+            }
         }
     }
 

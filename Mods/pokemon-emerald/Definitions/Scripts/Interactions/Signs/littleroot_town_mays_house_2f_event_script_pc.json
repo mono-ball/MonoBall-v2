@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/littleroot_town_mays_house_2f_event_script_pc",
+  "id": "pokeemerald:script:interactions/signs/littleroot_town_mays_house_2f_event_script_pc",
   "name": "littleroot town mays house 2f event script pc",
   "description": "Sign script: littleroot town mays house 2f event script pc",
-  "scriptPath": "Scripts/Signs/littleroot_town_mays_house_2f_event_script_pc.csx",
+  "scriptPath": "Scripts/Interactions/Signs/littleroot_town_mays_house_2f_event_script_pc.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

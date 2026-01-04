@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/event_script_battle_colosseum_4_p_player_spot1",
+  "name": "event script battle colosseum 4 p player spot1",
+  "description": "Trigger script: event script battle colosseum 4 p player spot1",
+  "scriptPath": "Scripts/Triggers/event_script_battle_colosseum_4_p_player_spot1.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

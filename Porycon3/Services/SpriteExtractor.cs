@@ -339,15 +339,49 @@ public class SpriteExtractor : ExtractorBase
         }
 
         // Generate animations
-        var animations = GenerateAnimations(picTableName, frameInfo);
+        // Use actual frame count from combined image, not just first source
+        var combinedFrameInfo = new SpriteSheetInfo
+        {
+            FrameWidth = frameInfo.FrameWidth,
+            FrameHeight = frameInfo.FrameHeight,
+            FrameCount = frames.Count
+        };
+        var animations = GenerateAnimations(picTableName, combinedFrameInfo, sourceCategory);
 
         // Create manifest (IDs are lowercase, file paths preserve case)
         var relativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
         var texturePath = $"Graphics/{baseFolder}/{relativePath}.png";
-        var idPath = $"{baseFolder}/{relativePath}".ToLowerInvariant();
+        
+        // Generate sprite ID using IdTransformer.SpriteId() to match map definitions
+        // Maps use IdTransformer.SpriteId(graphicsId), so we must use the same method
+        // Reconstruct graphics ID from pic table name and category information
+        string graphicsIdInput;
+        if (isPlayerSprite && !string.IsNullOrEmpty(subPath))
+        {
+            // Player sprites: reconstruct as "may_normal" format
+            var playerName = subPath.Split('/')[0].ToLowerInvariant();
+            var picTableLower = picTableName.ToLowerInvariant();
+            if (!picTableLower.StartsWith(playerName + "_"))
+            {
+                var variant = picTableLower.StartsWith(playerName) 
+                    ? picTableLower.Substring(playerName.Length) 
+                    : picTableLower;
+                graphicsIdInput = $"{playerName}_{variant}";
+            }
+            else
+            {
+                graphicsIdInput = picTableName;
+            }
+        }
+        else
+        {
+            graphicsIdInput = picTableName;
+        }
+        var graphicsId = ReconstructGraphicsId(graphicsIdInput, sourceCategory, spriteName);
+        var spriteId = IdTransformer.SpriteId(graphicsId);
         var manifest = new SpriteManifest
         {
-            Id = $"{IdTransformer.Namespace}:sprite:{idPath}",
+            Id = spriteId,
             Name = FormatDisplayName(spriteName),
             Type = "Sprite",
             TexturePath = texturePath,
@@ -376,7 +410,8 @@ public class SpriteExtractor : ExtractorBase
         // Get path relative to the category directory
         var categoryPath = Path.Combine(_picsBasePath, sourceCategory);
         var relativePath = Path.GetRelativePath(categoryPath, pngPath);
-        var spriteName = ToPascalCase(Path.GetFileNameWithoutExtension(pngPath));
+        var originalFileName = Path.GetFileNameWithoutExtension(pngPath);
+        var spriteName = ToPascalCase(originalFileName);
         var subDirectory = Path.GetDirectoryName(relativePath)?.Replace('\\', '/') ?? "";
 
         var isPlayerSprite = sourceCategory == "people" &&
@@ -450,15 +485,22 @@ public class SpriteExtractor : ExtractorBase
         }
 
         // Generate animations (may not have any for standalone)
-        var animations = GenerateAnimations(spriteName, frameInfo);
+        var animations = GenerateAnimations(spriteName, frameInfo, sourceCategory);
 
         // Create manifest (IDs are lowercase, file paths preserve case)
         var outputRelativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
         var texturePath = $"Graphics/{baseFolder}/{outputRelativePath}.png";
-        var idPath = $"{baseFolder}/{outputRelativePath}".ToLowerInvariant();
+        
+        // Generate sprite ID using IdTransformer.SpriteId() to match map definitions
+        // Maps use IdTransformer.SpriteId(graphicsId), so we must use the same method
+        // Reconstruct graphics ID from original file name (before PascalCase conversion)
+        var graphicsId = isPlayerSprite && !string.IsNullOrEmpty(subDirectory)
+            ? ReconstructGraphicsId($"{subDirectory.ToLowerInvariant()}_{originalFileName.ToLowerInvariant()}", sourceCategory, spriteName)
+            : ReconstructGraphicsId(originalFileName, sourceCategory, spriteName);
+        var spriteId = IdTransformer.SpriteId(graphicsId);
         var manifest = new SpriteManifest
         {
-            Id = $"{IdTransformer.Namespace}:sprite:{idPath}",
+            Id = spriteId,
             Name = FormatDisplayName(spriteName),
             Type = "Sprite",
             TexturePath = texturePath,
@@ -544,9 +586,16 @@ public class SpriteExtractor : ExtractorBase
         };
     }
 
-    private List<SpriteAnimation> GenerateAnimations(string spriteName, SpriteSheetInfo info)
+    private List<SpriteAnimation> GenerateAnimations(string spriteName, SpriteSheetInfo info, string sourceCategory)
     {
         var animations = new List<SpriteAnimation>();
+
+        // Special handling for berry trees (stage-based animations)
+        if (sourceCategory == "berry_trees")
+        {
+            animations.AddRange(GenerateBerryTreeAnimations(info.FrameCount));
+            return animations;
+        }
 
         // Try to find animation table for this sprite
         var possibleNames = new[]
@@ -601,6 +650,125 @@ public class SpriteExtractor : ExtractorBase
             var isRunning = lowerName.Contains("running") || lowerName.Contains("run");
 
             animations.AddRange(GenerateDefaultAnimations(info.FrameCount, isRunning));
+        }
+
+        return animations;
+    }
+
+    /// <summary>
+    /// Generates berry tree stage-based animations.
+    /// Based on pokeemerald's sAnimTable_BerryTree with 5 growth stage animations.
+    /// </summary>
+    private List<SpriteAnimation> GenerateBerryTreeAnimations(int frameCount)
+    {
+        var animations = new List<SpriteAnimation>();
+
+        // Berry tree animations from pokeemerald's object_event_anims.h:
+        // - Stage0 (PLANTED): frame 0, 32 ticks
+        // - Stage1 (SPROUTED): frames 1, 2, 32 ticks each
+        // - Stage2 (TALLER/TRUNK/BUDDING): frames 3, 4, 48 ticks each
+        // - Stage3 (FLOWERING): frames 5, 5, 6, 6, 32 ticks each (frame 6 may not exist)
+        // - Stage4 (BERRIES): frames 7, 7, 8, 8, 48 ticks each (frames 7-8 may not exist)
+
+        // Animation durations (converted from ticks to seconds)
+        var stage0Duration = 32 / 60.0; // ~0.533s
+        var stage1Duration = 32 / 60.0; // ~0.533s
+        var stage2Duration = 48 / 60.0; // ~0.8s
+        var stage3Duration = 32 / 60.0; // ~0.533s
+        var stage4Duration = 48 / 60.0; // ~0.8s
+
+        // Stage0 (PLANTED): frame 0
+        if (frameCount > 0)
+        {
+            animations.Add(new SpriteAnimation
+            {
+                Name = "stage0",
+                Loop = true,
+                FrameIndices = new List<int> { 0 },
+                FrameDurations = new List<double> { stage0Duration },
+                FlipHorizontal = false
+            });
+        }
+
+        // Stage1 (SPROUTED): frames 1, 2
+        if (frameCount > 2)
+        {
+            animations.Add(new SpriteAnimation
+            {
+                Name = "stage1",
+                Loop = true,
+                FrameIndices = new List<int> { 1, 2 },
+                FrameDurations = new List<double> { stage1Duration, stage1Duration },
+                FlipHorizontal = false
+            });
+        }
+
+        // Stage2 (TALLER/TRUNK/BUDDING): frames 3, 4
+        if (frameCount > 4)
+        {
+            animations.Add(new SpriteAnimation
+            {
+                Name = "stage2",
+                Loop = true,
+                FrameIndices = new List<int> { 3, 4 },
+                FrameDurations = new List<double> { stage2Duration, stage2Duration },
+                FlipHorizontal = false
+            });
+        }
+
+        // Stage3 (FLOWERING): frames 5, 5, 6, 6 (or just frame 5 if frame 6 doesn't exist)
+        if (frameCount > 5)
+        {
+            if (frameCount > 6)
+            {
+                // Full animation with frames 5 and 6
+                animations.Add(new SpriteAnimation
+                {
+                    Name = "stage3",
+                    Loop = true,
+                    FrameIndices = new List<int> { 5, 5, 6, 6 },
+                    FrameDurations = new List<double> { stage3Duration, stage3Duration, stage3Duration, stage3Duration },
+                    FlipHorizontal = false
+                });
+            }
+            else
+            {
+                // Simplified animation with just frame 5
+                animations.Add(new SpriteAnimation
+                {
+                    Name = "stage3",
+                    Loop = true,
+                    FrameIndices = new List<int> { 5 },
+                    FrameDurations = new List<double> { stage3Duration },
+                    FlipHorizontal = false
+                });
+            }
+        }
+
+        // Stage4 (BERRIES): frames 7, 7, 8, 8 (or frame 5 as fallback if frames 7-8 don't exist)
+        if (frameCount > 7)
+        {
+            // Full animation with frames 7 and 8
+            animations.Add(new SpriteAnimation
+            {
+                Name = "stage4",
+                Loop = true,
+                FrameIndices = new List<int> { 7, 7, 8, 8 },
+                FrameDurations = new List<double> { stage4Duration, stage4Duration, stage4Duration, stage4Duration },
+                FlipHorizontal = false
+            });
+        }
+        else if (frameCount > 5)
+        {
+            // Fallback: use frame 5 if frames 7-8 don't exist
+            animations.Add(new SpriteAnimation
+            {
+                Name = "stage4",
+                Loop = true,
+                FrameIndices = new List<int> { 5 },
+                FrameDurations = new List<double> { stage4Duration },
+                FlipHorizontal = false
+            });
         }
 
         return animations;
@@ -1040,6 +1208,53 @@ public class SpriteExtractor : ExtractorBase
         if (name.EndsWith("Normal")) return name[..^6];
         if (name.EndsWith("Running")) return name[..^7];
         return name;
+    }
+
+    /// <summary>
+    /// Reconstruct graphics ID from pic table name, source category, and sprite name.
+    /// Ensures berry trees and other objects have the correct prefix to match actual OBJ_EVENT_GFX names.
+    /// </summary>
+    private static string ReconstructGraphicsId(string picTableName, string sourceCategory, string spriteName)
+    {
+        // For berry trees, the graphics ID should be BERRY_TREE_{NAME}
+        if (sourceCategory == "berry_trees")
+        {
+            // Convert sprite name to uppercase with underscores (e.g., "Cheri" -> "CHERI")
+            var normalizedName = picTableName.ToUpperInvariant().Replace(" ", "_");
+            return $"OBJ_EVENT_GFX_BERRY_TREE_{normalizedName}";
+        }
+
+        // Handle pokeball names - convert to ITEM_BALL or POKE_BALL format
+        // PokeBall, Pokeball, Poke_Ball -> POKE_BALL
+        // FastBall, GreatBall, etc. -> ITEM_BALL (generic item ball)
+        var picTableUpper = picTableName.ToUpperInvariant().Replace("_", "").Replace(" ", "");
+        if (picTableUpper == "POKEBALL")
+        {
+            return "OBJ_EVENT_GFX_POKE_BALL";
+        }
+        if (picTableUpper.EndsWith("BALL") && picTableUpper != "POKEBALL")
+        {
+            // All other pokeballs (FastBall, GreatBall, etc.) use ITEM_BALL
+            return "OBJ_EVENT_GFX_ITEM_BALL";
+        }
+
+        // Normalize all names to snake_case to match OBJ_EVENT_GFX format
+        // This ensures PascalCase names (e.g., AquaMemberM) become snake_case (aqua_member_m)
+        // which matches what IdTransformer.SpriteId() expects
+        var normalizedSnakeCase = IdTransformer.Normalize(picTableName);
+        
+        // Handle misc objects that need special handling
+        var miscObjects = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "apricorn_tree", "birth_island_stone", "breakable_rock", "cable_car",
+            "cuttable_tree", "fossil", "light", "mart_light", "moving_box",
+            "mr_brineys_boat", "poke_center_light", "pushable_boulder",
+            "ss_tidal", "statue", "submarine_shadow", "truck"
+        };
+        
+        // For all names, use normalized snake_case format to match OBJ_EVENT_GFX constants
+        // e.g., "AquaMemberM" -> "aqua_member_m" -> "OBJ_EVENT_GFX_AQUA_MEMBER_M"
+        return $"OBJ_EVENT_GFX_{normalizedSnakeCase.ToUpperInvariant()}";
     }
 
     /// <summary>

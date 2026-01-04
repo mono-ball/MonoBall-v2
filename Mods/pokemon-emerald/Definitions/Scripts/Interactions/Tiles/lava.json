@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/lava",
+  "id": "pokeemerald:script:interactions/tiles/lava",
   "name": "Lava",
   "description": "Tile interaction: Lava",
+  "scriptPath": "Scripts/Interactions/Tiles/lava.csx",
   "category": "misc",
   "priority": 500
 }

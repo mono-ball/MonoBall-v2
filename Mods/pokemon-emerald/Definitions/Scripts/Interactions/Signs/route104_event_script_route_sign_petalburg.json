@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route104_event_script_route_sign_petalburg",
+  "id": "pokeemerald:script:interactions/signs/route104_event_script_route_sign_petalburg",
   "name": "route104 event script route sign petalburg",
   "description": "Sign script: route104 event script route sign petalburg",
-  "scriptPath": "Scripts/Signs/route104_event_script_route_sign_petalburg.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route104_event_script_route_sign_petalburg.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

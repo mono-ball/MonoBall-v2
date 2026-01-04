@@ -2,6 +2,7 @@ using System;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.Constants;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Services;
@@ -43,6 +44,7 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
 {
     private readonly IActiveMapFilterService _activeMapFilterService;
     private readonly ICollisionService _collisionService;
+    private readonly IConstantsService _constants;
     private readonly ILogger _logger;
     private readonly IModManager? _modManager;
     private readonly QueryDescription _movementQueryWithActiveMap;
@@ -54,12 +56,14 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="world">The ECS world.</param>
     /// <param name="collisionService">The collision service for movement validation.</param>
     /// <param name="activeMapFilterService">The active map filter service for filtering entities by active maps.</param>
+    /// <param name="constants">The constants service for accessing game constants. Required.</param>
     /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
     /// <param name="logger">The logger for logging operations.</param>
     public MovementSystem(
         World world,
         ICollisionService collisionService,
         IActiveMapFilterService activeMapFilterService,
+        IConstantsService constants,
         IModManager? modManager = null,
         ILogger? logger = null
     )
@@ -70,6 +74,7 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
         _activeMapFilterService =
             activeMapFilterService
             ?? throw new ArgumentNullException(nameof(activeMapFilterService));
+        _constants = constants ?? throw new ArgumentNullException(nameof(constants));
         _modManager = modManager;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
@@ -183,9 +188,9 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 }
 
                 // Calculate movement positions
-                // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
-                var tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
-                var tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
+                // Get tile dimensions from loaded maps or constants service (supports rectangular tiles)
+                var tileWidth = TileSizeHelper.GetTileWidth(World, _constants);
+                var tileHeight = TileSizeHelper.GetTileHeight(World, _constants);
                 var startPosition = new Vector2(position.PixelX, position.PixelY);
                 var targetPosition = new Vector2(targetX * tileWidth, targetY * tileHeight);
 
@@ -488,8 +493,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 "World is null in MovementSystem. Ensure the system is properly initialized."
             );
 
-        var tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
-        var tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
+        var tileWidth = TileSizeHelper.GetTileWidth(World, _constants);
+        var tileHeight = TileSizeHelper.GetTileHeight(World, _constants);
         position.SyncPixelsToGrid(tileWidth, tileHeight);
     }
 }

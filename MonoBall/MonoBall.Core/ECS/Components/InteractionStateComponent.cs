@@ -10,8 +10,8 @@ namespace MonoBall.Core.ECS.Components;
 public struct InteractionStateComponent
 {
     /// <summary>
-    ///     Gets or sets the behavior definition ID that was paused for this interaction.
-    ///     Used to look up BehaviorDefinition to get ScriptId for resuming the behavior script.
+    ///     Gets or sets the script definition ID that was paused for this interaction.
+    ///     References a ScriptDefinition directly for resuming the behavior script.
     /// </summary>
     public string BehaviorId { get; set; }
 

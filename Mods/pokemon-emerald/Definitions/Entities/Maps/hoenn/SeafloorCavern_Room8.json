@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/seafloor_cavern_room8",
   "name": "SeafloorCavern_Room8",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underground",
   "width": 11,
   "height": 14,
@@ -19,9 +19,24 @@
   "allowCycling": true,
   "allowEscaping": true,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/cave",
+    "bottomLayer": [
+      993,
+      993,
+      993,
+      993
+    ],
+    "topLayer": [
+      1020,
+      1020,
+      1020,
+      1020
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/seafloor_cavern_room8/ground",
+      "id": "pokeemerald:layer:Hoenn/seafloor_cavern_room8/ground",
       "name": "Ground",
       "width": 11,
       "height": 14,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "ZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAGcBAABnAQAAAAAAAAAAAAAAAAAAZwEAAGcBAAAAAAAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAZwEAAAAAAAAAAAAAAAAAAGcBAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABnAQAAZwEAAGcBAABnAQAAlQEAAJUBAABnAQAAqwEAAKwBAACxAQAAZwEAAJQBAACUAQAAZwEAAA=="
+      "tileData": "4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAAAAAAAOEDAADhAwAAAAAAAAAAAAAAAAAA4QMAAOEDAAAAAAAA4QMAAOEDAADhAwAA4QMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAA4QMAAOEDAAAAAAAA4QMAAAAAAAAAAAAAAAAAAOEDAAAAAAAA4QMAAOEDAADhAwAA4QMAAOEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAAAAAAAAAAAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAAAAAAAAAAAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAAAAAAAAAAAADhAwAA4QMAAOEDAADhAwAAEwQAABMEAADhAwAABgQAAAcEAAAIBAAA4QMAABsEAAAbBAAA4QMAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/seafloor_cavern_room8/objects",
+      "id": "pokeemerald:layer:Hoenn/seafloor_cavern_room8/objects",
       "name": "Objects",
       "width": 11,
       "height": 14,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "aAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaQEAAGsBAABrAQAAjAEAAI0BAACOAQAAawEAAGsBAABsAQAAaAEAAGgBAABuAQAAaAEAAGkBAACPAQAAkAEAAJEBAABsAQAAaAEAAG8BAABoAQAAaAEAAG4BAABpAQAAcAEAAGcBAABnAQAAZwEAAJIBAABsAQAAbwEAAGgBAABoAQAAbgEAAG4BAABnAQAAZwEAAGcBAABnAQAAZwEAAG8BAABvAQAAaAEAAGgBAABuAQAAbgEAAGcBAABnAQAAZwEAAGcBAABnAQAAbwEAAG8BAABoAQAAaAEAAG4BAABuAQAAZwEAAGcBAABnAQAAZwEAAGcBAABvAQAAbwEAAGgBAABoAQAAbgEAAG4BAABnAQAAZwEAAGcBAABnAQAAZwEAAG8BAABvAQAAaAEAAGgBAABuAQAAbgEAAGcBAABnAQAAZwEAAGcBAABnAQAAbwEAAG8BAABoAQAAaAEAAG4BAABuAQAAZwEAAGcBAABnAQAAZwEAAGcBAABvAQAAbwEAAGgBAABoAQAAbgEAAG4BAABnAQAAzAEAAMoBAADLAQAAZwEAAG8BAABvAQAAaAEAAGgBAABuAQAAbgEAAGcBAABnAQAAZwEAAGcBAABnAQAAbwEAAG8BAABoAQAAaAEAAG4BAABuAQAAZwEAAGcBAACyAQAAZwEAAGcBAABvAQAAbwEAAGgBAABoAQAAcgEAAHIBAAByAQAAagEAwGoBAMBqAQDAcgEAAHIBAAByAQAAaAEAAA=="
+      "tileData": "/AMAAPwDAAD8AwAA/AMAAPwDAAD8AwAA/AMAAPwDAAD8AwAA/AMAAPwDAAD8AwAA/QMAAP4DAAD\u002BAwAAFAQAABUEAAAWBAAA/gMAAP4DAAD/AwAA/AMAAPwDAAABBAAA/AMAAP0DAAAXBAAAGAQAABkEAAD/AwAA/AMAAAIEAAD8AwAA/AMAAAEEAAD9AwAAAwQAAOEDAADhAwAA4QMAAAkEAAD/AwAAAgQAAPwDAAD8AwAAAQQAAAEEAADhAwAA4QMAAOEDAADhAwAA4QMAAAIEAAACBAAA/AMAAPwDAAABBAAAAQQAAOEDAADhAwAA4QMAAOEDAADhAwAAAgQAAAIEAAD8AwAA/AMAAAEEAAABBAAA4QMAAOEDAADhAwAA4QMAAOEDAAACBAAAAgQAAPwDAAD8AwAAAQQAAAEEAADhAwAA4QMAAOEDAADhAwAA4QMAAAIEAAACBAAA/AMAAPwDAAABBAAAAQQAAOEDAADhAwAA4QMAAOEDAADhAwAAAgQAAAIEAAD8AwAA/AMAAAEEAAABBAAA4QMAAOEDAADhAwAA4QMAAOEDAAACBAAAAgQAAPwDAAD8AwAAAQQAAAEEAADhAwAAVAQAAFIEAABTBAAA4QMAAAIEAAACBAAA/AMAAPwDAAABBAAAAQQAAOEDAADhAwAA4QMAAOEDAADhAwAAAgQAAAIEAAD8AwAA/AMAAAEEAAABBAAA4QMAAOEDAAAsBAAA4QMAAOEDAAACBAAAAgQAAPwDAAD8AwAABQQAAAUEAAAFBAAA2gMAwNoDAMDaAwDABQQAAAUEAAAFBAAA/AMAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/seafloor_cavern_room8/overhead",
+      "id": "pokeemerald:layer:Hoenn/seafloor_cavern_room8/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 14,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAAAAAAAAAAAAAagEAwGoBAMBqAQDAAAAAAAAAAABqAQDAAAAAAAAAAAAAAAAAAAAAAGoBAABqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQAAAAAAAGoBAMBqAQDAagEAwAAAAABqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwAAAAAAAAAAA2gMAwNoDAMDaAwDAAAAAAAAAAADaAwDAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAADaAwDAAAAAANoDAMDaAwDA2gMAwAAAAADaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/cave"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/seafloor_cavern_room8/warp_to_seafloor_cavern_room9",
+      "id": "pokeemerald:warp:Hoenn/seafloor_cavern_room8/warp_to_seafloor_cavern_room9",
       "name": "Warp to seafloor_cavern_room9",
       "x": 80,
       "y": 32,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/seafloor_cavern_room8/warp_to_seafloor_cavern_room3",
+      "id": "pokeemerald:warp:Hoenn/seafloor_cavern_room8/warp_to_seafloor_cavern_room3",
       "name": "Warp to seafloor_cavern_room3",
       "x": 80,
       "y": 192,
@@ -97,141 +112,141 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_0",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_0",
       "name": "NPC_0",
       "x": 64,
       "y": 112,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/11",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_1",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_1",
       "name": "NPC_1",
       "x": 80,
       "y": 112,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/12",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_2",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_2",
       "name": "NPC_2",
       "x": 96,
       "y": 112,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/13",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_3",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_3",
       "name": "NPC_3",
       "x": 48,
       "y": 96,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/14",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_4",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_4",
       "name": "NPC_4",
       "x": 112,
       "y": 96,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/15",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_5",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_5",
       "name": "NPC_5",
       "x": 64,
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/16",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_6",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_6",
       "name": "NPC_6",
       "x": 80,
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/17",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_7",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_7",
       "name": "NPC_7",
       "x": 96,
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/18",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_8",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_8",
       "name": "NPC_8",
       "x": 48,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/19",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_9",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_9",
       "name": "NPC_9",
       "x": 64,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/1_a",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_10",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_10",
       "name": "NPC_10",
       "x": 96,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/1_b",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/seafloor_cavern_room8/npc_11",
+      "id": "pokeemerald:npc:Hoenn/seafloor_cavern_room8/npc_11",
       "name": "NPC_11",
       "x": 112,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/pushableboulder",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_strength_boulder",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_strength_boulder",
       "visibilityFlag": "pokeemerald:flag:temporary/1_c",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/seafloor_cavern_room8/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/seafloor_cavern_room8/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 14,
@@ -241,7 +256,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQABAQEBAAEBAAEBAAEBAQEBAQAAAAEBAQEBAQEAAAAAAAEBAQEBAQAAAAAAAQEBAQEBAAAAAAABAQEBAQEAAAAAAAEBAQEBAQAAAAAAAQEBAQEBAAAAAAABAQEBAQEAAQEBAAEBAQEBAQAAAAAAAQEBAQEBAAAAAAABAQEBAQEBAQEBAQEBAQ=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/seafloor_cavern_room8/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/seafloor_cavern_room8/elevation_3",
       "name": "Collision_3",
       "width": 11,
       "height": 14,

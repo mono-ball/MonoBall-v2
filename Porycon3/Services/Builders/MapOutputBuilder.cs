@@ -2,6 +2,9 @@ using Porycon3.Models;
 using Porycon3.Services;
 using static Porycon3.Infrastructure.TileConstants;
 
+// Use the record from MapConversionService
+using ResolvedBorderData = Porycon3.Services.ResolvedBorderData;
+
 namespace Porycon3.Services.Builders;
 
 /// <summary>
@@ -26,7 +29,8 @@ public class MapOutputBuilder
         string secondaryTilesetType,
         List<CollisionLayerData> collisionLayers,
         string? weatherId,
-        string? battleSceneId)
+        string? battleSceneId,
+        ResolvedBorderData? borderData = null)
     {
         var normalizedName = IdTransformer.Normalize(mapName);
 
@@ -54,6 +58,7 @@ public class MapOutputBuilder
             connections = BuildConnections(mapData.Connections),
             encounterDataJson = (string?)null,
             customPropertiesJson = (string?)null,
+            border = BuildBorder(borderData, tilesetPair, primaryTileCount, primaryTilesetType, secondaryTilesetType),
             layers = BuildLayers(layers, normalizedName),
             tilesets = new[]
             {
@@ -137,6 +142,8 @@ public class MapOutputBuilder
         {
             var scriptNormalized = IdTransformer.Normalize(b.Script).Replace("_", "");
             var typeDisplay = char.ToUpper(b.Type[0]) + b.Type[1..].ToLowerInvariant();
+            // Determine script category based on BgEvent type (signs vs npcs)
+            var scriptCategory = b.Type.Equals("sign", StringComparison.OrdinalIgnoreCase) ? "signs" : "npcs";
             return new
             {
                 id = $"{IdTransformer.Namespace}:interaction:{_region}/{normalizedName}/{b.Type.ToLowerInvariant()}_{scriptNormalized}",
@@ -145,7 +152,7 @@ public class MapOutputBuilder
                 y = b.Y * MetatileSize,
                 width = MetatileSize,
                 height = MetatileSize,
-                interactionId = TransformInteractionId(b.Script),
+                interactionId = TransformInteractionId(b.Script, scriptCategory),
                 elevation = b.Elevation
             };
         });
@@ -162,9 +169,8 @@ public class MapOutputBuilder
             spriteId = IdTransformer.SpriteId(o.GraphicsId),
             behaviorId = BehaviorTransformer.TransformBehaviorId(o.MovementType),
             behaviorParameters = BehaviorTransformer.BuildBehaviorParameters(o.MovementType, o.X * MetatileSize, o.Y * MetatileSize, o.MovementRangeX, o.MovementRangeY),
-            interactionId = TransformInteractionId(o.Script),
+            interactionId = TransformInteractionId(o.Script, "npcs"),
             visibilityFlag = string.IsNullOrEmpty(o.Flag) || o.Flag == "0" ? null : IdTransformer.FlagId(o.Flag),
-            facingDirection = BehaviorTransformer.ExtractDirection(o.MovementType),
             elevation = o.Elevation
         });
     }
@@ -207,16 +213,55 @@ public class MapOutputBuilder
         return result;
     }
 
+    /// <summary>
+    /// Transforms a script name to a trigger script definition ID.
+    /// Uses IdTransformer.TriggerScriptId to ensure consistency with definition files.
+    /// </summary>
+    /// <param name="script">The script name (e.g., "LittlerootTown_EventScript_NeedPokemonTriggerLeft").</param>
+    /// <returns>The script definition ID, or null if script is invalid.</returns>
     private static string? TransformTriggerId(string script)
     {
-        if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL") return null;
-        return $"{IdTransformer.Namespace}:script:trigger/{IdTransformer.Normalize(script)}";
+        var id = IdTransformer.TriggerScriptId(script);
+        return string.IsNullOrEmpty(id) ? null : id;
     }
 
-    private static string? TransformInteractionId(string script)
+    /// <summary>
+    /// Transforms a script name to an interaction script definition ID.
+    /// Uses IdTransformer.InteractionScriptId to ensure consistency with definition files.
+    /// </summary>
+    /// <param name="script">The script name (e.g., "LittlerootTown_EventScript_TownSign").</param>
+    /// <param name="category">The interaction category: "npcs" or "signs".</param>
+    /// <returns>The script definition ID, or null if script is invalid.</returns>
+    private static string? TransformInteractionId(string script, string category = "npcs")
     {
-        if (string.IsNullOrEmpty(script) || script == "0x0" || script == "NULL" || script == "0") return null;
-        return $"{IdTransformer.Namespace}:interaction/npcs/{IdTransformer.Normalize(script)}";
+        var id = IdTransformer.InteractionScriptId(script, category);
+        return string.IsNullOrEmpty(id) ? null : id;
+    }
+
+    private static object? BuildBorder(
+        ResolvedBorderData? borderData,
+        TilesetPairKey tilesetPair,
+        int primaryTileCount,
+        string primaryTilesetType,
+        string secondaryTilesetType)
+    {
+        if (borderData == null)
+            return null;
+
+        // Determine which tileset to use based on whether GIDs reference primary or secondary
+        // Border tiles typically all come from the same tileset
+        // Check first GID to determine which tileset
+        var firstGid = borderData.BottomLayerGids.FirstOrDefault();
+        var isSecondary = firstGid > primaryTileCount;
+        var tilesetName = isSecondary ? tilesetPair.SecondaryTileset : tilesetPair.PrimaryTileset;
+        var tilesetType = isSecondary ? secondaryTilesetType : primaryTilesetType;
+
+        return new
+        {
+            tilesetId = IdTransformer.TilesetId(tilesetName, tilesetType),
+            bottomLayer = borderData.BottomLayerGids.ToList(),
+            topLayer = borderData.TopLayerGids.ToList()
+        };
     }
 
     private static string EncodeTileDataUint(uint[] data)

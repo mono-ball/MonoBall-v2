@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_battle_tower_multi_partner_room",
   "name": "BattleFrontier_BattleTowerMultiPartnerRoom",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 21,
   "height": 15,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_tower_multi_partner_room/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_tower_multi_partner_room/ground",
       "name": "Ground",
       "width": 21,
       "height": 15,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAHgAAAB4AAAAeAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAcAADAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAcAADAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAcAADAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAAAAAABwAAMAcAADAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwAAAAAAAAAAAAAAAAAAAAAAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwBwAAMAcAADAHAAAwAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_tower_multi_partner_room/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_tower_multi_partner_room/objects",
       "name": "Objects",
       "width": 21,
       "height": 15,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHQAAABsAAIAbAACAGwAAgBsAAIAbAACAGwAAgBsAAIAbAACAGwAAgBsAAIAbAACAGwAAgBsAAIAbAACAGwAAgBsAAIAbAACAGwAAgBsAAIAbAACAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAdAACAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAdAACAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAdAACAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAAAAAAB0AAIAdAACAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgAAAAAAAAAAAAAAAAAAAAAAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgB0AAIAdAACAHQAAgAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_tower_multi_partner_room/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_tower_multi_partner_room/overhead",
       "name": "Overhead",
       "width": 21,
       "height": 15,
@@ -64,7 +79,7 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [],
@@ -72,113 +87,107 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/localid_tower_partner_room_attendant",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/localid_tower_partner_room_attendant",
       "name": "LOCALID_TOWER_PARTNER_ROOM_ATTENDANT",
       "x": 176,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_attendant",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_1",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_1",
       "name": "NPC_1",
       "x": 32,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner1",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner1",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_1",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_2",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_2",
       "name": "NPC_2",
       "x": 272,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/{var_player}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner2",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_player}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner2",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_2",
-      "facingDirection": "left",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_3",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_3",
       "name": "NPC_3",
       "x": 96,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/{var_2}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner3",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_2}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner3",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_3",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_4",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_4",
       "name": "NPC_4",
       "x": 128,
       "y": 208,
-      "spriteId": "pokeemerald:sprite:npcs/{var_3}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner4",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_3}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner4",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_4",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_5",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_5",
       "name": "NPC_5",
       "x": 160,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/{var_4}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner5",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_4}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner5",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_5",
-      "facingDirection": "up",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_6",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_6",
       "name": "NPC_6",
       "x": 208,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/{var_5}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner6",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_5}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner6",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_6",
-      "facingDirection": "right",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_7",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_7",
       "name": "NPC_7",
       "x": 240,
       "y": 208,
-      "spriteId": "pokeemerald:sprite:npcs/{var_6}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner7",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_6}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner7",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_alt_1",
-      "facingDirection": "up",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_multi_partner_room/npc_8",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_multi_partner_room/npc_8",
       "name": "NPC_8",
       "x": 64,
       "y": 192,
-      "spriteId": "pokeemerald:sprite:npcs/{var_7}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner8",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_7}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner8",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_alt_2",
-      "facingDirection": "right",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_tower_multi_partner_room/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_battle_tower_multi_partner_room/elevation_0",
       "name": "Collision_0",
       "width": 21,
       "height": 15,

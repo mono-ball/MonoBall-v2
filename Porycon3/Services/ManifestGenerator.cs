@@ -26,8 +26,8 @@ public class ManifestGenerator
     {
         var manifest = new ModManifest
         {
-            Id = $"{_namespace}:{_region}",
-            Name = modName ?? $"Pokemon {ToPascalCase(_region)}",
+            Id = $"expansion:{_namespace}",
+            Name = modName ?? $"Pokemon {_region}",
             Author = author ?? "Porycon3",
             Version = version ?? "1.0.0",
             Description = description ?? $"Converted content from pokeemerald-expansion ({_region} region)",
@@ -45,15 +45,7 @@ public class ManifestGenerator
         File.WriteAllText(manifestPath, json);
     }
 
-    private static string ToPascalCase(string input)
-    {
-        if (string.IsNullOrEmpty(input))
-            return input;
-
-        var parts = input.Split(new[] { '_', '-', ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        return string.Join("", parts.Select(p =>
-            char.ToUpperInvariant(p[0]) + p.Substring(1).ToLowerInvariant()));
-    }
+    private static string ToPascalCase(string input) => IdTransformer.ToPascalCase(input);
 
     /// <summary>
     /// Internal model for mod.json serialization.

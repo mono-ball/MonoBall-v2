@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route101_event_script_prevent_exit_south",
+  "name": "route101 event script prevent exit south",
+  "description": "Trigger script: route101 event script prevent exit south",
+  "scriptPath": "Scripts/Triggers/route101_event_script_prevent_exit_south.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -189,7 +189,8 @@ public class NpcDefinition
     public string SpriteId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     The behavior ID for this NPC.
+    ///     The script definition ID for this NPC's behavior script.
+    ///     References a ScriptDefinition directly (e.g., "pokeemerald:script:movement/npcs/stationary").
     /// </summary>
     [JsonPropertyName("behaviorId")]
     public string? BehaviorId { get; set; }
@@ -210,12 +211,12 @@ public class NpcDefinition
     /// <summary>
     ///     The initial facing direction of the NPC (null, "up", "down", "left", "right").
     /// </summary>
-    [JsonPropertyName("direction")]
-    public string? Direction { get; set; }
+    [JsonPropertyName("facingDirection")]
+    public string? FacingDirection { get; set; }
 
     /// <summary>
     ///     NPC-specific behavior parameter overrides.
-    ///     These override parameters from BehaviorDefinition and ScriptDefinition.
+    ///     These override parameters from ScriptDefinition defaults.
     /// </summary>
     [JsonPropertyName("behaviorParameters")]
     public Dictionary<string, object>? BehaviorParameters { get; set; }

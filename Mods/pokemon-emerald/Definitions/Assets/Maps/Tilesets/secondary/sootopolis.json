@@ -1,8 +1,8 @@
 {
   "id": "pokeemerald:tileset:secondary/sootopolis",
-  "name": "sootopolis",
+  "name": "Sootopolis",
   "type": "secondary",
-  "texturePath": "Graphics/Maps/Tilesets/Secondary/sootopolis.png",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/Sootopolis.png",
   "tileWidth": 16,
   "tileHeight": 16,
   "tileCount": 110,
@@ -14,68 +14,68 @@
   "tiles": [
     {
       "localTileId": 0,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 3,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
       "localTileId": 48,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 64,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
       "localTileId": 76,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 80,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 81,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 82,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 104,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 105,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 106,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 107,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 108,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 109,
-      "interactionId": "pokeemerald:interaction/tiles/ash_grass",
+      "interactionId": "pokeemerald:script:interactions/tiles/ash_grass",
       "terrainId": "pokeemerald:terrain:grass"
     }
   ]

@@ -22,17 +22,17 @@ public class ModManager : IModManager, IDisposable
     /// <summary>
     ///     Initializes a new instance of the ModManager.
     /// </summary>
-    /// <param name="modsDirectory">Path to the Mods directory. Defaults to "Mods" relative to the executable.</param>
     /// <param name="logger">The logger instance for logging mod management messages.</param>
-    public ModManager(string? modsDirectory = null, ILogger? logger = null)
+    /// <param name="modsDirectory">Path to the Mods directory. Defaults to "Mods" relative to the executable.</param>
+    public ModManager(ILogger logger, string? modsDirectory = null)
     {
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
         modsDirectory ??= ModsPathResolver.FindModsDirectory();
         if (modsDirectory == null)
             modsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mods");
         else if (!Path.IsPathRooted(modsDirectory))
             modsDirectory = ModsPathResolver.ResolveModsDirectory(modsDirectory);
-
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _registry = new DefinitionRegistry();
         _loader = new ModLoader(modsDirectory, _registry, _logger);
         _validator = new ModValidator(modsDirectory, _logger);
@@ -163,73 +163,49 @@ public class ModManager : IModManager, IDisposable
     }
 
     /// <summary>
-    ///     Gets the tile width from constants service or mod configuration.
-    ///     Prioritizes constants service if provided, then falls back to mod configuration.
+    ///     Gets the tile width from constants service.
     /// </summary>
-    /// <param name="constantsService">Optional constants service to use. If provided, uses "TileWidth" constant.</param>
+    /// <param name="constantsService">The constants service to use. Must contain "TileWidth" constant.</param>
     /// <returns>The tile width in pixels.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no tile width configuration is available.</exception>
-    public int GetTileWidth(IConstantsService? constantsService = null)
+    /// <exception cref="ArgumentNullException">Thrown if constantsService is null.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if ConstantsService does not contain TileWidth constant.</exception>
+    public int GetTileWidth(IConstantsService constantsService)
     {
-        // Prioritize constants service if available
-        if (constantsService != null && constantsService.Contains("TileWidth"))
-            return constantsService.Get<int>("TileWidth");
+        if (constantsService == null)
+            throw new ArgumentNullException(nameof(constantsService));
 
-        // Fall back to mod configuration (for backward compatibility)
-        if (!_isLoaded || LoadedMods.Count == 0)
+        if (!constantsService.Contains("TileWidth"))
+        {
             throw new InvalidOperationException(
-                "Cannot get tile width: Mods are not loaded and ConstantsService is not available. "
-                    + "Ensure mods are loaded and ConstantsService has TileWidth constant defined."
+                "ConstantsService does not contain 'TileWidth' constant. "
+                    + "Ensure ConstantsService is properly initialized with tile width configuration."
             );
+        }
 
-        // Prioritize core mod
-        if (CoreMod != null && CoreMod.TileWidth > 0)
-            return CoreMod.TileWidth;
-
-        // Fall back to first loaded mod (lowest priority = loaded first)
-        var firstMod = LoadedMods.OrderBy(m => m.Priority).First();
-        if (firstMod.TileWidth > 0)
-            return firstMod.TileWidth;
-
-        throw new InvalidOperationException(
-            "Cannot get tile width: No tile width configuration available. "
-                + "Ensure ConstantsService has TileWidth constant defined, or at least one mod has tileWidth specified in mod.json."
-        );
+        return constantsService.Get<int>("TileWidth");
     }
 
     /// <summary>
-    ///     Gets the tile height from constants service or mod configuration.
-    ///     Prioritizes constants service if provided, then falls back to mod configuration.
+    ///     Gets the tile height from constants service.
     /// </summary>
-    /// <param name="constantsService">Optional constants service to use. If provided, uses "TileHeight" constant.</param>
+    /// <param name="constantsService">The constants service to use. Must contain "TileHeight" constant.</param>
     /// <returns>The tile height in pixels.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if mods are not loaded or no tile height configuration is available.</exception>
-    public int GetTileHeight(IConstantsService? constantsService = null)
+    /// <exception cref="ArgumentNullException">Thrown if constantsService is null.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if ConstantsService does not contain TileHeight constant.</exception>
+    public int GetTileHeight(IConstantsService constantsService)
     {
-        // Prioritize constants service if available
-        if (constantsService != null && constantsService.Contains("TileHeight"))
-            return constantsService.Get<int>("TileHeight");
+        if (constantsService == null)
+            throw new ArgumentNullException(nameof(constantsService));
 
-        // Fall back to mod configuration (for backward compatibility)
-        if (!_isLoaded || LoadedMods.Count == 0)
+        if (!constantsService.Contains("TileHeight"))
+        {
             throw new InvalidOperationException(
-                "Cannot get tile height: Mods are not loaded and ConstantsService is not available. "
-                    + "Ensure mods are loaded and ConstantsService has TileHeight constant defined."
+                "ConstantsService does not contain 'TileHeight' constant. "
+                    + "Ensure ConstantsService is properly initialized with tile height configuration."
             );
+        }
 
-        // Prioritize core mod
-        if (CoreMod != null && CoreMod.TileHeight > 0)
-            return CoreMod.TileHeight;
-
-        // Fall back to first loaded mod (lowest priority = loaded first)
-        var firstMod = LoadedMods.OrderBy(m => m.Priority).First();
-        if (firstMod.TileHeight > 0)
-            return firstMod.TileHeight;
-
-        throw new InvalidOperationException(
-            "Cannot get tile height: No tile height configuration available. "
-                + "Ensure ConstantsService has TileHeight constant defined, or at least one mod has tileHeight specified in mod.json."
-        );
+        return constantsService.Get<int>("TileHeight");
     }
 
     /// <summary>

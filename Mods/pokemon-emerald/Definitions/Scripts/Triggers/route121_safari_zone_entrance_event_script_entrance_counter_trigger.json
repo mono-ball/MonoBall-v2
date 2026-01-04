@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route121_safari_zone_entrance_event_script_entrance_counter_trigger",
+  "name": "route121 safari zone entrance event script entrance counter trigger",
+  "description": "Trigger script: route121 safari zone entrance event script entrance counter trigger",
+  "scriptPath": "Scripts/Triggers/route121_safari_zone_entrance_event_script_entrance_counter_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

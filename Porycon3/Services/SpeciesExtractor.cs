@@ -894,11 +894,7 @@ public class SpeciesExtractor : ExtractorBase
         return (sprites, hasGenderDifferences);
     }
 
-    private string ToPascalCase(string name)
-    {
-        // Convert kebab-case to PascalCase
-        return string.Join("", name.Split('-').Select(p => char.ToUpper(p[0]) + p.Substring(1).ToLower()));
-    }
+    private static string ToPascalCase(string name) => IdTransformer.ToPascalCase(name);
 
     /// <summary>
     /// Resolve the cry ID for a Pokemon, checking if the cry file exists.

@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/ss_tidal_rooms_event_script_bed",
+  "id": "pokeemerald:script:interactions/signs/ss_tidal_rooms_event_script_bed",
   "name": "ss tidal rooms event script bed",
   "description": "Sign script: ss tidal rooms event script bed",
-  "scriptPath": "Scripts/Signs/ss_tidal_rooms_event_script_bed.csx",
+  "scriptPath": "Scripts/Interactions/Signs/ss_tidal_rooms_event_script_bed.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

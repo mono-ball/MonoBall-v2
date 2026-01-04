@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:sprite:characters/npcs/generic/skittyold",
+  "id": "pokeemerald:sprite:characters/npcs/skittyold",
   "name": "Skittyold",
   "type": "Sprite",
   "texturePath": "Graphics/Characters/Npcs/Generic/SkittyOld.png",
@@ -71,5 +71,118 @@
       "height": 16
     }
   ],
-  "animations": []
+  "animations": [
+    {
+      "name": "face_south",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        0.26666666666666666
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "face_north",
+      "loop": true,
+      "frameIndices": [
+        1
+      ],
+      "frameDurations": [
+        0.26666666666666666
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "face_west",
+      "loop": true,
+      "frameIndices": [
+        2
+      ],
+      "frameDurations": [
+        0.26666666666666666
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "face_east",
+      "loop": true,
+      "frameIndices": [
+        2
+      ],
+      "frameDurations": [
+        0.26666666666666666
+      ],
+      "flipHorizontal": true
+    },
+    {
+      "name": "go_south",
+      "loop": true,
+      "frameIndices": [
+        3,
+        0,
+        6,
+        0
+      ],
+      "frameDurations": [
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "go_north",
+      "loop": true,
+      "frameIndices": [
+        4,
+        1,
+        7,
+        1
+      ],
+      "frameDurations": [
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "go_west",
+      "loop": true,
+      "frameIndices": [
+        5,
+        2,
+        8,
+        2
+      ],
+      "frameDurations": [
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "go_east",
+      "loop": true,
+      "frameIndices": [
+        5,
+        2,
+        8,
+        2
+      ],
+      "frameDurations": [
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333,
+        0.13333333333333333
+      ],
+      "flipHorizontal": true
+    }
+  ]
 }

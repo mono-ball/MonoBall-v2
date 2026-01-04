@@ -50,6 +50,163 @@ public class MetatileRenderer : IDisposable
     }
 
     /// <summary>
+    /// Render a metatile with tile substitutions for animation frames.
+    /// Tile IDs in the substitution dictionary are replaced with the provided 8x8 images.
+    /// </summary>
+    public (Image<Rgba32> Bottom, Image<Rgba32> Top) RenderMetatileWithSubstitution(
+        Metatile metatile,
+        string primaryTileset,
+        string secondaryTileset,
+        Dictionary<int, Image<Rgba32>> tileSubstitutions)
+    {
+        var bottomTiles = metatile.BottomTiles;
+        var topTiles = metatile.TopTiles;
+
+        var bottomImage = RenderTileGridWithSubstitution(bottomTiles, primaryTileset, secondaryTileset, tileSubstitutions);
+        var topImage = RenderTileGridWithSubstitution(topTiles, primaryTileset, secondaryTileset, tileSubstitutions);
+
+        return (bottomImage, topImage);
+    }
+
+    /// <summary>
+    /// Render a 2x2 grid of tiles with optional tile substitutions.
+    /// </summary>
+    private Image<Rgba32> RenderTileGridWithSubstitution(
+        TileData[] tiles,
+        string primaryTileset,
+        string secondaryTileset,
+        Dictionary<int, Image<Rgba32>> tileSubstitutions)
+    {
+        var gridImage = new Image<Rgba32>(MetatileSize, MetatileSize);
+
+        gridImage.ProcessPixelRows(accessor =>
+        {
+            var transparent = new Rgba32(0, 0, 0, 0);
+            for (int y = 0; y < accessor.Height; y++)
+            {
+                var row = accessor.GetRowSpan(y);
+                row.Fill(transparent);
+            }
+        });
+
+        var positions = new[] { (0, 0), (TileSize, 0), (0, TileSize), (TileSize, TileSize) };
+
+        for (int i = 0; i < Math.Min(4, tiles.Length); i++)
+        {
+            var tile = tiles[i];
+            var (destX, destY) = positions[i];
+
+            // Check if this tile should be substituted
+            if (tileSubstitutions.TryGetValue(tile.TileId, out var substituteTile))
+            {
+                // Use the substituted tile image (with flip handling)
+                RenderSubstituteTile(gridImage, substituteTile, destX, destY, tile.FlipHorizontal, tile.FlipVertical);
+                continue;
+            }
+
+            // Normal tile rendering (same as RenderTileGrid)
+            string tilesetName;
+            int actualTileId;
+
+            if (tile.TileId < NumTilesInPrimaryVram)
+            {
+                tilesetName = primaryTileset;
+                actualTileId = tile.TileId;
+            }
+            else
+            {
+                tilesetName = secondaryTileset;
+                actualTileId = tile.TileId - NumTilesInPrimaryVram;
+            }
+
+            var tilesetData = LoadIndexedTileset(tilesetName);
+            if (tilesetData == null)
+            {
+                if (tilesetName != primaryTileset)
+                {
+                    tilesetData = LoadIndexedTileset(primaryTileset);
+                }
+                if (tilesetData == null)
+                    continue;
+            }
+
+            var (indexedPixels, tilesetWidth, tilesetHeight) = tilesetData.Value;
+            var tilesPerRow = tilesetWidth / TileSize;
+            var tilesPerCol = tilesetHeight / TileSize;
+            var maxTileId = tilesPerRow * tilesPerCol - 1;
+
+            if (actualTileId < 0 || actualTileId > maxTileId)
+                continue;
+
+            var paletteSourceTileset = tile.PaletteIndex >= 6 ? secondaryTileset : primaryTileset;
+            var palettes = LoadPalettes(paletteSourceTileset);
+            Rgba32[]? palette = null;
+
+            if (palettes != null && tile.PaletteIndex >= 0 && tile.PaletteIndex < palettes.Length)
+            {
+                palette = palettes[tile.PaletteIndex];
+            }
+
+            RenderTileToGrid(
+                gridImage,
+                indexedPixels,
+                tilesetWidth,
+                actualTileId,
+                destX,
+                destY,
+                palette,
+                tile.FlipHorizontal,
+                tile.FlipVertical);
+        }
+
+        return gridImage;
+    }
+
+    /// <summary>
+    /// Render a substituted tile image to the grid with flip handling.
+    /// </summary>
+    private void RenderSubstituteTile(
+        Image<Rgba32> gridImage,
+        Image<Rgba32> sourceTile,
+        int destX,
+        int destY,
+        bool flipH,
+        bool flipV)
+    {
+        // Clone and apply flips if needed
+        using var tile = sourceTile.Clone();
+
+        if (flipH && flipV)
+            tile.Mutate(x => x.RotateFlip(RotateMode.Rotate180, FlipMode.None));
+        else if (flipH)
+            tile.Mutate(x => x.Flip(FlipMode.Horizontal));
+        else if (flipV)
+            tile.Mutate(x => x.Flip(FlipMode.Vertical));
+
+        // Copy pixels
+        tile.ProcessPixelRows(gridImage, (srcAccessor, destAccessor) =>
+        {
+            for (int y = 0; y < Math.Min(TileSize, srcAccessor.Height); y++)
+            {
+                var srcRow = srcAccessor.GetRowSpan(y);
+                if (destY + y >= destAccessor.Height) continue;
+                var destRow = destAccessor.GetRowSpan(destY + y);
+
+                for (int x = 0; x < Math.Min(TileSize, srcAccessor.Width); x++)
+                {
+                    if (destX + x >= destRow.Length) continue;
+                    var pixel = srcRow[x];
+                    // Only copy non-transparent pixels (blend over existing)
+                    if (pixel.A > 0)
+                    {
+                        destRow[destX + x] = pixel;
+                    }
+                }
+            }
+        });
+    }
+
+    /// <summary>
     /// Render a 2x2 grid of tiles into a 16x16 image.
     /// </summary>
     private Image<Rgba32> RenderTileGrid(

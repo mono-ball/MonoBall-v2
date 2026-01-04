@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/new_mauville_entrance_event_script_door",
+  "name": "new mauville entrance event script door",
+  "description": "Trigger script: new mauville entrance event script door",
+  "scriptPath": "Scripts/Triggers/new_mauville_entrance_event_script_door.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

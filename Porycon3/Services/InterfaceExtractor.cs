@@ -85,9 +85,10 @@ public class InterfaceExtractor : ExtractorBase
         object definition;
         if (frameWidth.HasValue && frameHeight.HasValue && frameCount.HasValue)
         {
+            var idName = fileName.Replace("_", "-").ToLowerInvariant();
             definition = new
             {
-                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{idName}",
                 name = displayName,
                 type = "Sprite",
                 texturePath = $"Graphics/UI/Interface/{pascalName}.png",
@@ -100,9 +101,10 @@ public class InterfaceExtractor : ExtractorBase
         }
         else
         {
+            var idName = fileName.Replace("_", "-").ToLowerInvariant();
             definition = new
             {
-                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{fileName.Replace("_", "-")}",
+                id = $"{IdTransformer.Namespace}:sprite:ui/interface/{idName}",
                 name = displayName,
                 type = "Sprite",
                 texturePath = $"Graphics/UI/Interface/{pascalName}.png",

@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/no_running",
+  "id": "pokeemerald:script:interactions/tiles/no_running",
   "name": "No Running",
   "description": "Tile interaction: No Running",
+  "scriptPath": "Scripts/Interactions/Tiles/no_running.csx",
   "category": "misc",
   "priority": 500
 }

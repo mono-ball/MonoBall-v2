@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_reception_gate",
   "name": "BattleFrontier_ReceptionGate",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 9,
   "height": 14,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/general",
+    "bottomLayer": [
+      395,
+      395,
+      395,
+      395
+    ],
+    "topLayer": [
+      -1073741820,
+      -1073741820,
+      -1073741820,
+      -1073741820
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_reception_gate/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_reception_gate/ground",
       "name": "Ground",
       "width": 9,
       "height": 14,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwCA4QMAAOEDAADhAwAA4QMAgOEDAIDhAwCAAAAAAOEDAAAAAAAA4QMAAOEDAADhAwAAAAAAAOEDAIAAAAAA4QMAAOEDAADhAwCA4QMAAOEDAADhAwAA4QMAgOEDAIDhAwCA4QMAAAAAAAAAAAAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAA4QMAAAAAAAAAAAAA4QMAAOEDAADhAwAA4QMAgOEDAIDhAwCA4QMAAOEDAIDhAwCA4QMAAOEDAADhAwAAAAAAAAAAAADhAwAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwCA4QMAAOEDAADhAwAA4QMAgOEDAIDhAwCAAAAAAOEDAAAAAAAA4QMAAOEDAADhAwAAAAAAAOEDAIAAAAAA4QMAAOEDAADhAwCA4QMAAOEDAADhAwAA4QMAgOEDAIDhAwCAAAAAAAAAAAAAAAAA4QMAAOEDAADhAwAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_reception_gate/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_reception_gate/objects",
       "name": "Objects",
       "width": 9,
       "height": 14,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAACgAAAAoAAAAAAAAAAAAAAAAAAAAKAAAACgAAAAoAAAA"
+      "tileData": "2QMAANkDAADZAwAA2wMAANwDAADbAwCA2QMAANkDAADZAwCA3QMAAN0DAIDdAwCA3gMAAN8DAADgAwAA3QMAAN0DAADdAwCA4QMAAOEDAADhAwCA5AMAAOUDAADkAwCA4QMAgOEDAIDhAwCA5gMAAOcDAADoAwAA6QMAAOoDAADpAwDA6AMAAOcDAIDmAwCA4QMAAOsDAADhAwCA6QMAAOoDAADpAwDA4QMAgOsDAIDhAwCA5gMAAOYDAIDoAwAA6QMAAOoDAADpAwDA6AMAAOYDAADmAwCA7AMAAHwAAAB8AAAA6QMAAOoDAADpAwDA4QMAgOEDAIDhAwCA7AMAAOEDAIDhAwCA6QMAAOoDAADpAwDA7gMAAO4DAADuAwAA7AMAAO4DAADuAwAA6QMAAOoDAADpAwDAfAAAAHwAAADsAwCA4QMAAOEDAADhAwCA6QMAAOoDAADpAwDA4QMAgOEDAIDhAwCA5gMAAOcDAADoAwAA6QMAAOoDAADpAwDA6AMAAOcDAIDmAwCA4QMAAOsDAADhAwCA6QMAAOoDAADpAwDA4QMAgOsDAIDhAwCA5gMAAOYDAIDoAwAA6QMAAOoDAADpAwDA6AMAAOYDAADmAwCAfAAAAHwAAAB8AAAA5AMAQOUDAMDkAwDAfAAAAHwAAAB8AAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_reception_gate/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_reception_gate/overhead",
       "name": "Overhead",
       "width": 9,
       "height": 14,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADA"
+      "tileData": "2gMAANoDAADaAwAA2gMAwNoDAMDaAwDA2gMAANoDAADaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA4gMAAOIDAIDjAwAAAAAAAAAAAAAAAAAA4wMAAOIDAADiAwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4gMAAAAAAADjAwAAAAAAAAAAAAAAAAAA4wMAAAAAAADiAwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAMAEAADAAAAAAAAAAAAAAAAA7QMAAO0DAADtAwAAAAAAAO0DAADtAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAwAQAAMAAAAAA4gMAAOIDAIDjAwAAAAAAAAAAAAAAAAAA4wMAAOIDAADiAwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4gMAAAAAAADjAwAAAAAAAAAAAAAAAAAA4wMAAAAAAADiAwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAwAQAAMAEAADAAAAAAAAAAAAAAAAABAAAwAQAAMAEAADA"
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_reception_gate/warp_to_battle_frontier_outside_west",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_reception_gate/warp_to_battle_frontier_outside_west",
       "name": "Warp to battle_frontier_outside_west",
       "x": 64,
       "y": 208,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_reception_gate/warp_to_battle_frontier_outside_west",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_reception_gate/warp_to_battle_frontier_outside_west",
       "name": "Warp to battle_frontier_outside_west",
       "x": 64,
       "y": 16,
@@ -97,64 +112,59 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_reception_gate/localid_frontier_reception_greeter",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_reception_gate/localid_frontier_reception_greeter",
       "name": "LOCALID_FRONTIER_RECEPTION_GREETER",
       "x": 0,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_reception_gate_event_script_greeter",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_greeter",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_reception_gate/localid_frontier_reception_guide",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_reception_gate/localid_frontier_reception_guide",
       "name": "LOCALID_FRONTIER_RECEPTION_GUIDE",
       "x": 128,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_reception_gate_event_script_facility_guide",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_facility_guide",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_reception_gate/npc_2",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_reception_gate/npc_2",
       "name": "NPC_2",
       "x": 128,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/man2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_reception_gate_event_script_rules_guide",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_rules_guide",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_reception_gate/localid_frontier_reception_scott",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_reception_gate/localid_frontier_reception_scott",
       "name": "LOCALID_FRONTIER_RECEPTION_SCOTT",
       "x": 64,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/scott",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scott",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_frontier_reception_gate_scott",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_reception_gate/npc_4",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_reception_gate/npc_4",
       "name": "NPC_4",
       "x": 0,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/man2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_reception_gate_event_script_frontier_pass_guide",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_frontier_pass_guide",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_reception_gate/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_reception_gate/elevation_0",
       "name": "Collision_0",
       "width": 9,
       "height": 14,

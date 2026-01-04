@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/pokemart_sign",
+  "id": "pokeemerald:script:interactions/tiles/pokemart_sign",
   "name": "Pokemart Sign",
   "description": "Tile interaction: Pokemart Sign",
+  "scriptPath": "Scripts/Interactions/Tiles/pokemart_sign.csx",
   "category": "misc",
   "priority": 500
 }

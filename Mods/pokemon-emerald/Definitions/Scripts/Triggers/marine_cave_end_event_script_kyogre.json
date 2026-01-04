@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/marine_cave_end_event_script_kyogre",
+  "name": "marine cave end event script kyogre",
+  "description": "Trigger script: marine cave end event script kyogre",
+  "scriptPath": "Scripts/Triggers/marine_cave_end_event_script_kyogre.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/hot_spring",
+  "id": "pokeemerald:script:interactions/tiles/hot_spring",
   "name": "Hot Spring",
   "description": "Tile interaction: Hot Spring",
+  "scriptPath": "Scripts/Interactions/Tiles/hot_spring.csx",
   "category": "misc",
   "priority": 500
 }

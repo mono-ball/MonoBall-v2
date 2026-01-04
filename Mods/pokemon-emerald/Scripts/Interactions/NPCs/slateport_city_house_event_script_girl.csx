@@ -1,0 +1,23 @@
+using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// NPC Interaction: slateport city house event script girl
+/// Original: slateport_city_house_event_script_girl
+/// </summary>
+public class SlateportCityHouseEventScriptGirl : ScriptBase
+{
+    public override void Initialize(ScriptContext context)
+    {
+        base.Initialize(context);
+    }
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {
+    }
+
+    public override void OnUnload()
+    {
+        base.OnUnload();
+    }
+}

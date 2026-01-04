@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route109_event_script_seashore_house_sign",
+  "id": "pokeemerald:script:interactions/signs/route109_event_script_seashore_house_sign",
   "name": "route109 event script seashore house sign",
   "description": "Sign script: route109 event script seashore house sign",
-  "scriptPath": "Scripts/Signs/route109_event_script_seashore_house_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route109_event_script_seashore_house_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

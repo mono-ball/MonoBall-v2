@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/fortree_city_decoration_shop",
   "name": "FortreeCity_DecorationShop",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 8,
   "height": 6,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/fortree_city_decoration_shop/ground",
+      "id": "pokeemerald:layer:Hoenn/fortree_city_decoration_shop/ground",
       "name": "Ground",
       "width": 8,
       "height": 6,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/fortree_city_decoration_shop/objects",
+      "id": "pokeemerald:layer:Hoenn/fortree_city_decoration_shop/objects",
       "name": "Objects",
       "width": 8,
       "height": 6,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/fortree_city_decoration_shop/overhead",
+      "id": "pokeemerald:layer:Hoenn/fortree_city_decoration_shop/overhead",
       "name": "Overhead",
       "width": 8,
       "height": 6,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/fortree_city_decoration_shop/warp_to_fortree_city",
+      "id": "pokeemerald:warp:Hoenn/fortree_city_decoration_shop/warp_to_fortree_city",
       "name": "Warp to fortree_city",
       "x": 48,
       "y": 80,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/fortree_city_decoration_shop/warp_to_fortree_city",
+      "id": "pokeemerald:warp:Hoenn/fortree_city_decoration_shop/warp_to_fortree_city",
       "name": "Warp to fortree_city",
       "x": 64,
       "y": 80,
@@ -97,52 +112,49 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/fortree_city_decoration_shop/npc_0",
+      "id": "pokeemerald:npc:Hoenn/fortree_city_decoration_shop/npc_0",
       "name": "NPC_0",
       "x": 96,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/fortree_city_decoration_shop_event_script_pokefan_m",
+      "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_pokefan_m",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/fortree_city_decoration_shop/npc_1",
+      "id": "pokeemerald:npc:Hoenn/fortree_city_decoration_shop/npc_1",
       "name": "NPC_1",
       "x": 0,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/girl3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/fortree_city_decoration_shop_event_script_girl",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_girl",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/fortree_city_decoration_shop/npc_2",
+      "id": "pokeemerald:npc:Hoenn/fortree_city_decoration_shop/npc_2",
       "name": "NPC_2",
       "x": 16,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/martemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/fortree_city_decoration_shop_event_script_clerk_desks",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_clerk_desks",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/fortree_city_decoration_shop/npc_3",
+      "id": "pokeemerald:npc:Hoenn/fortree_city_decoration_shop/npc_3",
       "name": "NPC_3",
       "x": 96,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/martemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/fortree_city_decoration_shop_event_script_clerk_chairs",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_clerk_chairs",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/fortree_city_decoration_shop/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/fortree_city_decoration_shop/elevation_0",
       "name": "Collision_0",
       "width": 8,
       "height": 6,
@@ -152,7 +164,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEAAAEBAAABAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/fortree_city_decoration_shop/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/fortree_city_decoration_shop/elevation_3",
       "name": "Collision_3",
       "width": 8,
       "height": 6,

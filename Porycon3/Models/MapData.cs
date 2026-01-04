@@ -37,6 +37,7 @@ public sealed class MapLayout
     public required string PrimaryTileset { get; init; }
     public required string SecondaryTileset { get; init; }
     public string BlockdataPath { get; init; } = "";
+    public string BorderPath { get; init; } = "";
 }
 
 public sealed class ObjectEvent

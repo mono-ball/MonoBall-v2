@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/trainer_hill_entrance",
   "name": "TrainerHill_Entrance",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 19,
   "height": 17,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/trainer_hill_entrance/ground",
+      "id": "pokeemerald:layer:Hoenn/trainer_hill_entrance/ground",
       "name": "Ground",
       "width": 19,
       "height": 17,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/trainer_hill_entrance/objects",
+      "id": "pokeemerald:layer:Hoenn/trainer_hill_entrance/objects",
       "name": "Objects",
       "width": 19,
       "height": 17,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/trainer_hill_entrance/overhead",
+      "id": "pokeemerald:layer:Hoenn/trainer_hill_entrance/overhead",
       "name": "Overhead",
       "width": 19,
       "height": 17,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/trainer_hill"
+      "tilesetId": "pokeemerald:tileset:secondary/trainerhill"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/trainer_hill_entrance/warp_to_route111",
+      "id": "pokeemerald:warp:Hoenn/trainer_hill_entrance/warp_to_route111",
       "name": "Warp to route111",
       "x": 144,
       "y": 256,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/trainer_hill_entrance/warp_to_route111",
+      "id": "pokeemerald:warp:Hoenn/trainer_hill_entrance/warp_to_route111",
       "name": "Warp to route111",
       "x": 160,
       "y": 256,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/trainer_hill_entrance/warp_to_trainer_hill_1f",
+      "id": "pokeemerald:warp:Hoenn/trainer_hill_entrance/warp_to_trainer_hill_1f",
       "name": "Warp to trainer_hill_1f",
       "x": 144,
       "y": 16,
@@ -107,13 +122,13 @@
   ],
   "triggers": [
     {
-      "id": "pokeemerald:trigger:hoenn/trainer_hill_entrance/trigger_var_trainer_hill_is_active_0",
+      "id": "pokeemerald:trigger:Hoenn/trainer_hill_entrance/trigger_var_trainer_hill_is_active_0",
       "name": "Trigger: VAR_TRAINER_HILL_IS_ACTIVE == 0",
       "x": 144,
       "y": 96,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_trainer_hill_is_active",
+      "variable": "pokeemerald:variable:Hoenn/var_trainer_hill_is_active",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/trainer_hill_entrance_event_script_entry_trigger",
       "elevation": 3
@@ -121,82 +136,79 @@
   ],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/trainer_hill_entrance/sign_trainerhillentranceeventscriptrecords",
+      "id": "pokeemerald:interaction:Hoenn/trainer_hill_entrance/sign_trainerhillentranceeventscriptrecords",
       "name": "Sign: TrainerHill_Entrance_EventScript_Records",
       "x": 128,
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_records",
+      "interactionId": "pokeemerald:script:interactions/signs/trainer_hill_entrance_event_script_records",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/trainer_hill_entrance/localid_trainer_hill_attendant",
+      "id": "pokeemerald:npc:Hoenn/trainer_hill_entrance/localid_trainer_hill_attendant",
       "name": "LOCALID_TRAINER_HILL_ATTENDANT",
       "x": 176,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_attendant",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_attendant",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/trainer_hill_entrance/localid_trainer_hill_nurse",
+      "id": "pokeemerald:npc:Hoenn/trainer_hill_entrance/localid_trainer_hill_nurse",
       "name": "LOCALID_TRAINER_HILL_NURSE",
       "x": 64,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/nurse",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_nurse",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_nurse",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/trainer_hill_entrance/npc_2",
+      "id": "pokeemerald:npc:Hoenn/trainer_hill_entrance/npc_2",
       "name": "NPC_2",
       "x": 224,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/martemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_clerk",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_clerk",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/trainer_hill_entrance/localid_trainer_hill_girl",
+      "id": "pokeemerald:npc:Hoenn/trainer_hill_entrance/localid_trainer_hill_girl",
       "name": "LOCALID_TRAINER_HILL_GIRL",
       "x": 80,
       "y": 224,
-      "spriteId": "pokeemerald:sprite:npcs/girl3",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_girl",
+      "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_girl",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/trainer_hill_entrance/localid_trainer_hill_man",
+      "id": "pokeemerald:npc:Hoenn/trainer_hill_entrance/localid_trainer_hill_man",
       "name": "LOCALID_TRAINER_HILL_MAN",
       "x": 224,
       "y": 240,
-      "spriteId": "pokeemerald:sprite:npcs/man3",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man3",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_entrance_event_script_man",
+      "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_man",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/trainer_hill_entrance/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/trainer_hill_entrance/elevation_0",
       "name": "Collision_0",
       "width": 19,
       "height": 17,
@@ -206,7 +218,7 @@
       "tileData": "AQEBAQEBAQEBAAEBAQEBAQEBAQEBAQEBAQEBAQABAQEBAQEBAQEBAQEBAQEBAAAAAAABAQEBAQEBAQEBAQEBAQAAAAAAAQEBAQEBAQEBAQEBAQEBAQABAQEBAQEBAQEBAQEBAQEBAAEAAQABAQEBAQEBAQEBAQEBAQABAAEAAQEBAQEBAQEBAQEBAQEAAQABAAEBAQEBAQEBAQEBAQEBAQEAAQEBAQEBAQEBAQEBAQAAAQEBAAEBAAAAAQAAAAEBAQEBAQEBAQAAAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQAAAAAAAAAAAAAAAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:collision:hoenn/trainer_hill_entrance/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/trainer_hill_entrance/elevation_3",
       "name": "Collision_3",
       "width": 19,
       "height": 17,

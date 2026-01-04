@@ -50,5 +50,65 @@
       "height": 32
     }
   ],
-  "animations": []
+  "animations": [
+    {
+      "name": "stage0",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        0.5333333333333333
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "stage1",
+      "loop": true,
+      "frameIndices": [
+        1,
+        2
+      ],
+      "frameDurations": [
+        0.5333333333333333,
+        0.5333333333333333
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "stage2",
+      "loop": true,
+      "frameIndices": [
+        3,
+        4
+      ],
+      "frameDurations": [
+        0.8,
+        0.8
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "stage3",
+      "loop": true,
+      "frameIndices": [
+        5
+      ],
+      "frameDurations": [
+        0.5333333333333333
+      ],
+      "flipHorizontal": false
+    },
+    {
+      "name": "stage4",
+      "loop": true,
+      "frameIndices": [
+        5
+      ],
+      "frameDurations": [
+        0.8
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

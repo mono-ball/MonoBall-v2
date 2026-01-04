@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_battle_tower_battle_room",
   "name": "BattleFrontier_BattleTowerBattleRoom",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_tower_battle_room/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_tower_battle_room/ground",
       "name": "Ground",
       "width": 10,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_tower_battle_room/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_tower_battle_room/objects",
       "name": "Objects",
       "width": 10,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_tower_battle_room/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_tower_battle_room/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_battle_tower_battle_room/warp_to_battle_frontier_battle_tower_lobby",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_battle_tower_battle_room/warp_to_battle_frontier_battle_tower_lobby",
       "name": "Warp to battle_frontier_battle_tower_lobby",
       "x": 80,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_battle_tower_battle_room/warp_to_battle_frontier_battle_tower_lobby",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_battle_tower_battle_room/warp_to_battle_frontier_battle_tower_lobby",
       "name": "Warp to battle_frontier_battle_tower_lobby",
       "x": 96,
       "y": 128,
@@ -97,40 +112,37 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_opponent",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_opponent",
       "name": "LOCALID_TOWER_BATTLE_OPPONENT",
       "x": 80,
       "y": 16,
-      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_opponent",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_attendant_1",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_attendant_1",
       "name": "LOCALID_TOWER_BATTLE_ATTENDANT_1",
       "x": 16,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_attendant_2",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_tower_battle_room/localid_tower_battle_attendant_2",
       "name": "LOCALID_TOWER_BATTLE_ATTENDANT_2",
       "x": 64,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_tower_battle_room/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_battle_tower_battle_room/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 9,

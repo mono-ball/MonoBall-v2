@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lavaridge_town_pokemon_center_2f",
   "name": "LavaridgeTown_PokemonCenter_2F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 14,
   "height": 10,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_pokemon_center_2f/ground",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_pokemon_center_2f/ground",
       "name": "Ground",
       "width": 14,
       "height": 10,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_pokemon_center_2f/objects",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_pokemon_center_2f/objects",
       "name": "Objects",
       "width": 14,
       "height": 10,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_pokemon_center_2f/overhead",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_pokemon_center_2f/overhead",
       "name": "Overhead",
       "width": 14,
       "height": 10,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pokemon_center"
+      "tilesetId": "pokeemerald:tileset:secondary/pokemoncenter"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_pokemon_center_2f/warp_to_lavaridge_town_pokemon_center_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_pokemon_center_2f/warp_to_lavaridge_town_pokemon_center_1f",
       "name": "Warp to lavaridge_town_pokemon_center_1f",
       "x": 16,
       "y": 96,
@@ -81,7 +96,7 @@
       "elevation": 4
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_pokemon_center_2f/warp_to_union_room",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_pokemon_center_2f/warp_to_union_room",
       "name": "Warp to union_room",
       "x": 80,
       "y": 16,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_pokemon_center_2f/warp_to_trade_center",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_pokemon_center_2f/warp_to_trade_center",
       "name": "Warp to trade_center",
       "x": 144,
       "y": 16,
@@ -109,54 +124,50 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_pokemon_center_2f/npc_0",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_pokemon_center_2f/npc_0",
       "name": "NPC_0",
       "x": 96,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_union_room_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_union_room_attendant",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_pokemon_center_2f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_pokemon_center_2f/npc_1",
       "name": "NPC_1",
       "x": 32,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_wireless_club_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_wireless_club_attendant",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_pokemon_center_2f/npc_2",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_pokemon_center_2f/npc_2",
       "name": "NPC_2",
       "x": 160,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_direct_corner_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_direct_corner_attendant",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_pokemon_center_2f/npc_3",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_pokemon_center_2f/npc_3",
       "name": "NPC_3",
       "x": 16,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/mysteryeventdeliveryman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/cable_club_event_script_mystery_gift_man",
+      "spriteId": "pokeemerald:sprite:characters/npcs/mysteryeventdeliveryman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/cable_club_event_script_mystery_gift_man",
       "visibilityFlag": "pokeemerald:flag:visibility/pokemon_center_2f_mystery_gift_man",
-      "facingDirection": "down",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lavaridge_town_pokemon_center_2f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lavaridge_town_pokemon_center_2f/elevation_0",
       "name": "Collision_0",
       "width": 14,
       "height": 10,
@@ -166,7 +177,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQABAQEAAQEBAQAAAAEAAAAAAQAAAAEAAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAQEAAAA="
     },
     {
-      "id": "pokeemerald:collision:hoenn/lavaridge_town_pokemon_center_2f/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/lavaridge_town_pokemon_center_2f/elevation_3",
       "name": "Collision_3",
       "width": 14,
       "height": 10,

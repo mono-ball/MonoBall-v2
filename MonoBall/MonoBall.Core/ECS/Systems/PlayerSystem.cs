@@ -205,9 +205,9 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
         );
 
         // Convert pixel position to grid coordinates for PositionComponent
-        // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
-        var tileWidth = TileSizeHelper.GetTileWidth(World, _modManager);
-        var tileHeight = TileSizeHelper.GetTileHeight(World, _modManager);
+        // Get tile dimensions from loaded maps or constants service (supports rectangular tiles)
+        var tileWidth = TileSizeHelper.GetTileWidth(World, _constants);
+        var tileHeight = TileSizeHelper.GetTileHeight(World, _constants);
         var gridX = (int)(position.X / tileWidth);
         var gridY = (int)(position.Y / tileHeight);
         float pixelX = gridX * tileWidth;
@@ -217,12 +217,18 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
         var playerEntity = World.Create(
             new PlayerComponent { PlayerId = "player:main", Name = "May" },
             new SpriteSheetComponent { CurrentSpriteSheetId = initialSpriteSheetId },
+            new SpriteComponent
+            {
+                SpriteId = initialSpriteSheetId,
+                FrameIndex = 0,
+                FlipHorizontal = false, // Will be updated by SpriteAnimationSystem
+                FlipVertical = false, // Will be updated by SpriteAnimationSystem
+            },
             new SpriteAnimationComponent
             {
                 CurrentAnimationName = initialAnimation,
-                CurrentFrameIndex = 0,
+                CurrentAnimationFrameIndex = 0,
                 ElapsedTime = 0.0f,
-                FlipHorizontal = false,
                 IsPlaying = true,
                 IsComplete = false,
                 PlayOnce = false,

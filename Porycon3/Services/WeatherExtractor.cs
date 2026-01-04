@@ -135,9 +135,10 @@ public class WeatherExtractor : ExtractorBase
         }
 
         // Create graphics definition with TileSheet format
+        var weatherId = weatherType.ToLowerInvariant();
         var definition = new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:weather:graphics/{weatherType}",
+            ["id"] = $"{IdTransformer.Namespace}:weather:graphics/{weatherId}",
             ["name"] = FormatDisplayName(weatherType),
             ["type"] = "TileSheet",
             ["texturePath"] = extractedTextures[0],

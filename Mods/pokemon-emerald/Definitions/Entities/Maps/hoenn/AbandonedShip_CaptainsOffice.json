@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/abandoned_ship_captains_office",
   "name": "AbandonedShip_CaptainsOffice",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underground",
   "width": 9,
   "height": 7,
@@ -19,9 +19,24 @@
   "allowCycling": true,
   "allowEscaping": true,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/facility",
+    "bottomLayer": [
+      1014,
+      1014,
+      1014,
+      1014
+    ],
+    "topLayer": [
+      -1073740824,
+      -1073740824,
+      -1073740824,
+      -1073740824
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/abandoned_ship_captains_office/ground",
+      "id": "pokeemerald:layer:Hoenn/abandoned_ship_captains_office/ground",
       "name": "Ground",
       "width": 9,
       "height": 7,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "ZwEAAGcBAABnAQAAaQEAAGkBAABnAQCAZwEAgGkBAABpAQAAbAEAAGwBAABsAQAAbgEAAG4BAABsAQCAbAEAgGwBAIBsAQCAAAAAAAAAAAAAAAAAeAEAAHgBAAAAAAAAAAAAAGkBAABpAQAAaQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaQEAAGkBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdQEAAHUBAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "2QMAANkDAADZAwAA2wMAANsDAADZAwCA2QMAgNsDAADbAwAA3gMAAN4DAADeAwAA4AMAAOADAADeAwCA3gMAgN4DAIDeAwCAAAAAAAAAAAAAAAAA6gMAAOoDAAAAAAAAAAAAANsDAADbAwAA2wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2wMAANsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5wMAAOcDAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/abandoned_ship_captains_office/objects",
+      "id": "pokeemerald:layer:Hoenn/abandoned_ship_captains_office/objects",
       "name": "Objects",
       "width": 9,
       "height": 7,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "aAEAAGgBAABoAQAAZwEAgGcBAIBqAQAAawEAAGcBAIBnAQCAbQEAAG0BAABtAQAAbwEAAHABAABxAQAAcgEAAHMBAAB0AQAAdQEAAHcBAAB3AQAAeQEAAHoBAAB3AQAAdwEAAHsBAAB8AQAAfQEAAGkBAABpAQAAaQEAAGkBAABpAQAAaQEAAHcBAAB3AQAAfgEAAGkBAABpAQAAaQEAAGkBAABpAQAAaQEAAGkBAABpAQAAdQEAAGkBAABpAQAAfwEAAIABAABpAQAAaQEAAGkBAABpAQAAdQEAAGkBAABpAQAAgQEAAIIBAABpAQAAaQEAAIMBAACDAQDA"
+      "tileData": "2gMAANoDAADaAwAA2QMAgNkDAIDcAwAA3QMAANkDAIDZAwCA3wMAAN8DAADfAwAA4QMAAOIDAADjAwAA5AMAAOUDAADmAwAA5wMAAOkDAADpAwAA6wMAAOwDAADpAwAA6QMAAO0DAADuAwAA7wMAANsDAADbAwAA2wMAANsDAADbAwAA2wMAAOkDAADpAwAA8AMAANsDAADbAwAA2wMAANsDAADbAwAA2wMAANsDAADbAwAA5wMAANsDAADbAwAA8QMAAPIDAADbAwAA2wMAANsDAADbAwAA5wMAANsDAADbAwAA8wMAAPQDAADbAwAA2wMAAPUDAAD1AwDA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/abandoned_ship_captains_office/overhead",
+      "id": "pokeemerald:layer:Hoenn/abandoned_ship_captains_office/overhead",
       "name": "Overhead",
       "width": 9,
       "height": 7,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdgEAAHYBAMB2AQDAAAAAAAAAAAB2AQDAdgEAwAAAAAAAAAAAAAAAAHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAAAAAAHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAAHYBAMB2AQDAAAAAAAAAAAB2AQDAdgEAwHYBAMB2AQDAdgEAAHYBAMB2AQDAAAAAAAAAAAB2AQDAdgEAwHYBAMB2AQDA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAAOgDAMDoAwDAAAAAAAAAAADoAwDA6AMAwAAAAAAAAAAAAAAAAOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDAAAAAAOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAAOgDAMDoAwDAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAAOgDAMDoAwDAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDA"
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/facility"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/abandoned_ship_captains_office/warp_to_abandoned_ship_deck",
+      "id": "pokeemerald:warp:Hoenn/abandoned_ship_captains_office/warp_to_abandoned_ship_deck",
       "name": "Warp to abandoned_ship_deck",
       "x": 112,
       "y": 96,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/abandoned_ship_captains_office/warp_to_abandoned_ship_deck",
+      "id": "pokeemerald:warp:Hoenn/abandoned_ship_captains_office/warp_to_abandoned_ship_deck",
       "name": "Warp to abandoned_ship_deck",
       "x": 128,
       "y": 96,
@@ -97,31 +112,30 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/abandoned_ship_captains_office/npc_0",
+      "id": "pokeemerald:npc:Hoenn/abandoned_ship_captains_office/npc_0",
       "name": "NPC_0",
       "x": 48,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/scientist1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/abandoned_ship_captains_office_event_script_capt_stern_aide",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_captains_office_event_script_capt_stern_aide",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/abandoned_ship_captains_office/npc_1",
+      "id": "pokeemerald:npc:Hoenn/abandoned_ship_captains_office/npc_1",
       "name": "NPC_1",
       "x": 0,
       "y": 96,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_find_item",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_captains_office_storage_key",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/abandoned_ship_captains_office/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/abandoned_ship_captains_office/elevation_0",
       "name": "Collision_0",
       "width": 9,
       "height": 7,
@@ -131,7 +145,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/abandoned_ship_captains_office/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/abandoned_ship_captains_office/elevation_3",
       "name": "Collision_3",
       "width": 9,
       "height": 7,

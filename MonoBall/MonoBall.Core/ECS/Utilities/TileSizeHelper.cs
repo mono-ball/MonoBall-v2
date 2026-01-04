@@ -28,36 +28,29 @@ public static class TileSizeHelper
     [Obsolete(
         "This method assumes square tiles. Use GetTileWidth() and GetTileHeight() separately for rectangular tiles."
     )]
-    public static int GetTileSize(World world, IModManager? modManager = null)
+    public static int GetTileSize(World world, IConstantsService constantsService)
     {
         // For backward compatibility, return tile width (assumes square tiles)
-        return GetTileWidth(world, modManager);
+        return GetTileWidth(world, constantsService);
     }
 
     /// <summary>
-    ///     Gets the tile width from the first loaded map in the world, or from constants service/mod configuration.
+    ///     Gets the tile width from the first loaded map in the world, or from constants service.
     /// </summary>
     /// <param name="world">The ECS world to query for MapComponent.</param>
-    /// <param name="modManager">Optional mod manager for getting default tile width when no maps are loaded.</param>
-    /// <param name="constantsService">Optional constants service for getting default tile width when no maps are loaded.</param>
+    /// <param name="constantsService">The constants service to use when no maps are loaded. Must contain "TileWidth" constant.</param>
     /// <returns>The tile width in pixels.</returns>
-    /// <exception cref="InvalidOperationException">
-    ///     Thrown if no maps are loaded and neither constantsService nor modManager is
-    ///     available.
-    /// </exception>
-    public static int GetTileWidth(
-        World world,
-        IModManager? modManager = null,
-        IConstantsService? constantsService = null
-    )
+    /// <exception cref="ArgumentNullException">Thrown if world or constantsService is null.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if no maps are loaded and ConstantsService does not contain TileWidth constant.</exception>
+    public static int GetTileWidth(World world, IConstantsService constantsService)
     {
         if (world == null)
             throw new ArgumentNullException(nameof(world));
+        if (constantsService == null)
+            throw new ArgumentNullException(nameof(constantsService));
 
-        // First, try to get tile width from a loaded map
+        // Check for tile width from loaded maps
         var tileWidth = 0;
-
-        // Create query locally (avoid static field issues)
         var mapQuery = new QueryDescription().WithAll<MapComponent>();
         world.Query(
             in mapQuery,
@@ -72,43 +65,35 @@ public static class TileSizeHelper
         if (tileWidth > 0)
             return tileWidth;
 
-        // Fall back to constants service or mod manager
-        if (constantsService != null && constantsService.Contains("TileWidth"))
-            return constantsService.Get<int>("TileWidth");
+        // No maps loaded - require ConstantsService to have TileWidth constant
+        if (!constantsService.Contains("TileWidth"))
+        {
+            throw new InvalidOperationException(
+                "Cannot determine tile width: No maps are loaded and ConstantsService does not contain 'TileWidth' constant. "
+                    + "Either load a map with tileWidth specified, or ensure ConstantsService has TileWidth constant defined."
+            );
+        }
 
-        if (modManager != null)
-            return modManager.GetTileWidth(constantsService);
-
-        throw new InvalidOperationException(
-            "Cannot determine tile width: No maps are loaded and neither ConstantsService nor ModManager is available. "
-                + "Either load a map with tileWidth specified, or provide ConstantsService with TileWidth constant or ModManager with tileWidth configured."
-        );
+        return constantsService.Get<int>("TileWidth");
     }
 
     /// <summary>
-    ///     Gets the tile height from the first loaded map in the world, or from constants service/mod configuration.
+    ///     Gets the tile height from the first loaded map in the world, or from constants service.
     /// </summary>
     /// <param name="world">The ECS world to query for MapComponent.</param>
-    /// <param name="modManager">Optional mod manager for getting default tile height when no maps are loaded.</param>
-    /// <param name="constantsService">Optional constants service for getting default tile height when no maps are loaded.</param>
+    /// <param name="constantsService">The constants service to use when no maps are loaded. Must contain "TileHeight" constant.</param>
     /// <returns>The tile height in pixels.</returns>
-    /// <exception cref="InvalidOperationException">
-    ///     Thrown if no maps are loaded and neither constantsService nor modManager is
-    ///     available.
-    /// </exception>
-    public static int GetTileHeight(
-        World world,
-        IModManager? modManager = null,
-        IConstantsService? constantsService = null
-    )
+    /// <exception cref="ArgumentNullException">Thrown if world or constantsService is null.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if no maps are loaded and ConstantsService does not contain TileHeight constant.</exception>
+    public static int GetTileHeight(World world, IConstantsService constantsService)
     {
         if (world == null)
             throw new ArgumentNullException(nameof(world));
+        if (constantsService == null)
+            throw new ArgumentNullException(nameof(constantsService));
 
-        // First, try to get tile height from a loaded map
+        // Check for tile height from loaded maps
         var tileHeight = 0;
-
-        // Create query locally (avoid static field issues)
         var mapQuery = new QueryDescription().WithAll<MapComponent>();
         world.Query(
             in mapQuery,
@@ -123,16 +108,15 @@ public static class TileSizeHelper
         if (tileHeight > 0)
             return tileHeight;
 
-        // Fall back to constants service or mod manager
-        if (constantsService != null && constantsService.Contains("TileHeight"))
-            return constantsService.Get<int>("TileHeight");
+        // No maps loaded - require ConstantsService to have TileHeight constant
+        if (!constantsService.Contains("TileHeight"))
+        {
+            throw new InvalidOperationException(
+                "Cannot determine tile height: No maps are loaded and ConstantsService does not contain 'TileHeight' constant. "
+                    + "Either load a map with tileHeight specified, or ensure ConstantsService has TileHeight constant defined."
+            );
+        }
 
-        if (modManager != null)
-            return modManager.GetTileHeight(constantsService);
-
-        throw new InvalidOperationException(
-            "Cannot determine tile height: No maps are loaded and neither ConstantsService nor ModManager is available. "
-                + "Either load a map with tileHeight specified, or provide ConstantsService with TileHeight constant or ModManager with tileHeight configured."
-        );
+        return constantsService.Get<int>("TileHeight");
     }
 }

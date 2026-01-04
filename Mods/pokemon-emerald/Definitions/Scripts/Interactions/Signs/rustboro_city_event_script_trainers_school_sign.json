@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/rustboro_city_event_script_trainers_school_sign",
+  "id": "pokeemerald:script:interactions/signs/rustboro_city_event_script_trainers_school_sign",
   "name": "rustboro city event script trainers school sign",
   "description": "Sign script: rustboro city event script trainers school sign",
-  "scriptPath": "Scripts/Signs/rustboro_city_event_script_trainers_school_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/rustboro_city_event_script_trainers_school_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

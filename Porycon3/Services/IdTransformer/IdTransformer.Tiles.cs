@@ -10,7 +10,7 @@ public static partial class IdTransformer
     /// <summary>
     /// Transform metatile behavior value to tile interaction ID.
     /// 0 (MB_NORMAL) -> null (default, not stored)
-    /// Other values -> base:interaction/tiles/{name}
+    /// Other values -> base:script:interactions/tiles/{normalized}
     /// </summary>
     public static string? TileInteractionId(int behaviorValue)
     {
@@ -19,7 +19,7 @@ public static partial class IdTransformer
             return null;
 
         var name = GetMetatileBehaviorName(pureBehavior);
-        return $"{Namespace}:interaction/tiles/{name}";
+        return InteractionScriptId(name, "tiles");
     }
 
     private static string GetMetatileBehaviorName(int behavior)
@@ -244,9 +244,9 @@ public static partial class IdTransformer
     #region Tileset IDs
 
     /// <summary>
-    /// Transform tileset name to unified format.
+    /// Transform tileset name to unified format (lowercase ID).
     /// gTileset_General -> base:tileset:primary/general
-    /// gTileset_Petalburg -> base:tileset:secondary/petalburg
+    /// gTileset_EverGrande -> base:tileset:secondary/evergrande
     /// </summary>
     public static string TilesetId(string tilesetName, string tilesetType)
     {
@@ -257,7 +257,25 @@ public static partial class IdTransformer
         if (name.StartsWith("gTileset_", StringComparison.OrdinalIgnoreCase))
             name = name[9..];
 
-        return $"{Namespace}:tileset:{tilesetType}/{Normalize(name)}";
+        // IDs are lowercase without underscores
+        return $"{Namespace}:tileset:{tilesetType}/{name.ToLowerInvariant().Replace("_", "")}";
+    }
+
+    /// <summary>
+    /// Get PascalCase filename for a tileset.
+    /// gTileset_EverGrande -> EverGrande
+    /// ever_grande -> EverGrande
+    /// </summary>
+    public static string TilesetFileName(string tilesetName)
+    {
+        if (string.IsNullOrEmpty(tilesetName))
+            return "";
+
+        var name = tilesetName;
+        if (name.StartsWith("gTileset_", StringComparison.OrdinalIgnoreCase))
+            name = name[9..];
+
+        return ToPascalCase(name);
     }
 
     #endregion

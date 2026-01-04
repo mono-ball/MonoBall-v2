@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/ever_grande_city_event_script_set_visited_ever_grande",
+  "name": "ever grande city event script set visited ever grande",
+  "description": "Trigger script: ever grande city event script set visited ever grande",
+  "scriptPath": "Scripts/Triggers/ever_grande_city_event_script_set_visited_ever_grande.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

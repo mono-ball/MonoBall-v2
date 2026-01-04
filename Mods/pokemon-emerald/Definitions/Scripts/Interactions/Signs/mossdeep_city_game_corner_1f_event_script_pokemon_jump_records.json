@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/mossdeep_city_game_corner_1f_event_script_pokemon_jump_records",
+  "id": "pokeemerald:script:interactions/signs/mossdeep_city_game_corner_1f_event_script_pokemon_jump_records",
   "name": "mossdeep city game corner 1f event script pokemon jump records",
   "description": "Sign script: mossdeep city game corner 1f event script pokemon jump records",
-  "scriptPath": "Scripts/Signs/mossdeep_city_game_corner_1f_event_script_pokemon_jump_records.csx",
+  "scriptPath": "Scripts/Interactions/Signs/mossdeep_city_game_corner_1f_event_script_pokemon_jump_records.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

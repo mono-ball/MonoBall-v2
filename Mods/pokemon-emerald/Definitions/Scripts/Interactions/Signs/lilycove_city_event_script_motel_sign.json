@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/lilycove_city_event_script_motel_sign",
+  "id": "pokeemerald:script:interactions/signs/lilycove_city_event_script_motel_sign",
   "name": "lilycove city event script motel sign",
   "description": "Sign script: lilycove city event script motel sign",
-  "scriptPath": "Scripts/Signs/lilycove_city_event_script_motel_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/lilycove_city_event_script_motel_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

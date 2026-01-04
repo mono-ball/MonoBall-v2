@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/slateport_city_oceanic_museum_1f_event_script_pay_entrance_fee_right",
+  "name": "slateport city oceanic museum 1f event script pay entrance fee right",
+  "description": "Trigger script: slateport city oceanic museum 1f event script pay entrance fee right",
+  "scriptPath": "Scripts/Triggers/slateport_city_oceanic_museum_1f_event_script_pay_entrance_fee_right.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

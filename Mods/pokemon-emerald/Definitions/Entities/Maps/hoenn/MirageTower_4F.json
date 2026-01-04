@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/mirage_tower_4f",
   "name": "MirageTower_4F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underground",
   "width": 13,
   "height": 10,
@@ -19,9 +19,24 @@
   "allowCycling": true,
   "allowEscaping": true,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/miragetower",
+    "bottomLayer": [
+      985,
+      985,
+      985,
+      985
+    ],
+    "topLayer": [
+      986,
+      986,
+      986,
+      986
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/mirage_tower_4f/ground",
+      "id": "pokeemerald:layer:Hoenn/mirage_tower_4f/ground",
       "name": "Ground",
       "width": 13,
       "height": 10,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADjAwAA4wMAAOMDAADjAwAA4wMAAOMDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOcDAADjAwAAAAAAAAAAAAAAAAAAAAAAAAAAAADtAwAA4wMAAAAAAAAAAAAAAAAAAAAAAADjAwAAAAAAAOMDAADjAwAA4wMAAOMDAADjAwAAAAAAAOMDAADjAwAAAAAAAAAAAAAAAAAA4wMAAAAAAADjAwAA4wMAAOMDAADjAwAA4wMAAAAAAADjAwAA4wMAAAAAAAAAAAAAAAAAAOMDAAAAAAAA4wMAAOMDAADjAwAA4wMAAOMDAAAAAAAA4wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7QMAAOMDAAAAAAAAAAAAAAAAAADnAwAAAAAAAAAAAAAAAAAAAAAAAOMDAADjAwAA4wMAAOMDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADjAwAA4wMAAOMDAADjAwAA4wMAAOMDAADjAwAA4wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/mirage_tower_4f/objects",
+      "id": "pokeemerald:layer:Hoenn/mirage_tower_4f/objects",
       "name": "Objects",
       "width": 13,
       "height": 10,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "2QMAANkDAADbAwAA3QMAAN0DAADdAwAA3QMAAN0DAADdAwAA3AMAAN4DAADZAwAA2QMAANsDAADdAwAA4gMAAOMDAADkAwAA5QMAAOUDAADlAwAA5QMAAOYDAADpAwAA3QMAAN4DAADfAwAA4wMAAP0DAADuAwAA7wMAAO8DAADvAwAA7wMAAO8DAADwAwAA5gMAAOMDAADhAwAA3wMAAOMDAADkAwAA4QMAAOQDAADlAwAA5QMAAOUDAADmAwAA3wMAAOoDAADmAwAA4QMAAN8DAAD\u002BAwAA7AMAAOEDAADsAwAA6gMAAOoDAADqAwAA8QMAAN8DAADqAwAA9gMAAOEDAADfAwAA4wMAAPMDAADhAwAA8wMAAOsDAADrAwAA6wMAAPYDAADfAwAA8QMAAOMDAADhAwAA3wMAAOMDAADjAwAA6QMAAN0DAADdAwAA/wMAAN0DAADdAwAA9QMAAPYDAADjAwAA4QMAAN8DAAD9AwAA4wMAAOMDAADjAwAA4wMAAOQDAADlAwAA6gMAAPEDAADjAwAA4wMAAOEDAADvAwAA7wMAAPcDAADkAwAA5QMAAOUDAADqAwAA6gMAAOoDAADxAwAA7gMAAO8DAADvAwAA2QMAAOMDAADvAwAA7wMAAO8DAADvAwAA7wMAAO8DAADvAwAA7wMAAO8DAADjAwAA2QMAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/mirage_tower_4f/overhead",
+      "id": "pokeemerald:layer:Hoenn/mirage_tower_4f/overhead",
       "name": "Overhead",
       "width": 13,
       "height": 10,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "2gMAANoDAADZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMDaAwAA2gMAANkDAMDZAwDA2QMAwNkDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADZAwDA2QMAwNkDAMDZAwDA2QMAwAAAAAAAAAAA2QMAwNkDAMDZAwDA2QMAwNkDAMAAAAAAAAAAANkDAMDZAwDA2QMAwNkDAMAAAAAA2QMAwAAAAAAAAAAAAAAAAAAAAAAAAAAA2QMAwAAAAAAAAAAA2QMAwNkDAMDZAwDAAAAAANkDAMAAAAAAAAAAAAAAAAAAAAAAAAAAANkDAMAAAAAAAAAAANkDAMDZAwDA2QMAwAAAAADZAwDAAAAAAAAAAAAAAAAAAAAAAAAAAADZAwDAAAAAANkDAMDZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMDZAwDAAAAAAAAAAADZAwDA2QMAwNkDAMAAAAAA2QMAwNkDAMDZAwDA2QMAwAAAAAAAAAAAAAAAAAAAAADZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANkDAMDZAwDA2gMAANkDAMDZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMDZAwDA2QMAwNkDAMDZAwDA2gMAAA=="
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
-      "tilesetId": "pokeemerald:tileset:secondary/mirage_tower"
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/miragetower"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/mirage_tower_4f/warp_to_mirage_tower_3f",
+      "id": "pokeemerald:warp:Hoenn/mirage_tower_4f/warp_to_mirage_tower_3f",
       "name": "Warp to mirage_tower_3f",
       "x": 16,
       "y": 64,
@@ -85,44 +100,42 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/mirage_tower_4f/localid_mirage_root_fossil",
+      "id": "pokeemerald:npc:Hoenn/mirage_tower_4f/localid_mirage_root_fossil",
       "name": "LOCALID_MIRAGE_ROOT_FOSSIL",
       "x": 80,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/fossil",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mirage_tower_4f_event_script_root_fossil",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mirage_tower_4f_event_script_root_fossil",
       "visibilityFlag": "pokeemerald:flag:visibility/mirage_tower_root_fossil",
-      "facingDirection": "down",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/mirage_tower_4f/localid_mirage_claw_fossil",
+      "id": "pokeemerald:npc:Hoenn/mirage_tower_4f/localid_mirage_claw_fossil",
       "name": "LOCALID_MIRAGE_CLAW_FOSSIL",
       "x": 112,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/fossil",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mirage_tower_4f_event_script_claw_fossil",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mirage_tower_4f_event_script_claw_fossil",
       "visibilityFlag": "pokeemerald:flag:visibility/mirage_tower_claw_fossil",
-      "facingDirection": "down",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mirage_tower_4f/npc_2",
+      "id": "pokeemerald:npc:Hoenn/mirage_tower_4f/npc_2",
       "name": "NPC_2",
       "x": 96,
       "y": 112,
       "spriteId": "pokeemerald:sprite:objects/misc/breakablerock",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/event_script_rock_smash",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:temporary/11",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/mirage_tower_4f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/mirage_tower_4f/elevation_0",
       "name": "Collision_0",
       "width": 13,
       "height": 10,

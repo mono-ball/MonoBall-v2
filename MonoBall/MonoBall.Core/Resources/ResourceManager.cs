@@ -555,6 +555,72 @@ public class ResourceManager : IResourceManager, IDisposable
         return animation.FlipHorizontal;
     }
 
+    public bool GetAnimationFlipVertical(string spriteId, string animationName)
+    {
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(ResourceManager));
+
+        if (string.IsNullOrEmpty(spriteId))
+            throw new ArgumentException("Sprite ID cannot be null or empty.", nameof(spriteId));
+
+        if (string.IsNullOrEmpty(animationName))
+            throw new ArgumentException(
+                "Animation name cannot be null or empty.",
+                nameof(animationName)
+            );
+
+        var definition = GetSpriteDefinition(spriteId); // This will throw if not found
+
+        var animation = definition.Animations?.FirstOrDefault(a => a.Name == animationName);
+        if (animation == null)
+            throw new InvalidOperationException(
+                $"Animation '{animationName}' not found for sprite '{spriteId}'"
+            );
+
+        return animation.FlipVertical;
+    }
+
+    public Rectangle GetSpriteFrameRectangle(string spriteId, int frameIndex)
+    {
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(ResourceManager));
+
+        if (string.IsNullOrEmpty(spriteId))
+            throw new ArgumentException("Sprite ID cannot be null or empty.", nameof(spriteId));
+
+        if (frameIndex < 0)
+            throw new ArgumentException("Frame index cannot be negative.", nameof(frameIndex));
+
+        var definition = GetSpriteDefinition(spriteId); // This will throw if not found
+
+        if (frameIndex >= definition.Frames.Count)
+            throw new ArgumentOutOfRangeException(
+                nameof(frameIndex),
+                frameIndex,
+                $"Frame index {frameIndex} is out of range. Sprite '{spriteId}' has {definition.Frames.Count} frames."
+            );
+
+        // Try O(1) lookup first (if frames are sequential)
+        // After bounds check above, we know frameIndex is valid for array access
+        var frame = definition.Frames[frameIndex];
+        // Validate frame Index property matches array position for safety
+        if (frame.Index == frameIndex)
+        {
+            return new Rectangle(frame.X, frame.Y, frame.Width, frame.Height);
+        }
+
+        // Fallback to O(n) search if frames have non-sequential indices
+        var frameDef = definition.Frames.FirstOrDefault(f => f.Index == frameIndex);
+        if (frameDef == null)
+            throw new ArgumentOutOfRangeException(
+                nameof(frameIndex),
+                frameIndex,
+                $"Frame index {frameIndex} not found in sprite '{spriteId}'."
+            );
+
+        return new Rectangle(frameDef.X, frameDef.Y, frameDef.Width, frameDef.Height);
+    }
+
     public TilesetDefinition GetTilesetDefinition(string tilesetId)
     {
         if (_disposed)
@@ -1019,6 +1085,7 @@ public class ResourceManager : IResourceManager, IDisposable
                             frameDef.Height
                         ),
                         DurationSeconds = durationSeconds,
+                        FrameIndex = frameDef.Index,
                     };
                     frameList.Add(animationFrame);
                 }

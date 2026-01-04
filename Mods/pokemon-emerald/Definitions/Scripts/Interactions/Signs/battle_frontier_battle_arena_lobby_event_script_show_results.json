@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/battle_frontier_battle_arena_lobby_event_script_show_results",
+  "id": "pokeemerald:script:interactions/signs/battle_frontier_battle_arena_lobby_event_script_show_results",
   "name": "battle frontier battle arena lobby event script show results",
   "description": "Sign script: battle frontier battle arena lobby event script show results",
-  "scriptPath": "Scripts/Signs/battle_frontier_battle_arena_lobby_event_script_show_results.csx",
+  "scriptPath": "Scripts/Interactions/Signs/battle_frontier_battle_arena_lobby_event_script_show_results.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

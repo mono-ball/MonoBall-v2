@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/aqua_hideout_b2f_event_script_matt_notice_player",
+  "name": "aqua hideout b2f event script matt notice player",
+  "description": "Trigger script: aqua hideout b2f event script matt notice player",
+  "scriptPath": "Scripts/Triggers/aqua_hideout_b2f_event_script_matt_notice_player.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

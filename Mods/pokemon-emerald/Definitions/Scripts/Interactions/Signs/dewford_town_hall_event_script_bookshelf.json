@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/dewford_town_hall_event_script_bookshelf",
+  "id": "pokeemerald:script:interactions/signs/dewford_town_hall_event_script_bookshelf",
   "name": "dewford town hall event script bookshelf",
   "description": "Sign script: dewford town hall event script bookshelf",
-  "scriptPath": "Scripts/Signs/dewford_town_hall_event_script_bookshelf.csx",
+  "scriptPath": "Scripts/Interactions/Signs/dewford_town_hall_event_script_bookshelf.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

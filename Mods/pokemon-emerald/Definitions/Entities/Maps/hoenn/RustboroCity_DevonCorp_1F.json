@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/rustboro_city_devon_corp_1f",
   "name": "RustboroCity_DevonCorp_1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 19,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/facility",
+    "bottomLayer": [
+      35,
+      35,
+      35,
+      35
+    ],
+    "topLayer": [
+      -1073741803,
+      -1073741803,
+      -1073741803,
+      -1073741803
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_devon_corp_1f/ground",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_devon_corp_1f/ground",
       "name": "Ground",
       "width": 19,
       "height": 9,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "mgAAAJoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJoAAACaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACaAAAAmgAAAJoAAACaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACaAAAAmgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmgAAAJoAAACaAAAAmgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmgAAAJoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJoAAACaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "IwAAACMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMAAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjAAAAIwAAACMAAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjAAAAIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAACMAAAAjAAAAIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIwAAACMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMAAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_devon_corp_1f/objects",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_devon_corp_1f/objects",
       "name": "Objects",
       "width": 19,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "FQAAwBUAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAMAVAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAADAFQAAwBUAAMAVAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAADAFQAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAwBUAAMAVAADAFQAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAwBUAAMAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAMAVAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_devon_corp_1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_devon_corp_1f/overhead",
       "name": "Overhead",
       "width": 19,
       "height": 9,
@@ -69,7 +84,7 @@
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_devon_corp_1f/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_devon_corp_1f/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 80,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_devon_corp_1f/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_devon_corp_1f/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 96,
       "y": 128,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_devon_corp_1f/warp_to_rustboro_city_devon_corp_2f",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_devon_corp_1f/warp_to_rustboro_city_devon_corp_2f",
       "name": "Warp to rustboro_city_devon_corp_2f",
       "x": 224,
       "y": 16,
@@ -108,70 +123,69 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_devon_corp_1f/sign_rustborocitydevoncorp1feventscriptproductsdisplay",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_devon_corp_1f/sign_rustborocitydevoncorp1feventscriptproductsdisplay",
       "name": "Sign: RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay",
       "x": 48,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_1f_event_script_products_display",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_devon_corp_1f_event_script_products_display",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_devon_corp_1f/sign_rustborocitydevoncorp1feventscriptrocksmetaldisplay",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_devon_corp_1f/sign_rustborocitydevoncorp1feventscriptrocksmetaldisplay",
       "name": "Sign: RustboroCity_DevonCorp_1F_EventScript_RocksMetalDisplay",
       "x": 128,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_1f_event_script_rocks_metal_display",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_devon_corp_1f_event_script_rocks_metal_display",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_devon_corp_1f/npc_0",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_devon_corp_1f/npc_0",
       "name": "NPC_0",
       "x": 32,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/devonemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/devonemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_1f_event_script_employee",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_1f_event_script_employee",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_devon_corp_1f/localid_devon_corp_stair_guard",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_devon_corp_1f/localid_devon_corp_stair_guard",
       "name": "LOCALID_DEVON_CORP_STAIR_GUARD",
       "x": 240,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/devonemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/devonemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_1f_event_script_stair_guard",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_1f_event_script_stair_guard",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_devon_corp_1f/npc_2",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_devon_corp_1f/npc_2",
       "name": "NPC_2",
       "x": 80,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/woman3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_devon_corp_1f_event_script_greeter",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_1f_event_script_greeter",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_devon_corp_1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_devon_corp_1f/elevation_0",
       "name": "Collision_0",
       "width": 19,
       "height": 9,

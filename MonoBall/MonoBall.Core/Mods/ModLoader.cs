@@ -17,6 +17,10 @@ namespace MonoBall.Core.Mods;
 /// </summary>
 public class ModLoader : IDisposable
 {
+    /// <summary>
+    ///     List of loaded mods in load order.
+    ///     Note: Mod loading is single-threaded. This list is not thread-safe.
+    /// </summary>
     private readonly List<ModManifest> _loadedMods = new();
     private readonly ILogger _logger;
 
@@ -25,6 +29,7 @@ public class ModLoader : IDisposable
     private readonly string _modsDirectory;
     private readonly List<IModSource> _modSources = new();
     private readonly DefinitionRegistry _registry;
+    private RootModManifest? _cachedRootManifest;
 
     /// <summary>
     ///     Initializes a new instance of the ModLoader.
@@ -131,10 +136,11 @@ public class ModLoader : IDisposable
         LoadModDefinitions(coreMod, errors);
         _loadedMods.Add(coreMod);
         CoreMod = coreMod;
-        modManifests.Remove(coreMod); // Remove from list so it's not loaded again
 
         // Step 4: Resolve dependencies and determine load order for remaining mods
-        var loadOrder = ResolveLoadOrder(modManifests, coreModId, errors);
+        // Create new list excluding core mod to avoid modifying input parameter
+        var remainingMods = modManifests.Where(m => m.Id != coreModId).ToList();
+        var loadOrder = ResolveLoadOrder(remainingMods, coreModId, errors);
         _logger.Information("Resolved load order for {ModCount} mods", loadOrder.Count);
 
         // Step 5: Load remaining mod definitions in order
@@ -144,10 +150,7 @@ public class ModLoader : IDisposable
             LoadModDefinitions(mod, errors);
         }
 
-        // Step 6: Validate BehaviorDefinitions before locking registry
-        ValidateBehaviorDefinitions(errors);
-
-        // Step 7: Lock the registry
+        // Step 6: Lock the registry
         _registry.Lock();
         _logger.Information(
             "Mod loading completed. Loaded {ModCount} mods with {ErrorCount} errors",
@@ -159,42 +162,57 @@ public class ModLoader : IDisposable
     }
 
     /// <summary>
+    ///     Loads and caches the root mod.manifest file.
+    /// </summary>
+    /// <param name="errors">List to populate with errors.</param>
+    /// <returns>The root manifest, or null if not found or invalid.</returns>
+    private RootModManifest? LoadRootManifest(List<string> errors)
+    {
+        if (_cachedRootManifest != null)
+            return _cachedRootManifest;
+
+        var rootManifestPath = Path.Combine(_modsDirectory, "mod.manifest");
+        if (!File.Exists(rootManifestPath))
+        {
+            errors.Add("mod.manifest not found or empty. Cannot determine core mod (slot 0).");
+            return null;
+        }
+
+        try
+        {
+            var rootManifestContent = File.ReadAllText(rootManifestPath);
+            _cachedRootManifest = JsonSerializer.Deserialize<RootModManifest>(
+                rootManifestContent,
+                JsonSerializerOptionsFactory.ForManifests
+            );
+            return _cachedRootManifest;
+        }
+        catch (Exception ex)
+        {
+            errors.Add($"Error reading root mod.manifest: {ex.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
     ///     Determines the core mod ID from mod.manifest slot 0.
     /// </summary>
     /// <param name="errors">List to populate with errors.</param>
     /// <returns>The core mod ID, or null if not found.</returns>
     private string? DetermineCoreModId(List<string> errors)
     {
-        var rootManifestPath = Path.Combine(_modsDirectory, "mod.manifest");
-        if (File.Exists(rootManifestPath))
-            try
-            {
-                var rootManifestContent = File.ReadAllText(rootManifestPath);
-                var rootManifest = JsonSerializer.Deserialize<RootModManifest>(
-                    rootManifestContent,
-                    JsonSerializerOptionsFactory.ForManifests
-                );
+        var rootManifest = LoadRootManifest(errors);
+        if (
+            rootManifest != null
+            && rootManifest.ModOrder != null
+            && rootManifest.ModOrder.Count > 0
+        )
+        {
+            var coreModId = rootManifest.ModOrder[0];
+            _logger.Debug("Core mod determined from mod.manifest slot 0: {CoreModId}", coreModId);
+            return coreModId;
+        }
 
-                if (
-                    rootManifest != null
-                    && rootManifest.ModOrder != null
-                    && rootManifest.ModOrder.Count > 0
-                )
-                {
-                    var coreModId = rootManifest.ModOrder[0];
-                    _logger.Debug(
-                        "Core mod determined from mod.manifest slot 0: {CoreModId}",
-                        coreModId
-                    );
-                    return coreModId;
-                }
-            }
-            catch (Exception ex)
-            {
-                errors.Add($"Error reading root mod.manifest: {ex.Message}");
-            }
-
-        errors.Add("mod.manifest not found or empty. Cannot determine core mod (slot 0).");
         return null;
     }
 
@@ -298,9 +316,6 @@ public class ModLoader : IDisposable
                 return false;
             }
 
-            // Set ModDirectory for backward compatibility
-            manifest.ModDirectory = modSource.SourcePath;
-
             return true;
         }
         catch (JsonException ex)
@@ -329,61 +344,43 @@ public class ModLoader : IDisposable
     )
     {
         // First, check for a root-level mod.manifest file
-        var rootManifestPath = Path.Combine(_modsDirectory, "mod.manifest");
-        if (File.Exists(rootManifestPath))
-            try
-            {
-                var rootManifestContent = File.ReadAllText(rootManifestPath);
-                var rootManifest = JsonSerializer.Deserialize<RootModManifest>(
-                    rootManifestContent,
-                    JsonSerializerOptionsFactory.ForManifests
-                );
+        var rootManifest = LoadRootManifest(errors);
+        if (
+            rootManifest != null
+            && rootManifest.ModOrder != null
+            && rootManifest.ModOrder.Count > 0
+        )
+        {
+            // Use explicit load order from root manifest
+            var orderedMods = new List<ModManifest>();
+            var modsById = mods.ToDictionary(m => m.Id);
 
-                if (
-                    rootManifest != null
-                    && rootManifest.ModOrder != null
-                    && rootManifest.ModOrder.Count > 0
-                )
+            foreach (var modId in rootManifest.ModOrder)
+            {
+                // Skip core mod - it was already loaded first
+                if (modId == coreModId)
+                    continue;
+
+                if (modsById.TryGetValue(modId, out var mod))
+                    orderedMods.Add(mod);
+                else
+                    errors.Add($"Mod '{modId}' specified in root mod.manifest not found");
+            }
+
+            // Add any mods not in the root manifest at the end
+            // (excluding core mod which was already loaded)
+            foreach (var mod in mods)
+                if (!orderedMods.Contains(mod) && mod.Id != coreModId)
                 {
-                    // Use explicit load order from root manifest
-                    var orderedMods = new List<ModManifest>();
-                    var modsById = mods.ToDictionary(m => m.Id);
-
-                    foreach (var modId in rootManifest.ModOrder)
-                    {
-                        // Skip core mod - it was already loaded first
-                        if (modId == coreModId)
-                            continue;
-
-                        if (modsById.TryGetValue(modId, out var mod))
-                            orderedMods.Add(mod);
-                        else
-                            errors.Add($"Mod '{modId}' specified in root mod.manifest not found");
-                    }
-
-                    // Add any mods not in the root manifest at the end
-                    // (excluding core mod which was already loaded)
-                    foreach (var mod in mods)
-                        if (!orderedMods.Contains(mod) && mod.Id != coreModId)
-                        {
-                            orderedMods.Add(mod);
-                            errors.Add(
-                                $"Mod '{mod.Id}' not specified in root mod.manifest, added at end"
-                            );
-                        }
-
-                    // Add to loaded mods list (core mod already added)
-                    foreach (var mod in orderedMods)
-                        if (!_loadedMods.Contains(mod))
-                            _loadedMods.Add(mod);
-
-                    return orderedMods;
+                    orderedMods.Add(mod);
+                    errors.Add($"Mod '{mod.Id}' not specified in root mod.manifest, added at end");
                 }
-            }
-            catch (Exception ex)
-            {
-                errors.Add($"Error reading root mod.manifest: {ex.Message}");
-            }
+
+            // Add to loaded mods list (core mod already added)
+            AddToLoadedMods(orderedMods);
+
+            return orderedMods;
+        }
 
         // Fall back to priority-based ordering with dependency resolution
         var sortedMods = new List<ModManifest>();
@@ -401,16 +398,34 @@ public class ModLoader : IDisposable
                 ResolveDependencies(mod, mods, sortedMods, processed, processing, errors);
 
         // Add to loaded mods list (core mod already added)
-        foreach (var mod in sortedMods)
-            if (!_loadedMods.Contains(mod))
-                _loadedMods.Add(mod);
+        AddToLoadedMods(sortedMods);
 
         return sortedMods;
     }
 
     /// <summary>
-    ///     Recursively resolves dependencies for a mod.
+    ///     Adds mods to the loaded mods list, avoiding duplicates.
     /// </summary>
+    /// <param name="mods">The mods to add.</param>
+    private void AddToLoadedMods(IEnumerable<ModManifest> mods)
+    {
+        foreach (var mod in mods)
+        {
+            if (!_loadedMods.Contains(mod))
+                _loadedMods.Add(mod);
+        }
+    }
+
+    /// <summary>
+    ///     Recursively resolves dependencies for a mod and adds it to the sorted list in dependency order.
+    ///     Detects circular dependencies and adds errors for missing dependencies.
+    /// </summary>
+    /// <param name="mod">The mod to resolve dependencies for.</param>
+    /// <param name="allMods">All available mod manifests.</param>
+    /// <param name="sortedMods">The sorted list to add mods to (in dependency order).</param>
+    /// <param name="processed">Set of mod IDs that have been fully processed.</param>
+    /// <param name="processing">Set of mod IDs currently being processed (for cycle detection).</param>
+    /// <param name="errors">List to add errors to.</param>
     private void ResolveDependencies(
         ModManifest mod,
         List<ModManifest> allMods,
@@ -480,86 +495,113 @@ public class ModLoader : IDisposable
             if (jsonFile.Equals("mod.json", StringComparison.OrdinalIgnoreCase))
                 continue;
 
-            // Try path-based inference first (no I/O)
-            JsonDocument? jsonDoc = null;
-            bool createdJsonDoc = false; // Track if we created the document
-            string definitionType;
-
-            try
-            {
-                // Attempt inference without parsing JSON (fast path)
-                definitionType = InferDefinitionType(jsonFile, null, mod);
-            }
-            catch (InvalidOperationException)
-            {
-                // Path-based inference failed - parse JSON for $type field (lazy parsing)
-                try
-                {
-                    var jsonContent = mod.ModSource.ReadTextFile(jsonFile);
-                    jsonDoc = JsonDocument.Parse(jsonContent);
-                    createdJsonDoc = true; // Mark as created by us
-
-                    // Try inference again with JSON document
-                    definitionType = InferDefinitionType(jsonFile, jsonDoc, mod);
-                }
-                catch (Exception parseEx)
-                {
-                    var errorMsg = $"Failed to parse JSON file '{jsonFile}': {parseEx.Message}";
-                    errors.Add(errorMsg);
-                    _logger.Error(parseEx, "Failed to parse JSON file {FilePath}", jsonFile);
-                    continue; // Skip this file, continue with others (error recovery)
-                }
-            }
-
-            // Load definition with inferred type (reuse jsonDoc if available)
-            DefinitionLoadResult loadResult;
-            try
-            {
-                loadResult = LoadDefinitionFromFile(
-                    mod.ModSource,
-                    jsonFile,
-                    definitionType,
-                    mod,
-                    jsonDoc
-                );
-            }
-            finally
-            {
-                // Only dispose JsonDocument if we created it (not if LoadDefinitionFromFile reuses it)
-                // LoadDefinitionFromFile clones JsonElements, so it doesn't need the document after return
-                if (createdJsonDoc)
-                    jsonDoc?.Dispose();
-            }
-
-            if (loadResult.IsError)
-            {
-                errors.Add(loadResult.Error!);
-                _logger.Warning(
-                    "Failed to load definition from mod {ModId}, file {FilePath}: {Error}",
-                    mod.Id,
-                    jsonFile,
-                    loadResult.Error
-                );
-                continue; // Skip this file, continue with others (error recovery)
-            }
-
-            // Fire event for systems to react (ECS/Event integration)
-            var discoveredEvent = new DefinitionDiscoveredEvent
-            {
-                ModId = mod.Id,
-                DefinitionType = definitionType,
-                DefinitionId = loadResult.Metadata!.Id,
-                FilePath = jsonFile,
-                SourceModId = loadResult.Metadata.OriginalModId,
-                Operation = loadResult.Metadata.Operation,
-            };
-            EventBus.Send(ref discoveredEvent);
+            ProcessDefinitionFile(jsonFile, mod, errors);
         }
     }
 
     /// <summary>
-    ///     Main type inference method using Chain of Responsibility pattern.
+    ///     Processes a single definition file: infers type, loads definition, and fires event.
+    ///     Collects errors for this file but continues processing other files (error recovery).
     /// </summary>
+    /// <param name="jsonFile">The JSON file path to process.</param>
+    /// <param name="mod">The mod manifest.</param>
+    /// <param name="errors">List to collect errors into.</param>
+    private void ProcessDefinitionFile(string jsonFile, ModManifest mod, List<string> errors)
+    {
+        string definitionType;
+        JsonDocument? jsonDoc = null;
+
+        try
+        {
+            // Attempt inference without parsing JSON (fast path)
+            definitionType = InferDefinitionType(jsonFile, null, mod);
+        }
+        catch (InvalidOperationException)
+        {
+            // Path-based inference failed - parse JSON for $type field (lazy parsing)
+            try
+            {
+                var jsonContent = mod.ModSource!.ReadTextFile(jsonFile);
+                jsonDoc = JsonDocument.Parse(jsonContent);
+
+                // Try inference again with JSON document
+                definitionType = InferDefinitionType(jsonFile, jsonDoc, mod);
+            }
+            catch (Exception parseEx)
+            {
+                var errorMsg = $"Failed to parse JSON file '{jsonFile}': {parseEx.Message}";
+                errors.Add(errorMsg);
+                _logger.Error(parseEx, "Failed to parse JSON file {FilePath}", jsonFile);
+                return; // Skip this file, continue with others (error recovery)
+            }
+        }
+
+        // Load definition with inferred type (reuse jsonDoc if available)
+        DefinitionLoadResult loadResult;
+        try
+        {
+            loadResult = LoadDefinitionFromFile(
+                mod.ModSource!,
+                jsonFile,
+                definitionType,
+                mod,
+                jsonDoc
+            );
+        }
+        finally
+        {
+            // Dispose JsonDocument if we created it
+            // LoadDefinitionFromFile clones JsonElements, so it doesn't need the document after return
+            jsonDoc?.Dispose();
+        }
+
+        if (loadResult.IsError)
+        {
+            errors.Add(loadResult.Error!);
+            _logger.Warning(
+                "Failed to load definition from mod {ModId}, file {FilePath}: {Error}",
+                mod.Id,
+                jsonFile,
+                loadResult.Error
+            );
+            return; // Skip this file, continue with others (error recovery)
+        }
+
+        // Fire event for systems to react (ECS/Event integration)
+        FireDefinitionDiscoveredEvent(mod, definitionType, jsonFile, loadResult.Metadata!);
+    }
+
+    /// <summary>
+    ///     Fires the DefinitionDiscoveredEvent for a loaded definition.
+    /// </summary>
+    private void FireDefinitionDiscoveredEvent(
+        ModManifest mod,
+        string definitionType,
+        string filePath,
+        DefinitionMetadata metadata
+    )
+    {
+        var discoveredEvent = new DefinitionDiscoveredEvent
+        {
+            ModId = mod.Id,
+            DefinitionType = definitionType,
+            DefinitionId = metadata.Id,
+            FilePath = filePath,
+            SourceModId = metadata.OriginalModId,
+            Operation = metadata.Operation,
+        };
+        EventBus.Send(ref discoveredEvent);
+    }
+
+    /// <summary>
+    ///     Main type inference method using Chain of Responsibility pattern.
+    ///     Throws InvalidOperationException if type cannot be inferred (fail-fast).
+    /// </summary>
+    /// <param name="filePath">The file path to infer the type for.</param>
+    /// <param name="jsonDoc">Optional JSON document (for lazy parsing when path-based inference fails).</param>
+    /// <param name="mod">The mod manifest.</param>
+    /// <returns>The inferred definition type.</returns>
+    /// <exception cref="InvalidOperationException">Thrown if type cannot be inferred from path or JSON.</exception>
     private string InferDefinitionType(string filePath, JsonDocument? jsonDoc, ModManifest mod)
     {
         var normalizedPath = ModPathNormalizer.Normalize(filePath);
@@ -594,7 +636,10 @@ public class ModLoader : IDisposable
 
     /// <summary>
     ///     Validates inferred type against mod.json customDefinitionTypes if present.
+    ///     Logs a warning if the inferred type is not declared in customDefinitionTypes.
     /// </summary>
+    /// <param name="inferredType">The inferred definition type.</param>
+    /// <param name="context">The type inference context.</param>
     private void ValidateInferredType(string inferredType, TypeInferenceContext context)
     {
         if (
@@ -743,257 +788,6 @@ public class ModLoader : IDisposable
             if (existingJsonDoc == null && jsonDoc != null)
             {
                 jsonDoc.Dispose();
-            }
-        }
-    }
-
-    /// <summary>
-    ///     Validates all loaded BehaviorDefinitions against their referenced ScriptDefinitions.
-    ///     Throws exceptions for invalid definitions (fail fast).
-    /// </summary>
-    private void ValidateBehaviorDefinitions(List<string> errors)
-    {
-        // Get all BehaviorDefinition IDs from registry
-        var behaviorDefinitionIds = _registry.GetByType("Behavior").ToList();
-        if (behaviorDefinitionIds.Count == 0)
-            return; // No behavior definitions to validate
-
-        foreach (var behaviorId in behaviorDefinitionIds)
-        {
-            var behaviorDef = _registry.GetById<BehaviorDefinition>(behaviorId);
-            if (behaviorDef == null)
-                continue; // Skip if not found (shouldn't happen, but be safe)
-
-            // Validate scriptId is not empty
-            if (string.IsNullOrWhiteSpace(behaviorDef.ScriptId))
-            {
-                var errorMessage =
-                    $"BehaviorDefinition '{behaviorId}' has empty scriptId. BehaviorDefinition must reference a valid ScriptDefinition.";
-                _logger.Error(errorMessage);
-                errors.Add(errorMessage);
-                throw new InvalidOperationException(errorMessage);
-            }
-
-            // Look up referenced ScriptDefinition
-            var scriptDef = _registry.GetById<ScriptDefinition>(behaviorDef.ScriptId);
-            if (scriptDef == null)
-            {
-                var errorMessage =
-                    $"ScriptDefinition '{behaviorDef.ScriptId}' not found for BehaviorDefinition '{behaviorId}'. Ensure the script definition exists and is loaded.";
-                _logger.Error(errorMessage);
-                errors.Add(errorMessage);
-                throw new InvalidOperationException(errorMessage);
-            }
-
-            // Validate parameterOverrides
-            if (behaviorDef.ParameterOverrides != null && behaviorDef.ParameterOverrides.Count > 0)
-            {
-                if (scriptDef.Parameters == null || scriptDef.Parameters.Count == 0)
-                {
-                    var errorMessage =
-                        $"BehaviorDefinition '{behaviorId}' has parameterOverrides but ScriptDefinition '{behaviorDef.ScriptId}' has no parameters defined.";
-                    _logger.Error(errorMessage);
-                    errors.Add(errorMessage);
-                    throw new InvalidOperationException(errorMessage);
-                }
-
-                foreach (var kvp in behaviorDef.ParameterOverrides)
-                {
-                    var paramName = kvp.Key;
-                    var paramValue = kvp.Value;
-
-                    // Check if parameter exists in ScriptDefinition
-                    var paramDef = scriptDef.Parameters.FirstOrDefault(p => p.Name == paramName);
-                    if (paramDef == null)
-                    {
-                        var errorMessage =
-                            $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' that does not exist in ScriptDefinition '{behaviorDef.ScriptId}'. Valid parameters: {string.Join(", ", scriptDef.Parameters.Select(p => p.Name))}.";
-                        _logger.Error(errorMessage);
-                        errors.Add(errorMessage);
-                        throw new InvalidOperationException(errorMessage);
-                    }
-
-                    // Validate parameter type (basic check - full type conversion happens in MapLoaderSystem)
-                    // JSON deserialization may return JsonElement for numeric values, which is acceptable
-                    // We just verify the JsonElement can be converted to the expected type
-                    try
-                    {
-                        var paramType = paramDef.Type.ToLowerInvariant();
-
-                        // Handle JsonElement from JSON deserialization
-                        if (paramValue is JsonElement jsonElement)
-                            // Try to get the value type from JsonElement
-                            switch (paramType)
-                            {
-                                case "int":
-                                    if (
-                                        jsonElement.ValueKind == JsonValueKind.Number
-                                        || jsonElement.ValueKind == JsonValueKind.String
-                                    )
-                                    {
-                                        // Can be converted, validation passes
-                                    }
-                                    else
-                                    {
-                                        throw new InvalidCastException(
-                                            $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to int"
-                                        );
-                                    }
-
-                                    break;
-                                case "float":
-                                    if (
-                                        jsonElement.ValueKind == JsonValueKind.Number
-                                        || jsonElement.ValueKind == JsonValueKind.String
-                                    )
-                                    {
-                                        // Can be converted, validation passes
-                                    }
-                                    else
-                                    {
-                                        throw new InvalidCastException(
-                                            $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to float"
-                                        );
-                                    }
-
-                                    break;
-                                case "bool":
-                                    if (
-                                        jsonElement.ValueKind == JsonValueKind.True
-                                        || jsonElement.ValueKind == JsonValueKind.False
-                                        || jsonElement.ValueKind == JsonValueKind.String
-                                    )
-                                    {
-                                        // Can be converted, validation passes
-                                    }
-                                    else
-                                    {
-                                        throw new InvalidCastException(
-                                            $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to bool"
-                                        );
-                                    }
-
-                                    break;
-                                case "string":
-                                    // String can accept anything (will be converted to string)
-                                    break;
-                                case "vector2":
-                                    if (jsonElement.ValueKind == JsonValueKind.String)
-                                    {
-                                        // Can be converted, validation passes
-                                    }
-                                    else
-                                    {
-                                        throw new InvalidCastException(
-                                            $"JsonElement with ValueKind {jsonElement.ValueKind} cannot be converted to Vector2 (must be string)"
-                                        );
-                                    }
-
-                                    break;
-                            }
-                        else
-                            // Handle already-deserialized types
-                            switch (paramType)
-                            {
-                                case "int":
-                                    if (
-                                        paramValue is not (int or long or double or float or string)
-                                    )
-                                        throw new InvalidCastException(
-                                            $"Cannot convert {paramValue.GetType()} to int"
-                                        );
-                                    break;
-                                case "float":
-                                    if (
-                                        paramValue is not (float or double or int or long or string)
-                                    )
-                                        throw new InvalidCastException(
-                                            $"Cannot convert {paramValue.GetType()} to float"
-                                        );
-                                    break;
-                                case "bool":
-                                    if (paramValue is not (bool or string))
-                                        throw new InvalidCastException(
-                                            $"Cannot convert {paramValue.GetType()} to bool"
-                                        );
-                                    break;
-                                case "string":
-                                    // String can accept anything (will be converted to string)
-                                    break;
-                                case "vector2":
-                                    if (paramValue is not string)
-                                        throw new InvalidCastException(
-                                            "Vector2 must be string format 'X,Y'"
-                                        );
-                                    break;
-                            }
-                    }
-                    catch (Exception ex)
-                    {
-                        var errorMessage =
-                            $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' with invalid type. Expected '{paramDef.Type}', got '{paramValue.GetType()}'. Error: {ex.Message}";
-                        _logger.Error(ex, errorMessage);
-                        errors.Add(errorMessage);
-                        throw new InvalidOperationException(errorMessage, ex);
-                    }
-
-                    // Validate min/max bounds if numeric
-                    if (paramDef.Min != null || paramDef.Max != null)
-                    {
-                        double? numericValue = null;
-
-                        // Handle JsonElement from JSON deserialization
-                        if (paramValue is JsonElement jsonElement)
-                        {
-                            if (jsonElement.ValueKind == JsonValueKind.Number)
-                            {
-                                if (jsonElement.TryGetDouble(out var doubleValue))
-                                    numericValue = doubleValue;
-                                else if (jsonElement.TryGetInt64(out var longValue))
-                                    numericValue = longValue;
-                            }
-                            else if (jsonElement.ValueKind == JsonValueKind.String)
-                            {
-                                if (double.TryParse(jsonElement.GetString(), out var parsed))
-                                    numericValue = parsed;
-                            }
-                        }
-                        else
-                        {
-                            // Handle already-deserialized types
-                            numericValue = paramValue switch
-                            {
-                                int i => i,
-                                long l => l,
-                                float f => f,
-                                double d => d,
-                                string s when double.TryParse(s, out var parsed) => parsed,
-                                _ => null,
-                            };
-                        }
-
-                        if (numericValue != null)
-                        {
-                            if (paramDef.Min != null && numericValue < paramDef.Min)
-                            {
-                                var errorMessage =
-                                    $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' value '{paramValue}' below minimum '{paramDef.Min}' for ScriptDefinition '{behaviorDef.ScriptId}'. Value must be >= {paramDef.Min}.";
-                                _logger.Error(errorMessage);
-                                errors.Add(errorMessage);
-                                throw new ArgumentException(errorMessage);
-                            }
-
-                            if (paramDef.Max != null && numericValue > paramDef.Max)
-                            {
-                                var errorMessage =
-                                    $"BehaviorDefinition '{behaviorId}' has parameterOverride '{paramName}' value '{paramValue}' above maximum '{paramDef.Max}' for ScriptDefinition '{behaviorDef.ScriptId}'. Value must be <= {paramDef.Max}.";
-                                _logger.Error(errorMessage);
-                                errors.Add(errorMessage);
-                                throw new ArgumentException(errorMessage);
-                            }
-                        }
-                    }
-                }
             }
         }
     }

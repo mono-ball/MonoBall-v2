@@ -142,8 +142,8 @@ public static class LoggerFactory
                         sinkConfiguration.File(
                             logFilePath,
                             rollingInterval: RollingInterval.Day,
-                            retainedFileCountLimit: 7,
-                            fileSizeLimitBytes: 10 * 1024 * 1024, // 10 MB per file
+                            retainedFileCountLimit: 30, // Keep 30 days of logs
+                            fileSizeLimitBytes: 100 * 1024 * 1024, // 100 MB per file
                             rollOnFileSizeLimit: true,
                             outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz}] [{Level}] [{SourceContext}] {Message:lj}{NewLine}{Exception}",
                             buffered: true // Enable file buffering for better I/O performance

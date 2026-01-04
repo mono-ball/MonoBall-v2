@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_pyramid_square07",
   "name": "BattlePyramidSquare07",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 8,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_pyramid_square07/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_pyramid_square07/ground",
       "name": "Ground",
       "width": 8,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_pyramid_square07/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_pyramid_square07/objects",
       "name": "Objects",
       "width": 8,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_pyramid_square07/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_pyramid_square07/overhead",
       "name": "Overhead",
       "width": 8,
       "height": 8,
@@ -64,7 +79,7 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_pyramid"
+      "tilesetId": "pokeemerald:tileset:secondary/battlepyramid"
     }
   ],
   "warps": [],
@@ -72,83 +87,79 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_0",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_0",
       "name": "NPC_0",
       "x": 0,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/littleboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_trainer_battle",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/littleboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_trainer_battle",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_1",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_1",
       "name": "NPC_1",
       "x": 64,
       "y": 0,
-      "spriteId": "pokeemerald:sprite:npcs/littleboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_trainer_battle",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/littleboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_trainer_battle",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_2",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_2",
       "name": "NPC_2",
       "x": 96,
       "y": 0,
-      "spriteId": "pokeemerald:sprite:npcs/littleboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_trainer_battle",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/littleboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_trainer_battle",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_3",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_3",
       "name": "NPC_3",
       "x": 64,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/littleboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_trainer_battle",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/littleboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_trainer_battle",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_4",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_4",
       "name": "NPC_4",
       "x": 112,
       "y": 64,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_find_item_ball",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_find_item_ball",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_5",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_5",
       "name": "NPC_5",
       "x": 16,
       "y": 16,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_find_item_ball",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_find_item_ball",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_pyramid_square07/npc_6",
+      "id": "pokeemerald:npc:Hoenn/battle_pyramid_square07/npc_6",
       "name": "NPC_6",
       "x": 48,
       "y": 112,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_pyramid_find_item_ball",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_pyramid_find_item_ball",
       "elevation": 4
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_pyramid_square07/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_pyramid_square07/elevation_0",
       "name": "Collision_0",
       "width": 8,
       "height": 8,

@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/waterfall",
+  "id": "pokeemerald:script:interactions/tiles/waterfall",
   "name": "Waterfall",
   "description": "Tile interaction: Waterfall",
+  "scriptPath": "Scripts/Interactions/Tiles/waterfall.csx",
   "category": "water",
   "priority": 500
 }

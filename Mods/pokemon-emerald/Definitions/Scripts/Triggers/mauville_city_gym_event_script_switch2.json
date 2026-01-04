@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mauville_city_gym_event_script_switch2",
+  "name": "mauville city gym event script switch2",
+  "description": "Trigger script: mauville city gym event script switch2",
+  "scriptPath": "Scripts/Triggers/mauville_city_gym_event_script_switch2.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

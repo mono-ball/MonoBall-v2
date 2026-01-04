@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/littleroot_town",
   "name": "LittlerootTown",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:town",
   "width": 20,
   "height": 20,
@@ -24,9 +24,24 @@
       "offset": 0
     }
   },
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/general",
+    "bottomLayer": [
+      84,
+      85,
+      86,
+      88
+    ],
+    "topLayer": [
+      -1073741820,
+      -1073741820,
+      87,
+      89
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/littleroot_town/ground",
+      "id": "pokeemerald:layer:Hoenn/littleroot_town/ground",
       "name": "Ground",
       "width": 20,
       "height": 20,
@@ -35,10 +50,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAABUAAAAAAAAAtQEAAAAAAAAAAAAAAAAAALoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8AQAAAAAAAAAAAAAAAAAAvgEAABUAAAAAAAAAAAAAABUAAAAAAAAAAAAAAAAAAABpAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpAQAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADTAQAAAAAAAAAAAAAAAAAAAAAAAAAAAADZAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAFQAAAAAAAABpAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAABUAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAAJwQAAAAAAAAAAAAAAAAAACwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBAAAAAAAAAAAAAAAAAAAMAQAAFAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAADbAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADbAwAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFBAAAAAAAAAAAAAAAAAAAAAAAAAAAAABLBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAAAUAAAAAAAAADbAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/littleroot_town/objects",
+      "id": "pokeemerald:layer:Hoenn/littleroot_town/objects",
       "name": "Objects",
       "width": 20,
       "height": 20,
@@ -47,10 +62,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "tQAAALYAAAC1AAAAtgAAALUAAAC2AAAAtQAAALYAAAC1AAAAtgAAABUAAAAVAAAAtQAAALYAAAC1AAAAtgAAALUAAAC2AAAAtQAAALYAAAC3AAAAuAAAALcAAAC4AAAAtwAAALgAAAC3AAAAuAAAALcAAAATAAAAFQAAABUAAAAUAAAAuAAAALcAAAC4AAAAtwAAALgAAAC3AAAAuAAAALUAAAC2AAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAALUAAAC2AAAAtwAAABMAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFAAAALgAAAAVAAAAFQAAAGkBAABpAQAAaQEAAGkBAABpAQAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAaQEAAGkBAABpAQAAaQEAAGkBAAAVAAAAFQAAABUAAAAVAAAAaQEAAGkBAABpAQAAaQEAAGkBAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAABpAQAAaQEAAGkBAABpAQAAaQEAABUAAAAVAAAAFQAAABUAAACkAQAApgEAAKYBAACmAQAApwEAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAKQBAACmAQAApgEAAKYBAACnAQAAFQAAABUAAAAVAAAAFQAAAKkBAACrAQAArAEAAK0BAACuAQAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAsAEAAK0BAACyAQAAqwEAALMBAAAVAAAALgAAAC4AAAAVAAAAtgEAALcBAAC4AQAAuQEAALsBAAA9AAAAFQAAABUAAAAVAAAAFQAAAD0AAAC2AQAAuQEAAL0BAAC3AQAAuwEAAC4AAAAVAAAAFQAAAC4AAAAVAAAAFQAAABUAAACWAQAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAACWAQAAFQAAABUAAAAVAAAAFQAAAC4AAAAuAAAAFQAAABUAAAAuAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAALgAAABUAAAAuAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAaQEAAGkBAABpAQAAaQEAAGkBAABpAQAAaQEAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAADEAQAAeAEAwHgBAMDIAQAAyAEAAMgBAADJAQAAFQAAABUAAAAVAAAAFQAAABUAAAA9AAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAMQBAADIAQAAyAEAAMgBAADIAQAAyAEAAMkBAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAywEAAM0BAADNAQAAzgEAAM8BAADQAQAA0QEAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAADUAQAA1QEAANUBAADWAQAA1wEAANgBAADaAQAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAC/AAAAtgAAABUAAAAVAAAAFQAAAC4AAAAuAAAALgAAAD0AAACWAQAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAALcAAAC4AAAAtQAAAL0AAAAVAAAALgAAAC4AAAAuAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAL8AAAC2AAAAtQAAALYAAAC3AAAAuAAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAtwAAALgAAAC3AAAAuAAAAA=="
+      "tileData": "VAAAAFUAAABUAAAAVQAAAFQAAABVAAAAVAAAAFUAAABUAAAAVQAAABQAAAAUAAAAVAAAAFUAAABUAAAAVQAAAFQAAABVAAAAVAAAAFUAAABWAAAAWAAAAFYAAABYAAAAVgAAAFgAAABWAAAAWAAAAFYAAABaAAAAFAAAABQAAABbAAAAWAAAAFYAAABYAAAAVgAAAFgAAABWAAAAWAAAAFQAAABVAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAFQAAABVAAAAVgAAAFoAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAWwAAAFgAAAAUAAAAFAAAANsDAADbAwAA2wMAANsDAADbAwAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAA2wMAANsDAADbAwAA2wMAANsDAAAUAAAAFAAAABQAAAAUAAAA2wMAANsDAADbAwAA2wMAANsDAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAADbAwAA2wMAANsDAADbAwAA2wMAABQAAAAUAAAAFAAAABQAAAAWBAAAGAQAABgEAAAYBAAAGQQAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABYEAAAYBAAAGAQAABgEAAAZBAAAFAAAABQAAAAUAAAAFAAAABsEAAAdBAAAHgQAAB8EAAAgBAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAIgQAAB8EAAAkBAAAHQQAACUEAAAUAAAAUQAAAFEAAAAUAAAAKAQAACkEAAAqBAAAKwQAAC0EAAAZAAAAFAAAABQAAAAUAAAAFAAAABkAAAAoBAAAKwQAAC8EAAApBAAALQQAAFEAAAAUAAAAFAAAAFEAAAAUAAAAFAAAABQAAAAIBAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAIBAAAFAAAABQAAAAUAAAAFAAAAFEAAABRAAAAFAAAABQAAABRAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAUQAAABQAAABRAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAA2wMAANsDAADbAwAA2wMAANsDAADbAwAA2wMAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAA2BAAA6gMAwOoDAMA6BAAAOgQAADoEAAA7BAAAFAAAABQAAAAUAAAAFAAAABQAAAAZAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAADYEAAA6BAAAOgQAADoEAAA6BAAAOgQAADsEAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAPQQAAD8EAAA/BAAAQAQAAEEEAABCBAAAQwQAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAABGBAAARwQAAEcEAABIBAAASQQAAEoEAABMBAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAABkAAAAVQAAABQAAAAUAAAAFAAAAFEAAABRAAAAUQAAABkAAAAIBAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAFYAAABYAAAAVAAAAGAAAAAUAAAAUQAAAFEAAABRAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAAGQAAABVAAAAVAAAAFUAAABWAAAAWAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAFAAAABQAAAAUAAAAVgAAAFgAAABWAAAAWAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/littleroot_town/overhead",
+      "id": "pokeemerald:layer:Hoenn/littleroot_town/overhead",
       "name": "Overhead",
       "width": 20,
       "height": 20,
@@ -59,7 +74,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwJ4BAACfAQAAnwEAAJ8BAACgAQAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAngEAAJ8BAACfAQAAnwEAAKABAAACAADAAgAAwAIAAMACAADAoQEAAKIBAACiAQAAogEAAKMBAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMChAQAAogEAAKIBAACiAQAAowEAAAIAAMACAADAAgAAwAIAAMClAQAAeAEAwHgBAMB4AQDAqAEAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwKUBAAB4AQDAeAEAwHgBAMCoAQAAAgAAwAIAAMACAADAAgAAwKoBAAB4AQDAeAEAwHgBAMCvAQAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAsQEAAHgBAMB4AQDAeAEAwLQBAAACAADAAAAAAAAAAAACAADAAAAAAHgBAMB4AQDAeAEAwAAAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMAAAAAAeAEAwHgBAMB4AQDAAAAAAAAAAAACAADAAgAAwAAAAAACAADAAgAAwAIAAMAAAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAAAAAAAgAAwAIAAMACAADAAgAAwAAAAAAAAAAAAgAAwAIAAMAAAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAAAAAAIAAMAAAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAvwEAAMABAADBAQAAwgEAAMIBAADCAQAAwwEAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMDFAQAAxgEAAMcBAAB4AQDAeAEAwHgBAMDKAQAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwMUBAAB4AQDAeAEAwHgBAMB4AQDAeAEAwMoBAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAzAEAAHgBAMB4AQDAeAEAwHgBAMB4AQDA0gEAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADADAAAAAsAAAACAADAAgAAwAIAAMAAAAAAeAEAwHgBAMB4AQDAeAEAwHgBAMAAAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAwAAAALAAAAAgAAwAAAAAAAAAAAAAAAAAIAAMAAAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAAAgAAwAIAAMACAADAAAAAAAAAAAAAAAAAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAACwAAAAwAAAALAAAADAAAAAsAAAAMAAAACwAAAA=="
+      "tileData": "BAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMBXAAAAWQAAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMBXAAAAWQAAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwBAEAAARBAAAEQQAABEEAAASBAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADAEAQAABEEAAARBAAAEQQAABIEAAAEAADABAAAwAQAAMAEAADAEwQAABQEAAAUBAAAFAQAABUEAAAEAADABAAAwAQAAMAEAADABAAAwAQAAMATBAAAFAQAABQEAAAUBAAAFQQAAAQAAMAEAADABAAAwAQAAMAXBAAA6gMAwOoDAMDqAwDAGgQAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwBcEAADqAwDA6gMAwOoDAMAaBAAABAAAwAQAAMAEAADABAAAwBwEAADqAwDA6gMAwOoDAMAhBAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADAIwQAAOoDAMDqAwDA6gMAwCYEAAAEAADAAAAAAAAAAAAEAADAAAAAAOoDAMDqAwDA6gMAwAAAAAAEAADABAAAwAQAAMAEAADABAAAwAQAAMAAAAAA6gMAwOoDAMDqAwDAAAAAAAAAAAAEAADABAAAwAAAAAAEAADABAAAwAQAAMAAAAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAAAAAABAAAwAQAAMAEAADABAAAwAAAAAAAAAAABAAAwAQAAMAAAAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADAAAAAAAQAAMAAAAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADAMQQAADIEAAAzBAAANAQAADQEAAA0BAAANQQAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMA3BAAAOAQAADkEAADqAwDA6gMAwOoDAMA8BAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwDcEAADqAwDA6gMAwOoDAMDqAwDA6gMAwDwEAAAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADAPgQAAOoDAMDqAwDA6gMAwOoDAMDqAwDARAQAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADAVwAAAFkAAAAEAADABAAAwAQAAMAAAAAA6gMAwOoDAMDqAwDA6gMAwOoDAMAAAAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwFcAAABZAAAABAAAwAAAAAAAAAAAAAAAAAQAAMAAAAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMBXAAAAWQAAAFcAAABZAAAABAAAwAQAAMAEAADAAAAAAAAAAAAAAAAABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMBXAAAAWQAAAFcAAABZAAAAVwAAAFkAAABXAAAAWQAAAFcAAABZAAAAVwAAAFkAAABXAAAAWQAAAFcAAABZAAAAVwAAAFkAAABXAAAAWQAAAA=="
     }
   ],
   "tilesets": [
@@ -68,13 +83,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/petalburg"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/littleroot_town/warp_to_littleroot_town_mays_house_1f",
+      "id": "pokeemerald:warp:Hoenn/littleroot_town/warp_to_littleroot_town_mays_house_1f",
       "name": "Warp to littleroot_town_mays_house_1f",
       "x": 224,
       "y": 128,
@@ -86,7 +101,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/littleroot_town/warp_to_littleroot_town_brendans_house_1f",
+      "id": "pokeemerald:warp:Hoenn/littleroot_town/warp_to_littleroot_town_brendans_house_1f",
       "name": "Warp to littleroot_town_brendans_house_1f",
       "x": 80,
       "y": 128,
@@ -98,7 +113,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/littleroot_town/warp_to_littleroot_town_professor_birchs_lab",
+      "id": "pokeemerald:warp:Hoenn/littleroot_town/warp_to_littleroot_town_professor_birchs_lab",
       "name": "Warp to littleroot_town_professor_birchs_lab",
       "x": 112,
       "y": 256,
@@ -112,109 +127,109 @@
   ],
   "triggers": [
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_0",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_0",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 0",
       "x": 160,
       "y": 16,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_need_pokemon_trigger_left",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_0",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_0",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 0",
       "x": 176,
       "y": 16,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_need_pokemon_trigger_right",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_1",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_1",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 1",
       "x": 176,
       "y": 16,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 1,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_go_save_birch_trigger",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 3",
       "x": 128,
       "y": 144,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 3,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_give_running_shoes_trigger4",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 3",
       "x": 144,
       "y": 144,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 3,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_give_running_shoes_trigger5",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 3",
       "x": 160,
       "y": 144,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 3,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_give_running_shoes_trigger2",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 3",
       "x": 176,
       "y": 144,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 3,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_give_running_shoes_trigger3",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 3",
       "x": 160,
       "y": 32,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 3,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_give_running_shoes_trigger0",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
+      "id": "pokeemerald:trigger:Hoenn/littleroot_town/trigger_var_littleroot_town_state_3",
       "name": "Trigger: VAR_LITTLEROOT_TOWN_STATE == 3",
       "x": 176,
       "y": 32,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_town_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_town_state",
       "value": 3,
       "triggerId": "pokeemerald:script:trigger/littleroot_town_event_script_give_running_shoes_trigger1",
       "elevation": 3
@@ -222,150 +237,145 @@
   ],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/littleroot_town/sign_littleroottowneventscripttownsign",
+      "id": "pokeemerald:interaction:Hoenn/littleroot_town/sign_littleroottowneventscripttownsign",
       "name": "Sign: LittlerootTown_EventScript_TownSign",
       "x": 240,
       "y": 208,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_town_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/littleroot_town_event_script_town_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/littleroot_town/sign_littleroottowneventscriptbirchslabsign",
+      "id": "pokeemerald:interaction:Hoenn/littleroot_town/sign_littleroottowneventscriptbirchslabsign",
       "name": "Sign: LittlerootTown_EventScript_BirchsLabSign",
       "x": 96,
       "y": 272,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_birchs_lab_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/littleroot_town_event_script_birchs_lab_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/littleroot_town/sign_littleroottowneventscriptbrendanshousesign",
+      "id": "pokeemerald:interaction:Hoenn/littleroot_town/sign_littleroottowneventscriptbrendanshousesign",
       "name": "Sign: LittlerootTown_EventScript_BrendansHouseSign",
       "x": 112,
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_brendans_house_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/littleroot_town_event_script_brendans_house_sign",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:interaction:hoenn/littleroot_town/sign_littleroottowneventscriptmayshousesign",
+      "id": "pokeemerald:interaction:Hoenn/littleroot_town/sign_littleroottowneventscriptmayshousesign",
       "name": "Sign: LittlerootTown_EventScript_MaysHouseSign",
       "x": 192,
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_mays_house_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/littleroot_town_event_script_mays_house_sign",
       "elevation": 3
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/localid_littleroot_twin",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/localid_littleroot_twin",
       "name": "LOCALID_LITTLEROOT_TWIN",
       "x": 256,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/twin",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/twin",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 2
       },
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_twin",
+      "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_event_script_twin",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/npc_1",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/npc_1",
       "name": "NPC_1",
       "x": 192,
       "y": 208,
-      "spriteId": "pokeemerald:sprite:npcs/fatman",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_fat_man",
+      "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_event_script_fat_man",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_fat_man",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/npc_2",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/npc_2",
       "name": "NPC_2",
       "x": 224,
       "y": 272,
-      "spriteId": "pokeemerald:sprite:npcs/boy2",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/boy2",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_boy",
+      "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_event_script_boy",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/localid_littleroot_mom",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/localid_littleroot_mom",
       "name": "LOCALID_LITTLEROOT_MOM",
       "x": 80,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/mom",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/littleroot_town_event_script_mom",
+      "spriteId": "pokeemerald:sprite:characters/npcs/mom",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_event_script_mom",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mom_outside",
-      "facingDirection": "up",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/npc_4",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/npc_4",
       "name": "NPC_4",
       "x": 32,
       "y": 160,
       "spriteId": "pokeemerald:sprite:objects/misc/truck",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_brendans_house_truck",
-      "facingDirection": "right",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/npc_5",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/npc_5",
       "name": "NPC_5",
       "x": 176,
       "y": 160,
       "spriteId": "pokeemerald:sprite:objects/misc/truck",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_truck",
-      "facingDirection": "right",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/localid_littleroot_rival",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/localid_littleroot_rival",
       "name": "LOCALID_LITTLEROOT_RIVAL",
       "x": 208,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_rival",
-      "facingDirection": "up",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/littleroot_town/localid_littleroot_birch",
+      "id": "pokeemerald:npc:Hoenn/littleroot_town/localid_littleroot_birch",
       "name": "LOCALID_LITTLEROOT_BIRCH",
       "x": 224,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/profbirch",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "spriteId": "pokeemerald:sprite:characters/npcs/profbirch",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birch",
-      "facingDirection": "up",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/littleroot_town/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/littleroot_town/elevation_0",
       "name": "Collision_0",
       "width": 20,
       "height": 20,
@@ -375,7 +385,7 @@
       "tileData": "AQEBAQEBAQEBAAAAAQEBAQEBAQEBAQEBAQEBAQEBAAABAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEAAAAAAAABAQEBAQAAAAABAQEBAQAAAAAAAAEBAQEBAAAAAAEBAQEBAAAAAAAAAQEBAQEAAAAAAQEBAQEAAAAAAAABAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAAAAAAABAAAAAAAAAAEBAQEBAQEAAAAAAAAAAAAAAAAAAQEBAQEBAQAAAAAAAAAAAAAAAAABAQEBAQEBAAAAAAAAAAABAQAAAAAAAAEAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAEBAQEBAQAAAAAAAAAAAAAAAAAAAQEBAQ=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/littleroot_town/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/littleroot_town/elevation_3",
       "name": "Collision_3",
       "width": 20,
       "height": 20,

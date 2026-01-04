@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/littleroot_town_event_script_go_save_birch_trigger",
+  "name": "littleroot town event script go save birch trigger",
+  "description": "Trigger script: littleroot town event script go save birch trigger",
+  "scriptPath": "Scripts/Triggers/littleroot_town_event_script_go_save_birch_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

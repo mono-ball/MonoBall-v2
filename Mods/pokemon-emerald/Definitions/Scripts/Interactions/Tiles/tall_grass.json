@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/tall_grass",
+  "id": "pokeemerald:script:interactions/tiles/tall_grass",
   "name": "Tall Grass",
   "description": "Tile interaction: Tall Grass",
+  "scriptPath": "Scripts/Interactions/Tiles/tall_grass.csx",
   "category": "encounter",
   "priority": 500
 }

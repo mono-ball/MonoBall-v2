@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_scotts_house",
   "name": "BattleFrontier_ScottsHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 6,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_scotts_house/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_scotts_house/ground",
       "name": "Ground",
       "width": 6,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_scotts_house/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_scotts_house/objects",
       "name": "Objects",
       "width": 6,
       "height": 8,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAADAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_scotts_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_scotts_house/overhead",
       "name": "Overhead",
       "width": 6,
       "height": 8,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAACAADA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAAA"
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_scotts_house/warp_to_battle_frontier_outside_west",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_scotts_house/warp_to_battle_frontier_outside_west",
       "name": "Warp to battle_frontier_outside_west",
       "x": 32,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_scotts_house/warp_to_battle_frontier_outside_west",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_scotts_house/warp_to_battle_frontier_outside_west",
       "name": "Warp to battle_frontier_outside_west",
       "x": 48,
       "y": 112,
@@ -97,19 +112,19 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_scotts_house/localid_scotts_house_scott",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_scotts_house/localid_scotts_house_scott",
       "name": "LOCALID_SCOTTS_HOUSE_SCOTT",
       "x": 32,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/scott",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_scotts_house_event_script_scott",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scott",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_scotts_house_event_script_scott",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_scotts_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_scotts_house/elevation_0",
       "name": "Collision_0",
       "width": 6,
       "height": 8,

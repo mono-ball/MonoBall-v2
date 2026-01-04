@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route114_lanettes_house_event_script_pc",
+  "id": "pokeemerald:script:interactions/signs/route114_lanettes_house_event_script_pc",
   "name": "route114 lanettes house event script pc",
   "description": "Sign script: route114 lanettes house event script pc",
-  "scriptPath": "Scripts/Signs/route114_lanettes_house_event_script_pc.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route114_lanettes_house_event_script_pc.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

@@ -207,9 +207,10 @@ public class BattleEnvironmentExtractor : ExtractorBase
         }
 
         // Create environment definition as Bitmap (pre-rendered background)
+        var envId = envName.ToLowerInvariant();
         var definition = new Dictionary<string, object?>
         {
-            ["id"] = $"{IdTransformer.Namespace}:battle:environment/{envName}",
+            ["id"] = $"{IdTransformer.Namespace}:battle:environment/{envId}",
             ["name"] = FormatDisplayName(envName),
             ["type"] = "Bitmap",
             ["texturePath"] = $"Graphics/Battle/{pascalName}/{pascalName}.png",

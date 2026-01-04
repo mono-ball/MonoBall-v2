@@ -55,53 +55,52 @@ public class CameraSystem : BaseSystem<World, float>, IPrioritizedSystem
 
     /// <summary>
     ///     Calculates the center point of an entity's sprite for camera centering.
-    ///     Requires the entity to have SpriteSheetComponent and SpriteAnimationComponent.
+    ///     If entity has SpriteComponent, uses sprite frame dimensions.
+    ///     Otherwise, falls back to default dimensions (16x16 pixels).
     /// </summary>
     /// <param name="entity">The entity to calculate center for.</param>
     /// <param name="position">The entity's position (typically top-left of sprite).</param>
     /// <returns>The center point of the entity's sprite in pixel coordinates.</returns>
     /// <exception cref="InvalidOperationException">
-    ///     Thrown if entity lacks required components or frame rectangle cannot be
-    ///     retrieved.
+    ///     Thrown if frame rectangle cannot be retrieved for entities with SpriteComponent.
     /// </exception>
     private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
     {
-        if (!World.Has<SpriteSheetComponent>(entity))
-            throw new InvalidOperationException(
-                $"CameraSystem.CalculateEntityCenter: Entity {entity.Id} does not have SpriteSheetComponent. "
-                    + "Cannot calculate sprite center without sprite sheet information."
-            );
-
-        if (!World.Has<SpriteAnimationComponent>(entity))
-            throw new InvalidOperationException(
-                $"CameraSystem.CalculateEntityCenter: Entity {entity.Id} does not have SpriteAnimationComponent. "
-                    + "Cannot calculate sprite center without animation information."
-            );
-
-        ref var spriteSheet = ref World.Get<SpriteSheetComponent>(entity);
-        ref var animation = ref World.Get<SpriteAnimationComponent>(entity);
-
-        // Get current frame rectangle - will throw if not found (fail-fast)
-        Rectangle frameRect;
-        try
+        // Try to get sprite frame dimensions if SpriteComponent exists
+        if (World.Has<SpriteComponent>(entity))
         {
-            frameRect = _resourceManager.GetAnimationFrameRectangle(
-                spriteSheet.CurrentSpriteSheetId,
-                animation.CurrentAnimationName,
-                animation.CurrentFrameIndex
-            );
-        }
-        catch (Exception ex)
-        {
-            throw new InvalidOperationException(
-                $"CameraSystem.CalculateEntityCenter: Failed to get frame rectangle for entity {entity.Id}, "
-                    + $"sprite {spriteSheet.CurrentSpriteSheetId}, animation {animation.CurrentAnimationName}, frame {animation.CurrentFrameIndex}.",
-                ex
+            ref var sprite = ref World.Get<SpriteComponent>(entity);
+
+            // Get current frame rectangle - will throw if not found (fail-fast)
+            Rectangle frameRect;
+            try
+            {
+                frameRect = _resourceManager.GetSpriteFrameRectangle(
+                    sprite.SpriteId,
+                    sprite.FrameIndex
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(
+                    $"CameraSystem.CalculateEntityCenter: Failed to get frame rectangle for entity {entity.Id}, "
+                        + $"sprite {sprite.SpriteId}, frame {sprite.FrameIndex}.",
+                    ex
+                );
+            }
+
+            // Calculate center: position (top-left) + half frame dimensions
+            return new Vector2(
+                position.X + frameRect.Width / 2f,
+                position.Y + frameRect.Height / 2f
             );
         }
 
-        // Calculate center: position (top-left) + half frame dimensions
-        return new Vector2(position.X + frameRect.Width / 2f, position.Y + frameRect.Height / 2f);
+        // Fallback for entities without SpriteComponent (e.g., map objects, UI elements)
+        // Use default dimensions (16x16 pixels, typical tile size)
+        const float defaultWidth = 16f;
+        const float defaultHeight = 16f;
+        return new Vector2(position.X + defaultWidth / 2f, position.Y + defaultHeight / 2f);
     }
 
     /// <summary>
@@ -149,17 +148,11 @@ public class CameraSystem : BaseSystem<World, float>, IPrioritizedSystem
                     followEntity.Id
                 );
             }
-            else if (
-                !World.Has<SpriteSheetComponent>(followEntity)
-                || !World.Has<SpriteAnimationComponent>(followEntity)
-            )
+            else if (!World.Has<SpriteComponent>(followEntity))
             {
-                // Entity missing required sprite components - clear follow
-                camera.FollowEntity = null;
-                _logger.Warning(
-                    "CameraSystem.UpdateCamera: Follow entity {EntityId} missing SpriteSheetComponent or SpriteAnimationComponent, stopping follow",
-                    followEntity.Id
-                );
+                // Entity missing SpriteComponent - can still follow but will use default dimensions
+                // This allows following non-sprite entities (e.g., map objects) with fallback dimensions
+                // No need to clear follow - CalculateEntityCenter handles this gracefully
             }
             else
             {

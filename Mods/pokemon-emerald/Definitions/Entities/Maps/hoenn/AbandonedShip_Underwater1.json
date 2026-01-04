@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/abandoned_ship_underwater1",
   "name": "AbandonedShip_Underwater1",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underwater",
   "width": 8,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": true,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/insideship",
+    "bottomLayer": [
+      989,
+      989,
+      989,
+      989
+    ],
+    "topLayer": [
+      -1073740835,
+      -1073740835,
+      -1073740835,
+      -1073740835
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/abandoned_ship_underwater1/ground",
+      "id": "pokeemerald:layer:Hoenn/abandoned_ship_underwater1/ground",
       "name": "Ground",
       "width": 8,
       "height": 8,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "KAQAACoEAAArBAAAKgQAACsEAAAqBAAAKAQAACoEAAAsBAAALQQAAC4EAAAvBAAALgQAAC8EAAAsBAAALwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAEAAAwBAAAAAAAAAAAAAAzBAAAMwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzBAAAMwQAAAAAAAAAAAAAMgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAEAAAAAAAAAAAAAAAAAAAzBAAAMwQAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/abandoned_ship_underwater1/objects",
+      "id": "pokeemerald:layer:Hoenn/abandoned_ship_underwater1/objects",
       "name": "Objects",
       "width": 8,
       "height": 8,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "KQQAACkEAIApBACAKQQAgCkEAIApBACAKQQAACkEAIDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwDAEAAAwBAAAMAQAADAEAAAwBAAAMAQAADEEAAAxBACAMAQAADIEAAAxBAAAMQQAgDMEAAAzBAAAMAQAADAEAAAyBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMAQAADIEAAAzBAAAMwQAADMEAAAxBAAAMQQAgDMEAAAwBAAAMQQAgDMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADEEAAA0BAAANQQAADMEAAA2BAAANgQAwDMEAAA3BAAAMAQAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/abandoned_ship_underwater1/overhead",
+      "id": "pokeemerald:layer:Hoenn/abandoned_ship_underwater1/overhead",
       "name": "Overhead",
       "width": 8,
       "height": 8,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwAAAAAAAAAAA3wMAwN8DAMAAAAAAAAAAAN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMAAAAAAAAAAAN8DAMDfAwDAAAAAAN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwAAAAADfAwDA3wMAwN8DAMAAAAAAAAAAAN8DAMDfAwDA3wMAwA=="
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
-      "tilesetId": "pokeemerald:tileset:secondary/inside_ship"
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/insideship"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/abandoned_ship_underwater1/warp_to_abandoned_ship_underwater2",
+      "id": "pokeemerald:warp:Hoenn/abandoned_ship_underwater1/warp_to_abandoned_ship_underwater2",
       "name": "Warp to abandoned_ship_underwater2",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/abandoned_ship_underwater1/warp_to_abandoned_ship_underwater2",
+      "id": "pokeemerald:warp:Hoenn/abandoned_ship_underwater1/warp_to_abandoned_ship_underwater2",
       "name": "Warp to abandoned_ship_underwater2",
       "x": 64,
       "y": 112,
@@ -98,7 +113,7 @@
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/abandoned_ship_underwater1/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/abandoned_ship_underwater1/elevation_0",
       "name": "Collision_0",
       "width": 8,
       "height": 8,

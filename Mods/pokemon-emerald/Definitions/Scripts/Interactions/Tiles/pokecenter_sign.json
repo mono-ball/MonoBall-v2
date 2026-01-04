@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/pokecenter_sign",
+  "id": "pokeemerald:script:interactions/tiles/pokecenter_sign",
   "name": "Pokecenter Sign",
   "description": "Tile interaction: Pokecenter Sign",
+  "scriptPath": "Scripts/Interactions/Tiles/pokecenter_sign.csx",
   "category": "misc",
   "priority": 500
 }

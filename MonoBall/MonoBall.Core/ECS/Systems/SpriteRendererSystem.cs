@@ -33,7 +33,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
     private readonly List<(
         Entity entity,
         string spriteId,
-        SpriteAnimationComponent anim,
+        SpriteComponent sprite,
         PositionComponent pos,
         RenderableComponent render
     )> _spriteList = new();
@@ -41,6 +41,16 @@ public class SpriteRendererSystem : BaseSystem<World, float>
     private PerformanceStatsSystem? _performanceStatsSystem;
     private Viewport _savedViewport;
     private SpriteBatch? _spriteBatch;
+
+    /// <summary>
+    ///     Render target index for sprite layer shader stacking.
+    /// </summary>
+    private const int SpriteLayerRenderTargetIndex = 101;
+
+    /// <summary>
+    ///     Number of tiles to expand view bounds for culling (prevents edge artifacts).
+    /// </summary>
+    private const int ViewBoundsExpandTiles = 1;
 
     /// <summary>
     ///     Initializes a new instance of the SpriteRendererSystem.
@@ -79,9 +89,10 @@ public class SpriteRendererSystem : BaseSystem<World, float>
 
         // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
         // NPC query includes ActiveMapEntity tag to only process NPCs in active maps
+        // All sprites use SpriteComponent (works for both static and animated sprites)
         _npcQuery = new QueryDescription().WithAll<
             NpcComponent,
-            SpriteAnimationComponent,
+            SpriteComponent,
             PositionComponent,
             RenderableComponent,
             ActiveMapEntity
@@ -90,7 +101,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
         _playerQuery = new QueryDescription().WithAll<
             PlayerComponent,
             SpriteSheetComponent,
-            SpriteAnimationComponent,
+            SpriteComponent,
             PositionComponent,
             RenderableComponent
         >();
@@ -158,7 +169,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
         List<(
             Entity entity,
             string spriteId,
-            SpriteAnimationComponent anim,
+            SpriteComponent sprite,
             PositionComponent pos,
             RenderableComponent render
         )> outputList
@@ -172,12 +183,11 @@ public class SpriteRendererSystem : BaseSystem<World, float>
 
         // Expand bounds slightly to include edge sprites that might be partially visible
         // This prevents sprites from disappearing too early when moving near viewport edges
-        var expandTiles = 1; // Expand by 1 tile in each direction
         var expandedTileBounds = new Rectangle(
-            tileViewBounds.X - expandTiles,
-            tileViewBounds.Y - expandTiles,
-            tileViewBounds.Width + expandTiles * 2,
-            tileViewBounds.Height + expandTiles * 2
+            tileViewBounds.X - ViewBoundsExpandTiles,
+            tileViewBounds.Y - ViewBoundsExpandTiles,
+            tileViewBounds.Width + ViewBoundsExpandTiles * 2,
+            tileViewBounds.Height + ViewBoundsExpandTiles * 2
         );
 
         // Convert to pixel bounds for culling sprites (sprites are positioned in pixels)
@@ -194,7 +204,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
             (
                 Entity entity,
                 ref NpcComponent npc,
-                ref SpriteAnimationComponent anim,
+                ref SpriteComponent sprite,
                 ref PositionComponent pos,
                 ref RenderableComponent render
             ) =>
@@ -205,7 +215,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                 // Get sprite definition for frame dimensions
                 // Note: Sprite definitions are validated at entity creation time, so we assume they exist here
                 // However, we still check for null as a safety measure (e.g., if sprite definitions are removed after entity creation)
-                var spriteDef = _resourceManager.GetSpriteDefinition(npc.SpriteId);
+                var spriteDef = _resourceManager.GetSpriteDefinition(sprite.SpriteId);
                 if (spriteDef == null)
                     return; // Skip rendering if sprite definition is missing (should not happen in normal operation)
 
@@ -218,7 +228,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                 );
 
                 if (spriteBounds.Intersects(visiblePixelBounds))
-                    outputList.Add((entity, npc.SpriteId, anim, pos, render));
+                    outputList.Add((entity, sprite.SpriteId, sprite, pos, render));
             }
         );
 
@@ -229,7 +239,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                 Entity entity,
                 ref PlayerComponent player,
                 ref SpriteSheetComponent spriteSheet,
-                ref SpriteAnimationComponent anim,
+                ref SpriteComponent sprite,
                 ref PositionComponent pos,
                 ref RenderableComponent render
             ) =>
@@ -240,9 +250,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                 // Get sprite definition for frame dimensions
                 // Note: Sprite definitions are validated at entity creation time, so we assume they exist here
                 // However, we still check for null as a safety measure (e.g., if sprite definitions are removed after entity creation)
-                var spriteDef = _resourceManager.GetSpriteDefinition(
-                    spriteSheet.CurrentSpriteSheetId
-                );
+                var spriteDef = _resourceManager.GetSpriteDefinition(sprite.SpriteId);
                 if (spriteDef == null)
                     return; // Skip rendering if sprite definition is missing (should not happen in normal operation)
 
@@ -255,7 +263,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                 );
 
                 if (spriteBounds.Intersects(visiblePixelBounds))
-                    outputList.Add((entity, spriteSheet.CurrentSpriteSheetId, anim, pos, render));
+                    outputList.Add((entity, sprite.SpriteId, sprite, pos, render));
             }
         );
     }
@@ -269,7 +277,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
         List<(
             Entity entity,
             string spriteId,
-            SpriteAnimationComponent anim,
+            SpriteComponent sprite,
             PositionComponent pos,
             RenderableComponent render
         )> sprites,
@@ -289,61 +297,41 @@ public class SpriteRendererSystem : BaseSystem<World, float>
 
             // Get sprite layer shader stack (filtered by scene if provided)
             var shaderStack = _shaderManagerSystem?.GetSpriteLayerShaderStack(sceneEntity);
-            var needsShaderStacking =
-                shaderStack != null
-                && shaderStack.Count > 0
-                && (shaderStack.Count > 1 || shaderStack[0].blendMode != ShaderBlendMode.Replace);
-
-            if (
-                needsShaderStacking
-                && (_shaderRendererSystem == null || _renderTargetManager == null)
-            )
-            {
-                // Shader stacking requested but dependencies missing - fall back to single shader
-                _logger.Warning(
-                    "SpriteRendererSystem: Shader stacking requested but ShaderRendererSystem or RenderTargetManager not available. Falling back to single shader."
-                );
-                needsShaderStacking = false;
-            }
+            var needsShaderStacking = ShaderStackingHelper.NeedsShaderStacking(shaderStack);
 
             if (needsShaderStacking)
             {
-                // Check if render target is already set (e.g., by SceneRendererSystem for post-processing)
-                var currentRenderTargets = _graphicsDevice.GetRenderTargets();
-                var renderTarget =
-                    currentRenderTargets.Length > 0
-                        ? currentRenderTargets[0].RenderTarget as RenderTarget2D
-                        : null;
+                needsShaderStacking = ShaderStackingHelper.ValidateShaderStackingDependencies(
+                    _shaderRendererSystem,
+                    _renderTargetManager,
+                    _logger,
+                    "SpriteRendererSystem"
+                );
+            }
 
-                // If no render target is set, create one for shader stacking
-                if (renderTarget == null)
-                {
-                    renderTarget = _renderTargetManager!.GetOrCreateRenderTarget(101); // Use index 101 for sprite layer
-                    if (renderTarget == null)
-                    {
-                        _logger.Warning(
-                            "SpriteRendererSystem: Failed to create render target for shader stacking. Falling back to direct rendering."
-                        );
-                        needsShaderStacking = false;
-                    }
-                }
+            if (needsShaderStacking && _renderTargetManager != null)
+            {
+                var renderTarget = ShaderStackingHelper.GetOrCreateRenderTargetForStacking(
+                    _graphicsDevice,
+                    _renderTargetManager,
+                    SpriteLayerRenderTargetIndex,
+                    _logger,
+                    "SpriteRendererSystem"
+                );
 
-                if (needsShaderStacking && renderTarget != null)
+                if (renderTarget != null)
                 {
                     // Render sprites with per-entity shaders to render target (layer shaders applied by ApplyShaderStack)
+                    // Save previous render target for restoration
                     var renderTargets = _graphicsDevice.GetRenderTargets();
                     var previousTarget =
                         renderTargets.Length > 0
                             ? renderTargets[0].RenderTarget as RenderTarget2D
                             : null;
-
-                    // Only set render target if it's different from current (avoid unnecessary state changes)
-                    var needToSetTarget = previousTarget != renderTarget;
-                    if (needToSetTarget)
-                    {
-                        _graphicsDevice.SetRenderTarget(renderTarget);
-                        _graphicsDevice.Clear(Color.Transparent);
-                    }
+                    var needToSetTarget = ShaderStackingHelper.SetupRenderTarget(
+                        _graphicsDevice,
+                        renderTarget
+                    );
 
                     try
                     {
@@ -365,7 +353,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                         Effect? currentShader = null; // No layer shader - ApplyShaderStack will handle it
                         var batchStarted = false;
 
-                        foreach (var (entity, spriteId, anim, pos, render) in sprites)
+                        foreach (var (entity, spriteId, sprite, pos, render) in sprites)
                         {
                             // Check for per-entity shader only (no layer shader fallback)
                             var entityShader = GetEntityShader(entity);
@@ -422,7 +410,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                                 );
                             }
 
-                            RenderSingleSprite(spriteId, anim, pos, render);
+                            RenderSprite(spriteId, sprite, pos, render);
                         }
 
                         if (batchStarted)
@@ -472,7 +460,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                 var currentShader = spriteLayerShader;
                 var batchStarted = false;
 
-                foreach (var (entity, spriteId, anim, pos, render) in sprites)
+                foreach (var (entity, spriteId, sprite, pos, render) in sprites)
                 {
                     // Check for per-entity shader
                     var entityShader = GetEntityShader(entity);
@@ -525,7 +513,7 @@ public class SpriteRendererSystem : BaseSystem<World, float>
                         );
                     }
 
-                    RenderSingleSprite(spriteId, anim, pos, render);
+                    RenderSprite(spriteId, sprite, pos, render);
                 }
 
                 if (batchStarted)
@@ -656,15 +644,16 @@ public class SpriteRendererSystem : BaseSystem<World, float>
     }
 
     /// <summary>
-    ///     Renders a single sprite.
+    ///     Renders a sprite using SpriteComponent data.
+    ///     Works for both static sprites and animated sprites (SpriteComponent is updated by SpriteAnimationSystem).
     /// </summary>
     /// <param name="spriteId">The sprite ID.</param>
-    /// <param name="anim">The sprite animation component.</param>
+    /// <param name="sprite">The sprite component.</param>
     /// <param name="pos">The position component.</param>
     /// <param name="render">The renderable component.</param>
-    private void RenderSingleSprite(
+    private void RenderSprite(
         string spriteId,
-        SpriteAnimationComponent anim,
+        SpriteComponent sprite,
         PositionComponent pos,
         RenderableComponent render
     )
@@ -679,30 +668,25 @@ public class SpriteRendererSystem : BaseSystem<World, float>
         {
             _logger.Warning(
                 ex,
-                "SpriteRendererSystem.RenderSingleSprite: Failed to get sprite texture for {SpriteId}",
+                "SpriteRendererSystem.RenderSprite: Failed to get sprite texture for {SpriteId}",
                 spriteId
             );
             return;
         }
 
-        // Get current frame rectangle
+        // Get frame rectangle directly from SpriteComponent
         Rectangle frameRect;
         try
         {
-            frameRect = _resourceManager.GetAnimationFrameRectangle(
-                spriteId,
-                anim.CurrentAnimationName,
-                anim.CurrentFrameIndex
-            );
+            frameRect = _resourceManager.GetSpriteFrameRectangle(spriteId, sprite.FrameIndex);
         }
         catch (Exception ex)
         {
             _logger.Warning(
                 ex,
-                "SpriteRendererSystem.RenderSingleSprite: Failed to get frame rectangle for sprite {SpriteId}, animation {AnimationName}, frame {FrameIndex}",
+                "SpriteRendererSystem.RenderSprite: Failed to get frame rectangle for sprite {SpriteId}, frame {FrameIndex}",
                 spriteId,
-                anim.CurrentAnimationName,
-                anim.CurrentFrameIndex
+                sprite.FrameIndex
             );
             return;
         }
@@ -710,10 +694,12 @@ public class SpriteRendererSystem : BaseSystem<World, float>
         // Calculate color with opacity
         var color = Color.White * render.Opacity;
 
-        // Determine sprite effects
+        // Determine sprite effects (can combine horizontal and vertical flips)
         var spriteEffects = SpriteEffects.None;
-        if (anim.FlipHorizontal)
+        if (sprite.FlipHorizontal)
             spriteEffects |= SpriteEffects.FlipHorizontally;
+        if (sprite.FlipVertical)
+            spriteEffects |= SpriteEffects.FlipVertically;
 
         // Draw the sprite
         // Note: _spriteBatch is already validated in Render() method before calling RenderSpriteBatch()

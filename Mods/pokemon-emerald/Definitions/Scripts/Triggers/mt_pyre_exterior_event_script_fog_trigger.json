@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mt_pyre_exterior_event_script_fog_trigger",
+  "name": "mt pyre exterior event script fog trigger",
+  "description": "Trigger script: mt pyre exterior event script fog trigger",
+  "scriptPath": "Scripts/Triggers/mt_pyre_exterior_event_script_fog_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/sealed_chamber_outer_room",
   "name": "SealedChamber_OuterRoom",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underground",
   "width": 21,
   "height": 23,
@@ -19,9 +19,24 @@
   "allowCycling": true,
   "allowEscaping": true,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/general",
+    "bottomLayer": [
+      395,
+      395,
+      395,
+      395
+    ],
+    "topLayer": [
+      -1073741820,
+      -1073741820,
+      -1073741820,
+      -1073741820
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/sealed_chamber_outer_room/ground",
+      "id": "pokeemerald:layer:Hoenn/sealed_chamber_outer_room/ground",
       "name": "Ground",
       "width": 21,
       "height": 23,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAARgAAAEYAAABGAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAA8gAAAPIAAADyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAA8gAAAPMAAADyAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAegEAAAAAAAAAAAAAAAAAAHcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHoBAAAAAAAAdwEAAHcBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHoBAAB6AQAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACHAAAAiQAAAIkAAACJAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA9AAAAPQAAAD0AAAAjQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA9AAAAPYAAAD0AAAAjQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADeAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4gMAAAAAAAAAAAAAAAAAAN4DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIDAAAAAAAA3gMAAN4DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIDAADiAwAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/sealed_chamber_outer_room/objects",
+      "id": "pokeemerald:layer:Hoenn/sealed_chamber_outer_room/objects",
       "name": "Objects",
       "width": 21,
       "height": 23,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "dAEAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHUBAAB2AQAAdwEAAHQBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHUBAAANAgAAxAEAAMUBAADGAQAADgIAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdQEAAHYBAAB6AQAAdwEAAHcBAAB0AQAAdQEAAHUBAAB1AQAAdQEAAHUBAADDAQAAxwEAAMgBAADJAQAAwwEAAHUBAAB1AQAAdQEAAHUBAAB1AQAAdgEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAugEAAIsBAAC5AQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAeAEAAA8CAAB5AQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAugEAAIsBAAC5AQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAeAEAAA8CAAB5AQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAugEAAIsBAACLAQAAiwEAALkBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAeAEAAA8CAAAPAgAADwIAAHkBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAABFAAAARwAAAEcAAABHAAAASQAAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAAAzAAAAAgAAwAIAAMACAADASwAAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAAB3AQAAZwEAAGcBAABnAQAAZwEAAGcBAAAzAAAAAgAAwAIAAMACAADASwAAAGcBAABnAQAAZwEAAGcBAABnAQAAegEAAHoBAAB6AQAAdwEAAHcBAACFAQAAcwEAAHMBAABzAQAAcwEAAHMBAAB9AQAAfQEAAH0BAAB9AQAAfQEAAHMBAABzAQAAcwEAAHMBAABzAQAAhQEAAHoBAAB6AQAAdwEAAIUBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIUBAAB6AQAAhQEAAIUBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAiwEAAIUBAACFAQAA"
+      "tileData": "2wMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADdAwAA3gMAANsDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAABmBAAATAQAAE0EAABOBAAAZwQAANwDAADcAwAA3AMAANwDAADcAwAA3AMAAN0DAADiAwAA3gMAAN4DAADbAwAA3AMAANwDAADcAwAA3AMAANwDAABLBAAATwQAAFAEAABRBAAASwQAANwDAADcAwAA3AMAANwDAADcAwAA3QMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAAQgQAAPsDAABBBAAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA3wMAAGgEAADgAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAAQgQAAPsDAABBBAAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA3wMAAGgEAADgAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAAQgQAAPsDAAD7AwAA\u002BwMAAEEEAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA3wMAAGgEAABoBAAAaAQAAOADAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAACIAAAAigAAAIoAAACKAAAAjAAAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAACBAAAA9QAAAPUAAAD1AAAAjgAAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADeAwAA4QMAAOEDAADhAwAA4QMAAOEDAACBAAAA9QAAAPcAAAD1AAAAjgAAAOEDAADhAwAA4QMAAOEDAADhAwAA4gMAAOIDAADiAwAA3gMAAN4DAADzAwAA2QMAANkDAADZAwAA2QMAANkDAABpBAAAaQQAAGkEAABpBAAAaQQAANkDAADZAwAA2QMAANkDAADZAwAA8wMAAOIDAADiAwAA3gMAAPMDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPMDAADiAwAA8wMAAPMDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPsDAAD7AwAA\u002BwMAAPMDAADzAwAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/sealed_chamber_outer_room/overhead",
+      "id": "pokeemerald:layer:Hoenn/sealed_chamber_outer_room/overhead",
       "name": "Overhead",
       "width": 21,
       "height": 23,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "agEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAAAAAAAAAAAAAAAAAAAAAAGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMAAAAAAhQEAAIUBAACFAQAAhQEAAIUBAACFAQAAhQEAAIUBAACFAQAAhQEAAIUBAACFAQAAhQEAAIUBAACFAQAAAAAAAGoBAMBqAQDAagEAwAAAAABqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwAAAAABqAQDAAAAAAAAAAABqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwGoBAMBqAQDAagEAwAAAAAAAAAAA"
+      "tileData": "2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAA8wMAAPMDAADzAwAA8wMAAPMDAABqBAAAagQAAGoEAABqBAAAagQAAPMDAADzAwAA8wMAAPMDAADzAwAAAAAAANoDAMDaAwDA2gMAwAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwAAAAADaAwDAAAAAAAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwAAAAAAAAAAA"
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/cave"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/sealed_chamber_outer_room/warp_to_sealed_chamber_inner_room",
+      "id": "pokeemerald:warp:Hoenn/sealed_chamber_outer_room/warp_to_sealed_chamber_inner_room",
       "name": "Warp to sealed_chamber_inner_room",
       "x": 160,
       "y": 32,
@@ -84,300 +99,300 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleABC",
       "x": 80,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_abc",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_abc",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleGHI",
       "x": 80,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_ghi",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_ghi",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleMNO",
       "x": 80,
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_mno",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_mno",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleTUV",
       "x": 80,
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_tuv",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_tuv",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDEF",
       "x": 176,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_def",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_def",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleJKL",
       "x": 176,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_jkl",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_jkl",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePQRS",
       "x": 176,
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_pqrs",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_pqrs",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
       "x": 176,
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_wxyz",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_wxyz",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleperiod",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleperiod",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePeriod",
       "x": 256,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_period",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_period",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillecomma",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillecomma",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleComma",
       "x": 256,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_comma",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_comma",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptinnerroomentrancewall",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptinnerroomentrancewall",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_InnerRoomEntranceWall",
       "x": 160,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_inner_room_entrance_wall",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_inner_room_entrance_wall",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleABC",
       "x": 96,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_abc",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_abc",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleabc",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleABC",
       "x": 64,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_abc",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_abc",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleGHI",
       "x": 64,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_ghi",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_ghi",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailleghi",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleGHI",
       "x": 96,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_ghi",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_ghi",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleMNO",
       "x": 64,
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_mno",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_mno",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillemno",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleMNO",
       "x": 96,
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_mno",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_mno",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleTUV",
       "x": 64,
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_tuv",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_tuv",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailletuv",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleTUV",
       "x": 96,
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_tuv",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_tuv",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDEF",
       "x": 160,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_def",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_def",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledef",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDEF",
       "x": 192,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_def",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_def",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleJKL",
       "x": 160,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_jkl",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_jkl",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillejkl",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleJKL",
       "x": 192,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_jkl",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_jkl",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePQRS",
       "x": 160,
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_pqrs",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_pqrs",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillepqrs",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BraillePQRS",
       "x": 192,
       "y": 192,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_pqrs",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_pqrs",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
       "x": 160,
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_wxyz",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_wxyz",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbraillewxyz",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleWXYZ",
       "x": 192,
       "y": 240,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_wxyz",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_wxyz",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledighere",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledighere",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDigHere",
       "x": 144,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_dig_here",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_dig_here",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledighere",
+      "id": "pokeemerald:interaction:Hoenn/sealed_chamber_outer_room/sign_sealedchamberouterroomeventscriptbrailledighere",
       "name": "Sign: SealedChamber_OuterRoom_EventScript_BrailleDigHere",
       "x": 176,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/sealed_chamber_outer_room_event_script_braille_dig_here",
+      "interactionId": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_dig_here",
       "elevation": 0
     }
   ],
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/sealed_chamber_outer_room/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/sealed_chamber_outer_room/elevation_0",
       "name": "Collision_0",
       "width": 21,
       "height": 23,

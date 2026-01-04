@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lavaridge_town_gym_b1f",
   "name": "LavaridgeTown_Gym_B1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 17,
   "height": 19,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_gym_b1f/ground",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_gym_b1f/ground",
       "name": "Ground",
       "width": 17,
       "height": 19,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_gym_b1f/objects",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_gym_b1f/objects",
       "name": "Objects",
       "width": 17,
       "height": 19,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_gym_b1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_gym_b1f/overhead",
       "name": "Overhead",
       "width": 17,
       "height": 19,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/lavaridge_gym"
+      "tilesetId": "pokeemerald:tileset:secondary/lavaridgegym"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 160,
       "y": 288,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 0,
       "y": 272,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 128,
       "y": 144,
@@ -105,7 +120,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 80,
       "y": 224,
@@ -117,7 +132,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 64,
       "y": 288,
@@ -129,7 +144,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 80,
       "y": 144,
@@ -141,7 +156,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 32,
       "y": 240,
@@ -153,7 +168,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 48,
       "y": 224,
@@ -165,7 +180,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 16,
       "y": 224,
@@ -177,7 +192,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 0,
       "y": 160,
@@ -189,7 +204,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 48,
       "y": 160,
@@ -201,7 +216,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 0,
       "y": 96,
@@ -213,7 +228,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 48,
       "y": 96,
@@ -225,7 +240,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 80,
       "y": 96,
@@ -237,7 +252,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 32,
       "y": 48,
@@ -249,7 +264,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 80,
       "y": 32,
@@ -261,7 +276,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 112,
       "y": 32,
@@ -273,7 +288,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 128,
       "y": 96,
@@ -285,7 +300,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 160,
       "y": 96,
@@ -297,7 +312,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 192,
       "y": 48,
@@ -309,7 +324,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 64,
       "y": 256,
@@ -321,7 +336,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 224,
       "y": 96,
@@ -333,7 +348,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 208,
       "y": 272,
@@ -345,7 +360,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_gym_b1f/warp_to_lavaridge_town_gym_1f",
       "name": "Warp to lavaridge_town_gym_1f",
       "x": 192,
       "y": 192,
@@ -361,53 +376,49 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_gym_b1f/localid_jace",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_gym_b1f/localid_jace",
       "name": "LOCALID_JACE",
       "x": 64,
       "y": 288,
-      "spriteId": "pokeemerald:sprite:npcs/man5",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_gym_b1f_event_script_jace",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man5",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_gym_b1f_event_script_jace",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_gym_b1f/localid_keegan",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_gym_b1f/localid_keegan",
       "name": "LOCALID_KEEGAN",
       "x": 48,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/man5",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_gym_b1f_event_script_keegan",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man5",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_gym_b1f_event_script_keegan",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_gym_b1f/localid_jeff",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_gym_b1f/localid_jeff",
       "name": "LOCALID_JEFF",
       "x": 208,
       "y": 272,
-      "spriteId": "pokeemerald:sprite:npcs/man5",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_gym_b1f_event_script_jeff",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man5",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_gym_b1f_event_script_jeff",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_gym_b1f/localid_eli",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_gym_b1f/localid_eli",
       "name": "LOCALID_ELI",
       "x": 64,
       "y": 256,
-      "spriteId": "pokeemerald:sprite:npcs/hiker",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_gym_b1f_event_script_eli",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_gym_b1f_event_script_eli",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lavaridge_town_gym_b1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lavaridge_town_gym_b1f/elevation_0",
       "name": "Collision_0",
       "width": 17,
       "height": 19,

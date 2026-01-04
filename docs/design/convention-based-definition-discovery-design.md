@@ -136,11 +136,11 @@ ModRoot/
 │   └── Scripts/                     → Type: "Script"
 │       ├── Movement/                → Type: "Script" (movement scripts)
 │       │   └── NPCs/                → Type: "Script" (NPC movement scripts)
-│       └── Interactions/            → Type: "Script" (interaction scripts)
-│           ├── NPCs/               
-│           ├── Signs/               
-│           ├── Tiles/               
-│           └── Triggers/           
+│       ├── Interactions/            → Type: "Script" (interaction scripts)
+│       │   ├── NPCs/               
+│       │   ├── Signs/               
+│       │   └── Tiles/               
+│       └── Triggers/                → Type: "Script" (trigger scripts)           
 │
 ├── Graphics/                       # Non-definition assets (textures, images)
 ├── Audio/                          # Non-definition assets (music, SFX files)

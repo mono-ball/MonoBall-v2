@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/inside_of_truck_event_script_set_intro_flags",
+  "name": "inside of truck event script set intro flags",
+  "description": "Trigger script: inside of truck event script set intro flags",
+  "scriptPath": "Scripts/Triggers/inside_of_truck_event_script_set_intro_flags.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

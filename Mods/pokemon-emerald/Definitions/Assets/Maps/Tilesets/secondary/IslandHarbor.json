@@ -1,0 +1,219 @@
+{
+  "id": "pokeemerald:tileset:secondary/islandharbor",
+  "name": "IslandHarbor",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/IslandHarbor.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 53,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 64,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 2,
+      "interactionId": "pokeemerald:script:interactions/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    },
+    {
+      "localTileId": 3,
+      "interactionId": "pokeemerald:script:interactions/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    },
+    {
+      "localTileId": 15,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 27,
+      "animation": [
+        {
+          "tileId": 37,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 40,
+          "durationMs": 133
+        },
+        {
+          "tileId": 41,
+          "durationMs": 133
+        },
+        {
+          "tileId": 42,
+          "durationMs": 133
+        },
+        {
+          "tileId": 43,
+          "durationMs": 133
+        },
+        {
+          "tileId": 44,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 29,
+      "animation": [
+        {
+          "tileId": 37,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 40,
+          "durationMs": 133
+        },
+        {
+          "tileId": 41,
+          "durationMs": 133
+        },
+        {
+          "tileId": 42,
+          "durationMs": 133
+        },
+        {
+          "tileId": 43,
+          "durationMs": 133
+        },
+        {
+          "tileId": 44,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 31,
+      "animation": [
+        {
+          "tileId": 37,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 40,
+          "durationMs": 133
+        },
+        {
+          "tileId": 41,
+          "durationMs": 133
+        },
+        {
+          "tileId": 42,
+          "durationMs": 133
+        },
+        {
+          "tileId": 43,
+          "durationMs": 133
+        },
+        {
+          "tileId": 44,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 33,
+      "animation": [
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 46,
+          "durationMs": 133
+        },
+        {
+          "tileId": 47,
+          "durationMs": 133
+        },
+        {
+          "tileId": 48,
+          "durationMs": 133
+        },
+        {
+          "tileId": 49,
+          "durationMs": 133
+        },
+        {
+          "tileId": 50,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 52,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 35,
+      "animation": [
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 46,
+          "durationMs": 133
+        },
+        {
+          "tileId": 47,
+          "durationMs": 133
+        },
+        {
+          "tileId": 48,
+          "durationMs": 133
+        },
+        {
+          "tileId": 49,
+          "durationMs": 133
+        },
+        {
+          "tileId": 50,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 52,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

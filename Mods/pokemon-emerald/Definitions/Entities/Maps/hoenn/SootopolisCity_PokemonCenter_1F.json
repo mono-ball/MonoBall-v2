@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/sootopolis_city_pokemon_center_1f",
   "name": "SootopolisCity_PokemonCenter_1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 14,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/sootopolis_city_pokemon_center_1f/ground",
+      "id": "pokeemerald:layer:Hoenn/sootopolis_city_pokemon_center_1f/ground",
       "name": "Ground",
       "width": 14,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/sootopolis_city_pokemon_center_1f/objects",
+      "id": "pokeemerald:layer:Hoenn/sootopolis_city_pokemon_center_1f/objects",
       "name": "Objects",
       "width": 14,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/sootopolis_city_pokemon_center_1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/sootopolis_city_pokemon_center_1f/overhead",
       "name": "Overhead",
       "width": 14,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pokemon_center"
+      "tilesetId": "pokeemerald:tileset:secondary/pokemoncenter"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/sootopolis_city_pokemon_center_1f/warp_to_sootopolis_city",
+      "id": "pokeemerald:warp:Hoenn/sootopolis_city_pokemon_center_1f/warp_to_sootopolis_city",
       "name": "Warp to sootopolis_city",
       "x": 112,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/sootopolis_city_pokemon_center_1f/warp_to_sootopolis_city",
+      "id": "pokeemerald:warp:Hoenn/sootopolis_city_pokemon_center_1f/warp_to_sootopolis_city",
       "name": "Warp to sootopolis_city",
       "x": 96,
       "y": 128,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/sootopolis_city_pokemon_center_1f/warp_to_sootopolis_city_pokemon_center_2f",
+      "id": "pokeemerald:warp:Hoenn/sootopolis_city_pokemon_center_1f/warp_to_sootopolis_city_pokemon_center_2f",
       "name": "Warp to sootopolis_city_pokemon_center_2f",
       "x": 16,
       "y": 96,
@@ -109,63 +124,61 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/sootopolis_city_pokemon_center_1f/localid_sootopolis_nurse",
+      "id": "pokeemerald:npc:Hoenn/sootopolis_city_pokemon_center_1f/localid_sootopolis_nurse",
       "name": "LOCALID_SOOTOPOLIS_NURSE",
       "x": 112,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/nurse",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_nurse",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_nurse",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/sootopolis_city_pokemon_center_1f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/sootopolis_city_pokemon_center_1f/npc_1",
       "name": "NPC_1",
       "x": 192,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/gentleman",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_gentleman",
+      "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_gentleman",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/sootopolis_city_pokemon_center_1f/npc_2",
+      "id": "pokeemerald:npc:Hoenn/sootopolis_city_pokemon_center_1f/npc_2",
       "name": "NPC_2",
       "x": 64,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/woman5",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 0
       },
-      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_woman",
-      "facingDirection": "left",
+      "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_woman",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/sootopolis_city_pokemon_center_1f/npc_3",
+      "id": "pokeemerald:npc:Hoenn/sootopolis_city_pokemon_center_1f/npc_3",
       "name": "NPC_3",
       "x": 32,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/woman1",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_pokemon_center_1f_event_script_double_edge_tutor",
+      "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_double_edge_tutor",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/sootopolis_city_pokemon_center_1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/sootopolis_city_pokemon_center_1f/elevation_0",
       "name": "Collision_0",
       "width": 14,
       "height": 9,
@@ -175,7 +188,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAABAQEAAQEAAAAAAAAAAAEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAEBAAEAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/sootopolis_city_pokemon_center_1f/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/sootopolis_city_pokemon_center_1f/elevation_3",
       "name": "Collision_3",
       "width": 14,
       "height": 9,

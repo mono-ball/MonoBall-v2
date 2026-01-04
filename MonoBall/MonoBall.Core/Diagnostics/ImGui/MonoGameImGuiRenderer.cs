@@ -37,6 +37,7 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     private RasterizerState? _rasterizerState;
 
     private Texture2D? _fontTexture;
+    private bool _fontAtlasBuilt;
     private readonly ConcurrentDictionary<IntPtr, Texture2D> _boundTextures = new();
     private int _textureIdCounter = 1;
     private readonly object _textureIdLock = new();
@@ -88,6 +89,7 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         SetupInput(io);
         LoadFonts(io);
         CreateDeviceResources();
+        // Font atlas will be built lazily on first render when graphics device is ready
 
         ImGuiTheme.ApplyDefaultTheme();
     }
@@ -256,6 +258,13 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     {
         ThrowIfNotInitialized();
 
+        // Build font atlas lazily on first render when graphics device is ready
+        if (!_fontAtlasBuilt)
+        {
+            RebuildFontAtlas();
+            _fontAtlasBuilt = true;
+        }
+
         ImGui.Render();
         RenderDrawData(ImGui.GetDrawData());
     }
@@ -369,8 +378,6 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
             ScissorTestEnable = true,
             SlopeScaleDepthBias = 0,
         };
-
-        RebuildFontAtlas();
     }
 
     private void SetupInput(ImGuiIOPtr io)

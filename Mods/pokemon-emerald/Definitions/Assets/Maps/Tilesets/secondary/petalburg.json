@@ -1,8 +1,8 @@
 {
   "id": "pokeemerald:tileset:secondary/petalburg",
-  "name": "petalburg",
+  "name": "Petalburg",
   "type": "secondary",
-  "texturePath": "Graphics/Maps/Tilesets/Secondary/petalburg.png",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/Petalburg.png",
   "tileWidth": 16,
   "tileHeight": 16,
   "tileCount": 116,
@@ -14,31 +14,31 @@
   "tiles": [
     {
       "localTileId": 2,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_3e"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3e"
     },
     {
       "localTileId": 16,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 17,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 50,
-      "interactionId": "pokeemerald:interaction/tiles/cable_car_climb"
+      "interactionId": "pokeemerald:script:interactions/tiles/cable_car_climb"
     },
     {
       "localTileId": 54,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_3e"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3e"
     },
     {
       "localTileId": 82,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 112,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     }
   ]
 }

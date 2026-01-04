@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route110_event_script_seaside_parking_sign",
+  "id": "pokeemerald:script:interactions/signs/route110_event_script_seaside_parking_sign",
   "name": "route110 event script seaside parking sign",
   "description": "Sign script: route110 event script seaside parking sign",
-  "scriptPath": "Scripts/Signs/route110_event_script_seaside_parking_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route110_event_script_seaside_parking_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

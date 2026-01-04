@@ -25,11 +25,6 @@ namespace MonoBall.Core;
 public class MonoBallGame : Game
 {
     /// <summary>
-    ///     Indicates if the game is running on a mobile platform.
-    /// </summary>
-    public static readonly bool IsMobile = OperatingSystem.IsAndroid() || OperatingSystem.IsIOS();
-
-    /// <summary>
     ///     Indicates if the game is running on a desktop platform.
     /// </summary>
     public static readonly bool IsDesktop =
@@ -74,6 +69,15 @@ public class MonoBallGame : Game
 
         graphicsDeviceManager = new GraphicsDeviceManager(this);
 
+        // Set desktop graphics settings (required for DesktopVK)
+        if (!IsDesktop)
+        {
+            throw new PlatformNotSupportedException("Only desktop platforms are supported.");
+        }
+
+        graphicsDeviceManager.IsFullScreen = false;
+        IsMouseVisible = true;
+
         // Set default window resolution
         graphicsDeviceManager.PreferredBackBufferWidth = 1280;
         graphicsDeviceManager.PreferredBackBufferHeight = 800;
@@ -89,7 +93,6 @@ public class MonoBallGame : Game
 
         // Enable window resizing
         Window.AllowUserResizing = true;
-        IsMouseVisible = true;
     }
 
     /// <summary>
@@ -403,7 +406,7 @@ public class MonoBallGame : Game
             );
 
         // Create ModManager and load all mods (core mod loads first)
-        var modManager = new ModManager(modsDirectory, LoggerFactory.CreateLogger<ModManager>());
+        var modManager = new ModManager(LoggerFactory.CreateLogger<ModManager>(), modsDirectory);
 
         // Load mods (core mod loads first, then others)
         var errors = new List<string>();

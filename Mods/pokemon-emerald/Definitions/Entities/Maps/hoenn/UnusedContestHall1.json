@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/unused_contest_hall1",
   "name": "UnusedContestHall1",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 1,
   "height": 1,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/unused_contest_hall1/ground",
+      "id": "pokeemerald:layer:Hoenn/unused_contest_hall1/ground",
       "name": "Ground",
       "width": 1,
       "height": 1,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/unused_contest_hall1/objects",
+      "id": "pokeemerald:layer:Hoenn/unused_contest_hall1/objects",
       "name": "Objects",
       "width": 1,
       "height": 1,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/unused_contest_hall1/overhead",
+      "id": "pokeemerald:layer:Hoenn/unused_contest_hall1/overhead",
       "name": "Overhead",
       "width": 1,
       "height": 1,
@@ -73,7 +88,7 @@
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/unused_contest_hall1/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/unused_contest_hall1/elevation_0",
       "name": "Collision_0",
       "width": 1,
       "height": 1,

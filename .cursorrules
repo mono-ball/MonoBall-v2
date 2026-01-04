@@ -398,7 +398,8 @@ public class MapRendererSystem : BaseSystem<World, float>
 - **`EventBus.Subscribe<T>(Action<T>)`** - Subscribe with copy handler, returns `IDisposable`
 - **`EventBus.Subscribe<T>(RefAction<T>)`** - Subscribe with ref handler, returns `IDisposable`
 - **`EventBus.Send<T>(ref T)`** - Broadcast event to all subscribers (pass by ref)
-- **`EventBus.SendOnMainThread<T>(T)`** - Queue event for main thread dispatch (thread-safe)
+- **`EventBus.SendOnMainThread<T>(T)`** - Queue event for main thread dispatch (thread-safe, sends immediately if already on main thread)
+- **`EventBus.SendNextFrame<T>(T)`** - Always queue event for next frame (even if on main thread), useful for deferring expensive operations
 - **`EventBus.ProcessMainThreadQueue()`** - Process queued events (call in Game.Update)
 - **`EventBus.Initialize()`** - Set main thread reference (call once at startup)
 - **`EventBus.SetErrorHandler(Action<string, Exception>)`** - Custom error handling

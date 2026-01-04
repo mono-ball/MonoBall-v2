@@ -1,0 +1,23 @@
+using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// NPC Interaction: route132 event script gilbert
+/// Original: route132_event_script_gilbert
+/// </summary>
+public class Route132EventScriptGilbert : ScriptBase
+{
+    public override void Initialize(ScriptContext context)
+    {
+        base.Initialize(context);
+    }
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {
+    }
+
+    public override void OnUnload()
+    {
+        base.OnUnload();
+    }
+}

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/rustboro_city_cutters_house",
   "name": "RustboroCity_CuttersHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_cutters_house/ground",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_cutters_house/ground",
       "name": "Ground",
       "width": 11,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_cutters_house/objects",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_cutters_house/objects",
       "name": "Objects",
       "width": 11,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_cutters_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_cutters_house/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_cutters_house/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_cutters_house/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 80,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_cutters_house/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_cutters_house/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 96,
       "y": 128,
@@ -97,35 +112,33 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_cutters_house/npc_0",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_cutters_house/npc_0",
       "name": "NPC_0",
       "x": 112,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_cutters_house_event_script_cutter",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_cutters_house_event_script_cutter",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_cutters_house/npc_1",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_cutters_house/npc_1",
       "name": "NPC_1",
       "x": 144,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/lass",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/lass",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 0
       },
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_cutters_house_event_script_lass",
-      "facingDirection": "left",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_cutters_house_event_script_lass",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_cutters_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_cutters_house/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 9,
@@ -135,7 +148,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_cutters_house/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_cutters_house/elevation_3",
       "name": "Collision_3",
       "width": 11,
       "height": 9,

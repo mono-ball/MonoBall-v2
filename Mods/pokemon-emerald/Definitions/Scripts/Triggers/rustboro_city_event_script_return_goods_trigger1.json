@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/rustboro_city_event_script_return_goods_trigger1",
+  "name": "rustboro city event script return goods trigger1",
+  "description": "Trigger script: rustboro city event script return goods trigger1",
+  "scriptPath": "Scripts/Triggers/rustboro_city_event_script_return_goods_trigger1.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

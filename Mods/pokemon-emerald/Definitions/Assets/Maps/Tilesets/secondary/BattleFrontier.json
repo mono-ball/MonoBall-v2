@@ -1,0 +1,43 @@
+{
+  "id": "pokeemerald:tileset:secondary/battlefrontier",
+  "name": "BattleFrontier",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/BattleFrontier.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 26,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 6,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 8,
+      "interactionId": "pokeemerald:script:interactions/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    },
+    {
+      "localTileId": 12,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 14,
+      "interactionId": "pokeemerald:script:interactions/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    },
+    {
+      "localTileId": 18,
+      "interactionId": "pokeemerald:script:interactions/tiles/warp_or_bridge",
+      "collisionId": "pokeemerald:collision:warp"
+    }
+  ]
+}

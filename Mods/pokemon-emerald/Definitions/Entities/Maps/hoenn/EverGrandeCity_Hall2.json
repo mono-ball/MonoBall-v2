@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/ever_grande_city_hall2",
   "name": "EverGrandeCity_Hall2",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 13,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/ever_grande_city_hall2/ground",
+      "id": "pokeemerald:layer:Hoenn/ever_grande_city_hall2/ground",
       "name": "Ground",
       "width": 11,
       "height": 13,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/ever_grande_city_hall2/objects",
+      "id": "pokeemerald:layer:Hoenn/ever_grande_city_hall2/objects",
       "name": "Objects",
       "width": 11,
       "height": 13,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/ever_grande_city_hall2/overhead",
+      "id": "pokeemerald:layer:Hoenn/ever_grande_city_hall2/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 13,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/elite_four"
+      "tilesetId": "pokeemerald:tileset:secondary/elitefour"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_phoebes_room",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_phoebes_room",
       "name": "Warp to ever_grande_city_phoebes_room",
       "x": 80,
       "y": 192,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_glacias_room",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_glacias_room",
       "name": "Warp to ever_grande_city_glacias_room",
       "x": 80,
       "y": 32,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_phoebes_room",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_phoebes_room",
       "name": "Warp to ever_grande_city_phoebes_room",
       "x": 64,
       "y": 192,
@@ -105,7 +120,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_phoebes_room",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_hall2/warp_to_ever_grande_city_phoebes_room",
       "name": "Warp to ever_grande_city_phoebes_room",
       "x": 96,
       "y": 192,
@@ -122,7 +137,7 @@
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/ever_grande_city_hall2/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/ever_grande_city_hall2/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 13,

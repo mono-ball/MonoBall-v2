@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/dewford_town_house1",
   "name": "DewfordTown_House1",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/dewford_town_house1/ground",
+      "id": "pokeemerald:layer:Hoenn/dewford_town_house1/ground",
       "name": "Ground",
       "width": 10,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/dewford_town_house1/objects",
+      "id": "pokeemerald:layer:Hoenn/dewford_town_house1/objects",
       "name": "Objects",
       "width": 10,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/dewford_town_house1/overhead",
+      "id": "pokeemerald:layer:Hoenn/dewford_town_house1/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 8,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/dewford_town_house1/warp_to_dewford_town",
+      "id": "pokeemerald:warp:Hoenn/dewford_town_house1/warp_to_dewford_town",
       "name": "Warp to dewford_town",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/dewford_town_house1/warp_to_dewford_town",
+      "id": "pokeemerald:warp:Hoenn/dewford_town_house1/warp_to_dewford_town",
       "name": "Warp to dewford_town",
       "x": 64,
       "y": 112,
@@ -97,42 +112,39 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/dewford_town_house1/npc_0",
+      "id": "pokeemerald:npc:Hoenn/dewford_town_house1/npc_0",
       "name": "NPC_0",
       "x": 96,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/woman3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/dewford_town_house1_event_script_woman",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house1_event_script_woman",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/dewford_town_house1/npc_1",
+      "id": "pokeemerald:npc:Hoenn/dewford_town_house1/npc_1",
       "name": "NPC_1",
       "x": 48,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/man1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/dewford_town_house1_event_script_man",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house1_event_script_man",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/dewford_town_house1/npc_2",
+      "id": "pokeemerald:npc:Hoenn/dewford_town_house1/npc_2",
       "name": "NPC_2",
       "x": 64,
       "y": 32,
       "spriteId": "pokeemerald:sprite:pokemon/enemyzigzagoon",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/dewford_town_house1_event_script_zigzagoon",
-      "facingDirection": "down",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house1_event_script_zigzagoon",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/dewford_town_house1/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/dewford_town_house1/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 8,

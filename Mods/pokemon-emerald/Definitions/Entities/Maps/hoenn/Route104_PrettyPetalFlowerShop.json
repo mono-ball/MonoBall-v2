@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route104_pretty_petal_flower_shop",
   "name": "Route104_PrettyPetalFlowerShop",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 15,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route104_pretty_petal_flower_shop/ground",
+      "id": "pokeemerald:layer:Hoenn/route104_pretty_petal_flower_shop/ground",
       "name": "Ground",
       "width": 15,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_pretty_petal_flower_shop/objects",
+      "id": "pokeemerald:layer:Hoenn/route104_pretty_petal_flower_shop/objects",
       "name": "Objects",
       "width": 15,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_pretty_petal_flower_shop/overhead",
+      "id": "pokeemerald:layer:Hoenn/route104_pretty_petal_flower_shop/overhead",
       "name": "Overhead",
       "width": 15,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pretty_petal_flower_shop"
+      "tilesetId": "pokeemerald:tileset:secondary/prettypetalflowershop"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route104_pretty_petal_flower_shop/warp_to_route104",
+      "id": "pokeemerald:warp:Hoenn/route104_pretty_petal_flower_shop/warp_to_route104",
       "name": "Warp to route104",
       "x": 32,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route104_pretty_petal_flower_shop/warp_to_route104",
+      "id": "pokeemerald:warp:Hoenn/route104_pretty_petal_flower_shop/warp_to_route104",
       "name": "Warp to route104",
       "x": 48,
       "y": 128,
@@ -97,49 +112,47 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route104_pretty_petal_flower_shop/localid_flower_shop_owner",
+      "id": "pokeemerald:npc:Hoenn/route104_pretty_petal_flower_shop/localid_flower_shop_owner",
       "name": "LOCALID_FLOWER_SHOP_OWNER",
       "x": 0,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/woman2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route104_pretty_petal_flower_shop_event_script_shop_owner",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route104_pretty_petal_flower_shop_event_script_shop_owner",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route104_pretty_petal_flower_shop/npc_1",
+      "id": "pokeemerald:npc:Hoenn/route104_pretty_petal_flower_shop/npc_1",
       "name": "NPC_1",
       "x": 112,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/girl3",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 0
       },
-      "interactionId": "pokeemerald:interaction/npcs/route104_pretty_petal_flower_shop_event_script_wailmer_pail_girl",
-      "facingDirection": "left",
+      "interactionId": "pokeemerald:script:interactions/npcs/route104_pretty_petal_flower_shop_event_script_wailmer_pail_girl",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route104_pretty_petal_flower_shop/npc_2",
+      "id": "pokeemerald:npc:Hoenn/route104_pretty_petal_flower_shop/npc_2",
       "name": "NPC_2",
       "x": 176,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/girl1",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl1",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 2
       },
-      "interactionId": "pokeemerald:interaction/npcs/route104_pretty_petal_flower_shop_event_script_random_berry_girl",
+      "interactionId": "pokeemerald:script:interactions/npcs/route104_pretty_petal_flower_shop_event_script_random_berry_girl",
       "elevation": 4
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route104_pretty_petal_flower_shop/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route104_pretty_petal_flower_shop/elevation_0",
       "name": "Collision_0",
       "width": 15,
       "height": 9,

@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/cycling_road_pull_south",
+  "id": "pokeemerald:script:interactions/tiles/cycling_road_pull_south",
   "name": "Cycling Road Pull South",
   "description": "Tile interaction: Cycling Road Pull South",
+  "scriptPath": "Scripts/Interactions/Tiles/cycling_road_pull_south.csx",
   "category": "misc",
   "priority": 500
 }

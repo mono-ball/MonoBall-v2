@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/battle_frontier_outside_east_event_script_battle_pyramid_sign",
+  "id": "pokeemerald:script:interactions/signs/battle_frontier_outside_east_event_script_battle_pyramid_sign",
   "name": "battle frontier outside east event script battle pyramid sign",
   "description": "Sign script: battle frontier outside east event script battle pyramid sign",
-  "scriptPath": "Scripts/Signs/battle_frontier_outside_east_event_script_battle_pyramid_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/battle_frontier_outside_east_event_script_battle_pyramid_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

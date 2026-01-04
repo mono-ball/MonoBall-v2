@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route114_fossil_maniacs_house",
   "name": "Route114_FossilManiacsHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route114_fossil_maniacs_house/ground",
+      "id": "pokeemerald:layer:Hoenn/route114_fossil_maniacs_house/ground",
       "name": "Ground",
       "width": 10,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route114_fossil_maniacs_house/objects",
+      "id": "pokeemerald:layer:Hoenn/route114_fossil_maniacs_house/objects",
       "name": "Objects",
       "width": 10,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route114_fossil_maniacs_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/route114_fossil_maniacs_house/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 8,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route114_fossil_maniacs_house/warp_to_route114",
+      "id": "pokeemerald:warp:Hoenn/route114_fossil_maniacs_house/warp_to_route114",
       "name": "Warp to route114",
       "x": 64,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route114_fossil_maniacs_house/warp_to_route114",
+      "id": "pokeemerald:warp:Hoenn/route114_fossil_maniacs_house/warp_to_route114",
       "name": "Warp to route114",
       "x": 80,
       "y": 112,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route114_fossil_maniacs_house/warp_to_route114_fossil_maniacs_tunnel",
+      "id": "pokeemerald:warp:Hoenn/route114_fossil_maniacs_house/warp_to_route114_fossil_maniacs_tunnel",
       "name": "Warp to route114_fossil_maniacs_tunnel",
       "x": 64,
       "y": 16,
@@ -108,62 +123,61 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptrockdisplay",
+      "id": "pokeemerald:interaction:Hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptrockdisplay",
       "name": "Sign: Route114_FossilManiacsHouse_EventScript_RockDisplay",
       "x": 80,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_fossil_maniacs_house_event_script_rock_display",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_fossil_maniacs_house_event_script_rock_display",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptrockdisplay",
+      "id": "pokeemerald:interaction:Hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptrockdisplay",
       "name": "Sign: Route114_FossilManiacsHouse_EventScript_RockDisplay",
       "x": 96,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_fossil_maniacs_house_event_script_rock_display",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_fossil_maniacs_house_event_script_rock_display",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptbookshelf",
+      "id": "pokeemerald:interaction:Hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptbookshelf",
       "name": "Sign: Route114_FossilManiacsHouse_EventScript_Bookshelf",
       "x": 112,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_fossil_maniacs_house_event_script_bookshelf",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_fossil_maniacs_house_event_script_bookshelf",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptbookshelf",
+      "id": "pokeemerald:interaction:Hoenn/route114_fossil_maniacs_house/sign_route114fossilmaniacshouseeventscriptbookshelf",
       "name": "Sign: Route114_FossilManiacsHouse_EventScript_Bookshelf",
       "x": 128,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_fossil_maniacs_house_event_script_bookshelf",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_fossil_maniacs_house_event_script_bookshelf",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route114_fossil_maniacs_house/npc_0",
+      "id": "pokeemerald:npc:Hoenn/route114_fossil_maniacs_house/npc_0",
       "name": "NPC_0",
       "x": 48,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route114_fossil_maniacs_house_event_script_fossil_maniacs_brother",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route114_fossil_maniacs_house_event_script_fossil_maniacs_brother",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route114_fossil_maniacs_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route114_fossil_maniacs_house/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 8,
@@ -173,7 +187,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEAAAEBAQEAAAAAAAAAAQEAAAAAAAAAAAAAAAABAQAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:collision:hoenn/route114_fossil_maniacs_house/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/route114_fossil_maniacs_house/elevation_3",
       "name": "Collision_3",
       "width": 10,
       "height": 8,

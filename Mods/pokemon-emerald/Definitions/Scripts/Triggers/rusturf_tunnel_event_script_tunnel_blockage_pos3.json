@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/rusturf_tunnel_event_script_tunnel_blockage_pos3",
+  "name": "rusturf tunnel event script tunnel blockage pos3",
+  "description": "Trigger script: rusturf tunnel event script tunnel blockage pos3",
+  "scriptPath": "Scripts/Triggers/rusturf_tunnel_event_script_tunnel_blockage_pos3.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

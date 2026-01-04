@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route110_event_script_trainer_tips_prlz_sleep",
+  "id": "pokeemerald:script:interactions/signs/route110_event_script_trainer_tips_prlz_sleep",
   "name": "route110 event script trainer tips prlz sleep",
   "description": "Sign script: route110 event script trainer tips prlz sleep",
-  "scriptPath": "Scripts/Signs/route110_event_script_trainer_tips_prlz_sleep.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route110_event_script_trainer_tips_prlz_sleep.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

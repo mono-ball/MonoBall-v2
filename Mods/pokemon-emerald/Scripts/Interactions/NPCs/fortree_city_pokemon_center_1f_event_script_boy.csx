@@ -1,0 +1,23 @@
+using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// NPC Interaction: fortree city pokemon center 1f event script boy
+/// Original: fortree_city_pokemon_center_1f_event_script_boy
+/// </summary>
+public class FortreeCityPokemonCenter1fEventScriptBoy : ScriptBase
+{
+    public override void Initialize(ScriptContext context)
+    {
+        base.Initialize(context);
+    }
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {
+    }
+
+    public override void OnUnload()
+    {
+        base.OnUnload();
+    }
+}

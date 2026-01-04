@@ -1,7 +1,9 @@
 namespace MonoBall.Core.ECS.Components;
 
 /// <summary>
-///     Component that stores the current animation state for a sprite.
+///     Component that stores animation state for a sprite.
+///     Contains animation name, timing, and playback state.
+///     Requires SpriteComponent to be present (updates SpriteComponent.frameIndex).
 ///     Matches oldmonoball Animation component structure for proper turn-in-place behavior.
 /// </summary>
 public struct SpriteAnimationComponent
@@ -13,18 +15,15 @@ public struct SpriteAnimationComponent
 
     /// <summary>
     ///     The current frame index in the animation sequence (0-based).
+    ///     Used internally by SpriteAnimationSystem to track animation progress.
+    ///     SpriteAnimationSystem updates SpriteComponent.FrameIndex based on this.
     /// </summary>
-    public int CurrentFrameIndex { get; set; }
+    public int CurrentAnimationFrameIndex { get; set; }
 
     /// <summary>
     ///     Time elapsed on the current frame in seconds.
     /// </summary>
     public float ElapsedTime { get; set; }
-
-    /// <summary>
-    ///     Whether to flip the sprite horizontally for the current animation.
-    /// </summary>
-    public bool FlipHorizontal { get; set; }
 
     /// <summary>
     ///     Whether the animation is currently playing.

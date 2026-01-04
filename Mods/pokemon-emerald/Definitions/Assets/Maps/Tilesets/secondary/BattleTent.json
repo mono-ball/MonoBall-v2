@@ -1,0 +1,24 @@
+{
+  "id": "pokeemerald:tileset:secondary/battletent",
+  "name": "BattleTent",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/BattleTent.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 18,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 17,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    }
+  ]
+}

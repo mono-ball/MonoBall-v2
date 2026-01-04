@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/trade_center",
   "name": "TradeCenter",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 12,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/trade_center/ground",
+      "id": "pokeemerald:layer:Hoenn/trade_center/ground",
       "name": "Ground",
       "width": 12,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/trade_center/objects",
+      "id": "pokeemerald:layer:Hoenn/trade_center/objects",
       "name": "Objects",
       "width": 12,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/trade_center/overhead",
+      "id": "pokeemerald:layer:Hoenn/trade_center/overhead",
       "name": "Overhead",
       "width": 12,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/cable_club"
+      "tilesetId": "pokeemerald:tileset:secondary/cableclub"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/trade_center/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/trade_center/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 80,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/trade_center/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/trade_center/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 96,
       "y": 128,
@@ -95,25 +110,25 @@
   ],
   "triggers": [
     {
-      "id": "pokeemerald:trigger:hoenn/trade_center/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/trade_center/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 64,
       "y": 80,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/event_script_trade_center_chair0",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/trade_center/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/trade_center/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 112,
       "y": 80,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/event_script_trade_center_chair1",
       "elevation": 3
@@ -122,20 +137,19 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/trade_center/npc_0",
+      "id": "pokeemerald:npc:Hoenn/trade_center/npc_0",
       "name": "NPC_0",
       "x": 144,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/linkreceptionist",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/trade_center_event_script_attendant",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/linkreceptionist",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/trade_center_event_script_attendant",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/trade_center/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/trade_center/elevation_0",
       "name": "Collision_0",
       "width": 12,
       "height": 9,

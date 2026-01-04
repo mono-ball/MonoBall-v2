@@ -1,0 +1,23 @@
+using MonoBall.Core.Scripting.Runtime;
+using MonoBall.Core.ECS.Events;
+
+/// <summary>
+/// Trigger Script: event script battle colosseum 2 p player spot0
+/// Original: event_script_battle_colosseum_2_p_player_spot0
+/// </summary>
+public class EventScriptBattleColosseum2PPlayerSpot0 : ScriptBase
+{
+    public override void Initialize(ScriptContext context)
+    {
+        base.Initialize(context);
+    }
+
+    public override void RegisterEventHandlers(ScriptContext context)
+    {
+    }
+
+    public override void OnUnload()
+    {
+        base.OnUnload();
+    }
+}

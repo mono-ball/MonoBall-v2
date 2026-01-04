@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/fortree_city_house3",
   "name": "FortreeCity_House3",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 8,
   "height": 6,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/fortree_city_house3/ground",
+      "id": "pokeemerald:layer:Hoenn/fortree_city_house3/ground",
       "name": "Ground",
       "width": 8,
       "height": 6,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/fortree_city_house3/objects",
+      "id": "pokeemerald:layer:Hoenn/fortree_city_house3/objects",
       "name": "Objects",
       "width": 8,
       "height": 6,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/fortree_city_house3/overhead",
+      "id": "pokeemerald:layer:Hoenn/fortree_city_house3/overhead",
       "name": "Overhead",
       "width": 8,
       "height": 6,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/fortree_city_house3/warp_to_fortree_city",
+      "id": "pokeemerald:warp:Hoenn/fortree_city_house3/warp_to_fortree_city",
       "name": "Warp to fortree_city",
       "x": 48,
       "y": 80,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/fortree_city_house3/warp_to_fortree_city",
+      "id": "pokeemerald:warp:Hoenn/fortree_city_house3/warp_to_fortree_city",
       "name": "Warp to fortree_city",
       "x": 64,
       "y": 80,
@@ -97,34 +112,33 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/fortree_city_house3/npc_0",
+      "id": "pokeemerald:npc:Hoenn/fortree_city_house3/npc_0",
       "name": "NPC_0",
       "x": 0,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/maniac",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/fortree_city_house3_event_script_maniac",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house3_event_script_maniac",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/fortree_city_house3/npc_1",
+      "id": "pokeemerald:npc:Hoenn/fortree_city_house3/npc_1",
       "name": "NPC_1",
       "x": 80,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/schoolkidm",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/fortree_city_house3_event_script_school_kid_m",
+      "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house3_event_script_school_kid_m",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/fortree_city_house3/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/fortree_city_house3/elevation_0",
       "name": "Collision_0",
       "width": 8,
       "height": 6,
@@ -134,7 +148,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQAAAAEBAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/fortree_city_house3/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/fortree_city_house3/elevation_3",
       "name": "Collision_3",
       "width": 8,
       "height": 6,

@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route117_event_script_day_care_sign",
+  "id": "pokeemerald:script:interactions/signs/route117_event_script_day_care_sign",
   "name": "route117 event script day care sign",
   "description": "Sign script: route117 event script day care sign",
-  "scriptPath": "Scripts/Signs/route117_event_script_day_care_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route117_event_script_day_care_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

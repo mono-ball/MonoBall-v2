@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/mauville_city_gym_event_script_left_gym_statue",
+  "id": "pokeemerald:script:interactions/signs/mauville_city_gym_event_script_left_gym_statue",
   "name": "mauville city gym event script left gym statue",
   "description": "Sign script: mauville city gym event script left gym statue",
-  "scriptPath": "Scripts/Signs/mauville_city_gym_event_script_left_gym_statue.csx",
+  "scriptPath": "Scripts/Interactions/Signs/mauville_city_gym_event_script_left_gym_statue.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

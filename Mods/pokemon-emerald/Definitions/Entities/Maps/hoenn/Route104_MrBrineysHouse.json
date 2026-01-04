@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route104_mr_brineys_house",
   "name": "Route104_MrBrineysHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 12,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route104_mr_brineys_house/ground",
+      "id": "pokeemerald:layer:Hoenn/route104_mr_brineys_house/ground",
       "name": "Ground",
       "width": 12,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_mr_brineys_house/objects",
+      "id": "pokeemerald:layer:Hoenn/route104_mr_brineys_house/objects",
       "name": "Objects",
       "width": 12,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_mr_brineys_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/route104_mr_brineys_house/overhead",
       "name": "Overhead",
       "width": 12,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route104_mr_brineys_house/warp_to_route104",
+      "id": "pokeemerald:warp:Hoenn/route104_mr_brineys_house/warp_to_route104",
       "name": "Warp to route104",
       "x": 80,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route104_mr_brineys_house/warp_to_route104",
+      "id": "pokeemerald:warp:Hoenn/route104_mr_brineys_house/warp_to_route104",
       "name": "Warp to route104",
       "x": 96,
       "y": 128,
@@ -97,12 +112,12 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route104_mr_brineys_house/localid_brineys_house_briney",
+      "id": "pokeemerald:npc:Hoenn/route104_mr_brineys_house/localid_brineys_house_briney",
       "name": "LOCALID_BRINEYS_HOUSE_BRINEY",
       "x": 80,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/expertm",
-      "behaviorId": "pokeemerald:script/movement/npcs/patrol",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/patrol",
       "behaviorParameters": {
         "waypoints": [
           {
@@ -123,27 +138,25 @@
           }
         ]
       },
-      "interactionId": "pokeemerald:interaction/npcs/route104_mr_brineys_house_event_script_briney",
+      "interactionId": "pokeemerald:script:interactions/npcs/route104_mr_brineys_house_event_script_briney",
       "visibilityFlag": "pokeemerald:flag:visibility/brineys_house_mr_briney",
-      "facingDirection": "up",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route104_mr_brineys_house/localid_brineys_house_peeko",
+      "id": "pokeemerald:npc:Hoenn/route104_mr_brineys_house/localid_brineys_house_peeko",
       "name": "LOCALID_BRINEYS_HOUSE_PEEKO",
       "x": 96,
       "y": 48,
       "spriteId": "pokeemerald:sprite:pokemon/wingullold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route104_mr_brineys_house_event_script_peeko",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route104_mr_brineys_house_event_script_peeko",
       "visibilityFlag": "pokeemerald:flag:visibility/brineys_house_peeko",
-      "facingDirection": "down",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route104_mr_brineys_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route104_mr_brineys_house/elevation_0",
       "name": "Collision_0",
       "width": 12,
       "height": 9,
@@ -153,7 +166,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/route104_mr_brineys_house/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/route104_mr_brineys_house/elevation_3",
       "name": "Collision_3",
       "width": 12,
       "height": 9,

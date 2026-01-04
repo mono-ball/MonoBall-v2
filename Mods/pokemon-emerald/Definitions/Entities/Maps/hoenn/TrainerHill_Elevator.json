@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/trainer_hill_elevator",
   "name": "TrainerHill_Elevator",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 5,
   "height": 7,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/trainer_hill_elevator/ground",
+      "id": "pokeemerald:layer:Hoenn/trainer_hill_elevator/ground",
       "name": "Ground",
       "width": 5,
       "height": 7,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/trainer_hill_elevator/objects",
+      "id": "pokeemerald:layer:Hoenn/trainer_hill_elevator/objects",
       "name": "Objects",
       "width": 5,
       "height": 7,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/trainer_hill_elevator/overhead",
+      "id": "pokeemerald:layer:Hoenn/trainer_hill_elevator/overhead",
       "name": "Overhead",
       "width": 5,
       "height": 7,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/trainer_hill_elevator/warp_to_trainer_hill_roof",
+      "id": "pokeemerald:warp:Hoenn/trainer_hill_elevator/warp_to_trainer_hill_roof",
       "name": "Warp to trainer_hill_roof",
       "x": 16,
       "y": 96,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/trainer_hill_elevator/warp_to_trainer_hill_roof",
+      "id": "pokeemerald:warp:Hoenn/trainer_hill_elevator/warp_to_trainer_hill_roof",
       "name": "Warp to trainer_hill_roof",
       "x": 32,
       "y": 96,
@@ -97,20 +112,19 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/trainer_hill_elevator/localid_trainer_hill_elevator_attendant",
+      "id": "pokeemerald:npc:Hoenn/trainer_hill_elevator/localid_trainer_hill_elevator_attendant",
       "name": "LOCALID_TRAINER_HILL_ELEVATOR_ATTENDANT",
       "x": 0,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/trainer_hill_elevator_event_script_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_elevator_event_script_attendant",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/trainer_hill_elevator/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/trainer_hill_elevator/elevation_0",
       "name": "Collision_0",
       "width": 5,
       "height": 7,

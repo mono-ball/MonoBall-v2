@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:script/movement/npcs/wander",
+  "id": "pokeemerald:script:movement/npcs/wander",
   "name": "Wander Movement Script",
   "description": "NPC wanders randomly within a defined range",
   "scriptPath": "Scripts/Movement/NPCs/wander.csx",

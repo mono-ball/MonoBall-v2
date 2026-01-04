@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/mossdeep_city_game_corner_1f",
   "name": "MossdeepCity_GameCorner_1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 12,
   "height": 10,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_game_corner_1f/ground",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_game_corner_1f/ground",
       "name": "Ground",
       "width": 12,
       "height": 10,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_game_corner_1f/objects",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_game_corner_1f/objects",
       "name": "Objects",
       "width": 12,
       "height": 10,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_game_corner_1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_game_corner_1f/overhead",
       "name": "Overhead",
       "width": 12,
       "height": 10,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/mossdeep_game_corner"
+      "tilesetId": "pokeemerald:tileset:secondary/mossdeepgamecorner"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city",
       "name": "Warp to mossdeep_city",
       "x": 80,
       "y": 144,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city",
       "name": "Warp to mossdeep_city",
       "x": 96,
       "y": 144,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city_game_corner_b1f",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_game_corner_1f/warp_to_mossdeep_city_game_corner_b1f",
       "name": "Warp to mossdeep_city_game_corner_b1f",
       "x": 32,
       "y": 0,
@@ -108,63 +123,61 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_game_corner_1f/sign_rsmysteryeventshouseeventscriptdoor",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_game_corner_1f/sign_rsmysteryeventshouseeventscriptdoor",
       "name": "Sign: RS_MysteryEventsHouse_EventScript_Door",
       "x": 48,
       "y": 0,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rs_mystery_events_house_event_script_door",
+      "interactionId": "pokeemerald:script:interactions/signs/rs_mystery_events_house_event_script_door",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_game_corner_1f/sign_mossdeepcitygamecorner1feventscriptdodrioberrypickingrecords",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_game_corner_1f/sign_mossdeepcitygamecorner1feventscriptdodrioberrypickingrecords",
       "name": "Sign: MossdeepCity_GameCorner_1F_EventScript_DodrioBerryPickingRecords",
       "x": 0,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_game_corner_1f_event_script_dodrio_berry_picking_records",
+      "interactionId": "pokeemerald:script:interactions/signs/mossdeep_city_game_corner_1f_event_script_dodrio_berry_picking_records",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_game_corner_1f/sign_mossdeepcitygamecorner1feventscriptpokemonjumprecords",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_game_corner_1f/sign_mossdeepcitygamecorner1feventscriptpokemonjumprecords",
       "name": "Sign: MossdeepCity_GameCorner_1F_EventScript_PokemonJumpRecords",
       "x": 16,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_game_corner_1f_event_script_pokemon_jump_records",
+      "interactionId": "pokeemerald:script:interactions/signs/mossdeep_city_game_corner_1f_event_script_pokemon_jump_records",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_game_corner_1f/npc_0",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_game_corner_1f/npc_0",
       "name": "NPC_0",
       "x": 96,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/expertm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_game_corner_1f_event_script_old_man",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_game_corner_1f_event_script_old_man",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_game_corner_1f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_game_corner_1f/npc_1",
       "name": "NPC_1",
       "x": 64,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/man4",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_game_corner_1f_event_script_info_man",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man4",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_game_corner_1f_event_script_info_man",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/mossdeep_city_game_corner_1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/mossdeep_city_game_corner_1f/elevation_0",
       "name": "Collision_0",
       "width": 12,
       "height": 10,

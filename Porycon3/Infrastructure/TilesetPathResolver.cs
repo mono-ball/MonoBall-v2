@@ -66,12 +66,24 @@ public class TilesetPathResolver
     }
 
     /// <summary>
-    /// Normalize tileset name: gTileset_General -> general
+    /// Normalize tileset name to snake_case for folder lookup.
+    /// gTileset_EverGrande -> ever_grande
+    /// EverGrande -> ever_grande
     /// </summary>
     private static string NormalizeTilesetName(string name)
     {
         if (name.StartsWith("gTileset_", StringComparison.OrdinalIgnoreCase))
             name = name[9..];
-        return name.ToLowerInvariant();
+
+        // Convert PascalCase to snake_case for folder matching
+        var sb = new System.Text.StringBuilder();
+        for (var i = 0; i < name.Length; i++)
+        {
+            var c = name[i];
+            if (i > 0 && char.IsUpper(c))
+                sb.Append('_');
+            sb.Append(char.ToLowerInvariant(c));
+        }
+        return sb.ToString();
     }
 }

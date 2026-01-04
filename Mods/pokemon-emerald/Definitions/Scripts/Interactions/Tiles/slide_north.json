@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/slide_north",
+  "id": "pokeemerald:script:interactions/tiles/slide_north",
   "name": "Slide North",
   "description": "Tile interaction: Slide North",
+  "scriptPath": "Scripts/Interactions/Tiles/slide_north.csx",
   "category": "movement",
   "priority": 500
 }

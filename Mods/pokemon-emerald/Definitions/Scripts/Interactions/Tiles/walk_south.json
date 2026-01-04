@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/walk_south",
+  "id": "pokeemerald:script:interactions/tiles/walk_south",
   "name": "Walk South",
   "description": "Tile interaction: Walk South",
+  "scriptPath": "Scripts/Interactions/Tiles/walk_south.csx",
   "category": "movement",
   "priority": 500
 }

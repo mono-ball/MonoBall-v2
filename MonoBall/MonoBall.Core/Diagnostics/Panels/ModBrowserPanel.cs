@@ -447,25 +447,20 @@ public sealed class ModBrowserPanel : IDebugPanel, IDebugPanelLifecycle
     {
         var mod = _selectedMod!;
 
-        // Content folders
-        ImGui.Text("Content Folders:");
-        ImGui.Indent();
-
-        if (mod.ContentFolders.Count > 0)
+        // Custom definition types (if any)
+        if (mod.CustomDefinitionTypes != null && mod.CustomDefinitionTypes.Count > 0)
         {
-            foreach (var (name, path) in mod.ContentFolders)
+            ImGui.Text("Custom Definition Types:");
+            ImGui.Indent();
+
+            foreach (var (typeName, path) in mod.CustomDefinitionTypes)
             {
-                ImGui.BulletText($"{name} -> {path}");
+                ImGui.BulletText($"{typeName} -> {path}");
             }
-        }
-        else
-        {
-            DebugPanelHelpers.DrawDisabledText("No content folders defined");
-        }
 
-        ImGui.Unindent();
-
-        ImGui.Separator();
+            ImGui.Unindent();
+            ImGui.Separator();
+        }
 
         // Plugins
         ImGui.Text($"Plugins: {mod.Plugins.Count}");

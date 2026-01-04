@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/lavaridge_town_event_script_hot_springs_trigger",
+  "name": "lavaridge town event script hot springs trigger",
+  "description": "Trigger script: lavaridge town event script hot springs trigger",
+  "scriptPath": "Scripts/Triggers/lavaridge_town_event_script_hot_springs_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

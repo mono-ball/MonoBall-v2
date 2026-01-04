@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/spin_up",
+  "id": "pokeemerald:script:interactions/tiles/spin_up",
   "name": "Spin Up",
   "description": "Tile interaction: Spin Up",
+  "scriptPath": "Scripts/Interactions/Tiles/spin_up.csx",
   "category": "movement",
   "priority": 500
 }

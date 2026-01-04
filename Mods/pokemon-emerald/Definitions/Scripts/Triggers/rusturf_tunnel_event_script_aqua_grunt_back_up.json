@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/rusturf_tunnel_event_script_aqua_grunt_back_up",
+  "name": "rusturf tunnel event script aqua grunt back up",
+  "description": "Trigger script: rusturf tunnel event script aqua grunt back up",
+  "scriptPath": "Scripts/Triggers/rusturf_tunnel_event_script_aqua_grunt_back_up.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

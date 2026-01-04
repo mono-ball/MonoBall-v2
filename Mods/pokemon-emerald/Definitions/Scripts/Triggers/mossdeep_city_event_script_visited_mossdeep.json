@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mossdeep_city_event_script_visited_mossdeep",
+  "name": "mossdeep city event script visited mossdeep",
+  "description": "Trigger script: mossdeep city event script visited mossdeep",
+  "scriptPath": "Scripts/Triggers/mossdeep_city_event_script_visited_mossdeep.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

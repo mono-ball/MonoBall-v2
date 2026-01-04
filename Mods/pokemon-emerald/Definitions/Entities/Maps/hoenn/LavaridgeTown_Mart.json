@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lavaridge_town_mart",
   "name": "LavaridgeTown_Mart",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_mart/ground",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_mart/ground",
       "name": "Ground",
       "width": 11,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_mart/objects",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_mart/objects",
       "name": "Objects",
       "width": 11,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_mart/overhead",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_mart/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 8,
@@ -69,7 +84,7 @@
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_mart/warp_to_lavaridge_town",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_mart/warp_to_lavaridge_town",
       "name": "Warp to lavaridge_town",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_mart/warp_to_lavaridge_town",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_mart/warp_to_lavaridge_town",
       "name": "Warp to lavaridge_town",
       "x": 64,
       "y": 112,
@@ -97,42 +112,39 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_mart/localid_lavaridge_mart_clerk",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_mart/localid_lavaridge_mart_clerk",
       "name": "LOCALID_LAVARIDGE_MART_CLERK",
       "x": 16,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/martemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_mart_event_script_clerk",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_mart_event_script_clerk",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_mart/npc_1",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_mart/npc_1",
       "name": "NPC_1",
       "x": 64,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/expertm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_mart_event_script_expert_m",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_mart_event_script_expert_m",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_mart/npc_2",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_mart/npc_2",
       "name": "NPC_2",
       "x": 144,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/oldwoman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_mart_event_script_old_woman",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/oldwoman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_mart_event_script_old_woman",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lavaridge_town_mart/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lavaridge_town_mart/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 8,

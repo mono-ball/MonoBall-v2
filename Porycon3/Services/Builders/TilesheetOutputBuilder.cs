@@ -36,7 +36,9 @@ public class TilesheetOutputBuilder
 
     private void SaveTilesheetDefinition(SharedTilesetResult result)
     {
-        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", result.TilesetType);
+        // Use PascalCase for folder name
+        var folderName = result.TilesetType == "primary" ? "Primary" : "Secondary";
+        var defsDir = Path.Combine(_outputPath, "Definitions", "Assets", "Maps", "Tilesets", folderName);
         Directory.CreateDirectory(defsDir);
 
         var tilesArray = BuildTilesArray(result);

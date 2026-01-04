@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/common_event_script_show_pokemart_sign",
+  "id": "pokeemerald:script:interactions/signs/common_event_script_show_pokemart_sign",
   "name": "common event script show pokemart sign",
   "description": "Sign script: common event script show pokemart sign",
-  "scriptPath": "Scripts/Signs/common_event_script_show_pokemart_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/common_event_script_show_pokemart_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

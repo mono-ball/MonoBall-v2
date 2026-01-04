@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route121_event_script_aqua_grunts_move_out",
+  "name": "route121 event script aqua grunts move out",
+  "description": "Trigger script: route121 event script aqua grunts move out",
+  "scriptPath": "Scripts/Triggers/route121_event_script_aqua_grunts_move_out.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

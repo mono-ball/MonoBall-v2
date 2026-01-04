@@ -137,13 +137,20 @@ public class MapConversionService : IMapConversionService
             // 5. Build collision layers from map data (one per elevation)
             var collisionLayers = BuildCollisionLayers(mapBin, mapData.Layout.Width, mapData.Layout.Height);
 
-            // 6. Transform and track IDs for definition generation
+            // 6. Read and process border data
+            var borderData = ProcessBorderData(
+                mapData.Layout,
+                primaryMetatiles,
+                secondaryMetatiles,
+                sharedBuilder);
+
+            // 7. Transform and track IDs for definition generation
             var weatherId = MapTransformers.TransformWeatherId(mapData.Metadata.Weather);
             var battleSceneId = MapTransformers.TransformBattleSceneId(mapData.Metadata.BattleScene);
             _definitionGenerator.TrackWeatherId(weatherId);
             _definitionGenerator.TrackBattleSceneId(battleSceneId);
 
-            // 7. Store pending map data (written after tileset finalization for correct GID offsets)
+            // 8. Store pending map data (written after tileset finalization for correct GID offsets)
             lock (_pendingMaps)
             {
                 _pendingMaps.Add(new PendingMapData(
@@ -153,7 +160,8 @@ public class MapConversionService : IMapConversionService
                     sharedBuilder.TilesetPair,
                     collisionLayers,
                     weatherId,
-                    battleSceneId));
+                    battleSceneId,
+                    borderData));
             }
 
             sw.Stop();
@@ -266,6 +274,61 @@ public class MapConversionService : IMapConversionService
     }
 
     /// <summary>
+    /// Process border data for a map.
+    /// Reads border.bin and processes border metatiles through the tileset builder.
+    /// </summary>
+    private BorderGidData? ProcessBorderData(
+        MapLayout layout,
+        List<Metatile> primaryMetatiles,
+        List<Metatile> secondaryMetatiles,
+        SharedTilesetBuilder builder)
+    {
+        // Read border metatile indices
+        var borderBin = _mapBinReader.ReadBorderBin(
+            layout.Id,
+            layout.BorderWidth,
+            layout.BorderHeight,
+            string.IsNullOrEmpty(layout.BorderPath) ? null : layout.BorderPath);
+
+        if (borderBin == null || borderBin.Length == 0)
+            return null;
+
+        // Combine metatiles (primary 0-511, secondary 512+)
+        var allMetatiles = primaryMetatiles.Concat(secondaryMetatiles).ToList();
+
+        var borderCount = layout.BorderWidth * layout.BorderHeight;
+        var bottomGids = new uint[borderCount];
+        var topGids = new uint[borderCount];
+        var hasSecondary = false;
+
+        for (int i = 0; i < borderCount && i < borderBin.Length; i++)
+        {
+            var metatileId = MapBinReader.GetMetatileId(borderBin[i]);
+
+            if (metatileId >= allMetatiles.Count)
+                continue;
+
+            var metatile = allMetatiles[metatileId];
+            var isSecondaryMetatile = metatileId >= primaryMetatiles.Count;
+            var metatileTileset = isSecondaryMetatile
+                ? layout.SecondaryTileset
+                : layout.PrimaryTileset;
+
+            if (isSecondaryMetatile)
+                hasSecondary = true;
+
+            // Process through tileset builder
+            var result = builder.ProcessMetatile(metatile, metatileId, metatileTileset);
+
+            // Mark secondary GIDs with marker bit
+            bottomGids[i] = MarkAsSecondary(result.BottomGid, result.IsSecondary);
+            topGids[i] = MarkAsSecondary(result.TopGid, result.IsSecondary);
+        }
+
+        return new BorderGidData(bottomGids, topGids, hasSecondary);
+    }
+
+    /// <summary>
     /// Load palettes for a tileset.
     /// </summary>
     private static SixLabors.ImageSharp.PixelFormats.Rgba32[]?[]? LoadPalettes(TilesetPathResolver resolver, string tilesetName)
@@ -295,6 +358,9 @@ public class MapConversionService : IMapConversionService
             // Resolve secondary markers in layer data
             var resolvedLayers = ResolveLayers(pending.Layers, primaryTileCount);
 
+            // Resolve secondary markers in border data
+            var resolvedBorder = ResolveBorderGids(pending.BorderData, primaryTileCount);
+
             // Build and write map output
             var output = _outputBuilder.BuildMapOutput(
                 pending.MapName,
@@ -306,7 +372,8 @@ public class MapConversionService : IMapConversionService
                 secondaryTilesetType,
                 pending.CollisionLayers,
                 pending.WeatherId,
-                pending.BattleSceneId);
+                pending.BattleSceneId,
+                resolvedBorder);
 
             var outputPath = Path.Combine(outputDir, $"{pending.MapName}.json");
             var json = System.Text.Json.JsonSerializer.Serialize(output, new System.Text.Json.JsonSerializerOptions
@@ -336,6 +403,26 @@ public class MapConversionService : IMapConversionService
             Elevation = layer.Elevation,
             Data = layer.Data.Select(gid => ResolveSecondaryOffset(gid, primaryTileCount)).ToArray()
         }).ToList();
+    }
+
+    /// <summary>
+    /// Resolve secondary markers in border GIDs to actual offsets.
+    /// Returns resolved GIDs as int arrays for JSON output.
+    /// </summary>
+    private static ResolvedBorderData? ResolveBorderGids(BorderGidData? borderData, int primaryTileCount)
+    {
+        if (borderData == null)
+            return null;
+
+        var bottomGids = borderData.BottomLayerGids
+            .Select(gid => (int)ResolveSecondaryOffset(gid, primaryTileCount))
+            .ToArray();
+
+        var topGids = borderData.TopLayerGids
+            .Select(gid => (int)ResolveSecondaryOffset(gid, primaryTileCount))
+            .ToArray();
+
+        return new ResolvedBorderData(bottomGids, topGids);
     }
 
     /// <summary>
@@ -512,5 +599,25 @@ public record PendingMapData(
     TilesetPairKey TilesetPair,
     List<CollisionLayerData> CollisionLayers,
     string? WeatherId,
-    string? BattleSceneId
+    string? BattleSceneId,
+    BorderGidData? BorderData
+);
+
+/// <summary>
+/// Processed border GIDs for a map.
+/// GIDs may have SecondaryMarker set, to be resolved when writing.
+/// </summary>
+public record BorderGidData(
+    uint[] BottomLayerGids,
+    uint[] TopLayerGids,
+    bool IsSecondary
+);
+
+/// <summary>
+/// Resolved border data ready for output.
+/// GIDs have had secondary offset applied.
+/// </summary>
+public record ResolvedBorderData(
+    int[] BottomLayerGids,
+    int[] TopLayerGids
 );

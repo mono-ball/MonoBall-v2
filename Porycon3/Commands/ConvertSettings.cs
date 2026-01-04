@@ -23,6 +23,13 @@ public class ConvertSettings : CommandSettings
     [DefaultValue("hoenn")]
     public string Region { get; set; } = "hoenn";
 
+    /// <summary>
+    /// Convert region to PascalCase for use in IDs.
+    /// </summary>
+    public string RegionPascalCase => ToPascalCase(Region);
+
+    private static string ToPascalCase(string input) => Services.IdTransformer.ToPascalCase(input);
+
     [CommandOption("-f|--format <FORMAT>")]
     [Description("Output format: tiled or entity (default: entity)")]
     [DefaultValue("entity")]
@@ -41,9 +48,8 @@ public class ConvertSettings : CommandSettings
     public bool Debug { get; set; }
 
     [CommandOption("-n|--namespace <NAMESPACE>")]
-    [Description("ID namespace/prefix for generated definitions (default: base)")]
-    [DefaultValue("base")]
-    public string Namespace { get; set; } = "base";
+    [Description("ID namespace/prefix for generated definitions (required)")]
+    public string Namespace { get; set; } = "";
 
     [CommandOption("--mod-name <NAME>")]
     [Description("Mod display name for manifest (default: Pokemon {Region})")]

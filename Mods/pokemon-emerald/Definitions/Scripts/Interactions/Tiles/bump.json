@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/bump",
+  "id": "pokeemerald:script:interactions/tiles/bump",
   "name": "Bump",
   "description": "Tile interaction: Bump",
+  "scriptPath": "Scripts/Interactions/Tiles/bump.csx",
   "category": "misc",
   "priority": 500
 }

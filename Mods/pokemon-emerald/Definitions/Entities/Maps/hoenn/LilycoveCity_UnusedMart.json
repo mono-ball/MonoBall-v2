@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lilycove_city_unused_mart",
   "name": "LilycoveCity_UnusedMart",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_unused_mart/ground",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_unused_mart/ground",
       "name": "Ground",
       "width": 11,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_unused_mart/objects",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_unused_mart/objects",
       "name": "Objects",
       "width": 11,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_unused_mart/overhead",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_unused_mart/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 8,
@@ -69,7 +84,7 @@
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lilycove_city_unused_mart/warp_to_lilycove_city",
+      "id": "pokeemerald:warp:Hoenn/lilycove_city_unused_mart/warp_to_lilycove_city",
       "name": "Warp to lilycove_city",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/lilycove_city_unused_mart/warp_to_lilycove_city",
+      "id": "pokeemerald:warp:Hoenn/lilycove_city_unused_mart/warp_to_lilycove_city",
       "name": "Warp to lilycove_city",
       "x": 64,
       "y": 112,
@@ -98,7 +113,7 @@
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lilycove_city_unused_mart/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lilycove_city_unused_mart/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 8,

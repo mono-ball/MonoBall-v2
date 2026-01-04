@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/petalburg_city_event_script_scott0",
+  "name": "petalburg city event script scott0",
+  "description": "Trigger script: petalburg city event script scott0",
+  "scriptPath": "Scripts/Triggers/petalburg_city_event_script_scott0.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

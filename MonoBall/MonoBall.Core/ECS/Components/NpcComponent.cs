@@ -36,8 +36,8 @@ public struct NpcComponent
     public string? VisibilityFlag { get; set; }
 
     /// <summary>
-    ///     The behavior definition ID for this NPC (e.g., "base:behavior:movement/wander").
-    ///     References a BehaviorDefinition that contains the behavior script.
+    ///     The script definition ID for this NPC's behavior script (e.g., "pokeemerald:script:movement/npcs/stationary").
+    ///     References a ScriptDefinition directly.
     /// </summary>
     public string? BehaviorId { get; set; }
 }

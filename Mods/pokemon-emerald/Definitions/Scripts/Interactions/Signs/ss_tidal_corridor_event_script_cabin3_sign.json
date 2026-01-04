@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/ss_tidal_corridor_event_script_cabin3_sign",
+  "id": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_cabin3_sign",
   "name": "ss tidal corridor event script cabin3 sign",
   "description": "Sign script: ss tidal corridor event script cabin3 sign",
-  "scriptPath": "Scripts/Signs/ss_tidal_corridor_event_script_cabin3_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/ss_tidal_corridor_event_script_cabin3_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

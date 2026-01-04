@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/contest_hall",
   "name": "ContestHall",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 15,
   "height": 11,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/contest",
+    "bottomLayer": [
+      1019,
+      1019,
+      1019,
+      1019
+    ],
+    "topLayer": [
+      -1073740838,
+      -1073740838,
+      -1073740838,
+      -1073740838
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/contest_hall/ground",
+      "id": "pokeemerald:layer:Hoenn/contest_hall/ground",
       "name": "Ground",
       "width": 15,
       "height": 11,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAEAwGgBAMBoAQDAaAEAwGgBAMBoAQDAaAEAwGgBAMBoAQDAaAEAwGgBAMBoAQDAaAEAwGgBAMBoAQDAaAEAwGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABoAQDAaAEAwGwBAABsAQAAbQEAAG8BAABvAQAAbwEAAG8BAABvAQAAbwEAAG8BAABtAQCAbAEAAGwBAABoAQDAaAEAwGwBAABsAQAAcgEAAHQBAAB0AQAAdAEAAHQBAAB0AQAAAAAAAHQBAAByAQCAbAEAAGwBAABoAQDAaAEAwGwBAABsAQAAcgEAAHQBAAB0AQAAdAEAAHQBAMB0AQAAdAEAwHQBAAByAQCAbAEAAGwBAABoAQDAaAEAwGwBAABsAQAAcgEAAHQBAAB0AQAAdAEAAHQBAMB0AQAAdAEAAHQBAAByAQCAbAEAAGwBAABoAQDAaAEAwGwBAABsAQAAcgEAAHQBAAB0AQAAdAEAAHQBAAB0AQAAdAEAAHQBAAByAQCAbAEAAGwBAABoAQDAaAEAwGwBAABsAQAAegEAAHwBAAB8AQAAAAAAAAAAAAAAAAAAfAEAAHwBAAB6AQCAbAEAAGwBAABoAQDAaAEAwIIBAACCAQAAggEAAIIBAACCAQAAAAAAAAAAAAAAAAAAggEAAIIBAACCAQAAggEAAIIBAABoAQDAaAEAwGgBAMBoAQDAaAEAwGgBAMCHAQAAAAAAAAAAAAAAAAAAhwEAAGgBAMBoAQDAaAEAwGgBAMBoAQDA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADaAwDA2gMAwN4DAADeAwAA3wMAAOEDAADhAwAA4QMAAOEDAADhAwAA4QMAAOEDAADfAwCA3gMAAN4DAADaAwDA2gMAwN4DAADeAwAA5AMAAOYDAADmAwAA5gMAAOYDAADmAwAAAAAAAOYDAADkAwCA3gMAAN4DAADaAwDA2gMAwN4DAADeAwAA5AMAAOYDAADmAwAA5gMAAOYDAMDmAwAA5gMAwOYDAADkAwCA3gMAAN4DAADaAwDA2gMAwN4DAADeAwAA5AMAAOYDAADmAwAA5gMAAOYDAMDmAwAA5gMAAOYDAADkAwCA3gMAAN4DAADaAwDA2gMAwN4DAADeAwAA5AMAAOYDAADmAwAA5gMAAOYDAADmAwAA5gMAAOYDAADkAwCA3gMAAN4DAADaAwDA2gMAwN4DAADeAwAA7AMAAO4DAADuAwAAAAAAAAAAAAAAAAAA7gMAAO4DAADsAwCA3gMAAN4DAADaAwDA2gMAwPQDAAD0AwAA9AMAAPQDAAD0AwAAAAAAAAAAAAAAAAAA9AMAAPQDAAD0AwAA9AMAAPQDAADaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMD5AwAAAAAAAAAAAAAAAAAA\u002BQMAANoDAMDaAwDA2gMAwNoDAMDaAwDA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/contest_hall/objects",
+      "id": "pokeemerald:layer:Hoenn/contest_hall/objects",
       "name": "Objects",
       "width": 15,
       "height": 11,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "ZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAaQEAAGoBAABqAQAAagEAAGoBAABqAQAAagEAAGoBAABqAQAAagEAAGoBAABqAQAAagEAAGoBAABpAQCAawEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABrAQDAawEAAGwBAABsAQAAbgEAAHABAABwAQAAcAEAAHABAABwAQAAcAEAAHABAABxAQAAbAEAAGwBAABrAQDAawEAAGwBAABsAQAAcwEAAGgBAMBoAQDAaAEAwGgBAMBoAQDAdAEAwGgBAMB2AQAAbAEAAGwBAABrAQDAawEAAGwBAABsAQAAcwEAAGgBAMBoAQDAaAEAwHcBAABoAQDAeAEAAGgBAMB2AQAAbAEAAGwBAABrAQDAawEAAGwBAABsAQAAcwEAAGgBAMBoAQDAaAEAwHkBAABoAQDAaAEAwGgBAMB2AQAAbAEAAGwBAABrAQDAawEAAGwBAABsAQAAcwEAAGgBAMBoAQDAaAEAwGgBAMBoAQDAaAEAwGgBAMB2AQAAbAEAAGwBAABrAQDAawEAAGwBAABsAQAAewEAAH0BAAB9AQAAfgEAAH8BAAB\u002BAQCAfQEAAH0BAACAAQAAbAEAAGwBAABrAQDAgQEAAIIBAACCAQAAggEAAIIBAACCAQAAgwEAAIQBAACDAQCAggEAAIIBAACCAQAAggEAAIIBAACBAQCAhQEAAIYBAACGAQAAhgEAAIYBAACIAQAAgwEAAIQBAACDAQCAiAEAAIYBAACGAQAAhgEAAIYBAACFAQCA"
+      "tileData": "2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2wMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADbAwCA3QMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADdAwDA3QMAAN4DAADeAwAA4AMAAOIDAADiAwAA4gMAAOIDAADiAwAA4gMAAOIDAADjAwAA3gMAAN4DAADdAwDA3QMAAN4DAADeAwAA5QMAANoDAMDaAwDA2gMAwNoDAMDaAwDA5gMAwNoDAMDoAwAA3gMAAN4DAADdAwDA3QMAAN4DAADeAwAA5QMAANoDAMDaAwDA2gMAwOkDAADaAwDA6gMAANoDAMDoAwAA3gMAAN4DAADdAwDA3QMAAN4DAADeAwAA5QMAANoDAMDaAwDA2gMAwOsDAADaAwDA2gMAwNoDAMDoAwAA3gMAAN4DAADdAwDA3QMAAN4DAADeAwAA5QMAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDoAwAA3gMAAN4DAADdAwDA3QMAAN4DAADeAwAA7QMAAO8DAADvAwAA8AMAAPEDAADwAwCA7wMAAO8DAADyAwAA3gMAAN4DAADdAwDA8wMAAPQDAAD0AwAA9AMAAPQDAAD0AwAA9QMAAPYDAAD1AwCA9AMAAPQDAAD0AwAA9AMAAPQDAADzAwCA9wMAAPgDAAD4AwAA\u002BAMAAPgDAAD6AwAA9QMAAPYDAAD1AwCA\u002BgMAAPgDAAD4AwAA\u002BAMAAPgDAAD3AwCA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/contest_hall/overhead",
+      "id": "pokeemerald:layer:Hoenn/contest_hall/overhead",
       "name": "Overhead",
       "width": 15,
       "height": 11,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "aAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAEAwGgBAMBoAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAEAwGgBAMBoAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAEAwGgBAMBoAQDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "2gMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANoDAADaAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2gMAwNoDAMDaAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     }
   ],
   "tilesets": [
@@ -63,7 +78,7 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/contest"
     }
   ],
@@ -72,159 +87,145 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_mc",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_mc",
       "name": "LOCALID_CONTEST_MC",
       "x": 96,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/woman3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_judge",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_judge",
       "name": "LOCALID_CONTEST_JUDGE",
       "x": 112,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/contestjudge",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/contestjudge",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contestant_1",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contestant_1",
       "name": "LOCALID_CONTESTANT_1",
       "x": 64,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contestant_2",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contestant_2",
       "name": "LOCALID_CONTESTANT_2",
       "x": 96,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/{var_player}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_player}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contestant_3",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contestant_3",
       "name": "LOCALID_CONTESTANT_3",
       "x": 128,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/{var_2}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_2}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_1",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_1",
       "name": "LOCALID_CONTEST_AUDIENCE_1",
       "x": 32,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/{var_4}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_4}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_3",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_3",
       "name": "LOCALID_CONTEST_AUDIENCE_3",
       "x": 64,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/{var_6}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_6}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_4",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_4",
       "name": "LOCALID_CONTEST_AUDIENCE_4",
       "x": 80,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/{var_7}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_7}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_5",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_5",
       "name": "LOCALID_CONTEST_AUDIENCE_5",
       "x": 144,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/{var_8}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_8}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_6",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_6",
       "name": "LOCALID_CONTEST_AUDIENCE_6",
       "x": 160,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/{var_9}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_9}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_7",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_7",
       "name": "LOCALID_CONTEST_AUDIENCE_7",
       "x": 192,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/{var_a}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_a}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_audience_2",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_audience_2",
       "name": "LOCALID_CONTEST_AUDIENCE_2",
       "x": 32,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/{var_5}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_5}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_pokeball",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_pokeball",
       "name": "LOCALID_CONTEST_POKEBALL",
       "x": 112,
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/contest_poke_ball",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contestant_4",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contestant_4",
       "name": "LOCALID_CONTESTANT_4",
       "x": 160,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/{var_3}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_3}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/contest_hall/localid_contest_artist",
+      "id": "pokeemerald:npc:Hoenn/contest_hall/localid_contest_artist",
       "name": "LOCALID_CONTEST_ARTIST",
       "x": 192,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/artist",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/artist",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/contest_hall/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/contest_hall/elevation_0",
       "name": "Collision_0",
       "width": 15,
       "height": 11,
@@ -234,7 +235,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAABAQAAAQEBAQEBAQEBAAABAQAAAQAAAAAAAAABAAABAQAAAQAAAAAAAAABAAABAQAAAQAAAAAAAAABAAABAQAAAQAAAAAAAAABAAABAQAAAQEBAAAAAQEBAAABAQAAAAAAAAAAAAAAAAABAQEBAQEAAAAAAAEBAQEB"
     },
     {
-      "id": "pokeemerald:collision:hoenn/contest_hall/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/contest_hall/elevation_3",
       "name": "Collision_3",
       "width": 15,
       "height": 11,

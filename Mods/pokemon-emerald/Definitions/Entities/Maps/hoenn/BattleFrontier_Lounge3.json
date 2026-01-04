@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_lounge3",
   "name": "BattleFrontier_Lounge3",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 9,
   "height": 10,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_lounge3/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_lounge3/ground",
       "name": "Ground",
       "width": 9,
       "height": 10,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_lounge3/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_lounge3/objects",
       "name": "Objects",
       "width": 9,
       "height": 10,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_lounge3/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_lounge3/overhead",
       "name": "Overhead",
       "width": 9,
       "height": 10,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA"
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_lounge3/warp_to_battle_frontier_outside_east",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_lounge3/warp_to_battle_frontier_outside_east",
       "name": "Warp to battle_frontier_outside_east",
       "x": 64,
       "y": 144,
@@ -85,67 +100,63 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_lounge3/npc_0",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_lounge3/npc_0",
       "name": "NPC_0",
       "x": 64,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/hiker",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_gambler",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_lounge3_event_script_gambler",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_lounge3/npc_1",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_lounge3/npc_1",
       "name": "NPC_1",
       "x": 64,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/fatman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_fat_man",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_lounge3_event_script_fat_man",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_lounge3/npc_2",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_lounge3/npc_2",
       "name": "NPC_2",
       "x": 48,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/woman2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_woman",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_lounge3_event_script_woman",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_lounge3/npc_3",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_lounge3/npc_3",
       "name": "NPC_3",
       "x": 80,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/pokefanf",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_pokefan_f",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_lounge3_event_script_pokefan_f",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_lounge3/npc_4",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_lounge3/npc_4",
       "name": "NPC_4",
       "x": 0,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/man3",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man3",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 0,
         "rangeY": 3
       },
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_lounge3_event_script_man",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_lounge3_event_script_man",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_lounge3/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_lounge3/elevation_0",
       "name": "Collision_0",
       "width": 9,
       "height": 10,

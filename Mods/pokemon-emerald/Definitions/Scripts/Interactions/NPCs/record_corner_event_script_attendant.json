@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:interaction/npcs/record_corner_event_script_attendant",
+  "id": "pokeemerald:script:interactions/npcs/record_corner_event_script_attendant",
   "name": "record corner event script attendant",
   "description": "NPC interaction: record corner event script attendant",
   "scriptPath": "Scripts/Interactions/NPCs/record_corner_event_script_attendant.csx",

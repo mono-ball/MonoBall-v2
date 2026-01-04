@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route111_old_ladys_rest_stop",
   "name": "Route111_OldLadysRestStop",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route111_old_ladys_rest_stop/ground",
+      "id": "pokeemerald:layer:Hoenn/route111_old_ladys_rest_stop/ground",
       "name": "Ground",
       "width": 10,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route111_old_ladys_rest_stop/objects",
+      "id": "pokeemerald:layer:Hoenn/route111_old_ladys_rest_stop/objects",
       "name": "Objects",
       "width": 10,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route111_old_ladys_rest_stop/overhead",
+      "id": "pokeemerald:layer:Hoenn/route111_old_ladys_rest_stop/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 8,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route111_old_ladys_rest_stop/warp_to_route111",
+      "id": "pokeemerald:warp:Hoenn/route111_old_ladys_rest_stop/warp_to_route111",
       "name": "Warp to route111",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route111_old_ladys_rest_stop/warp_to_route111",
+      "id": "pokeemerald:warp:Hoenn/route111_old_ladys_rest_stop/warp_to_route111",
       "name": "Warp to route111",
       "x": 64,
       "y": 112,
@@ -97,20 +112,19 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route111_old_ladys_rest_stop/npc_0",
+      "id": "pokeemerald:npc:Hoenn/route111_old_ladys_rest_stop/npc_0",
       "name": "NPC_0",
       "x": 96,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/expertf",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route111_old_ladys_rest_stop_event_script_old_lady",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertf",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route111_old_ladys_rest_stop_event_script_old_lady",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route111_old_ladys_rest_stop/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route111_old_ladys_rest_stop/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 8,

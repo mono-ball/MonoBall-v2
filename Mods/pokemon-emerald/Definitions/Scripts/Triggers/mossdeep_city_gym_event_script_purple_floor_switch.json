@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mossdeep_city_gym_event_script_purple_floor_switch",
+  "name": "mossdeep city gym event script purple floor switch",
+  "description": "Trigger script: mossdeep city gym event script purple floor switch",
+  "scriptPath": "Scripts/Triggers/mossdeep_city_gym_event_script_purple_floor_switch.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/petalburg_city_gym_event_script_left_gym_statue",
+  "id": "pokeemerald:script:interactions/signs/petalburg_city_gym_event_script_left_gym_statue",
   "name": "petalburg city gym event script left gym statue",
   "description": "Sign script: petalburg city gym event script left gym statue",
-  "scriptPath": "Scripts/Signs/petalburg_city_gym_event_script_left_gym_statue.csx",
+  "scriptPath": "Scripts/Interactions/Signs/petalburg_city_gym_event_script_left_gym_statue.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

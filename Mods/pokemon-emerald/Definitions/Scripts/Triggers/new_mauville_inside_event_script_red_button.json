@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/new_mauville_inside_event_script_red_button",
+  "name": "new mauville inside event script red button",
+  "description": "Trigger script: new mauville inside event script red button",
+  "scriptPath": "Scripts/Triggers/new_mauville_inside_event_script_red_button.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

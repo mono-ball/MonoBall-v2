@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route106_event_script_trainer_tips_sign",
+  "id": "pokeemerald:script:interactions/signs/route106_event_script_trainer_tips_sign",
   "name": "route106 event script trainer tips sign",
   "description": "Sign script: route106 event script trainer tips sign",
-  "scriptPath": "Scripts/Signs/route106_event_script_trainer_tips_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route106_event_script_trainer_tips_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

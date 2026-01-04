@@ -1,9 +1,9 @@
 {
-  "id": "pokemon:emerald",
+  "id": "expansion:pokeemerald",
   "name": "Pokemon Hoenn",
   "author": "Porycon3",
   "version": "1.0.0",
-  "description": "Converted content from pokeemerald-expansion (hoenn region)",
+  "description": "Converted content from pokeemerald-expansion (Hoenn region)",
   "patches": [],
   "dependencies": [
     "base:monoball-core"

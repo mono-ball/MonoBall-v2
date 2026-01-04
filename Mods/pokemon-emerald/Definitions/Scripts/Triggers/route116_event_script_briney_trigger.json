@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route116_event_script_briney_trigger",
+  "name": "route116 event script briney trigger",
+  "description": "Trigger script: route116 event script briney trigger",
+  "scriptPath": "Scripts/Triggers/route116_event_script_briney_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

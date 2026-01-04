@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/stairs_south",
+  "id": "pokeemerald:script:interactions/tiles/stairs_south",
   "name": "Stairs South",
   "description": "Tile interaction: Stairs South",
+  "scriptPath": "Scripts/Interactions/Tiles/stairs_south.csx",
   "category": "misc",
   "priority": 500
 }

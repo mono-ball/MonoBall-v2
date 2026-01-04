@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/puddle",
+  "id": "pokeemerald:script:interactions/tiles/puddle",
   "name": "Puddle",
   "description": "Tile interaction: Puddle",
+  "scriptPath": "Scripts/Interactions/Tiles/puddle.csx",
   "category": "misc",
   "priority": 500
 }

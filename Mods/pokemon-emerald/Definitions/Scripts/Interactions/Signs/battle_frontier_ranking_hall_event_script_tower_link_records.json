@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/battle_frontier_ranking_hall_event_script_tower_link_records",
+  "id": "pokeemerald:script:interactions/signs/battle_frontier_ranking_hall_event_script_tower_link_records",
   "name": "battle frontier ranking hall event script tower link records",
   "description": "Sign script: battle frontier ranking hall event script tower link records",
-  "scriptPath": "Scripts/Signs/battle_frontier_ranking_hall_event_script_tower_link_records.csx",
+  "scriptPath": "Scripts/Interactions/Signs/battle_frontier_ranking_hall_event_script_tower_link_records.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

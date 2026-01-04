@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/rustboro_city_flat2_3f",
   "name": "RustboroCity_Flat2_3F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 14,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_flat2_3f/ground",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_flat2_3f/ground",
       "name": "Ground",
       "width": 14,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_flat2_3f/objects",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_flat2_3f/objects",
       "name": "Objects",
       "width": 14,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_flat2_3f/overhead",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_flat2_3f/overhead",
       "name": "Overhead",
       "width": 14,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_flat2_3f/warp_to_rustboro_city_flat2_2f",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_flat2_3f/warp_to_rustboro_city_flat2_2f",
       "name": "Warp to rustboro_city_flat2_2f",
       "x": 16,
       "y": 16,
@@ -85,35 +100,33 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_flat2_3f/npc_0",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_flat2_3f/npc_0",
       "name": "NPC_0",
       "x": 112,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/devonemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/devonemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 0
       },
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_flat2_3f_event_script_devon_employee",
-      "facingDirection": "left",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat2_3f_event_script_devon_employee",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_flat2_3f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_flat2_3f/npc_1",
       "name": "NPC_1",
       "x": 192,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/woman1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_flat2_3f_event_script_woman",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat2_3f_event_script_woman",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_flat2_3f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_flat2_3f/elevation_0",
       "name": "Collision_0",
       "width": 14,
       "height": 9,

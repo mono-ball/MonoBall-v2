@@ -121,9 +121,10 @@ public class MetatileBinReader : IMetatileReader
     }
 
     /// <summary>
-    /// Converts gTileset_General -> general, gTileset_Petalburg -> petalburg
+    /// Converts gTileset_General -> general, gTileset_EverGrande -> ever_grande
+    /// Handles PascalCase to snake_case conversion for multi-word tileset names.
     /// </summary>
-    private string TilesetNameToFolder(string tilesetName)
+    private static string TilesetNameToFolder(string tilesetName)
     {
         var name = tilesetName;
 
@@ -133,7 +134,16 @@ public class MetatileBinReader : IMetatileReader
             name = name.Substring(9);
         }
 
-        return name.ToLowerInvariant();
+        // Convert PascalCase to snake_case
+        var sb = new System.Text.StringBuilder();
+        for (var i = 0; i < name.Length; i++)
+        {
+            var c = name[i];
+            if (i > 0 && char.IsUpper(c))
+                sb.Append('_');
+            sb.Append(char.ToLowerInvariant(c));
+        }
+        return sb.ToString();
     }
 
     /// <summary>

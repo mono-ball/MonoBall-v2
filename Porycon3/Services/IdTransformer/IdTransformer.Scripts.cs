@@ -117,6 +117,63 @@ public static partial class IdTransformer
         return CreateId("script", "interaction", pokeemeraldScript);
     }
 
+    /// <summary>
+    /// Generate trigger script definition ID from script name.
+    /// LittlerootTown_EventScript_NeedPokemonTriggerLeft -> base:script:trigger/littleroot_town_event_script_need_pokemon_trigger_left
+    /// </summary>
+    /// <param name="scriptName">The script name (e.g., "LittlerootTown_EventScript_NeedPokemonTriggerLeft").</param>
+    /// <returns>The script definition ID, or empty string if scriptName is null/empty.</returns>
+    public static string TriggerScriptId(string scriptName)
+    {
+        if (string.IsNullOrEmpty(scriptName) ||
+            scriptName == "NULL" ||
+            scriptName == "0x0" ||
+            scriptName == "0")
+            return "";
+
+        var normalized = Normalize(scriptName);
+        return $"{Namespace}:script:trigger/{normalized}";
+    }
+
+    /// <summary>
+    /// Generate interaction script definition ID from script name and category.
+    /// LittlerootTown_EventScript_TownSign -> base:script:interactions/signs/littleroot_town_event_script_town_sign
+    /// LittlerootTown_EventScript_Twin -> base:script:interactions/npcs/littleroot_town_event_script_twin
+    /// </summary>
+    /// <param name="scriptName">The script name (e.g., "LittlerootTown_EventScript_TownSign").</param>
+    /// <param name="category">The interaction category: "npcs" or "signs".</param>
+    /// <returns>The script definition ID, or empty string if scriptName is null/empty.</returns>
+    public static string InteractionScriptId(string scriptName, string category = "npcs")
+    {
+        if (string.IsNullOrEmpty(scriptName) ||
+            scriptName == "NULL" ||
+            scriptName == "0x0" ||
+            scriptName == "0")
+            return "";
+
+        var normalized = Normalize(scriptName);
+        return $"{Namespace}:script:interactions/{category}/{normalized}";
+    }
+
+    /// <summary>
+    /// Generate movement script definition ID from script name.
+    /// MOVEMENT_TYPE_WANDER -> base:script:movement/npcs/wander
+    /// </summary>
+    /// <param name="movementType">The movement type (e.g., "MOVEMENT_TYPE_WANDER").</param>
+    /// <returns>The script definition ID, or empty string if movementType is null/empty.</returns>
+    public static string MovementScriptId(string movementType)
+    {
+        if (string.IsNullOrEmpty(movementType))
+            return "";
+
+        var name = movementType;
+        if (name.StartsWith("MOVEMENT_TYPE_", StringComparison.OrdinalIgnoreCase))
+            name = name[14..];
+
+        var normalized = Normalize(name);
+        return $"{Namespace}:script:movement/npcs/{normalized}";
+    }
+
     #endregion
 
     #region Trainer IDs

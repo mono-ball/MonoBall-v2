@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/impassable_north",
+  "id": "pokeemerald:script:interactions/tiles/impassable_north",
   "name": "Impassable North",
   "description": "Tile interaction: Impassable North",
+  "scriptPath": "Scripts/Interactions/Tiles/impassable_north.csx",
   "category": "misc",
   "priority": 500
 }

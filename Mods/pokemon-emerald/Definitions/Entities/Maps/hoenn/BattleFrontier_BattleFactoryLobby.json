@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_battle_factory_lobby",
   "name": "BattleFrontier_BattleFactoryLobby",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 19,
   "height": 12,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_factory_lobby/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_factory_lobby/ground",
       "name": "Ground",
       "width": 19,
       "height": 12,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_factory_lobby/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_factory_lobby/objects",
       "name": "Objects",
       "width": 19,
       "height": 12,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_factory_lobby/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_factory_lobby/overhead",
       "name": "Overhead",
       "width": 19,
       "height": 12,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_factory"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefactory"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_battle_factory_lobby/warp_to_battle_frontier_outside_west",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_battle_factory_lobby/warp_to_battle_frontier_outside_west",
       "name": "Warp to battle_frontier_outside_west",
       "x": 144,
       "y": 176,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/battle_frontier_battle_factory_lobby/warp_to_battle_frontier_outside_west",
+      "id": "pokeemerald:warp:Hoenn/battle_frontier_battle_factory_lobby/warp_to_battle_frontier_outside_west",
       "name": "Warp to battle_frontier_outside_west",
       "x": 160,
       "y": 176,
@@ -96,109 +111,105 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/battle_frontier_battle_factory_lobby/sign_battlefrontierbattlefactorylobbyeventscriptshowsinglesresults",
+      "id": "pokeemerald:interaction:Hoenn/battle_frontier_battle_factory_lobby/sign_battlefrontierbattlefactorylobbyeventscriptshowsinglesresults",
       "name": "Sign: BattleFrontier_BattleFactoryLobby_EventScript_ShowSinglesResults",
       "x": 32,
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_show_singles_results",
+      "interactionId": "pokeemerald:script:interactions/signs/battle_frontier_battle_factory_lobby_event_script_show_singles_results",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/battle_frontier_battle_factory_lobby/sign_battlefrontierbattlefactorylobbyeventscriptshowdoublesresults",
+      "id": "pokeemerald:interaction:Hoenn/battle_frontier_battle_factory_lobby/sign_battlefrontierbattlefactorylobbyeventscriptshowdoublesresults",
       "name": "Sign: BattleFrontier_BattleFactoryLobby_EventScript_ShowDoublesResults",
       "x": 176,
       "y": 112,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_show_doubles_results",
+      "interactionId": "pokeemerald:script:interactions/signs/battle_frontier_battle_factory_lobby_event_script_show_doubles_results",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/battle_frontier_battle_factory_lobby/sign_battlefrontierbattlefactorylobbyeventscriptrulesboard",
+      "id": "pokeemerald:interaction:Hoenn/battle_frontier_battle_factory_lobby/sign_battlefrontierbattlefactorylobbyeventscriptrulesboard",
       "name": "Sign: BattleFrontier_BattleFactoryLobby_EventScript_RulesBoard",
       "x": 144,
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_rules_board",
+      "interactionId": "pokeemerald:script:interactions/signs/battle_frontier_battle_factory_lobby_event_script_rules_board",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_factory_lobby/localid_factory_attendant_singles",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_factory_lobby/localid_factory_attendant_singles",
       "name": "LOCALID_FACTORY_ATTENDANT_SINGLES",
       "x": 64,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/scientist1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_singles_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_factory_lobby_event_script_singles_attendant",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_factory_lobby/npc_1",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_factory_lobby/npc_1",
       "name": "NPC_1",
       "x": 48,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/woman1",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_woman",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_factory_lobby_event_script_woman",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_factory_lobby/npc_2",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_factory_lobby/npc_2",
       "name": "NPC_2",
       "x": 224,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/camper",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_camper",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/camper",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_factory_lobby_event_script_camper",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_factory_lobby/npc_3",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_factory_lobby/npc_3",
       "name": "NPC_3",
       "x": 208,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/picnicker",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_picnicker",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/picnicker",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_factory_lobby_event_script_picnicker",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_factory_lobby/npc_4",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_factory_lobby/npc_4",
       "name": "NPC_4",
       "x": 96,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/fatman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_fat_man",
+      "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_factory_lobby_event_script_fat_man",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_factory_lobby/localid_factory_attendant_doubles",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_factory_lobby/localid_factory_attendant_doubles",
       "name": "LOCALID_FACTORY_ATTENDANT_DOUBLES",
       "x": 224,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/scientist1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_frontier_battle_factory_lobby_event_script_doubles_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_factory_lobby_event_script_doubles_attendant",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_factory_lobby/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_battle_factory_lobby/elevation_0",
       "name": "Collision_0",
       "width": 19,
       "height": 12,

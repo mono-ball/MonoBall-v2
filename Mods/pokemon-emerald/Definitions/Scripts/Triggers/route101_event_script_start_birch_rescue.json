@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route101_event_script_start_birch_rescue",
+  "name": "route101 event script start birch rescue",
+  "description": "Trigger script: route101 event script start birch rescue",
+  "scriptPath": "Scripts/Triggers/route101_event_script_start_birch_rescue.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

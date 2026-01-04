@@ -157,18 +157,20 @@ public class SharedTilesetRegistry : IDisposable
     /// <summary>
     /// Build all individual tilesets and return results.
     /// Each tileset is output separately (primary/* or secondary/*).
+    /// TilesetName in result is PascalCase for filenames, TilesetId is lowercase.
     /// </summary>
     public IEnumerable<SharedTilesetResult> BuildAllTilesets()
     {
         foreach (var (normalizedName, builder) in _builders)
         {
             var tilesetType = builder.TilesetType;
-            var tilesetId = IdTransformer.TilesetId(normalizedName, tilesetType);
+            var tilesetId = IdTransformer.TilesetId(builder.TilesetName, tilesetType);
+            var displayName = IdTransformer.TilesetFileName(builder.TilesetName);
             var image = builder.BuildTilesheetImage();
 
             yield return new SharedTilesetResult(
                 tilesetId,
-                normalizedName,
+                displayName,  // PascalCase for filenames
                 tilesetType,
                 image,
                 builder.UniqueTileCount,
@@ -199,14 +201,24 @@ public class SharedTilesetRegistry : IDisposable
     }
 
     /// <summary>
-    /// Normalize tileset name (remove gTileset_ prefix, lowercase).
+    /// Normalize tileset name to lowercase (for deduplication keys).
+    /// gTileset_EverGrande -> evergrande
     /// </summary>
     public static string NormalizeTilesetName(string tilesetName)
     {
         var name = tilesetName;
         if (name.StartsWith("gTileset_", StringComparison.OrdinalIgnoreCase))
             name = name.Substring(9);
-        return name.ToLowerInvariant();
+        return name.ToLowerInvariant().Replace("_", "");
+    }
+
+    /// <summary>
+    /// Get PascalCase display name for a tileset (for filenames).
+    /// gTileset_EverGrande -> EverGrande
+    /// </summary>
+    public static string GetTilesetDisplayName(string tilesetName)
+    {
+        return IdTransformer.TilesetFileName(tilesetName);
     }
 
     public void Dispose()

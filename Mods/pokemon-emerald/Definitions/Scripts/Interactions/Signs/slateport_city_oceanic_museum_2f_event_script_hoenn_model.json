@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/slateport_city_oceanic_museum_2f_event_script_hoenn_model",
+  "id": "pokeemerald:script:interactions/signs/slateport_city_oceanic_museum_2f_event_script_hoenn_model",
   "name": "slateport city oceanic museum 2f event script hoenn model",
   "description": "Sign script: slateport city oceanic museum 2f event script hoenn model",
-  "scriptPath": "Scripts/Signs/slateport_city_oceanic_museum_2f_event_script_hoenn_model.csx",
+  "scriptPath": "Scripts/Interactions/Signs/slateport_city_oceanic_museum_2f_event_script_hoenn_model.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

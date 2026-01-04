@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route104_prototype",
   "name": "Route104_Prototype",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:route",
   "width": 1,
   "height": 1,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/general",
+    "bottomLayer": [
+      84,
+      85,
+      86,
+      88
+    ],
+    "topLayer": [
+      -1073741820,
+      -1073741820,
+      87,
+      89
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route104_prototype/ground",
+      "id": "pokeemerald:layer:Hoenn/route104_prototype/ground",
       "name": "Ground",
       "width": 1,
       "height": 1,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_prototype/objects",
+      "id": "pokeemerald:layer:Hoenn/route104_prototype/objects",
       "name": "Objects",
       "width": 1,
       "height": 1,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "zwEAAA=="
+      "tileData": "VQQAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route104_prototype/overhead",
+      "id": "pokeemerald:layer:Hoenn/route104_prototype/overhead",
       "name": "Overhead",
       "width": 1,
       "height": 1,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "0AEAAA=="
+      "tileData": "/QQAAA=="
     }
   ],
   "tilesets": [
@@ -63,7 +78,7 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/rustboro"
     }
   ],

@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/deep_water",
+  "id": "pokeemerald:script:interactions/tiles/deep_water",
   "name": "Deep Water",
   "description": "Tile interaction: Deep Water",
+  "scriptPath": "Scripts/Interactions/Tiles/deep_water.csx",
   "category": "water",
   "priority": 500
 }

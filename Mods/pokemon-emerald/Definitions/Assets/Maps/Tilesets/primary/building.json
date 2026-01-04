@@ -1,8 +1,8 @@
 {
   "id": "pokeemerald:tileset:primary/building",
-  "name": "building",
+  "name": "Building",
   "type": "primary",
-  "texturePath": "Graphics/Maps/Tilesets/Primary/building.png",
+  "texturePath": "Graphics/Maps/Tilesets/Primary/Building.png",
   "tileWidth": 16,
   "tileHeight": 16,
   "tileCount": 5,
@@ -13,21 +13,21 @@
   "margin": 0,
   "tiles": [
     {
-      "localTileId": 0,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_86"
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_86"
     },
     {
-      "localTileId": 1,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_86"
+      "localTileId": 2,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_86"
     },
     {
       "localTileId": 3,
-      "interactionId": "pokeemerald:interaction/tiles/warp_or_bridge_2",
+      "interactionId": "pokeemerald:script:interactions/tiles/warp_or_bridge_2",
       "collisionId": "pokeemerald:collision:warp"
     },
     {
       "localTileId": 4,
-      "interactionId": "pokeemerald:interaction/tiles/ice_spin_left"
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
     }
   ]
 }

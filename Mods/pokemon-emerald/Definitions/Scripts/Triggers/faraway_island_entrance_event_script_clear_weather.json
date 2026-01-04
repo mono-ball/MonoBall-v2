@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/faraway_island_entrance_event_script_clear_weather",
+  "name": "faraway island entrance event script clear weather",
+  "description": "Trigger script: faraway island entrance event script clear weather",
+  "scriptPath": "Scripts/Triggers/faraway_island_entrance_event_script_clear_weather.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

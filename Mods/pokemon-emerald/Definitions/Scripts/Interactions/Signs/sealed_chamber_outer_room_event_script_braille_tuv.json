@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/sealed_chamber_outer_room_event_script_braille_tuv",
+  "id": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_tuv",
   "name": "sealed chamber outer room event script braille tuv",
   "description": "Sign script: sealed chamber outer room event script braille tuv",
-  "scriptPath": "Scripts/Signs/sealed_chamber_outer_room_event_script_braille_tuv.csx",
+  "scriptPath": "Scripts/Interactions/Signs/sealed_chamber_outer_room_event_script_braille_tuv.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/mossdeep_city_space_center_1f",
   "name": "MossdeepCity_SpaceCenter_1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 16,
   "height": 10,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/facility",
+    "bottomLayer": [
+      1014,
+      1014,
+      1014,
+      1014
+    ],
+    "topLayer": [
+      -1073740824,
+      -1073740824,
+      -1073740824,
+      -1073740824
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_space_center_1f/ground",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_space_center_1f/ground",
       "name": "Ground",
       "width": 16,
       "height": 10,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAGkBAABpAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAAAAAAAAAAAAAAAAAaQEAAG4BAABuAQAAbgEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAGwBAABsAQAAbAEAAAAAAAAAAAAAAAAAAG4BAADxAQAA8QEAAPEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCAgAAAAAAAEICAADxAQAAAAAAAAAAAADmAQAAAAAAAAAAAADmAQAAAAAAAAAAAADmAQAAAAAAAAAAAADmAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOYBAADmAQAA5gEAAOYBAAAAAAAAAAAAAAAAAAAAAAAARQIAAEUCAAAAAAAARQIAAEUCAAAAAAAAAAAAAOYBAAA9AgAAPQIAAD0CAAA9AgAA5gEAAAAAAAAAAAAAAAAAAOYBAAAAAAAAAAAAAOYBAAAAAAAAAAAAAAAAAAAAAAAA5gEAAAAAAADmAQAAAAAAAAAAAAAAAAAAAAAAAAAAAADmAQAA5gEAAOYBAADmAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPQIAAD0CAAA9AgAAPQIAAOYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmAQAAAAAAAOYBAAAAAAAAAAAAAA=="
+      "tileData": "AAAAANsDAADbAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAAAAAAAAAAAAAAAAAA2wMAAOADAADgAwAA4AMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAN4DAADeAwAA3gMAAAAAAAAAAAAAAAAAAOADAABlBAAAZQQAAGUEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADLBAAAAAAAAMsEAABlBAAAAAAAAAAAAABaBAAAAAAAAAAAAABaBAAAAAAAAAAAAABaBAAAAAAAAAAAAABaBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoEAABaBAAAWgQAAFoEAAAAAAAAAAAAAAAAAAAAAAAAzQQAAM0EAAAAAAAAzQQAAM0EAAAAAAAAAAAAAFoEAAC0BAAAtAQAALQEAAC0BAAAWgQAAAAAAAAAAAAAAAAAAFoEAAAAAAAAAAAAAFoEAAAAAAAAAAAAAAAAAAAAAAAAWgQAAAAAAABaBAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaBAAAWgQAAFoEAABaBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtAQAALQEAAC0BAAAtAQAAFoEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaBAAAAAAAAFoEAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_space_center_1f/objects",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_space_center_1f/objects",
       "name": "Objects",
       "width": 16,
       "height": 10,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "pQEAAGcBAIBnAQCAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGgBAABoAQAAlwEAAJkBAICbAQAAZwEAgLQBAIBvAQAAcAEAAG0BAABtAQAAbQEAAG0BAABtAQAAbQEAAG0BAABtAQAAbQEAALABAACxAQAAsgEAAHABAAC2AQCAeQEAAHoBAABBAgAAQQIAAEECAABBAgAAQQIAAEECAABBAgAAQQIAAEECAACjAQAAQQIAAKQBAAB6AQAA8QEAAOYBAADFAQAA5gEAAOYBAADFAQAA5gEAAOYBAADFAQAA5gEAAOYBAADFAQAA5gEAAOYBAADmAQAA5gEAAPEBAADmAQAA5gEAAOYBAADmAQAA5gEAAOYBAADmAQAA5gEAAOYBAADmAQAA5gEAAOYBAADmAQAA5gEAAOYBAADxAQAA5gEAAEMCAABEAgAAQwIAAEQCAADmAQAA5gEAAOYBAADmAQAAwwEAAMQBAADmAQAAwwEAAMQBAADmAQAA8QEAAMUBAAAtAgAARgIAAC0CAABGAgAAxQEAAOYBAADmAQAA5gEAAMUBAADmAQAA5gEAAMUBAADmAQAA5gEAAPEBAADmAQAAxQEAAOYBAADFAQAA5gEAAOYBAADmAQAA5gEAAOYBAABDAgAARAIAAEMCAABEAgAA5gEAAOYBAADxAQAA5gEAAOYBAADmAQAA5gEAAOYBAADmAQAA5gEAAOYBAADmAQAALQIAAEYCAAAtAgAARgIAAMUBAADmAQAA8QEAAOYBAADmAQAA5gEAAOYBAADmAQAA5gEAAIMBAACDAQDA5gEAAOYBAADFAQAA5gEAAMUBAADmAQAA5gEAAA=="
+      "tileData": "GAQAANkDAIDZAwCA2gMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANoDAADaAwAACgQAAAwEAIAOBAAA2QMAgCgEAIDhAwAA4gMAAN8DAADfAwAA3wMAAN8DAADfAwAA3wMAAN8DAADfAwAA3wMAACQEAAAlBAAAJgQAAOIDAAAqBACA6wMAAOwDAADKBAAAygQAAMoEAADKBAAAygQAAMoEAADKBAAAygQAAMoEAAAWBAAAygQAABcEAADsAwAAZQQAAFoEAAA5BAAAWgQAAFoEAAA5BAAAWgQAAFoEAAA5BAAAWgQAAFoEAAA5BAAAWgQAAFoEAABaBAAAWgQAAGUEAABaBAAAWgQAAFoEAABaBAAAWgQAAFoEAABaBAAAWgQAAFoEAABaBAAAWgQAAFoEAABaBAAAWgQAAFoEAABlBAAAWgQAAMgEAADMBAAAyAQAAMwEAABaBAAAWgQAAFoEAABaBAAANwQAADgEAABaBAAANwQAADgEAABaBAAAZQQAADkEAACdBAAAzgQAAJ0EAADOBAAAOQQAAFoEAABaBAAAWgQAADkEAABaBAAAWgQAADkEAABaBAAAWgQAAGUEAABaBAAAOQQAAFoEAAA5BAAAWgQAAFoEAABaBAAAWgQAAFoEAADIBAAAzAQAAMgEAADMBAAAWgQAAFoEAABlBAAAWgQAAFoEAABaBAAAWgQAAFoEAABaBAAAWgQAAFoEAABaBAAAnQQAAM4EAACdBAAAzgQAADkEAABaBAAAZQQAAFoEAABaBAAAWgQAAFoEAABaBAAAWgQAAPUDAAD1AwDAWgQAAFoEAAA5BAAAWgQAADkEAABaBAAAWgQAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_space_center_1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_space_center_1f/overhead",
       "name": "Overhead",
       "width": 16,
       "height": 10,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "dgEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAEAAJoBAICYAQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHYBAMB2AQDAdgEAwAAAAAAAAAAAAAAAAAAAAAB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMAAAAAAdgEAwAAAAAAAAAAAdgEAwHYBAMAAAAAAdgEAwHYBAMAAAAAAdgEAwHYBAMAAAAAAdgEAwHYBAMAAAAAAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMC5AQAAugEAAHYBAMC5AQAAugEAAHYBAMB2AQDAdgEAwAAAAAAAAAAAAAAAAAAAAAB2AQDAdgEAwHYBAMB2AQDAAAAAAAAAAAB2AQDAAAAAAAAAAAB2AQDAdgEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHYBAMB2AQDAdgEAwAAAAAB2AQDAdgEAwAAAAAB2AQDAdgEAwHYBAMB2AQDAAAAAAHYBAMAAAAAAdgEAwHYBAMB2AQDAdgEAwHYBAMAAAAAAAAAAAAAAAAAAAAAAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAAAAAAAAAAAAAAAAAAAAAAAAAAAB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMB2AQDAdgEAwHYBAMAAAAAAdgEAwAAAAAB2AQDAdgEAwA=="
+      "tileData": "6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwQAAA0EAIALBACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOgDAMDoAwDA6AMAwAAAAAAAAAAAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMAAAAAA6AMAwAAAAAAAAAAA6AMAwOgDAMAAAAAA6AMAwOgDAMAAAAAA6AMAwOgDAMAAAAAA6AMAwOgDAMAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMAtBAAALgQAAOgDAMAtBAAALgQAAOgDAMDoAwDA6AMAwAAAAAAAAAAAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDAAAAAAAAAAADoAwDAAAAAAAAAAADoAwDA6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOgDAMDoAwDA6AMAwAAAAADoAwDA6AMAwAAAAADoAwDA6AMAwOgDAMDoAwDAAAAAAOgDAMAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMAAAAAAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDAAAAAAAAAAAAAAAAAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMAAAAAA6AMAwAAAAADoAwDA6AMAwA=="
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/facility"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_space_center_1f/warp_to_mossdeep_city",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_space_center_1f/warp_to_mossdeep_city",
       "name": "Warp to mossdeep_city",
       "x": 112,
       "y": 144,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_space_center_1f/warp_to_mossdeep_city",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_space_center_1f/warp_to_mossdeep_city",
       "name": "Warp to mossdeep_city",
       "x": 128,
       "y": 144,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_space_center_1f/warp_to_mossdeep_city_space_center_2f",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_space_center_1f/warp_to_mossdeep_city_space_center_2f",
       "name": "Warp to mossdeep_city_space_center_2f",
       "x": 208,
       "y": 16,
@@ -109,139 +124,129 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_scientist_1",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_scientist_1",
       "name": "LOCALID_SPACE_CENTER_1F_SCIENTIST_1",
       "x": 112,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/scientist1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_rocket_launch_counter",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_rocket_launch_counter",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_scientist_2",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_scientist_2",
       "name": "LOCALID_SPACE_CENTER_1F_SCIENTIST_2",
       "x": 32,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/scientist1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_scientist",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_scientist",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_sailor",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_sailor",
       "name": "LOCALID_SPACE_CENTER_1F_SAILOR",
       "x": 96,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/sailor",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_sun_stone_man",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_sun_stone_man",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_old_man",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_old_man",
       "name": "LOCALID_SPACE_CENTER_1F_OLD_MAN",
       "x": 160,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/oldman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_old_man",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/oldman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_old_man",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_woman",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_woman",
       "name": "LOCALID_SPACE_CENTER_1F_WOMAN",
       "x": 224,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/woman4",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_woman",
-      "facingDirection": "up",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_woman",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/npc_5",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/npc_5",
       "name": "NPC_5",
       "x": 192,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/teammagma/magmamemberf",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_grunt3",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teammagma/magmamemberf",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt3",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
-      "facingDirection": "left",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/npc_6",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/npc_6",
       "name": "NPC_6",
       "x": 176,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/teammagma/magmamemberm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_grunt1",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teammagma/magmamemberm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt1",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
-      "facingDirection": "left",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/npc_7",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/npc_7",
       "name": "NPC_7",
       "x": 160,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/teammagma/magmamemberm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_grunt4",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teammagma/magmamemberm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt4",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_stair_grunt",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/localid_space_center_1f_stair_grunt",
       "name": "LOCALID_SPACE_CENTER_1F_STAIR_GRUNT",
       "x": 208,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/teammagma/magmamemberm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_grunt2",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teammagma/magmamemberm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt2",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/npc_9",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/npc_9",
       "name": "NPC_9",
       "x": 32,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/invisible",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_magma_note",
+      "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/invisible",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_magma_note",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_magma_note",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_space_center_1f/npc_10",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_space_center_1f/npc_10",
       "name": "NPC_10",
       "x": 16,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/steven",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_space_center_1f_event_script_steven",
+      "spriteId": "pokeemerald:sprite:characters/npcs/steven",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_steven",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_steven",
-      "facingDirection": "down",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/mossdeep_city_space_center_1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/mossdeep_city_space_center_1f/elevation_0",
       "name": "Collision_0",
       "width": 16,
       "height": 10,

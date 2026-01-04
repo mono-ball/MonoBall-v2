@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mt_pyre_exterior_event_script_sun_trigger",
+  "name": "mt pyre exterior event script sun trigger",
+  "description": "Trigger script: mt pyre exterior event script sun trigger",
+  "scriptPath": "Scripts/Triggers/mt_pyre_exterior_event_script_sun_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_colosseum_2_p",
   "name": "BattleColosseum_2P",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 14,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_colosseum_2_p/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_colosseum_2_p/ground",
       "name": "Ground",
       "width": 14,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_colosseum_2_p/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_colosseum_2_p/objects",
       "name": "Objects",
       "width": 14,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_colosseum_2_p/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_colosseum_2_p/overhead",
       "name": "Overhead",
       "width": 14,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/cable_club"
+      "tilesetId": "pokeemerald:tileset:secondary/cableclub"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/battle_colosseum_2_p/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/battle_colosseum_2_p/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 96,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/battle_colosseum_2_p/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/battle_colosseum_2_p/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 112,
       "y": 128,
@@ -95,25 +110,25 @@
   ],
   "triggers": [
     {
-      "id": "pokeemerald:trigger:hoenn/battle_colosseum_2_p/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/battle_colosseum_2_p/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 48,
       "y": 80,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/event_script_battle_colosseum_2_p_player_spot0",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/battle_colosseum_2_p/trigger_var_temp_0_0",
+      "id": "pokeemerald:trigger:Hoenn/battle_colosseum_2_p/trigger_var_temp_0_0",
       "name": "Trigger: VAR_TEMP_0 == 0",
       "x": 160,
       "y": 80,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_temp_0",
+      "variable": "pokeemerald:variable:Hoenn/var_temp_0",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/event_script_battle_colosseum_2_p_player_spot1",
       "elevation": 3
@@ -122,20 +137,19 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_colosseum_2_p/npc_0",
+      "id": "pokeemerald:npc:Hoenn/battle_colosseum_2_p/npc_0",
       "name": "NPC_0",
       "x": 144,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/linkreceptionist",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/battle_colosseum_2_p_event_script_attendant",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/linkreceptionist",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/battle_colosseum_2_p_event_script_attendant",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_colosseum_2_p/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_colosseum_2_p/elevation_0",
       "name": "Collision_0",
       "width": 14,
       "height": 9,

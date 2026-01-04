@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route124_diving_treasure_hunters_house_event_script_shard_trade_board",
+  "id": "pokeemerald:script:interactions/signs/route124_diving_treasure_hunters_house_event_script_shard_trade_board",
   "name": "route124 diving treasure hunters house event script shard trade board",
   "description": "Sign script: route124 diving treasure hunters house event script shard trade board",
-  "scriptPath": "Scripts/Signs/route124_diving_treasure_hunters_house_event_script_shard_trade_board.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route124_diving_treasure_hunters_house_event_script_shard_trade_board.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

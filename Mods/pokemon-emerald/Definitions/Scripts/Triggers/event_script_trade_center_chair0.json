@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/event_script_trade_center_chair0",
+  "name": "event script trade center chair0",
+  "description": "Trigger script: event script trade center chair0",
+  "scriptPath": "Scripts/Triggers/event_script_trade_center_chair0.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

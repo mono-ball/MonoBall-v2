@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/players_house_2f_event_script_notebook",
+  "id": "pokeemerald:script:interactions/signs/players_house_2f_event_script_notebook",
   "name": "players house 2f event script notebook",
   "description": "Sign script: players house 2f event script notebook",
-  "scriptPath": "Scripts/Signs/players_house_2f_event_script_notebook.csx",
+  "scriptPath": "Scripts/Interactions/Signs/players_house_2f_event_script_notebook.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

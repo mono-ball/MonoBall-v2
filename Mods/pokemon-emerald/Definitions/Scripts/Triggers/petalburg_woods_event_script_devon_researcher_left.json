@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/petalburg_woods_event_script_devon_researcher_left",
+  "name": "petalburg woods event script devon researcher left",
+  "description": "Trigger script: petalburg woods event script devon researcher left",
+  "scriptPath": "Scripts/Triggers/petalburg_woods_event_script_devon_researcher_left.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,205 @@
+{
+  "id": "pokeemerald:tileset:secondary/navelrock",
+  "name": "NavelRock",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/NavelRock.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 78,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 5,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 6,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 7,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_left"
+    },
+    {
+      "localTileId": 8,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 11,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_left"
+    },
+    {
+      "localTileId": 12,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 14,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_left"
+    },
+    {
+      "localTileId": 19,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 33,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 36,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 37,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 52,
+      "animation": [
+        {
+          "tileId": 70,
+          "durationMs": 133
+        },
+        {
+          "tileId": 71,
+          "durationMs": 133
+        },
+        {
+          "tileId": 72,
+          "durationMs": 133
+        },
+        {
+          "tileId": 73,
+          "durationMs": 133
+        },
+        {
+          "tileId": 74,
+          "durationMs": 133
+        },
+        {
+          "tileId": 75,
+          "durationMs": 133
+        },
+        {
+          "tileId": 76,
+          "durationMs": 133
+        },
+        {
+          "tileId": 77,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 54,
+      "animation": [
+        {
+          "tileId": 70,
+          "durationMs": 133
+        },
+        {
+          "tileId": 71,
+          "durationMs": 133
+        },
+        {
+          "tileId": 72,
+          "durationMs": 133
+        },
+        {
+          "tileId": 73,
+          "durationMs": 133
+        },
+        {
+          "tileId": 74,
+          "durationMs": 133
+        },
+        {
+          "tileId": 75,
+          "durationMs": 133
+        },
+        {
+          "tileId": 76,
+          "durationMs": 133
+        },
+        {
+          "tileId": 77,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 57,
+      "animation": [
+        {
+          "tileId": 70,
+          "durationMs": 133
+        },
+        {
+          "tileId": 71,
+          "durationMs": 133
+        },
+        {
+          "tileId": 72,
+          "durationMs": 133
+        },
+        {
+          "tileId": 73,
+          "durationMs": 133
+        },
+        {
+          "tileId": 74,
+          "durationMs": 133
+        },
+        {
+          "tileId": 75,
+          "durationMs": 133
+        },
+        {
+          "tileId": 76,
+          "durationMs": 133
+        },
+        {
+          "tileId": 77,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 60,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_left"
+    },
+    {
+      "localTileId": 68,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_left"
+    }
+  ]
+}

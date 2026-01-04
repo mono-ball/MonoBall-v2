@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/lilycove_city_contest_lobby_event_script_berry_blender_speed_records",
+  "id": "pokeemerald:script:interactions/signs/lilycove_city_contest_lobby_event_script_berry_blender_speed_records",
   "name": "lilycove city contest lobby event script berry blender speed records",
   "description": "Sign script: lilycove city contest lobby event script berry blender speed records",
-  "scriptPath": "Scripts/Signs/lilycove_city_contest_lobby_event_script_berry_blender_speed_records.csx",
+  "scriptPath": "Scripts/Interactions/Signs/lilycove_city_contest_lobby_event_script_berry_blender_speed_records.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

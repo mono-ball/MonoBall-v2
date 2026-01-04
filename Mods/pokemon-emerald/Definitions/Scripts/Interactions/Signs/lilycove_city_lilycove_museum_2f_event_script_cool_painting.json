@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/lilycove_city_lilycove_museum_2f_event_script_cool_painting",
+  "id": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_cool_painting",
   "name": "lilycove city lilycove museum 2f event script cool painting",
   "description": "Sign script: lilycove city lilycove museum 2f event script cool painting",
-  "scriptPath": "Scripts/Signs/lilycove_city_lilycove_museum_2f_event_script_cool_painting.csx",
+  "scriptPath": "Scripts/Interactions/Signs/lilycove_city_lilycove_museum_2f_event_script_cool_painting.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

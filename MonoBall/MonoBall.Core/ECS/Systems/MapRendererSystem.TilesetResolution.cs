@@ -35,11 +35,20 @@ public partial class MapRendererSystem
         TilesetDefinition defaultDefinition
     )
     {
-        // Resolve tileset for this GID
-        var (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(gid, tilesetRefs);
-        if (string.IsNullOrEmpty(resolvedTilesetId))
+        // Resolve tileset for this GID - fail fast, no fallback code
+        string resolvedTilesetId;
+        int resolvedFirstGid;
+        try
+        {
+            (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(
+                gid,
+                tilesetRefs
+            );
+        }
+        catch (InvalidOperationException ex)
         {
             _logger.Debug(
+                ex,
                 "Failed to resolve tileset for GID {Gid} in map with {TilesetCount} tileset(s)",
                 gid,
                 tilesetRefs.Count

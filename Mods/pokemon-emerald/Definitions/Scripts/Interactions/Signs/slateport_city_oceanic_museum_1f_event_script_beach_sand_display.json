@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/slateport_city_oceanic_museum_1f_event_script_beach_sand_display",
+  "id": "pokeemerald:script:interactions/signs/slateport_city_oceanic_museum_1f_event_script_beach_sand_display",
   "name": "slateport city oceanic museum 1f event script beach sand display",
   "description": "Sign script: slateport city oceanic museum 1f event script beach sand display",
-  "scriptPath": "Scripts/Signs/slateport_city_oceanic_museum_1f_event_script_beach_sand_display.csx",
+  "scriptPath": "Scripts/Interactions/Signs/slateport_city_oceanic_museum_1f_event_script_beach_sand_display.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

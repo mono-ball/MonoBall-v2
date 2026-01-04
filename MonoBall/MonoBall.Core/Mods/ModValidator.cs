@@ -243,59 +243,131 @@ public class ModValidator
             if (jsonFile.Equals("mod.json", StringComparison.OrdinalIgnoreCase))
                 continue;
 
-            try
-            {
-                var jsonContent = modSource.ReadTextFile(jsonFile);
-                var jsonDoc = JsonDocument.Parse(jsonContent);
+            ProcessDefinitionFileForValidation(
+                jsonFile,
+                manifest,
+                modSource,
+                definitionIds,
+                issues
+            );
+        }
+    }
 
-                if (jsonDoc.RootElement.TryGetProperty("id", out var idElement))
+    /// <summary>
+    ///     Processes a single definition file for validation: collects definition IDs and validates shader definitions.
+    /// </summary>
+    /// <param name="jsonFile">The JSON file path to process.</param>
+    /// <param name="manifest">The mod manifest.</param>
+    /// <param name="modSource">The mod source.</param>
+    /// <param name="definitionIds">Dictionary to collect definition IDs into.</param>
+    /// <param name="issues">List to add validation issues to.</param>
+    private void ProcessDefinitionFileForValidation(
+        string jsonFile,
+        ModManifest manifest,
+        IModSource modSource,
+        Dictionary<string, List<DefinitionLocation>> definitionIds,
+        List<ValidationIssue> issues
+    )
+    {
+        try
+        {
+            var jsonContent = modSource.ReadTextFile(jsonFile);
+            using var jsonDoc = JsonDocument.Parse(jsonContent);
+
+            CollectDefinitionId(jsonFile, manifest, jsonDoc, definitionIds);
+            ValidateShaderDefinitionIfApplicable(jsonFile, jsonDoc, modSource, issues);
+        }
+        catch (JsonException ex)
+        {
+            issues.Add(
+                new ValidationIssue
                 {
-                    var id = idElement.GetString();
-                    if (!string.IsNullOrEmpty(id))
-                    {
-                        if (!definitionIds.ContainsKey(id))
-                            definitionIds[id] = new List<DefinitionLocation>();
-
-                        definitionIds[id]
-                            .Add(
-                                new DefinitionLocation
-                                {
-                                    ModId = manifest.Id,
-                                    FilePath = jsonFile, // Store relative path
-                                }
-                            );
-                    }
+                    Severity = ValidationSeverity.Error,
+                    Message = $"Invalid JSON in definition file: {ex.Message}",
+                    ModId = manifest.Id,
+                    FilePath = jsonFile,
                 }
+            );
+        }
+        catch (Exception ex)
+        {
+            _logger.Warning(
+                ex,
+                "Unexpected error validating definition file {FilePath} in mod {ModId}",
+                jsonFile,
+                manifest.Id
+            );
+            // Continue validation for other files
+        }
+    }
 
-                // Validate shader definitions (check path instead of folderType)
-                var normalizedPath = ModPathNormalizer.Normalize(jsonFile);
-                if (
-                    normalizedPath.StartsWith(
-                        "definitions/assets/shaders/",
-                        StringComparison.OrdinalIgnoreCase
-                    )
-                )
-                    ValidateShaderDefinition(jsonFile, jsonDoc, modSource, issues);
-            }
-            catch (JsonException ex)
+    /// <summary>
+    ///     Collects a definition ID from a JSON document.
+    /// </summary>
+    /// <param name="jsonFile">The JSON file path.</param>
+    /// <param name="manifest">The mod manifest.</param>
+    /// <param name="jsonDoc">The parsed JSON document.</param>
+    /// <param name="definitionIds">Dictionary to add the definition ID to.</param>
+    private void CollectDefinitionId(
+        string jsonFile,
+        ModManifest manifest,
+        JsonDocument jsonDoc,
+        Dictionary<string, List<DefinitionLocation>> definitionIds
+    )
+    {
+        if (jsonDoc.RootElement.TryGetProperty("id", out var idElement))
+        {
+            var id = idElement.GetString();
+            if (!string.IsNullOrEmpty(id))
             {
-                issues.Add(
-                    new ValidationIssue
-                    {
-                        Severity = ValidationSeverity.Error,
-                        Message = $"Invalid JSON in definition file: {ex.Message}",
-                        ModId = manifest.Id,
-                        FilePath = jsonFile,
-                    }
-                );
-            }
-            catch
-            {
-                // Skip other errors during validation
+                if (!definitionIds.ContainsKey(id))
+                    definitionIds[id] = new List<DefinitionLocation>();
+
+                definitionIds[id]
+                    .Add(
+                        new DefinitionLocation
+                        {
+                            ModId = manifest.Id,
+                            FilePath = jsonFile, // Store relative path
+                        }
+                    );
             }
         }
     }
 
+    /// <summary>
+    ///     Validates shader definitions if the file path indicates it's a shader definition.
+    /// </summary>
+    /// <param name="jsonFile">The JSON file path.</param>
+    /// <param name="jsonDoc">The parsed JSON document.</param>
+    /// <param name="modSource">The mod source.</param>
+    /// <param name="issues">List to add validation issues to.</param>
+    private void ValidateShaderDefinitionIfApplicable(
+        string jsonFile,
+        JsonDocument jsonDoc,
+        IModSource modSource,
+        List<ValidationIssue> issues
+    )
+    {
+        // Validate shader definitions (check path instead of folderType)
+        var normalizedPath = ModPathNormalizer.Normalize(jsonFile);
+        if (
+            normalizedPath.StartsWith(
+                "definitions/assets/shaders/",
+                StringComparison.OrdinalIgnoreCase
+            )
+        )
+            ValidateShaderDefinition(jsonFile, jsonDoc, modSource, issues);
+    }
+
+    /// <summary>
+    ///     Recursively checks for circular dependencies starting from a mod.
+    /// </summary>
+    /// <param name="modId">The mod ID to check.</param>
+    /// <param name="manifest">The mod manifest.</param>
+    /// <param name="allMods">All available mod manifests.</param>
+    /// <param name="visited">Set of mod IDs that have been visited in the current path.</param>
+    /// <param name="issues">List to add validation issues to.</param>
     private void CheckCircularDependencies(
         string modId,
         ModManifest manifest,

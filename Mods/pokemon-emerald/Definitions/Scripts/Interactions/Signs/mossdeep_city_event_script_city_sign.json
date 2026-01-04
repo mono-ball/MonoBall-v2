@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/mossdeep_city_event_script_city_sign",
+  "id": "pokeemerald:script:interactions/signs/mossdeep_city_event_script_city_sign",
   "name": "mossdeep city event script city sign",
   "description": "Sign script: mossdeep city event script city sign",
-  "scriptPath": "Scripts/Signs/mossdeep_city_event_script_city_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/mossdeep_city_event_script_city_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

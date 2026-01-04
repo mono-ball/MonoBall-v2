@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route116_tunnelers_rest_house",
   "name": "Route116_TunnelersRestHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route116_tunnelers_rest_house/ground",
+      "id": "pokeemerald:layer:Hoenn/route116_tunnelers_rest_house/ground",
       "name": "Ground",
       "width": 10,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route116_tunnelers_rest_house/objects",
+      "id": "pokeemerald:layer:Hoenn/route116_tunnelers_rest_house/objects",
       "name": "Objects",
       "width": 10,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route116_tunnelers_rest_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/route116_tunnelers_rest_house/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route116_tunnelers_rest_house/warp_to_route116",
+      "id": "pokeemerald:warp:Hoenn/route116_tunnelers_rest_house/warp_to_route116",
       "name": "Warp to route116",
       "x": 64,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route116_tunnelers_rest_house/warp_to_route116",
+      "id": "pokeemerald:warp:Hoenn/route116_tunnelers_rest_house/warp_to_route116",
       "name": "Warp to route116",
       "x": 80,
       "y": 128,
@@ -97,41 +112,39 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route116_tunnelers_rest_house/npc_0",
+      "id": "pokeemerald:npc:Hoenn/route116_tunnelers_rest_house/npc_0",
       "name": "NPC_0",
       "x": 96,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route116_tunnelers_rest_house_event_script_tunneler1",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route116_tunnelers_rest_house_event_script_tunneler1",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route116_tunnelers_rest_house/npc_1",
+      "id": "pokeemerald:npc:Hoenn/route116_tunnelers_rest_house/npc_1",
       "name": "NPC_1",
       "x": 48,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route116_tunnelers_rest_house_event_script_tunneler3",
+      "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route116_tunnelers_rest_house_event_script_tunneler3",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route116_tunnelers_rest_house/npc_2",
+      "id": "pokeemerald:npc:Hoenn/route116_tunnelers_rest_house/npc_2",
       "name": "NPC_2",
       "x": 112,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/pokefanm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route116_tunnelers_rest_house_event_script_tunneler2",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route116_tunnelers_rest_house_event_script_tunneler2",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route116_tunnelers_rest_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route116_tunnelers_rest_house/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 9,

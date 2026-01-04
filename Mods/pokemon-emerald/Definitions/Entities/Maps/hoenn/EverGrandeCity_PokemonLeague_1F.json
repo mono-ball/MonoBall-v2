@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/ever_grande_city_pokemon_league_1f",
   "name": "EverGrandeCity_PokemonLeague_1F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 19,
   "height": 12,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/ever_grande_city_pokemon_league_1f/ground",
+      "id": "pokeemerald:layer:Hoenn/ever_grande_city_pokemon_league_1f/ground",
       "name": "Ground",
       "width": 19,
       "height": 12,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/ever_grande_city_pokemon_league_1f/objects",
+      "id": "pokeemerald:layer:Hoenn/ever_grande_city_pokemon_league_1f/objects",
       "name": "Objects",
       "width": 19,
       "height": 12,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/ever_grande_city_pokemon_league_1f/overhead",
+      "id": "pokeemerald:layer:Hoenn/ever_grande_city_pokemon_league_1f/overhead",
       "name": "Overhead",
       "width": 19,
       "height": 12,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pokemon_center"
+      "tilesetId": "pokeemerald:tileset:secondary/pokemoncenter"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city",
       "name": "Warp to ever_grande_city",
       "x": 144,
       "y": 176,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city",
       "name": "Warp to ever_grande_city",
       "x": 160,
       "y": 176,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_hall5",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_hall5",
       "name": "Warp to ever_grande_city_hall5",
       "x": 144,
       "y": 16,
@@ -105,7 +120,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_hall5",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_hall5",
       "name": "Warp to ever_grande_city_hall5",
       "x": 160,
       "y": 16,
@@ -117,7 +132,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_pokemon_league_2f",
+      "id": "pokeemerald:warp:Hoenn/ever_grande_city_pokemon_league_1f/warp_to_ever_grande_city_pokemon_league_2f",
       "name": "Warp to ever_grande_city_pokemon_league_2f",
       "x": 16,
       "y": 112,
@@ -133,53 +148,49 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/ever_grande_city_pokemon_league_1f/localid_league_nurse",
+      "id": "pokeemerald:npc:Hoenn/ever_grande_city_pokemon_league_1f/localid_league_nurse",
       "name": "LOCALID_LEAGUE_NURSE",
       "x": 48,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/nurse",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ever_grande_city_pokemon_league_1f_event_script_nurse",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_nurse",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ever_grande_city_pokemon_league_1f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/ever_grande_city_pokemon_league_1f/npc_1",
       "name": "NPC_1",
       "x": 256,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/martemployee",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ever_grande_city_pokemon_league_1f_event_script_clerk",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_clerk",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ever_grande_city_pokemon_league_1f/localid_league_guard_1",
+      "id": "pokeemerald:npc:Hoenn/ever_grande_city_pokemon_league_1f/localid_league_guard_1",
       "name": "LOCALID_LEAGUE_GUARD_1",
       "x": 128,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/man3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ever_grande_city_pokemon_league_1f_event_script_door_guard",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_door_guard",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ever_grande_city_pokemon_league_1f/localid_league_guard_2",
+      "id": "pokeemerald:npc:Hoenn/ever_grande_city_pokemon_league_1f/localid_league_guard_2",
       "name": "LOCALID_LEAGUE_GUARD_2",
       "x": 176,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/man3",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ever_grande_city_pokemon_league_1f_event_script_door_guard",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man3",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_door_guard",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/ever_grande_city_pokemon_league_1f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/ever_grande_city_pokemon_league_1f/elevation_0",
       "name": "Collision_0",
       "width": 19,
       "height": 12,
@@ -189,7 +200,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAQEBAQEBAQEAAQEAAQEAAAAAAAAAAAEAAAAAAQEBAQEBAAAAAAAAAAABAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAEBAAAAAAAAAAAAAAAAAAABAQEBAQAAAAAAAAAAAAAAAAAB"
     },
     {
-      "id": "pokeemerald:collision:hoenn/ever_grande_city_pokemon_league_1f/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/ever_grande_city_pokemon_league_1f/elevation_3",
       "name": "Collision_3",
       "width": 19,
       "height": 12,

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/petalburg_city_event_script_show_gym_to_player1",
+  "name": "petalburg city event script show gym to player1",
+  "description": "Trigger script: petalburg city event script show gym to player1",
+  "scriptPath": "Scripts/Triggers/petalburg_city_event_script_show_gym_to_player1.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

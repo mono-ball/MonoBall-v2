@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/ledge_east",
+  "id": "pokeemerald:script:interactions/tiles/ledge_east",
   "name": "Ledge East",
   "description": "Tile interaction: Ledge East",
+  "scriptPath": "Scripts/Interactions/Tiles/ledge_east.csx",
   "category": "ledge",
   "priority": 500
 }

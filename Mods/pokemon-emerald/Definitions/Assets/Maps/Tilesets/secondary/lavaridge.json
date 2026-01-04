@@ -1,683 +1,744 @@
 {
   "id": "pokeemerald:tileset:secondary/lavaridge",
-  "name": "lavaridge",
+  "name": "Lavaridge",
   "type": "secondary",
-  "texturePath": "Graphics/Maps/Tilesets/Secondary/lavaridge.png",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/Lavaridge.png",
   "tileWidth": 16,
   "tileHeight": 16,
-  "tileCount": 243,
+  "tileCount": 273,
   "columns": 16,
   "imageWidth": 256,
-  "imageHeight": 256,
+  "imageHeight": 288,
   "spacing": 0,
   "margin": 0,
   "tiles": [
     {
       "localTileId": 0,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain",
-      "animation": [
-        {
-          "tileId": 239,
-          "durationMs": 133
-        },
-        {
-          "tileId": 240,
-          "durationMs": 133
-        },
-        {
-          "tileId": 241,
-          "durationMs": 133
-        },
-        {
-          "tileId": 242,
-          "durationMs": 133
-        }
-      ]
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 1,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 2,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 3,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 4,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 6,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain",
-      "animation": [
-        {
-          "tileId": 239,
-          "durationMs": 133
-        },
-        {
-          "tileId": 240,
-          "durationMs": 133
-        },
-        {
-          "tileId": 241,
-          "durationMs": 133
-        },
-        {
-          "tileId": 242,
-          "durationMs": 133
-        }
-      ]
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 7,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 8,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 9,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 10,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 11,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 12,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
       "localTileId": 13,
-      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
       "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water",
-      "animation": [
-        {
-          "tileId": 239,
-          "durationMs": 133
-        },
-        {
-          "tileId": 240,
-          "durationMs": 133
-        },
-        {
-          "tileId": 241,
-          "durationMs": 133
-        },
-        {
-          "tileId": 242,
-          "durationMs": 133
-        }
-      ]
+      "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 14,
-      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
       "terrainId": "pokeemerald:terrain:water",
       "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 15,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 16,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 17,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 18,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 19,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 20,
-      "interactionId": "pokeemerald:interaction/tiles/pond_water",
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
       "terrainId": "pokeemerald:terrain:water",
       "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 21,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
     },
     {
-      "localTileId": 24,
-      "interactionId": "pokeemerald:interaction/tiles/impassable_west",
-      "collisionId": "pokeemerald:collision:impassable_west"
-    },
-    {
-      "localTileId": 40,
-      "interactionId": "pokeemerald:interaction/tiles/ice_spin_right",
+      "localTileId": 22,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water",
       "animation": [
         {
-          "tileId": 239,
+          "tileId": 269,
           "durationMs": 133
         },
         {
-          "tileId": 240,
+          "tileId": 270,
           "durationMs": 133
         },
         {
-          "tileId": 241,
+          "tileId": 271,
           "durationMs": 133
         },
         {
-          "tileId": 242,
+          "tileId": 272,
           "durationMs": 133
         }
       ]
     },
     {
-      "localTileId": 41,
-      "interactionId": "pokeemerald:interaction/tiles/ice_spin_right"
-    },
-    {
-      "localTileId": 42,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 23,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 26,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_west",
+      "collisionId": "pokeemerald:collision:impassable_west"
     },
     {
       "localTileId": 43,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "animation": [
+        {
+          "tileId": 269,
+          "durationMs": 133
+        },
+        {
+          "tileId": 270,
+          "durationMs": 133
+        },
+        {
+          "tileId": 271,
+          "durationMs": 133
+        },
+        {
+          "tileId": 272,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 44,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_right"
+    },
+    {
+      "localTileId": 45,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_right"
     },
     {
       "localTileId": 46,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 47,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "collisionId": "pokeemerald:collision:mountain",
+      "animation": [
+        {
+          "tileId": 269,
+          "durationMs": 133
+        },
+        {
+          "tileId": 270,
+          "durationMs": 133
+        },
+        {
+          "tileId": 271,
+          "durationMs": 133
+        },
+        {
+          "tileId": 272,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 48,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 49,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 50,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 51,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 52,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 53,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 54,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 55,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
     },
     {
-      "localTileId": 57,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 58,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 59,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 60,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
+      "localTileId": 56,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 61,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 62,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 63,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 64,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 65,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 66,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 67,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 68,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 69,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 70,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water",
+      "animation": [
+        {
+          "tileId": 269,
+          "durationMs": 133
+        },
+        {
+          "tileId": 270,
+          "durationMs": 133
+        },
+        {
+          "tileId": 271,
+          "durationMs": 133
+        },
+        {
+          "tileId": 272,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 71,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 72,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 73,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 74,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 75,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 76,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 77,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 78,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 79,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 80,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 81,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 82,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 85,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 83,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 84,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 86,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 87,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 88,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 89,
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
+    },
+    {
+      "localTileId": 90,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 91,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 92,
-      "interactionId": "pokeemerald:interaction/tiles/impassable_south",
-      "collisionId": "pokeemerald:collision:impassable_south"
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 93,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 94,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_3e"
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 95,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 96,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 97,
-      "interactionId": "pokeemerald:interaction/tiles/impassable_south",
-      "collisionId": "pokeemerald:collision:impassable_south"
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 98,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 99,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 100,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 101,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 102,
-      "interactionId": "pokeemerald:interaction/tiles/pond_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
-    },
-    {
-      "localTileId": 139,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 140,
-      "interactionId": "pokeemerald:interaction/tiles/pond_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
-    },
-    {
-      "localTileId": 143,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 103,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 144,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 104,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 160,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
+      "localTileId": 110,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 162,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
+      "localTileId": 111,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
-      "localTileId": 163,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_24"
+      "localTileId": 114,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 120,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_south",
+      "collisionId": "pokeemerald:collision:impassable_south"
+    },
+    {
+      "localTileId": 122,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3e"
+    },
+    {
+      "localTileId": 123,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 125,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_south",
+      "collisionId": "pokeemerald:collision:impassable_south"
+    },
+    {
+      "localTileId": 157,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 158,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 164,
-      "interactionId": "pokeemerald:interaction/tiles/impassable_north",
-      "collisionId": "pokeemerald:collision:impassable_north"
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 165,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 166,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_3f"
-    },
-    {
-      "localTileId": 167,
-      "interactionId": "pokeemerald:interaction/tiles/impassable_west",
-      "collisionId": "pokeemerald:collision:impassable_west"
-    },
-    {
-      "localTileId": 168,
-      "interactionId": "pokeemerald:interaction/tiles/impassable_west",
-      "collisionId": "pokeemerald:collision:impassable_west"
-    },
-    {
-      "localTileId": 170,
-      "interactionId": "pokeemerald:interaction/tiles/very_tall_grass",
-      "terrainId": "pokeemerald:terrain:grass"
-    },
-    {
-      "localTileId": 171,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 172,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
-    },
-    {
-      "localTileId": 178,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
     },
     {
       "localTileId": 182,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
+    },
+    {
+      "localTileId": 184,
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
+    },
+    {
+      "localTileId": 185,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_24"
+    },
+    {
+      "localTileId": 186,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_north",
+      "collisionId": "pokeemerald:collision:impassable_north"
     },
     {
       "localTileId": 187,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_28"
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 188,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_28"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3f"
     },
     {
-      "localTileId": 191,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "localTileId": 189,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_west",
+      "collisionId": "pokeemerald:collision:impassable_west"
+    },
+    {
+      "localTileId": 190,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_west",
+      "collisionId": "pokeemerald:collision:impassable_west"
     },
     {
       "localTileId": 192,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/very_tall_grass",
+      "terrainId": "pokeemerald:terrain:grass"
     },
     {
       "localTileId": 193,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 194,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_21",
-      "animation": [
-        {
-          "tileId": 239,
-          "durationMs": 133
-        },
-        {
-          "tileId": 240,
-          "durationMs": 133
-        },
-        {
-          "tileId": 241,
-          "durationMs": 133
-        },
-        {
-          "tileId": 242,
-          "durationMs": 133
-        }
-      ]
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 196,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_28"
+      "localTileId": 200,
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
     },
     {
-      "localTileId": 197,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_28",
-      "animation": [
-        {
-          "tileId": 239,
-          "durationMs": 133
-        },
-        {
-          "tileId": 240,
-          "durationMs": 133
-        },
-        {
-          "tileId": 241,
-          "durationMs": 133
-        },
-        {
-          "tileId": 242,
-          "durationMs": 133
-        }
-      ]
+      "localTileId": 202,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 204,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_28"
+      "localTileId": 205,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 210,
-      "interactionId": "pokeemerald:interaction/tiles/no_running"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28"
     },
     {
-      "localTileId": 223,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 211,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28"
+    },
+    {
+      "localTileId": 214,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 228,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 215,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 229,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 216,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 231,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 217,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+    },
+    {
+      "localTileId": 219,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28"
+    },
+    {
+      "localTileId": 220,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28"
+    },
+    {
+      "localTileId": 225,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28"
+    },
+    {
+      "localTileId": 226,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28",
+      "animation": [
+        {
+          "tileId": 269,
+          "durationMs": 133
+        },
+        {
+          "tileId": 270,
+          "durationMs": 133
+        },
+        {
+          "tileId": 271,
+          "durationMs": 133
+        },
+        {
+          "tileId": 272,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 232,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_28"
+    },
+    {
+      "localTileId": 237,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+    },
+    {
+      "localTileId": 238,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21",
+      "animation": [
+        {
+          "tileId": 269,
+          "durationMs": 133
+        },
+        {
+          "tileId": 270,
+          "durationMs": 133
+        },
+        {
+          "tileId": 271,
+          "durationMs": 133
+        },
+        {
+          "tileId": 272,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 240,
+      "interactionId": "pokeemerald:script:interactions/tiles/no_running"
+    },
+    {
+      "localTileId": 253,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 233,
-      "interactionId": "pokeemerald:interaction/tiles/mountain",
+      "localTileId": 258,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 259,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 261,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
+    },
+    {
+      "localTileId": 263,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
       "terrainId": "pokeemerald:terrain:mountain",
       "collisionId": "pokeemerald:collision:mountain"
     }

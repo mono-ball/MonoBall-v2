@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/ss_tidal_corridor",
   "name": "SSTidalCorridor",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 18,
   "height": 13,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/insideship",
+    "bottomLayer": [
+      989,
+      989,
+      989,
+      989
+    ],
+    "topLayer": [
+      -1073740835,
+      -1073740835,
+      -1073740835,
+      -1073740835
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/ss_tidal_corridor/ground",
+      "id": "pokeemerald:layer:Hoenn/ss_tidal_corridor/ground",
       "name": "Ground",
       "width": 18,
       "height": 13,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAD4EAABABAAAPgQAAEAEAAA\u002BBAAAQAQAAD4EAABABAAAPgQAAEAEAAA\u002BBAAAQAQAAD4EAABABAAAPgQAAEAEAAA\u002BBAAAAAAAAEEEAABCBAAAQQQAAEIEAABBBAAAQgQAAEEEAABCBAAAQQQAAEIEAABBBAAAQgQAAEEEAABCBAAAQQQAAEIEAABBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5AwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3QMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3QMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/ss_tidal_corridor/objects",
+      "id": "pokeemerald:layer:Hoenn/ss_tidal_corridor/objects",
       "name": "Objects",
       "width": 18,
       "height": 13,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "3QMAAD8EAAA/BACAPwQAAD8EAIA/BAAAPwQAgD8EAAA/BACAPwQAAD8EAIA/BAAAPwQAgD8EAAA/BACAPwQAAD8EAIA/BAAA3QMAAN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3QMAAEMEAABDBAAAQwQAAEMEAABDBAAAQwQAAEMEAABDBAAAQwQAAEMEAABDBAAAQwQAAEMEAABDBAAAQwQAAEQEAADmAwAA3QMAAEUEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAADrAwAA3QMAAEUEAAAzBAAA7QMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADtAwDARQQAADMEAAAzBAAA3QMAAEUEAAAzBAAA7QMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADtAwDARQQAADMEAAAzBAAA3QMAAEUEAAAzBAAA7QMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADtAwDARQQAADMEAAAzBAAA3QMAAEUEAAAzBAAA7QMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADuAwAA7gMAAO4DAADtAwDARQQAADMEAAAzBAAA3QMAAEUEAAAzBAAA8AMAAPIDAAD1AwAA9wMAAPIDAAD1AwAA9wMAAPIDAAD1AwAA9wMAAPIDAADwAwCARQQAADMEAAAzBAAA3QMAAEUEAAAzBAAA\u002BQMAAPoDAABGBAAA/QMAAPoDAABGBAAA/QMAAPoDAABGBAAA/QMAAPoDAABHBACARQQAADMEAAAzBAAA3QMAAEUEAAAzBAAASAQAAEkEAABJBAAASQQAAEkEAABJBAAASQQAAEkEAABJBAAASQQAAEkEAABJBAAASgQAADMEAAAzBAAABAQAAEsEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAAMwQAADMEAAAzBAAATAQAAN0DAADdAwAA3QMAAN0DAADdAwAA3QMAAN0DAADdAwAA3QMAAN0DAADdAwAA3QMAAN0DAADdAwAA3QMAAN0DAADdAwAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/ss_tidal_corridor/overhead",
+      "id": "pokeemerald:layer:Hoenn/ss_tidal_corridor/overhead",
       "name": "Overhead",
       "width": 18,
       "height": 13,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "3QMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3QMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3QMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMAAAAAA3QMAwN8DAMDfAwDA6QMAAOoDAIDsAwAA7AMAgOoDAIDsAwAA7AMAgOoDAIDsAwAA7AMAgOoDAIDpAwCA3wMAwN8DAMAAAAAA3QMAwN8DAMDfAwDA7QMAQO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDtAwDA3wMAwN8DAMDfAwDA3QMAwN8DAMDfAwDA7QMAQO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDtAwDA3wMAwN8DAMDfAwDA3QMAwN8DAMDfAwDA7QMAQO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDtAwDA3wMAwN8DAMDfAwDA3QMAwN8DAMDfAwDA7QMAQO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDuAwDA7gMAwO4DAMDtAwDA3wMAwN8DAMDfAwDA3QMAwN8DAMDfAwDA8QMAAN8DAMD2AwAA\u002BAMAAN8DAMD2AwAA\u002BAMAAN8DAMD2AwAA\u002BAMAAN8DAMDzAwAA3wMAwN8DAMDfAwDA3QMAwN8DAMDfAwDA3wMAwN8DAMBHBAAA3wMAwN8DAMBHBAAA3wMAwN8DAMBHBAAA3wMAwN8DAMAAAAAA3wMAwN8DAMDfAwDA3QMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDAAAAAAN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDA3wMAwN8DAMDfAwDAAAAAAN0DAMDdAwDA3QMAwN0DAMDdAwDA3QMAwN0DAMDdAwDA3QMAwN0DAMDdAwDA3QMAwN0DAMDdAwDA3QMAwN0DAMDdAwDA"
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
-      "tilesetId": "pokeemerald:tileset:secondary/inside_ship"
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/insideship"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 64,
       "y": 144,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 112,
       "y": 144,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 160,
       "y": 144,
@@ -105,7 +120,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 208,
       "y": 144,
@@ -117,7 +132,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 64,
       "y": 48,
@@ -129,7 +144,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 112,
       "y": 48,
@@ -141,7 +156,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 160,
       "y": 48,
@@ -153,7 +168,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_rooms",
       "name": "Warp to ss_tidal_rooms",
       "x": 208,
       "y": 48,
@@ -165,7 +180,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/ss_tidal_corridor/warp_to_ss_tidal_lower_deck",
+      "id": "pokeemerald:warp:Hoenn/ss_tidal_corridor/warp_to_ss_tidal_lower_deck",
       "name": "Warp to ss_tidal_lower_deck",
       "x": 256,
       "y": 32,
@@ -180,191 +195,187 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 32,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 64,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 96,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 128,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 160,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 192,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 224,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptporthole",
       "name": "Sign: SSTidalCorridor_EventScript_Porthole",
       "x": 256,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_porthole",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_porthole",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin1sign",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin1sign",
       "name": "Sign: SSTidalCorridor_EventScript_Cabin1Sign",
       "x": 80,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_cabin1_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_cabin1_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin2sign",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin2sign",
       "name": "Sign: SSTidalCorridor_EventScript_Cabin2Sign",
       "x": 128,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_cabin2_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_cabin2_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin3sign",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin3sign",
       "name": "Sign: SSTidalCorridor_EventScript_Cabin3Sign",
       "x": 176,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_cabin3_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_cabin3_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin4sign",
+      "id": "pokeemerald:interaction:Hoenn/ss_tidal_corridor/sign_sstidalcorridoreventscriptcabin4sign",
       "name": "Sign: SSTidalCorridor_EventScript_Cabin4Sign",
       "x": 224,
       "y": 144,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_cabin4_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/ss_tidal_corridor_event_script_cabin4_sign",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/ss_tidal_corridor/localid_ss_tidal_exit_sailor",
+      "id": "pokeemerald:npc:Hoenn/ss_tidal_corridor/localid_ss_tidal_exit_sailor",
       "name": "LOCALID_SS_TIDAL_EXIT_SAILOR",
       "x": 16,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/sailor",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_exit_sailor",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_exit_sailor",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ss_tidal_corridor/npc_1",
+      "id": "pokeemerald:npc:Hoenn/ss_tidal_corridor/npc_1",
       "name": "NPC_1",
       "x": 256,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/sailor",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 0,
         "rangeY": 2
       },
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_sailor",
-      "facingDirection": "up",
+      "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_sailor",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ss_tidal_corridor/npc_2",
+      "id": "pokeemerald:npc:Hoenn/ss_tidal_corridor/npc_2",
       "name": "NPC_2",
       "x": 144,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/expertm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_briney",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_briney",
       "visibilityFlag": "pokeemerald:flag:visibility/ss_tidal_corridor_mr_briney",
-      "facingDirection": "down",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ss_tidal_corridor/npc_3",
+      "id": "pokeemerald:npc:Hoenn/ss_tidal_corridor/npc_3",
       "name": "NPC_3",
       "x": 112,
       "y": 32,
       "spriteId": "pokeemerald:sprite:pokemon/wingullold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/ss_tidal_corridor_event_script_peeko",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_peeko",
       "visibilityFlag": "pokeemerald:flag:visibility/ss_tidal_corridor_mr_briney",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/ss_tidal_corridor/localid_ss_tidal_scott",
+      "id": "pokeemerald:npc:Hoenn/ss_tidal_corridor/localid_ss_tidal_scott",
       "name": "LOCALID_SS_TIDAL_SCOTT",
       "x": 144,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/scott",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scott",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/ss_tidal_corridor_scott",
-      "facingDirection": "left",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/ss_tidal_corridor/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/ss_tidal_corridor/elevation_0",
       "name": "Collision_0",
       "width": 18,
       "height": 13,
@@ -374,7 +385,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAQEBAQEBAQEBAQEBAAAAAQAAAQEBAQEBAQEBAQEBAAAAAQAAAQEBAQEBAQEBAQEBAAAAAQAAAQEBAQEBAQEBAQEBAAAAAQAAAQEBAQEBAQEBAQEBAAAAAQAAAQABAQABAQABAQABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEB"
     },
     {
-      "id": "pokeemerald:collision:hoenn/ss_tidal_corridor/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/ss_tidal_corridor/elevation_3",
       "name": "Collision_3",
       "width": 18,
       "height": 13,

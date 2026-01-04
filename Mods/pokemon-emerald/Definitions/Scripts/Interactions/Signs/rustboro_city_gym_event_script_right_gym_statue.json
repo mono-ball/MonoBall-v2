@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/rustboro_city_gym_event_script_right_gym_statue",
+  "id": "pokeemerald:script:interactions/signs/rustboro_city_gym_event_script_right_gym_statue",
   "name": "rustboro city gym event script right gym statue",
   "description": "Sign script: rustboro city gym event script right gym statue",
-  "scriptPath": "Scripts/Signs/rustboro_city_gym_event_script_right_gym_statue.csx",
+  "scriptPath": "Scripts/Interactions/Signs/rustboro_city_gym_event_script_right_gym_statue.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

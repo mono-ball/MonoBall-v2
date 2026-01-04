@@ -87,9 +87,12 @@ public class DefinitionRegistry
                 JsonSerializerOptionsFactory.Default
             );
         }
-        catch
+        catch (JsonException ex)
         {
-            return null;
+            throw new InvalidOperationException(
+                $"Failed to deserialize definition '{id}' as {typeof(T).Name}: {ex.Message}",
+                ex
+            );
         }
     }
 

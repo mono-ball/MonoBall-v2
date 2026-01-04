@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/cracked_ice",
+  "id": "pokeemerald:script:interactions/tiles/cracked_ice",
   "name": "Cracked Ice",
   "description": "Tile interaction: Cracked Ice",
+  "scriptPath": "Scripts/Interactions/Tiles/cracked_ice.csx",
   "category": "ice",
   "priority": 500
 }

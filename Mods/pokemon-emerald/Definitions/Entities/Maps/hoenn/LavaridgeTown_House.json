@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lavaridge_town_house",
   "name": "LavaridgeTown_House",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_house/ground",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_house/ground",
       "name": "Ground",
       "width": 10,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_house/objects",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_house/objects",
       "name": "Objects",
       "width": 10,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lavaridge_town_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/lavaridge_town_house/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 8,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_house/warp_to_lavaridge_town",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_house/warp_to_lavaridge_town",
       "name": "Warp to lavaridge_town",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/lavaridge_town_house/warp_to_lavaridge_town",
+      "id": "pokeemerald:warp:Hoenn/lavaridge_town_house/warp_to_lavaridge_town",
       "name": "Warp to lavaridge_town",
       "x": 64,
       "y": 112,
@@ -97,43 +112,43 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_house/npc_0",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_house/npc_0",
       "name": "NPC_0",
       "x": 32,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/oldman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_house_event_script_old_man",
+      "spriteId": "pokeemerald:sprite:characters/npcs/oldman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_house_event_script_old_man",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_house/npc_1",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_house/npc_1",
       "name": "NPC_1",
       "x": 96,
       "y": 96,
       "spriteId": "pokeemerald:sprite:pokemon/enemyzigzagoon",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_house_event_script_zigzagoon",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_house_event_script_zigzagoon",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lavaridge_town_house/npc_2",
+      "id": "pokeemerald:npc:Hoenn/lavaridge_town_house/npc_2",
       "name": "NPC_2",
       "x": 128,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/lavaridge_town_house_event_script_mimic_tutor",
+      "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_house_event_script_mimic_tutor",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lavaridge_town_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lavaridge_town_house/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 8,

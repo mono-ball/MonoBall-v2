@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/lilycove_city_lilycove_museum_event_script_bird_sculpture",
+  "id": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_event_script_bird_sculpture",
   "name": "lilycove city lilycove museum event script bird sculpture",
   "description": "Sign script: lilycove city lilycove museum event script bird sculpture",
-  "scriptPath": "Scripts/Signs/lilycove_city_lilycove_museum_event_script_bird_sculpture.csx",
+  "scriptPath": "Scripts/Interactions/Signs/lilycove_city_lilycove_museum_event_script_bird_sculpture.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

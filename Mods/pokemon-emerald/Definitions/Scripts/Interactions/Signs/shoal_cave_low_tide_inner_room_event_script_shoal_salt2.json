@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/shoal_cave_low_tide_inner_room_event_script_shoal_salt2",
+  "id": "pokeemerald:script:interactions/signs/shoal_cave_low_tide_inner_room_event_script_shoal_salt2",
   "name": "shoal cave low tide inner room event script shoal salt2",
   "description": "Sign script: shoal cave low tide inner room event script shoal salt2",
-  "scriptPath": "Scripts/Signs/shoal_cave_low_tide_inner_room_event_script_shoal_salt2.csx",
+  "scriptPath": "Scripts/Interactions/Signs/shoal_cave_low_tide_inner_room_event_script_shoal_salt2.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

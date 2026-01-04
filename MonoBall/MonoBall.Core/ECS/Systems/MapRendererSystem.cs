@@ -49,6 +49,16 @@ public partial class MapRendererSystem : BaseSystem<World, float>
     private SpriteBatch? _spriteBatch;
 
     /// <summary>
+    ///     Render target index for tile layer shader stacking.
+    /// </summary>
+    private const int TileLayerRenderTargetIndex = 100;
+
+    /// <summary>
+    ///     Number of tiles to expand view bounds for culling (prevents edge artifacts).
+    /// </summary>
+    private const int ViewBoundsExpandTiles = 1;
+
+    /// <summary>
     ///     Initializes a new instance of the MapRendererSystem.
     /// </summary>
     /// <param name="world">The ECS world.</param>
@@ -137,12 +147,11 @@ public partial class MapRendererSystem : BaseSystem<World, float>
 
         // Expand bounds slightly to include edge chunks that might be partially visible
         // This prevents empty rows/columns when moving near map edges
-        var expandTiles = 1; // Expand by 1 tile in each direction
         var expandedTileBounds = new Rectangle(
-            tileViewBounds.X - expandTiles,
-            tileViewBounds.Y - expandTiles,
-            tileViewBounds.Width + expandTiles * 2,
-            tileViewBounds.Height + expandTiles * 2
+            tileViewBounds.X - ViewBoundsExpandTiles,
+            tileViewBounds.Y - ViewBoundsExpandTiles,
+            tileViewBounds.Width + ViewBoundsExpandTiles * 2,
+            tileViewBounds.Height + ViewBoundsExpandTiles * 2
         );
 
         // Convert to pixel bounds for culling chunks (chunks are positioned in pixels)
@@ -171,24 +180,10 @@ public partial class MapRendererSystem : BaseSystem<World, float>
                 if (!renderComp.IsVisible)
                     return;
 
-                // Get tile dimensions from tileset for accurate culling
-                var tileWidth = 16; // Default fallback
-                var tileHeight = 16;
-                try
-                {
-                    var tilesetDef = _resourceManager.GetTilesetDefinition(dataComp.TilesetId);
-                    tileWidth = tilesetDef.TileWidth;
-                    tileHeight = tilesetDef.TileHeight;
-                }
-                catch (Exception ex)
-                {
-                    // Log but continue with defaults (culling will be less accurate)
-                    _logger.Warning(
-                        ex,
-                        "MapRendererSystem: Failed to get tileset definition for culling, using defaults. TilesetId: {TilesetId}",
-                        dataComp.TilesetId
-                    );
-                }
+                // Get tile dimensions from tileset for accurate culling (fail fast)
+                var tilesetDef = _resourceManager.GetTilesetDefinition(dataComp.TilesetId);
+                var tileWidth = tilesetDef.TileWidth;
+                var tileHeight = tilesetDef.TileHeight;
 
                 // Cull chunks outside visible bounds (chunks are positioned in pixels)
                 var chunkBounds = new Rectangle(
@@ -245,61 +240,41 @@ public partial class MapRendererSystem : BaseSystem<World, float>
 
             // Get tile layer shader stack (filtered by scene if provided)
             var shaderStack = _shaderManagerSystem?.GetTileLayerShaderStack(sceneEntity);
-            var needsShaderStacking =
-                shaderStack != null
-                && shaderStack.Count > 0
-                && (shaderStack.Count > 1 || shaderStack[0].blendMode != ShaderBlendMode.Replace);
-
-            if (
-                needsShaderStacking
-                && (_shaderRendererSystem == null || _renderTargetManager == null)
-            )
-            {
-                // Shader stacking requested but dependencies missing - fall back to single shader
-                _logger.Warning(
-                    "MapRendererSystem: Shader stacking requested but ShaderRendererSystem or RenderTargetManager not available. Falling back to single shader."
-                );
-                needsShaderStacking = false;
-            }
+            var needsShaderStacking = ShaderStackingHelper.NeedsShaderStacking(shaderStack);
 
             if (needsShaderStacking)
             {
-                // Check if render target is already set (e.g., by SceneRendererSystem for post-processing)
-                var currentRenderTargets = _graphicsDevice.GetRenderTargets();
-                var renderTarget =
-                    currentRenderTargets.Length > 0
-                        ? currentRenderTargets[0].RenderTarget as RenderTarget2D
-                        : null;
+                needsShaderStacking = ShaderStackingHelper.ValidateShaderStackingDependencies(
+                    _shaderRendererSystem,
+                    _renderTargetManager,
+                    _logger,
+                    "MapRendererSystem"
+                );
+            }
 
-                // If no render target is set, create one for shader stacking
-                if (renderTarget == null)
-                {
-                    renderTarget = _renderTargetManager!.GetOrCreateRenderTarget(100); // Use index 100 for tile layer
-                    if (renderTarget == null)
-                    {
-                        _logger.Warning(
-                            "MapRendererSystem: Failed to create render target for shader stacking. Falling back to direct rendering."
-                        );
-                        needsShaderStacking = false;
-                    }
-                }
+            if (needsShaderStacking && _renderTargetManager != null)
+            {
+                var renderTarget = ShaderStackingHelper.GetOrCreateRenderTargetForStacking(
+                    _graphicsDevice,
+                    _renderTargetManager,
+                    TileLayerRenderTargetIndex,
+                    _logger,
+                    "MapRendererSystem"
+                );
 
-                if (needsShaderStacking && renderTarget != null)
+                if (renderTarget != null)
                 {
                     // Render geometry to render target (without shaders - ApplyShaderStack will handle all shaders)
+                    // Save previous render target for restoration
                     var renderTargets = _graphicsDevice.GetRenderTargets();
                     var previousTarget =
                         renderTargets.Length > 0
                             ? renderTargets[0].RenderTarget as RenderTarget2D
                             : null;
-
-                    // Only set render target if it's different from current (avoid unnecessary state changes)
-                    var needToSetTarget = previousTarget != renderTarget;
-                    if (needToSetTarget)
-                    {
-                        _graphicsDevice.SetRenderTarget(renderTarget);
-                        _graphicsDevice.Clear(Color.Transparent);
-                    }
+                    var needToSetTarget = ShaderStackingHelper.SetupRenderTarget(
+                        _graphicsDevice,
+                        renderTarget
+                    );
 
                     try
                     {
@@ -589,15 +564,14 @@ public partial class MapRendererSystem : BaseSystem<World, float>
             if (!World.IsAlive(chunkEntity))
                 return 0;
 
-            // Defensive check: ensure component exists (should always exist if HasAnimatedTiles is true)
+            // Fail fast: ensure component exists (should always exist if HasAnimatedTiles is true)
             if (!World.Has<AnimatedTileDataComponent>(chunkEntity))
             {
-                _logger.Warning(
-                    "MapRendererSystem.RenderChunk: Chunk at ({X}, {Y}) has HasAnimatedTiles=true but missing AnimatedTileDataComponent",
-                    pos.Position.X,
-                    pos.Position.Y
+                throw new InvalidOperationException(
+                    $"Chunk entity {chunkEntity.Id} at ({pos.Position.X}, {pos.Position.Y}) has "
+                        + $"TileDataComponent.HasAnimatedTiles=true but is missing AnimatedTileDataComponent. "
+                        + $"This indicates a bug in MapLoaderSystem - entities with animated tiles must have AnimatedTileDataComponent."
                 );
-                return 0;
             }
 
             ref var animData = ref World.Get<AnimatedTileDataComponent>(chunkEntity);
@@ -632,12 +606,19 @@ public partial class MapRendererSystem : BaseSystem<World, float>
                     spriteEffects |= SpriteEffects.FlipVertically;
 
                 // Resolve tileset for this GID first (needed for animation lookup)
-                var (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(
-                    gid,
-                    tilesetRefs
-                );
-                if (string.IsNullOrEmpty(resolvedTilesetId))
+                // Fail fast - no fallback code
+                string resolvedTilesetId;
+                int resolvedFirstGid;
+                try
                 {
+                    (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(
+                        gid,
+                        tilesetRefs
+                    );
+                }
+                catch (InvalidOperationException)
+                {
+                    // GID cannot be resolved - this indicates a bug in map data or tileset configuration
                     invalidGids++;
                     continue; // Skip tile if tileset cannot be resolved
                 }

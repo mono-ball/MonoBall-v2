@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route111_event_script_vicious_sandstorm_trigger_down",
+  "name": "route111 event script vicious sandstorm trigger down",
+  "description": "Trigger script: route111 event script vicious sandstorm trigger down",
+  "scriptPath": "Scripts/Triggers/route111_event_script_vicious_sandstorm_trigger_down.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

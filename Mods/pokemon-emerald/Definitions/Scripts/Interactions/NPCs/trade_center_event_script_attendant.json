@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:interaction/npcs/trade_center_event_script_attendant",
+  "id": "pokeemerald:script:interactions/npcs/trade_center_event_script_attendant",
   "name": "trade center event script attendant",
   "description": "NPC interaction: trade center event script attendant",
   "scriptPath": "Scripts/Interactions/NPCs/trade_center_event_script_attendant.csx",

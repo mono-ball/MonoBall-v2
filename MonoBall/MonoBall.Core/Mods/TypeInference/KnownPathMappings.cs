@@ -45,16 +45,8 @@ public static class KnownPathMappings
         { "Definitions/Entities/Pokemon", "Pokemon" },
         { "Definitions/Entities/Regions", "Region" },
         { "Definitions/Entities/Weather", "Weather" },
-        // Scripts
+        // Scripts (matches all subdirectories: Interactions/, Movement/, Triggers/, etc.)
         { "Definitions/Scripts", "Script" },
-        // Legacy/flat structure support
-        { "Definitions/Sprites", "Sprite" },
-        { "Definitions/Audio", "Audio" },
-        { "Definitions/TextWindow", "TextWindow" },
-        { "Definitions/TextEffects", "TextEffect" },
-        { "Definitions/ColorPalettes", "ColorPalette" },
-        { "Definitions/Fonts", "Font" },
-        { "Definitions/Shaders", "Shader" },
     }
         .OrderByDescending(kvp => kvp.Key.Length)
         .Select(kvp => (kvp.Key, kvp.Value))

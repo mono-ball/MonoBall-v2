@@ -395,7 +395,7 @@ public class ArchiveModSource : IModSource, IDisposable
         // Read file directly without calling ReadTextFile (which would deadlock)
         var jsonBytes = ReadFileInternal(entry);
         var jsonContent = Encoding.UTF8.GetString(jsonBytes);
-        _cachedManifest = ModManifestLoader.LoadFromJson(jsonContent, this, SourcePath);
+        _cachedManifest = ModManifestLoader.LoadFromJson(jsonContent, this);
 
         return _cachedManifest;
     }

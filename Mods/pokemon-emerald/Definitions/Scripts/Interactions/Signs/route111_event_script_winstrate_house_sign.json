@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route111_event_script_winstrate_house_sign",
+  "id": "pokeemerald:script:interactions/signs/route111_event_script_winstrate_house_sign",
   "name": "route111 event script winstrate house sign",
   "description": "Sign script: route111 event script winstrate house sign",
-  "scriptPath": "Scripts/Signs/route111_event_script_winstrate_house_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route111_event_script_winstrate_house_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

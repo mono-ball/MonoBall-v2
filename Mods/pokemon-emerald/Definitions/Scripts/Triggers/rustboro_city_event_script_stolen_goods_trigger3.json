@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/rustboro_city_event_script_stolen_goods_trigger3",
+  "name": "rustboro city event script stolen goods trigger3",
+  "description": "Trigger script: rustboro city event script stolen goods trigger3",
+  "scriptPath": "Scripts/Triggers/rustboro_city_event_script_stolen_goods_trigger3.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

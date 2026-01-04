@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route112_event_script_route_sign_lavaridge",
+  "id": "pokeemerald:script:interactions/signs/route112_event_script_route_sign_lavaridge",
   "name": "route112 event script route sign lavaridge",
   "description": "Sign script: route112 event script route sign lavaridge",
-  "scriptPath": "Scripts/Signs/route112_event_script_route_sign_lavaridge.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route112_event_script_route_sign_lavaridge.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

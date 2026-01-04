@@ -104,7 +104,7 @@ public class ScriptLoaderService : IDisposable
                 foreach (var scriptPath in mod.Plugins)
                     try
                     {
-                        LoadPluginScript(mod.Id, scriptPath, mod.ModDirectory);
+                        LoadPluginScript(mod.Id, scriptPath);
                     }
                     catch (Exception ex)
                     {
@@ -352,7 +352,7 @@ public class ScriptLoaderService : IDisposable
     /// <summary>
     ///     Loads and compiles a plugin script.
     /// </summary>
-    private void LoadPluginScript(string modId, string scriptPath, string modDirectory)
+    private void LoadPluginScript(string modId, string scriptPath)
     {
         // Get mod manifest to resolve dependencies and ModSource
         var modManifest = _modManager.GetModManifest(modId);
@@ -469,35 +469,68 @@ public class ScriptLoaderService : IDisposable
 
         // Add assemblies from this mod
         if (mod.Assemblies != null && mod.Assemblies.Count > 0)
+        {
+            if (mod.ModSource == null)
+            {
+                _logger.Warning(
+                    "ModSource is null for mod {ModId}, cannot load assemblies",
+                    mod.Id
+                );
+                return;
+            }
+
             foreach (var assemblyPath in mod.Assemblies)
             {
-                var fullAssemblyPath = Path.Combine(mod.ModDirectory, assemblyPath);
-                if (File.Exists(fullAssemblyPath))
-                    try
-                    {
-                        references.Add(MetadataReference.CreateFromFile(fullAssemblyPath));
-                        _logger.Debug(
-                            "Added assembly reference: {AssemblyPath} from mod {ModId}",
-                            assemblyPath,
-                            mod.Id
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Warning(
-                            ex,
-                            "Failed to add assembly reference {AssemblyPath} from mod {ModId}",
-                            assemblyPath,
-                            mod.Id
-                        );
-                    }
-                else
+                if (!mod.ModSource.FileExists(assemblyPath))
+                {
                     _logger.Warning(
                         "Assembly file not found: {AssemblyPath} in mod {ModId}",
                         assemblyPath,
                         mod.Id
                     );
+                    continue;
+                }
+
+                try
+                {
+                    // For compressed mods, extract to temp file; for directories, use direct path
+                    MetadataReference reference;
+                    if (mod.ModSource.IsCompressed)
+                    {
+                        // Extract assembly to temporary file for MetadataReference.CreateFromFile
+                        var assemblyBytes = mod.ModSource.ReadFile(assemblyPath);
+                        var tempFile = Path.Combine(
+                            Path.GetTempPath(),
+                            $"monoball_{mod.Id}_{Path.GetFileName(assemblyPath)}"
+                        );
+                        File.WriteAllBytes(tempFile, assemblyBytes);
+                        reference = MetadataReference.CreateFromFile(tempFile);
+                    }
+                    else
+                    {
+                        // Directory mods: use direct file path
+                        var fullAssemblyPath = Path.Combine(mod.ModSource.SourcePath, assemblyPath);
+                        reference = MetadataReference.CreateFromFile(fullAssemblyPath);
+                    }
+
+                    references.Add(reference);
+                    _logger.Debug(
+                        "Added assembly reference: {AssemblyPath} from mod {ModId}",
+                        assemblyPath,
+                        mod.Id
+                    );
+                }
+                catch (Exception ex)
+                {
+                    _logger.Warning(
+                        ex,
+                        "Failed to add assembly reference {AssemblyPath} from mod {ModId}",
+                        assemblyPath,
+                        mod.Id
+                    );
+                }
             }
+        }
 
         // Recursively process dependencies
         if (mod.Dependencies != null && mod.Dependencies.Count > 0)

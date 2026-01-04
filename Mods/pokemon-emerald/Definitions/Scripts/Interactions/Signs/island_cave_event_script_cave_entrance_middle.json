@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/island_cave_event_script_cave_entrance_middle",
+  "id": "pokeemerald:script:interactions/signs/island_cave_event_script_cave_entrance_middle",
   "name": "island cave event script cave entrance middle",
   "description": "Sign script: island cave event script cave entrance middle",
-  "scriptPath": "Scripts/Signs/island_cave_event_script_cave_entrance_middle.csx",
+  "scriptPath": "Scripts/Interactions/Signs/island_cave_event_script_cave_entrance_middle.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

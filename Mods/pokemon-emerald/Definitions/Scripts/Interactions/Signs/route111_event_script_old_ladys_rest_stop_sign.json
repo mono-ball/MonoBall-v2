@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route111_event_script_old_ladys_rest_stop_sign",
+  "id": "pokeemerald:script:interactions/signs/route111_event_script_old_ladys_rest_stop_sign",
   "name": "route111 event script old ladys rest stop sign",
   "description": "Sign script: route111 event script old ladys rest stop sign",
-  "scriptPath": "Scripts/Signs/route111_event_script_old_ladys_rest_stop_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route111_event_script_old_ladys_rest_stop_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

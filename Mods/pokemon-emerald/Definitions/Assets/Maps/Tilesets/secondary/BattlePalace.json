@@ -1,0 +1,72 @@
+{
+  "id": "pokeemerald:tileset:secondary/battlepalace",
+  "name": "BattlePalace",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/BattlePalace.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 69,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 80,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 21,
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
+      "collisionId": "pokeemerald:collision:ice_cracked",
+      "animation": [
+        {
+          "tileId": 61,
+          "durationMs": 133
+        },
+        {
+          "tileId": 62,
+          "durationMs": 133
+        },
+        {
+          "tileId": 63,
+          "durationMs": 133
+        },
+        {
+          "tileId": 64,
+          "durationMs": 133
+        },
+        {
+          "tileId": 65,
+          "durationMs": 133
+        },
+        {
+          "tileId": 66,
+          "durationMs": 133
+        },
+        {
+          "tileId": 67,
+          "durationMs": 133
+        },
+        {
+          "tileId": 68,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 22,
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
+      "collisionId": "pokeemerald:collision:ice_cracked"
+    },
+    {
+      "localTileId": 51,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 60,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    }
+  ]
+}

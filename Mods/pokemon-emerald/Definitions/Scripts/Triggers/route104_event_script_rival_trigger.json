@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route104_event_script_rival_trigger",
+  "name": "route104 event script rival trigger",
+  "description": "Trigger script: route104 event script rival trigger",
+  "scriptPath": "Scripts/Triggers/route104_event_script_rival_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

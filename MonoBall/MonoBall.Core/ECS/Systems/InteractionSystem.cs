@@ -262,19 +262,15 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         {
             var npcComponent = World.Get<NpcComponent>(interactionEntity);
 
-            // Get behavior script ID from NPC's behavior definition
+            // Get behavior script ID directly (BehaviorId now references ScriptDefinition ID directly)
             if (!string.IsNullOrEmpty(npcComponent.BehaviorId))
             {
-                var behaviorDef = _registry.GetById<BehaviorDefinition>(npcComponent.BehaviorId);
-                if (behaviorDef != null && !string.IsNullOrEmpty(behaviorDef.ScriptId))
-                {
-                    PauseScript(interactionEntity, behaviorDef.ScriptId);
-                    _logger.Debug(
-                        "Paused behavior script {ScriptId} for NPC {NpcId} during interaction",
-                        behaviorDef.ScriptId,
-                        npcComponent.NpcId
-                    );
-                }
+                PauseScript(interactionEntity, npcComponent.BehaviorId);
+                _logger.Debug(
+                    "Paused behavior script {ScriptId} for NPC {NpcId} during interaction",
+                    npcComponent.BehaviorId,
+                    npcComponent.NpcId
+                );
             }
 
             // Add InteractionStateComponent to track this interaction
@@ -338,18 +334,14 @@ public class InteractionSystem : BaseSystem<World, float>, IPrioritizedSystem, I
             in _playerStateQuery,
             (Entity e, ref PlayerComponent player, ref InteractionStateComponent state) =>
             {
-                // Resume behavior script
+                // Resume behavior script (BehaviorId now references ScriptDefinition ID directly)
                 if (!string.IsNullOrEmpty(state.BehaviorId))
                 {
-                    var behaviorDef = _registry.GetById<BehaviorDefinition>(state.BehaviorId);
-                    if (behaviorDef != null && !string.IsNullOrEmpty(behaviorDef.ScriptId))
-                    {
-                        ResumeScript(state.InteractionEntity, behaviorDef.ScriptId);
-                        _logger.Debug(
-                            "Resumed behavior script {ScriptId} for NPC after interaction",
-                            behaviorDef.ScriptId
-                        );
-                    }
+                    ResumeScript(state.InteractionEntity, state.BehaviorId);
+                    _logger.Debug(
+                        "Resumed behavior script {ScriptId} for NPC after interaction",
+                        state.BehaviorId
+                    );
                 }
 
                 // Fire InteractionEndedEvent

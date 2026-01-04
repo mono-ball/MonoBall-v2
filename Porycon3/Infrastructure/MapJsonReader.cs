@@ -43,11 +43,12 @@ public class MapJsonReader : IMapReader
                 Id = layoutId,
                 Width = layoutInfo?.Width ?? 0,
                 Height = layoutInfo?.Height ?? 0,
-                BorderWidth = 2,
-                BorderHeight = 2,
+                BorderWidth = layoutInfo?.BorderWidth ?? 2,
+                BorderHeight = layoutInfo?.BorderHeight ?? 2,
                 PrimaryTileset = layoutInfo?.PrimaryTileset ?? "",
                 SecondaryTileset = layoutInfo?.SecondaryTileset ?? "",
-                BlockdataPath = layoutInfo?.BlockdataPath ?? ""
+                BlockdataPath = layoutInfo?.BlockdataPath ?? "",
+                BorderPath = layoutInfo?.BorderPath ?? ""
             },
             Metadata = ParseMetadata(root),
             ObjectEvents = ParseObjectEvents(root),
@@ -99,7 +100,10 @@ public class MapJsonReader : IMapReader
                     Height = layoutEl.TryGetProperty("height", out var h) ? h.GetInt32() : 0,
                     PrimaryTileset = layoutEl.TryGetProperty("primary_tileset", out var pt) ? pt.GetString() ?? "" : "",
                     SecondaryTileset = layoutEl.TryGetProperty("secondary_tileset", out var st) ? st.GetString() ?? "" : "",
-                    BlockdataPath = layoutEl.TryGetProperty("blockdata_filepath", out var bp) ? bp.GetString() ?? "" : ""
+                    BlockdataPath = layoutEl.TryGetProperty("blockdata_filepath", out var bp) ? bp.GetString() ?? "" : "",
+                    BorderPath = layoutEl.TryGetProperty("border_filepath", out var bfp) ? bfp.GetString() ?? "" : "",
+                    BorderWidth = layoutEl.TryGetProperty("border_width", out var bw) ? bw.GetInt32() : 2,
+                    BorderHeight = layoutEl.TryGetProperty("border_height", out var bh) ? bh.GetInt32() : 2
                 };
             }
         }
@@ -302,5 +306,8 @@ public class MapJsonReader : IMapReader
         public string PrimaryTileset { get; set; } = "";
         public string SecondaryTileset { get; set; } = "";
         public string BlockdataPath { get; set; } = "";
+        public string BorderPath { get; set; } = "";
+        public int BorderWidth { get; set; } = 2;
+        public int BorderHeight { get; set; } = 2;
     }
 }

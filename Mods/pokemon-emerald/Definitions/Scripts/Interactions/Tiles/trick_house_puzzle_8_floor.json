@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/trick_house_puzzle_8_floor",
+  "id": "pokeemerald:script:interactions/tiles/trick_house_puzzle_8_floor",
   "name": "Trick House Puzzle 8 Floor",
   "description": "Tile interaction: Trick House Puzzle 8 Floor",
+  "scriptPath": "Scripts/Interactions/Tiles/trick_house_puzzle_8_floor.csx",
   "category": "misc",
   "priority": 500
 }

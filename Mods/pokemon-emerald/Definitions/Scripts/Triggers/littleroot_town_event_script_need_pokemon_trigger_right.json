@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/littleroot_town_event_script_need_pokemon_trigger_right",
+  "name": "littleroot town event script need pokemon trigger right",
+  "description": "Trigger script: littleroot town event script need pokemon trigger right",
+  "scriptPath": "Scripts/Triggers/littleroot_town_event_script_need_pokemon_trigger_right.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

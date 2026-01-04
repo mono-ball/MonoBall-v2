@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/petalburg_city_gym_event_script_accuracy_room_door",
+  "id": "pokeemerald:script:interactions/signs/petalburg_city_gym_event_script_accuracy_room_door",
   "name": "petalburg city gym event script accuracy room door",
   "description": "Sign script: petalburg city gym event script accuracy room door",
-  "scriptPath": "Scripts/Signs/petalburg_city_gym_event_script_accuracy_room_door.csx",
+  "scriptPath": "Scripts/Interactions/Signs/petalburg_city_gym_event_script_accuracy_room_door.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

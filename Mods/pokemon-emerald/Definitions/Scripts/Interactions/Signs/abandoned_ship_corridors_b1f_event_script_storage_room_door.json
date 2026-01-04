@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/abandoned_ship_corridors_b1f_event_script_storage_room_door",
+  "id": "pokeemerald:script:interactions/signs/abandoned_ship_corridors_b1f_event_script_storage_room_door",
   "name": "abandoned ship corridors b1f event script storage room door",
   "description": "Sign script: abandoned ship corridors b1f event script storage room door",
-  "scriptPath": "Scripts/Signs/abandoned_ship_corridors_b1f_event_script_storage_room_door.csx",
+  "scriptPath": "Scripts/Interactions/Signs/abandoned_ship_corridors_b1f_event_script_storage_room_door.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

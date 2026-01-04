@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/oldale_town_event_script_blocked_path",
+  "name": "oldale town event script blocked path",
+  "description": "Trigger script: oldale town event script blocked path",
+  "scriptPath": "Scripts/Triggers/oldale_town_event_script_blocked_path.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route104_event_script_flower_shop_sign",
+  "id": "pokeemerald:script:interactions/signs/route104_event_script_flower_shop_sign",
   "name": "route104 event script flower shop sign",
   "description": "Sign script: route104 event script flower shop sign",
-  "scriptPath": "Scripts/Signs/route104_event_script_flower_shop_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route104_event_script_flower_shop_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route111_event_script_trainer_tips_sp_atk_sp_def",
+  "id": "pokeemerald:script:interactions/signs/route111_event_script_trainer_tips_sp_atk_sp_def",
   "name": "route111 event script trainer tips sp atk sp def",
   "description": "Sign script: route111 event script trainer tips sp atk sp def",
-  "scriptPath": "Scripts/Signs/route111_event_script_trainer_tips_sp_atk_sp_def.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route111_event_script_trainer_tips_sp_atk_sp_def.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/sealed_chamber_outer_room_event_script_braille_comma",
+  "id": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_braille_comma",
   "name": "sealed chamber outer room event script braille comma",
   "description": "Sign script: sealed chamber outer room event script braille comma",
-  "scriptPath": "Scripts/Signs/sealed_chamber_outer_room_event_script_braille_comma.csx",
+  "scriptPath": "Scripts/Interactions/Signs/sealed_chamber_outer_room_event_script_braille_comma.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

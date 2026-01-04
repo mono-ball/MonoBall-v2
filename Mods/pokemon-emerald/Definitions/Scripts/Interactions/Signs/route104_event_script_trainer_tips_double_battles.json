@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route104_event_script_trainer_tips_double_battles",
+  "id": "pokeemerald:script:interactions/signs/route104_event_script_trainer_tips_double_battles",
   "name": "route104 event script trainer tips double battles",
   "description": "Sign script: route104 event script trainer tips double battles",
-  "scriptPath": "Scripts/Signs/route104_event_script_trainer_tips_double_battles.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route104_event_script_trainer_tips_double_battles.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

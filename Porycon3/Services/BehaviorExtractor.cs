@@ -98,7 +98,7 @@ public class BehaviorExtractor : ExtractorBase
 
         return new Dictionary<string, object>
         {
-            ["id"] = $"{IdTransformer.Namespace}:script/movement/npcs/{behavior.Id}",
+            ["id"] = $"{IdTransformer.Namespace}:script:movement/npcs/{behavior.Id}",
             ["name"] = $"{behavior.Name} Movement Script",
             ["description"] = behavior.Description,
             ["scriptPath"] = $"Scripts/Movement/NPCs/{behavior.Id}.csx",

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/mossdeep_city_stevens_house",
   "name": "MossdeepCity_StevensHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_stevens_house/ground",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_stevens_house/ground",
       "name": "Ground",
       "width": 11,
       "height": 8,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAGAAAABgAAAAYAAAAAAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_stevens_house/objects",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_stevens_house/objects",
       "name": "Objects",
       "width": 11,
       "height": 8,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAHAAAABwAAAAcAAAAKAAAABwAAAAcAAAAHAAAABwAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/mossdeep_city_stevens_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/mossdeep_city_stevens_house/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 8,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAJAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_stevens_house/warp_to_mossdeep_city",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_stevens_house/warp_to_mossdeep_city",
       "name": "Warp to mossdeep_city",
       "x": 48,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/mossdeep_city_stevens_house/warp_to_mossdeep_city",
+      "id": "pokeemerald:warp:Hoenn/mossdeep_city_stevens_house/warp_to_mossdeep_city",
       "name": "Warp to mossdeep_city",
       "x": 64,
       "y": 112,
@@ -96,85 +111,84 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
       "name": "Sign: MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "x": 0,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_rock_display",
+      "interactionId": "pokeemerald:script:interactions/signs/mossdeep_city_stevens_house_event_script_rock_display",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
       "name": "Sign: MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "x": 16,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_rock_display",
+      "interactionId": "pokeemerald:script:interactions/signs/mossdeep_city_stevens_house_event_script_rock_display",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
       "name": "Sign: MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "x": 160,
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_rock_display",
+      "interactionId": "pokeemerald:script:interactions/signs/mossdeep_city_stevens_house_event_script_rock_display",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:interaction:hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
+      "id": "pokeemerald:interaction:Hoenn/mossdeep_city_stevens_house/sign_mossdeepcitystevenshouseeventscriptrockdisplay",
       "name": "Sign: MossdeepCity_StevensHouse_EventScript_RockDisplay",
       "x": 160,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_rock_display",
+      "interactionId": "pokeemerald:script:interactions/signs/mossdeep_city_stevens_house_event_script_rock_display",
       "elevation": 3
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_stevens_house/localid_stevens_house_steven",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_stevens_house/localid_stevens_house_steven",
       "name": "LOCALID_STEVENS_HOUSE_STEVEN",
       "x": 144,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/steven",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_steven",
+      "spriteId": "pokeemerald:sprite:characters/npcs/steven",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_stevens_house_event_script_steven",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_stevens_house_steven",
-      "facingDirection": "right",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_stevens_house/localid_stevens_house_ball",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_stevens_house/localid_stevens_house_ball",
       "name": "LOCALID_STEVENS_HOUSE_BALL",
       "x": 64,
       "y": 48,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_beldum_pokeball",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_stevens_house_event_script_beldum_pokeball",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_stevens_house_beldum_pokeball",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/mossdeep_city_stevens_house/npc_2",
+      "id": "pokeemerald:npc:Hoenn/mossdeep_city_stevens_house/npc_2",
       "name": "NPC_2",
       "x": 96,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/ninjaboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/invisible",
-      "interactionId": "pokeemerald:interaction/npcs/mossdeep_city_stevens_house_event_script_letter",
+      "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/invisible",
+      "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_stevens_house_event_script_letter",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_stevens_house_invisible_ninja_boy",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/mossdeep_city_stevens_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/mossdeep_city_stevens_house/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 8,
@@ -184,7 +198,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/mossdeep_city_stevens_house/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/mossdeep_city_stevens_house/elevation_3",
       "name": "Collision_3",
       "width": 11,
       "height": 8,

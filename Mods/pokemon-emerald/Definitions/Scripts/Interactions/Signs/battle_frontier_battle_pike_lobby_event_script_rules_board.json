@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/battle_frontier_battle_pike_lobby_event_script_rules_board",
+  "id": "pokeemerald:script:interactions/signs/battle_frontier_battle_pike_lobby_event_script_rules_board",
   "name": "battle frontier battle pike lobby event script rules board",
   "description": "Sign script: battle frontier battle pike lobby event script rules board",
-  "scriptPath": "Scripts/Signs/battle_frontier_battle_pike_lobby_event_script_rules_board.csx",
+  "scriptPath": "Scripts/Interactions/Signs/battle_frontier_battle_pike_lobby_event_script_rules_board.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

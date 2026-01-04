@@ -8,40 +8,37 @@ namespace Porycon3.Services.Builders;
 public static class BehaviorTransformer
 {
     /// <summary>
-    /// Transform movement type to behavior ID.
+    /// Transform movement type to behavior script ID.
+    /// Uses IdTransformer.MovementScriptId to ensure consistency with definition files.
     /// </summary>
     public static string TransformBehaviorId(string movementType)
     {
         if (string.IsNullOrEmpty(movementType))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/stationary";
+            return IdTransformer.MovementScriptId("MOVEMENT_TYPE_STATIONARY");
 
+        // Extract base name from MOVEMENT_TYPE_ prefix if present
         var name = movementType.StartsWith("MOVEMENT_TYPE_", StringComparison.OrdinalIgnoreCase)
-            ? movementType[14..].ToLowerInvariant()
-            : movementType.ToLowerInvariant();
+            ? movementType[14..]
+            : movementType;
 
-        // Categorize movement types - reference script definitions directly
-        if (name.StartsWith("walk_sequence_"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/patrol";
-        if (name.Contains("wander"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/wander";
-        if (name.Contains("stationary") || name.StartsWith("face_") || name.Contains("look_around"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/stationary";
-        if (name.Contains("walk") || name.Contains("pace"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/walk";
-        if (name.Contains("jog") || name.Contains("run"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/jog";
-        if (name.Contains("copy_player") || name.Contains("follow"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/follow";
-        if (name.Contains("invisible"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/invisible";
-        if (name.Contains("buried"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/buried";
-        if (name.Contains("tree_disguise"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/disguise_tree";
-        if (name.Contains("rock_disguise"))
-            return $"{IdTransformer.Namespace}:script/movement/npcs/disguise_rock";
+        // Map movement types to script definition names (matching actual definition file names)
+        var scriptName = name.ToLowerInvariant() switch
+        {
+            var n when n.StartsWith("walk_sequence_") => "patrol",
+            var n when n.Contains("wander") => "wander",
+            var n when n.Contains("stationary") || n.StartsWith("face_") || n.Contains("look_around") => "stationary",
+            var n when (n.Contains("walk") || n.Contains("pace")) && !n.Contains("sequence") => "walk",
+            var n when n.Contains("jog") || n.Contains("run") => "jog",
+            var n when n.Contains("copy_player") || n.Contains("follow") => "follow",
+            var n when n.Contains("invisible") => "invisible",
+            var n when n.Contains("buried") => "buried",
+            var n when n.Contains("tree_disguise") => "disguise_tree",
+            var n when n.Contains("rock_disguise") => "disguise_rock",
+            _ => name.ToLowerInvariant() // Use normalized name as-is
+        };
 
-        return $"{IdTransformer.Namespace}:script/movement/npcs/{name}";
+        // Use MovementScriptId which will normalize and format correctly
+        return IdTransformer.MovementScriptId($"MOVEMENT_TYPE_{scriptName.ToUpperInvariant()}");
     }
 
     /// <summary>

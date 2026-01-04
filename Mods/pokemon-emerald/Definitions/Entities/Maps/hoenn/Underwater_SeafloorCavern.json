@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/underwater_seafloor_cavern",
   "name": "Underwater_SeafloorCavern",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underwater",
   "width": 14,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": true,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/underwater",
+    "bottomLayer": [
+      985,
+      985,
+      985,
+      985
+    ],
+    "topLayer": [
+      986,
+      986,
+      986,
+      986
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/underwater_seafloor_cavern/ground",
+      "id": "pokeemerald:layer:Hoenn/underwater_seafloor_cavern/ground",
       "name": "Ground",
       "width": 14,
       "height": 9,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "ZwEAAGcBAABnAQAAZwEAAGkBAABqAQAAagEAAGoBAABqAQAAawEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGkBAABqAQAAbgEAAGcBAABnAQAAZwEAAGcBAABvAQAAagEAAGsBAABnAQAAZwEAAGcBAABpAQAAbgEAAGkBAABqAQAAagEAAGoBAABqAQAAagEAAGoBAABrAQAAbwEAAGsBAABnAQAAaQEAAG4BAABpAQAAbgEAAGkBAABqAQAAagEAAGoBAABqAQAAawEAAG8BAABrAQAAbwEAAGsBAABnAQAAaQEAAG4BAABpAQAAZwEAAMEBAADDAQAAwwEAAMYBAABnAQAAawEAAGcBAABnAQAAZwEAAGcBAABnAQAAaQEAAGcBAABnAQAAAAAAAAAAAAAAAAAAAAAAAGcBAABnAQAAbwEAAGsBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABnAQAAZwEAAGcBAABrAQAAZwEAAGcBAAB7AQAAewEAAHsBAABnAQAAZwEAAGcBAABxAQAAZwEAAGcBAABnAQAAZwEAAHIBAAByAQAAcgEAAGcBAABnAQAAZwEAAHsBAABnAQAAdAEAAHYBAAB4AQAAZwEAAGcBAAByAQAAZwEAAGcBAABnAQAA"
+      "tileData": "2QMAANkDAADZAwAA2QMAANsDAADcAwAA3AMAANwDAADcAwAA3QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANsDAADcAwAA4AMAANkDAADZAwAA2QMAANkDAADhAwAA3AMAAN0DAADZAwAA2QMAANkDAADbAwAA4AMAANsDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADdAwAA4QMAAN0DAADZAwAA2wMAAOADAADbAwAA4AMAANsDAADcAwAA3AMAANwDAADcAwAA3QMAAOEDAADdAwAA4QMAAN0DAADZAwAA2wMAAOADAADbAwAA2QMAADUEAAA3BAAANwQAADoEAADZAwAA3QMAANkDAADZAwAA2QMAANkDAADZAwAA2wMAANkDAADZAwAAAAAAAAAAAAAAAAAAAAAAANkDAADZAwAA4QMAAN0DAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADdAwAA2QMAANkDAADtAwAA7QMAAO0DAADZAwAA2QMAANkDAADjAwAA2QMAANkDAADZAwAA2QMAAOQDAADkAwAA5AMAANkDAADZAwAA2QMAAO0DAADZAwAA5gMAAOgDAADqAwAA2QMAANkDAADkAwAA2QMAANkDAADZAwAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/underwater_seafloor_cavern/objects",
+      "id": "pokeemerald:layer:Hoenn/underwater_seafloor_cavern/objects",
       "name": "Objects",
       "width": 14,
       "height": 9,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "aAEAAGgBAABoAQAAaAEAAGkBAABqAQAAagEAAGoBAABqAQAAawEAAGgBAABoAQAAaAEAAGgBAABoAQAAaAEAAGkBAABqAQAAbgEAAGgBAABoAQAAaAEAAGgBAABvAQAAagEAAGsBAABoAQAAaAEAAGgBAABpAQAAbgEAAGkBAABqAQAAagEAAGoBAABqAQAAagEAAGoBAABrAQAAbwEAAGsBAABoAQAAaQEAAG4BAABpAQAAbgEAAGkBAAC9AQAAvgEAAL8BAADAAQAAawEAAG8BAABrAQAAbwEAAGsBAABsAQAAaQEAAG4BAABpAQAAgAEAAMIBAADEAQAAxQEAAMcBAACDAQAAawEAAG0BAABoAQAAbQEAAGwBAABsAQAAaQEAAIABAABwAQAAyAEAAIcBAACHAQAAyQEAAHABAABtAQAAbwEAAGsBAABtAQAAbAEAAGwBAABsAQAAcAEAAHABAABwAQAAcAEAAHABAABwAQAAcAEAAIMBAABrAQAAbQEAAG0BAABzAQAAcwEAAHMBAACFAQAAcAEAAHABAABwAQDAcAEAAHABAABwAQAAhAEAAHMBAABzAQAAcwEAAGgBAABoAQAAaAEAAHMBAABzAQAAdQEAAHcBAAB5AQAAcwEAAHMBAABzAQAAaAEAAGgBAABoAQAA"
+      "tileData": "2gMAANoDAADaAwAA2gMAANsDAADcAwAA3AMAANwDAADcAwAA3QMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANsDAADcAwAA4AMAANoDAADaAwAA2gMAANoDAADhAwAA3AMAAN0DAADaAwAA2gMAANoDAADbAwAA4AMAANsDAADcAwAA3AMAANwDAADcAwAA3AMAANwDAADdAwAA4QMAAN0DAADaAwAA2wMAAOADAADbAwAA4AMAANsDAAAxBAAAMgQAADMEAAA0BAAA3QMAAOEDAADdAwAA4QMAAN0DAADeAwAA2wMAAOADAADbAwAA8gMAADYEAAA4BAAAOQQAADsEAAD1AwAA3QMAAN8DAADaAwAA3wMAAN4DAADeAwAA2wMAAPIDAADiAwAAPAQAAPkDAAD5AwAAPQQAAOIDAADfAwAA4QMAAN0DAADfAwAA3gMAAN4DAADeAwAA4gMAAOIDAADiAwAA4gMAAOIDAADiAwAA4gMAAPUDAADdAwAA3wMAAN8DAADlAwAA5QMAAOUDAAD3AwAA4gMAAOIDAADiAwDA4gMAAOIDAADiAwAA9gMAAOUDAADlAwAA5QMAANoDAADaAwAA2gMAAOUDAADlAwAA5wMAAOkDAADrAwAA5QMAAOUDAADlAwAA2gMAANoDAADaAwAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/underwater_seafloor_cavern/overhead",
+      "id": "pokeemerald:layer:Hoenn/underwater_seafloor_cavern/overhead",
       "name": "Overhead",
       "width": 14,
       "height": 9,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAEAwHABAMBwAQDAcAEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4gMAwOIDAMDiAwDA4gMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/underwater"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/underwater_seafloor_cavern/warp_to_underwater_route128",
+      "id": "pokeemerald:warp:Hoenn/underwater_seafloor_cavern/warp_to_underwater_route128",
       "name": "Warp to underwater_route128",
       "x": 96,
       "y": 112,
@@ -85,53 +100,53 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/underwater_seafloor_cavern/npc_0",
+      "id": "pokeemerald:npc:Hoenn/underwater_seafloor_cavern/npc_0",
       "name": "NPC_0",
       "x": 80,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/rubysapphirebrendan/rubysapphirebrendan",
-      "behaviorId": "pokeemerald:script/movement/npcs/invisible",
-      "interactionId": "pokeemerald:interaction/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
+      "spriteId": "pokeemerald:sprite:characters/npcs/rubysapphirebrendan/rubysapphirebrendan",
+      "behaviorId": "pokeemerald:script:movement/npcs/invisible",
+      "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/underwater_seafloor_cavern/npc_1",
+      "id": "pokeemerald:npc:Hoenn/underwater_seafloor_cavern/npc_1",
       "name": "NPC_1",
       "x": 96,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/rubysapphirebrendan/rubysapphirebrendan",
-      "behaviorId": "pokeemerald:script/movement/npcs/invisible",
-      "interactionId": "pokeemerald:interaction/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
+      "spriteId": "pokeemerald:sprite:characters/npcs/rubysapphirebrendan/rubysapphirebrendan",
+      "behaviorId": "pokeemerald:script:movement/npcs/invisible",
+      "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/underwater_seafloor_cavern/npc_2",
+      "id": "pokeemerald:npc:Hoenn/underwater_seafloor_cavern/npc_2",
       "name": "NPC_2",
       "x": 112,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/rubysapphirebrendan/rubysapphirebrendan",
-      "behaviorId": "pokeemerald:script/movement/npcs/invisible",
-      "interactionId": "pokeemerald:interaction/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
+      "spriteId": "pokeemerald:sprite:characters/npcs/rubysapphirebrendan/rubysapphirebrendan",
+      "behaviorId": "pokeemerald:script:movement/npcs/invisible",
+      "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/underwater_seafloor_cavern/npc_3",
+      "id": "pokeemerald:npc:Hoenn/underwater_seafloor_cavern/npc_3",
       "name": "NPC_3",
       "x": 128,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/rubysapphirebrendan/rubysapphirebrendan",
-      "behaviorId": "pokeemerald:script/movement/npcs/invisible",
-      "interactionId": "pokeemerald:interaction/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
+      "spriteId": "pokeemerald:sprite:characters/npcs/rubysapphirebrendan/rubysapphirebrendan",
+      "behaviorId": "pokeemerald:script:movement/npcs/invisible",
+      "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/underwater_seafloor_cavern/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/underwater_seafloor_cavern/elevation_0",
       "name": "Collision_0",
       "width": 14,
       "height": 9,
@@ -141,7 +156,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAABAQEBAQEBAQEAAAAAAAABAQEBAQEBAAAAAAAAAAEBAQEBAQEBAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEB"
     },
     {
-      "id": "pokeemerald:collision:hoenn/underwater_seafloor_cavern/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/underwater_seafloor_cavern/elevation_3",
       "name": "Collision_3",
       "width": 14,
       "height": 9,

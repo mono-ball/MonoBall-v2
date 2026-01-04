@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route110_event_script_cycling_challenge_end",
+  "name": "route110 event script cycling challenge end",
+  "description": "Trigger script: route110 event script cycling challenge end",
+  "scriptPath": "Scripts/Triggers/route110_event_script_cycling_challenge_end.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/warp_or_bridge",
+  "id": "pokeemerald:script:interactions/tiles/warp_or_bridge",
   "name": "Warp Or Bridge",
   "description": "Tile interaction: Warp Or Bridge",
+  "scriptPath": "Scripts/Interactions/Tiles/warp_or_bridge.csx",
   "category": "warp",
   "priority": 500
 }

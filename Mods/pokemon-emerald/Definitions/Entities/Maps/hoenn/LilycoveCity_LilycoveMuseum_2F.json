@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lilycove_city_lilycove_museum_2f",
   "name": "LilycoveCity_LilycoveMuseum_2F",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 22,
   "height": 13,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_lilycove_museum_2f/ground",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_lilycove_museum_2f/ground",
       "name": "Ground",
       "width": 22,
       "height": 13,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_lilycove_museum_2f/objects",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_lilycove_museum_2f/objects",
       "name": "Objects",
       "width": 22,
       "height": 13,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_lilycove_museum_2f/overhead",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_lilycove_museum_2f/overhead",
       "name": "Overhead",
       "width": 22,
       "height": 13,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/lilycove_museum"
+      "tilesetId": "pokeemerald:tileset:secondary/lilycovemuseum"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lilycove_city_lilycove_museum_2f/warp_to_lilycove_city_lilycove_museum_1f",
+      "id": "pokeemerald:warp:Hoenn/lilycove_city_lilycove_museum_2f/warp_to_lilycove_city_lilycove_museum_1f",
       "name": "Warp to lilycove_city_lilycove_museum_1f",
       "x": 208,
       "y": 16,
@@ -84,187 +99,186 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcutepainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcutepainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_CutePainting",
       "x": 224,
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_cute_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_cute_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcutepainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcutepainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_CutePainting",
       "x": 240,
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_cute_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_cute_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscripttoughpainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscripttoughpainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_ToughPainting",
       "x": 48,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_tough_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_tough_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscripttoughpainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscripttoughpainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_ToughPainting",
       "x": 32,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_tough_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_tough_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcoolpainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcoolpainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_CoolPainting",
       "x": 160,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_cool_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_cool_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcoolpainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptcoolpainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_CoolPainting",
       "x": 176,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_cool_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_cool_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptbeautypainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptbeautypainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_BeautyPainting",
       "x": 304,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_beauty_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_beauty_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptbeautypainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptbeautypainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_BeautyPainting",
       "x": 288,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_beauty_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_beauty_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptsmartpainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptsmartpainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_SmartPainting",
       "x": 96,
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_smart_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_smart_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptsmartpainting",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseum2feventscriptsmartpainting",
       "name": "Sign: LilycoveCity_LilycoveMuseum_2F_EventScript_SmartPainting",
       "x": 112,
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_smart_painting",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_2f_event_script_smart_painting",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseumeventscriptbirdsculpture",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseumeventscriptbirdsculpture",
       "name": "Sign: LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture",
       "x": 176,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_event_script_bird_sculpture",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_event_script_bird_sculpture",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseumeventscriptbirdsculpture",
+      "id": "pokeemerald:interaction:Hoenn/lilycove_city_lilycove_museum_2f/sign_lilycovecitylilycovemuseumeventscriptbirdsculpture",
       "name": "Sign: LilycoveCity_LilycoveMuseum_EventScript_BirdSculpture",
       "x": 240,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_event_script_bird_sculpture",
+      "interactionId": "pokeemerald:script:interactions/signs/lilycove_city_lilycove_museum_event_script_bird_sculpture",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/lilycove_city_lilycove_museum_2f/localid_museum_2f_curator",
+      "id": "pokeemerald:npc:Hoenn/lilycove_city_lilycove_museum_2f/localid_museum_2f_curator",
       "name": "LOCALID_MUSEUM_2F_CURATOR",
       "x": 160,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/gentleman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_curator",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_curator",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lilycove_city_lilycove_museum_2f/npc_1",
+      "id": "pokeemerald:npc:Hoenn/lilycove_city_lilycove_museum_2f/npc_1",
       "name": "NPC_1",
       "x": 304,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/girl2",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl2",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_girl",
+      "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_girl",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_patron_2",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lilycove_city_lilycove_museum_2f/npc_2",
+      "id": "pokeemerald:npc:Hoenn/lilycove_city_lilycove_museum_2f/npc_2",
       "name": "NPC_2",
       "x": 112,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/expertm",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_expert_m",
+      "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_expert_m",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_tourists",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/lilycove_city_lilycove_museum_2f/npc_3",
+      "id": "pokeemerald:npc:Hoenn/lilycove_city_lilycove_museum_2f/npc_3",
       "name": "NPC_3",
       "x": 224,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/richboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/richboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_lilycove_museum_2f_event_script_rich_boy",
+      "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_rich_boy",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_tourists",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lilycove_city_lilycove_museum_2f/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lilycove_city_lilycove_museum_2f/elevation_0",
       "name": "Collision_0",
       "width": 22,
       "height": 13,

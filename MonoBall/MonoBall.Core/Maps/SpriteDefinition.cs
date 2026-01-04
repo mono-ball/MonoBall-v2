@@ -134,6 +134,12 @@ public class SpriteAnimation
     /// </summary>
     [JsonPropertyName("flipHorizontal")]
     public bool FlipHorizontal { get; set; }
+
+    /// <summary>
+    ///     Whether to flip the sprite vertically for this animation.
+    /// </summary>
+    [JsonPropertyName("flipVertical")]
+    public bool FlipVertical { get; set; }
 }
 
 /// <summary>
@@ -150,4 +156,10 @@ public class SpriteAnimationFrame
     ///     The duration of this frame in seconds.
     /// </summary>
     public float DurationSeconds { get; set; }
+
+    /// <summary>
+    ///     The sprite sheet frame index (from SpriteDefinition.Frames[].Index).
+    ///     Stored during precomputation to enable O(1) frame lookup in animation system.
+    /// </summary>
+    public int FrameIndex { get; set; }
 }

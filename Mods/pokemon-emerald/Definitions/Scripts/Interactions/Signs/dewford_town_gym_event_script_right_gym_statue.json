@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/dewford_town_gym_event_script_right_gym_statue",
+  "id": "pokeemerald:script:interactions/signs/dewford_town_gym_event_script_right_gym_statue",
   "name": "dewford town gym event script right gym statue",
   "description": "Sign script: dewford town gym event script right gym statue",
-  "scriptPath": "Scripts/Signs/dewford_town_gym_event_script_right_gym_statue.csx",
+  "scriptPath": "Scripts/Interactions/Signs/dewford_town_gym_event_script_right_gym_statue.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

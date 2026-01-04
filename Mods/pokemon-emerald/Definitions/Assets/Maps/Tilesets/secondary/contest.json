@@ -1,14 +1,14 @@
 {
   "id": "pokeemerald:tileset:secondary/contest",
-  "name": "contest",
+  "name": "Contest",
   "type": "secondary",
-  "texturePath": "Graphics/Maps/Tilesets/Secondary/contest.png",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/Contest.png",
   "tileWidth": 16,
   "tileHeight": 16,
-  "tileCount": 64,
+  "tileCount": 65,
   "columns": 16,
   "imageWidth": 256,
-  "imageHeight": 64,
+  "imageHeight": 80,
   "spacing": 0,
   "margin": 0
 }

@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:script/movement/npcs/walk",
+  "id": "pokeemerald:script:movement/npcs/walk",
   "name": "Walk Movement Script",
   "description": "NPC walks in a pattern or direction",
   "scriptPath": "Scripts/Movement/NPCs/walk.csx",

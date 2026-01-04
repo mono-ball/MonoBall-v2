@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/rustboro_city_pokemon_school",
   "name": "RustboroCity_PokemonSchool",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 12,
   "height": 11,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_pokemon_school/ground",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_pokemon_school/ground",
       "name": "Ground",
       "width": 12,
       "height": 11,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_pokemon_school/objects",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_pokemon_school/objects",
       "name": "Objects",
       "width": 12,
       "height": 11,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAwAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/rustboro_city_pokemon_school/overhead",
+      "id": "pokeemerald:layer:Hoenn/rustboro_city_pokemon_school/overhead",
       "name": "Overhead",
       "width": 12,
       "height": 11,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pokemon_school"
+      "tilesetId": "pokeemerald:tileset:secondary/pokemonschool"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_pokemon_school/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_pokemon_school/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 80,
       "y": 160,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/rustboro_city_pokemon_school/warp_to_rustboro_city",
+      "id": "pokeemerald:warp:Hoenn/rustboro_city_pokemon_school/warp_to_rustboro_city",
       "name": "Warp to rustboro_city",
       "x": 96,
       "y": 160,
@@ -96,139 +111,132 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
       "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
       "x": 80,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_blackboard",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_pokemon_school_event_script_blackboard",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
       "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
       "x": 64,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_blackboard",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_pokemon_school_event_script_blackboard",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
       "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
       "x": 96,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_blackboard",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_pokemon_school_event_script_blackboard",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptblackboard",
       "name": "Sign: RustboroCity_PokemonSchool_EventScript_Blackboard",
       "x": 112,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_blackboard",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_pokemon_school_event_script_blackboard",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptstudentnotebook",
+      "id": "pokeemerald:interaction:Hoenn/rustboro_city_pokemon_school/sign_rustborocitypokemonschooleventscriptstudentnotebook",
       "name": "Sign: RustboroCity_PokemonSchool_EventScript_StudentNotebook",
       "x": 48,
       "y": 80,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_student_notebook",
+      "interactionId": "pokeemerald:script:interactions/signs/rustboro_city_pokemon_school_event_script_student_notebook",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_0",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_0",
       "name": "NPC_0",
       "x": 128,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/gameboykid",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_gameboy_kid1",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gameboykid",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_gameboy_kid1",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_1",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_1",
       "name": "NPC_1",
       "x": 144,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/gameboykid",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_gameboy_kid2",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gameboykid",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_gameboy_kid2",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_2",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_2",
       "name": "NPC_2",
       "x": 48,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/richboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_rich_boy",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/richboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_rich_boy",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_3",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_3",
       "name": "NPC_3",
       "x": 160,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/lass",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_lass",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/lass",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_lass",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_4",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_4",
       "name": "NPC_4",
       "x": 48,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/schoolkidm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_school_kid_m",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_school_kid_m",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_5",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_5",
       "name": "NPC_5",
       "x": 80,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/gentleman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_teacher",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_teacher",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/rustboro_city_pokemon_school/npc_6",
+      "id": "pokeemerald:npc:Hoenn/rustboro_city_pokemon_school/npc_6",
       "name": "NPC_6",
       "x": 0,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/scott",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/rustboro_city_pokemon_school_event_script_scott",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scott",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_school_event_script_scott",
       "visibilityFlag": "pokeemerald:flag:visibility/rustboro_city_pokemon_school_scott",
-      "facingDirection": "up",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/rustboro_city_pokemon_school/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/rustboro_city_pokemon_school/elevation_0",
       "name": "Collision_0",
       "width": 12,
       "height": 11,

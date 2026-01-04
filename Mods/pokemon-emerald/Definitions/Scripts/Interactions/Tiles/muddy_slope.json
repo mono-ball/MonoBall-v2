@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/muddy_slope",
+  "id": "pokeemerald:script:interactions/tiles/muddy_slope",
   "name": "Muddy Slope",
   "description": "Tile interaction: Muddy Slope",
+  "scriptPath": "Scripts/Interactions/Tiles/muddy_slope.csx",
   "category": "misc",
   "priority": 500
 }

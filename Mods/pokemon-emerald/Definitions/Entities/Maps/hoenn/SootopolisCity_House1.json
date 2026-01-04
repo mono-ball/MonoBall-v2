@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/sootopolis_city_house1",
   "name": "SootopolisCity_House1",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 8,
   "height": 7,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/sootopolis_city_house1/ground",
+      "id": "pokeemerald:layer:Hoenn/sootopolis_city_house1/ground",
       "name": "Ground",
       "width": 8,
       "height": 7,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/sootopolis_city_house1/objects",
+      "id": "pokeemerald:layer:Hoenn/sootopolis_city_house1/objects",
       "name": "Objects",
       "width": 8,
       "height": 7,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/sootopolis_city_house1/overhead",
+      "id": "pokeemerald:layer:Hoenn/sootopolis_city_house1/overhead",
       "name": "Overhead",
       "width": 8,
       "height": 7,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/sootopolis_city_house1/warp_to_sootopolis_city",
+      "id": "pokeemerald:warp:Hoenn/sootopolis_city_house1/warp_to_sootopolis_city",
       "name": "Warp to sootopolis_city",
       "x": 48,
       "y": 96,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/sootopolis_city_house1/warp_to_sootopolis_city",
+      "id": "pokeemerald:warp:Hoenn/sootopolis_city_house1/warp_to_sootopolis_city",
       "name": "Warp to sootopolis_city",
       "x": 64,
       "y": 96,
@@ -97,31 +112,29 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/sootopolis_city_house1/npc_0",
+      "id": "pokeemerald:npc:Hoenn/sootopolis_city_house1/npc_0",
       "name": "NPC_0",
       "x": 32,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_house1_event_script_brick_break_black_belt",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house1_event_script_brick_break_black_belt",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/sootopolis_city_house1/npc_1",
+      "id": "pokeemerald:npc:Hoenn/sootopolis_city_house1/npc_1",
       "name": "NPC_1",
       "x": 32,
       "y": 48,
       "spriteId": "pokeemerald:sprite:pokemon/kecleonold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/sootopolis_city_house1_event_script_kecleon",
-      "facingDirection": "down",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house1_event_script_kecleon",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/sootopolis_city_house1/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/sootopolis_city_house1/elevation_0",
       "name": "Collision_0",
       "width": 8,
       "height": 7,
@@ -131,7 +144,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:collision:hoenn/sootopolis_city_house1/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/sootopolis_city_house1/elevation_3",
       "name": "Collision_3",
       "width": 8,
       "height": 7,

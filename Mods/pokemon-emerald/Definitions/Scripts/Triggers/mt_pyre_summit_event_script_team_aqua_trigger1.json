@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mt_pyre_summit_event_script_team_aqua_trigger1",
+  "name": "mt pyre summit event script team aqua trigger1",
+  "description": "Trigger script: mt pyre summit event script team aqua trigger1",
+  "scriptPath": "Scripts/Triggers/mt_pyre_summit_event_script_team_aqua_trigger1.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

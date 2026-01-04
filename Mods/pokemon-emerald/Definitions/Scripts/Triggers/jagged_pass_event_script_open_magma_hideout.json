@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/jagged_pass_event_script_open_magma_hideout",
+  "name": "jagged pass event script open magma hideout",
+  "description": "Trigger script: jagged pass event script open magma hideout",
+  "scriptPath": "Scripts/Triggers/jagged_pass_event_script_open_magma_hideout.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

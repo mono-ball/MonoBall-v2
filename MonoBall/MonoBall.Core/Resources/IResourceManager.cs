@@ -240,6 +240,26 @@ public interface IResourceManager
     /// <returns>True if the animation should be flipped, false otherwise.</returns>
     bool GetAnimationFlipHorizontal(string spriteId, string animationName);
 
+    /// <summary>
+    ///     Gets whether an animation should be vertically flipped.
+    /// </summary>
+    /// <param name="spriteId">The sprite ID.</param>
+    /// <param name="animationName">The animation name.</param>
+    /// <returns>True if the animation should be vertically flipped, false otherwise.</returns>
+    bool GetAnimationFlipVertical(string spriteId, string animationName);
+
+    /// <summary>
+    ///     Gets the source rectangle for a specific frame index in a sprite definition.
+    ///     This method directly accesses frame definitions without animation lookup.
+    /// </summary>
+    /// <param name="spriteId">The sprite definition ID.</param>
+    /// <param name="frameIndex">The frame index (0-based) into the sprite sheet.</param>
+    /// <returns>The source rectangle for the frame.</returns>
+    /// <exception cref="ArgumentException">Thrown when spriteId is null/empty or frameIndex is negative.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when sprite definition not found.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when frame index is out of range.</exception>
+    Rectangle GetSpriteFrameRectangle(string spriteId, int frameIndex);
+
     // Text File Loading
     /// <summary>
     ///     Loads a text file for the specified resource definition.

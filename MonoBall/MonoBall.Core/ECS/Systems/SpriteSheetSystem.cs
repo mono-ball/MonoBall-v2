@@ -112,6 +112,31 @@ public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, I
         // Update sprite sheet
         spriteSheet.CurrentSpriteSheetId = evt.NewSpriteSheetId;
 
+        // Update SpriteComponent if it exists (required for sprite rendering)
+        if (World.Has<SpriteComponent>(evt.Entity))
+        {
+            ref var sprite = ref World.Get<SpriteComponent>(evt.Entity);
+            sprite.SpriteId = evt.NewSpriteSheetId; // Sync with SpriteSheetComponent
+            sprite.FrameIndex = 0; // Reset to first frame
+
+            // Update flip flags immediately to prevent one-frame delay
+            sprite.FlipHorizontal = _resourceManager.GetAnimationFlipHorizontal(
+                evt.NewSpriteSheetId,
+                evt.AnimationName
+            );
+            sprite.FlipVertical = _resourceManager.GetAnimationFlipVertical(
+                evt.NewSpriteSheetId,
+                evt.AnimationName
+            );
+        }
+        else
+        {
+            _logger.Warning(
+                "SpriteSheetSystem.OnSpriteSheetChangeRequest: Entity {EntityId} does not have SpriteComponent",
+                evt.Entity.Id
+            );
+        }
+
         // Update animation component if it exists
         if (!World.Has<SpriteAnimationComponent>(evt.Entity))
         {
@@ -124,7 +149,7 @@ public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, I
 
         ref var anim = ref World.Get<SpriteAnimationComponent>(evt.Entity);
         anim.CurrentAnimationName = evt.AnimationName;
-        anim.CurrentFrameIndex = 0;
+        anim.CurrentAnimationFrameIndex = 0;
         anim.ElapsedTime = 0.0f;
 
         // Publish sprite sheet changed event

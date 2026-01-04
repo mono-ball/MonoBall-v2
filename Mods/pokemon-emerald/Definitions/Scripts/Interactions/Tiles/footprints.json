@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/footprints",
+  "id": "pokeemerald:script:interactions/tiles/footprints",
   "name": "Footprints",
   "description": "Tile interaction: Footprints",
+  "scriptPath": "Scripts/Interactions/Tiles/footprints.csx",
   "category": "misc",
   "priority": 500
 }

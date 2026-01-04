@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/sky_pillar_top_event_script_awaken_rayquaza",
+  "name": "sky pillar top event script awaken rayquaza",
+  "description": "Trigger script: sky pillar top event script awaken rayquaza",
+  "scriptPath": "Scripts/Triggers/sky_pillar_top_event_script_awaken_rayquaza.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

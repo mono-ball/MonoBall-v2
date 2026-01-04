@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mossdeep_city_gym_event_script_warp_to_entrance",
+  "name": "mossdeep city gym event script warp to entrance",
+  "description": "Trigger script: mossdeep city gym event script warp to entrance",
+  "scriptPath": "Scripts/Triggers/mossdeep_city_gym_event_script_warp_to_entrance.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/event_script_record_center_spot3",
+  "name": "event script record center spot3",
+  "description": "Trigger script: event script record center spot3",
+  "scriptPath": "Scripts/Triggers/event_script_record_center_spot3.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

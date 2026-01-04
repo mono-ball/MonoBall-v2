@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/ice_spin_down",
+  "id": "pokeemerald:script:interactions/tiles/ice_spin_down",
   "name": "Ice Spin Down",
   "description": "Tile interaction: Ice Spin Down",
+  "scriptPath": "Scripts/Interactions/Tiles/ice_spin_down.csx",
   "category": "movement",
   "priority": 500
 }

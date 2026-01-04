@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/oldale_town_event_script_town_sign",
+  "id": "pokeemerald:script:interactions/signs/oldale_town_event_script_town_sign",
   "name": "oldale town event script town sign",
   "description": "Sign script: oldale town event script town sign",
-  "scriptPath": "Scripts/Signs/oldale_town_event_script_town_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/oldale_town_event_script_town_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

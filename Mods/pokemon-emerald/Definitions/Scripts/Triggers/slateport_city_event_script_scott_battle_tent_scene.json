@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/slateport_city_event_script_scott_battle_tent_scene",
+  "name": "slateport city event script scott battle tent scene",
+  "description": "Trigger script: slateport city event script scott battle tent scene",
+  "scriptPath": "Scripts/Triggers/slateport_city_event_script_scott_battle_tent_scene.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

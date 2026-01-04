@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/slateport_city_pokemon_fan_club",
   "name": "SlateportCity_PokemonFanClub",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 14,
   "height": 11,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/slateport_city_pokemon_fan_club/ground",
+      "id": "pokeemerald:layer:Hoenn/slateport_city_pokemon_fan_club/ground",
       "name": "Ground",
       "width": 14,
       "height": 11,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/slateport_city_pokemon_fan_club/objects",
+      "id": "pokeemerald:layer:Hoenn/slateport_city_pokemon_fan_club/objects",
       "name": "Objects",
       "width": 14,
       "height": 11,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABQAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/slateport_city_pokemon_fan_club/overhead",
+      "id": "pokeemerald:layer:Hoenn/slateport_city_pokemon_fan_club/overhead",
       "name": "Overhead",
       "width": 14,
       "height": 11,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/pokemon_fan_club"
+      "tilesetId": "pokeemerald:tileset:secondary/pokemonfanclub"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/slateport_city_pokemon_fan_club/warp_to_slateport_city",
+      "id": "pokeemerald:warp:Hoenn/slateport_city_pokemon_fan_club/warp_to_slateport_city",
       "name": "Warp to slateport_city",
       "x": 96,
       "y": 160,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/slateport_city_pokemon_fan_club/warp_to_slateport_city",
+      "id": "pokeemerald:warp:Hoenn/slateport_city_pokemon_fan_club/warp_to_slateport_city",
       "name": "Warp to slateport_city",
       "x": 112,
       "y": 160,
@@ -97,108 +112,103 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_0",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_0",
       "name": "NPC_0",
       "x": 176,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/man1",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_man",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_man",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_1",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_1",
       "name": "NPC_1",
       "x": 16,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/twin",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/twin",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 0,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_twin",
-      "facingDirection": "up",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_twin",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_2",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_2",
       "name": "NPC_2",
       "x": 176,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/reporterf",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_reporter",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/reporterf",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_reporter",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_3",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_3",
       "name": "NPC_3",
       "x": 96,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/woman4",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_soothe_bell_woman",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_soothe_bell_woman",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_4",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_4",
       "name": "NPC_4",
       "x": 96,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/gentleman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_chairman",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_chairman",
       "elevation": 4
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_5",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_5",
       "name": "NPC_5",
       "x": 48,
       "y": 144,
       "spriteId": "pokeemerald:sprite:pokemon/enemyzigzagoon",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_zigzagoon",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_zigzagoon",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_6",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_6",
       "name": "NPC_6",
       "x": 128,
       "y": 48,
       "spriteId": "pokeemerald:sprite:pokemon/skittyold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_skitty",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_skitty",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_7",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_7",
       "name": "NPC_7",
       "x": 160,
       "y": 128,
       "spriteId": "pokeemerald:sprite:pokemon/azumarillold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_azumarill",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_azumarill",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/slateport_city_pokemon_fan_club/npc_8",
+      "id": "pokeemerald:npc:Hoenn/slateport_city_pokemon_fan_club/npc_8",
       "name": "NPC_8",
       "x": 176,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/man4",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/slateport_city_pokemon_fan_club_event_script_swagger_tutor",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man4",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_pokemon_fan_club_event_script_swagger_tutor",
       "elevation": 0
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/slateport_city_pokemon_fan_club/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/slateport_city_pokemon_fan_club/elevation_0",
       "name": "Collision_0",
       "width": 14,
       "height": 11,

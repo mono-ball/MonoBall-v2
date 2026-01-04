@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/berry_tree_soil",
+  "id": "pokeemerald:script:interactions/tiles/berry_tree_soil",
   "name": "Berry Tree Soil",
   "description": "Tile interaction: Berry Tree Soil",
+  "scriptPath": "Scripts/Interactions/Tiles/berry_tree_soil.csx",
   "category": "misc",
   "priority": 500
 }

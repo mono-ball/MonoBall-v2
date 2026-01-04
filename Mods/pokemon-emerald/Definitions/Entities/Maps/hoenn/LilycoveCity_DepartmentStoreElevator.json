@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/lilycove_city_department_store_elevator",
   "name": "LilycoveCity_DepartmentStoreElevator",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 5,
   "height": 6,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_department_store_elevator/ground",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_department_store_elevator/ground",
       "name": "Ground",
       "width": 5,
       "height": 6,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_department_store_elevator/objects",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_department_store_elevator/objects",
       "name": "Objects",
       "width": 5,
       "height": 6,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/lilycove_city_department_store_elevator/overhead",
+      "id": "pokeemerald:layer:Hoenn/lilycove_city_department_store_elevator/overhead",
       "name": "Overhead",
       "width": 5,
       "height": 6,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_frontier"
+      "tilesetId": "pokeemerald:tileset:secondary/battlefrontier"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/lilycove_city_department_store_elevator/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/lilycove_city_department_store_elevator/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 16,
       "y": 80,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/lilycove_city_department_store_elevator/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/lilycove_city_department_store_elevator/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 32,
       "y": 80,
@@ -97,20 +112,19 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/lilycove_city_department_store_elevator/npc_0",
+      "id": "pokeemerald:npc:Hoenn/lilycove_city_department_store_elevator/npc_0",
       "name": "NPC_0",
       "x": 0,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/teala",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/lilycove_city_department_store_elevator_event_script_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/teala",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_department_store_elevator_event_script_attendant",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/lilycove_city_department_store_elevator/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/lilycove_city_department_store_elevator/elevation_0",
       "name": "Collision_0",
       "width": 5,
       "height": 6,

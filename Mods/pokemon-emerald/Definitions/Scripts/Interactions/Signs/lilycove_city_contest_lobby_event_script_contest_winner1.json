@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/lilycove_city_contest_lobby_event_script_contest_winner1",
+  "id": "pokeemerald:script:interactions/signs/lilycove_city_contest_lobby_event_script_contest_winner1",
   "name": "lilycove city contest lobby event script contest winner1",
   "description": "Sign script: lilycove city contest lobby event script contest winner1",
-  "scriptPath": "Scripts/Signs/lilycove_city_contest_lobby_event_script_contest_winner1.csx",
+  "scriptPath": "Scripts/Interactions/Signs/lilycove_city_contest_lobby_event_script_contest_winner1.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

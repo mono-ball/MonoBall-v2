@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/mauville_city_bike_shop_event_script_acro_bike_handbook",
+  "id": "pokeemerald:script:interactions/signs/mauville_city_bike_shop_event_script_acro_bike_handbook",
   "name": "mauville city bike shop event script acro bike handbook",
   "description": "Sign script: mauville city bike shop event script acro bike handbook",
-  "scriptPath": "Scripts/Signs/mauville_city_bike_shop_event_script_acro_bike_handbook.csx",
+  "scriptPath": "Scripts/Interactions/Signs/mauville_city_bike_shop_event_script_acro_bike_handbook.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

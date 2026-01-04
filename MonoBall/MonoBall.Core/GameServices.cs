@@ -207,7 +207,7 @@ public class GameServices
         }
 
         // Initialize mod manager
-        ModManager = new ModManager(modsDirectory, LoggerFactory.CreateLogger<ModManager>());
+        ModManager = new ModManager(LoggerFactory.CreateLogger<ModManager>(), modsDirectory);
 
         // Load mods and collect any errors
         var errors = new List<string>();

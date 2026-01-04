@@ -125,7 +125,7 @@ internal static class MovementAnimationHelper
         if (animation.CurrentAnimationName != animationName || forceRestart)
         {
             animation.CurrentAnimationName = animationName;
-            animation.CurrentFrameIndex = 0;
+            animation.CurrentAnimationFrameIndex = 0;
             animation.ElapsedTime = 0f;
             animation.IsPlaying = true;
             animation.IsComplete = false;

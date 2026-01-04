@@ -410,38 +410,6 @@ public class SystemManager : IDisposable
 
         // LoadingSceneSystem no longer needs LoadingSceneRendererSystem - it handles rendering internally
 
-        // Create shader services and systems
-        var shaderService = _game.Services.GetService<IShaderService>();
-        var shaderParameterValidator = _game.Services.GetService<IShaderParameterValidator>();
-
-        if (shaderService != null && shaderParameterValidator != null)
-        {
-            _renderTargetManager = new RenderTargetManager(
-                _graphicsDevice,
-                LoggerFactory.CreateLogger<RenderTargetManager>()
-            );
-            _shaderManagerSystem = new ShaderManagerSystem(
-                _world,
-                shaderService,
-                shaderParameterValidator,
-                _graphicsDevice,
-                LoggerFactory.CreateLogger<ShaderManagerSystem>()
-            );
-            _shaderRendererSystem = new ShaderRendererSystem(
-                LoggerFactory.CreateLogger<ShaderRendererSystem>()
-            );
-            _shaderParameterAnimationSystem = new ShaderParameterAnimationSystem(
-                _world,
-                _shaderManagerSystem,
-                LoggerFactory.CreateLogger<ShaderParameterAnimationSystem>()
-            );
-            _shaderTemplateSystem = new ShaderTemplateSystem(
-                _world,
-                _modManager,
-                LoggerFactory.CreateLogger<ShaderTemplateSystem>()
-            );
-        }
-
         // Create game systems
         CreateGameSystems();
 
@@ -685,10 +653,12 @@ public class SystemManager : IDisposable
         RegisterUpdateSystem(_inputSystem);
 
         // Create movement system (handles animation state directly, matching oldmonoball architecture)
+        // Reuse constantsService from earlier in this method
         _movementSystem = new MovementSystem(
             _world,
             nullCollisionService,
             _activeMapFilterService,
+            constantsService,
             _modManager,
             LoggerFactory.CreateLogger<MovementSystem>()
         );

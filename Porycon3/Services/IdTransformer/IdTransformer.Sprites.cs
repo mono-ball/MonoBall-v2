@@ -94,7 +94,7 @@ public static partial class IdTransformer
     public static string SpriteId(string graphicsId)
     {
         if (string.IsNullOrEmpty(graphicsId))
-            return $"{Namespace}:sprite:npcs/unknown";
+            return $"{Namespace}:sprite:characters/npcs/unknown";
 
         var name = graphicsId;
         if (name.StartsWith("OBJ_EVENT_GFX_", StringComparison.OrdinalIgnoreCase))
@@ -104,7 +104,12 @@ public static partial class IdTransformer
 
         // Check for sprite aliases first
         if (SpriteAliases.TryGetValue(name, out var aliasPath))
+        {
+            // Ensure aliases use characters/ prefix for NPCs
+            if (aliasPath.StartsWith("npcs/"))
+                return $"{Namespace}:sprite:characters/{aliasPath}";
             return $"{Namespace}:sprite:{aliasPath}";
+        }
 
         // Check for Pokemon overworld sprites
         if (PokemonSprites.TryGetValue(name, out var pokemonPath))
@@ -114,29 +119,29 @@ public static partial class IdTransformer
         if (name.StartsWith("var_"))
         {
             var varName = VariableSpriteNames.TryGetValue(name, out var mapped) ? mapped : name;
-            return $"{Namespace}:sprite:npcs/{{{varName}}}";
+            return $"{Namespace}:sprite:characters/npcs/{{{varName}}}";
         }
 
-        // Player characters: brendan_acro_bike -> base:sprite:players/brendan/acrobike
+        // Player characters: brendan_acro_bike -> base:sprite:characters/players/brendan/acrobike
         if (name.StartsWith("brendan_"))
         {
             var variant = name[8..].Replace("_", "");
-            return $"{Namespace}:sprite:players/brendan/{variant}";
+            return $"{Namespace}:sprite:characters/players/brendan/{variant}";
         }
         if (name.StartsWith("may_"))
         {
             var variant = name[4..].Replace("_", "");
-            return $"{Namespace}:sprite:players/may/{variant}";
+            return $"{Namespace}:sprite:characters/players/may/{variant}";
         }
         if (name.StartsWith("ruby_sapphire_brendan_"))
         {
             var variant = name[22..].Replace("_", "");
-            return $"{Namespace}:sprite:npcs/rubysapphirebrendan/{variant}";
+            return $"{Namespace}:sprite:characters/npcs/rubysapphirebrendan/{variant}";
         }
         if (name.StartsWith("ruby_sapphire_may_"))
         {
             var variant = name[18..].Replace("_", "");
-            return $"{Namespace}:sprite:npcs/rubysapphiremay/{variant}";
+            return $"{Namespace}:sprite:characters/npcs/rubysapphiremay/{variant}";
         }
 
         // Objects: dolls, cushions, misc items
@@ -160,7 +165,8 @@ public static partial class IdTransformer
             return $"{Namespace}:sprite:objects/berrytrees/cheri";
         if (name.StartsWith("berry_tree_"))
         {
-            var treeName = name.Replace("_", "");
+            // Extract tree name after "berry_tree_" prefix (e.g., "berry_tree_cheri" -> "cheri")
+            var treeName = name.Substring(11).Replace("_", "");
             return $"{Namespace}:sprite:objects/berrytrees/{treeName}";
         }
 
@@ -174,11 +180,11 @@ public static partial class IdTransformer
         // NPCs with special categories
         var (category, npcName) = InferNpcCategoryAndName(name);
         if (!string.IsNullOrEmpty(category))
-            return $"{Namespace}:sprite:npcs/{category}/{npcName}";
+            return $"{Namespace}:sprite:characters/npcs/{category}/{npcName}";
 
         // Generic NPCs
         var npcNameNoUnderscores = name.Replace("_", "");
-        return $"{Namespace}:sprite:npcs/{npcNameNoUnderscores}";
+        return $"{Namespace}:sprite:characters/npcs/{npcNameNoUnderscores}";
     }
 
     private static (string Category, string Name) InferNpcCategoryAndName(string spriteName)

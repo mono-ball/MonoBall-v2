@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/slateport_city_event_script_sterns_shipyard_sign",
+  "id": "pokeemerald:script:interactions/signs/slateport_city_event_script_sterns_shipyard_sign",
   "name": "slateport city event script sterns shipyard sign",
   "description": "Sign script: slateport city event script sterns shipyard sign",
-  "scriptPath": "Scripts/Signs/slateport_city_event_script_sterns_shipyard_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/slateport_city_event_script_sterns_shipyard_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

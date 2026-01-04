@@ -72,4 +72,61 @@ public static partial class IdTransformer
 
         return $"{Namespace}:{entityType}:{category}/{name}";
     }
+
+    /// <summary>
+    /// Convert a string to PascalCase.
+    /// Handles snake_case (ever_grande -> EverGrande), kebab-case (ever-grande -> EverGrande),
+    /// space-separated (ever grande -> EverGrande), and already PascalCase names.
+    /// </summary>
+    public static string ToPascalCase(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return "";
+
+        // If already PascalCase (starts with uppercase, no underscores/hyphens/spaces), return as-is
+        if (char.IsUpper(value[0]) && !value.Contains('_') && !value.Contains('-') && !value.Contains(' '))
+            return value;
+
+        // Split on underscores, hyphens, and spaces, then capitalize each word
+        var parts = value.Split(new[] { '_', '-', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        var result = new System.Text.StringBuilder();
+
+        foreach (var part in parts)
+        {
+            if (part.Length > 0)
+            {
+                result.Append(char.ToUpperInvariant(part[0]));
+                if (part.Length > 1)
+                    result.Append(part.Substring(1).ToLowerInvariant());
+            }
+        }
+
+        return result.ToString();
+    }
+
+    /// <summary>
+    /// Convert a string to snake_case.
+    /// Handles PascalCase (EverGrande -> ever_grande) and already snake_case names.
+    /// </summary>
+    public static string ToSnakeCase(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return "";
+
+        // If already snake_case (lowercase with underscores or single word), return as-is
+        if (value == value.ToLowerInvariant())
+            return value;
+
+        // Convert PascalCase to snake_case
+        var result = new System.Text.StringBuilder();
+        for (var i = 0; i < value.Length; i++)
+        {
+            var c = value[i];
+            if (i > 0 && char.IsUpper(c))
+                result.Append('_');
+            result.Append(char.ToLowerInvariant(c));
+        }
+
+        return result.ToString();
+    }
 }

@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/navel_rock_down01",
   "name": "NavelRock_Down01",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:underground",
   "width": 9,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/navelrock",
+    "bottomLayer": [
+      985,
+      985,
+      985,
+      985
+    ],
+    "topLayer": [
+      986,
+      986,
+      986,
+      986
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/navel_rock_down01/ground",
+      "id": "pokeemerald:layer:Hoenn/navel_rock_down01/ground",
       "name": "Ground",
       "width": 9,
       "height": 8,
@@ -30,10 +45,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4QMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/navel_rock_down01/objects",
+      "id": "pokeemerald:layer:Hoenn/navel_rock_down01/objects",
       "name": "Objects",
       "width": 9,
       "height": 8,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANsDAADcAwAA3AMAANwDAADcAwAA3AMAAN0DAADZAwAA2QMAAN4DAADbAwAA5gMAANwDAADcAwAA3QMAAN8DAADZAwAA2QMAAN4DAADeAwAA5wMAAOEDAADhAwAA3wMAAN8DAADZAwAA2QMAAN4DAADeAwAA4QMAAOEDAADhAwAA3wMAAN8DAADZAwAA2QMAAN4DAADeAwAA4QMAAOEDAADgAwAA3wMAAN8DAADZAwAA2QMAAN4DAADfAwAA3wMAAN8DAADfAwAA3wMAAN8DAADZAwAA2QMAAN8DAADfAwAA3wMAAN8DAADfAwAA3wMAAN8DAADZAwAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/navel_rock_down01/overhead",
+      "id": "pokeemerald:layer:Hoenn/navel_rock_down01/overhead",
       "name": "Overhead",
       "width": 9,
       "height": 8,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "2gMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANoDAADaAwAA2gMAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwAA2gMAANoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwAA2gMAANoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwAA2gMAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwAA2gMAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwAA2gMAANoDAMDlAwAA5QMAAOUDAADlAwAA5QMAANoDAMDaAwAA2gMAAOUDAADlAwAA5QMAAOUDAADlAwAA5QMAAOUDAADaAwAA"
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
-      "tilesetId": "pokeemerald:tileset:secondary/navel_rock"
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/navelrock"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/navel_rock_down01/warp_to_navel_rock_fork",
+      "id": "pokeemerald:warp:Hoenn/navel_rock_down01/warp_to_navel_rock_fork",
       "name": "Warp to navel_rock_fork",
       "x": 48,
       "y": 48,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/navel_rock_down01/warp_to_navel_rock_down02",
+      "id": "pokeemerald:warp:Hoenn/navel_rock_down01/warp_to_navel_rock_down02",
       "name": "Warp to navel_rock_down02",
       "x": 80,
       "y": 80,
@@ -98,7 +113,7 @@
   "npcs": [],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/navel_rock_down01/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/navel_rock_down01/elevation_0",
       "name": "Collision_0",
       "width": 9,
       "height": 8,

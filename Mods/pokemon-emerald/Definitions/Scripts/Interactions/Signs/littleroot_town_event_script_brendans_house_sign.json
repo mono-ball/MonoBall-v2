@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/littleroot_town_event_script_brendans_house_sign",
+  "id": "pokeemerald:script:interactions/signs/littleroot_town_event_script_brendans_house_sign",
   "name": "littleroot town event script brendans house sign",
   "description": "Sign script: littleroot town event script brendans house sign",
-  "scriptPath": "Scripts/Signs/littleroot_town_event_script_brendans_house_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/littleroot_town_event_script_brendans_house_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

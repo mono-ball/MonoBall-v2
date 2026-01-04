@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/thin_ice",
+  "id": "pokeemerald:script:interactions/tiles/thin_ice",
   "name": "Thin Ice",
   "description": "Tile interaction: Thin Ice",
+  "scriptPath": "Scripts/Interactions/Tiles/thin_ice.csx",
   "category": "ice",
   "priority": 500
 }

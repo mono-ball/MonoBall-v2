@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route114_lanettes_house",
   "name": "Route114_LanettesHouse",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 11,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "topLayer": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route114_lanettes_house/ground",
+      "id": "pokeemerald:layer:Hoenn/route114_lanettes_house/ground",
       "name": "Ground",
       "width": 11,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route114_lanettes_house/objects",
+      "id": "pokeemerald:layer:Hoenn/route114_lanettes_house/objects",
       "name": "Objects",
       "width": 11,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/route114_lanettes_house/overhead",
+      "id": "pokeemerald:layer:Hoenn/route114_lanettes_house/overhead",
       "name": "Overhead",
       "width": 11,
       "height": 8,
@@ -69,7 +84,7 @@
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route114_lanettes_house/warp_to_route114",
+      "id": "pokeemerald:warp:Hoenn/route114_lanettes_house/warp_to_route114",
       "name": "Warp to route114",
       "x": 80,
       "y": 112,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/route114_lanettes_house/warp_to_route114",
+      "id": "pokeemerald:warp:Hoenn/route114_lanettes_house/warp_to_route114",
       "name": "Warp to route114",
       "x": 96,
       "y": 112,
@@ -96,52 +111,52 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptnotebook",
+      "id": "pokeemerald:interaction:Hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptnotebook",
       "name": "Sign: Route114_LanettesHouse_EventScript_Notebook",
       "x": 80,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_notebook",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_lanettes_house_event_script_notebook",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptpc",
+      "id": "pokeemerald:interaction:Hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptpc",
       "name": "Sign: Route114_LanettesHouse_EventScript_PC",
       "x": 128,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_pc",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_lanettes_house_event_script_pc",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptpc",
+      "id": "pokeemerald:interaction:Hoenn/route114_lanettes_house/sign_route114lanetteshouseeventscriptpc",
       "name": "Sign: Route114_LanettesHouse_EventScript_PC",
       "x": 112,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_pc",
+      "interactionId": "pokeemerald:script:interactions/signs/route114_lanettes_house_event_script_pc",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route114_lanettes_house/npc_0",
+      "id": "pokeemerald:npc:Hoenn/route114_lanettes_house/npc_0",
       "name": "NPC_0",
       "x": 80,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/woman2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route114_lanettes_house_event_script_lanette",
+      "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route114_lanettes_house_event_script_lanette",
       "visibilityFlag": "pokeemerald:flag:visibility/lanettes_house_lanette",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route114_lanettes_house/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route114_lanettes_house/elevation_0",
       "name": "Collision_0",
       "width": 11,
       "height": 8,

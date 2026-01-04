@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/mossdeep_city_event_script_team_magma_enter_space_center",
+  "name": "mossdeep city event script team magma enter space center",
+  "description": "Trigger script: mossdeep city event script team magma enter space center",
+  "scriptPath": "Scripts/Triggers/mossdeep_city_event_script_team_magma_enter_space_center.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

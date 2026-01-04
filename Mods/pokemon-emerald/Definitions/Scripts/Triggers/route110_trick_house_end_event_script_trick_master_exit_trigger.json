@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route110_trick_house_end_event_script_trick_master_exit_trigger",
+  "name": "route110 trick house end event script trick master exit trigger",
+  "description": "Trigger script: route110 trick house end event script trick master exit trigger",
+  "scriptPath": "Scripts/Triggers/route110_trick_house_end_event_script_trick_master_exit_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

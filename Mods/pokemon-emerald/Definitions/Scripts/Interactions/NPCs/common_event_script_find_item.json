@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:interaction/npcs/common_event_script_find_item",
+  "id": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
   "name": "common event script find item",
   "description": "NPC interaction: common event script find item",
   "scriptPath": "Scripts/Interactions/NPCs/common_event_script_find_item.csx",

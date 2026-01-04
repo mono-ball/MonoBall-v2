@@ -15,5 +15,17 @@
       "height": 16
     }
   ],
-  "animations": []
+  "animations": [
+    {
+      "name": "stage0",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "frameDurations": [
+        0.5333333333333333
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

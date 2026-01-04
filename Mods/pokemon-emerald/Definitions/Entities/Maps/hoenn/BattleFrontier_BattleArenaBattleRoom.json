@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_battle_arena_battle_room",
   "name": "BattleFrontier_BattleArenaBattleRoom",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 16,
   "height": 11,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_arena_battle_room/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_arena_battle_room/ground",
       "name": "Ground",
       "width": 16,
       "height": 11,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_arena_battle_room/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_arena_battle_room/objects",
       "name": "Objects",
       "width": 16,
       "height": 11,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_arena_battle_room/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_arena_battle_room/overhead",
       "name": "Overhead",
       "width": 16,
       "height": 11,
@@ -64,7 +79,7 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_arena"
+      "tilesetId": "pokeemerald:tileset:secondary/battlearena"
     }
   ],
   "warps": [],
@@ -72,99 +87,90 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_1",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_1",
       "name": "LOCALID_ARENA_BATTLE_BLACK_BELT_1",
       "x": 80,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_2",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_2",
       "name": "LOCALID_ARENA_BATTLE_BLACK_BELT_2",
       "x": 160,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_3",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_3",
       "name": "LOCALID_ARENA_BATTLE_BLACK_BELT_3",
       "x": 80,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_4",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_black_belt_4",
       "name": "LOCALID_ARENA_BATTLE_BLACK_BELT_4",
       "x": 160,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_attendant",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_attendant",
       "name": "LOCALID_ARENA_BATTLE_ATTENDANT",
       "x": 64,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/npc_5",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/npc_5",
       "name": "NPC_5",
       "x": 176,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_opponent",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_opponent",
       "name": "LOCALID_ARENA_BATTLE_OPPONENT",
       "x": 240,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/{var_rival}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_player",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_player",
       "name": "LOCALID_ARENA_BATTLE_PLAYER",
       "x": 0,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/{var_player}",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/{var_player}",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_announcer",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_arena_battle_room/localid_arena_battle_announcer",
       "name": "LOCALID_ARENA_BATTLE_ANNOUNCER",
       "x": 112,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/blackbelt",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_arena_battle_room/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_battle_arena_battle_room/elevation_0",
       "name": "Collision_0",
       "width": 16,
       "height": 11,

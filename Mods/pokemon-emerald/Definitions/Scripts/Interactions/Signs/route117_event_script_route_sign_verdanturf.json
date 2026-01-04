@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route117_event_script_route_sign_verdanturf",
+  "id": "pokeemerald:script:interactions/signs/route117_event_script_route_sign_verdanturf",
   "name": "route117 event script route sign verdanturf",
   "description": "Sign script: route117 event script route sign verdanturf",
-  "scriptPath": "Scripts/Signs/route117_event_script_route_sign_verdanturf.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route117_event_script_route_sign_verdanturf.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

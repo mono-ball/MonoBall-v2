@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/littleroot_town_professor_birchs_lab_event_script_bookshelf",
+  "id": "pokeemerald:script:interactions/signs/littleroot_town_professor_birchs_lab_event_script_bookshelf",
   "name": "littleroot town professor birchs lab event script bookshelf",
   "description": "Sign script: littleroot town professor birchs lab event script bookshelf",
-  "scriptPath": "Scripts/Signs/littleroot_town_professor_birchs_lab_event_script_bookshelf.csx",
+  "scriptPath": "Scripts/Interactions/Signs/littleroot_town_professor_birchs_lab_event_script_bookshelf.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

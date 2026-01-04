@@ -9,8 +9,9 @@ public class MapLayer
 {
     /// <summary>
     ///     The unique identifier for the layer.
+    ///     Note: JSON uses "id" but property is named LayerId for clarity.
     /// </summary>
-    [JsonPropertyName("layerId")]
+    [JsonPropertyName("id")]
     public string LayerId { get; set; } = string.Empty;
 
     /// <summary>

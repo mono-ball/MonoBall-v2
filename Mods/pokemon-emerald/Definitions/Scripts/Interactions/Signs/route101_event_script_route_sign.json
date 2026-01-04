@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/route101_event_script_route_sign",
+  "id": "pokeemerald:script:interactions/signs/route101_event_script_route_sign",
   "name": "route101 event script route sign",
   "description": "Sign script: route101 event script route sign",
-  "scriptPath": "Scripts/Signs/route101_event_script_route_sign.csx",
+  "scriptPath": "Scripts/Interactions/Signs/route101_event_script_route_sign.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

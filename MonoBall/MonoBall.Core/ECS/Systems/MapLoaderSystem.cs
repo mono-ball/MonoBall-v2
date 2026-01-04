@@ -631,26 +631,48 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 {
                     for (var i = 0; i < chunkTileIndices.Length; i++)
                     {
-                        var gid = chunkTileIndices[i];
+                        var rawGidWithFlags = chunkTileIndices[i];
+
+                        // Extract raw GID (strips flip flags from high bits)
+                        // CRITICAL: Must mask flip flags before resolving tileset, as TilesetResolver
+                        // compares GIDs and a GID with 0x80000000 set will be negative when treated as signed int
+                        var gid = TileConstants.GetRawGid(rawGidWithFlags);
                         if (gid > 0)
                         {
-                            // Resolve tileset for this GID
-                            var (resolvedTilesetId, resolvedFirstGid) = TilesetResolver.ResolveTilesetForGid(
-                                gid,
-                                tilesetRefs
-                            );
-                            if (!string.IsNullOrEmpty(resolvedTilesetId))
+                            // Resolve tileset for this GID (using raw GID without flip flags)
+                            // Fail fast - no fallback code
+                            try
                             {
+                                var (resolvedTilesetId, resolvedFirstGid) =
+                                    TilesetResolver.ResolveTilesetForGid(gid, tilesetRefs);
+
+                                // Calculate local tile ID using raw GID (without flip flags)
                                 var localTileId = gid - resolvedFirstGid;
+
                                 if (localTileId >= 0)
-                                    try
+                                {
+                                    // Load tileset definition to check for animations (fail fast if not found)
+                                    var tilesetDefinition = _resourceManager.GetTilesetDefinition(
+                                        resolvedTilesetId
+                                    );
+
+                                    // Check tileset definition's Tiles list directly for this tile's animation
+                                    // This avoids exceptions for non-animated tiles (no fallback code)
+                                    if (tilesetDefinition.Tiles != null)
                                     {
-                                        var animation = _resourceManager.GetTileAnimation(
-                                            resolvedTilesetId,
-                                            localTileId
+                                        var tile = tilesetDefinition.Tiles.FirstOrDefault(t =>
+                                            t.LocalTileId == localTileId
                                         );
-                                        if (animation != null && animation.Count > 0)
+                                        if (tile?.Animation != null && tile.Animation.Count > 0)
                                         {
+                                            // Populate animation cache by calling GetTileAnimation
+                                            // This is safe because we've already verified the animation exists
+                                            // This ensures AnimatedTileSystem can find the cached animation
+                                            _resourceManager.GetTileAnimation(
+                                                resolvedTilesetId,
+                                                localTileId
+                                            );
+
                                             var animState = new TileAnimationState
                                             {
                                                 AnimationTilesetId = resolvedTilesetId,
@@ -662,10 +684,17 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                                             hasAnimatedTiles = true;
                                         }
                                     }
-                                    catch
-                                    {
-                                        // Tile animation not found, skip
-                                    }
+                                }
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                // GID cannot be resolved - this indicates a bug in map data or tileset configuration
+                                // Log and continue (tile will render as empty/invalid)
+                                _logger.Warning(
+                                    "Failed to resolve tileset for GID {Gid} in map {MapId}. Tile will be skipped.",
+                                    gid,
+                                    mapDefinition.Id
+                                );
                             }
                         }
                     }
@@ -790,45 +819,6 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     }
 
     /// <summary>
-    ///     Maps NPC direction string to animation name.
-    /// </summary>
-    /// <param name="direction">The direction string (null, "up", "down", "left", "right").</param>
-    /// <returns>The animation name.</returns>
-    private string MapDirectionToAnimation(string? direction)
-    {
-        return direction?.ToLowerInvariant() switch
-        {
-            "up" => "face_north",
-            "left" => "face_west",
-            "right" => "face_east",
-            "down" => "face_south",
-            _ => "face_south", // Default to face_south for null or unknown directions
-        };
-    }
-
-    /// <summary>
-    ///     Parses a direction string from map definition to Direction enum.
-    ///     Supports: "north"/"up", "south"/"down", "east"/"right", "west"/"left".
-    /// </summary>
-    /// <param name="direction">The direction string (null, "up", "down", "left", "right", "north", "south", "east", "west").</param>
-    /// <param name="defaultDirection">The default direction if parsing fails (default: Direction.South).</param>
-    /// <returns>The parsed Direction enum value.</returns>
-    private Direction ParseDirection(
-        string? direction,
-        Direction defaultDirection = Direction.South
-    )
-    {
-        return direction?.ToLowerInvariant() switch
-        {
-            "north" or "up" => Direction.North,
-            "south" or "down" => Direction.South,
-            "west" or "left" => Direction.West,
-            "east" or "right" => Direction.East,
-            _ => defaultDirection,
-        };
-    }
-
-    /// <summary>
     ///     Creates NPC entities for a map.
     /// </summary>
     /// <param name="mapEntity">The map entity.</param>
@@ -894,44 +884,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         // CRITICAL: Resolve variable sprite FIRST, before validation
         // Variable sprite IDs like {base:sprite:npcs/generic/var_rival} are not valid sprite definitions
-        var actualSpriteId = npcDef.SpriteId;
-        if (_variableSpriteResolver?.IsVariableSprite(npcDef.SpriteId) == true)
-            try
-            {
-                var resolved = _variableSpriteResolver.ResolveVariableSprite(
-                    npcDef.SpriteId,
-                    Entity.Null
-                );
-                if (resolved == null)
-                {
-                    _logger.Error(
-                        "Failed to resolve variable sprite '{VariableSpriteId}' for NPC '{NpcId}'. Invalid variable sprite format.",
-                        npcDef.SpriteId,
-                        npcDef.NpcId
-                    );
-                    throw new InvalidOperationException(
-                        $"Cannot create NPC '{npcDef.NpcId}': variable sprite resolution failed. "
-                            + $"Variable sprite ID: '{npcDef.SpriteId}'. Invalid variable sprite format."
-                    );
-                }
-
-                actualSpriteId = resolved;
-            }
-            catch (InvalidOperationException ex)
-            {
-                // Re-throw with context about NPC creation
-                _logger.Error(
-                    ex,
-                    "Cannot resolve variable sprite '{VariableSpriteId}' for NPC '{NpcId}'. Game state variable is not set.",
-                    npcDef.SpriteId,
-                    npcDef.NpcId
-                );
-                throw new InvalidOperationException(
-                    $"Cannot create NPC '{npcDef.NpcId}': variable sprite resolution failed. "
-                        + $"Variable sprite ID: '{npcDef.SpriteId}'. {ex.Message}",
-                    ex
-                );
-            }
+        var actualSpriteId = ResolveNpcSpriteId(npcDef);
 
         // CRITICAL: Always validate the RESOLVED sprite ID, never the variable sprite ID
         // Variable sprite IDs like {base:sprite:npcs/generic/var_rival} are not valid sprite definitions
@@ -943,32 +896,11 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             npcDef.NpcId
         );
 
-        // Parse direction from map definition
-        var facingDirection = ParseDirection(npcDef.Direction);
-
-        // Map direction to animation name
-        var animationName = MapDirectionToAnimation(npcDef.Direction);
-
-        // Validate animation exists
-        // Note: NPCs use forgiving validation (logs warning, defaults to face_south) for resilience
-        // This differs from Player creation which uses strict validation (throws on invalid)
+        // Get sprite definition to determine initial flip state
         // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
-        if (!_resourceManager.ValidateAnimation(actualSpriteId, animationName))
-        {
-            _logger.Warning(
-                "Animation '{AnimationName}' not found for sprite {SpriteId} (NPC {NpcId}), defaulting to 'face_south'",
-                animationName,
-                actualSpriteId,
-                npcDef.NpcId
-            );
-            animationName = "face_south";
-        }
-
-        // Get sprite definition and animation to determine initial flip state
-        // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
+        // Behavior scripts will handle animation selection
         var spriteDefinition = _resourceManager.GetSpriteDefinition(actualSpriteId);
-        var animation = spriteDefinition?.Animations?.FirstOrDefault(a => a.Name == animationName);
-        var flipHorizontal = animation?.FlipHorizontal ?? false;
+        var flipHorizontal = false; // Default - behavior scripts will set animation and flip state
 
         // NPC coordinates in JSON are already in pixel coordinates (not tile coordinates)
         // Add map pixel position offset to get world pixel position
@@ -1017,12 +949,12 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         var components = new List<object>
         {
             npcComponent,
-            new SpriteAnimationComponent
+            new SpriteComponent
             {
-                CurrentAnimationName = animationName,
-                CurrentFrameIndex = 0,
-                ElapsedTime = 0.0f,
+                SpriteId = actualSpriteId,
+                FrameIndex = 0,
                 FlipHorizontal = flipHorizontal,
+                FlipVertical = false, // Will be updated by SpriteAnimationSystem
             },
             new PositionComponent { Position = npcPixelPosition },
             new RenderableComponent
@@ -1033,54 +965,36 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             },
             new GridMovement(defaultNpcMovementSpeed)
             {
-                FacingDirection = facingDirection,
-                MovementDirection = facingDirection,
+                FacingDirection = Direction.South, // Default - behavior scripts will set actual direction
+                MovementDirection = Direction.South,
             },
             new ActiveMapEntity(), // Tag NPCs in loaded maps immediately
         };
 
-        // Add ScriptAttachmentComponent if behavior ID is specified
+        // Add ScriptAttachmentComponent if behavior ID (ScriptDefinition ID) is specified
         // Fail fast - no fallback code
         Dictionary<string, object>? mergedParameters = null;
         ScriptDefinition? scriptDefForVariables = null;
 
         if (!string.IsNullOrWhiteSpace(npcDef.BehaviorId))
         {
-            // Step 1: Look up BehaviorDefinition
-            var behaviorDef = _registry.GetById<BehaviorDefinition>(npcDef.BehaviorId);
-
-            // Step 2: Fail fast if BehaviorDefinition not found
-            if (behaviorDef == null)
-                throw new InvalidOperationException(
-                    $"BehaviorDefinition '{npcDef.BehaviorId}' not found for NPC '{npcDef.NpcId}'. "
-                        + "Ensure the behavior definition exists and is loaded."
-                );
-
-            // Step 3: Validate scriptId is not empty
-            if (string.IsNullOrWhiteSpace(behaviorDef.ScriptId))
-                throw new InvalidOperationException(
-                    $"BehaviorDefinition '{npcDef.BehaviorId}' has empty scriptId for NPC '{npcDef.NpcId}'. "
-                        + "BehaviorDefinition must reference a valid ScriptDefinition."
-                );
-
-            // Step 4: Get ScriptDefinition from BehaviorDefinition
-            var scriptDef = _registry.GetById<ScriptDefinition>(behaviorDef.ScriptId);
+            // Look up ScriptDefinition directly (BehaviorId now references ScriptDefinition ID directly)
+            var scriptDef = _registry.GetById<ScriptDefinition>(npcDef.BehaviorId);
 
             if (scriptDef == null)
                 throw new InvalidOperationException(
-                    $"ScriptDefinition '{behaviorDef.ScriptId}' not found for BehaviorDefinition '{npcDef.BehaviorId}' on NPC '{npcDef.NpcId}'. "
+                    $"ScriptDefinition '{npcDef.BehaviorId}' not found for NPC '{npcDef.NpcId}'. "
                         + "Ensure the script definition exists and is loaded."
                 );
 
-            // Step 5: Merge parameters from all layers
-            mergedParameters = MergeScriptParameters(scriptDef, behaviorDef, npcDef);
+            // Merge parameters from ScriptDefinition defaults and NPCDefinition overrides
+            mergedParameters = MergeScriptParameters(scriptDef, npcDef);
             scriptDefForVariables = scriptDef;
 
             _logger.Debug(
-                "Prepared behavior script {ScriptId} for NPC {NpcId} via BehaviorDefinition {BehaviorId}",
+                "Prepared behavior script {ScriptId} for NPC {NpcId}",
                 scriptDef.Id,
-                npcDef.NpcId,
-                npcDef.BehaviorId
+                npcDef.NpcId
             );
         }
 
@@ -1152,7 +1066,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
             npcEntity = World.Create(
                 npcComponent,
-                (SpriteAnimationComponent)components[1],
+                (SpriteComponent)components[1],
                 (PositionComponent)components[2],
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
@@ -1176,7 +1090,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
             npcEntity = World.Create(
                 npcComponent,
-                (SpriteAnimationComponent)components[1],
+                (SpriteComponent)components[1],
                 (PositionComponent)components[2],
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
@@ -1193,7 +1107,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
             npcEntity = World.Create(
                 npcComponent,
-                (SpriteAnimationComponent)components[1],
+                (SpriteComponent)components[1],
                 (PositionComponent)components[2],
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
@@ -1206,7 +1120,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         {
             npcEntity = World.Create(
                 npcComponent,
-                (SpriteAnimationComponent)components[1],
+                (SpriteComponent)components[1],
                 (PositionComponent)components[2],
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
@@ -1304,27 +1218,17 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     }
 
     /// <summary>
-    ///     Merges script parameters from ScriptDefinition defaults, BehaviorDefinition overrides, and NPCDefinition overrides.
+    ///     Merges script parameters from ScriptDefinition defaults and NPCDefinition overrides.
     /// </summary>
     private Dictionary<string, object> MergeScriptParameters(
         ScriptDefinition scriptDef,
-        BehaviorDefinition behaviorDef,
         NpcDefinition npcDef
     )
     {
         // Step 1: Start with ScriptDefinition defaults
         var mergedParameters = ScriptParameterResolver.GetDefaults(scriptDef);
 
-        // Step 2: Apply BehaviorDefinition.parameterOverrides
-        if (behaviorDef.ParameterOverrides != null)
-        {
-            var behaviorOverrides = new Dictionary<string, object>();
-            foreach (var kvp in behaviorDef.ParameterOverrides)
-                behaviorOverrides[kvp.Key] = kvp.Value;
-            ScriptParameterResolver.ApplyOverrides(mergedParameters, behaviorOverrides, scriptDef);
-        }
-
-        // Step 3: Apply NPCDefinition.behaviorParameters
+        // Step 2: Apply NPCDefinition.behaviorParameters
         if (npcDef.BehaviorParameters != null)
             ScriptParameterResolver.ApplyOverrides(
                 mergedParameters,
@@ -1332,7 +1236,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 scriptDef
             );
 
-        // Step 4: Validate merged parameters against ScriptDefinition
+        // Step 3: Validate merged parameters against ScriptDefinition
         ScriptParameterResolver.ValidateParameters(mergedParameters, scriptDef);
 
         return mergedParameters;
@@ -1401,61 +1305,26 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 TopSourceRects = Array.Empty<Rectangle>(),
             };
 
-        // Validate bottom layer has exactly 4 elements
+        // Validate bottom layer has exactly 4 elements (fail fast)
         if (border.BottomLayer == null || border.BottomLayer.Count != 4)
         {
-            _logger.Warning(
-                "Map {MapId} has invalid border bottom layer (expected 4 elements, got {Count})",
-                mapDefinition.Id,
-                border.BottomLayer?.Count ?? 0
+            throw new InvalidOperationException(
+                $"Map '{mapDefinition.Id}' has invalid border bottom layer (expected 4 elements, got {border.BottomLayer?.Count ?? 0}). "
+                    + "Border bottom layer must have exactly 4 tile IDs: [TopLeft, TopRight, BottomLeft, BottomRight]."
             );
-            return new MapBorderComponent
-            {
-                BottomLayerGids = Array.Empty<int>(),
-                TopLayerGids = Array.Empty<int>(),
-                TilesetId = string.Empty,
-                BottomSourceRects = Array.Empty<Rectangle>(),
-                TopSourceRects = Array.Empty<Rectangle>(),
-            };
         }
 
-        // Validate tileset ID
+        // Validate tileset ID (fail fast)
         if (string.IsNullOrEmpty(border.TilesetId))
         {
-            _logger.Warning("Map {MapId} has border data but no tileset ID", mapDefinition.Id);
-            return new MapBorderComponent
-            {
-                BottomLayerGids = Array.Empty<int>(),
-                TopLayerGids = Array.Empty<int>(),
-                TilesetId = string.Empty,
-                BottomSourceRects = Array.Empty<Rectangle>(),
-                TopSourceRects = Array.Empty<Rectangle>(),
-            };
+            throw new InvalidOperationException(
+                $"Map '{mapDefinition.Id}' has border data but no tileset ID. "
+                    + "Border definition must include a valid TilesetId."
+            );
         }
 
-        // Get tileset definition
-        TilesetDefinition tilesetDefinition;
-        try
-        {
-            tilesetDefinition = _resourceManager.GetTilesetDefinition(border.TilesetId);
-        }
-        catch (Exception ex)
-        {
-            _logger.Warning(
-                ex,
-                "Tileset {TilesetId} not found for border in map {MapId}",
-                border.TilesetId,
-                mapDefinition.Id
-            );
-            return new MapBorderComponent
-            {
-                BottomLayerGids = Array.Empty<int>(),
-                TopLayerGids = Array.Empty<int>(),
-                TilesetId = string.Empty,
-                BottomSourceRects = Array.Empty<Rectangle>(),
-                TopSourceRects = Array.Empty<Rectangle>(),
-            };
-        }
+        // Get tileset definition (fail fast - no fallback code)
+        var tilesetDefinition = _resourceManager.GetTilesetDefinition(border.TilesetId);
 
         // Find tileset reference to get firstGid
         var firstGid = 1;
@@ -1550,32 +1419,107 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     }
 
     /// <summary>
-    ///     Validates that tileset firstGid ranges don't overlap incorrectly.
-    ///     Logs warnings for overlapping ranges but doesn't fail map loading.
+    ///     Validates that tileset firstGid ranges don't overlap.
+    ///     Throws exception if ranges overlap - fail fast, no fallback code.
     /// </summary>
-    /// <param name="mapId">The map ID for logging.</param>
+    /// <param name="mapId">The map ID for error messages.</param>
     /// <param name="tilesets">The tileset references to validate.</param>
+    /// <exception cref="InvalidOperationException">Thrown when tileset ranges overlap.</exception>
     private void ValidateTilesetRanges(string mapId, List<TilesetReference> tilesets)
     {
         if (tilesets == null || tilesets.Count <= 1)
             return;
 
-        var sorted = tilesets.OrderByDescending(t => t.FirstGid).ToList();
-        for (int i = 0; i < sorted.Count - 1; i++)
+        // Get tileset definitions to calculate range end (firstGid + tileCount - 1)
+        var tilesetRanges = new List<(string TilesetId, int FirstGid, int LastGid)>();
+        foreach (var tilesetRef in tilesets)
         {
-            // Check if tileset ranges overlap incorrectly (lower firstGid >= higher firstGid)
-            if (sorted[i].FirstGid <= sorted[i + 1].FirstGid)
+            try
             {
-                _logger.Warning(
-                    "Map {MapId} has overlapping tileset firstGids: {Tileset1} (firstGid: {Gid1}) and {Tileset2} (firstGid: {Gid2}). "
-                    + "Tileset resolution may be incorrect.",
-                    mapId,
-                    sorted[i].TilesetId,
-                    sorted[i].FirstGid,
-                    sorted[i + 1].TilesetId,
-                    sorted[i + 1].FirstGid
+                var definition = _resourceManager.GetTilesetDefinition(tilesetRef.TilesetId);
+                var lastGid = tilesetRef.FirstGid + definition.TileCount - 1;
+                tilesetRanges.Add((tilesetRef.TilesetId, tilesetRef.FirstGid, lastGid));
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(
+                    $"Cannot validate tileset ranges for map '{mapId}': failed to load tileset definition '{tilesetRef.TilesetId}'. "
+                        + $"Ensure the tileset definition exists and is valid.",
+                    ex
                 );
             }
+        }
+
+        // Check for overlapping ranges
+        for (int i = 0; i < tilesetRanges.Count; i++)
+        {
+            for (int j = i + 1; j < tilesetRanges.Count; j++)
+            {
+                var range1 = tilesetRanges[i];
+                var range2 = tilesetRanges[j];
+
+                // Check if ranges overlap: range1 overlaps range2 if range1.FirstGid <= range2.LastGid && range1.LastGid >= range2.FirstGid
+                if (range1.FirstGid <= range2.LastGid && range1.LastGid >= range2.FirstGid)
+                {
+                    throw new InvalidOperationException(
+                        $"Map '{mapId}' has overlapping tileset ranges: "
+                            + $"'{range1.TilesetId}' (firstGid: {range1.FirstGid}, lastGid: {range1.LastGid}) and "
+                            + $"'{range2.TilesetId}' (firstGid: {range2.FirstGid}, lastGid: {range2.LastGid}). "
+                            + "Tileset ranges must not overlap. This is likely a bug in Porycon3 map conversion."
+                    );
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    ///     Resolves variable sprite ID to actual sprite ID for an NPC.
+    ///     Throws exception if resolution fails (fail fast, no fallback code).
+    /// </summary>
+    /// <param name="npcDef">The NPC definition containing the sprite ID.</param>
+    /// <returns>The resolved sprite ID (always a real sprite ID, never a variable sprite ID).</returns>
+    /// <exception cref="InvalidOperationException">Thrown if variable sprite resolution fails.</exception>
+    private string ResolveNpcSpriteId(NpcDefinition npcDef)
+    {
+        var spriteId = npcDef.SpriteId;
+
+        // If not a variable sprite, return as-is
+        if (_variableSpriteResolver?.IsVariableSprite(spriteId) != true)
+            return spriteId;
+
+        // Attempt to resolve variable sprite - fail fast if cannot resolve
+        try
+        {
+            var resolved = _variableSpriteResolver.ResolveVariableSprite(spriteId, Entity.Null);
+            if (resolved == null)
+            {
+                _logger.Error(
+                    "Failed to resolve variable sprite '{VariableSpriteId}' for NPC '{NpcId}'. Invalid variable sprite format.",
+                    spriteId,
+                    npcDef.NpcId
+                );
+                throw new InvalidOperationException(
+                    $"Cannot create NPC '{npcDef.NpcId}': variable sprite resolution failed. "
+                        + $"Variable sprite ID: '{spriteId}'. Invalid variable sprite format."
+                );
+            }
+
+            return resolved;
+        }
+        catch (InvalidOperationException ex)
+        {
+            // Re-throw with context about NPC creation
+            _logger.Error(
+                ex,
+                "Cannot resolve variable sprite '{VariableSpriteId}' for NPC '{NpcId}'. Game state variable is not set.",
+                spriteId,
+                npcDef.NpcId
+            );
+            throw new InvalidOperationException(
+                $"Cannot create NPC '{npcDef.NpcId}': variable sprite resolution failed. "
+                    + $"Variable sprite ID: '{spriteId}'. {ex.Message}",
+                ex
+            );
         }
     }
 }

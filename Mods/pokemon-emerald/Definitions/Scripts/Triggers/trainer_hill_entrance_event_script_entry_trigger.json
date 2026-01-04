@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/trainer_hill_entrance_event_script_entry_trigger",
+  "name": "trainer hill entrance event script entry trigger",
+  "description": "Trigger script: trainer hill entrance event script entry trigger",
+  "scriptPath": "Scripts/Triggers/trainer_hill_entrance_event_script_entry_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

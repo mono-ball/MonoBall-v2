@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/inside_of_truck",
   "name": "InsideOfTruck",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 5,
   "height": 5,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/insideoftruck",
+    "bottomLayer": [
+      1011,
+      1011,
+      1011,
+      1011
+    ],
+    "topLayer": [
+      -1073740838,
+      -1073740838,
+      -1073740838,
+      -1073740838
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/inside_of_truck/ground",
+      "id": "pokeemerald:layer:Hoenn/inside_of_truck/ground",
       "name": "Ground",
       "width": 5,
       "height": 5,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/inside_of_truck/objects",
+      "id": "pokeemerald:layer:Hoenn/inside_of_truck/objects",
       "name": "Objects",
       "width": 5,
       "height": 5,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "2QMAANsDAADcAwAA3QMAAN4DAADfAwAA4AMAAOEDAADiAwAA4wMAAOQDAADlAwAA5wMAAOkDAADqAwAA6wMAAOwDAADkAwAA7QMAAO8DAADwAwAA8QMAAPADAADxAwAA8gMAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/inside_of_truck/overhead",
+      "id": "pokeemerald:layer:Hoenn/inside_of_truck/overhead",
       "name": "Overhead",
       "width": 5,
       "height": 5,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "2gMAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDmAwAA6AMAANoDAMDaAwDA2gMAwNoDAMDaAwDA7gMAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwA=="
     }
   ],
   "tilesets": [
@@ -63,13 +78,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
-      "tilesetId": "pokeemerald:tileset:secondary/inside_of_truck"
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/insideoftruck"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/inside_of_truck/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/inside_of_truck/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 64,
       "y": 16,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/inside_of_truck/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/inside_of_truck/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 64,
       "y": 32,
@@ -93,7 +108,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/inside_of_truck/warp_to_dynamic",
+      "id": "pokeemerald:warp:Hoenn/inside_of_truck/warp_to_dynamic",
       "name": "Warp to dynamic",
       "x": 64,
       "y": 48,
@@ -107,37 +122,37 @@
   ],
   "triggers": [
     {
-      "id": "pokeemerald:trigger:hoenn/inside_of_truck/trigger_var_littleroot_intro_state_0",
+      "id": "pokeemerald:trigger:Hoenn/inside_of_truck/trigger_var_littleroot_intro_state_0",
       "name": "Trigger: VAR_LITTLEROOT_INTRO_STATE == 0",
       "x": 48,
       "y": 16,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_intro_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_intro_state",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/inside_of_truck_event_script_set_intro_flags",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/inside_of_truck/trigger_var_littleroot_intro_state_0",
+      "id": "pokeemerald:trigger:Hoenn/inside_of_truck/trigger_var_littleroot_intro_state_0",
       "name": "Trigger: VAR_LITTLEROOT_INTRO_STATE == 0",
       "x": 48,
       "y": 32,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_intro_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_intro_state",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/inside_of_truck_event_script_set_intro_flags",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:trigger:hoenn/inside_of_truck/trigger_var_littleroot_intro_state_0",
+      "id": "pokeemerald:trigger:Hoenn/inside_of_truck/trigger_var_littleroot_intro_state_0",
       "name": "Trigger: VAR_LITTLEROOT_INTRO_STATE == 0",
       "x": 48,
       "y": 48,
       "width": 16,
       "height": 16,
-      "variable": "pokeemerald:variable:hoenn/var_littleroot_intro_state",
+      "variable": "pokeemerald:variable:Hoenn/var_littleroot_intro_state",
       "value": 0,
       "triggerId": "pokeemerald:script:trigger/inside_of_truck_event_script_set_intro_flags",
       "elevation": 3
@@ -145,94 +160,91 @@
   ],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
+      "id": "pokeemerald:interaction:Hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
       "name": "Sign: InsideOfTruck_EventScript_MovingBox",
       "x": 16,
       "y": 0,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
+      "interactionId": "pokeemerald:script:interactions/signs/inside_of_truck_event_script_moving_box",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
+      "id": "pokeemerald:interaction:Hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
       "name": "Sign: InsideOfTruck_EventScript_MovingBox",
       "x": 48,
       "y": 64,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
+      "interactionId": "pokeemerald:script:interactions/signs/inside_of_truck_event_script_moving_box",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
+      "id": "pokeemerald:interaction:Hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
       "name": "Sign: InsideOfTruck_EventScript_MovingBox",
       "x": 32,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
+      "interactionId": "pokeemerald:script:interactions/signs/inside_of_truck_event_script_moving_box",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
+      "id": "pokeemerald:interaction:Hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
       "name": "Sign: InsideOfTruck_EventScript_MovingBox",
       "x": 0,
       "y": 16,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
+      "interactionId": "pokeemerald:script:interactions/signs/inside_of_truck_event_script_moving_box",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
+      "id": "pokeemerald:interaction:Hoenn/inside_of_truck/sign_insideoftruckeventscriptmovingbox",
       "name": "Sign: InsideOfTruck_EventScript_MovingBox",
       "x": 0,
       "y": 32,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
+      "interactionId": "pokeemerald:script:interactions/signs/inside_of_truck_event_script_moving_box",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/inside_of_truck/localid_truck_box_top",
+      "id": "pokeemerald:npc:Hoenn/inside_of_truck/localid_truck_box_top",
       "name": "LOCALID_TRUCK_BOX_TOP",
       "x": 0,
       "y": 0,
       "spriteId": "pokeemerald:sprite:objects/misc/movingbox",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
-      "facingDirection": "down",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/inside_of_truck_event_script_moving_box",
       "elevation": 8
     },
     {
-      "id": "pokeemerald:npc:hoenn/inside_of_truck/localid_truck_box_bottom_l",
+      "id": "pokeemerald:npc:Hoenn/inside_of_truck/localid_truck_box_bottom_l",
       "name": "LOCALID_TRUCK_BOX_BOTTOM_L",
       "x": 0,
       "y": 48,
       "spriteId": "pokeemerald:sprite:objects/misc/movingbox",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
-      "facingDirection": "down",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/inside_of_truck_event_script_moving_box",
       "elevation": 8
     },
     {
-      "id": "pokeemerald:npc:hoenn/inside_of_truck/localid_truck_box_bottom_r",
+      "id": "pokeemerald:npc:Hoenn/inside_of_truck/localid_truck_box_bottom_r",
       "name": "LOCALID_TRUCK_BOX_BOTTOM_R",
       "x": 32,
       "y": 48,
       "spriteId": "pokeemerald:sprite:objects/misc/movingbox",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/inside_of_truck_event_script_moving_box",
-      "facingDirection": "down",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/inside_of_truck_event_script_moving_box",
       "elevation": 8
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/inside_of_truck/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/inside_of_truck/elevation_0",
       "name": "Collision_0",
       "width": 5,
       "height": 5,

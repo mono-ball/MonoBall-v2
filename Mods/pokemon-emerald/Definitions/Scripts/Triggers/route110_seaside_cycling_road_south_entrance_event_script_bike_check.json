@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route110_seaside_cycling_road_south_entrance_event_script_bike_check",
+  "name": "route110 seaside cycling road south entrance event script bike check",
+  "description": "Trigger script: route110 seaside cycling road south entrance event script bike check",
+  "scriptPath": "Scripts/Triggers/route110_seaside_cycling_road_south_entrance_event_script_bike_check.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

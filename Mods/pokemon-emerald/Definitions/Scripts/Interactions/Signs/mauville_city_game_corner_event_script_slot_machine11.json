@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/mauville_city_game_corner_event_script_slot_machine11",
+  "id": "pokeemerald:script:interactions/signs/mauville_city_game_corner_event_script_slot_machine11",
   "name": "mauville city game corner event script slot machine11",
   "description": "Sign script: mauville city game corner event script slot machine11",
-  "scriptPath": "Scripts/Signs/mauville_city_game_corner_event_script_slot_machine11.csx",
+  "scriptPath": "Scripts/Interactions/Signs/mauville_city_game_corner_event_script_slot_machine11.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

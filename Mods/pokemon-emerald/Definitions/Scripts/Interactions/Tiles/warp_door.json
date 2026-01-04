@@ -1,7 +1,8 @@
 {
-  "id": "pokeemerald:interaction/tiles/warp_door",
+  "id": "pokeemerald:script:interactions/tiles/warp_door",
   "name": "Warp Door",
   "description": "Tile interaction: Warp Door",
+  "scriptPath": "Scripts/Interactions/Tiles/warp_door.csx",
   "category": "warp",
   "priority": 500
 }

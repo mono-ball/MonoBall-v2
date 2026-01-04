@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/sealed_chamber_outer_room_event_script_inner_room_entrance_wall",
+  "id": "pokeemerald:script:interactions/signs/sealed_chamber_outer_room_event_script_inner_room_entrance_wall",
   "name": "sealed chamber outer room event script inner room entrance wall",
   "description": "Sign script: sealed chamber outer room event script inner room entrance wall",
-  "scriptPath": "Scripts/Signs/sealed_chamber_outer_room_event_script_inner_room_entrance_wall.csx",
+  "scriptPath": "Scripts/Interactions/Signs/sealed_chamber_outer_room_event_script_inner_room_entrance_wall.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

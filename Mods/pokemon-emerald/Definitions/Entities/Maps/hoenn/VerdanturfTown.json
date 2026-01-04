@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/verdanturf_town",
   "name": "VerdanturfTown",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:town",
   "width": 20,
   "height": 20,
@@ -28,9 +28,24 @@
       "offset": 0
     }
   },
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/general",
+    "bottomLayer": [
+      36,
+      -2147483612,
+      -2147483612,
+      36
+    ],
+    "topLayer": [
+      37,
+      -2147483611,
+      -2147483611,
+      37
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/verdanturf_town/ground",
+      "id": "pokeemerald:layer:Hoenn/verdanturf_town/ground",
       "name": "Ground",
       "width": 20,
       "height": 20,
@@ -39,10 +54,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLAQAAiwEAAIsBAACLAQAAiwEAAIsBAACLAQAAngIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhgEAAAAAAAAAAAAAAAAAAAAAAAB6AAAAfAAAgNQAAADVAAAAegAAAHwAAAB9AAAAfgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKYCAACmAgAApgIAAKYCAACmAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApgIAAKYCAACmAgAApgIAAOYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAIAgAACAIAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAIAgAAwgIAAMQCAAAAAAAAAAAAAAAAAAAAAAAACAIAAMICAAAIAgAAwgIAAMQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAogEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAIAgAAwgIAAMQCAACiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAogEAAKIBAACiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AwAA/QMAAP0DAAD9AwAA/QMAAP0DAAD9AwAAkAQAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\u002BAMAAAAAAAAAAAAAAAAAAAAAAAC0AAAAtgAAgB0BAAAeAQAAtAAAALYAAAC3AAAAuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJkEAACZBAAAmQQAAJkEAACZBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmQQAAJkEAACZBAAAmQQAAFgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwEAAB8BAAAfAQAAHwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwEAAB8BAAAtQQAALcEAAAAAAAAAAAAAAAAAAAAAAAAfAQAALUEAAB8BAAAtQQAALcEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwEAAB8BAAAtQQAALcEAAAUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAQAABQEAAAUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/verdanturf_town/objects",
+      "id": "pokeemerald:layer:Hoenn/verdanturf_town/objects",
       "name": "Objects",
       "width": 20,
       "height": 20,
@@ -51,10 +66,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "GgAAABoAAAAmAAAAUgAAAFIAAAAhAAAAIwAAACMAAAAiAAAAIwAAABoAAACZAgAAmgIAAJoCAACbAgAAnAIAAJ0CAACdAgCAnwIAAC8AAABSAAAAUgAAAFIAAABSAAAAUgAAABYAAAAhAAAAPgAAACsAAAA\u002BAAAAPgAAAMoAAADMAAAAzQAAAM4AAABvAAAAcQAAAHEAAIByAAAAGwAAABoAAAAaAAAAGgAAABoAAAAaAAAAJgAAAC8AAAAIAgAACAIAAAgCAACgAgAAzwAAANEAAADSAAAA0wAAAHQAAAB2AAAAeAAAAHkAAAChAgAAPgAAAGkBAABpAQAAaQEAAGkBAABpAQAAiQEAAD0AAAAIAgAACAIAAAgCAAB7AAAAAgAAwAIAAMB7AACAewAAAAIAAMACAADAewAAgDkAAIA5AACApgIAAKYCAACmAgAApgIAAKYCAAAIAgAACAIAAAgCAAAIAgAAqgIAAAgCAAAVAAAAFQAAAAkCAAAIAgAAFQAAABUAAAAIAgAAigEAgDkAAICmAgAApgIAAKYCAACmAgAApgIAAAgCAAAIAgAACAIAAAgCAAAIAgAACAIAABUAAAAVAAAACAIAAAgCAAAVAAAAFQAAAAgCAAAIAgAAOQAAgK4CAACvAgAAsAIAAK8CAICuAgCACAIAAAcCAAAIAgAACAIAAAgCAAAIAgAAFQAAABUAAAA9AAAACAIAABUAAAAVAAAACAIAAAgCAAA5AACAsQIAALICAACzAgAAsgIAgLECAIAVAAAACAIAAAgCAAAIAgAACAIAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAIAgAACAIAAIoBAIA9AAAACAIAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAACQIAAAgCAAAIAgAACAIAAAgCAAAIAgAACAIAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAAgCAAAJAgAACAIAAAgCAAAHAgAACAIAAAgCAAAIAgAACQIAAAgCAAAJAgAACAIAAAgCAAAIAgAABwIAAAgCAAAIAgAAFQAAABUAAAAIAgAACAIAAAgCAAAIAgAACAIAAAgCAAAIAgAACAIAAAgCAAAJAgAACAIAAAkCAAAIAgAACAIAAAgCAAAIAgAACAIAAAgCAAAVAAAAFQAAAAkCAAAIAgAACAIAAAgCAAAJAgAACAIAAAgCAAAIAgAACAIAALoCAAC6AgAAugIAALoCAAAIAgAACAIAAAgCAAAIAgAACAIAABUAAAAVAAAACQIAAAgCAAAIAgAACAIAAAgCAAAIAgAACAIAAL0CAACgAgAABwIAAAgCAAAHAgAABwIAAAgCAAC9AgAACAIAAL0CAACgAgAAFQAAABUAAAAJAgAACAIAAAgCAAAIAgAACAIAAMACAADBAgAAwwIAAMUCAAAIAgAABwIAAAcCAAA9AAAAwAIAAMMCAADBAgAAwwIAAMUCAAAVAAAAFQAAAAkCAAAIAgAACAIAAL0CAACgAgAAxgIAAAkCAAAIAgAACAIAAAkCAAAJAgAACAIAAAkCAAAJAgAACAIAABUAAAAVAAAAFQAAABUAAAAIAgAACAIAAMACAADBAgAAwwIAAMUCAADHAgAACAIAAAkCAAAJAgAACAIAAAgCAAAIAgAACQIAAAgCAAAIAgAACAIAAAkCAAAIAgAACQIAAAgCAAAJAgAACAIAAAgCAAAIAgAACAIAAKECAAAHAgAACAIAAAkCAAAIAgAACAIAAAcCAAChAgAAoQIAAKECAAChAgAACAIAAAcCAAAJAgAACQIAAAgCAAAIAgAACAIAAAgCAAChAgAAOQAAgKECAAChAgAABwIAAAgCAAAIAgAAoQIAADkAAIA5AACAOQAAgDkAAIChAgAAoQIAAAgCAAAIAgAAyAIAAMgCAADIAgAAoQIAADkAAIA5AACAOQAAgDkAAIChAgAAoQIAAKECAAA5AACAOQAAgDkAAIA5AACAOQAAgDkAAIA5AACAoQIAAKECAAChAgAAoQIAAKECAAA5AACAOQAAgA=="
+      "tileData": "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"
     },
     {
-      "id": "pokeemerald:layer:hoenn/verdanturf_town/overhead",
+      "id": "pokeemerald:layer:Hoenn/verdanturf_town/overhead",
       "name": "Overhead",
       "width": 20,
       "height": 20,
@@ -63,7 +78,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwMsAAAACAADAAgAAwMsAAIBwAAAAcQAAAHEAAIBzAAAAAAAAAAIAAMACAADAAgAAwAIAAMACAADAAgAAwAAAAABsAQDAbAEAwGwBAMCYAgAA0AAAAAIAAMACAADA0AAAgHUAAAB3AAAAdwAAgHUAAICHAQAANwAAAKICAACjAgAApAIAAKMCAICiAgCAAAAAAAIAAMBsAQDAbAEAwKUCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoAAIA6AACApwIAAKgCAACpAgAAqAIAgKcCAIBsAQDAbAEAwGwBAMBsAQDAAAAAAGwBAMACAADAAgAAwGwBAMBsAQDAAgAAwAIAAMBsAQDAAAAAADoAAICrAgAArAIAAK0CAACsAgCAqwIAgGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwAIAAMACAADAbAEAwGwBAMACAADAAgAAwGwBAMBsAQDAOgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAAgAAwAIAAMACAADAbAEAwAIAAMACAADAbAEAwGwBAMA6AACAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAbAEAwGwBAMBsAQDAbAEAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMBsAQDAbAEAwAAAAAACAADAbAEAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwAIAAMACAADAAgAAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAAgAAwAIAAMBsAQDAbAEAwGwBAMBsAQDAbAEAwLQCAAC1AgAAtQIAALYCAABsAQDAbAEAwGwBAMBsAQDAtAIAALUCAAC1AgAAtQIAALYCAAACAADAAgAAwGwBAMBsAQDAbAEAwGwBAMBsAQDAtwIAALgCAAC4AgAAuQIAAAAAAAAAAAAAAAAAAAAAAAC3AgAAuAIAALgCAAC4AgAAuQIAAAIAAMACAADAbAEAwLQCAAC1AgAAtQIAALYCAAC7AgAAvAIAAL4CAAC/AgAAbAEAwGwBAMBsAQDAbAEAwLsCAAC\u002BAgAAvAIAAL4CAAC/AgAAAgAAwAIAAMBsAQDAtwIAALgCAAC4AgAAuQIAAAAAAAAAAAAAAAAAAAAAAABsAQDAbAEAwGwBAMACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAgAAwGwBAMC7AgAAvAIAAL4CAAC/AgAAAAAAAGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwAIAAMACAADAAgAAwAIAAMBsAQDAbAEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwIcBAABsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMCHAQAAhwEAAIcBAACHAQAAbAEAwGwBAMBsAQDAbAEAwGwBAMBsAQDAbAEAwGwBAMCHAQAAOgAAgIcBAACHAQAAbAEAwGwBAMBsAQDAhwEAADoAAIA6AACAOgAAgDoAAICHAQAAhwEAAGwBAMBsAQDAAAAAAAAAAAAAAAAAhwEAADoAAIA6AACAOgAAgDoAAICHAQAAhwEAAIcBAAA6AACAOgAAgDoAAIA6AACAOgAAgDoAAIA6AACAhwEAAIcBAACHAQAAhwEAAIcBAAA6AACAOgAAgA=="
+      "tileData": "BAAAwAQAAMAEAADABAAAAAQAAAAEAADABAAAwAQAAMAEAADABAAAwAQAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwBQBAAAEAADABAAAwBQBAICqAAAAqwAAAKsAAICtAAAAAAAAAAQAAMAEAADABAAAwAQAAMAEAADABAAAwAAAAADeAwDA3gMAwN4DAMCTBAAAGQEAAAQAAMAEAADAGQEAgK8AAACxAAAAsQAAgK8AAID5AwAAIwAAAJUEAACWBAAAlwQAAJYEAICVBACAAAAAAAQAAMDeAwDA3gMAwJgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAIAlAACAmgQAAJsEAACcBAAAmwQAgJoEAIDeAwDA3gMAwN4DAMDeAwDAAAAAAN4DAMAEAADABAAAwN4DAMDeAwDABAAAwAQAAMDeAwDAAAAAACUAAICeBAAAnwQAAKAEAACfBACAngQAgN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwAQAAMAEAADA3gMAwN4DAMAEAADABAAAwN4DAMDeAwDAJQAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDABAAAwAQAAMAEAADA3gMAwAQAAMAEAADA3gMAwN4DAMAlAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAADA3gMAwN4DAMDeAwDA3gMAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMDeAwDA3gMAwAAAAAAEAADA3gMAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwAQAAMAEAADABAAAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDABAAAwAQAAMDeAwDA3gMAwN4DAMDeAwDA3gMAwKcEAACoBAAAqAQAAKkEAADeAwDA3gMAwN4DAMDeAwDApwQAAKgEAACoBAAAqAQAAKkEAAAEAADABAAAwN4DAMDeAwDA3gMAwN4DAMDeAwDAqgQAAKsEAACrBAAArAQAAAAAAAAAAAAAAAAAAAAAAACqBAAAqwQAAKsEAACrBAAArAQAAAQAAMAEAADA3gMAwKcEAACoBAAAqAQAAKkEAACuBAAArwQAALEEAACyBAAA3gMAwN4DAMDeAwDA3gMAwK4EAACxBAAArwQAALEEAACyBAAABAAAwAQAAMDeAwDAqgQAAKsEAACrBAAArAQAAAAAAAAAAAAAAAAAAAAAAADeAwDA3gMAwN4DAMAEAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAADABAAAwN4DAMCuBAAArwQAALEEAACyBAAAAAAAAN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwAQAAMAEAADABAAAwAQAAMDeAwDA3gMAwAAAAAAAAAAAAAAAAAAAAAAAAAAA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwPkDAADeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMD5AwAA\u002BQMAAPkDAAD5AwAA3gMAwN4DAMDeAwDA3gMAwN4DAMDeAwDA3gMAwN4DAMD5AwAAJQAAgPkDAAD5AwAA3gMAwN4DAMDeAwDA\u002BQMAACUAAIAlAACAJQAAgCUAAID5AwAA\u002BQMAAN4DAMDeAwDAAAAAAAAAAAAAAAAA\u002BQMAACUAAIAlAACAJQAAgCUAAID5AwAA\u002BQMAAPkDAAAlAACAJQAAgCUAAIAlAACAJQAAgCUAAIAlAACA\u002BQMAAPkDAAD5AwAA\u002BQMAAPkDAAAlAACAJQAAgA=="
     }
   ],
   "tilesets": [
@@ -72,13 +87,13 @@
       "tilesetId": "pokeemerald:tileset:primary/general"
     },
     {
-      "firstGid": 359,
+      "firstGid": 985,
       "tilesetId": "pokeemerald:tileset:secondary/mauville"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_battle_tent_lobby",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_verdanturf_town_battle_tent_lobby",
       "name": "Warp to verdanturf_town_battle_tent_lobby",
       "x": 48,
       "y": 112,
@@ -90,7 +105,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_mart",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_verdanturf_town_mart",
       "name": "Warp to verdanturf_town_mart",
       "x": 192,
       "y": 48,
@@ -102,7 +117,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_pokemon_center_1f",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_verdanturf_town_pokemon_center_1f",
       "name": "Warp to verdanturf_town_pokemon_center_1f",
       "x": 256,
       "y": 48,
@@ -114,7 +129,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_wandas_house",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_verdanturf_town_wandas_house",
       "name": "Warp to verdanturf_town_wandas_house",
       "x": 160,
       "y": 224,
@@ -126,7 +141,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_rusturf_tunnel",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_rusturf_tunnel",
       "name": "Warp to rusturf_tunnel",
       "x": 128,
       "y": 16,
@@ -138,7 +153,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_friendship_raters_house",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_verdanturf_town_friendship_raters_house",
       "name": "Warp to verdanturf_town_friendship_raters_house",
       "x": 16,
       "y": 224,
@@ -150,7 +165,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town/warp_to_verdanturf_town_house",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town/warp_to_verdanturf_town_house",
       "name": "Warp to verdanturf_town_house",
       "x": 272,
       "y": 240,
@@ -165,147 +180,143 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemartsign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_commoneventscriptshowpokemartsign",
       "name": "Sign: Common_EventScript_ShowPokemartSign",
       "x": 224,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemart_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/common_event_script_show_pokemart_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscripttownsign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_verdanturftowneventscripttownsign",
       "name": "Sign: VerdanturfTown_EventScript_TownSign",
       "x": 224,
       "y": 96,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_town_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/verdanturf_town_event_script_town_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemoncentersign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_commoneventscriptshowpokemoncentersign",
       "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
       "x": 272,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemon_center_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/common_event_script_show_pokemon_center_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscriptwandashousesign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_verdanturftowneventscriptwandashousesign",
       "name": "Sign: VerdanturfTown_EventScript_WandasHouseSign",
       "x": 112,
       "y": 224,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_wandas_house_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/verdanturf_town_event_script_wandas_house_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemartsign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_commoneventscriptshowpokemartsign",
       "name": "Sign: Common_EventScript_ShowPokemartSign",
       "x": 208,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemart_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/common_event_script_show_pokemart_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_commoneventscriptshowpokemoncentersign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_commoneventscriptshowpokemoncentersign",
       "name": "Sign: Common_EventScript_ShowPokemonCenterSign",
       "x": 288,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_show_pokemon_center_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/common_event_script_show_pokemon_center_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscriptbattletentsign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_verdanturftowneventscriptbattletentsign",
       "name": "Sign: VerdanturfTown_EventScript_BattleTentSign",
       "x": 16,
       "y": 128,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_battle_tent_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/verdanturf_town_event_script_battle_tent_sign",
       "elevation": 0
     },
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town/sign_verdanturftowneventscriptrusturftunnelsign",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town/sign_verdanturftowneventscriptrusturftunnelsign",
       "name": "Sign: VerdanturfTown_EventScript_RusturfTunnelSign",
       "x": 112,
       "y": 48,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_rusturf_tunnel_sign",
+      "interactionId": "pokeemerald:script:interactions/signs/verdanturf_town_event_script_rusturf_tunnel_sign",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town/npc_0",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town/npc_0",
       "name": "NPC_0",
       "x": 64,
       "y": 272,
-      "spriteId": "pokeemerald:sprite:npcs/man2",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man2",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 0
       },
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_man",
-      "facingDirection": "left",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_event_script_man",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town/localid_verdanturf_twin",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town/localid_verdanturf_twin",
       "name": "LOCALID_VERDANTURF_TWIN",
       "x": 144,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:npcs/twin",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_twin",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/twin",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_event_script_twin",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town/npc_2",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town/npc_2",
       "name": "NPC_2",
       "x": 112,
       "y": 176,
-      "spriteId": "pokeemerald:sprite:npcs/boy1",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/boy1",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 0,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_boy",
-      "facingDirection": "up",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_event_script_boy",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town/npc_3",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town/npc_3",
       "name": "NPC_3",
       "x": 112,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/camper",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/camper",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 0
       },
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_event_script_camper",
-      "facingDirection": "left",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_event_script_camper",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/verdanturf_town/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/verdanturf_town/elevation_0",
       "name": "Collision_0",
       "width": 20,
       "height": 20,
@@ -315,7 +326,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQABAQEBAQEBAQEBAQEBAQEBAQEAAAAAAQEBAQEBAQEAAQEBAQEBAQEAAAABAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAQEBAQEBAQAAAAAAAAAAAAAAAAAAAQEBAQEBAAAAAAAAAAABAAAAAAABAQEBAQEAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQAAAAAAAAABAQEBAAAAAAEBAQEBAAAAAQEBAQEBAQEAAAABAQEBAQEAAAABAQEBAQAAAAAAAAAAAAAAAAAAAAEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEBAQEAAAAAAQEBAAEBAQEAAAABAQEBAQEBAAAAAAABAQ=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/verdanturf_town/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/verdanturf_town/elevation_3",
       "name": "Collision_3",
       "width": 20,
       "height": 20,

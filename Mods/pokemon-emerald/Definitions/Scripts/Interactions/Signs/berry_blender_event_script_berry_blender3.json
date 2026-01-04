@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/berry_blender_event_script_berry_blender3",
+  "id": "pokeemerald:script:interactions/signs/berry_blender_event_script_berry_blender3",
   "name": "berry blender event script berry blender3",
   "description": "Sign script: berry blender event script berry blender3",
-  "scriptPath": "Scripts/Signs/berry_blender_event_script_berry_blender3.csx",
+  "scriptPath": "Scripts/Interactions/Signs/berry_blender_event_script_berry_blender3.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

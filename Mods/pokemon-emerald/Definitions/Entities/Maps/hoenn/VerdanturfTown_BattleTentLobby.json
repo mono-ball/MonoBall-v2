@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/verdanturf_town_battle_tent_lobby",
   "name": "VerdanturfTown_BattleTentLobby",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 13,
   "height": 10,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/verdanturf_town_battle_tent_lobby/ground",
+      "id": "pokeemerald:layer:Hoenn/verdanturf_town_battle_tent_lobby/ground",
       "name": "Ground",
       "width": 13,
       "height": 10,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/verdanturf_town_battle_tent_lobby/objects",
+      "id": "pokeemerald:layer:Hoenn/verdanturf_town_battle_tent_lobby/objects",
       "name": "Objects",
       "width": 13,
       "height": 10,
@@ -42,10 +57,10 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/verdanturf_town_battle_tent_lobby/overhead",
+      "id": "pokeemerald:layer:Hoenn/verdanturf_town_battle_tent_lobby/overhead",
       "name": "Overhead",
       "width": 13,
       "height": 10,
@@ -54,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwA=="
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=="
     }
   ],
   "tilesets": [
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_tent"
+      "tilesetId": "pokeemerald:tileset:secondary/battletent"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town_battle_tent_lobby/warp_to_verdanturf_town",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town_battle_tent_lobby/warp_to_verdanturf_town",
       "name": "Warp to verdanturf_town",
       "x": 96,
       "y": 144,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/verdanturf_town_battle_tent_lobby/warp_to_verdanturf_town",
+      "id": "pokeemerald:warp:Hoenn/verdanturf_town_battle_tent_lobby/warp_to_verdanturf_town",
       "name": "Warp to verdanturf_town",
       "x": 112,
       "y": 144,
@@ -96,94 +111,90 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/verdanturf_town_battle_tent_lobby/sign_verdanturftownbattletentlobbyeventscriptrulesboard",
+      "id": "pokeemerald:interaction:Hoenn/verdanturf_town_battle_tent_lobby/sign_verdanturftownbattletentlobbyeventscriptrulesboard",
       "name": "Sign: VerdanturfTown_BattleTentLobby_EventScript_RulesBoard",
       "x": 64,
       "y": 80,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_rules_board",
+      "interactionId": "pokeemerald:script:interactions/signs/verdanturf_town_battle_tent_lobby_event_script_rules_board",
       "elevation": 0
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_lobby/localid_verdanturf_tent_attendant",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town_battle_tent_lobby/localid_verdanturf_tent_attendant",
       "name": "LOCALID_VERDANTURF_TENT_ATTENDANT",
       "x": 96,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/expertm",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_attendant",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_battle_tent_lobby_event_script_attendant",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_lobby/npc_1",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town_battle_tent_lobby/npc_1",
       "name": "NPC_1",
       "x": 0,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/girl1",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/girl1",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_attract_giver",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_battle_tent_lobby_event_script_attract_giver",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_lobby/npc_2",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town_battle_tent_lobby/npc_2",
       "name": "NPC_2",
       "x": 144,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:npcs/boy3",
-      "behaviorId": "pokeemerald:script/movement/npcs/wander",
+      "spriteId": "pokeemerald:sprite:characters/npcs/boy3",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_boy1",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_battle_tent_lobby_event_script_boy1",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_lobby/npc_3",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town_battle_tent_lobby/npc_3",
       "name": "NPC_3",
       "x": 16,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/boy2",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_boy2",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/boy2",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_battle_tent_lobby_event_script_boy2",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_lobby/npc_4",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town_battle_tent_lobby/npc_4",
       "name": "NPC_4",
       "x": 192,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:npcs/scott",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_scott",
+      "spriteId": "pokeemerald:sprite:characters/npcs/scott",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_battle_tent_lobby_event_script_scott",
       "visibilityFlag": "pokeemerald:flag:visibility/verdanturf_town_scott",
-      "facingDirection": "left",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/verdanturf_town_battle_tent_lobby/npc_5",
+      "id": "pokeemerald:npc:Hoenn/verdanturf_town_battle_tent_lobby/npc_5",
       "name": "NPC_5",
       "x": 32,
       "y": 128,
-      "spriteId": "pokeemerald:sprite:npcs/littleboy",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/verdanturf_town_battle_tent_lobby_event_script_little_boy",
-      "facingDirection": "left",
+      "spriteId": "pokeemerald:sprite:characters/npcs/littleboy",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_battle_tent_lobby_event_script_little_boy",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/verdanturf_town_battle_tent_lobby/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/verdanturf_town_battle_tent_lobby/elevation_0",
       "name": "Collision_0",
       "width": 13,
       "height": 10,
@@ -193,7 +204,7 @@
       "tileData": "AQEAAAAAAAAAAAABAQEBAQEBAQABAQEBAQEBAAEBAAAAAAABAQEBAQABAAAAAAAAAAEAAQEAAQEBAQABAQEBAAEAAAEBAQEAAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAQEAAAAAAAAAAAABAQ=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/verdanturf_town_battle_tent_lobby/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/verdanturf_town_battle_tent_lobby/elevation_3",
       "name": "Collision_3",
       "width": 13,
       "height": 10,

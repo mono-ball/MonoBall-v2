@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/pacifidlog_town_house2",
   "name": "PacifidlogTown_House2",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 10,
   "height": 9,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/genericbuilding",
+    "bottomLayer": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "topLayer": [
+      -1073741815,
+      -1073741815,
+      -1073741815,
+      -1073741815
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/pacifidlog_town_house2/ground",
+      "id": "pokeemerald:layer:Hoenn/pacifidlog_town_house2/ground",
       "name": "Ground",
       "width": 10,
       "height": 9,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/pacifidlog_town_house2/objects",
+      "id": "pokeemerald:layer:Hoenn/pacifidlog_town_house2/objects",
       "name": "Objects",
       "width": 10,
       "height": 9,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/pacifidlog_town_house2/overhead",
+      "id": "pokeemerald:layer:Hoenn/pacifidlog_town_house2/overhead",
       "name": "Overhead",
       "width": 10,
       "height": 9,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/generic_building"
+      "tilesetId": "pokeemerald:tileset:secondary/genericbuilding"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/pacifidlog_town_house2/warp_to_pacifidlog_town",
+      "id": "pokeemerald:warp:Hoenn/pacifidlog_town_house2/warp_to_pacifidlog_town",
       "name": "Warp to pacifidlog_town",
       "x": 64,
       "y": 128,
@@ -81,7 +96,7 @@
       "elevation": 0
     },
     {
-      "id": "pokeemerald:warp:hoenn/pacifidlog_town_house2/warp_to_pacifidlog_town",
+      "id": "pokeemerald:warp:Hoenn/pacifidlog_town_house2/warp_to_pacifidlog_town",
       "name": "Warp to pacifidlog_town",
       "x": 80,
       "y": 128,
@@ -97,40 +112,39 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/pacifidlog_town_house2/npc_0",
+      "id": "pokeemerald:npc:Hoenn/pacifidlog_town_house2/npc_0",
       "name": "NPC_0",
       "x": 48,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/gentleman",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/pacifidlog_town_house2_event_script_fan_club_younger_brother",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house2_event_script_fan_club_younger_brother",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/pacifidlog_town_house2/npc_1",
+      "id": "pokeemerald:npc:Hoenn/pacifidlog_town_house2/npc_1",
       "name": "NPC_1",
       "x": 128,
       "y": 96,
       "spriteId": "pokeemerald:sprite:pokemon/azurillold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/pacifidlog_town_house2_event_script_happy_azurill",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house2_event_script_happy_azurill",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/pacifidlog_town_house2/npc_2",
+      "id": "pokeemerald:npc:Hoenn/pacifidlog_town_house2/npc_2",
       "name": "NPC_2",
       "x": 16,
       "y": 112,
       "spriteId": "pokeemerald:sprite:pokemon/azurillold",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/pacifidlog_town_house2_event_script_unhappy_azurill",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house2_event_script_unhappy_azurill",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/pacifidlog_town_house2/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/pacifidlog_town_house2/elevation_0",
       "name": "Collision_0",
       "width": 10,
       "height": 9,
@@ -140,7 +154,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/pacifidlog_town_house2/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/pacifidlog_town_house2/elevation_3",
       "name": "Collision_3",
       "width": 10,
       "height": 9,

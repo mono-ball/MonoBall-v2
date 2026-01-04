@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/route110_trick_house_puzzle6",
   "name": "Route110_TrickHousePuzzle6",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 15,
   "height": 22,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/route110_trick_house_puzzle6/ground",
+      "id": "pokeemerald:layer:Hoenn/route110_trick_house_puzzle6/ground",
       "name": "Ground",
       "width": 15,
       "height": 22,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route110_trick_house_puzzle6/objects",
+      "id": "pokeemerald:layer:Hoenn/route110_trick_house_puzzle6/objects",
       "name": "Objects",
       "width": 15,
       "height": 22,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
-      "id": "pokeemerald:layer:hoenn/route110_trick_house_puzzle6/overhead",
+      "id": "pokeemerald:layer:Hoenn/route110_trick_house_puzzle6/overhead",
       "name": "Overhead",
       "width": 15,
       "height": 22,
@@ -64,12 +79,12 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/trick_house_puzzle"
+      "tilesetId": "pokeemerald:tileset:secondary/trickhousepuzzle"
     }
   ],
   "warps": [
     {
-      "id": "pokeemerald:warp:hoenn/route110_trick_house_puzzle6/warp_to_route110_trick_house_entrance",
+      "id": "pokeemerald:warp:Hoenn/route110_trick_house_puzzle6/warp_to_route110_trick_house_entrance",
       "name": "Warp to route110_trick_house_entrance",
       "x": 0,
       "y": 336,
@@ -81,7 +96,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/route110_trick_house_puzzle6/warp_to_route110_trick_house_entrance",
+      "id": "pokeemerald:warp:Hoenn/route110_trick_house_puzzle6/warp_to_route110_trick_house_entrance",
       "name": "Warp to route110_trick_house_entrance",
       "x": 16,
       "y": 336,
@@ -93,7 +108,7 @@
       "elevation": 3
     },
     {
-      "id": "pokeemerald:warp:hoenn/route110_trick_house_puzzle6/warp_to_route110_trick_house_end",
+      "id": "pokeemerald:warp:Hoenn/route110_trick_house_puzzle6/warp_to_route110_trick_house_end",
       "name": "Warp to route110_trick_house_end",
       "x": 208,
       "y": 16,
@@ -108,65 +123,62 @@
   "triggers": [],
   "interactions": [
     {
-      "id": "pokeemerald:interaction:hoenn/route110_trick_house_puzzle6/sign_route110trickhousepuzzle6eventscriptscroll",
+      "id": "pokeemerald:interaction:Hoenn/route110_trick_house_puzzle6/sign_route110trickhousepuzzle6eventscriptscroll",
       "name": "Sign: Route110_TrickHousePuzzle6_EventScript_Scroll",
       "x": 0,
       "y": 160,
       "width": 16,
       "height": 16,
-      "interactionId": "pokeemerald:interaction/npcs/route110_trick_house_puzzle6_event_script_scroll",
+      "interactionId": "pokeemerald:script:interactions/signs/route110_trick_house_puzzle6_event_script_scroll",
       "elevation": 3
     }
   ],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/route110_trick_house_puzzle6/npc_0",
+      "id": "pokeemerald:npc:Hoenn/route110_trick_house_puzzle6/npc_0",
       "name": "NPC_0",
       "x": 112,
       "y": 144,
-      "spriteId": "pokeemerald:sprite:npcs/picnicker",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route110_trick_house_puzzle6_event_script_sophia",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/picnicker",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle6_event_script_sophia",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route110_trick_house_puzzle6/npc_1",
+      "id": "pokeemerald:npc:Hoenn/route110_trick_house_puzzle6/npc_1",
       "name": "NPC_1",
       "x": 176,
       "y": 160,
-      "spriteId": "pokeemerald:sprite:npcs/man5",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route110_trick_house_puzzle6_event_script_benny",
-      "facingDirection": "right",
+      "spriteId": "pokeemerald:sprite:characters/npcs/man5",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle6_event_script_benny",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route110_trick_house_puzzle6/npc_2",
+      "id": "pokeemerald:npc:Hoenn/route110_trick_house_puzzle6/npc_2",
       "name": "NPC_2",
       "x": 64,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:npcs/camper",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/route110_trick_house_puzzle6_event_script_sebastian",
-      "facingDirection": "up",
+      "spriteId": "pokeemerald:sprite:characters/npcs/camper",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle6_event_script_sebastian",
       "elevation": 3
     },
     {
-      "id": "pokeemerald:npc:hoenn/route110_trick_house_puzzle6/npc_3",
+      "id": "pokeemerald:npc:Hoenn/route110_trick_house_puzzle6/npc_3",
       "name": "NPC_3",
       "x": 176,
       "y": 336,
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "interactionId": "pokeemerald:interaction/npcs/common_event_script_find_item",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/trick_house_puzzle_6_glitter_mail",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/route110_trick_house_puzzle6/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/route110_trick_house_puzzle6/elevation_0",
       "name": "Collision_0",
       "width": 15,
       "height": 22,
@@ -176,7 +188,7 @@
       "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQABAQEAAAABAAAAAAAAAQAAAQAAAAABAAABAAAAAQAAAQAAAAAAAAABAAEAAQEAAAAAAAABAAABAAEAAQAAAAAAAQEBAAAAAAAAAQAAAAAAAQAAAAAAAQAAAQABAAAAAAABAQEAAQAAAQAAAAAAAAAAAQAAAAABAQAAAAABAAEAAQAAAAEAAAAAAQEBAAEAAQAAAAEAAAAAAAAAAAEAAAEBAAEBAAAAAAAAAAEBAAABAAABAAAAAQEBAAABAAABAAEBAQABAQAAAAABAAAAAAAAAQABAQABAAABAAABAAAAAAAAAAABAAABAQAAAAAAAAAAAAAAAAAAAAAAAQEAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAEBAAAAAAEBAQAAAAAAAAEAAAAAAQEAAAAA"
     },
     {
-      "id": "pokeemerald:collision:hoenn/route110_trick_house_puzzle6/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/route110_trick_house_puzzle6/elevation_3",
       "name": "Collision_3",
       "width": 15,
       "height": 22,

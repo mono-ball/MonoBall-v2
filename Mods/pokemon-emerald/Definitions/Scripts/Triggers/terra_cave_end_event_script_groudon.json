@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/terra_cave_end_event_script_groudon",
+  "name": "terra cave end event script groudon",
+  "description": "Trigger script: terra cave end event script groudon",
+  "scriptPath": "Scripts/Triggers/terra_cave_end_event_script_groudon.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

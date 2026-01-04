@@ -1,8 +1,8 @@
 {
-  "id": "pokeemerald:script:sign/slateport_city_battle_tent_lobby_event_script_rules_board",
+  "id": "pokeemerald:script:interactions/signs/slateport_city_battle_tent_lobby_event_script_rules_board",
   "name": "slateport city battle tent lobby event script rules board",
   "description": "Sign script: slateport city battle tent lobby event script rules board",
-  "scriptPath": "Scripts/Signs/slateport_city_battle_tent_lobby_event_script_rules_board.csx",
+  "scriptPath": "Scripts/Interactions/Signs/slateport_city_battle_tent_lobby_event_script_rules_board.csx",
   "category": "sign",
   "priority": 500,
   "parameters": []

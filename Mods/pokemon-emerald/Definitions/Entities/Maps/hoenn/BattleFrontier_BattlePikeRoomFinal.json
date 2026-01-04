@@ -2,7 +2,7 @@
   "id": "pokeemerald:map:hoenn/battle_frontier_battle_pike_room_final",
   "name": "BattleFrontier_BattlePikeRoomFinal",
   "description": "",
-  "regionId": "pokeemerald:region:hoenn",
+  "regionId": "pokeemerald:region:Hoenn",
   "mapTypeId": "pokeemerald:maptype:indoor",
   "width": 5,
   "height": 8,
@@ -19,9 +19,24 @@
   "allowCycling": false,
   "allowEscaping": false,
   "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:primary/building",
+    "bottomLayer": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "topLayer": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
   "layers": [
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_pike_room_final/ground",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_pike_room_final/ground",
       "name": "Ground",
       "width": 5,
       "height": 8,
@@ -33,7 +48,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_pike_room_final/objects",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_pike_room_final/objects",
       "name": "Objects",
       "width": 5,
       "height": 8,
@@ -45,7 +60,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
     },
     {
-      "id": "pokeemerald:layer:hoenn/battle_frontier_battle_pike_room_final/overhead",
+      "id": "pokeemerald:layer:Hoenn/battle_frontier_battle_pike_room_final/overhead",
       "name": "Overhead",
       "width": 5,
       "height": 8,
@@ -64,7 +79,7 @@
     },
     {
       "firstGid": 6,
-      "tilesetId": "pokeemerald:tileset:secondary/battle_pike"
+      "tilesetId": "pokeemerald:tileset:secondary/battlepike"
     }
   ],
   "warps": [],
@@ -72,19 +87,18 @@
   "interactions": [],
   "npcs": [
     {
-      "id": "pokeemerald:npc:hoenn/battle_frontier_battle_pike_room_final/localid_pike_final_room_attendant",
+      "id": "pokeemerald:npc:Hoenn/battle_frontier_battle_pike_room_final/localid_pike_final_room_attendant",
       "name": "LOCALID_PIKE_FINAL_ROOM_ATTENDANT",
       "x": 32,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:npcs/linkreceptionist",
-      "behaviorId": "pokeemerald:script/movement/npcs/stationary",
-      "facingDirection": "down",
+      "spriteId": "pokeemerald:sprite:characters/npcs/linkreceptionist",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "elevation": 3
     }
   ],
   "collisions": [
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_pike_room_final/elevation_0",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_battle_pike_room_final/elevation_0",
       "name": "Collision_0",
       "width": 5,
       "height": 8,
@@ -94,7 +108,7 @@
       "tileData": "AAAAAAAAAAAAAAAAAAAAAAEBAQABAAAAAQAAAAAAAAAAAAABAAAAAQ=="
     },
     {
-      "id": "pokeemerald:collision:hoenn/battle_frontier_battle_pike_room_final/elevation_3",
+      "id": "pokeemerald:collision:Hoenn/battle_frontier_battle_pike_room_final/elevation_3",
       "name": "Collision_3",
       "width": 5,
       "height": 8,

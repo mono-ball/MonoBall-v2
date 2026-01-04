@@ -1,0 +1,331 @@
+{
+  "id": "pokeemerald:tileset:secondary/insideship",
+  "name": "InsideShip",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/InsideShip.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 140,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 144,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 2,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 3,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 6,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 8,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 9,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 10,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 11,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    },
+    {
+      "localTileId": 15,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 16,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 17,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 18,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_32"
+    },
+    {
+      "localTileId": 19,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 22,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 27,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 33,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 34,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 37,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 38,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 39,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 40,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 42,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_33"
+    },
+    {
+      "localTileId": 43,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_33"
+    },
+    {
+      "localTileId": 44,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    },
+    {
+      "localTileId": 45,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 47,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 48,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 50,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 53,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 55,
+      "interactionId": "pokeemerald:script:interactions/tiles/trainer_see_all_directions"
+    },
+    {
+      "localTileId": 56,
+      "interactionId": "pokeemerald:script:interactions/tiles/trainer_see_all_directions"
+    },
+    {
+      "localTileId": 57,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 58,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 59,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 60,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 61,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 63,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 64,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 65,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 66,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 67,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 68,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 69,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 87,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 88,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 89,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 90,
+      "interactionId": "pokeemerald:script:interactions/tiles/lava",
+      "collisionId": "pokeemerald:collision:hazard"
+    },
+    {
+      "localTileId": 91,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 92,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 93,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_6d"
+    },
+    {
+      "localTileId": 94,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_west",
+      "collisionId": "pokeemerald:collision:ledge_west"
+    },
+    {
+      "localTileId": 99,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_6c"
+    },
+    {
+      "localTileId": 101,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 102,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 103,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 104,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 105,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 106,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 107,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    },
+    {
+      "localTileId": 108,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 111,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 112,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 113,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 114,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_up"
+    },
+    {
+      "localTileId": 116,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 117,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 118,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 119,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 120,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 121,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 122,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 123,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 125,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 128,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 129,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    },
+    {
+      "localTileId": 130,
+      "interactionId": "pokeemerald:script:interactions/tiles/indoor_encounter"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pokeemerald:script:trigger/route111_event_script_sandstorm_trigger",
+  "name": "route111 event script sandstorm trigger",
+  "description": "Trigger script: route111 event script sandstorm trigger",
+  "scriptPath": "Scripts/Triggers/route111_event_script_sandstorm_trigger.csx",
+  "category": "trigger",
+  "priority": 500,
+  "parameters": []
+}

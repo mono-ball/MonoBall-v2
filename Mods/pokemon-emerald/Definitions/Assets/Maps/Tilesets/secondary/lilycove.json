@@ -1,187 +1,636 @@
 {
   "id": "pokeemerald:tileset:secondary/lilycove",
-  "name": "lilycove",
+  "name": "Lilycove",
   "type": "secondary",
-  "texturePath": "Graphics/Maps/Tilesets/Secondary/lilycove.png",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/Lilycove.png",
   "tileWidth": 16,
   "tileHeight": 16,
-  "tileCount": 295,
+  "tileCount": 336,
   "columns": 16,
   "imageWidth": 256,
-  "imageHeight": 304,
+  "imageHeight": 336,
   "spacing": 0,
   "margin": 0,
   "tiles": [
     {
       "localTileId": 0,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d6"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d6"
     },
     {
       "localTileId": 1,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d6"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d6"
     },
     {
       "localTileId": 2,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d6"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d6"
     },
     {
       "localTileId": 3,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d6"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d6"
     },
     {
       "localTileId": 4,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d4"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d4"
     },
     {
       "localTileId": 5,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d4"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d4"
     },
     {
       "localTileId": 9,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_d6"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_d6"
     },
     {
       "localTileId": 17,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_87"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_87"
     },
     {
       "localTileId": 18,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_87"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_87"
     },
     {
       "localTileId": 22,
-      "interactionId": "pokeemerald:interaction/tiles/cable_car_climb"
+      "interactionId": "pokeemerald:script:interactions/tiles/cable_car_climb"
     },
     {
       "localTileId": 29,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 39,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
     },
     {
       "localTileId": 54,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 55,
-      "interactionId": "pokeemerald:interaction/tiles/cracked_ice",
+      "interactionId": "pokeemerald:script:interactions/tiles/cracked_ice",
       "collisionId": "pokeemerald:collision:ice_cracked"
     },
     {
       "localTileId": 56,
-      "interactionId": "pokeemerald:interaction/tiles/cable_car_climb"
+      "interactionId": "pokeemerald:script:interactions/tiles/cable_car_climb"
     },
     {
       "localTileId": 57,
-      "interactionId": "pokeemerald:interaction/tiles/cable_car_climb"
+      "interactionId": "pokeemerald:script:interactions/tiles/cable_car_climb"
     },
     {
       "localTileId": 70,
-      "interactionId": "pokeemerald:interaction/tiles/cable_car_climb"
+      "interactionId": "pokeemerald:script:interactions/tiles/cable_car_climb"
     },
     {
       "localTileId": 72,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
-      "terrainId": "pokeemerald:terrain:sand"
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 73,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
       "terrainId": "pokeemerald:terrain:sand"
     },
     {
       "localTileId": 74,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
-      "terrainId": "pokeemerald:terrain:sand"
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 75,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
       "terrainId": "pokeemerald:terrain:sand"
     },
     {
       "localTileId": 76,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
-      "terrainId": "pokeemerald:terrain:sand"
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 77,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
       "terrainId": "pokeemerald:terrain:sand"
     },
     {
       "localTileId": 78,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
-      "terrainId": "pokeemerald:terrain:sand"
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 79,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
       "terrainId": "pokeemerald:terrain:sand"
     },
     {
-      "localTileId": 100,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
+      "localTileId": 80,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 81,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
       "terrainId": "pokeemerald:terrain:sand"
     },
     {
-      "localTileId": 101,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
+      "localTileId": 82,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 83,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
       "terrainId": "pokeemerald:terrain:sand"
     },
     {
-      "localTileId": 138,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "localTileId": 84,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 304,
+          "durationMs": 133
+        },
+        {
+          "tileId": 305,
+          "durationMs": 133
+        },
+        {
+          "tileId": 306,
+          "durationMs": 133
+        },
+        {
+          "tileId": 307,
+          "durationMs": 133
+        },
+        {
+          "tileId": 308,
+          "durationMs": 133
+        },
+        {
+          "tileId": 309,
+          "durationMs": 133
+        },
+        {
+          "tileId": 310,
+          "durationMs": 133
+        },
+        {
+          "tileId": 311,
+          "durationMs": 133
+        }
+      ]
     },
     {
-      "localTileId": 139,
-      "interactionId": "pokeemerald:interaction/tiles/spin_right"
+      "localTileId": 85,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand"
     },
     {
-      "localTileId": 162,
-      "interactionId": "pokeemerald:interaction/tiles/unknown_6c"
+      "localTileId": 109,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 312,
+          "durationMs": 133
+        },
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        }
+      ]
     },
     {
-      "localTileId": 178,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "localTileId": 110,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand"
     },
     {
-      "localTileId": 186,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "localTileId": 147,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
-      "localTileId": 259,
-      "interactionId": "pokeemerald:interaction/tiles/secret_base_shrub"
+      "localTileId": 148,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 171,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_6c"
+    },
+    {
+      "localTileId": 187,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 195,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 265,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 277,
+      "animation": [
+        {
+          "tileId": 312,
+          "durationMs": 133
+        },
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 284,
-      "interactionId": "pokeemerald:interaction/tiles/ledge_north",
-      "collisionId": "pokeemerald:collision:ledge_north"
-    },
-    {
-      "localTileId": 285,
-      "interactionId": "pokeemerald:interaction/tiles/ledge_north",
-      "collisionId": "pokeemerald:collision:ledge_north"
-    },
-    {
-      "localTileId": 287,
-      "interactionId": "pokeemerald:interaction/tiles/sand_cave",
-      "terrainId": "pokeemerald:terrain:sand"
-    },
-    {
-      "localTileId": 290,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
-    },
-    {
-      "localTileId": 291,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
+      "animation": [
+        {
+          "tileId": 312,
+          "durationMs": 133
+        },
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        }
+      ]
     },
     {
       "localTileId": 292,
-      "interactionId": "pokeemerald:interaction/tiles/player_face_up"
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north",
+      "animation": [
+        {
+          "tileId": 320,
+          "durationMs": 133
+        },
+        {
+          "tileId": 321,
+          "durationMs": 133
+        },
+        {
+          "tileId": 322,
+          "durationMs": 133
+        },
+        {
+          "tileId": 323,
+          "durationMs": 133
+        },
+        {
+          "tileId": 324,
+          "durationMs": 133
+        },
+        {
+          "tileId": 325,
+          "durationMs": 133
+        },
+        {
+          "tileId": 326,
+          "durationMs": 133
+        },
+        {
+          "tileId": 327,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 293,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north"
+    },
+    {
+      "localTileId": 295,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 328,
+          "durationMs": 133
+        },
+        {
+          "tileId": 329,
+          "durationMs": 133
+        },
+        {
+          "tileId": 330,
+          "durationMs": 133
+        },
+        {
+          "tileId": 331,
+          "durationMs": 133
+        },
+        {
+          "tileId": 332,
+          "durationMs": 133
+        },
+        {
+          "tileId": 333,
+          "durationMs": 133
+        },
+        {
+          "tileId": 334,
+          "durationMs": 133
+        },
+        {
+          "tileId": 335,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 296,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand"
+    },
+    {
+      "localTileId": 299,
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
+    },
+    {
+      "localTileId": 300,
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
+    },
+    {
+      "localTileId": 301,
+      "interactionId": "pokeemerald:script:interactions/tiles/player_face_up"
     }
   ]
 }

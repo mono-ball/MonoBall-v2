@@ -53,7 +53,14 @@ public class ConvertCommandExecutor
 
         try
         {
-            // Set the ID namespace from command line
+            // Validate that namespace is provided
+            if (string.IsNullOrEmpty(_settings.Namespace))
+            {
+                AnsiConsole.MarkupLine("[red]Error:[/] Namespace (-n) parameter is required");
+                return 1;
+            }
+            
+            // Set the ID namespace
             IdTransformer.Namespace = _settings.Namespace;
 
             // Ensure output directory exists
@@ -66,7 +73,7 @@ public class ConvertCommandExecutor
             var converter = new MapConversionService(
                 _settings.InputPath,
                 _settings.OutputPath,
-                _settings.Region,
+                _settings.RegionPascalCase,
                 _settings.Verbose);
 
             if (_settings.Verbose)
@@ -441,8 +448,8 @@ public class ConvertCommandExecutor
         {
             var generator = new ManifestGenerator(
                 _settings.OutputPath,
-                _settings.Namespace,
-                _settings.Region);
+                IdTransformer.Namespace,
+                _settings.RegionPascalCase);
 
             generator.Generate(
                 _settings.ModName,

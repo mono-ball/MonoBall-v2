@@ -1,6 +1,7 @@
 using System.IO.Compression;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 using Porycon3.Models;
 using Porycon3.Infrastructure;
 
@@ -168,6 +169,70 @@ public class AnimationScanner
         // Sort by frame number and return paths
         frames.Sort((a, b) => a.Index.CompareTo(b.Index));
         return frames.Select(f => f.Path).ToList();
+    }
+
+    /// <summary>
+    /// Extract individual 8x8 tiles from an animation frame image.
+    /// Handles various layouts: vertical strips, horizontal strips, 2-column grids.
+    /// </summary>
+    public List<Image<Rgba32>> ExtractTilesFromFrame(
+        Image<Rgba32> frameImage,
+        int numTiles,
+        int tileSize = 8)
+    {
+        var tiles = new List<Image<Rgba32>>();
+
+        // Calculate dimensions
+        int tilesPerRow = frameImage.Width / tileSize;
+        int tilesPerCol = frameImage.Height / tileSize;
+        int totalAvailableTiles = tilesPerRow * tilesPerCol;
+
+        if (tilesPerRow == 0) tilesPerRow = 1;
+        if (tilesPerCol == 0) tilesPerCol = 1;
+
+        // Determine layout type and extract tiles
+        bool isSingleColumn = (tilesPerRow == 1 && tilesPerCol >= numTiles);
+        bool isSingleRow = (tilesPerCol == 1 && tilesPerRow >= numTiles);
+
+        for (int i = 0; i < numTiles; i++)
+        {
+            int x, y;
+
+            if (isSingleColumn)
+            {
+                // Vertical strip: tiles stacked top to bottom
+                x = 0;
+                y = i * tileSize;
+            }
+            else if (isSingleRow)
+            {
+                // Horizontal strip: tiles side by side
+                x = i * tileSize;
+                y = 0;
+            }
+            else
+            {
+                // Grid layout: left-to-right, top-to-bottom
+                int col = i % tilesPerRow;
+                int row = i / tilesPerRow;
+                x = col * tileSize;
+                y = row * tileSize;
+            }
+
+            // Bounds check
+            if (x + tileSize <= frameImage.Width && y + tileSize <= frameImage.Height)
+            {
+                var tile = frameImage.Clone(ctx => ctx.Crop(new Rectangle(x, y, tileSize, tileSize)));
+                tiles.Add(tile);
+            }
+            else
+            {
+                // Create transparent tile for out-of-bounds
+                tiles.Add(new Image<Rgba32>(tileSize, tileSize, new Rgba32(0, 0, 0, 0)));
+            }
+        }
+
+        return tiles;
     }
 
     /// <summary>
