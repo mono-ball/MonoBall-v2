@@ -20,7 +20,7 @@ public class ShaderApiImpl : IShaderApi
     private readonly DefinitionRegistry _definitionRegistry;
     private readonly ShaderMultiParameterAnimationSystem? _multiAnimSystem;
     private readonly IShaderPresetService? _presetService;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
     private readonly ShaderTransitionSystem? _transitionSystem;
     private readonly World _world;
 
@@ -30,7 +30,7 @@ public class ShaderApiImpl : IShaderApi
     public ShaderApiImpl(
         World world,
         DefinitionRegistry definitionRegistry,
-        ShaderManagerSystem? shaderManagerSystem = null,
+        ShaderManager? shaderManagerSystem = null,
         ShaderTransitionSystem? transitionSystem = null,
         ShaderMultiParameterAnimationSystem? multiAnimSystem = null,
         ShaderAnimationChainSystem? chainSystem = null,

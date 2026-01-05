@@ -35,6 +35,7 @@ public sealed class DebugOverlayService : IDebugOverlayService
     private TimeControlService? _timeControl;
     private SceneSystem? _sceneSystem;
     private IModManager? _modManager;
+    private LogsPanel? _logsPanel; // Track our panel instance to avoid clearing another service's panel
     private bool _initialized;
     private bool _disposed;
 
@@ -213,8 +214,10 @@ public sealed class DebugOverlayService : IDebugOverlayService
         if (_disposed)
             return;
 
-        // Disconnect from Serilog sink
-        ImGuiLogSink.SetLogsPanel(null);
+        // Only disconnect from Serilog sink if we own the current panel
+        // This prevents the early SystemManager's DebugOverlayService from clearing
+        // the panel set by the real SystemManager's DebugOverlayService
+        ImGuiLogSink.ClearLogsPanelIfMatch(_logsPanel);
 
         _consoleService?.Dispose();
         _panelRenderSystem?.Dispose();
@@ -244,9 +247,9 @@ public sealed class DebugOverlayService : IDebugOverlayService
         _panelRegistry.Register(new EventInspectorPanel());
 
         // Register the logs panel and connect to Serilog sink
-        var logsPanel = new LogsPanel();
-        _panelRegistry.Register(logsPanel);
-        ImGuiLogSink.SetLogsPanel(logsPanel);
+        _logsPanel = new LogsPanel();
+        _panelRegistry.Register(_logsPanel);
+        ImGuiLogSink.SetLogsPanel(_logsPanel);
 
         // Create console services
         _performanceStats = new PerformanceStatsAdapter();

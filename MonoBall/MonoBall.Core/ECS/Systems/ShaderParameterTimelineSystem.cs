@@ -22,7 +22,7 @@ public class ShaderParameterTimelineSystem : BaseSystem<World, float>
     private readonly Dictionary<Entity, List<ShaderParameterKeyframe>> _keyframes = new();
     private readonly QueryDescription _layerShaderTimelineQuery;
     private readonly ILogger _logger;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
 
     /// <summary>
     ///     Initializes a new instance of the ShaderParameterTimelineSystem.
@@ -32,7 +32,7 @@ public class ShaderParameterTimelineSystem : BaseSystem<World, float>
     /// <param name="logger">The logger for logging operations.</param>
     public ShaderParameterTimelineSystem(
         World world,
-        ShaderManagerSystem? shaderManagerSystem,
+        ShaderManager? shaderManagerSystem,
         ILogger logger
     )
         : base(world)

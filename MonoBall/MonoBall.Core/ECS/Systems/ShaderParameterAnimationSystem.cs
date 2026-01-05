@@ -24,7 +24,7 @@ public class ShaderParameterAnimationSystem
     private readonly QueryDescription _entityShaderAnimationQuery;
     private readonly QueryDescription _layerShaderAnimationQuery;
     private readonly ILogger _logger;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
 
     /// <summary>
     ///     Initializes a new instance of the ShaderParameterAnimationSystem.
@@ -34,7 +34,7 @@ public class ShaderParameterAnimationSystem
     /// <param name="logger">The logger for logging operations.</param>
     public ShaderParameterAnimationSystem(
         World world,
-        ShaderManagerSystem? shaderManagerSystem,
+        ShaderManager? shaderManagerSystem,
         ILogger logger
     )
         : base(world)

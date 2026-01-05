@@ -2,7 +2,7 @@
   "id": "base:shader:crt",
   "name": "CRT",
   "description": "Applies CRT monitor effect with scanlines, curvature, and color bleeding",
-  "sourceFile": "Shaders/CRT.mgfxo",
+  "sourceFile": "Shaders/Screen/CRT.mgfxo",
   "parameters": [
     {
       "name": "Curvature",

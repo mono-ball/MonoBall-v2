@@ -2,7 +2,7 @@
   "id": "base:shader:glitch",
   "name": "Glitch",
   "description": "VHS/Digital glitch effect with RGB splitting, scanline jitter, static, and tape artifacts",
-  "sourceFile": "Shaders/Glitch.mgfxo",
+  "sourceFile": "Shaders/Screen/Glitch.mgfxo",
   "parameters": [
     { "name": "Time", "type": "float", "defaultValue": 0.0 },
     { "name": "GlitchIntensity", "type": "float", "defaultValue": 0.8, "min": 0.0, "max": 1.0 },

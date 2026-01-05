@@ -2,7 +2,7 @@
   "id": "base:shader:spooky",
   "name": "Spooky",
   "description": "Eerie atmosphere with vignette, chromatic aberration, fog wisps, pulsing darkness, and film grain",
-  "sourceFile": "Shaders/Spooky.mgfxo",
+  "sourceFile": "Shaders/Screen/Spooky.mgfxo",
   "parameters": [
     {
       "name": "Time",

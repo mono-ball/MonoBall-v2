@@ -19,6 +19,7 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
     private readonly LogEntry[] _logBuffer = new LogEntry[MaxLogEntries];
     private int _logHead; // Next write position
     private int _logCount; // Number of entries in buffer
+    private long _totalLogsReceived; // Debug: total logs ever received
     private readonly object _logLock = new();
 
     // Filtering state
@@ -110,6 +111,7 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
             _logBuffer[_logHead] = entry;
             _logHead = (_logHead + 1) % MaxLogEntries;
             _logCount = Math.Min(_logCount + 1, MaxLogEntries);
+            _totalLogsReceived++;
 
             _filterDirty = true;
         }
@@ -199,8 +201,15 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
         }
 
         // Render without holding the lock
-        var availableHeight = ImGui.GetContentRegionAvail().Y - 25; // Reserve space for status bar
-        ImGui.BeginChild("LogList", new Vector2(0, availableHeight), ImGuiChildFlags.Borders);
+        // Ensure minimum height to prevent crashes with very small windows
+        var availableHeight = Math.Max(50, ImGui.GetContentRegionAvail().Y - 25);
+
+        // BeginChild returns false if the region is clipped - still need to call EndChild
+        if (!ImGui.BeginChild("LogList", new Vector2(0, availableHeight), ImGuiChildFlags.Borders))
+        {
+            ImGui.EndChild();
+            return;
+        }
 
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0, 2));
 
@@ -239,12 +248,16 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
 
         if (_showCategory)
         {
-            line += $"[{entry.Category}] ";
+            line += $"[{entry.Category ?? "General"}] ";
         }
 
-        line += entry.Message;
+        line += entry.Message ?? "";
 
-        ImGui.TextColored(color, line);
+        // Use PushStyleColor + TextUnformatted to avoid printf-style formatting issues
+        // This is safer than TextColored which interprets % as format specifiers
+        ImGui.PushStyleColor(ImGuiCol.Text, color);
+        ImGui.TextUnformatted(line);
+        ImGui.PopStyleColor();
     }
 
     private void DrawStatusBar()
@@ -253,10 +266,12 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
             filtered,
             errors,
             warnings;
+        long totalReceived;
         lock (_logLock)
         {
             total = _logCount;
             filtered = _filteredLogs.Count;
+            totalReceived = _totalLogsReceived;
             errors = 0;
             warnings = 0;
 
@@ -272,7 +287,12 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
             }
         }
 
-        var statusText = $"Total: {total}";
+        // Get sink stats to debug the pipeline
+        var (sinkEmits, sinkPanelNull, sinkHasPanel) = Logging.ImGuiLogSink.GetStats();
+
+        // Show full pipeline stats: Sink -> Panel
+        var statusText =
+            $"Sink: {sinkEmits} (null:{sinkPanelNull}, panel:{(sinkHasPanel ? "Y" : "N")}) | Received: {totalReceived} | Buffer: {total}";
         if (filtered != total)
         {
             statusText += $" | Showing: {filtered}";
@@ -294,11 +314,13 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
 
     private void UpdateFilteredLogs()
     {
-        if (!_filterDirty)
-            return;
-
+        // Check _filterDirty inside the lock to avoid race conditions with AddLog()
+        // which sets _filterDirty = true from background threads (e.g., Serilog)
         lock (_logLock)
         {
+            if (!_filterDirty)
+                return;
+
             _filteredLogs.Clear();
 
             // Iterate ring buffer in chronological order (oldest to newest)
@@ -323,17 +345,23 @@ public sealed class LogsPanel : IDebugPanel, IDebugPanelLifecycle
         if (entry.Level < _minLevel)
             return false;
 
-        // Category filter
+        // Category filter (handle null category)
         if (
             !string.IsNullOrEmpty(_categoryFilter)
-            && !entry.Category.Contains(_categoryFilter, StringComparison.OrdinalIgnoreCase)
+            && (
+                entry.Category == null
+                || !entry.Category.Contains(_categoryFilter, StringComparison.OrdinalIgnoreCase)
+            )
         )
             return false;
 
-        // Search filter
+        // Search filter (handle null message)
         if (
             !string.IsNullOrEmpty(_searchFilter)
-            && !entry.Message.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase)
+            && (
+                entry.Message == null
+                || !entry.Message.Contains(_searchFilter, StringComparison.OrdinalIgnoreCase)
+            )
         )
             return false;
 

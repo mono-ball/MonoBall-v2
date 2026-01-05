@@ -199,33 +199,7 @@ internal sealed class SpriteRenderer : ISpriteRenderer
         // Ensure CurrentTechnique is set
         ShaderParameterApplier.EnsureCurrentTechnique(shader, _logger);
 
-        // Automatically set ScreenSize parameter if the shader has it
-        try
-        {
-            var screenSizeParam = shader.Parameters["ScreenSize"];
-            if (
-                screenSizeParam != null
-                && screenSizeParam.ParameterClass == EffectParameterClass.Vector
-                && screenSizeParam.ColumnCount == 2
-            )
-            {
-                var viewport = _graphicsDevice.Viewport;
-                var screenSize = new Vector2(viewport.Width, viewport.Height);
-                screenSizeParam.SetValue(screenSize);
-            }
-        }
-        catch (KeyNotFoundException)
-        {
-            // ScreenSize parameter doesn't exist - that's fine
-        }
-        catch (Exception ex)
-        {
-            _logger.Debug(
-                ex,
-                "Failed to set ScreenSize parameter automatically for per-entity shader"
-            );
-        }
-
+        // Apply shader parameters from component (including ScreenSize if provided)
         if (shaderComp.Parameters != null)
             ShaderParameterApplier.ApplyParameters(shader, shaderComp.Parameters, _logger);
 

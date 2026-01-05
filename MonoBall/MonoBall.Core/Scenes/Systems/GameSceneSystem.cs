@@ -31,7 +31,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
     private readonly RenderTargetManager? _renderTargetManager;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
     private readonly ShaderRendererSystem? _shaderRendererSystem;
     private readonly SpriteBatch _spriteBatch;
 
@@ -51,7 +51,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         GraphicsDevice graphicsDevice,
         SpriteBatch spriteBatch,
         ElevationRendererSystem elevationRendererSystem,
-        ShaderManagerSystem? shaderManagerSystem = null,
+        ShaderManager? shaderManagerSystem = null,
         ShaderRendererSystem? shaderRendererSystem = null,
         RenderTargetManager? renderTargetManager = null,
         ILogger? logger = null
@@ -253,11 +253,6 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
                     _graphicsDevice.Viewport = originalViewport.Value;
 
                 // Update dynamic parameters for all shaders in stack
-                var viewport = _graphicsDevice.Viewport;
-                _shaderManagerSystem?.UpdateCombinedLayerScreenSize(
-                    viewport.Width,
-                    viewport.Height
-                );
                 _shaderManagerSystem?.ForceUpdateCombinedLayerParameters();
 
                 // Apply shader stack using ShaderRendererSystem

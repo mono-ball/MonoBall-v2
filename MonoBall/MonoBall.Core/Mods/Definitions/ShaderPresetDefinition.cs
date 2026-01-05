@@ -28,7 +28,7 @@ public class ShaderPresetDefinition
     public string? Description { get; set; }
 
     /// <summary>
-    ///     Gets or sets the shader ID this preset applies to (e.g., "base:shader:showcase").
+    ///     Gets or sets the shader ID this preset applies to (e.g., "base:shader:crt").
     /// </summary>
     [JsonPropertyName("shaderId")]
     public string ShaderId { get; set; } = string.Empty;

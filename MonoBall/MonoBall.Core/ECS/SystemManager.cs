@@ -81,7 +81,7 @@ public class SystemManager : IDisposable
     private ScriptLifecycleSystem? _scriptLifecycleSystem; // Initialized in CreateGameSystems()
     private ScriptLoaderService? _scriptLoaderService; // Initialized in InitializeCoreServices()
     private ShaderAnimationChainSystem? _shaderChainSystem; // Initialized in Initialize(), may be null
-    private ShaderManagerSystem? _shaderManagerSystem; // Initialized in Initialize(), may be null
+    private ShaderManager? _shaderManagerSystem; // Initialized in Initialize(), may be null
     private ShaderMultiParameterAnimationSystem? _shaderMultiAnimSystem; // Initialized in Initialize(), may be null
     private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
     private IShaderPresetService? _shaderPresetService; // Initialized in Initialize(), may be null
@@ -300,7 +300,7 @@ public class SystemManager : IDisposable
         _shaderPresetService = null; // Service doesn't implement IDisposable
         _renderTargetManager?.Dispose();
         _renderTargetManager = null;
-        // ShaderManagerSystem doesn't need disposal (no managed resources)
+        // ShaderManager doesn't need disposal (no managed resources)
 
         // Dispose debug overlay service
         _debugOverlayService?.Dispose();
@@ -767,12 +767,12 @@ public class SystemManager : IDisposable
                 _graphicsDevice,
                 LoggerFactory.CreateLogger<RenderTargetManager>()
             );
-            _shaderManagerSystem = new ShaderManagerSystem(
+            _shaderManagerSystem = new ShaderManager(
                 _world,
                 shaderService,
                 shaderParameterValidator,
                 _graphicsDevice,
-                LoggerFactory.CreateLogger<ShaderManagerSystem>()
+                LoggerFactory.CreateLogger<ShaderManager>()
             );
             _shaderRendererSystem = new ShaderRendererSystem(
                 LoggerFactory.CreateLogger<ShaderRendererSystem>()
@@ -1142,6 +1142,9 @@ public class SystemManager : IDisposable
                 _world,
                 _inputBindingService,
                 _shaderManagerSystem,
+                _graphicsDevice, // Pass GraphicsDevice for getting viewport dimensions
+                _modManager, // Pass ModManager for discovering available shaders
+                _game.Services.GetService<IShaderService>(), // Pass ShaderService for validating shaders exist
                 _playerSystem, // Pass PlayerSystem for F5 player shader cycling
                 LoggerFactory.CreateLogger<ShaderCycleSystem>()
             );

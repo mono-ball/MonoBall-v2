@@ -29,7 +29,7 @@ struct PixelShaderInput
 };
 
 float Time = 0.0;
-float2 ScreenSize = float2(1280.0, 720.0);
+float2 ScreenSize = float2(1280.0, 800.0);
 float GridScale = 40.0;
 float LineThickness = 0.08;
 float3 GridColor = float3(0.0, 1.0, 0.9);

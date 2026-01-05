@@ -24,7 +24,7 @@ sampler2D SpriteTextureSampler = sampler_state
 
 // Parameters
 float Time = 0.0;                          // Elapsed time for animations
-float2 ScreenSize = float2(1280, 720);     // Screen dimensions
+float2 ScreenSize = float2(1280, 800);     // Screen dimensions
 
 // Vignette parameters
 float VignetteIntensity = 0.8;             // How dark the edges get (0-1)

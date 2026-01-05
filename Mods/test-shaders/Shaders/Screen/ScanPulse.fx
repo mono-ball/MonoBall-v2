@@ -29,7 +29,7 @@ struct PixelShaderInput
 };
 
 float Time = 0.0;
-float2 ScreenSize = float2(1280.0, 720.0);
+float2 ScreenSize = float2(1280.0, 800.0);
 
 // Scanline parameters
 float ScanlineCount = 180.0;

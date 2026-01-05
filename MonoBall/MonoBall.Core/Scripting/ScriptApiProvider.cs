@@ -33,7 +33,7 @@ public class ScriptApiProvider : IScriptApiProvider
     private ShaderAnimationChainSystem? _shaderChainSystem;
 
     // Shader system references (updated via UpdateShaderSystems)
-    private ShaderManagerSystem? _shaderManagerSystem;
+    private ShaderManager? _shaderManagerSystem;
     private ShaderMultiParameterAnimationSystem? _shaderMultiAnimSystem;
     private IShaderPresetService? _shaderPresetService;
     private ShaderTransitionSystem? _shaderTransitionSystem;
@@ -208,7 +208,7 @@ public class ScriptApiProvider : IScriptApiProvider
     /// <param name="chainSystem">The animation chain system.</param>
     /// <param name="presetService">The shader preset service.</param>
     public void UpdateShaderSystems(
-        ShaderManagerSystem? shaderManagerSystem,
+        ShaderManager? shaderManagerSystem,
         ShaderTransitionSystem? transitionSystem = null,
         ShaderMultiParameterAnimationSystem? multiAnimSystem = null,
         ShaderAnimationChainSystem? chainSystem = null,

@@ -1,13 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
+using MonoBall.Core.Mods;
+using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Rendering;
 using Serilog;
 
 namespace MonoBall.Core.Scenes.Systems;
@@ -15,54 +20,23 @@ namespace MonoBall.Core.Scenes.Systems;
 /// <summary>
 ///     System that cycles through available shaders when F4 (layer shaders) or F5 (player shaders) is pressed.
 ///     Consolidates shader cycling logic for both layer-wide and per-entity shaders.
+///     Dynamically discovers available shaders from the mod registry.
 /// </summary>
 public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
 {
     private readonly QueryDescription _combinedShaderQuery;
 
-    // Available per-entity shader IDs to cycle through (F5)
-    private readonly List<string?> _entityShaders = new()
-    {
-        null, // No shader (disabled)
-        "base:shader:outline",
-        "base:shader:dissolve",
-        "base:shader:hologram",
-        "base:shader:fire",
-        "base:shader:electric",
-        "base:shader:frozen",
-        "base:shader:ghost",
-        "base:shader:silhouette",
-    };
+    // Dynamically populated from mod registry
+    private readonly List<string?> _entityShaders = new() { null }; // null = disabled
+    private readonly GraphicsDevice _graphicsDevice;
+    private readonly List<string?> _layerShaders = new() { null }; // null = disabled
 
     private readonly IInputBindingService _inputBindingService;
-
-    // Available combined layer shader IDs to cycle through (F4)
-    // Use "STACK:" prefix for multi-shader presets
-    private readonly List<string?> _layerShaders = new()
-    {
-        null, // No shader (disabled)
-        "base:shader:crt",
-        "base:shader:spooky",
-        "base:shader:kaleidoscope",
-        "base:shader:wavedistortion",
-        "base:shader:glitch",
-        "base:shader:underwater",
-        "base:shader:dream",
-        "base:shader:heathaze",
-        "base:shader:noir",
-        "base:shader:neongrade",
-        "base:shader:hexgrid",
-        "base:shader:datastream",
-        "STACK:cyberpunk", // Stacked: NeonGrade + HexGrid + DataStream
-        "base:shader:prismgrade",
-        "base:shader:scanpulse",
-        "base:shader:pixelrain",
-        "STACK:vaporwave", // Stacked: PrismGrade + ScanPulse + PixelRain
-    };
-
     private readonly ILogger _logger;
+    private readonly IModManager? _modManager;
     private readonly PlayerSystem? _playerSystem;
-    private readonly ShaderManagerSystem _shaderManagerSystem;
+    private readonly ShaderManager _shaderManagerSystem;
+    private readonly IShaderService? _shaderService;
 
     // Stacked shader presets - each contains shaders with render orders
     private readonly Dictionary<string, List<(string ShaderId, int RenderOrder)>> _shaderStacks =
@@ -101,12 +75,18 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="world">The ECS world.</param>
     /// <param name="inputBindingService">The input binding service for checking input.</param>
     /// <param name="shaderManagerSystem">The shader manager system for managing shaders.</param>
+    /// <param name="graphicsDevice">The graphics device for getting viewport dimensions.</param>
+    /// <param name="modManager">The mod manager for discovering available shaders.</param>
+    /// <param name="shaderService">The shader service for validating shaders exist.</param>
     /// <param name="playerSystem">The player system for getting the player entity (optional, needed for F5).</param>
     /// <param name="logger">The logger for logging operations.</param>
     public ShaderCycleSystem(
         World world,
         IInputBindingService inputBindingService,
-        ShaderManagerSystem shaderManagerSystem,
+        ShaderManager shaderManagerSystem,
+        GraphicsDevice graphicsDevice,
+        IModManager? modManager = null,
+        IShaderService? shaderService = null,
         PlayerSystem? playerSystem = null,
         ILogger? logger = null
     )
@@ -116,9 +96,181 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             inputBindingService ?? throw new ArgumentNullException(nameof(inputBindingService));
         _shaderManagerSystem =
             shaderManagerSystem ?? throw new ArgumentNullException(nameof(shaderManagerSystem));
+        _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+        _modManager = modManager;
+        _shaderService = shaderService;
         _playerSystem = playerSystem;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _combinedShaderQuery = new QueryDescription().WithAll<RenderingShaderComponent>();
+
+        // Discover available shaders from the mod registry
+        DiscoverAvailableShaders();
+    }
+
+    /// <summary>
+    ///     Discovers available shaders from the mod registry and populates the shader lists.
+    ///     Shaders in Definitions/Assets/Shaders/Screen/ are layer shaders (F4).
+    ///     Shaders in Definitions/Assets/Shaders/Entity/ are entity shaders (F5).
+    /// </summary>
+    private void DiscoverAvailableShaders()
+    {
+        if (_modManager?.Registry == null)
+        {
+            _logger.Warning(
+                "ModManager or Registry not available - shader cycling will only have 'disabled' option"
+            );
+            return;
+        }
+
+        // Debug: Log all available definition types in the registry
+        var allTypes = _modManager.Registry.GetDefinitionTypes().ToList();
+        _logger.Debug(
+            "Registry contains {Count} definition types: {Types}",
+            allTypes.Count,
+            string.Join(", ", allTypes.Take(20))
+        );
+
+        // Get all shader definitions - type is "ShaderAsset" (from Definitions/Assets/Shaders/)
+        var shaderTypes = new[] { "ShaderAsset" };
+        var discoveredLayerShaders = new List<string>();
+        var discoveredEntityShaders = new List<string>();
+
+        foreach (var shaderType in shaderTypes)
+        {
+            var shaderIds = _modManager.Registry.GetByType(shaderType).ToList();
+            _logger.Information(
+                "Shader discovery: Found {Count} definitions of type '{Type}'",
+                shaderIds.Count,
+                shaderType
+            );
+
+            foreach (var shaderId in shaderIds)
+            {
+                var metadata = _modManager.Registry.GetById(shaderId);
+                if (metadata == null)
+                {
+                    _logger.Warning("Shader {ShaderId} has no metadata, skipping", shaderId);
+                    continue;
+                }
+
+                // Verify the shader can actually be loaded
+                if (_shaderService != null && !_shaderService.HasShader(shaderId))
+                {
+                    _logger.Warning(
+                        "Skipping shader {ShaderId} - HasShader returned false (SourcePath: {Path})",
+                        shaderId,
+                        metadata.SourcePath
+                    );
+                    continue;
+                }
+
+                // Determine if it's a layer shader or entity shader based on source path
+                // Entity shaders are in /Entity/ folder, everything else is layer shader
+                var isEntityShader =
+                    metadata.SourcePath?.Contains("/Entity/", StringComparison.OrdinalIgnoreCase)
+                    ?? false;
+
+                if (isEntityShader)
+                {
+                    discoveredEntityShaders.Add(shaderId);
+                    _logger.Debug(
+                        "Discovered entity shader: {ShaderId} (path: {Path})",
+                        shaderId,
+                        metadata.SourcePath
+                    );
+                }
+                else
+                {
+                    discoveredLayerShaders.Add(shaderId);
+                    _logger.Debug(
+                        "Discovered layer shader: {ShaderId} (path: {Path})",
+                        shaderId,
+                        metadata.SourcePath
+                    );
+                }
+            }
+        }
+
+        // Sort alphabetically for consistent ordering
+        discoveredLayerShaders.Sort();
+        discoveredEntityShaders.Sort();
+
+        // Organize layer shaders: non-stacked shaders first, then each stack's components followed by the stack
+        OrganizeLayerShadersWithStacks(discoveredLayerShaders);
+
+        // Add entity shaders
+        _entityShaders.AddRange(discoveredEntityShaders);
+
+        _logger.Information(
+            "Shader cycling initialized: {LayerCount} layer shaders (F4), {EntityCount} entity shaders (F5)",
+            _layerShaders.Count - 1, // -1 for null option
+            _entityShaders.Count - 1
+        );
+
+        // Log entity shader IDs if any were found
+        if (_entityShaders.Count > 1)
+        {
+            _logger.Information(
+                "Entity shaders available: {ShaderIds}",
+                string.Join(", ", _entityShaders.Where(s => s != null))
+            );
+        }
+    }
+
+    /// <summary>
+    ///     Organizes layer shaders so that:
+    ///     1. Shaders not in any stack come first (alphabetically)
+    ///     2. For each stack: component shaders in render order, then the stack preset
+    /// </summary>
+    private void OrganizeLayerShadersWithStacks(List<string> availableShaders)
+    {
+        // Collect all shaders that are part of any valid stack
+        var shadersInStacks = new HashSet<string>();
+        var validStacks =
+            new List<(string StackId, List<(string ShaderId, int RenderOrder)> Components)>();
+
+        foreach (var (stackId, stackDef) in _shaderStacks)
+        {
+            var allShadersAvailable = stackDef.All(s => availableShaders.Contains(s.ShaderId));
+            if (allShadersAvailable)
+            {
+                validStacks.Add((stackId, stackDef));
+                foreach (var (shaderId, _) in stackDef)
+                    shadersInStacks.Add(shaderId);
+            }
+            else
+            {
+                var missingShadersInStack = stackDef
+                    .Where(s => !availableShaders.Contains(s.ShaderId))
+                    .Select(s => s.ShaderId);
+                _logger.Debug(
+                    "Skipping shader stack {StackId} - missing shaders: {MissingShaders}",
+                    stackId,
+                    string.Join(", ", missingShadersInStack)
+                );
+            }
+        }
+
+        // Add shaders that are NOT part of any stack first
+        foreach (var shader in availableShaders)
+            if (!shadersInStacks.Contains(shader))
+                _layerShaders.Add(shader);
+
+        // For each valid stack: add component shaders (in render order), then the stack preset
+        foreach (var (stackId, components) in validStacks)
+        {
+            // Add component shaders sorted by render order
+            foreach (var (shaderId, renderOrder) in components.OrderBy(c => c.RenderOrder))
+                _layerShaders.Add(shaderId);
+
+            // Add the stack preset itself
+            _layerShaders.Add(stackId);
+            _logger.Debug(
+                "Added shader stack: {StackId} (components: {Components})",
+                stackId,
+                string.Join(" -> ", components.OrderBy(c => c.RenderOrder).Select(c => c.ShaderId))
+            );
+        }
     }
 
     /// <summary>
@@ -135,14 +287,20 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
         // Check if CycleShader action was just pressed (F4 - layer shaders)
         if (_inputBindingService.IsActionJustPressed(InputAction.CycleShader))
         {
-            _logger.Debug("F4 key pressed - cycling layer shaders");
+            _logger.Information(
+                "F4 pressed - cycling layer shaders ({Count} available)",
+                _layerShaders.Count - 1
+            );
             CycleLayerShader();
         }
 
         // Check if CyclePlayerShader action was just pressed (F5 - player shaders)
         if (_inputBindingService.IsActionJustPressed(InputAction.CyclePlayerShader))
         {
-            _logger.Debug("F5 key pressed - cycling player shaders");
+            _logger.Information(
+                "F5 pressed - cycling player shaders ({Count} available)",
+                _entityShaders.Count - 1
+            );
             CyclePlayerShader();
         }
     }
@@ -184,8 +342,9 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 );
                 shader.IsEnabled = false;
                 _shaderManagerSystem.MarkShadersDirty();
-                _logger.Information("Disabled combined layer shader");
             }
+
+            _logger.Information("Layer shader cycling: disabled (no shader)");
         }
         else if (nextShaderId.StartsWith("STACK:"))
         {
@@ -219,7 +378,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                     _stackedShaderEntities.Add(stackedEntity);
 
                     // Add animation component if needed
-                    var animationComponent = GetAnimationComponentForLayerShader(shaderId);
+                    var animationComponent = GetAnimationComponentForShader(shaderId);
                     if (animationComponent.HasValue)
                         World.Add(stackedEntity, animationComponent.Value);
 
@@ -279,7 +438,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             }
 
             // Add animation component if this shader needs animation
-            var animationComponent = GetAnimationComponentForLayerShader(nextShaderId);
+            var animationComponent = GetAnimationComponentForShader(nextShaderId);
             if (animationComponent.HasValue)
             {
                 World.Add(shaderEntity, animationComponent.Value);
@@ -355,6 +514,21 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 shader.ShaderId = nextShaderId;
                 shader.IsEnabled = true;
                 shader.Parameters = GetDefaultParametersForEntityShader(nextShaderId);
+
+                // Remove old animation component and add new one if needed
+                if (World.Has<ShaderParameterAnimationComponent>(playerEntity.Value))
+                    World.Remove<ShaderParameterAnimationComponent>(playerEntity.Value);
+
+                var animationComponent = GetAnimationComponentForShader(nextShaderId);
+                if (animationComponent.HasValue)
+                {
+                    World.Add(playerEntity.Value, animationComponent.Value);
+                    _logger.Information(
+                        "Updated animation component for player shader {ShaderId}",
+                        nextShaderId
+                    );
+                }
+
                 _shaderManagerSystem.MarkShadersDirty();
                 _logger.Information("Updated player shader to {ShaderId}", nextShaderId);
             }
@@ -372,14 +546,13 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 World.Add(playerEntity.Value, shaderComponent);
 
                 // Add animation component if this shader needs animation
-                var animationComponent = GetAnimationComponentForEntityShader(nextShaderId);
+                var animationComponent = GetAnimationComponentForShader(nextShaderId);
                 if (animationComponent.HasValue)
                 {
                     World.Add(playerEntity.Value, animationComponent.Value);
-                    _logger.Debug(
-                        "Added animation component for player shader {ShaderId}, parameter {ParameterName}",
-                        nextShaderId,
-                        animationComponent.Value.ParameterName
+                    _logger.Information(
+                        "Added animation component for player shader {ShaderId}",
+                        nextShaderId
                     );
                 }
 
@@ -404,10 +577,12 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 { "ScanlineIntensity", 0.3f },
                 { "ScanlineCount", 400.0f },
                 { "ChromaticAberration", 0.003f },
+                { "ScreenSize", GetViewportSize() },
             },
             "base:shader:wavedistortion" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "WaveAmplitude", 0.025f },
                 { "WaveFrequency", 8.0f },
                 { "TurbulenceStrength", 0.5f },
@@ -416,6 +591,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:kaleidoscope" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "SegmentCount", 6.0f },
                 { "RotationSpeed", 0.3f },
                 { "Zoom", 1.0f },
@@ -429,30 +605,32 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 { "GrainAmount", 0.08f },
                 { "ShadowTint", new Vector3(0.1f, 0.1f, 0.15f) },
                 { "HighlightTint", new Vector3(1.0f, 0.98f, 0.95f) },
-                { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                { "ScreenSize", GetViewportSize() },
             },
             "base:shader:spooky" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "VignetteIntensity", 0.8f },
                 { "VignetteRadius", 0.75f },
                 { "VignetteSoftness", 0.45f },
-                { "Desaturation", 0.5f },
-                { "TintColor", new Vector3(0.7f, 0.5f, 1.0f) },
-                { "TintStrength", 0.5f },
+                { "Desaturation", 0.4f },
+                { "TintColor", new Vector3(0.6f, 0.4f, 0.8f) },
+                { "TintStrength", 0.25f },
                 { "ChromaticAberration", 0.003f },
                 { "ChromaticPulse", 0.5f },
                 { "DarknessPulseSpeed", 1.5f },
                 { "DarknessPulseAmount", 0.15f },
                 { "GrainIntensity", 0.08f },
                 { "GrainSpeed", 15.0f },
-                { "FogIntensity", 0.35f },
-                { "FogSpeed", 0.5f },
-                { "FogScale", 2.0f },
+                { "FogIntensity", 0.15f },
+                { "FogSpeed", 0.3f },
+                { "FogScale", 3.0f },
             },
             "base:shader:glitch" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "GlitchIntensity", 0.8f },
                 { "ScanlineJitter", 0.02f },
                 { "ColorDrift", 0.01f },
@@ -462,6 +640,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:underwater" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "WaveStrength", 0.02f },
                 { "WaveFrequency", 10.0f },
                 { "CausticIntensity", 0.3f },
@@ -473,6 +652,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:dream" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "BlurAmount", 0.003f },
                 { "GlowIntensity", 0.4f },
                 { "VignetteStrength", 0.5f },
@@ -483,6 +663,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:heathaze" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
+                { "ScreenSize", GetViewportSize() },
                 { "HazeStrength", 0.015f },
                 { "RiseSpeed", 2.0f },
                 { "WaveFrequency", 20.0f },
@@ -500,7 +681,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:hexgrid" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                { "ScreenSize", GetViewportSize() },
                 { "GridScale", 40.0f },
                 { "LineThickness", 0.08f },
                 { "GridColor", new Vector3(0.0f, 1.0f, 0.9f) },
@@ -510,7 +691,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:datastream" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                { "ScreenSize", GetViewportSize() },
                 { "StreamSpeed", 1.5f },
                 { "StreamDensity", 30.0f },
                 { "StreamColor", new Vector3(0.0f, 1.0f, 0.5f) },
@@ -532,7 +713,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:scanpulse" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                { "ScreenSize", GetViewportSize() },
                 { "ScanlineCount", 180.0f },
                 { "ScanlineIntensity", 0.12f },
                 { "ScanlineSpeed", 0.0f },
@@ -548,7 +729,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:pixelrain" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "ScreenSize", new Vector2(1280.0f, 720.0f) },
+                { "ScreenSize", GetViewportSize() },
                 { "PixelDensity", 45.0f },
                 { "FallSpeed", 1.8f },
                 { "TrailLength", 0.35f },
@@ -575,8 +756,6 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:outline" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "BaseThickness", 2.0f },
-                { "PulseAmount", 1.0f },
                 { "PulseSpeed", 3.0f },
                 { "RainbowSpeed", 1.0f },
                 { "SpriteSize", new Vector2(32.0f, 32.0f) },
@@ -606,12 +785,11 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             "base:shader:fire" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "FlameHeight", 0.15f },
-                { "FlameSpeed", 3.0f },
-                { "FlameIntensity", 1.0f },
-                { "FlameColor1", new Vector3(1.0f, 0.9f, 0.3f) },
+                { "FlameColor1", new Vector3(1.0f, 0.9f, 0.2f) },
                 { "FlameColor2", new Vector3(1.0f, 0.4f, 0.0f) },
                 { "FlameColor3", new Vector3(0.8f, 0.1f, 0.0f) },
+                { "FlameSpeed", 4.0f },
+                { "FlameIntensity", 0.7f },
                 { "SpriteSize", new Vector2(32.0f, 32.0f) },
             },
             "base:shader:electric" => new Dictionary<string, object>
@@ -620,33 +798,24 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 { "ElectricColor", new Vector3(0.5f, 0.8f, 1.0f) },
                 { "CoreColor", new Vector3(1.0f, 1.0f, 1.0f) },
                 { "Intensity", 1.0f },
-                { "ArcFrequency", 8.0f },
-                { "SparkRate", 10.0f },
+                { "FlashRate", 10.0f },
                 { "SpriteSize", new Vector2(32.0f, 32.0f) },
             },
             "base:shader:frozen" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "IceColor", new Vector3(0.7f, 0.9f, 1.0f) },
-                { "FrostColor", new Vector3(0.9f, 0.95f, 1.0f) },
-                { "DeepIceColor", new Vector3(0.3f, 0.5f, 0.8f) },
-                { "FrostAmount", 0.5f },
-                { "ShimmerSpeed", 2.0f },
-                { "CrystalDensity", 15.0f },
-                { "SpriteSize", new Vector2(32.0f, 32.0f) },
+                { "IceColor", new Vector3(0.6f, 0.85f, 1.0f) },
+                { "FrostColor", new Vector3(0.95f, 0.98f, 1.0f) },
+                { "FrostAmount", 0.6f },
+                { "ShimmerSpeed", 3.0f },
             },
             "base:shader:ghost" => new Dictionary<string, object>
             {
                 { "Time", 0.0f },
-                { "GhostTint", new Vector3(0.8f, 0.9f, 1.0f) },
-                { "WispColor", new Vector3(0.6f, 0.8f, 1.0f) },
-                { "Transparency", 0.6f },
+                { "GhostTint", new Vector3(0.7f, 0.85f, 1.0f) },
+                { "Transparency", 0.5f },
                 { "WaveSpeed", 2.0f },
-                { "WaveAmount", 0.02f },
-                { "WispSpeed", 1.5f },
-                { "WispDensity", 5.0f },
                 { "FlickerSpeed", 8.0f },
-                { "SpriteSize", new Vector2(32.0f, 32.0f) },
             },
             "base:shader:silhouette" => new Dictionary<string, object>
             {
@@ -663,82 +832,52 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
     }
 
     /// <summary>
-    ///     Gets animation component for a layer shader if it needs animation.
+    ///     Gets the current viewport dimensions as a Vector2.
+    ///     Used to pass screen size to shaders that need it.
     /// </summary>
-    /// <param name="shaderId">The shader ID.</param>
-    /// <returns>Animation component, or null if shader doesn't need animation.</returns>
-    private ShaderParameterAnimationComponent? GetAnimationComponentForLayerShader(string shaderId)
+    /// <returns>Viewport dimensions (width, height).</returns>
+    private Vector2 GetViewportSize()
     {
-        // All animated shaders use Time parameter with continuous linear progression
-        var animatedShaders = new[]
-        {
-            "base:shader:wavedistortion",
-            "base:shader:kaleidoscope",
-            "base:shader:spooky",
-            "base:shader:glitch",
-            "base:shader:underwater",
-            "base:shader:dream",
-            "base:shader:heathaze",
-            "base:shader:noir",
-            "base:shader:neongrade",
-            "base:shader:hexgrid",
-            "base:shader:datastream",
-            "base:shader:prismgrade",
-            "base:shader:scanpulse",
-            "base:shader:pixelrain",
-        };
-
-        if (Array.Exists(animatedShaders, s => s == shaderId))
-            return new ShaderParameterAnimationComponent
-            {
-                ParameterName = "Time",
-                StartValue = 0.0f,
-                EndValue = 10000.0f,
-                Duration = 10000.0f,
-                ElapsedTime = 0.0f,
-                Easing = EasingFunction.Linear,
-                IsLooping = false,
-                IsEnabled = true,
-                PingPong = false,
-            };
-
-        return null;
+        var viewport = _graphicsDevice.Viewport;
+        return new Vector2(viewport.Width, viewport.Height);
     }
 
     /// <summary>
-    ///     Gets animation component for an entity shader if it needs animation.
+    ///     Gets animation component for a shader if it needs time-based animation.
+    ///     Checks if the shader has a "Time" parameter in its definition.
     /// </summary>
     /// <param name="shaderId">The shader ID.</param>
     /// <returns>Animation component, or null if shader doesn't need animation.</returns>
-    private ShaderParameterAnimationComponent? GetAnimationComponentForEntityShader(string shaderId)
+    private ShaderParameterAnimationComponent? GetAnimationComponentForShader(string shaderId)
     {
-        // All animated entity shaders use Time parameter with continuous linear progression
-        var animatedEntityShaders = new[]
+        if (_modManager == null)
+            return null;
+
+        // Get shader definition to check for Time parameter
+        var shaderDef = _modManager.GetDefinition<ShaderDefinition>(shaderId);
+        if (shaderDef?.Parameters == null)
+            return null;
+
+        // Check if shader has a Time parameter - if so, it needs animation
+        var hasTimeParam = shaderDef.Parameters.Exists(p =>
+            p.Name == "Time" && (p.Type == "float" || p.Type == "float1")
+        );
+
+        if (!hasTimeParam)
+            return null;
+
+        // All animated shaders use Time parameter with continuous linear progression
+        return new ShaderParameterAnimationComponent
         {
-            "base:shader:outline",
-            "base:shader:dissolve",
-            "base:shader:hologram",
-            "base:shader:fire",
-            "base:shader:electric",
-            "base:shader:frozen",
-            "base:shader:ghost",
-            "base:shader:silhouette",
+            ParameterName = "Time",
+            StartValue = 0.0f,
+            EndValue = 10000.0f,
+            Duration = 10000.0f,
+            ElapsedTime = 0.0f,
+            Easing = EasingFunction.Linear,
+            IsLooping = false,
+            IsEnabled = true,
+            PingPong = false,
         };
-
-        if (Array.Exists(animatedEntityShaders, s => s == shaderId))
-            return new ShaderParameterAnimationComponent
-            {
-                ParameterName = "Time",
-                StartValue = 0.0f,
-                EndValue = 10000.0f,
-                Duration = 10000.0f,
-                ElapsedTime = 0.0f,
-                Easing = EasingFunction.Linear,
-                IsLooping = false,
-                IsEnabled = true,
-                PingPong = false,
-            };
-
-        return null;
     }
 }

@@ -14,7 +14,15 @@ namespace MonoBall.Core.Logging;
 public sealed class ImGuiLogSink : ILogEventSink
 {
     private static LogsPanel? _logsPanel;
+    private static long _totalEmitCalls;
+    private static long _totalPanelNull;
     private readonly MessageTemplateTextFormatter _formatter;
+
+    /// <summary>
+    /// Debug: Get sink statistics.
+    /// </summary>
+    public static (long emitCalls, long panelNull, bool hasPanel) GetStats() =>
+        (_totalEmitCalls, _totalPanelNull, _logsPanel != null);
 
     /// <summary>
     /// Initializes a new instance of the ImGuiLogSink.
@@ -34,14 +42,32 @@ public sealed class ImGuiLogSink : ILogEventSink
     }
 
     /// <summary>
+    /// Clears the LogsPanel only if it matches the specified instance.
+    /// This prevents one DebugOverlayService from clearing another's panel during disposal.
+    /// </summary>
+    /// <param name="panel">The panel instance to clear (only clears if current panel matches).</param>
+    public static void ClearLogsPanelIfMatch(LogsPanel? panel)
+    {
+        if (panel != null && ReferenceEquals(_logsPanel, panel))
+        {
+            _logsPanel = null;
+        }
+    }
+
+    /// <summary>
     /// Emits a log event to the LogsPanel.
     /// </summary>
     /// <param name="logEvent">The log event to emit.</param>
     public void Emit(LogEvent logEvent)
     {
+        System.Threading.Interlocked.Increment(ref _totalEmitCalls);
+
         var panel = _logsPanel;
         if (panel == null)
+        {
+            System.Threading.Interlocked.Increment(ref _totalPanelNull);
             return;
+        }
 
         // Format the message
         using var writer = new StringWriter();

@@ -26,14 +26,14 @@ public class ShaderMultiParameterAnimationSystem
     private readonly QueryDescription _entityShaderQuery;
     private readonly QueryDescription _layerShaderQuery;
     private readonly ILogger _logger;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
 
     /// <summary>
     ///     Initializes a new instance of the ShaderMultiParameterAnimationSystem.
     /// </summary>
     public ShaderMultiParameterAnimationSystem(
         World world,
-        ShaderManagerSystem? shaderManagerSystem,
+        ShaderManager? shaderManagerSystem,
         ILogger logger
     )
         : base(world)

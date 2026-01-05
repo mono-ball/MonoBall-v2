@@ -40,7 +40,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     // Registry for mapping component types to scene systems
     private readonly Dictionary<Type, ISceneSystem> _sceneSystemRegistry = new();
 
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
     private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
     private ISceneSystem? _mapPopupSceneSystem;
@@ -72,7 +72,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
         World world,
         ILogger logger,
         GraphicsDevice graphicsDevice,
-        ShaderManagerSystem? shaderManagerSystem = null,
+        ShaderManager? shaderManagerSystem = null,
         ISceneSystem? gameSceneSystem = null,
         ISceneSystem? loadingSceneSystem = null,
         ISceneSystem? debugBarSceneSystem = null,
@@ -734,10 +734,6 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
             _logger.Warning("SceneSystem.Render called but GraphicsDevice is null");
             return;
         }
-
-        // Update ScreenSize parameter for all active shaders (tile, sprite, and combined layers)
-        var viewport = _graphicsDevice.Viewport;
-        _shaderManagerSystem?.UpdateAllLayersScreenSize(viewport.Width, viewport.Height);
 
         // Iterate scenes in reverse order (lowest priority first, highest priority last)
         // This ensures higher priority scenes render on top

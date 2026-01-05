@@ -32,14 +32,14 @@ public class ShaderAnimationChainSystem : BaseSystem<World, float>, IPrioritized
 
     // External storage for phases (avoids List<T> in component struct)
     private readonly Dictionary<Entity, List<ShaderAnimationPhaseData>> _phases = new();
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
 
     /// <summary>
     ///     Initializes a new instance of the ShaderAnimationChainSystem.
     /// </summary>
     public ShaderAnimationChainSystem(
         World world,
-        ShaderManagerSystem? shaderManagerSystem,
+        ShaderManager? shaderManagerSystem,
         ILogger logger
     )
         : base(world)

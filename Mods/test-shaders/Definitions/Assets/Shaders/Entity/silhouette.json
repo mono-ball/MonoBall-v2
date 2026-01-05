@@ -2,7 +2,7 @@
   "id": "base:shader:silhouette",
   "name": "Silhouette",
   "description": "Solid dark fill with animated glowing edge highlights",
-  "sourceFile": "Shaders/Silhouette.mgfxo",
+  "sourceFile": "Shaders/Entity/Silhouette.mgfxo",
   "parameters": [
     { "name": "Time", "type": "float", "defaultValue": 0.0 },
     { "name": "FillColor", "type": "float3", "defaultValue": [0.05, 0.05, 0.1] },

@@ -18,17 +18,13 @@ public class ShaderTransitionSystem : BaseSystem<World, float>, IPrioritizedSyst
     private readonly List<ShaderTransitionCompletedEvent> _completedEvents = new();
     private readonly List<Entity> _entitiesToCleanup = new();
     private readonly ILogger _logger;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
     private readonly QueryDescription _transitionQuery;
 
     /// <summary>
     ///     Initializes a new instance of the ShaderTransitionSystem.
     /// </summary>
-    public ShaderTransitionSystem(
-        World world,
-        ShaderManagerSystem? shaderManagerSystem,
-        ILogger logger
-    )
+    public ShaderTransitionSystem(World world, ShaderManager? shaderManagerSystem, ILogger logger)
         : base(world)
     {
         _shaderManagerSystem = shaderManagerSystem;

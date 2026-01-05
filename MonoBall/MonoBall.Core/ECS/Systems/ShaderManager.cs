@@ -14,12 +14,12 @@ using Serilog;
 namespace MonoBall.Core.ECS.Systems;
 
 /// <summary>
-///     System that manages shader effects and updates their parameters.
+///     Manages shader effects and updates their parameters.
 ///     Shader state is updated in Render phase to avoid timing mismatches.
-///     Note: This is not an Arch ECS BaseSystem (no Update() method) - it's a Render-phase helper
-///     that is called explicitly from SceneRendererSystem.
+///     Note: This is NOT an ECS System (no BaseSystem inheritance) - it's a Render-phase
+///     helper that is called explicitly during rendering.
 /// </summary>
-public class ShaderManagerSystem
+public class ShaderManager
 {
     /// <summary>
     ///     Parameters that are automatically set by MonoGame/SpriteBatch and should not be required in shader definitions.
@@ -88,7 +88,7 @@ public class ShaderManagerSystem
     private Entity? _tileShaderEntity;
 
     /// <summary>
-    ///     Initializes a new instance of the ShaderManagerSystem.
+    ///     Initializes a new instance of the ShaderManager.
     /// </summary>
     /// <param name="world">The ECS world.</param>
     /// <param name="shaderService">The shader service for loading shaders.</param>
@@ -96,7 +96,7 @@ public class ShaderManagerSystem
     /// <param name="graphicsDevice">The graphics device for getting viewport dimensions.</param>
     /// <param name="logger">The logger for logging operations.</param>
     /// <param name="modManager">Optional mod manager for compatibility checking.</param>
-    public ShaderManagerSystem(
+    public ShaderManager(
         World world,
         IShaderService shaderService,
         IShaderParameterValidator parameterValidator,
@@ -271,36 +271,6 @@ public class ShaderManagerSystem
             if (MonoGameManagedParameters.Contains(paramName))
                 continue;
 
-            // ScreenSize is handled specially - check if it exists first
-            // Not all shaders have ScreenSize, so we check before setting
-            if (paramName == "ScreenSize")
-            {
-                if (value is not Vector2 screenSize)
-                {
-                    _logger.Warning(
-                        "ScreenSize parameter value is not Vector2 (type: {Type}) for combined layer shader, skipping.",
-                        value?.GetType().Name ?? "null"
-                    );
-                    continue;
-                }
-
-                // Get or create previous values dictionary for dirty tracking
-                if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
-                {
-                    previousValues = new Dictionary<string, object>();
-                    _previousParameterValues[entity] = previousValues;
-                }
-
-                // Get shader component for event firing
-                if (_world.Has<RenderingShaderComponent>(entity))
-                {
-                    ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
-                    TrySetScreenSizeParameter(effect, previousValues, shader, entity);
-                }
-
-                continue;
-            }
-
             // Check if parameter exists before trying to set it
             EffectParameter? param = null;
             try
@@ -344,95 +314,6 @@ public class ShaderManagerSystem
     }
 
     /// <summary>
-    ///     Updates the ScreenSize parameter for all active shaders (tile, sprite, and combined layers).
-    ///     Called before applying parameters to ensure correct screen dimensions.
-    /// </summary>
-    /// <param name="width">The screen/viewport width.</param>
-    /// <param name="height">The screen/viewport height.</param>
-    public void UpdateAllLayersScreenSize(int width, int height)
-    {
-        var screenSize = new Vector2(width, height);
-
-        UpdateScreenSizeForShaders(_activeTileLayerShaders, screenSize);
-        UpdateScreenSizeForShaders(_activeSpriteLayerShaders, screenSize);
-        UpdateScreenSizeForShaders(_activeCombinedLayerShaders, screenSize);
-    }
-
-    /// <summary>
-    ///     Updates the ScreenSize parameter for a list of shaders.
-    ///     Uses the helper method to avoid code duplication and ensure consistent behavior.
-    /// </summary>
-    /// <param name="shaders">The list of shaders to update.</param>
-    /// <param name="screenSize">The screen size vector (unused - viewport is used instead).</param>
-    private void UpdateScreenSizeForShaders(
-        List<(Effect effect, ShaderBlendMode blendMode, Entity entity)> shaders,
-        Vector2 screenSize
-    )
-    {
-        foreach (var (effect, _, entity) in shaders)
-        {
-            // Skip destroyed entities - CRITICAL: must check before ANY entity access
-            if (!_world.IsAlive(entity))
-                continue;
-
-            // Get or create previous values dictionary for dirty tracking
-            if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
-            {
-                previousValues = new Dictionary<string, object>();
-                _previousParameterValues[entity] = previousValues;
-            }
-
-            // Get shader component for event firing
-            if (_world.Has<RenderingShaderComponent>(entity))
-            {
-                ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
-                TrySetScreenSizeParameter(effect, previousValues, shader, entity);
-            }
-        }
-    }
-
-    /// <summary>
-    ///     Updates the ScreenSize parameter for the active combined layer shader.
-    ///     Called before applying post-processing to ensure correct screen dimensions.
-    /// </summary>
-    /// <param name="width">The screen/viewport width.</param>
-    /// <param name="height">The screen/viewport height.</param>
-    public void UpdateCombinedLayerScreenSize(int width, int height)
-    {
-        if (_activeCombinedLayerShaders.Count == 0)
-            return;
-
-        // Temporarily override viewport for ScreenSize calculation
-        var originalViewport = _graphicsDevice.Viewport;
-        try
-        {
-            _graphicsDevice.Viewport = new Viewport(0, 0, width, height);
-
-            foreach (var (effect, _, entity) in _activeCombinedLayerShaders)
-            {
-                // Get or create previous values dictionary for dirty tracking
-                if (!_previousParameterValues.TryGetValue(entity, out var previousValues))
-                {
-                    previousValues = new Dictionary<string, object>();
-                    _previousParameterValues[entity] = previousValues;
-                }
-
-                // Get shader component for event firing
-                if (_world.Has<RenderingShaderComponent>(entity))
-                {
-                    ref var shader = ref _world.Get<RenderingShaderComponent>(entity);
-                    TrySetScreenSizeParameter(effect, previousValues, shader, entity);
-                }
-            }
-        }
-        finally
-        {
-            // Restore original viewport
-            _graphicsDevice.Viewport = originalViewport;
-        }
-    }
-
-    /// <summary>
     ///     Marks shaders as dirty, forcing an update on next UpdateShaderState() call.
     ///     Called when components are added/removed/modified.
     /// </summary>
@@ -470,24 +351,7 @@ public class ShaderManagerSystem
                         return;
 
                 if (!shader.IsEnabled)
-                {
-                    _logger.Debug(
-                        "ShaderManagerSystem: Found disabled shader entity {EntityId}, ShaderId: {ShaderId}, Layer: {Layer}, SceneEntity: {SceneEntity}",
-                        entity.Id,
-                        shader.ShaderId,
-                        shader.Layer,
-                        shader.SceneEntity?.Id.ToString() ?? "null (global)"
-                    );
                     return;
-                }
-
-                _logger.Debug(
-                    "ShaderManagerSystem: Found enabled shader entity {EntityId}, ShaderId: {ShaderId}, Layer: {Layer}, SceneEntity: {SceneEntity}",
-                    entity.Id,
-                    shader.ShaderId,
-                    shader.Layer,
-                    shader.SceneEntity?.Id.ToString() ?? "null (global)"
-                );
 
                 switch (shader.Layer)
                 {
@@ -504,13 +368,14 @@ public class ShaderManagerSystem
             }
         );
 
-        _logger.Debug(
-            "ShaderManagerSystem: UpdateActiveShaders found {Total} shader components. Tile: {TileCount}, Sprite: {SpriteCount}, Combined: {CombinedCount}",
-            totalFound,
-            _tileShaders.Count,
-            _spriteShaders.Count,
-            _combinedShaders.Count
-        );
+        // Only log when shaders are actually active (avoid log spam every frame)
+        if (totalFound > 0)
+            _logger.Debug(
+                "ShaderManager: Active shaders - Tile: {TileCount}, Sprite: {SpriteCount}, Combined: {CombinedCount}",
+                _tileShaders.Count,
+                _spriteShaders.Count,
+                _combinedShaders.Count
+            );
 
         // Select all enabled shaders for each layer (sorted by RenderOrder)
         UpdateLayerShaderStack(
@@ -602,12 +467,6 @@ public class ShaderManagerSystem
                 continue; // Skip failed shader, continue with others
             }
 
-            _logger.Debug(
-                "ShaderManagerSystem: Successfully loaded shader {ShaderId}, Techniques: {TechniqueCount}",
-                shaderComp.ShaderId,
-                effect.Techniques.Count
-            );
-
             // Set CurrentTechnique (use first technique if not explicitly set)
             ShaderParameterApplier.EnsureCurrentTechnique(effect, _logger);
 
@@ -637,12 +496,6 @@ public class ShaderManagerSystem
                 shaderEntity = firstShader.entity;
             }
         }
-
-        _logger.Debug(
-            "ShaderManagerSystem: Updated shader stack for layer {Layer}, Count: {Count}",
-            layer,
-            activeShaderStack.Count
-        );
     }
 
     private void UpdateShaderParameters()
@@ -695,22 +548,11 @@ public class ShaderManagerSystem
             if (param != null)
                 allShaderParameters[param.Name] = param;
 
-        // First, automatically set ScreenSize if the shader has it (before definition processing)
-        // ScreenSize is a special case - it's always set from viewport, never from definition/default
-        if (TrySetScreenSizeParameter(effect, previousValues, shader, entity))
-        {
-            // ScreenSize was set (and event fired if value changed)
-        }
-
-        // Second, process all parameters from the shader definition (if available)
+        // Process all parameters from the shader definition (if available)
         // This ensures all defined parameters are set, using defaults if not specified
         if (shaderDef?.Parameters != null)
             foreach (var paramDef in shaderDef.Parameters)
             {
-                // Skip ScreenSize - it's handled separately above
-                if (paramDef.Name == "ScreenSize")
-                    continue;
-
                 // Skip MonoGame-managed parameters - these are set automatically by SpriteBatch
                 if (MonoGameManagedParameters.Contains(paramDef.Name))
                     continue;
@@ -802,10 +644,6 @@ public class ShaderManagerSystem
         if (_modManager != null)
             foreach (var (paramName, effectParam) in allShaderParameters)
             {
-                // Skip ScreenSize - already handled
-                if (paramName == "ScreenSize")
-                    continue;
-
                 // Skip MonoGame-managed parameters - these are set automatically by SpriteBatch
                 if (MonoGameManagedParameters.Contains(paramName))
                     continue;
@@ -829,53 +667,34 @@ public class ShaderManagerSystem
                         + $"Note: Parameters like 'SpriteTexture' and 'WorldViewProjection' are set automatically by MonoGame."
                 );
             }
-        else
-            // Without mod manager, we can't validate parameters against definitions
-            // Log warning but continue - parameters from component will still be processed
-            _logger.Debug(
-                "ModManager is null for shader {ShaderId}, skipping parameter validation against definitions. "
-                    + "Only component parameters will be set.",
-                shader.ShaderId
-            );
+        // else: Without mod manager, we skip definition-based validation
+        // Parameters from component will still be processed below
 
-        // Third, process any additional parameters from component that aren't in the definition
+        // Process any additional parameters from component that aren't in the definition
         // This allows runtime parameters that aren't in the definition (for flexibility)
         foreach (var (paramName, value) in componentParameters)
         {
-            // Skip ScreenSize - already handled (set automatically from viewport)
-            if (paramName == "ScreenSize")
-            {
-                _logger.Debug(
-                    "Component specifies ScreenSize parameter for shader {ShaderId}, "
-                        + "but ScreenSize is set automatically from viewport. Ignoring component value.",
-                    shader.ShaderId
-                );
-                continue;
-            }
-
             // Skip MonoGame-managed parameters - these are set automatically by SpriteBatch
             if (MonoGameManagedParameters.Contains(paramName))
-            {
-                _logger.Debug(
-                    "Component specifies MonoGame-managed parameter {ParamName} for shader {ShaderId}, "
-                        + "but it's set automatically by SpriteBatch. Ignoring component value.",
-                    paramName,
-                    shader.ShaderId
-                );
                 continue;
-            }
 
             // Skip if we already processed this parameter from the definition
             var alreadyProcessed = shaderDef?.Parameters?.Any(p => p.Name == paramName) ?? false;
             if (alreadyProcessed)
                 continue;
 
-            // Parameter MUST exist in the shader effect
+            // Parameter should exist in the shader effect - if not, skip with warning
+            // (shader compiler may optimize away unused variables)
             if (!allShaderParameters.TryGetValue(paramName, out var param))
-                throw new InvalidOperationException(
-                    $"Shader '{shader.ShaderId}' component specifies parameter '{paramName}', "
-                        + $"but shader effect doesn't have it. Cannot set parameters that don't exist in the shader."
+            {
+                _logger.Debug(
+                    "Shader '{ShaderId}' component specifies parameter '{ParamName}', "
+                        + "but shader effect doesn't have it (may have been optimized away). Skipping.",
+                    shader.ShaderId,
+                    paramName
                 );
+                continue;
+            }
 
             // Get old value for event (before checking if changed)
             var oldValue = previousValues.TryGetValue(paramName, out var existingValue)
@@ -951,69 +770,6 @@ public class ShaderManagerSystem
             // Log and continue - one parameter failure shouldn't stop others
             _logger.Warning(ex, "Failed to apply shader parameter {ParamName}", paramName);
         }
-    }
-
-    /// <summary>
-    ///     Attempts to set the ScreenSize parameter on an effect from the current viewport.
-    ///     Fires an event if the value changed.
-    /// </summary>
-    /// <param name="effect">The shader effect.</param>
-    /// <param name="previousValues">Dictionary tracking previous parameter values for dirty tracking.</param>
-    /// <param name="shader">The layer shader component.</param>
-    /// <param name="entity">The entity owning the shader component.</param>
-    /// <returns>True if ScreenSize parameter was set, false if it doesn't exist in the shader.</returns>
-    private bool TrySetScreenSizeParameter(
-        Effect effect,
-        Dictionary<string, object> previousValues,
-        RenderingShaderComponent shader,
-        Entity entity
-    )
-    {
-        try
-        {
-            var screenSizeParam = effect.Parameters["ScreenSize"];
-            if (
-                screenSizeParam != null
-                && screenSizeParam.ParameterClass == EffectParameterClass.Vector
-                && screenSizeParam.ColumnCount == 2
-            )
-            {
-                var viewport = _graphicsDevice.Viewport;
-                var screenSize = new Vector2(viewport.Width, viewport.Height);
-
-                // Check if value changed (dirty tracking)
-                var oldScreenSize = previousValues.TryGetValue("ScreenSize", out var oldValue)
-                    ? oldValue
-                    : null;
-
-                if (oldScreenSize == null || !AreParameterValuesEqual(screenSize, oldScreenSize))
-                {
-                    // Value changed - set it and fire event
-                    screenSizeParam.SetValue(screenSize);
-                    previousValues["ScreenSize"] = screenSize;
-
-                    // Fire event for ScreenSize update
-                    var evt = new ShaderParameterChangedEvent
-                    {
-                        Layer = shader.Layer,
-                        ShaderId = shader.ShaderId,
-                        ParameterName = "ScreenSize",
-                        OldValue = oldScreenSize,
-                        NewValue = screenSize,
-                        ShaderEntity = entity,
-                    };
-                    EventBus.Send(ref evt);
-                }
-
-                return true;
-            }
-        }
-        catch (KeyNotFoundException)
-        {
-            // ScreenSize doesn't exist - that's fine, not all shaders need it
-        }
-
-        return false;
     }
 
     private void FireShaderChangedEvent(

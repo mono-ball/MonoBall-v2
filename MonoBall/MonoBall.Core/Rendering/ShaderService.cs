@@ -65,10 +65,11 @@ public class ShaderService : IShaderService, IDisposable
                     + "Ensure the shader is defined in a loaded mod."
             );
 
-        if (metadata.DefinitionType != "Shaders")
+        // Accept "ShaderAsset" (convention-based from Definitions/Assets/Shaders/)
+        if (metadata.DefinitionType != "ShaderAsset")
             throw new InvalidOperationException(
                 $"Definition '{shaderId}' is not a shader definition (type: {metadata.DefinitionType}). "
-                    + "Expected definition type: Shaders."
+                    + "Expected definition type: ShaderAsset."
             );
 
         // Use ResourceManager to load shader (handles definition lookup, path resolution, and caching)
@@ -104,8 +105,21 @@ public class ShaderService : IShaderService, IDisposable
 
         // Check if shader exists in registry
         var metadata = _modManager.GetDefinitionMetadata(shaderId);
-        if (metadata == null || metadata.DefinitionType != "Shaders")
+        if (metadata == null)
+        {
+            _logger.Debug("Shader definition not found in registry: {ShaderId}", shaderId);
             return false;
+        }
+
+        if (metadata.DefinitionType != "ShaderAsset")
+        {
+            _logger.Debug(
+                "Definition '{ShaderId}' has unexpected type: {DefinitionType} (expected ShaderAsset)",
+                shaderId,
+                metadata.DefinitionType
+            );
+            return false;
+        }
 
         // Shader exists in registry - return true (regardless of cache status)
         // The cache check is just for performance optimization, but HasShader() should

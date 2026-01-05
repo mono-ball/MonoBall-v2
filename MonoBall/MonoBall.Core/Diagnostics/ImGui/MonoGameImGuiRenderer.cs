@@ -232,6 +232,13 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         // Set the context as current (ensures it's valid for this frame)
         ImGui.SetCurrentContext(_context);
 
+        // Build font atlas before NewFrame() - ImGui requires it to be ready
+        if (!_fontAtlasBuilt)
+        {
+            RebuildFontAtlas();
+            _fontAtlasBuilt = true;
+        }
+
         var io = ImGui.GetIO();
 
         io.DisplaySize = new System.Numerics.Vector2(
@@ -258,12 +265,8 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     {
         ThrowIfNotInitialized();
 
-        // Build font atlas lazily on first render when graphics device is ready
-        if (!_fontAtlasBuilt)
-        {
-            RebuildFontAtlas();
-            _fontAtlasBuilt = true;
-        }
+        // Font atlas is built in BeginFrame() before NewFrame() is called
+        // This ensures ImGui has the font atlas ready when starting a frame
 
         ImGui.Render();
         RenderDrawData(ImGui.GetDrawData());

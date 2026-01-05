@@ -26,7 +26,7 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
     private readonly MapBorderRendererSystem? _mapBorderRendererSystem;
     private readonly RenderTargetManager? _renderTargetManager;
     private readonly IResourceManager _resourceManager;
-    private readonly ShaderManagerSystem? _shaderManagerSystem;
+    private readonly ShaderManager? _shaderManagerSystem;
     private readonly ShaderRendererSystem? _shaderRendererSystem;
     private readonly ISpriteRenderer _spriteRenderer;
     private readonly ITileChunkRenderer _tileChunkRenderer;
@@ -116,7 +116,7 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
         SpriteBatch spriteBatch,
         ILogger logger,
         MapBorderRendererSystem? mapBorderRendererSystem = null,
-        ShaderManagerSystem? shaderManagerSystem = null,
+        ShaderManager? shaderManagerSystem = null,
         ShaderRendererSystem? shaderRendererSystem = null,
         RenderTargetManager? renderTargetManager = null,
         PerformanceStatsSystem? performanceStatsSystem = null
@@ -283,6 +283,7 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
 
     /// <summary>
     ///     Renders all items with elevation-based border integration.
+    ///     Supports per-entity shaders by breaking the batch when needed.
     /// </summary>
     private void RenderAllItems(GameTime gameTime, Matrix transform, Effect? layerShader)
     {
@@ -294,22 +295,40 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
         var renderedBottomBorder = false;
         var renderedTopBorder = false;
 
-        // Begin SpriteBatch
-        _spriteBatch.Begin(
-            SpriteSortMode.Immediate,
-            BlendState.AlphaBlend,
-            SamplerState.PointClamp,
-            null,
-            null,
-            layerShader,
-            transform
-        );
+        // Track current shader for batch management
+        Effect? currentShader = layerShader;
+        var batchStarted = false;
+
+        void EnsureBatchStarted(Effect? shader)
+        {
+            if (batchStarted && currentShader == shader)
+                return;
+
+            if (batchStarted)
+                _spriteBatch.End();
+
+            currentShader = shader;
+            _spriteBatch.Begin(
+                SpriteSortMode.Immediate,
+                BlendState.AlphaBlend,
+                SamplerState.PointClamp,
+                null,
+                null,
+                currentShader,
+                transform
+            );
+            batchStarted = true;
+        }
+
+        // Start with layer shader
+        EnsureBatchStarted(layerShader);
 
         foreach (var item in _renderableItems)
         {
             // Render bottom border at elevation threshold
             if (!renderedBottomBorder && item.Elevation >= ElevationConstants.BorderBottomElevation)
             {
+                EnsureBatchStarted(layerShader); // Borders use layer shader
                 _mapBorderRendererSystem?.RenderBottomLayerInBatch(gameTime, _spriteBatch);
                 renderedBottomBorder = true;
             }
@@ -317,9 +336,21 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
             // Render top border at elevation threshold
             if (!renderedTopBorder && item.Elevation >= ElevationConstants.BorderTopElevation)
             {
+                EnsureBatchStarted(layerShader); // Borders use layer shader
                 _mapBorderRendererSystem?.RenderTopLayerInBatch(gameTime, _spriteBatch);
                 renderedTopBorder = true;
             }
+
+            // Check for per-entity shader (sprites only)
+            Effect? entityShader = null;
+            if (item is SpriteRenderableItem)
+            {
+                entityShader = _spriteRenderer.GetEntityShader(World, item.Entity);
+            }
+
+            // Switch to entity shader if needed, otherwise use layer shader
+            var targetShader = entityShader ?? layerShader;
+            EnsureBatchStarted(targetShader);
 
             // Render the item
             item.Render(World, _spriteBatch, _tileChunkRenderer, _spriteRenderer);
@@ -327,12 +358,19 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
 
         // Render any remaining borders if not yet rendered
         if (!renderedBottomBorder)
+        {
+            EnsureBatchStarted(layerShader);
             _mapBorderRendererSystem?.RenderBottomLayerInBatch(gameTime, _spriteBatch);
+        }
 
         if (!renderedTopBorder)
+        {
+            EnsureBatchStarted(layerShader);
             _mapBorderRendererSystem?.RenderTopLayerInBatch(gameTime, _spriteBatch);
+        }
 
-        _spriteBatch.End();
+        if (batchStarted)
+            _spriteBatch.End();
     }
 
     /// <summary>

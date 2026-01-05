@@ -36,7 +36,7 @@ float VignetteIntensity = 0.7;
 float GrainAmount = 0.08;
 float3 ShadowTint = float3(0.1, 0.1, 0.15);   // Slight blue in shadows
 float3 HighlightTint = float3(1.0, 0.98, 0.95); // Warm highlights
-float2 ScreenSize = float2(1280.0, 720.0);
+float2 ScreenSize = float2(1280.0, 800.0);
 
 float hash(float2 p)
 {
