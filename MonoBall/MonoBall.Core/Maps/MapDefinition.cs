@@ -151,6 +151,68 @@ public class MapDefinition
     /// </summary>
     [JsonPropertyName("npcs")]
     public List<NpcDefinition>? Npcs { get; set; }
+
+    /// <summary>
+    ///     Per-elevation collision layers.
+    ///     Each layer contains collision data for a specific elevation level.
+    /// </summary>
+    [JsonPropertyName("collisions")]
+    public List<CollisionLayerDefinition>? Collisions { get; set; }
+}
+
+/// <summary>
+///     Represents a collision layer for a specific elevation.
+/// </summary>
+public class CollisionLayerDefinition
+{
+    /// <summary>
+    ///     The unique identifier for this collision layer.
+    /// </summary>
+    [JsonPropertyName("id")]
+    public string Id { get; set; } = string.Empty;
+
+    /// <summary>
+    ///     The name of this collision layer.
+    /// </summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    /// <summary>
+    ///     The width of the collision layer in tiles.
+    /// </summary>
+    [JsonPropertyName("width")]
+    public int Width { get; set; }
+
+    /// <summary>
+    ///     The height of the collision layer in tiles.
+    /// </summary>
+    [JsonPropertyName("height")]
+    public int Height { get; set; }
+
+    /// <summary>
+    ///     The elevation level this collision layer applies to.
+    /// </summary>
+    [JsonPropertyName("elevation")]
+    public int Elevation { get; set; }
+
+    /// <summary>
+    ///     X offset in tiles.
+    /// </summary>
+    [JsonPropertyName("offsetX")]
+    public int OffsetX { get; set; }
+
+    /// <summary>
+    ///     Y offset in tiles.
+    /// </summary>
+    [JsonPropertyName("offsetY")]
+    public int OffsetY { get; set; }
+
+    /// <summary>
+    ///     Base64-encoded collision tile data.
+    ///     Each byte is a collision value (0=passable, 1+=blocked).
+    /// </summary>
+    [JsonPropertyName("tileData")]
+    public string? TileData { get; set; }
 }
 
 /// <summary>
@@ -161,7 +223,7 @@ public class NpcDefinition
     /// <summary>
     ///     The unique identifier for the NPC.
     /// </summary>
-    [JsonPropertyName("npcId")]
+    [JsonPropertyName("id")]
     public string NpcId { get; set; } = string.Empty;
 
     /// <summary>

@@ -265,7 +265,8 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
                 RenderOrder = 100, // Render above NPCs
                 Opacity = 1.0f,
             },
-            new ElevationComponent { Value = ElevationConstants.DefaultElevation }
+            new ElevationComponent { Value = ElevationConstants.DefaultElevation },
+            CollisionComponent.Solid
         );
 
         _playerEntity = playerEntity;

@@ -134,6 +134,10 @@ public class ActiveMapFilterService : IActiveMapFilterService
         if (_world.TryGet<MapComponent>(entity, out var mapComponent))
             return mapComponent.MapId;
 
+        // Check PlayerComponent - player's map is determined by position
+        if (_world.TryGet<PlayerComponent>(entity, out _))
+            return GetPlayerCurrentMapId();
+
         return null;
     }
 
@@ -164,6 +168,11 @@ public class ActiveMapFilterService : IActiveMapFilterService
             {
                 // If we already found a map, skip remaining maps (return first match)
                 if (playerMapId != null)
+                    return;
+
+                // Filter to main map entities only (has Width/Height set)
+                // Tile chunk entities also have MapComponent but with Width=0
+                if (map.Width == 0)
                     return;
 
                 // Calculate map bounds in pixels

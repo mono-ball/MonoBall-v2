@@ -98,6 +98,15 @@ public class SystemManager : IDisposable
 
     private Group<float> _updateSystems = null!; // Initialized in Initialize()
     private IVariableSpriteResolver? _variableSpriteResolver; // Initialized in Initialize()
+
+    // Collision services (initialized in CreateGameSystems)
+    private ICollisionLayerCache _collisionLayerCache = null!;
+    private IEntityElevationService _entityElevationService = null!;
+    private IEntityQueryService _entityQueryService = null!;
+    private ITileInteractionCache _tileInteractionCache = null!;
+    private ITileInteractionDispatcher _tileInteractionDispatcher = null!;
+    private ICollisionService _collisionService = null!;
+    private SpatialHashSystem _spatialHashSystem = null!;
     private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
 
     /// <summary>
@@ -578,6 +587,20 @@ public class SystemManager : IDisposable
         // Get ConstantsService from Game.Services (needed for multiple systems)
         var constantsService = GetConstantsService();
 
+        // Create collision services (needed before MapLoaderSystem for loading collision data)
+        _collisionLayerCache = new CollisionLayerCache();
+        _entityElevationService = new EntityElevationService(_world);
+        _entityQueryService = new EntityQueryService(
+            _world,
+            LoggerFactory.CreateLogger<EntityQueryService>()
+        );
+        _tileInteractionCache = new TileInteractionCache();
+        _tileInteractionDispatcher = new TileInteractionDispatcher(
+            _modManager.Registry,
+            _scriptLoaderService,
+            LoggerFactory.CreateLogger<TileInteractionDispatcher>()
+        );
+
         // Create update systems
         _mapLoaderSystem = new MapLoaderSystem(
             _world,
@@ -585,6 +608,7 @@ public class SystemManager : IDisposable
             _resourceManager,
             _flagVariableService,
             _variableSpriteResolver,
+            _collisionLayerCache,
             LoggerFactory.CreateLogger<MapLoaderSystem>(),
             constantsService // Pass ConstantsService for accessing constants
         );
@@ -657,7 +681,27 @@ public class SystemManager : IDisposable
         // Create scene-based input blocker (checks if any scene has BlocksInput=true)
         // Use a lambda to get _sceneSystem lazily since it's created later in CreateSceneSpecificSystems()
         var sceneInputBlocker = new SceneInputBlocker(() => _sceneSystem);
-        var nullCollisionService = new NullCollisionService();
+
+        // Create SpatialHashSystem for entity position queries (implements IEntityPositionService)
+        // Must run early to rebuild spatial hash before collision queries
+        _spatialHashSystem = new SpatialHashSystem(
+            _world,
+            _activeMapFilterService,
+            LoggerFactory.CreateLogger<SpatialHashSystem>()
+        );
+        RegisterUpdateSystem(_spatialHashSystem);
+
+        // Create CollisionService with all dependencies
+        _collisionService = new CollisionService(
+            _world,
+            _collisionLayerCache,
+            _entityElevationService,
+            _spatialHashSystem, // Implements IEntityPositionService
+            _entityQueryService,
+            _tileInteractionCache,
+            _tileInteractionDispatcher,
+            LoggerFactory.CreateLogger<CollisionService>()
+        );
 
         // Create input system
         _inputSystem = new InputSystem(
@@ -673,7 +717,7 @@ public class SystemManager : IDisposable
         // Reuse constantsService from earlier in this method
         _movementSystem = new MovementSystem(
             _world,
-            nullCollisionService,
+            _collisionService,
             _activeMapFilterService,
             constantsService,
             _modManager,
@@ -818,6 +862,7 @@ public class SystemManager : IDisposable
         var spriteRenderer = new SpriteRenderer(
             _graphicsDevice,
             _resourceManager,
+            _cameraService,
             LoggerFactory.CreateLogger<SpriteRenderer>(),
             shaderService
         );

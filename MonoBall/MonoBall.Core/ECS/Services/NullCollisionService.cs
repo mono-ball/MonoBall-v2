@@ -30,6 +30,21 @@ public class NullCollisionService : ICollisionService
     }
 
     /// <summary>
+    ///     Always returns true - allows all movement without collision checking.
+    /// </summary>
+    public bool CanMoveToSilent(
+        Entity entity,
+        int targetX,
+        int targetY,
+        string? mapId,
+        Direction fromDirection = Direction.None
+    )
+    {
+        // No collision checking - all movement allowed
+        return true;
+    }
+
+    /// <summary>
     ///     Returns default values - no jump tiles, all walkable.
     /// </summary>
     public (bool isJumpTile, Direction allowedJumpDir, bool isWalkable) GetTileCollisionInfo(
@@ -42,5 +57,29 @@ public class NullCollisionService : ICollisionService
     {
         // No collision checking - return default (no jump, walkable)
         return (false, Direction.None, true);
+    }
+
+    /// <summary>
+    ///     Returns success for all movements - no collision checking.
+    ///     Note: Pixel positions are approximated since no map data is available.
+    /// </summary>
+    public MovementResolution ResolveMovement(
+        Entity entity,
+        int targetX,
+        int targetY,
+        string? sourceMapId,
+        Direction fromDirection = Direction.None
+    )
+    {
+        // No collision checking - allow all movement
+        // Approximate pixel position using default 16x16 tiles
+        const int defaultTileSize = 16;
+        return MovementResolution.Success(
+            sourceMapId ?? string.Empty,
+            targetX,
+            targetY,
+            targetX * defaultTileSize,
+            targetY * defaultTileSize
+        );
     }
 }

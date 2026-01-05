@@ -467,25 +467,59 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
         if (spriteDef == null)
             return;
 
-        var spriteBounds = new Rectangle(
-            (int)pos.Position.X,
-            (int)pos.Position.Y,
-            spriteDef.FrameWidth,
-            spriteDef.FrameHeight
-        );
+        // Get active camera for tile dimensions
+        var activeCamera = _cameraService.GetActiveCamera();
+        var tileHeight = activeCamera?.TileHeight ?? 16;
+
+        // Calculate visual bounds based on whether this is a multi-tile sprite
+        // Multi-tile sprites (height > tileHeight) use feet-based positioning:
+        // - They render UPWARD from (PixelX, PixelY + TileHeight)
+        // - Visual top is at PixelY + TileHeight - FrameHeight
+        // - Visual bottom is at PixelY + TileHeight
+        Rectangle spriteBounds;
+        float sortingY;
+
+        if (spriteDef.FrameHeight > tileHeight)
+        {
+            // Multi-tile sprite: calculate visual bounds with feet-based rendering
+            // Sprite renders from (PixelY + TileHeight - FrameHeight) to (PixelY + TileHeight)
+            var visualTop = pos.PixelY + tileHeight - spriteDef.FrameHeight;
+            var visualBottom = pos.PixelY + tileHeight;
+
+            spriteBounds = new Rectangle(
+                (int)pos.PixelX,
+                (int)visualTop,
+                spriteDef.FrameWidth,
+                spriteDef.FrameHeight
+            );
+
+            // Use feet position (bottom of feet tile) for Y-sorting
+            // This ensures correct depth ordering based on where entity stands
+            sortingY = visualBottom;
+        }
+        else
+        {
+            // Single-tile sprite: standard top-left bounds
+            spriteBounds = new Rectangle(
+                (int)pos.Position.X,
+                (int)pos.Position.Y,
+                spriteDef.FrameWidth,
+                spriteDef.FrameHeight
+            );
+
+            // Use bottom edge for Y-sorting
+            sortingY = pos.Position.Y + spriteDef.FrameHeight;
+        }
 
         if (!spriteBounds.Intersects(visiblePixelBounds))
             return;
-
-        // Use bottom edge of sprite for Y-sorting (ensures correct depth ordering)
-        var spriteBottomY = pos.Position.Y + spriteDef.FrameHeight;
 
         _renderableItems.Add(
             new SpriteRenderableItem
             {
                 Entity = entity,
                 Elevation = elevation.Value,
-                YPosition = spriteBottomY,
+                YPosition = sortingY,
                 Sprite = sprite,
                 Position = pos,
                 Renderable = render,

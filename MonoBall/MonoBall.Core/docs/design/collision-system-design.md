@@ -4,14 +4,15 @@
 
 This document outlines the design for a comprehensive collision detection system for MonoBall, supporting tile-based movement, elevation layers, directional collision (one-way tiles, jump tiles), and entity-to-entity collision detection.
 
+**Dependency**: This collision system requires the elevation-based rendering system to be implemented first. All entities must have `ElevationComponent` (mandatory), which is ensured by the rendering system migration.
+
 ## Current State
 
 ### Existing Infrastructure
 
 1. **`ICollisionService` Interface** (`MonoBall.Core/ECS/Services/ICollisionService.cs`)
-   - `CanMoveTo()` - Checks if a tile position is walkable (fires events)
-   - `CanMoveToSilent()` - Checks walkability without firing events (for pathfinding)
-   - `GetTileCollisionInfo()` - Returns comprehensive collision info (jump tiles, walkability)
+   - `CanMoveTo()` - Checks if a tile position is walkable (fires events for script integration)
+   - `CanMoveToSilent()` - Checks walkability without firing events (for pathfinding algorithms)
 
 2. **`NullCollisionService`** (`MonoBall.Core/ECS/Services/NullCollisionService.cs`)
    - Stub implementation that allows all movement
@@ -57,9 +58,9 @@ This document outlines the design for a comprehensive collision detection system
      - Bridges: Entity at elevation 3 can walk under bridge (elevation 15) if collision override = 0
      - Bridges: Entity at elevation 15 can walk on bridge (elevation 15) if collision override = 0
    - Entity elevation:
-     - Preferred: `ElevationComponent` (consistent storage, can be updated during movement)
-     - Fallback: Player elevation from constants, NPCs from `NpcComponent.Elevation`
-   - Tiles have elevation stored per-tile in map.bin (bits 12-15)
+     - **Mandatory**: `ElevationComponent` is required for all entities (tile chunks, sprites, NPCs, players)
+     - All entities must have `ElevationComponent` before collision checks (ensured by elevation-based rendering system)
+     - Tiles have elevation stored per-tile in map.bin (bits 12-15)
 
 3. **Directional Collision**
    - Handled by tileset tile's `interactionId` property
@@ -105,23 +106,25 @@ This document outlines the design for a comprehensive collision detection system
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    CollisionService                          │
-│  (Implements ICollisionService)                            │
+│  (Implements ICollisionService)                              │
 ├─────────────────────────────────────────────────────────────┤
-│  Dependencies:                                              │
-│  • ICollisionLayerCache (per map, per tile)                 │
-│  • IEntityPositionService (entity position queries)          │
-│  • IEntityElevationService (entity elevation queries)       │
-│  • IConstantsService (player elevation constant)            │
-│  • EventBus (mod integration, optional for silent queries)   │
+│  Dependencies (Interface Segregation):                       │
+│  • ICollisionLayerCache (tile collision/elevation data)      │
+│  • IEntityPositionService (spatial hash queries)             │
+│  • IEntityElevationService (entity elevation only)           │
+│  • IEntityQueryService (alive, position, component checks)   │
+│  • ITileInteractionCache (interactionId lookup)              │
+│  • ITileInteractionDispatcher (O(1) script dispatch)         │
 └─────────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
 │              ICollisionService Interface                     │
 ├─────────────────────────────────────────────────────────────┤
-│  • CanMoveTo() - Full collision check with events            │
-│  • CanMoveToSilent() - Collision check without events       │
-│  • GetTileCollisionInfo() - Detailed collision info         │
+│  • CanMoveTo() - Full collision check with script dispatch   │
+│  • CanMoveToSilent() - Collision check without scripts       │
+│  • GetTileCollisionInfo() - Combined query for optimization  │
+│  • ResolveMovement() - Cross-map movement resolution         │
 └─────────────────────────────────────────────────────────────┘
                             │
                             ▼
@@ -152,118 +155,98 @@ This document outlines the design for a comprehensive collision detection system
 
 #### ICollisionLayerCache
 
+**Implementation Note**: The actual implementation uses per-elevation-layer storage rather than per-tile storage. This allows multiple collision layers at different elevations for complex terrain like bridges.
+
 ```csharp
 namespace MonoBall.Core.ECS.Services
 {
     /// <summary>
-    /// Caches collision and elevation data per map and tile.
-    /// Provides fast O(1) lookup of collision values (0-3) and elevation (0-15).
-    /// Collision and elevation are stored per-tile (not per-elevation layer).
+    /// Cache for per-elevation tile collision data.
+    /// Provides O(1) lookups for collision values from map collision layers.
     /// </summary>
+    /// <remarks>
+    /// IMPLEMENTATION: Uses per-elevation-layer storage instead of per-tile storage.
+    /// Each elevation level can have its own collision layer with offsets.
+    /// </remarks>
     public interface ICollisionLayerCache
     {
         /// <summary>
-        /// Gets the collision override value (0-3) for a tile at the given position.
-        /// This is bits 10-11 from map.bin entry.
+        /// Gets the collision value for a tile at a specific elevation.
         /// </summary>
-        /// <param name="mapId">The map identifier. Must not be null.</param>
+        /// <param name="mapId">The map identifier.</param>
         /// <param name="x">The X coordinate in tile space.</param>
         /// <param name="y">The Y coordinate in tile space.</param>
+        /// <param name="elevation">The elevation level to check.</param>
         /// <returns>
-        /// - null: Position is out of bounds
-        /// - 0: Passable (no collision override)
-        /// - 1-3: Blocked (collision override - all values treated the same)
+        /// - null: Out of bounds or no collision layer for this elevation
+        /// - 0: Passable (no collision)
+        /// - 1+: Blocked
         /// </returns>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
-        byte? GetCollisionValue(string mapId, int x, int y);
-        
-        /// <summary>
-        /// Gets the elevation value (0-15) for a tile at the given position.
-        /// This is bits 12-15 from map.bin entry.
-        /// </summary>
-        /// <param name="mapId">The map identifier. Must not be null.</param>
-        /// <param name="x">The X coordinate in tile space.</param>
-        /// <param name="y">The Y coordinate in tile space.</param>
-        /// <returns>
-        /// - null: Position is out of bounds
-        /// - 0-15: Elevation value
-        /// </returns>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
-        byte? GetElevation(string mapId, int x, int y);
-        
-        /// <summary>
-        /// Gets both collision value and elevation in a single call.
-        /// More efficient than separate calls for hot path collision checks.
-        /// </summary>
-        /// <param name="mapId">The map identifier. Must not be null.</param>
-        /// <param name="x">The X coordinate in tile space.</param>
-        /// <param name="y">The Y coordinate in tile space.</param>
-        /// <returns>
-        /// Tuple containing:
-        /// - CollisionValue: null if out of bounds, 0-3 otherwise
-        /// - Elevation: null if out of bounds, 0-15 otherwise
-        /// </returns>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
-        (CollisionValue: byte?, Elevation: byte?) GetTileData(string mapId, int x, int y);
-        
-        /// <summary>
-        /// Checks if an entity elevation matches a tile elevation for collision purposes.
-        /// Handles special cases:
-        /// - Entity elevation 0 = wildcard (matches any tile elevation) - allows walking at ground level
-        /// - Tile elevation 0 = ground level (matches any entity elevation) - allows walking on ground from any elevation
-        /// - Otherwise, must match exactly for collision
-        /// </summary>
-        /// <remarks>
-        /// Elevation matching is checked AFTER collision override. If collision override = 0 (passable),
-        /// elevation mismatch doesn't block movement (allows walking under bridges, etc.).
-        /// 
-        /// Natural elevation changes: When an entity moves to a tile with a different elevation and
-        /// collision override = 0, the entity's elevation should be updated to match the tile elevation.
-        /// This allows natural elevation changes via stairs, ramps, etc.
-        /// </remarks>
-        /// <param name="entityElevation">The entity's elevation (0-15).</param>
-        /// <param name="tileElevation">The tile's elevation (0-15).</param>
-        /// <returns>True if elevations match (considering special cases), false otherwise.</returns>
-        bool IsElevationMatch(byte entityElevation, byte tileElevation);
-        
+        byte? GetCollisionValue(string mapId, int x, int y, int elevation);
+
         /// <summary>
         /// Checks if a position is within map bounds.
         /// </summary>
-        /// <param name="mapId">The map identifier. Must not be null.</param>
+        /// <param name="mapId">The map identifier.</param>
         /// <param name="x">The X coordinate in tile space.</param>
         /// <param name="y">The Y coordinate in tile space.</param>
         /// <returns>True if position is within bounds, false otherwise.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
         bool IsInBounds(string mapId, int x, int y);
-        
+
         /// <summary>
-        /// Loads collision and elevation data from map.bin.
-        /// Stores per-tile collision (bits 10-11) and elevation (bits 12-15).
+        /// Checks if collision data is loaded for a map.
         /// </summary>
-        /// <param name="mapId">The map identifier. Must not be null.</param>
-        /// <param name="mapBin">The map binary data (ushort array from map.bin). Must not be null.</param>
-        /// <param name="width">The map width in tiles. Must be positive.</param>
-        /// <param name="height">The map height in tiles. Must be positive.</param>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> or <paramref name="mapBin"/> is null.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when <paramref name="width"/> or <paramref name="height"/> is not positive.</exception>
-        void LoadMapCollisionData(string mapId, ushort[] mapBin, int width, int height);
-        
+        /// <param name="mapId">The map identifier.</param>
+        /// <returns>True if the map has collision data loaded.</returns>
+        bool HasMapData(string mapId);
+
         /// <summary>
-        /// Clears collision data for unloaded maps.
+        /// Loads collision data for a specific elevation layer.
         /// </summary>
-        /// <param name="mapId">The map identifier. Must not be null.</param>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
+        /// <param name="mapId">The map identifier.</param>
+        /// <param name="elevation">The elevation level for this collision layer.</param>
+        /// <param name="collisionData">The collision data (1 byte per tile).</param>
+        /// <param name="width">The layer width in tiles.</param>
+        /// <param name="height">The layer height in tiles.</param>
+        /// <param name="offsetX">The X offset of this layer in tile space (default 0).</param>
+        /// <param name="offsetY">The Y offset of this layer in tile space (default 0).</param>
+        void LoadCollisionLayer(
+            string mapId,
+            int elevation,
+            byte[] collisionData,
+            int width,
+            int height,
+            int offsetX = 0,
+            int offsetY = 0
+        );
+
+        /// <summary>
+        /// Sets the map dimensions (for bounds checking when no collision layers exist).
+        /// </summary>
+        /// <param name="mapId">The map identifier.</param>
+        /// <param name="width">The map width in tiles.</param>
+        /// <param name="height">The map height in tiles.</param>
+        void SetMapDimensions(string mapId, int width, int height);
+
+        /// <summary>
+        /// Unloads collision data for a map when it is unloaded.
+        /// </summary>
+        /// <param name="mapId">The map identifier.</param>
         void UnloadMap(string mapId);
     }
 }
 ```
 
-#### TileInteractionCache
+#### ITileInteractionCache
 
 ```csharp
 /// <summary>
 /// Caches tileset tile interactionIds by map position and elevation.
 /// Provides fast O(1) lookup of interactionIds for collision checking.
+///
+/// ARCHITECTURE NOTE: This interface is decoupled from map loading concerns.
+/// MapLoaderSystem calls SetTileInteraction() during map loading, keeping
+/// the cache focused on storage/retrieval only (Single Responsibility).
 /// </summary>
 public interface ITileInteractionCache
 {
@@ -271,109 +254,134 @@ public interface ITileInteractionCache
     /// Gets the interactionId for a tileset tile at the given position.
     /// Returns null if no interactionId is set (normal tile behavior).
     /// </summary>
-    /// <param name="mapId">The map identifier.</param>
+    /// <param name="mapId">The map identifier. Must not be null.</param>
     /// <param name="x">The X coordinate in tile space.</param>
     /// <param name="y">The Y coordinate in tile space.</param>
     /// <param name="elevation">The elevation level to check.</param>
     /// <returns>The interactionId (e.g., "base:interaction/tiles/ledge_south"), or null if none.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
     string? GetTileInteractionId(string mapId, int x, int y, int elevation);
-    
+
     /// <summary>
-    /// Loads tile interaction data from map definition.
-    /// Called when map is loaded. Eagerly populates cache for all tiles.
+    /// Sets the interactionId for a tile at the given position.
+    /// Called by MapLoaderSystem during map loading (decoupled from MapDefinition).
     /// </summary>
-    void LoadMapTileInteractions(string mapId, MapDefinition mapDef, IMapDataService mapDataService);
-    
+    /// <param name="mapId">The map identifier. Must not be null.</param>
+    /// <param name="x">The X coordinate in tile space.</param>
+    /// <param name="y">The Y coordinate in tile space.</param>
+    /// <param name="elevation">The elevation level.</param>
+    /// <param name="interactionId">The interactionId to set, or null to clear.</param>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
+    void SetTileInteraction(string mapId, int x, int y, int elevation, string? interactionId);
+
     /// <summary>
     /// Clears tile interaction data for unloaded maps.
     /// </summary>
+    /// <param name="mapId">The map identifier. Must not be null.</param>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
     void UnloadMap(string mapId);
 }
 
-public class TileInteractionCache : ITileInteractionCache
+public sealed class TileInteractionCache : ITileInteractionCache
 {
     // Map ID -> (X, Y, Elevation) -> interactionId
-    private readonly Dictionary<string, Dictionary<(int x, int y, int elevation), string?>> _cache;
-    private readonly IResourceManager _resourceManager;
-    
-    public TileInteractionCache(IResourceManager resourceManager)
-    {
-        _resourceManager = resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
-        _cache = new Dictionary<string, Dictionary<(int x, int y, int elevation), string?>>();
-    }
-    
+    private readonly Dictionary<string, Dictionary<(int x, int y, int elevation), string?>> _cache = new();
+
     public string? GetTileInteractionId(string mapId, int x, int y, int elevation)
     {
+        ArgumentNullException.ThrowIfNull(mapId);
+
         if (!_cache.TryGetValue(mapId, out var mapCache))
             return null;
-        
+
         return mapCache.TryGetValue((x, y, elevation), out var interactionId) ? interactionId : null;
     }
-    
-    public void LoadMapTileInteractions(string mapId, MapDefinition mapDef, IMapDataService mapDataService)
+
+    public void SetTileInteraction(string mapId, int x, int y, int elevation, string? interactionId)
     {
-        var mapCache = new Dictionary<(int x, int y, int elevation), string?>();
-        
-        // Iterate through all layers at each elevation
-        foreach (var layer in mapDef.Layers)
+        ArgumentNullException.ThrowIfNull(mapId);
+
+        if (!_cache.TryGetValue(mapId, out var mapCache))
         {
-            if (layer.Type != "tilelayer" || string.IsNullOrEmpty(layer.TileData))
-                continue;
-            
-            // Decode tile data (GIDs)
-            var gids = DecodeTileData(layer.TileData, layer.Width, layer.Height);
-            
-            // For each tile position, resolve GID to interactionId
-            for (int y = 0; y < layer.Height; y++)
-            {
-                for (int x = 0; x < layer.Width; x++)
-                {
-                    int index = y * layer.Width + x;
-                    int gid = gids[index];
-                    
-                    if (gid == 0)
-                        continue; // Empty tile
-                    
-                    // Resolve GID to tileset and localTileId
-                    var resolved = mapDataService.ResolveGidToTileset(mapId, gid);
-                    if (resolved == null)
-                        continue;
-                    
-                    var (tilesetId, localTileId) = resolved.Value;
-                    
-                    // Get tileset definition
-                    var tilesetDef = _resourceManager.GetTilesetDefinition(tilesetId);
-                    if (tilesetDef == null || localTileId >= tilesetDef.Tiles.Count)
-                        continue;
-                    
-                    // Get interactionId from tileset tile
-                    var tile = tilesetDef.Tiles[localTileId];
-                    var interactionId = tile?.InteractionId ?? tile?.TileBehaviorId;
-                    
-                    if (interactionId != null)
-                    {
-                        mapCache[(x, y, layer.Elevation)] = interactionId;
-                    }
-                }
-            }
+            mapCache = new Dictionary<(int x, int y, int elevation), string?>();
+            _cache[mapId] = mapCache;
         }
-        
-        _cache[mapId] = mapCache;
+
+        if (interactionId != null)
+            mapCache[(x, y, elevation)] = interactionId;
+        else
+            mapCache.Remove((x, y, elevation));
     }
-    
+
     public void UnloadMap(string mapId)
     {
+        ArgumentNullException.ThrowIfNull(mapId);
         _cache.Remove(mapId);
     }
 }
 ```
 
-**How it works**:
-1. When map loads, `LoadMapTileInteractions()` is called
-2. Iterate through all tile layers at each elevation
-3. For each tile, resolve GID → tileset → localTileId → tileset tile → interactionId
-4. Cache interactionId at (mapId, x, y, elevation)
-5. During collision check, O(1) lookup from cache
+**How it works** (Decoupled Design):
+1. When map loads, `MapLoaderSystem` iterates through tile layers
+2. For each tile with an interactionId, `MapLoaderSystem` calls `SetTileInteraction()`
+3. `TileInteractionCache` stores the interactionId at (mapId, x, y, elevation)
+4. During collision check, O(1) lookup via `GetTileInteractionId()`
+5. When map unloads, `UnloadMap()` clears all cached data for that map
+
+**Why Decoupled**: The cache no longer depends on `MapDefinition` or `IMapDataService`,
+making it easier to test and maintaining Single Responsibility Principle.
+
+#### IEntityElevationService (Focused Interface - Interface Segregation)
+
+```csharp
+/// <summary>
+/// Service for querying and modifying entity elevation.
+/// Focused interface following Interface Segregation Principle.
+/// </summary>
+/// <remarks>
+/// This interface is separated from IEntityQueryService to keep
+/// collision-related queries focused and to allow different
+/// implementations for elevation handling if needed.
+/// </remarks>
+public interface IEntityElevationService
+{
+    /// <summary>
+    /// Gets the elevation for an entity.
+    /// Requires ElevationComponent - all entities must have this component.
+    /// </summary>
+    /// <param name="entity">The entity to query.</param>
+    /// <returns>Entity elevation (0-15).</returns>
+    /// <exception cref="InvalidOperationException">Thrown if entity doesn't have ElevationComponent (fail fast).</exception>
+    byte GetEntityElevation(Entity entity);
+
+    /// <summary>
+    /// Sets the elevation for an entity.
+    /// Updates ElevationComponent on the entity.
+    /// </summary>
+    /// <param name="entity">The entity to update.</param>
+    /// <param name="elevation">The new elevation value (0-15).</param>
+    /// <exception cref="InvalidOperationException">Thrown if entity doesn't have ElevationComponent (fail fast).</exception>
+    void SetEntityElevation(Entity entity, byte elevation);
+
+    /// <summary>
+    /// Tries to get the elevation of an entity.
+    /// </summary>
+    /// <param name="entity">The entity to query.</param>
+    /// <param name="elevation">The elevation value if found.</param>
+    /// <returns>True if the entity has an ElevationComponent, false otherwise.</returns>
+    bool TryGetEntityElevation(Entity entity, out byte elevation);
+
+    /// <summary>
+    /// Tries to get an ElevationComponent from an entity.
+    /// </summary>
+    /// <param name="entity">The entity to query.</param>
+    /// <param name="component">When this method returns, contains the ElevationComponent if found.</param>
+    /// <returns>True if entity has ElevationComponent, false otherwise.</returns>
+    bool TryGetElevationComponent(Entity entity, out ElevationComponent component);
+}
+```
+
+**Implementation**: `EntityElevationService` (`MonoBall.Core/ECS/Services/EntityElevationService.cs`)
 
 #### IEntityPositionService (Entity Position Queries with Spatial Hash)
 
@@ -383,27 +391,64 @@ public class TileInteractionCache : ITileInteractionCache
 /// Shared between CollisionService and InteractionSystem to avoid code duplication.
 /// Provides O(1) lookups for efficient collision and interaction queries.
 /// </summary>
+/// <remarks>
+/// CRITICAL LIFETIME WARNING: All methods return ReadOnlySpan&lt;Entity&gt;.
+/// These spans are backed by pooled/reused arrays and are ONLY VALID until:
+/// - The next call to any method on this service, OR
+/// - The next frame update (when spatial hash is rebuilt)
+///
+/// DO NOT:
+/// - Store entities from the span in fields or collections
+/// - Pass the span to async methods
+/// - Hold references across method boundaries
+///
+/// DO:
+/// - Process entities immediately in a foreach loop
+/// - Copy to a List&lt;Entity&gt; if you need to store results
+/// </remarks>
 public interface IEntityPositionService
 {
     /// <summary>
     /// Gets all entities at a specific tile position with matching elevation.
     /// </summary>
-    /// <param name="mapId">The map identifier.</param>
+    /// <param name="mapId">The map identifier. Must not be null.</param>
     /// <param name="x">The X coordinate in tile space.</param>
     /// <param name="y">The Y coordinate in tile space.</param>
     /// <param name="elevation">The elevation level to match.</param>
-    /// <returns>Read-only span of entities at the position (empty if none).</returns>
+    /// <returns>
+    /// Read-only span of entities at the position (empty if none).
+    /// CRITICAL: Span is only valid until next call or frame update. Process immediately.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
     ReadOnlySpan<Entity> GetEntitiesAt(string mapId, int x, int y, int elevation);
-    
+
     /// <summary>
     /// Gets all entities at a specific tile position (any elevation).
     /// </summary>
+    /// <param name="mapId">The map identifier. Must not be null.</param>
+    /// <param name="x">The X coordinate in tile space.</param>
+    /// <param name="y">The Y coordinate in tile space.</param>
+    /// <returns>
+    /// Read-only span of entities at the position (empty if none).
+    /// CRITICAL: Span is only valid until next call or frame update. Process immediately.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
     ReadOnlySpan<Entity> GetEntitiesAt(string mapId, int x, int y);
-    
+
     /// <summary>
     /// Gets entities within a certain distance of a position (Manhattan distance).
     /// Useful for interaction system (find entities near player).
     /// </summary>
+    /// <param name="mapId">The map identifier. Must not be null.</param>
+    /// <param name="centerX">The center X coordinate in tile space.</param>
+    /// <param name="centerY">The center Y coordinate in tile space.</param>
+    /// <param name="range">The Manhattan distance range (1 = adjacent tiles).</param>
+    /// <param name="elevation">The elevation level to match.</param>
+    /// <returns>
+    /// Read-only span of entities in range (empty if none).
+    /// CRITICAL: Span is only valid until next call or frame update. Process immediately.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="mapId"/> is null.</exception>
     ReadOnlySpan<Entity> GetEntitiesInRange(string mapId, int centerX, int centerY, int range, int elevation);
 }
 ```
@@ -422,23 +467,46 @@ public interface IEntityPositionService
 ### Collision Detection Flow
 
 ```csharp
-public class CollisionService : ICollisionService
+/// <summary>
+/// Service for tile-based collision detection.
+/// Provides collision queries without per-frame updates.
+/// </summary>
+/// <remarks>
+/// ARCHITECTURE: Uses focused interfaces (Interface Segregation Principle):
+/// - ICollisionLayerCache: Tile collision/elevation data
+/// - IEntityPositionService: Spatial hash queries
+/// - IEntityElevationService: Entity elevation queries
+/// - IEntityQueryService: General entity queries (alive, components)
+/// - ITileInteractionCache: Tile interaction script lookup
+/// - ITileInteractionDispatcher: Direct script dispatch (avoids O(n) event fan-out)
+/// </remarks>
+public sealed class CollisionService : ICollisionService
 {
     private readonly ICollisionLayerCache _collisionLayerCache;
     private readonly IEntityPositionService _entityPositionService;
     private readonly IEntityElevationService _elevationService;
-    
+    private readonly IEntityQueryService _entityQueryService;
+    private readonly ITileInteractionCache _tileInteractionCache;
+    private readonly ITileInteractionDispatcher _tileInteractionDispatcher;
+
     public CollisionService(
         ICollisionLayerCache collisionLayerCache,
         IEntityPositionService entityPositionService,
-        IEntityElevationService elevationService
+        IEntityElevationService elevationService,
+        IEntityQueryService entityQueryService,
+        ITileInteractionCache tileInteractionCache,
+        ITileInteractionDispatcher tileInteractionDispatcher
     )
     {
         _collisionLayerCache = collisionLayerCache ?? throw new ArgumentNullException(nameof(collisionLayerCache));
         _entityPositionService = entityPositionService ?? throw new ArgumentNullException(nameof(entityPositionService));
         _elevationService = elevationService ?? throw new ArgumentNullException(nameof(elevationService));
+        _entityQueryService = entityQueryService ?? throw new ArgumentNullException(nameof(entityQueryService));
+        _tileInteractionCache = tileInteractionCache ?? throw new ArgumentNullException(nameof(tileInteractionCache));
+        _tileInteractionDispatcher = tileInteractionDispatcher ?? throw new ArgumentNullException(nameof(tileInteractionDispatcher));
     }
-    
+
+    /// <inheritdoc />
     public bool CanMoveTo(
         Entity entity,
         int targetX,
@@ -447,126 +515,360 @@ public class CollisionService : ICollisionService
         Direction fromDirection = Direction.None
     )
     {
+        return CanMoveToInternal(entity, targetX, targetY, mapId, fromDirection, fireEvents: true);
+    }
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// Silent version for pathfinding - skips event firing and script dispatch.
+    /// This avoids triggering script handlers and event overhead for bulk queries.
+    /// </remarks>
+    public bool CanMoveToSilent(
+        Entity entity,
+        int targetX,
+        int targetY,
+        string? mapId,
+        Direction fromDirection = Direction.None
+    )
+    {
+        return CanMoveToInternal(entity, targetX, targetY, mapId, fromDirection, fireEvents: false);
+    }
+
+    /// <summary>
+    /// Internal collision check implementation. Extracted to avoid duplication (DRY).
+    /// </summary>
+    private bool CanMoveToInternal(
+        Entity entity,
+        int targetX,
+        int targetY,
+        string? mapId,
+        Direction fromDirection,
+        bool fireEvents
+    )
+    {
         // 1. Validate inputs
         if (mapId == null)
-            return false; // No map = blocked
-        
-        // 2. Bounds check (must be done before event to ensure valid position)
-        if (!_collisionLayerCache.IsInBounds(mapId, targetX, targetY))
-            return false; // Out of bounds = blocked
-        
-        // 3. Get entity elevation (via service to avoid World access)
+            return false;
+
+        // 2. Bounds check (fast, do first)
+        if (!IsTileInBounds(mapId, targetX, targetY))
+            return false;
+
+        // 3. Get entity elevation
         byte entityElevation = _elevationService.GetEntityElevation(entity);
-        
-        // 4. Fire collision check event (tile interaction scripts control movement)
-        // Only fire if there are subscribers to avoid unnecessary allocation
-        // Scripts subscribe to this event and can cancel/modify movement directly
-        // Event is fired AFTER bounds check to ensure valid position
-        // Note: Scripts can override ALL collision checks (intended for modding)
-        // Note: Dynamic collision (moving platforms, state-based changes) is supported via events
-        // Check if there are subscribers before creating event struct (performance optimization)
-        if (EventBus.HasSubscribers<CollisionCheckEvent>())
-        {
-            var currentPos = _elevationService.GetEntityPosition(entity);
-            var collisionCheckEvent = new CollisionCheckEvent
-            {
-                Entity = entity,
-                CurrentPosition = currentPos,
-                TargetPosition = (targetX, targetY),
-                MapId = mapId,
-                FromDirection = fromDirection,
-                Elevation = entityElevation,
-                IsBlocked = false,
-                BlockReason = null
-            };
-            
-            EventBus.Send(ref collisionCheckEvent);
-            if (collisionCheckEvent.IsBlocked)
-                return false; // Blocked by script (one-way tile, surf requirement, jump restriction, etc.)
-        }
-        
-        // 5. Check tile collision override (bits 10-11 from map.bin)
-        // This is checked BEFORE elevation mismatch
-        // Any non-zero value (1-3) blocks movement
-        byte? collisionValue = _collisionLayerCache.GetCollisionValue(mapId, targetX, targetY);
-        bool isSolid = collisionValue.HasValue && collisionValue.Value > 0;
-        
-        if (isSolid)
-        {
-            // Solid tile - check elevation mismatch
-            // Passable tiles (collision override = 0) allow movement regardless of elevation
-            byte? tileElevation = _collisionLayerCache.GetElevation(mapId, targetX, targetY);
-            if (tileElevation.HasValue)
-            {
-                if (!_collisionLayerCache.IsElevationMatch(entityElevation, tileElevation.Value))
-                {
-                    return false; // Elevation mismatch on solid tile
-                }
-            }
-            return false; // Blocked by collision override
-        }
-        
-        // Passable tile (collision override = 0) - no elevation check needed
-        // Movement allowed, elevation can change naturally (handled by MovementSystem)
-        
-        // 6. Check entity collision (position query)
-        // Note: ReadOnlySpan is only valid until next frame update
-        var entitiesAtPosition = _entityPositionService.GetEntitiesAt(
-            mapId, 
-            targetX, 
-            targetY, 
-            entityElevation
-        );
-        
-        foreach (var otherEntity in entitiesAtPosition)
-        {
-            if (otherEntity == entity)
-                continue; // Skip self
-            
-            // Check if entity is still alive (might have been destroyed)
-            if (!_elevationService.IsEntityAlive(otherEntity))
-                continue;
-            
-            if (IsEntityBlocking(otherEntity))
-                return false; // Blocked by entity
-        }
-        
-        // All checks passed - movement allowed
+
+        // 4. Tile interaction script check (dispatch pattern - O(1) instead of O(n) event fan-out)
+        // Only if fireEvents is true (silent mode skips this)
+        if (fireEvents && IsTileInteractionBlocking(mapId, targetX, targetY, entityElevation, entity, fromDirection))
+            return false;
+
+        // 5. Tile collision check
+        if (IsTileBlocking(mapId, targetX, targetY, entityElevation))
+            return false;
+
+        // 6. Entity collision check
+        if (IsEntityAtPositionBlocking(mapId, targetX, targetY, entityElevation, entity))
+            return false;
+
         return true;
     }
-    
+
+    /// <summary>
+    /// Resolves a movement request, handling cross-map transitions.
+    /// Returns the actual target map and grid coordinates for the movement.
+    /// </summary>
+    /// <remarks>
+    /// When movement goes out of bounds, this method uses MapConnectionComponent
+    /// data to find the connected map and calculate the target grid position.
+    /// Pixel positions are calculated based on movement direction from current position.
+    /// </remarks>
+    public MovementResolution ResolveMovement(
+        Entity entity,
+        int targetX,
+        int targetY,
+        string? sourceMapId,
+        Direction fromDirection = Direction.None
+    )
+    {
+        // 1. Check if movement is within bounds (same-map movement)
+        if (sourceMapId != null && IsTileInBounds(sourceMapId, targetX, targetY))
+        {
+            // Use CanMoveToInternal to check collision
+            if (!CanMoveToInternal(entity, targetX, targetY, sourceMapId, fromDirection, fireEvents: true))
+                return MovementResolution.Blocked;
+
+            // Calculate pixel position based on direction delta
+            // (This is direction-based, not using map world position)
+            return MovementResolution.Success(sourceMapId, targetX, targetY, pixelX, pixelY);
+        }
+
+        // 2. Out of bounds - find connected map via MapConnectionComponent
+        var (crossMapId, crossX, crossY) = FindCrossMapPosition(sourceMapId, targetX, targetY);
+        if (crossMapId == null)
+            return MovementResolution.Blocked;
+
+        // 3. Check collision on target map
+        if (!CanMoveToInternal(entity, crossX, crossY, crossMapId, fromDirection, fireEvents: true))
+            return MovementResolution.Blocked;
+
+        // 4. Return cross-map movement resolution
+        return MovementResolution.CrossMap(crossMapId, crossX, crossY, pixelX, pixelY);
+    }
+
+    #region Focused Helper Methods (Single Responsibility)
+
+    /// <summary>
+    /// Checks if position is within map bounds.
+    /// </summary>
+    private bool IsTileInBounds(string mapId, int x, int y)
+    {
+        return _collisionLayerCache.IsInBounds(mapId, x, y);
+    }
+
+    /// <summary>
+    /// Checks if tile interaction script blocks movement.
+    /// Uses dispatch pattern: O(1) lookup + direct script call instead of O(n) event broadcast.
+    /// </summary>
+    private bool IsTileInteractionBlocking(
+        string mapId,
+        int targetX,
+        int targetY,
+        byte elevation,
+        Entity entity,
+        Direction fromDirection
+    )
+    {
+        // Look up interaction script for this specific tile (O(1))
+        var interactionId = _tileInteractionCache.GetTileInteractionId(mapId, targetX, targetY, elevation);
+        if (interactionId == null)
+            return false; // No interaction script
+
+        // Dispatch directly to the script handler (not broadcast to all scripts)
+        return _tileInteractionDispatcher.CheckCollision(
+            interactionId,
+            entity,
+            _entityQueryService.GetEntityPosition(entity),
+            (targetX, targetY),
+            fromDirection,
+            elevation
+        );
+    }
+
+    /// <summary>
+    /// Checks if tile collision data blocks movement.
+    /// </summary>
+    private bool IsTileBlocking(string mapId, int x, int y, byte entityElevation)
+    {
+        var (collisionValue, tileElevation) = _collisionLayerCache.GetTileData(mapId, x, y);
+        bool isSolid = collisionValue.HasValue && collisionValue.Value > 0;
+
+        if (!isSolid)
+            return false; // Passable tile
+
+        // Solid tile - check elevation match
+        if (tileElevation.HasValue &&
+            !_collisionLayerCache.IsElevationMatch(entityElevation, tileElevation.Value))
+        {
+            return true; // Elevation mismatch on solid tile
+        }
+
+        return true; // Blocked by collision override
+    }
+
+    /// <summary>
+    /// Checks if any entity at position blocks movement.
+    /// </summary>
+    private bool IsEntityAtPositionBlocking(string mapId, int x, int y, byte elevation, Entity movingEntity)
+    {
+        // CRITICAL: Span is only valid until next call - process immediately
+        var entitiesAtPosition = _entityPositionService.GetEntitiesAt(mapId, x, y, elevation);
+
+        foreach (var otherEntity in entitiesAtPosition)
+        {
+            if (otherEntity == movingEntity)
+                continue;
+
+            if (!_entityQueryService.IsEntityAlive(otherEntity))
+                continue;
+
+            if (IsEntityBlocking(otherEntity))
+                return true;
+        }
+
+        return false;
+    }
+
     /// <summary>
     /// Checks if an entity blocks movement.
-    /// Uses CollisionComponent if present, otherwise defaults based on entity type.
+    /// Uses CollisionComponent as PRIMARY mechanism (Open/Closed Principle).
+    /// Entities without CollisionComponent don't participate in collision.
     /// </summary>
+    /// <remarks>
+    /// ARCHITECTURE: CollisionComponent is the ONLY way to make an entity block movement.
+    /// This follows Open/Closed Principle - new entity types don't require modifying this code.
+    /// To make an entity block: Add CollisionComponent { IsSolid = true }.
+    /// To make an entity pass-through: Add CollisionComponent { AllowPassThrough = true }.
+    /// Entities without CollisionComponent are ignored (don't block, can't be pushed).
+    /// </remarks>
     private bool IsEntityBlocking(Entity entity)
     {
-        // Check CollisionComponent if present
-        if (_elevationService.TryGetCollisionComponent(entity, out var collision))
-        {
-            if (collision.AllowPassThrough)
-                return false; // Ghost mode, allow pass-through
-            
-            return collision.IsSolid; // Use component value
-        }
-        
-        // Default behavior: NPCs block, items don't
-        if (_elevationService.HasComponent<NpcComponent>(entity))
-            return true; // NPCs block by default
-        
-        return false; // Items and other entities don't block by default
+        // CollisionComponent is the ONLY way to block (Open/Closed Principle)
+        if (!_entityQueryService.TryGetCollisionComponent(entity, out var collision))
+            return false; // No CollisionComponent = doesn't participate in collision
+
+        if (collision.AllowPassThrough)
+            return false; // Ghost mode
+
+        return collision.IsSolid;
     }
+
+    #endregion
+}
+
+/// <summary>
+/// Result of resolving a movement request.
+/// </summary>
+public readonly struct MovementResolution
+{
+    /// <summary>
+    /// Whether the movement is allowed.
+    /// </summary>
+    public bool CanMove { get; init; }
+
+    /// <summary>
+    /// The map the entity will be in after moving.
+    /// May differ from source map for cross-map movement.
+    /// </summary>
+    public string? TargetMapId { get; init; }
+
+    /// <summary>
+    /// The grid X coordinate on the target map.
+    /// </summary>
+    public int TargetX { get; init; }
+
+    /// <summary>
+    /// The grid Y coordinate on the target map.
+    /// </summary>
+    public int TargetY { get; init; }
+
+    /// <summary>
+    /// The world pixel X coordinate of the target position.
+    /// </summary>
+    public float TargetPixelX { get; init; }
+
+    /// <summary>
+    /// The world pixel Y coordinate of the target position.
+    /// </summary>
+    public float TargetPixelY { get; init; }
+
+    /// <summary>
+    /// Whether this movement crosses a map boundary.
+    /// </summary>
+    public bool IsCrossMapMovement { get; init; }
+
+    /// <summary>
+    /// Creates a blocked movement resolution.
+    /// </summary>
+    public static MovementResolution Blocked => new() { CanMove = false };
+
+    /// <summary>
+    /// Creates a successful same-map movement resolution.
+    /// </summary>
+    public static MovementResolution Success(string mapId, int x, int y, float pixelX, float pixelY) =>
+        new()
+        {
+            CanMove = true,
+            TargetMapId = mapId,
+            TargetX = x,
+            TargetY = y,
+            TargetPixelX = pixelX,
+            TargetPixelY = pixelY,
+            IsCrossMapMovement = false,
+        };
+
+    /// <summary>
+    /// Creates a successful cross-map movement resolution.
+    /// </summary>
+    public static MovementResolution CrossMap(string targetMapId, int x, int y, float pixelX, float pixelY) =>
+        new()
+        {
+            CanMove = true,
+            TargetMapId = targetMapId,
+            TargetX = x,
+            TargetY = y,
+            TargetPixelX = pixelX,
+            TargetPixelY = pixelY,
+            IsCrossMapMovement = true,
+        };
 }
 ```
 
-### IEntityElevationService
+#### ITileInteractionDispatcher (Dispatch Pattern - Avoids O(n) Fan-Out)
+
+```csharp
+/// <summary>
+/// Dispatches collision checks directly to tile interaction scripts.
+/// Uses dispatch pattern instead of event broadcast to avoid O(n) fan-out.
+/// </summary>
+/// <remarks>
+/// ARCHITECTURE FIX: Instead of broadcasting CollisionCheckEvent to ALL subscribed scripts
+/// (which causes O(n) wasted work as each script checks if it's the right tile),
+/// this dispatcher looks up the specific script for the target tile and calls it directly.
+///
+/// Performance: O(1) lookup + 1 script call vs O(n) event handlers all checking position.
+/// </remarks>
+public interface ITileInteractionDispatcher
+{
+    /// <summary>
+    /// Checks if a tile interaction script blocks movement to the target position.
+    /// </summary>
+    /// <param name="interactionId">The interaction script ID (e.g., "base:interaction/tiles/ledge_south").</param>
+    /// <param name="entity">The entity attempting to move.</param>
+    /// <param name="currentPosition">The entity's current tile position.</param>
+    /// <param name="targetPosition">The target tile position.</param>
+    /// <param name="fromDirection">The direction moving FROM.</param>
+    /// <param name="elevation">The entity's elevation.</param>
+    /// <returns>True if movement is blocked by the script, false otherwise.</returns>
+    bool CheckCollision(
+        string interactionId,
+        Entity entity,
+        (int X, int Y) currentPosition,
+        (int X, int Y) targetPosition,
+        Direction fromDirection,
+        byte elevation
+    );
+
+    /// <summary>
+    /// Notifies a tile interaction script that movement completed to this tile.
+    /// Used for triggering effects (jumps, surf mode, etc.).
+    /// </summary>
+    void NotifyMovementCompleted(
+        string interactionId,
+        Entity entity,
+        (int X, int Y) newPosition,
+        Direction direction,
+        byte elevation
+    );
+}
+```
+
+**Why Dispatch Pattern**: The original design had all tile scripts subscribe to `CollisionCheckEvent`. With 1000 special tiles, every collision check would trigger 1000 event handlers, each checking "is this my tile?" and returning early 999 times. The dispatch pattern:
+1. Looks up the specific interactionId for the target tile (O(1))
+2. Calls only that script's collision check (1 call)
+3. Total: O(1) instead of O(n)
+
+### Service Interfaces (Split for Single Responsibility)
+
+The entity query functionality is split into focused interfaces following the Interface Segregation Principle:
+
+#### IEntityElevationService (Elevation-Specific Queries)
 
 ```csharp
 namespace MonoBall.Core.ECS.Services
 {
     /// <summary>
-    /// Service for querying entity elevation and position.
-    /// Wraps World access to avoid direct ECS coupling in CollisionService.
+    /// Service for querying and modifying entity elevation.
+    /// Focused interface following Interface Segregation Principle.
     /// </summary>
     public interface IEntityElevationService
     {
@@ -575,24 +877,55 @@ namespace MonoBall.Core.ECS.Services
         /// Requires ElevationComponent - all entities must have this component.
         /// </summary>
         /// <param name="entity">The entity to query.</param>
-        /// <returns>Entity elevation (0-15). Defaults to 0 (wildcard) if ElevationComponent not found.</returns>
+        /// <returns>Entity elevation (0-15).</returns>
         /// <exception cref="InvalidOperationException">Thrown if entity doesn't have ElevationComponent (fail fast).</exception>
         byte GetEntityElevation(Entity entity);
-        
+
+        /// <summary>
+        /// Sets the elevation for an entity.
+        /// Updates ElevationComponent on the entity.
+        /// </summary>
+        /// <param name="entity">The entity to update.</param>
+        /// <param name="elevation">The new elevation value (0-15).</param>
+        /// <exception cref="InvalidOperationException">Thrown if entity doesn't have ElevationComponent (fail fast).</exception>
+        void SetEntityElevation(Entity entity, byte elevation);
+
+        /// <summary>
+        /// Tries to get an ElevationComponent from an entity.
+        /// </summary>
+        /// <param name="entity">The entity to query.</param>
+        /// <param name="component">When this method returns, contains the ElevationComponent if found; otherwise, the default value.</param>
+        /// <returns>True if entity has ElevationComponent, false otherwise.</returns>
+        bool TryGetElevationComponent(Entity entity, out ElevationComponent component);
+    }
+}
+```
+
+#### IEntityQueryService (General Entity Queries)
+
+```csharp
+namespace MonoBall.Core.ECS.Services
+{
+    /// <summary>
+    /// Service for general entity queries (alive check, component checks).
+    /// Wraps World access to avoid direct ECS coupling in services.
+    /// </summary>
+    public interface IEntityQueryService
+    {
         /// <summary>
         /// Gets the current tile position of an entity.
         /// </summary>
         /// <param name="entity">The entity to query.</param>
         /// <returns>Current position (X, Y), or (0, 0) if entity not found or has no PositionComponent.</returns>
         (int X, int Y) GetEntityPosition(Entity entity);
-        
+
         /// <summary>
         /// Checks if an entity is still alive (not destroyed).
         /// </summary>
         /// <param name="entity">The entity to check.</param>
         /// <returns>True if entity is alive, false if destroyed.</returns>
         bool IsEntityAlive(Entity entity);
-        
+
         /// <summary>
         /// Checks if an entity has a specific component.
         /// </summary>
@@ -600,39 +933,32 @@ namespace MonoBall.Core.ECS.Services
         /// <param name="entity">The entity to check.</param>
         /// <returns>True if entity has the component, false otherwise.</returns>
         bool HasComponent<T>(Entity entity) where T : struct;
-        
-    /// <summary>
-    /// Tries to get a CollisionComponent from an entity.
-    /// </summary>
-    /// <param name="entity">The entity to query.</param>
-    /// <param name="component">When this method returns, contains the CollisionComponent if found; otherwise, the default value.</param>
-    /// <returns>True if entity has CollisionComponent, false otherwise.</returns>
-    bool TryGetCollisionComponent(Entity entity, out CollisionComponent component);
-    
-    /// <summary>
-    /// Sets the elevation for an entity.
-    /// Updates ElevationComponent if present, otherwise updates component-specific elevation.
-    /// </summary>
-    /// <param name="entity">The entity to update.</param>
-    /// <param name="elevation">The new elevation value (0-15).</param>
-    void SetEntityElevation(Entity entity, byte elevation);
-    
-    /// <summary>
-    /// Tries to get an ElevationComponent from an entity.
-    /// </summary>
-    /// <param name="entity">The entity to query.</param>
-    /// <param name="component">When this method returns, contains the ElevationComponent if found; otherwise, the default value.</param>
-    /// <returns>True if entity has ElevationComponent, false otherwise.</returns>
-    bool TryGetElevationComponent(Entity entity, out ElevationComponent component);
-}
+
+        /// <summary>
+        /// Tries to get a CollisionComponent from an entity.
+        /// </summary>
+        /// <param name="entity">The entity to query.</param>
+        /// <param name="component">When this method returns, contains the CollisionComponent if found; otherwise, the default value.</param>
+        /// <returns>True if entity has CollisionComponent, false otherwise.</returns>
+        bool TryGetCollisionComponent(Entity entity, out CollisionComponent component);
+    }
 }
 ```
+
+**Why Split**: The original `IEntityElevationService` was doing too much (elevation queries, position queries, alive checks, component queries). Splitting into focused interfaces:
+- **IEntityElevationService**: Elevation-specific operations only
+- **IEntityQueryService**: General entity queries (position, alive, components)
+- **IEntityPositionService**: Spatial hash queries (already defined above)
+
+This follows Interface Segregation Principle - clients depend only on what they use.
 
 ## Implementation Plan
 
 ### Phase 1: Core Collision Service
 
 **Goal**: Implement basic tile collision checking with elevation support.
+
+**Prerequisite**: All entities must have `ElevationComponent` before collision checks. This is ensured by the elevation-based rendering system migration. The collision system assumes `ElevationComponent` is present on all entities and will throw `InvalidOperationException` if missing (fail fast).
 
 1. **Create `CollisionLayerCache`**
    - Load collision and elevation data from map.bin (per-tile, not per-elevation layer)
@@ -657,11 +983,12 @@ namespace MonoBall.Core.ECS.Services
 - `MonoBall.Core/ECS/Services/ICollisionLayerCache.cs`
 - `MonoBall.Core/ECS/Services/CollisionLayerCache.cs`
 - `MonoBall.Core/ECS/Services/CollisionService.cs`
-- `MonoBall.Core/ECS/Services/IEntityElevationService.cs`
+- `MonoBall.Core/ECS/Services/IEntityElevationService.cs` (focused: elevation only)
 - `MonoBall.Core/ECS/Services/EntityElevationService.cs`
+- `MonoBall.Core/ECS/Services/IEntityQueryService.cs` (focused: alive, position, components)
+- `MonoBall.Core/ECS/Services/EntityQueryService.cs`
 - `MonoBall.Core/ECS/Components/ElevationComponent.cs` (required for all entities)
-- `MonoBall.Core/ECS/Services/CollisionCheckEventPooledObjectPolicy.cs` (for event pooling)
-- `MonoBall.Core/ECS/Events/CollisionCheckEvent.cs`
+- `MonoBall.Core/ECS/Events/CollisionCheckEvent.cs` (still used for mod integration)
 
 **Interface Updates**:
 - `MonoBall.Core/ECS/Services/ICollisionService.cs` - Add `CanMoveToSilent()` method for pathfinding
@@ -750,13 +1077,15 @@ namespace MonoBall.Core.ECS.Services
    - Collision system just fires events and checks results
 
 **Files to Create**:
-- `MonoBall.Core/ECS/Services/ITileInteractionCache.cs`
-- `MonoBall.Core/ECS/Services/TileInteractionCache.cs` - Cache tileset tile interactionIds by position
+- `MonoBall.Core/ECS/Services/ITileInteractionCache.cs` (decoupled from MapDefinition)
+- `MonoBall.Core/ECS/Services/TileInteractionCache.cs` - Cache interactionIds by position
+- `MonoBall.Core/ECS/Services/ITileInteractionDispatcher.cs` - O(1) script dispatch interface
+- `MonoBall.Core/ECS/Services/TileInteractionDispatcher.cs` - Direct script invocation (avoids O(n) fan-out)
 
 **Files to Modify**:
-- `MonoBall.Core/ECS/Services/CollisionService.cs` - Fire `CollisionCheckEvent`, remove script query logic
-- `MonoBall.Core/ECS/Systems/MapLoaderSystem.cs` - Load and attach interaction scripts to tiles
-- `MonoBall.Core/ECS/Events/CollisionCheckEvent.cs` - Ensure event supports script cancellation
+- `MonoBall.Core/ECS/Services/CollisionService.cs` - Use ITileInteractionDispatcher instead of events
+- `MonoBall.Core/ECS/Systems/MapLoaderSystem.cs` - Call SetTileInteraction() during loading
+- `MonoBall.Core/ECS/Events/CollisionCheckEvent.cs` - Still used for mod integration (not tile scripts)
 
 ### Phase 4: Event System Integration (Already in Phase 3)
 

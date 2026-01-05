@@ -148,10 +148,10 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 // Mark request as processed
                 request.Active = false;
 
-                // Calculate target position
+                // Calculate target position (in source map coordinates)
                 var (deltaX, deltaY) = request.Direction.ToTileDelta();
-                var targetX = position.X + deltaX;
-                var targetY = position.Y + deltaY;
+                var rawTargetX = position.X + deltaX;
+                var rawTargetY = position.Y + deltaY;
 
                 // Store old position before updating (for events)
                 var oldX = position.X;
@@ -160,18 +160,23 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 // Get map ID (from NpcComponent or MapComponent)
                 var mapId = _activeMapFilterService.GetEntityMapId(entity);
 
-                // Validate movement (collision checking)
-                // Pass fromDirection for directional collision checking (e.g., one-way tiles)
-                if (
-                    !_collisionService.CanMoveTo(entity, targetX, targetY, mapId, request.Direction)
-                )
+                // Resolve movement - handles cross-map transitions and returns correct coordinates
+                var resolution = _collisionService.ResolveMovement(
+                    entity,
+                    rawTargetX,
+                    rawTargetY,
+                    mapId,
+                    request.Direction
+                );
+
+                if (!resolution.CanMove)
                 {
                     // Movement blocked - publish event
                     var blockedEvent = new MovementBlockedEvent
                     {
                         Entity = entity,
                         BlockReason = "Collision",
-                        TargetPosition = (targetX, targetY),
+                        TargetPosition = (rawTargetX, rawTargetY),
                         Direction = request.Direction,
                         MapId = mapId,
                     };
@@ -179,20 +184,21 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                     _logger.Debug(
                         "Movement blocked for entity {EntityId} to ({TargetX}, {TargetY}) in direction {Direction}: {Reason}",
                         entity.Id,
-                        targetX,
-                        targetY,
+                        rawTargetX,
+                        rawTargetY,
                         request.Direction,
                         blockedEvent.BlockReason
                     );
                     return;
                 }
 
-                // Calculate movement positions
-                // Get tile dimensions from loaded maps or constants service (supports rectangular tiles)
-                var tileWidth = TileSizeHelper.GetTileWidth(World, _constants);
-                var tileHeight = TileSizeHelper.GetTileHeight(World, _constants);
+                // Use resolved coordinates (handles cross-map movement)
+                var targetX = resolution.TargetX;
+                var targetY = resolution.TargetY;
+
+                // Calculate movement positions using resolved pixel coordinates
                 var startPosition = new Vector2(position.PixelX, position.PixelY);
-                var targetPosition = new Vector2(targetX * tileWidth, targetY * tileHeight);
+                var targetPosition = new Vector2(resolution.TargetPixelX, resolution.TargetPixelY);
 
                 // Publish movement started event BEFORE starting movement (allows cancellation)
                 // NOTE: Event handlers can set IsCancelled=true to prevent movement
@@ -221,18 +227,36 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 movement.StartMovement(startPosition, targetPosition, request.Direction);
 
                 // Update grid position immediately (for collision/lookup)
+                // Use resolved coordinates which are relative to the target map
                 position.X = targetX;
                 position.Y = targetY;
 
-                _logger.Debug(
-                    "Movement started for entity {EntityId} from ({OldX}, {OldY}) to ({TargetX}, {TargetY}) in direction {Direction}",
-                    entity.Id,
-                    oldX,
-                    oldY,
-                    targetX,
-                    targetY,
-                    request.Direction
-                );
+                if (resolution.IsCrossMapMovement)
+                {
+                    _logger.Debug(
+                        "Cross-map movement started for entity {EntityId} from map {SourceMap} ({OldX}, {OldY}) to map {TargetMap} ({TargetX}, {TargetY}) in direction {Direction}",
+                        entity.Id,
+                        mapId,
+                        oldX,
+                        oldY,
+                        resolution.TargetMapId,
+                        targetX,
+                        targetY,
+                        request.Direction
+                    );
+                }
+                else
+                {
+                    _logger.Debug(
+                        "Movement started for entity {EntityId} from ({OldX}, {OldY}) to ({TargetX}, {TargetY}) in direction {Direction}",
+                        entity.Id,
+                        oldX,
+                        oldY,
+                        targetX,
+                        targetY,
+                        request.Direction
+                    );
+                }
             }
         );
     }
@@ -348,7 +372,10 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
         }
         else
         {
-            SyncPositionToGrid(ref position);
+            // NOTE: Do NOT call SyncPositionToGrid here!
+            // Grid position should already be correct from entity initialization or last movement.
+            // SyncPositionToGrid calculates grid from world pixel position without accounting
+            // for map offset, which gives wrong results for entities on connected maps.
 
             // Handle turn-in-place state (Pokemon Emerald behavior)
             if (movement.RunningState == RunningState.TurnDirection)
@@ -390,7 +417,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
         }
         else
         {
-            SyncPositionToGrid(ref position);
+            // NOTE: Do NOT call SyncPositionToGrid here!
+            // Grid position should already be correct from entity initialization or last movement.
 
             // For entities without animation, turn-in-place completes immediately
             if (movement.RunningState == RunningState.TurnDirection)
@@ -424,7 +452,11 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
         // Snap to target position
         position.PixelX = movement.TargetPosition.X;
         position.PixelY = movement.TargetPosition.Y;
-        SyncPositionToGrid(ref position);
+        // NOTE: Do NOT call SyncPositionToGrid here!
+        // Grid position (X, Y) was already set correctly in ProcessMovementRequests
+        // using resolved coordinates from ResolveMovement. SyncPositionToGrid calculates
+        // grid from world pixel position without accounting for map offset, which gives
+        // wrong results for entities on connected maps.
 
         // Calculate old position (before movement started)
         var (deltaX, deltaY) = movement.MovementDirection.ToTileDelta();
@@ -480,21 +512,9 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
         );
     }
 
-    /// <summary>
-    ///     Syncs pixel position to grid coordinates.
-    /// </summary>
-    /// <param name="position">The position component to sync.</param>
-    private void SyncPositionToGrid(ref PositionComponent position)
-    {
-        // Get tile dimensions from loaded maps or mod defaults (supports rectangular tiles)
-        // World should be set by BaseSystem constructor, but add defensive check
-        if (World == null)
-            throw new InvalidOperationException(
-                "World is null in MovementSystem. Ensure the system is properly initialized."
-            );
-
-        var tileWidth = TileSizeHelper.GetTileWidth(World, _constants);
-        var tileHeight = TileSizeHelper.GetTileHeight(World, _constants);
-        position.SyncPixelsToGrid(tileWidth, tileHeight);
-    }
+    // NOTE: SyncPositionToGrid was removed because it calculates grid position from world
+    // pixel position without accounting for the map's world offset. This gives wrong results
+    // for entities on connected maps (which have non-zero world positions).
+    // Grid position is now set correctly in ProcessMovementRequests using ResolveMovement,
+    // which handles cross-map coordinate conversion properly.
 }

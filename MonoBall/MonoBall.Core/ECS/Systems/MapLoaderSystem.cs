@@ -47,6 +47,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly DefinitionRegistry _registry;
     private readonly IResourceManager _resourceManager;
     private readonly IVariableSpriteResolver? _variableSpriteResolver;
+    private readonly ICollisionLayerCache? _collisionLayerCache;
 
     /// <summary>
     ///     Initializes a new instance of the MapLoaderSystem.
@@ -56,6 +57,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="resourceManager">The resource manager for loading textures and validating sprites.</param>
     /// <param name="flagVariableService">Optional flag/variable service for checking NPC visibility flags.</param>
     /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
+    /// <param name="collisionLayerCache">Optional collision layer cache for loading per-elevation collision data.</param>
     /// <param name="logger">The logger for logging operations.</param>
     /// <param name="constants">The constants service for accessing game constants. Required.</param>
     public MapLoaderSystem(
@@ -64,6 +66,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         IResourceManager resourceManager,
         IFlagVariableService? flagVariableService = null,
         IVariableSpriteResolver? variableSpriteResolver = null,
+        ICollisionLayerCache? collisionLayerCache = null,
         ILogger logger = null!,
         IConstantsService? constants = null
     )
@@ -74,6 +77,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _flagVariableService = flagVariableService;
         _variableSpriteResolver = variableSpriteResolver;
+        _collisionLayerCache = collisionLayerCache;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
@@ -149,6 +153,9 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         _mapChunkEntities[mapId] = new List<Entity>();
         _mapConnectionEntities[mapId] = new List<Entity>();
         _mapNpcEntities[mapId] = new List<Entity>();
+
+        // Load collision data from MapDefinition.Collisions
+        LoadMapCollisionData(mapId, mapDefinition);
 
         // Store tileset references for GID resolution (sorted by firstGid descending)
         if (mapDefinition.Tilesets != null && mapDefinition.Tilesets.Count > 0)
@@ -418,6 +425,9 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         _loadedMaps.Remove(mapId);
         _mapPositions.Remove(mapId); // Clean up position tracking
+
+        // Unload collision data
+        _collisionLayerCache?.UnloadMap(mapId);
 
         // Fire MapUnloadedEvent
         var unloadedEvent = new MapUnloadedEvent { MapId = mapId };
@@ -1074,6 +1084,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
+                CollisionComponent.Solid,
                 scriptComp,
                 interactionComponent!.Value
             );
@@ -1099,6 +1110,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
+                CollisionComponent.Solid,
                 scriptComp
             );
         }
@@ -1117,6 +1129,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
+                CollisionComponent.Solid,
                 scriptComp,
                 interactionComponent!.Value
             );
@@ -1130,7 +1143,8 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 (RenderableComponent)components[3],
                 (GridMovement)components[4],
                 (ActiveMapEntity)components[5],
-                new ElevationComponent { Value = (byte)npcDef.Elevation }
+                new ElevationComponent { Value = (byte)npcDef.Elevation },
+                CollisionComponent.Solid
             );
         }
 
@@ -1530,6 +1544,95 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                     + $"Variable sprite ID: '{spriteId}'. {ex.Message}",
                 ex
             );
+        }
+    }
+
+    /// <summary>
+    ///     Loads collision data from the map definition into the collision layer cache.
+    /// </summary>
+    /// <param name="mapId">The map identifier.</param>
+    /// <param name="mapDefinition">The map definition containing collision layers.</param>
+    private void LoadMapCollisionData(string mapId, MapDefinition mapDefinition)
+    {
+        if (_collisionLayerCache == null)
+        {
+            _logger.Debug(
+                "No collision layer cache configured, skipping collision data loading for map {MapId}",
+                mapId
+            );
+            return;
+        }
+
+        // Always set map dimensions for bounds checking
+        _collisionLayerCache.SetMapDimensions(mapId, mapDefinition.Width, mapDefinition.Height);
+
+        if (mapDefinition.Collisions == null || mapDefinition.Collisions.Count == 0)
+        {
+            _logger.Debug("Map {MapId} has no collision layers defined", mapId);
+            return;
+        }
+
+        _logger.Information(
+            "Loading {Count} collision layer(s) for map {MapId}",
+            mapDefinition.Collisions.Count,
+            mapId
+        );
+
+        foreach (var collisionLayer in mapDefinition.Collisions)
+        {
+            if (string.IsNullOrEmpty(collisionLayer.TileData))
+            {
+                _logger.Warning(
+                    "Collision layer '{LayerId}' (elevation {Elevation}) in map {MapId} has no tile data",
+                    collisionLayer.Id,
+                    collisionLayer.Elevation,
+                    mapId
+                );
+                continue;
+            }
+
+            try
+            {
+                // Decode base64 collision data
+                var collisionData = Convert.FromBase64String(collisionLayer.TileData);
+
+                _collisionLayerCache.LoadCollisionLayer(
+                    mapId,
+                    collisionLayer.Elevation,
+                    collisionData,
+                    collisionLayer.Width,
+                    collisionLayer.Height,
+                    collisionLayer.OffsetX,
+                    collisionLayer.OffsetY
+                );
+
+                _logger.Debug(
+                    "Loaded collision layer '{LayerId}' for map {MapId} at elevation {Elevation} ({Width}x{Height})",
+                    collisionLayer.Id,
+                    mapId,
+                    collisionLayer.Elevation,
+                    collisionLayer.Width,
+                    collisionLayer.Height
+                );
+            }
+            catch (FormatException ex)
+            {
+                _logger.Error(
+                    ex,
+                    "Failed to decode base64 collision data for layer '{LayerId}' in map {MapId}",
+                    collisionLayer.Id,
+                    mapId
+                );
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.Error(
+                    ex,
+                    "Invalid collision layer data for '{LayerId}' in map {MapId}",
+                    collisionLayer.Id,
+                    mapId
+                );
+            }
         }
     }
 }

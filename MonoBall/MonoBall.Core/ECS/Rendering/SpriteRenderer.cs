@@ -15,8 +15,20 @@ namespace MonoBall.Core.ECS.Rendering;
 ///     Implementation of ISpriteRenderer that renders sprites.
 ///     Extracted from SpriteRendererSystem for use with ElevationRendererSystem.
 /// </summary>
+/// <remarks>
+///     <para>
+///         Character sprites (2-tile tall, 16x32) use feet-based positioning following oldmonoball's pattern:
+///     </para>
+///     <list type="bullet">
+///         <item>Grid Y represents the FEET tile (where the character stands)</item>
+///         <item>PixelY is the TOP of the feet tile</item>
+///         <item>Rendering draws at PixelY + TileHeight with bottom-left origin</item>
+///         <item>This makes the sprite draw UPWARD from the feet position</item>
+///     </list>
+/// </remarks>
 internal sealed class SpriteRenderer : ISpriteRenderer
 {
+    private readonly ICameraService _cameraService;
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
     private readonly IResourceManager _resourceManager;
@@ -27,11 +39,13 @@ internal sealed class SpriteRenderer : ISpriteRenderer
     /// </summary>
     /// <param name="graphicsDevice">The graphics device.</param>
     /// <param name="resourceManager">The resource manager for loading textures.</param>
+    /// <param name="cameraService">The camera service for getting tile dimensions.</param>
     /// <param name="logger">The logger.</param>
     /// <param name="shaderService">Optional shader service for per-entity shaders.</param>
     public SpriteRenderer(
         GraphicsDevice graphicsDevice,
         IResourceManager resourceManager,
+        ICameraService cameraService,
         ILogger logger,
         IShaderService? shaderService = null
     )
@@ -39,6 +53,7 @@ internal sealed class SpriteRenderer : ISpriteRenderer
         _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
+        _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _shaderService = shaderService;
     }
@@ -102,14 +117,40 @@ internal sealed class SpriteRenderer : ISpriteRenderer
         if (sprite.FlipVertical)
             spriteEffects |= SpriteEffects.FlipVertically;
 
+        // Get tile height for feet-based positioning calculation
+        var camera = _cameraService.GetActiveCamera();
+        var tileHeight = camera?.TileHeight ?? 16;
+
+        // Determine if this is a multi-tile sprite (taller than one tile)
+        // Multi-tile sprites use feet-based positioning (oldmonoball pattern):
+        // - Draw position Y = PixelY + TileHeight (bottom of feet tile)
+        // - Origin = (0, frameHeight) - bottom-left anchor
+        // - This makes the sprite draw UPWARD from the feet position
+        Vector2 drawPosition;
+        Vector2 origin;
+
+        if (frameRect.Height > tileHeight)
+        {
+            // Multi-tile sprite: use feet-based positioning
+            // PixelY is top of feet tile, add TileHeight to get bottom of feet tile
+            drawPosition = new Vector2(pos.PixelX, pos.PixelY + tileHeight);
+            origin = new Vector2(0, frameRect.Height);
+        }
+        else
+        {
+            // Single-tile sprite: use standard top-left positioning
+            drawPosition = pos.Position;
+            origin = Vector2.Zero;
+        }
+
         // Draw the sprite
         spriteBatch.Draw(
             spriteTexture,
-            pos.Position,
+            drawPosition,
             frameRect,
             color,
             0.0f,
-            Vector2.Zero,
+            origin,
             1.0f,
             spriteEffects,
             0.0f
