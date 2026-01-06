@@ -14,11 +14,17 @@ using Serilog;
 /// <summary>
 /// ImGui renderer implementation for MonoGame.
 /// Handles texture management, vertex buffer rendering, and input bridging.
+/// Supports the new ImGui 1.92+ dynamic texture protocol.
 /// </summary>
 public sealed class MonoGameImGuiRenderer : IImGuiRenderer
 {
     // ImDrawVert: pos (Vector2, 8 bytes) + uv (Vector2, 8 bytes) + col (uint, 4 bytes) = 20 bytes
     private const int ImDrawVertSize = 20;
+
+    /// <summary>
+    /// Standard mouse wheel delta value per notch (Windows standard).
+    /// </summary>
+    private const float MouseWheelDelta = 120f;
 
     /// <summary>
     /// Resource ID for the debug font in the mod system.
@@ -36,11 +42,14 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     private BasicEffect? _effect;
     private RasterizerState? _rasterizerState;
 
-    private Texture2D? _fontTexture;
-    private bool _fontAtlasBuilt;
-    private readonly ConcurrentDictionary<IntPtr, Texture2D> _boundTextures = new();
-    private int _textureIdCounter = 1;
-    private readonly object _textureIdLock = new();
+    // Texture management for the new ImGui 1.92+ protocol
+    private readonly ConcurrentDictionary<int, Texture2D> _textures = new();
+
+    // Atomic counter for user-bound texture IDs to avoid hash collisions
+    private int _userTextureIdCounter = int.MinValue;
+
+    // Reusable pixel buffer to avoid allocations in hot paths
+    private byte[]? _pixelBuffer;
 
     private byte[]? _vertexData;
     private byte[]? _indexData;
@@ -57,9 +66,9 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     private ImGuiContextPtr _context;
     private bool _contextCreated;
 
-    // Store pinned glyph ranges to keep them alive for ImGui
-    private GCHandle _glyphRangesHandle;
-    private bool _glyphRangesPinned;
+    // Store pinned font data to keep it alive for ImGui
+    private GCHandle _fontDataHandle;
+    private bool _fontDataPinned;
 
     /// <inheritdoc />
     public bool IsInitialized => _game != null && _graphicsDevice != null;
@@ -85,21 +94,19 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         io.ConfigFlags |= ImGuiConfigFlags.NavEnableKeyboard;
         io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
         io.BackendFlags |= ImGuiBackendFlags.HasMouseCursors;
+        // Enable the new texture protocol for dynamic font updates (ImGui 1.92+)
+        io.BackendFlags |= ImGuiBackendFlags.RendererHasTextures;
 
         SetupInput(io);
         LoadFonts(io);
         CreateDeviceResources();
-        // Font atlas will be built lazily on first render when graphics device is ready
 
         ImGuiTheme.ApplyDefaultTheme();
     }
 
-    // Store pinned font data to keep it alive for ImGui
-    private GCHandle _fontDataHandle;
-    private bool _fontDataPinned;
-
     /// <summary>
-    /// Loads fonts into ImGui, including the Nerd Font from the resource manager.
+    /// Loads fonts into ImGui using the new dynamic font system.
+    /// With ImGui 1.92+, glyph ranges are optional - glyphs are loaded on demand.
     /// </summary>
     private unsafe void LoadFonts(ImGuiIOPtr io)
     {
@@ -138,84 +145,32 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         _fontDataPinned = true;
 
         // Create font config with proper defaults
-        // Note: new ImFontConfig() creates a zeroed struct, but ImGui's C++ constructor
-        // sets important defaults. We must set them explicitly.
         var fontConfig = new ImFontConfig();
         fontConfig.FontDataOwnedByAtlas = 0; // false - We manage the memory
         fontConfig.OversampleH = 2;
         fontConfig.OversampleV = 1;
         fontConfig.PixelSnapH = 1; // true
         fontConfig.GlyphMinAdvanceX = 0;
-        fontConfig.GlyphMaxAdvanceX = float.MaxValue; // Default from ImGui C++
-        fontConfig.RasterizerMultiply = 1.0f; // CRITICAL: 0 = invisible text!
-        fontConfig.RasterizerDensity = 1.0f; // Font density multiplier
-        fontConfig.EllipsisChar = unchecked((char)0xFFFF); // -1 = auto-detect
+        fontConfig.GlyphMaxAdvanceX = float.MaxValue;
+        fontConfig.RasterizerMultiply = 1.0f;
+        fontConfig.RasterizerDensity = 1.0f;
+        fontConfig.EllipsisChar = unchecked((uint)0xFFFFFFFF); // -1 = auto-detect
 
-        // Build glyph ranges for ASCII + Nerd Font icons
-        // Pin the glyph ranges in memory - ImGui needs them for the font atlas lifetime
-        var glyphRanges = BuildNerdFontGlyphRanges();
-        _glyphRangesHandle = GCHandle.Alloc(glyphRanges, GCHandleType.Pinned);
-        _glyphRangesPinned = true;
-
+        // With ImGui 1.92+, we don't need to specify glyph ranges!
+        // Glyphs are loaded dynamically on demand, which is much more efficient
+        // for fonts like Nerd Fonts that have many icon ranges.
         io.Fonts.AddFontFromMemoryTTF(
             (void*)_fontDataHandle.AddrOfPinnedObject(),
             fontData.Length,
             DefaultFontSize,
-            &fontConfig,
-            (char*)_glyphRangesHandle.AddrOfPinnedObject()
+            &fontConfig
         );
 
         Log.Information(
-            "Loaded debug font from resource manager: {ResourceId} ({Size} bytes)",
+            "Loaded debug font from resource manager: {ResourceId} ({Size} bytes) - using dynamic glyph loading",
             DebugFontResourceId,
             fontData.Length
         );
-    }
-
-    /// <summary>
-    /// Builds glyph ranges for ASCII characters and Nerd Font icon ranges.
-    /// </summary>
-    private static ushort[] BuildNerdFontGlyphRanges()
-    {
-        // ImGui glyph ranges are pairs of (start, end) codepoints, terminated by 0
-        return new ushort[]
-        {
-            // Basic Latin (ASCII)
-            0x0020,
-            0x00FF,
-            // Latin Extended-A
-            0x0100,
-            0x017F,
-            // Box Drawing (for tree structures)
-            0x2500,
-            0x257F,
-            // Geometric Shapes (for bullets, etc.)
-            0x25A0,
-            0x25FF,
-            // Powerline symbols (E0A0-E0D7)
-            0xE0A0,
-            0xE0D7,
-            // Seti-UI + Custom (E5FA-E6AC)
-            0xE5FA,
-            0xE6AC,
-            // Devicons (E700-E7C5)
-            0xE700,
-            0xE7C5,
-            // Font Awesome (F000-F2E0)
-            0xF000,
-            0xF2E0,
-            // Font Awesome Extension (E200-E2A9)
-            0xE200,
-            0xE2A9,
-            // Octicons (F400-F532)
-            0xF400,
-            0xF532,
-            // Codicons (EA60-EBE7)
-            0xEA60,
-            0xEBE7,
-            // Terminator
-            0,
-        };
     }
 
     /// <inheritdoc />
@@ -223,21 +178,12 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     {
         ThrowIfNotInitialized();
 
-        // Ensure context was created (it should be, but verify for safety)
         if (!_contextCreated)
             throw new InvalidOperationException(
                 "ImGui context is not created. Ensure Initialize() was called."
             );
 
-        // Set the context as current (ensures it's valid for this frame)
         ImGui.SetCurrentContext(_context);
-
-        // Build font atlas before NewFrame() - ImGui requires it to be ready
-        if (!_fontAtlasBuilt)
-        {
-            RebuildFontAtlas();
-            _fontAtlasBuilt = true;
-        }
 
         var io = ImGui.GetIO();
 
@@ -265,36 +211,203 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
     {
         ThrowIfNotInitialized();
 
-        // Font atlas is built in BeginFrame() before NewFrame() is called
-        // This ensures ImGui has the font atlas ready when starting a frame
-
         ImGui.Render();
-        RenderDrawData(ImGui.GetDrawData());
+        var drawData = ImGui.GetDrawData();
+
+        // Process texture requests (create/update/destroy) - new ImGui 1.92+ protocol
+        ProcessTextureRequests(drawData);
+
+        RenderDrawData(drawData);
+    }
+
+    /// <summary>
+    /// Processes texture create/update/destroy requests from ImGui.
+    /// This is the new ImGui 1.92+ texture protocol that enables dynamic font updates.
+    /// </summary>
+    private unsafe void ProcessTextureRequests(ImDrawDataPtr drawData)
+    {
+        var textures = drawData.Textures;
+        for (var i = 0; i < textures.Size; i++)
+        {
+            var texData = textures[i];
+            var status = texData.Status;
+
+            switch (status)
+            {
+                case ImTextureStatus.WantCreate:
+                    CreateTexture(texData);
+                    break;
+
+                case ImTextureStatus.WantUpdates:
+                    UpdateTexture(texData);
+                    break;
+
+                case ImTextureStatus.WantDestroy:
+                    DestroyTexture(texData);
+                    break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Creates a new texture from ImTextureData and assigns a texture ID.
+    /// </summary>
+    private unsafe void CreateTexture(ImTextureDataPtr texData)
+    {
+        var width = texData.Width;
+        var height = texData.Height;
+        var format = texData.Format;
+        var srcPixels = (byte*)texData.GetPixels();
+
+        // Ensure pixel buffer is large enough (reuse to avoid allocations)
+        var requiredSize = width * height * 4;
+        EnsurePixelBufferCapacity(requiredSize);
+
+        // Convert pixels to RGBA format
+        if (format == ImTextureFormat.Alpha8)
+        {
+            ConvertAlpha8ToRgba(srcPixels, _pixelBuffer!, width, height, width);
+        }
+        else // ImTextureFormat.Rgba32
+        {
+            var sizeInBytes = (int)texData.GetSizeInBytes();
+            Marshal.Copy((IntPtr)srcPixels, _pixelBuffer!, 0, sizeInBytes);
+        }
+
+        // Create texture and upload data
+        var texture = new Texture2D(_graphicsDevice!, width, height, false, SurfaceFormat.Color);
+        texture.SetData(_pixelBuffer, 0, requiredSize);
+
+        // Use the texture's unique ID from ImGui
+        var uniqueId = texData.UniqueID;
+        _textures[uniqueId] = texture;
+
+        // Set the texture ID back to ImGui
+        texData.SetTexID(new ImTextureID((nint)uniqueId));
+        texData.SetStatus(ImTextureStatus.Ok);
+
+        Log.Debug("Created ImGui texture: ID={UniqueId}, Size={Width}x{Height}, Format={Format}",
+            uniqueId, width, height, format);
+    }
+
+    /// <summary>
+    /// Updates a texture with partial data from ImTextureData.
+    /// </summary>
+    private unsafe void UpdateTexture(ImTextureDataPtr texData)
+    {
+        var uniqueId = texData.UniqueID;
+        if (!_textures.TryGetValue(uniqueId, out var texture))
+        {
+            Log.Warning("Attempted to update non-existent texture: ID={UniqueId}", uniqueId);
+            return;
+        }
+
+        var format = texData.Format;
+        var textureWidth = texData.Width;
+        var pitch = (int)texData.GetPitch();
+
+        // Process update rectangles
+        var updates = texData.Updates;
+        for (var i = 0; i < updates.Size; i++)
+        {
+            var rect = updates[i];
+            var rectWidth = rect.W;
+            var rectHeight = rect.H;
+
+            // Ensure pixel buffer is large enough
+            var requiredSize = rectWidth * rectHeight * 4;
+            EnsurePixelBufferCapacity(requiredSize);
+
+            // Get pixel data at the rectangle position
+            var srcPixels = (byte*)texData.GetPixelsAt(rect.X, rect.Y);
+
+            // Convert pixels to RGBA format
+            if (format == ImTextureFormat.Alpha8)
+            {
+                ConvertAlpha8ToRgba(srcPixels, _pixelBuffer!, rectWidth, rectHeight, textureWidth);
+            }
+            else
+            {
+                // RGBA32 format - copy row by row due to pitch
+                for (var y = 0; y < rectHeight; y++)
+                {
+                    var srcOffset = y * pitch;
+                    var dstOffset = y * rectWidth * 4;
+                    Marshal.Copy((IntPtr)(srcPixels + srcOffset), _pixelBuffer!, dstOffset, rectWidth * 4);
+                }
+            }
+
+            texture.SetData(
+                0,
+                new Rectangle(rect.X, rect.Y, rectWidth, rectHeight),
+                _pixelBuffer,
+                0,
+                requiredSize
+            );
+        }
+
+        texData.SetStatus(ImTextureStatus.Ok);
+    }
+
+    /// <summary>
+    /// Converts Alpha8 format pixels to RGBA format.
+    /// </summary>
+    /// <param name="src">Source Alpha8 pixels.</param>
+    /// <param name="dst">Destination RGBA buffer.</param>
+    /// <param name="width">Width of the region to convert.</param>
+    /// <param name="height">Height of the region to convert.</param>
+    /// <param name="srcPitch">Source pitch (stride) in pixels.</param>
+    private static unsafe void ConvertAlpha8ToRgba(byte* src, byte[] dst, int width, int height, int srcPitch)
+    {
+        for (var y = 0; y < height; y++)
+        {
+            for (var x = 0; x < width; x++)
+            {
+                var srcIdx = y * srcPitch + x;
+                var dstIdx = (y * width + x) * 4;
+                var alpha = src[srcIdx];
+                dst[dstIdx + 0] = 255; // R
+                dst[dstIdx + 1] = 255; // G
+                dst[dstIdx + 2] = 255; // B
+                dst[dstIdx + 3] = alpha; // A
+            }
+        }
+    }
+
+    /// <summary>
+    /// Ensures the reusable pixel buffer has at least the specified capacity.
+    /// </summary>
+    private void EnsurePixelBufferCapacity(int requiredSize)
+    {
+        if (_pixelBuffer == null || _pixelBuffer.Length < requiredSize)
+        {
+            // Allocate with some extra capacity to reduce reallocations
+            _pixelBuffer = new byte[(int)(requiredSize * 1.5f)];
+        }
+    }
+
+    /// <summary>
+    /// Destroys a texture and removes it from the cache.
+    /// </summary>
+    private void DestroyTexture(ImTextureDataPtr texData)
+    {
+        var uniqueId = texData.UniqueID;
+        if (_textures.TryRemove(uniqueId, out var texture))
+        {
+            texture.Dispose();
+            Log.Debug("Destroyed ImGui texture: ID={UniqueId}", uniqueId);
+        }
+
+        texData.SetStatus(ImTextureStatus.Destroyed);
     }
 
     /// <inheritdoc />
-    public unsafe void RebuildFontAtlas()
+    public void RebuildFontAtlas()
     {
-        ThrowIfNotInitialized();
-
-        var io = ImGui.GetIO();
-
-        // Hexa.NET.ImGui uses ref/pointer parameters
-        byte* pixelData;
-        int width,
-            height,
-            bytesPerPixel;
-        io.Fonts.GetTexDataAsRGBA32(&pixelData, &width, &height, &bytesPerPixel);
-
-        var pixels = new byte[width * height * bytesPerPixel];
-        Marshal.Copy((IntPtr)pixelData, pixels, 0, pixels.Length);
-
-        _fontTexture?.Dispose();
-        _fontTexture = new Texture2D(_graphicsDevice!, width, height, false, SurfaceFormat.Color);
-        _fontTexture.SetData(pixels);
-
-        io.Fonts.SetTexID(new ImTextureID(BindTexture(_fontTexture)));
-        io.Fonts.ClearTexData();
+        // With ImGui 1.92+ and RendererHasTextures, the font atlas is managed
+        // dynamically through the texture protocol. Manual rebuilding is no longer
+        // necessary as textures are created/updated on demand.
+        Log.Debug("RebuildFontAtlas called - using dynamic texture protocol, no manual rebuild needed");
     }
 
     /// <inheritdoc />
@@ -303,62 +416,63 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         if (texture == null)
             throw new ArgumentNullException(nameof(texture));
 
-        IntPtr id;
-        lock (_textureIdLock)
-        {
-            id = new IntPtr(_textureIdCounter++);
-        }
-        _boundTextures[id] = texture;
-        return id;
+        // Use atomic counter for user texture IDs to avoid hash collisions
+        // User IDs start from int.MinValue and increment, while ImGui uses positive IDs
+        var id = System.Threading.Interlocked.Increment(ref _userTextureIdCounter);
+        _textures[id] = texture;
+        return new IntPtr(id);
     }
 
     /// <inheritdoc />
     public void UnbindTexture(IntPtr textureHandle)
     {
-        _boundTextures.TryRemove(textureHandle, out _);
+        var id = (int)textureHandle;
+        _textures.TryRemove(id, out _);
     }
 
     /// <inheritdoc />
     public void Dispose()
     {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Releases resources used by the renderer.
+    /// </summary>
+    /// <param name="disposing">True if disposing managed resources.</param>
+    private void Dispose(bool disposing)
+    {
         if (_disposed)
             return;
 
-        _fontTexture?.Dispose();
-        _vertexBuffer?.Dispose();
-        _indexBuffer?.Dispose();
-        _effect?.Dispose();
-        _rasterizerState?.Dispose();
-
-        // Dispose all bound textures (except font texture which is already disposed)
-        foreach (var kvp in _boundTextures)
+        if (disposing)
         {
-            if (kvp.Value != _fontTexture)
+            // Dispose all textures
+            foreach (var kvp in _textures)
             {
                 kvp.Value?.Dispose();
             }
-        }
-        _boundTextures.Clear();
+            _textures.Clear();
 
-        // Free pinned font data
-        if (_fontDataPinned)
-        {
-            _fontDataHandle.Free();
-            _fontDataPinned = false;
-        }
+            _vertexBuffer?.Dispose();
+            _indexBuffer?.Dispose();
+            _effect?.Dispose();
+            _rasterizerState?.Dispose();
 
-        // Free pinned glyph ranges
-        if (_glyphRangesPinned)
-        {
-            _glyphRangesHandle.Free();
-            _glyphRangesPinned = false;
-        }
+            // Free pinned font data
+            if (_fontDataPinned)
+            {
+                _fontDataHandle.Free();
+                _fontDataPinned = false;
+            }
 
-        // Destroy the ImGui context if it was created
-        if (_contextCreated)
-        {
-            ImGui.DestroyContext(_context);
-            _contextCreated = false;
+            // Destroy the ImGui context if it was created
+            if (_contextCreated)
+            {
+                ImGui.DestroyContext(_context);
+                _contextCreated = false;
+            }
         }
 
         _disposed = true;
@@ -423,7 +537,7 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
 
         var scrollDelta = mouse.ScrollWheelValue - _scrollWheelValue;
         _scrollWheelValue = mouse.ScrollWheelValue;
-        io.AddMouseWheelEvent(0, scrollDelta / 120f);
+        io.AddMouseWheelEvent(0, scrollDelta / MouseWheelDelta);
 
         var isCtrl = keyboard.IsKeyDown(Keys.LeftControl) || keyboard.IsKeyDown(Keys.RightControl);
         var isShift = keyboard.IsKeyDown(Keys.LeftShift) || keyboard.IsKeyDown(Keys.RightShift);
@@ -552,7 +666,7 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
             var vtxSize = cmdList.VtxBuffer.Size * ImDrawVertSize;
             var idxSize = cmdList.IdxBuffer.Size * sizeof(ushort);
 
-            // Copy vertex data using pointers (Hexa.NET.ImGui uses pointer types)
+            // Copy vertex data using pointers
             var vtxPtr = (IntPtr)cmdList.VtxBuffer.Data;
             var idxPtr = (IntPtr)cmdList.IdxBuffer.Data;
             Marshal.Copy(vtxPtr, _vertexData!, vtxOffset, vtxSize);
@@ -582,13 +696,13 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
             {
                 var drawCmd = cmdList.CmdBuffer[cmdI];
 
-                // UserCallback is a void* in Hexa.NET.ImGui
+                // UserCallback is a void* - skip if present
                 if (drawCmd.UserCallback != null)
                     continue;
 
-                // TextureId is ImTextureID struct - extract the handle
-                var textureHandle = (IntPtr)drawCmd.TextureId.Handle;
-                if (!_boundTextures.TryGetValue(textureHandle, out var texture))
+                // Get texture ID using the new API (ImGui 1.92+)
+                var textureId = (int)drawCmd.GetTexID().Handle;
+                if (!_textures.TryGetValue(textureId, out var texture))
                     continue;
 
                 _graphicsDevice.ScissorRectangle = new Rectangle(
@@ -603,8 +717,6 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
                 foreach (var pass in _effect.CurrentTechnique.Passes)
                 {
                     pass.Apply();
-                    // vtxOffset is cumulative across command lists
-                    // drawCmd.VtxOffset is the per-draw-command offset within this list
                     _graphicsDevice.DrawIndexedPrimitives(
                         PrimitiveType.TriangleList,
                         vtxOffset + (int)drawCmd.VtxOffset,
@@ -624,18 +736,4 @@ public sealed class MonoGameImGuiRenderer : IImGuiRenderer
         if (!IsInitialized)
             throw new InvalidOperationException("ImGui renderer has not been initialized.");
     }
-}
-
-/// <summary>
-/// Vertex declaration for ImGui vertices.
-/// </summary>
-internal static class ImGuiVertexDeclaration
-{
-    // ImDrawVert layout: pos (Vector2) + uv (Vector2) + col (uint packed RGBA)
-    public static readonly VertexDeclaration Declaration = new(
-        20, // Total size in bytes
-        new VertexElement(0, VertexElementFormat.Vector2, VertexElementUsage.Position, 0),
-        new VertexElement(8, VertexElementFormat.Vector2, VertexElementUsage.TextureCoordinate, 0),
-        new VertexElement(16, VertexElementFormat.Color, VertexElementUsage.Color, 0)
-    );
 }

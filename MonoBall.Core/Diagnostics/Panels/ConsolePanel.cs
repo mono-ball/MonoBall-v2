@@ -274,8 +274,8 @@ public sealed class ConsolePanel : IDebugPanel, IDebugPanelLifecycle
         ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 1f);
         ImGui.PushStyleColor(ImGuiCol.Border, DebugColors.TextDim);
         ImGui.PushStyleColor(ImGuiCol.WindowBg, DebugColors.BackgroundElevated);
-        // Disable nav highlight to avoid conflicting selection visuals
-        ImGui.PushStyleColor(ImGuiCol.NavHighlight, new Vector4(0, 0, 0, 0));
+        // Disable nav cursor to avoid conflicting selection visuals
+        ImGui.PushStyleColor(ImGuiCol.NavCursor, new Vector4(0, 0, 0, 0));
 
         var flags =
             ImGuiWindowFlags.NoTitleBar

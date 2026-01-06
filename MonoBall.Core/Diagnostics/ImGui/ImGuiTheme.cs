@@ -186,8 +186,8 @@ public static class ImGuiTheme
             W = 0.35f,
         };
         colors[(int)ImGuiCol.DragDropTarget] = PikachuYellow with { W = 0.90f };
-        // NavHighlight doesn't render properly for InputText - disabled
-        colors[(int)ImGuiCol.NavHighlight] = new Vector4(0, 0, 0, 0);
+        // NavCursor (formerly NavHighlight) doesn't render properly for InputText - disabled
+        colors[(int)ImGuiCol.NavCursor] = new Vector4(0, 0, 0, 0);
         colors[(int)ImGuiCol.NavWindowingHighlight] = new Vector4(1.00f, 1.00f, 1.00f, 0.70f);
         colors[(int)ImGuiCol.NavWindowingDimBg] = new Vector4(0.80f, 0.80f, 0.80f, 0.20f);
         colors[(int)ImGuiCol.ModalWindowDimBg] = new Vector4(0.00f, 0.00f, 0.00f, 0.50f);
