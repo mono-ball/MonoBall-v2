@@ -1,0 +1,51 @@
+# EditorConfig for MonoBall project
+# See https://editorconfig.org for more information
+
+root = true
+
+# All files
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C# files
+[*.cs]
+indent_style = space
+indent_size = 4
+# Re-enable CS1591 for source files (not generated files in obj directories)
+dotnet_diagnostic.CS1591.severity = warning
+
+# Mark generated files - Roslynator will automatically exclude them
+# Files ending in .g.cs, .gs.cs, .generated.cs, or .designer.cs are recognized as generated
+[**/*.g.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.exclude = true
+dotnet_diagnostic.CS1591.severity = none
+
+[**/*.gs.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.exclude = true
+dotnet_diagnostic.CS1591.severity = none
+
+[**/*.generated.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.exclude = true
+dotnet_diagnostic.CS1591.severity = none
+
+[**/*.designer.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.exclude = true
+dotnet_diagnostic.CS1591.severity = none
+
+# Exclude all generated files in obj directories (source generators output)
+[**/obj/**/*.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.exclude = true
+dotnet_diagnostic.CS1591.severity = none
+
+# Specifically exclude Arch.System.SourceGenerator files
+[**/obj/**/Arch.System.SourceGenerator/**/*.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.exclude = true
+dotnet_diagnostic.CS1591.severity = none

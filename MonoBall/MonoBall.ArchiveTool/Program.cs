@@ -7,7 +7,7 @@ namespace MonoBall.ArchiveTool;
 /// <summary>
 ///     Command-line tool for creating and managing .monoball mod archives.
 /// </summary>
-public class Program
+public static class Program
 {
     private static bool IsNonInteractive { get; set; }
 

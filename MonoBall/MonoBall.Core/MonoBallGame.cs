@@ -86,8 +86,6 @@ public class MonoBallGame : Game
         // Share GraphicsDeviceManager as a service.
         Services.AddService(typeof(GraphicsDeviceManager), graphicsDeviceManager);
 
-        Content.RootDirectory = "Content";
-
         // Configure screen orientations.
         graphicsDeviceManager.SupportedOrientations =
             DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;

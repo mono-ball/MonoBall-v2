@@ -30,6 +30,7 @@ public class ArchiveModSource : IModSource, IDisposable
     private bool _disposed;
     private FileStream? _stream;
     private Dictionary<string, FileEntry>? _toc;
+    private Dictionary<string, string>? _caseInsensitiveTocLookup;
 
     /// <summary>
     ///     Initializes a new instance of ArchiveModSource.
@@ -104,10 +105,16 @@ public class ArchiveModSource : IModSource, IDisposable
         var toc = GetTOC();
         var normalizedPath = ModPathNormalizer.Normalize(relativePath);
 
-        if (!toc.TryGetValue(normalizedPath, out var entry))
+        // Get case-insensitive lookup (built when TOC is loaded)
+        var caseInsensitiveLookup = GetCaseInsensitiveLookup();
+
+        // Try case-insensitive lookup (uses fast O(1) dictionary lookup)
+        if (!CaseInsensitiveDictionaryHelper.TryGetValueCaseInsensitive(toc, caseInsensitiveLookup, normalizedPath, out var entry))
+        {
             throw new FileNotFoundException(
                 $"File '{relativePath}' not found in archive '{SourcePath}'"
             );
+        }
 
         // Handle empty files
         if (entry.UncompressedSize == 0)
@@ -133,6 +140,7 @@ public class ArchiveModSource : IModSource, IDisposable
 
     /// <summary>
     ///     Checks if a file exists in the mod source.
+    ///     Performs case-insensitive lookup for cross-platform compatibility (Windows is case-insensitive, macOS/Linux are case-sensitive).
     /// </summary>
     /// <param name="relativePath">Path relative to mod root.</param>
     /// <returns>True if file exists.</returns>
@@ -147,7 +155,12 @@ public class ArchiveModSource : IModSource, IDisposable
 
         var toc = GetTOC();
         var normalizedPath = ModPathNormalizer.Normalize(relativePath);
-        return toc.ContainsKey(normalizedPath);
+
+        // Get case-insensitive lookup (built when TOC is loaded)
+        var caseInsensitiveLookup = GetCaseInsensitiveLookup();
+
+        // Try case-insensitive lookup (uses fast O(1) dictionary lookup)
+        return CaseInsensitiveDictionaryHelper.ContainsKeyCaseInsensitive(toc, caseInsensitiveLookup, normalizedPath);
     }
 
     /// <summary>
@@ -251,6 +264,7 @@ public class ArchiveModSource : IModSource, IDisposable
             _stream?.Dispose();
             _stream = null;
             _toc = null;
+            _caseInsensitiveTocLookup = null;
             _cachedManifest = null;
             _cachedModId = null;
             _disposed = true;
@@ -292,12 +306,36 @@ public class ArchiveModSource : IModSource, IDisposable
 
             _stream = File.OpenRead(SourcePath);
             _toc = LoadTOC();
+            _caseInsensitiveTocLookup = CaseInsensitiveDictionaryHelper.BuildCaseInsensitiveLookup(_toc);
 
             return new ReadOnlyDictionary<string, FileEntry>(_toc);
         }
         finally
         {
             _tocLock.ExitWriteLock();
+        }
+    }
+
+    /// <summary>
+    ///     Gets the case-insensitive TOC lookup dictionary. Thread-safe with reader-writer lock.
+    ///     Returns a read-only wrapper to prevent external modification.
+    /// </summary>
+    private IReadOnlyDictionary<string, string> GetCaseInsensitiveLookup()
+    {
+        // Ensure TOC is loaded (this will also build the case-insensitive lookup)
+        GetTOC();
+
+        _tocLock.EnterReadLock();
+        try
+        {
+            if (_caseInsensitiveTocLookup == null)
+                throw new InvalidOperationException("Case-insensitive lookup not initialized. TOC should have been loaded.");
+
+            return new ReadOnlyDictionary<string, string>(_caseInsensitiveTocLookup);
+        }
+        finally
+        {
+            _tocLock.ExitReadLock();
         }
     }
 

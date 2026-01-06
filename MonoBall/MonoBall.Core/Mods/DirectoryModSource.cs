@@ -73,6 +73,7 @@ public class DirectoryModSource : IModSource, IDisposable
 
     /// <summary>
     ///     Reads a file from the mod source.
+    ///     Performs case-insensitive lookup for cross-platform compatibility (Windows is case-insensitive, macOS/Linux are case-sensitive).
     /// </summary>
     /// <param name="relativePath">Path relative to mod root.</param>
     /// <returns>File contents as byte array.</returns>
@@ -87,10 +88,16 @@ public class DirectoryModSource : IModSource, IDisposable
             _normalizedDirectoryPath
         );
 
-        if (!File.Exists(fullPath))
+        // Try exact match first (fast path)
+        if (File.Exists(fullPath))
+            return File.ReadAllBytes(fullPath);
+
+        // Case-insensitive lookup for cross-platform compatibility
+        var actualPath = CaseInsensitiveFileSystemResolver.FindFile(_normalizedDirectoryPath, relativePath);
+        if (actualPath == null)
             throw new FileNotFoundException($"File not found in mod: {relativePath}", fullPath);
 
-        return File.ReadAllBytes(fullPath);
+        return File.ReadAllBytes(actualPath);
     }
 
     /// <summary>
@@ -107,6 +114,7 @@ public class DirectoryModSource : IModSource, IDisposable
 
     /// <summary>
     ///     Checks if a file exists in the mod source.
+    ///     Performs case-insensitive lookup for cross-platform compatibility (Windows is case-insensitive, macOS/Linux are case-sensitive).
     /// </summary>
     /// <param name="relativePath">Path relative to mod root.</param>
     /// <returns>True if file exists.</returns>
@@ -125,9 +133,24 @@ public class DirectoryModSource : IModSource, IDisposable
             if (!ModPathValidator.IsPathValid(fullPath, _normalizedDirectoryPath))
                 return false;
 
-            return File.Exists(fullPath);
+            // Try exact match first (fast path)
+            if (File.Exists(fullPath))
+                return true;
+
+            // Case-insensitive lookup for cross-platform compatibility
+            // Windows file systems are case-insensitive, but macOS/Linux are case-sensitive
+            // This ensures mods work regardless of casing mismatches between definition and filesystem
+            return CaseInsensitiveFileSystemResolver.FindFile(_normalizedDirectoryPath, relativePath) != null;
         }
-        catch
+        catch (DirectoryNotFoundException)
+        {
+            return false;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return false;
+        }
+        catch (IOException)
         {
             return false;
         }

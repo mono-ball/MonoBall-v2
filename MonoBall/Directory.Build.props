@@ -1,0 +1,75 @@
+<Project>
+  <!-- Shared Roslynator configuration for all MonoBall projects -->
+  <PropertyGroup>
+    <!-- Enable analyzers to run on build -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+
+    <!-- Treat analyzer warnings as errors (optional, can be overridden per project or via build flag) -->
+    <!-- Set to true to fail build on analyzer warnings, or use treat-warnings-as-errors build flag -->
+    <TreatWarningsAsErrors Condition="'$(TreatWarningsAsErrors)' == ''">false</TreatWarningsAsErrors>
+
+    <!-- Generate documentation file for analyzers -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Roslynator analyzers - applied to all projects in MonoBall directory -->
+    <PackageReference Include="Roslynator.Analyzers" Version="4.12.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.12.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Exclude source-generated files and obj directories from analyzer analysis -->
+  <ItemGroup>
+    <!-- Exclude all .gs.cs files (source-generated files) -->
+    <Compile Update="**/*.gs.cs">
+      <ExcludeFromSourceAnalysis>true</ExcludeFromSourceAnalysis>
+    </Compile>
+    <!-- Exclude all files in obj directories (build outputs and generated code) -->
+    <Compile Update="**/obj/**/*.cs">
+      <ExcludeFromSourceAnalysis>true</ExcludeFromSourceAnalysis>
+    </Compile>
+  </ItemGroup>
+
+  <!-- Suppress CS1591 (XML documentation) warnings for generated files -->
+  <!-- Use a target that runs after source generation to filter warnings via compiler arguments -->
+  <Target Name="SuppressWarningsForGeneratedFiles" AfterTargets="GenerateMSBuildEditorConfigFileShouldRun" BeforeTargets="CoreCompile">
+    <!-- Mark generated files for exclusion from source analysis -->
+    <ItemGroup>
+      <Compile Condition="($([System.String]::Copy('%(FullPath)').Contains('obj\')) or $([System.String]::Copy('%(FullPath)').Contains('obj/')) or $([System.String]::Copy('%(FullPath)').Contains('Arch.System.SourceGenerator')))">
+        <ExcludeFromSourceAnalysis>true</ExcludeFromSourceAnalysis>
+      </Compile>
+    </ItemGroup>
+
+    <!-- Add compiler argument to suppress CS1591 for files in obj directories -->
+    <PropertyGroup>
+      <_GeneratedFilesPattern>**/obj/**/*.cs</_GeneratedFilesPattern>
+    </PropertyGroup>
+
+    <!-- Modify compiler arguments to suppress CS1591 for generated files -->
+    <ItemGroup>
+      <_CompileWithNoWarn Include="@(Compile)" Condition="($([System.String]::Copy('%(FullPath)').Contains('obj\')) or $([System.String]::Copy('%(FullPath)').Contains('obj/')) or $([System.String]::Copy('%(FullPath)').Contains('Arch.System.SourceGenerator')))" />
+    </ItemGroup>
+
+    <!-- Use a custom target to modify compiler arguments -->
+    <PropertyGroup>
+      <_SuppressCS1591ForGenerated>true</_SuppressCS1591ForGenerated>
+    </PropertyGroup>
+  </Target>
+
+  <!-- Override CoreCompile to add warning suppression for generated files -->
+  <Target Name="AddNoWarnForGeneratedFiles" BeforeTargets="CoreCompile">
+    <PropertyGroup Condition="'$(_SuppressCS1591ForGenerated)' == 'true'">
+      <!-- Add CS1591 to NoWarn for the entire compilation, but we'll filter it per-file -->
+      <!-- This is a workaround - we suppress globally and rely on .editorconfig to re-enable for source files -->
+      <NoWarn Condition="'$(NoWarn)' == ''">1591</NoWarn>
+      <NoWarn Condition="'$(NoWarn)' != '' and !$([System.String]::Copy('$(NoWarn)').Contains('1591'))">$(NoWarn);1591</NoWarn>
+    </PropertyGroup>
+  </Target>
+</Project>
