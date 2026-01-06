@@ -8,6 +8,9 @@ using Commands;
 using Events;
 using Features;
 using MonoBall.Core.ECS;
+using Scripting.Constants;
+using Scripting.Interfaces;
+using Scripting.Models;
 using Serilog;
 
 /// <summary>
@@ -20,6 +23,8 @@ public sealed class ConsoleService : IConsoleService
     private readonly ConsoleBuffer _outputBuffer;
     private readonly ConsoleHistory _history;
     private readonly IConsoleCommandRegistry _commandRegistry;
+    private readonly IConsoleInputRouter? _inputRouter;
+    private readonly IRoslynReplService? _replService;
     private bool _isVisible;
     private bool _disposed;
 
@@ -54,13 +59,22 @@ public sealed class ConsoleService : IConsoleService
     public ITimeControl? TimeControl { get; set; }
 
     /// <summary>
+    /// Gets whether the REPL is available.
+    /// </summary>
+    public bool IsReplAvailable => _replService?.IsInitialized ?? false;
+
+    /// <summary>
     /// Initializes a new console service.
     /// </summary>
     /// <param name="commandRegistry">The command registry. If null, creates a new one with auto-discovery.</param>
+    /// <param name="inputRouter">Optional input router for REPL support.</param>
+    /// <param name="replService">Optional REPL service for C# evaluation.</param>
     /// <param name="maxOutputLines">Maximum output buffer lines.</param>
     /// <param name="maxHistoryLines">Maximum history entries.</param>
     public ConsoleService(
         IConsoleCommandRegistry? commandRegistry = null,
+        IConsoleInputRouter? inputRouter = null,
+        IRoslynReplService? replService = null,
         int maxOutputLines = 1000,
         int maxHistoryLines = 100
     )
@@ -68,6 +82,8 @@ public sealed class ConsoleService : IConsoleService
         _outputBuffer = new ConsoleBuffer(maxOutputLines);
         _history = new ConsoleHistory(maxHistoryLines);
         _commandRegistry = commandRegistry ?? new ConsoleCommandRegistry();
+        _inputRouter = inputRouter;
+        _replService = replService;
     }
 
     /// <summary>
@@ -114,7 +130,7 @@ public sealed class ConsoleService : IConsoleService
     }
 
     /// <summary>
-    /// Executes a command.
+    /// Executes a command or C# code.
     /// </summary>
     public async Task ExecuteCommandAsync(string commandText)
     {
@@ -128,6 +144,31 @@ public sealed class ConsoleService : IConsoleService
         // Echo command
         _outputBuffer.AppendLine($"> {commandText}", ConsoleColors.Command);
 
+        // Fire submission event
+        var submitEvt = new CommandSubmittedEvent { CommandText = commandText };
+        EventBus.Send(ref submitEvt);
+
+        // Route input if router is available
+        if (_inputRouter != null)
+        {
+            var inputType = _inputRouter.ClassifyInput(commandText);
+
+            if (inputType == ConsoleInputType.CSharpCode)
+            {
+                await ExecuteReplAsync(commandText);
+                return;
+            }
+        }
+
+        // Execute as command
+        await ExecuteAsCommandAsync(commandText);
+    }
+
+    /// <summary>
+    /// Executes input as a console command.
+    /// </summary>
+    private async Task ExecuteAsCommandAsync(string commandText)
+    {
         // Parse command and arguments
         var parts = ParseCommandLine(commandText);
         if (parts.Length == 0)
@@ -135,10 +176,6 @@ public sealed class ConsoleService : IConsoleService
 
         var commandName = parts[0];
         var args = parts.Skip(1).ToArray();
-
-        // Fire submission event
-        var submitEvt = new CommandSubmittedEvent { CommandText = commandText };
-        EventBus.Send(ref submitEvt);
 
         // Look up and execute command
         if (_commandRegistry.TryGetCommand(commandName, out var command))
@@ -181,6 +218,84 @@ public sealed class ConsoleService : IConsoleService
             };
             EventBus.Send(ref execEvt);
         }
+    }
+
+    /// <summary>
+    /// Executes C# code via the REPL service.
+    /// </summary>
+    private async Task ExecuteReplAsync(string input)
+    {
+        if (_inputRouter == null || _replService == null || !_replService.IsInitialized)
+        {
+            WriteError("REPL not available. C# execution is disabled.");
+            return;
+        }
+
+        var code = _inputRouter.StripPrefix(input);
+
+        try
+        {
+            var result = await _replService.EvaluateAsync(code);
+            DisplayReplResult(result);
+        }
+        catch (OperationCanceledException)
+        {
+            WriteWarning("Evaluation cancelled.");
+        }
+        catch (Exception ex)
+        {
+            WriteError($"REPL error: {ex.Message}");
+            Logger.Error(ex, "REPL evaluation failed");
+        }
+    }
+
+    /// <summary>
+    /// Displays the result of a REPL evaluation.
+    /// </summary>
+    private void DisplayReplResult(ReplResult result)
+    {
+        if (!result.Success)
+        {
+            WriteError(result.ErrorMessage ?? "Unknown error");
+            if (result.Diagnostics.Count > 0)
+            {
+                foreach (var diagnostic in result.Diagnostics)
+                {
+                    WriteError($"  {diagnostic}");
+                }
+            }
+            return;
+        }
+
+        if (!result.IsStatement && result.ReturnValue != null)
+        {
+            var valueStr = FormatReplValue(result.ReturnValue);
+            var typeStr = result.ReturnType?.Name ?? "object";
+            WriteSuccess($"({typeStr}) {valueStr}");
+        }
+
+        // Show execution time for non-trivial operations
+        if (result.ExecutionTimeMs > ReplConstants.ExecutionTimeDisplayThresholdMs)
+        {
+            WriteSystem($"[{result.ExecutionTimeMs:F1}ms]");
+        }
+    }
+
+    /// <summary>
+    /// Formats a REPL result value for display.
+    /// </summary>
+    private static string FormatReplValue(object value)
+    {
+        return value switch
+        {
+            string s => $"\"{s}\"",
+            char c => $"'{c}'",
+            bool b => b ? "true" : "false",
+            null => "null",
+            System.Collections.IEnumerable enumerable when value is not string =>
+                $"[{string.Join(", ", enumerable.Cast<object>().Take(10))}]",
+            _ => value.ToString() ?? "null",
+        };
     }
 
     /// <summary>
@@ -345,6 +460,8 @@ public sealed class ConsoleService : IConsoleService
     {
         if (_disposed)
             return;
+
+        _replService?.Dispose();
         _disposed = true;
     }
 }
