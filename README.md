@@ -88,29 +88,8 @@ The build system supports several command-line arguments:
 **Note on API Documentation Generation:**
 The `GenerateApiDocs` task uses Roslynator's `generate-doc` command with `--ignored-names` to exclude Arch namespaces. Due to Roslynator's limitation (only accepts a single namespace prefix), additional external libraries (e.g., Serilog) are excluded via a post-processing step that removes their folders from the generated documentation. This is documented as a known limitation and may be improved in future Roslynator versions.
 
-### MSBuild Targets (Direct Project Build)
-
-You can also run mod-related targets directly on `MonoBall.DesktopGL.csproj` without using the Cake build system:
-
-```bash
-# Compile mod shaders (.fx -> .mgfxo)
-dotnet build MonoBall/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj --target=CompileModShaders
-
-# Compress mod directories to .monoball archives
-dotnet build MonoBall/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj --target=CompressMods
-
-# Copy mods to output directory (requires Build first)
-dotnet build MonoBall/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj --target=CopyMods
-
-# Build ArchiveTool (required for CompressMods)
-dotnet build MonoBall/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj --target=BuildArchiveTool
-```
-
-These targets are useful for:
-
-- Quick iteration during mod development (compile shaders without full build)
-- IDE integration (Visual Studio, Rider, etc. can invoke these targets)
-- CI/CD pipelines that prefer MSBuild over Cake
+**Note on IDE Builds:**
+When building from IDEs (Visual Studio, Rider, etc.), mods are automatically copied to the output directory after build via the `CopyModsToOutput` MSBuild target. For full mod operations (shader compilation, mod compression), use the Cake build system.
 
 ### Environment Variables
 

@@ -47,17 +47,7 @@
       </Compile>
     </ItemGroup>
 
-    <!-- Add compiler argument to suppress CS1591 for files in obj directories -->
-    <PropertyGroup>
-      <_GeneratedFilesPattern>**/obj/**/*.cs</_GeneratedFilesPattern>
-    </PropertyGroup>
-
-    <!-- Modify compiler arguments to suppress CS1591 for generated files -->
-    <ItemGroup>
-      <_CompileWithNoWarn Include="@(Compile)" Condition="($([System.String]::Copy('%(FullPath)').Contains('obj\')) or $([System.String]::Copy('%(FullPath)').Contains('obj/')) or $([System.String]::Copy('%(FullPath)').Contains('Arch.System.SourceGenerator')))" />
-    </ItemGroup>
-
-    <!-- Use a custom target to modify compiler arguments -->
+    <!-- Set flag for AddNoWarnForGeneratedFiles target -->
     <PropertyGroup>
       <_SuppressCS1591ForGenerated>true</_SuppressCS1591ForGenerated>
     </PropertyGroup>

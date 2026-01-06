@@ -7,6 +7,8 @@ namespace MonoBall.Build.Tasks
 {
     /// <summary>
     /// Task that copies mods to output directory.
+    /// Note: This task only copies existing .monoball files - it does not compress or build mods.
+    /// Mods should be compressed via CompressModsTask before this task runs.
     /// </summary>
     [TaskName("CopyMods")]
     [IsDependentOn(typeof(BuildTask))]
