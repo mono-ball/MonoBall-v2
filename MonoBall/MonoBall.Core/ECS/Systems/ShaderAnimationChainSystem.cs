@@ -14,7 +14,11 @@ namespace MonoBall.Core.ECS.Systems;
 ///     Phase and animation data are stored externally to avoid List&lt;T&gt; allocations in ECS components.
 ///     Follows the TimelineSystem pattern for external storage.
 /// </summary>
-public class ShaderAnimationChainSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class ShaderAnimationChainSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IShaderAnimationChainSystem
 {
     private readonly List<ShaderAnimationChainCompletedEvent> _chainCompletedEvents = new();
 
@@ -333,14 +337,5 @@ public class ShaderAnimationChainSystem : BaseSystem<World, float>, IPrioritized
         ref var chain = ref World.Get<ShaderAnimationChainComponent>(entity);
         if (chain.State == ShaderAnimationChainState.Paused)
             chain.State = ShaderAnimationChainState.Playing;
-    }
-
-    /// <summary>
-    ///     Data for a single phase in the animation chain.
-    /// </summary>
-    public struct ShaderAnimationPhaseData
-    {
-        public float Delay { get; set; }
-        public float Duration { get; set; }
     }
 }

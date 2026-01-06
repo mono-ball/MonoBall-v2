@@ -35,8 +35,9 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly ILogger _logger;
     private readonly IModManager? _modManager;
     private readonly PlayerSystem? _playerSystem;
-    private readonly ShaderManager _shaderManagerSystem;
+    private readonly IShaderManager _shaderManagerSystem;
     private readonly IShaderService? _shaderService;
+    private readonly IShaderParameterTimelineSystem? _timelineSystem;
 
     // Stacked shader presets - each contains shaders with render orders
     private readonly Dictionary<string, List<(string ShaderId, int RenderOrder)>> _shaderStacks =
@@ -79,15 +80,17 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="modManager">The mod manager for discovering available shaders.</param>
     /// <param name="shaderService">The shader service for validating shaders exist.</param>
     /// <param name="playerSystem">The player system for getting the player entity (optional, needed for F5).</param>
+    /// <param name="timelineSystem">The timeline system for animating shader parameters (optional, needed for day/night cycle).</param>
     /// <param name="logger">The logger for logging operations.</param>
     public ShaderCycleSystem(
         World world,
         IInputBindingService inputBindingService,
-        ShaderManager shaderManagerSystem,
+        IShaderManager shaderManagerSystem,
         GraphicsDevice graphicsDevice,
         IModManager? modManager = null,
         IShaderService? shaderService = null,
         PlayerSystem? playerSystem = null,
+        IShaderParameterTimelineSystem? timelineSystem = null,
         ILogger? logger = null
     )
         : base(world)
@@ -100,6 +103,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
         _modManager = modManager;
         _shaderService = shaderService;
         _playerSystem = playerSystem;
+        _timelineSystem = timelineSystem;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _combinedShaderQuery = new QueryDescription().WithAll<RenderingShaderComponent>();
 
@@ -413,6 +417,14 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 // Remove old animation components if they exist
                 if (World.Has<ShaderParameterAnimationComponent>(shaderEntity))
                     World.Remove<ShaderParameterAnimationComponent>(shaderEntity);
+
+                // Remove old timeline component if it exists (will be re-added if needed)
+                if (World.Has<ShaderParameterTimelineComponent>(shaderEntity))
+                {
+                    if (_timelineSystem != null)
+                        _timelineSystem.RemoveKeyframes(shaderEntity);
+                    World.Remove<ShaderParameterTimelineComponent>(shaderEntity);
+                }
 
                 _shaderManagerSystem.MarkShadersDirty();
                 _logger.Information("Updated combined layer shader to {ShaderId}", nextShaderId);
@@ -875,7 +887,7 @@ public class ShaderCycleSystem : BaseSystem<World, float>, IPrioritizedSystem
             Duration = 10000.0f,
             ElapsedTime = 0.0f,
             Easing = EasingFunction.Linear,
-            IsLooping = false,
+            IsLooping = true,
             IsEnabled = true,
             PingPong = false,
         };

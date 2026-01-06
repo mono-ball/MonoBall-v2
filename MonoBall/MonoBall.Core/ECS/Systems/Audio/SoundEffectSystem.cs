@@ -11,7 +11,11 @@ namespace MonoBall.Core.ECS.Systems.Audio;
 /// <summary>
 ///     System that processes sound effect requests and plays them.
 /// </summary>
-public class SoundEffectSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class SoundEffectSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        ISoundEffectSystem
 {
     private readonly IAudioEngine _audioEngine;
     private readonly ILogger _logger;

@@ -144,7 +144,7 @@ public class LoadingSceneRendererSystem : BaseSystem<World, float>, IDisposable
         if (resourceManager == null)
             throw new InvalidOperationException(
                 "IResourceManager is not available. Cannot load fonts for loading screen. "
-                    + "Ensure GameServices.LoadContent() was called and ResourceManager is registered in Game.Services."
+                    + "Ensure LoadModsSynchronously() was called and ResourceManager is registered in Game.Services."
             );
 
         _logger.Debug("Loading fonts for loading screen via ResourceManager");

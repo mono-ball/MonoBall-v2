@@ -1,31 +1,48 @@
 using System;
 using System.Threading.Tasks;
-using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
-using MonoBall.Core.Scenes;
-using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Events;
-using MonoBall.Core.Scenes.Systems;
 using Serilog;
 
 namespace MonoBall.Core;
 
 /// <summary>
 ///     Constants for initialization progress percentages.
+///     Weighted to reflect actual time spent in each phase.
 /// </summary>
 public static class InitializationProgress
 {
-    public const float Mods = 0.1f;
-    public const float ContentServices = 0.3f;
-    public const float Rendering = 0.4f;
-    public const float GameSystems = 0.5f;
-    public const float Camera = 0.6f;
-    public const float Player = 0.7f;
-    public const float InitialMap = 0.85f;
+    // Phase 1: Game services setup (fast - ECS world creation)
+    public const float GameServices = 0.05f;
+
+    // Phase 2: Rendering setup (fast - SpriteBatch creation)
+    public const float Rendering = 0.08f;
+
+    // Phase 3: ECS systems (slow - includes script compilation)
+    public const float SystemsStart = 0.10f;
+    public const float ScriptCompilation = 0.35f; // Script compilation is ~25% of total time
+    public const float SystemsComplete = 0.45f;
+
+    // Phase 4: Initial map loading (medium - texture loading, chunk creation)
+    public const float MapLoading = 0.50f;
+    public const float MapComplete = 0.70f;
+
+    // Phase 5: Camera setup (fast)
+    public const float Camera = 0.75f;
+
+    // Phase 6: Player setup (fast)
+    public const float Player = 0.80f;
+
+    // Phase 7: Game state setup (fast)
+    public const float GameState = 0.85f;
+
+    // Phase 8: Game scene creation (fast)
     public const float GameScene = 0.95f;
+
+    // Complete
     public const float Complete = 1.0f;
 }
 
@@ -38,9 +55,8 @@ public class GameInitializationService
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
     private Task<InitializationResult>? _initializationTask;
-    private Entity? _loadingSceneEntity;
-    private LoadingSceneSystem? _loadingSceneSystem; // Reference to loading scene system for progress updates
-    private World? _mainWorld; // Reference to main world (not owned by this service)
+    private Action<float, string>? _progressCallback; // Callback for progress updates (thread-safe enqueue)
+    private Action<string?>? _completeCallback; // Callback when initialization completes
 
     /// <summary>
     ///     Initializes a new instance of the GameInitializationService.
@@ -56,106 +72,49 @@ public class GameInitializationService
     }
 
     /// <summary>
-    ///     Gets the loading scene entity.
+    ///     Sets the progress callback for reporting initialization progress.
+    ///     This callback is invoked from background threads, so it should be thread-safe.
     /// </summary>
-    public Entity? LoadingSceneEntity => _loadingSceneEntity;
-
-    /// <summary>
-    ///     Sets the loading scene system for progress updates.
-    ///     Must be called before starting initialization.
-    /// </summary>
-    /// <param name="loadingSceneSystem">The loading scene system.</param>
-    public void SetLoadingSceneSystem(LoadingSceneSystem loadingSceneSystem)
-    {
-        _loadingSceneSystem =
-            loadingSceneSystem ?? throw new ArgumentNullException(nameof(loadingSceneSystem));
-    }
-
-    /// <summary>
-    ///     Creates a loading scene in the main world and starts asynchronous game initialization.
-    /// </summary>
-    /// <param name="mainWorld">The main ECS world (created early for loading scene).</param>
-    /// <param name="sceneSystem">The scene manager system for the main world.</param>
-    /// <param name="graphicsDevice">The graphics device.</param>
-    /// <param name="spriteBatch">The sprite batch for rendering.</param>
-    /// <returns>The loading scene entity and the initialization task.</returns>
-    public (
-        Entity loadingSceneEntity,
-        Task<InitializationResult> initializationTask
-    ) CreateLoadingSceneAndStartInitialization(
-        World mainWorld,
-        SceneSystem sceneSystem,
-        GraphicsDevice graphicsDevice,
-        SpriteBatch spriteBatch
+    /// <param name="progressCallback">Callback that receives progress (0.0-1.0) and message.</param>
+    /// <param name="completeCallback">Callback invoked when initialization completes (with error message or null for success).</param>
+    public void SetProgressCallback(
+        Action<float, string> progressCallback,
+        Action<string?>? completeCallback = null
     )
     {
-        _logger.Information(
-            "Creating loading scene in main world and starting async initialization"
-        );
-
-        if (mainWorld == null)
-            throw new ArgumentNullException(nameof(mainWorld));
-        if (sceneSystem == null)
-            throw new ArgumentNullException(nameof(sceneSystem));
-
-        _mainWorld = mainWorld;
-
-        // Create loading scene entity in main world
-        var loadingSceneComponent = new SceneComponent
-        {
-            SceneId = "loading:main",
-            Priority = ScenePriorities.LoadingScreen, // Above game scenes, below debug overlays
-            CameraMode = SceneCameraMode.ScreenCamera,
-            CameraEntityId = null,
-            BlocksUpdate = true, // Block all updates while loading
-            BlocksDraw = true, // Block all drawing while loading
-            BlocksInput = true, // Block all input while loading
-            IsActive = true,
-            IsPaused = false,
-            BackgroundColor = LoadingSceneSystem.GetBackgroundColor(),
-        };
-
-        var loadingProgressComponent = new LoadingProgressComponent
-        {
-            Progress = 0.0f,
-            CurrentStep = "Initializing...",
-            IsComplete = false,
-            ErrorMessage = null,
-        };
-
-        _loadingSceneEntity = sceneSystem.CreateScene(
-            loadingSceneComponent,
-            new LoadingSceneComponent(),
-            loadingProgressComponent
-        );
-
-        _logger.Information(
-            "Loading scene created in main world (entity {EntityId})",
-            _loadingSceneEntity.Value.Id
-        );
-
-        // Start async initialization
-        _initializationTask = InitializeGameAsync(_mainWorld, _loadingSceneEntity.Value);
-
-        return (_loadingSceneEntity.Value, _initializationTask);
+        _progressCallback =
+            progressCallback ?? throw new ArgumentNullException(nameof(progressCallback));
+        _completeCallback = completeCallback;
     }
 
     /// <summary>
-    ///     Updates the loading progress. Thread-safe: enqueues update to LoadingSceneSystem.
+    ///     Starts asynchronous game initialization.
+    ///     Progress is reported via the callback set by SetProgressCallback().
+    /// </summary>
+    /// <returns>The initialization task.</returns>
+    public Task<InitializationResult> StartInitialization()
+    {
+        _logger.Information("Starting async game initialization");
+
+        if (_progressCallback == null)
+        {
+            _logger.Warning(
+                "StartInitialization called without progress callback set. Progress will not be reported."
+            );
+        }
+
+        _initializationTask = InitializeGameAsync();
+        return _initializationTask;
+    }
+
+    /// <summary>
+    ///     Updates the loading progress via callback.
     /// </summary>
     /// <param name="progress">Progress value between 0.0 and 1.0.</param>
     /// <param name="step">Current step description.</param>
     public void UpdateProgress(float progress, string step)
     {
-        if (_loadingSceneSystem == null)
-        {
-            _logger.Warning(
-                "UpdateProgress called but LoadingSceneSystem not set. Call SetLoadingSceneSystem() first."
-            );
-            return;
-        }
-
-        _loadingSceneSystem.EnqueueProgress(progress, step ?? "Loading...");
+        _progressCallback?.Invoke(Math.Clamp(progress, 0.0f, 1.0f), step ?? "Loading...");
     }
 
     /// <summary>
@@ -164,47 +123,40 @@ public class GameInitializationService
     /// <param name="errorMessage">Error message if loading failed, or null if successful.</param>
     public void MarkComplete(string? errorMessage = null)
     {
-        if (_mainWorld == null || _loadingSceneEntity == null)
-            return;
-
-        if (_mainWorld.Has<LoadingProgressComponent>(_loadingSceneEntity.Value))
+        // Report final progress
+        if (errorMessage == null)
         {
-            ref var progressComponent = ref _mainWorld.Get<LoadingProgressComponent>(
-                _loadingSceneEntity.Value
-            );
-            progressComponent.IsComplete = true;
-            progressComponent.Progress = errorMessage == null ? 1.0f : progressComponent.Progress;
-            progressComponent.ErrorMessage = errorMessage;
-            progressComponent.CurrentStep =
-                errorMessage == null ? "Complete!" : $"Error: {errorMessage}";
-
-            // Fire loading complete event
-            var completeEvent = new LoadingCompleteEvent
-            {
-                Success = errorMessage == null,
-                ErrorMessage = errorMessage,
-            };
-            EventBus.Send(ref completeEvent);
+            _progressCallback?.Invoke(1.0f, "Complete!");
         }
+        else
+        {
+            _progressCallback?.Invoke(1.0f, $"Error: {errorMessage}");
+        }
+
+        // Invoke completion callback
+        _completeCallback?.Invoke(errorMessage);
+
+        // Fire loading complete event (for any listeners)
+        var completeEvent = new LoadingCompleteEvent
+        {
+            Success = errorMessage == null,
+            ErrorMessage = errorMessage,
+        };
+        EventBus.Send(ref completeEvent);
     }
 
     /// <summary>
     ///     Asynchronously initializes the game.
     /// </summary>
-    /// <param name="mainWorld">The main world (same world where loading scene exists).</param>
-    /// <param name="loadingSceneEntity">The loading scene entity.</param>
     /// <returns>The initialization result.</returns>
-    private async Task<InitializationResult> InitializeGameAsync(
-        World mainWorld,
-        Entity loadingSceneEntity
-    )
+    private async Task<InitializationResult> InitializeGameAsync()
     {
         try
         {
-            _logger.Information("Starting async game initialization");
-
-            // Step 1: Initialize game services (mods, ECS world)
-            UpdateProgress(InitializationProgress.Mods, "Loading mods...");
+            // Phase 1: Initialize game services (ECS world)
+            // Note: Mods and content services (ResourceManager, ShaderService, etc.) are already
+            // loaded synchronously by LoadModsSynchronously() before async init starts
+            UpdateProgress(InitializationProgress.GameServices, "Creating ECS world...");
             await Task.Yield();
             var gameServices = GameInitializationHelper.InitializeGameServices(
                 _game,
@@ -212,21 +164,19 @@ public class GameInitializationService
                 _logger
             );
 
-            // Step 3: Load content services
-            UpdateProgress(InitializationProgress.ContentServices, "Loading content services...");
-            await Task.Yield();
-            GameInitializationHelper.LoadContentServices(gameServices, _logger);
-
-            // Step 3: Create sprite batch
-            // Note: SpriteBatch is created here, but loading screen uses _loadingSpriteBatch from MonoBallGame
-            // This spriteBatch will be used for the main game rendering
+            // Phase 2: Create sprite batch for main game rendering
             UpdateProgress(InitializationProgress.Rendering, "Initializing rendering...");
             await Task.Yield();
             var spriteBatch = GameInitializationHelper.CreateSpriteBatch(_graphicsDevice, _logger);
 
-            // Step 4: Initialize ECS systems
-            UpdateProgress(InitializationProgress.GameSystems, "Initializing game systems...");
+            // Phase 3: Initialize ECS systems (includes script compilation - slowest phase)
+            UpdateProgress(InitializationProgress.SystemsStart, "Creating game systems...");
             await Task.Yield();
+
+            // Sub-progress: Script compilation is the heaviest part
+            UpdateProgress(InitializationProgress.ScriptCompilation, "Compiling scripts...");
+            await Task.Yield();
+
             var systemManager = GameInitializationHelper.InitializeEcsSystems(
                 gameServices,
                 _graphicsDevice,
@@ -234,6 +184,9 @@ public class GameInitializationService
                 _game,
                 _logger
             );
+
+            UpdateProgress(InitializationProgress.SystemsComplete, "Game systems ready...");
+            await Task.Yield();
 
             // Get ConstantsService for initial map and camera creation
             var constantsService = _game.Services.GetService<ConstantsService>();
@@ -243,14 +196,17 @@ public class GameInitializationService
                         + "Ensure ConstantsService was registered after mods were loaded."
                 );
 
-            // Step 5: Load initial map FIRST (needed for tile dimensions and spawn position)
-            UpdateProgress(InitializationProgress.InitialMap, "Loading initial map...");
+            // Phase 4: Load initial map (medium - texture loading, chunk creation)
+            UpdateProgress(InitializationProgress.MapLoading, "Loading initial map...");
             await Task.Yield();
             var initialMapId = constantsService.GetString("PlayerInitialMapId");
             systemManager.LoadMap(initialMapId);
             _logger.Information("Initial map loaded: {MapId}", initialMapId);
 
-            // Step 6: Create default camera (after map is loaded so we have tile dimensions)
+            UpdateProgress(InitializationProgress.MapComplete, "Map loaded...");
+            await Task.Yield();
+
+            // Phase 5: Create default camera (after map is loaded so we have tile dimensions)
             UpdateProgress(InitializationProgress.Camera, "Setting up camera...");
             await Task.Yield();
             var world = gameServices.EcsService!.World;
@@ -263,7 +219,7 @@ public class GameInitializationService
                 constantsService
             );
 
-            // Step 7: Initialize player at default spawn position (10, 8 tiles - center-ish of map)
+            // Phase 6: Initialize player
             UpdateProgress(InitializationProgress.Player, "Initializing player...");
             await Task.Yield();
             var playerEntity = GameInitializationHelper.InitializePlayer(
@@ -272,12 +228,12 @@ public class GameInitializationService
                 _logger
             );
 
-            // Step 7.5: Setup initial game state (variables and flags)
-            UpdateProgress(InitializationProgress.Player + 0.05f, "Setting up game state...");
+            // Phase 7: Setup initial game state (variables and flags)
+            UpdateProgress(InitializationProgress.GameState, "Setting up game state...");
             await Task.Yield();
             GameInitializationHelper.SetupInitialGameState(_game, _logger);
 
-            // Step 8: Set camera to follow player (after both are created)
+            // Set camera to follow player
             GameInitializationHelper.SetupCameraFollow(
                 systemManager,
                 cameraEntity,
@@ -285,14 +241,12 @@ public class GameInitializationService
                 _logger
             );
 
-            // Step 9: Create game scene
+            // Phase 8: Create game scene
             UpdateProgress(InitializationProgress.GameScene, "Creating game scene...");
             await Task.Yield();
             GameInitializationHelper.CreateGameScene(systemManager, _logger);
 
-            // Mark loading as complete - this sets Progress = 1.0f and IsComplete = true
-            // MarkComplete() directly modifies the world component, so no need to go through the queue
-            // The main thread will check IsComplete on the next Update() call
+            // Mark loading as complete - invokes the completion callback
             MarkComplete();
 
             return new InitializationResult

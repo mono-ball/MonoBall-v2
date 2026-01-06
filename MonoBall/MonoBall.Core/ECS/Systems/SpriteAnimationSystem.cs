@@ -4,6 +4,7 @@ using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Systems.Animation;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Resources;
 using Serilog;
@@ -13,7 +14,11 @@ namespace MonoBall.Core.ECS.Systems;
 /// <summary>
 ///     System responsible for updating animation timers and advancing frames for sprite animations (NPCs and Players).
 /// </summary>
-public class SpriteAnimationSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class SpriteAnimationSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        ISpriteAnimationSystem
 {
     // Reusable collections for cleanup to avoid allocations in hot paths
     private readonly HashSet<Entity> _entitiesThisFrame = new();

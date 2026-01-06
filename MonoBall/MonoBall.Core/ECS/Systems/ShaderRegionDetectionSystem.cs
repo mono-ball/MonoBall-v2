@@ -13,7 +13,11 @@ namespace MonoBall.Core.ECS.Systems;
 ///     Applies/reverts shaders based on region configuration.
 ///     Saved shader states are stored externally to avoid Dictionary in ECS components.
 /// </summary>
-public class ShaderRegionDetectionSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class ShaderRegionDetectionSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IShaderRegionDetectionSystem
 {
     private readonly List<ShaderRegionEnteredEvent> _enteredEvents = new();
     private readonly List<ShaderRegionExitedEvent> _exitedEvents = new();

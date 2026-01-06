@@ -24,10 +24,10 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
     private readonly MapBorderRendererSystem? _mapBorderRendererSystem;
-    private readonly RenderTargetManager? _renderTargetManager;
+    private readonly IRenderTargetManager? _renderTargetManager;
     private readonly IResourceManager _resourceManager;
-    private readonly ShaderManager? _shaderManagerSystem;
-    private readonly ShaderRendererSystem? _shaderRendererSystem;
+    private readonly IShaderManager? _shaderManagerSystem;
+    private readonly IShaderRenderer? _shaderRendererSystem;
     private readonly ISpriteRenderer _spriteRenderer;
     private readonly ITileChunkRenderer _tileChunkRenderer;
 
@@ -76,7 +76,7 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
         return a.YPosition.CompareTo(b.YPosition);
     };
 
-    private readonly PerformanceStatsSystem? _performanceStatsSystem;
+    private readonly IPerformanceStatsSystem? _performanceStatsSystem;
     private readonly SpriteBatch _spriteBatch;
     private Viewport _savedViewport;
 
@@ -116,10 +116,10 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
         SpriteBatch spriteBatch,
         ILogger logger,
         MapBorderRendererSystem? mapBorderRendererSystem = null,
-        ShaderManager? shaderManagerSystem = null,
-        ShaderRendererSystem? shaderRendererSystem = null,
-        RenderTargetManager? renderTargetManager = null,
-        PerformanceStatsSystem? performanceStatsSystem = null
+        IShaderManager? shaderManagerSystem = null,
+        IShaderRenderer? shaderRendererSystem = null,
+        IRenderTargetManager? renderTargetManager = null,
+        IPerformanceStatsSystem? performanceStatsSystem = null
     )
         : base(world)
     {

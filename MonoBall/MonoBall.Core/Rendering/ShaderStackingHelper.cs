@@ -38,8 +38,8 @@ public static class ShaderStackingHelper
     /// <param name="systemName">The name of the system (for logging context).</param>
     /// <returns>True if dependencies are available, false otherwise.</returns>
     public static bool ValidateShaderStackingDependencies(
-        ShaderRendererSystem? shaderRendererSystem,
-        RenderTargetManager? renderTargetManager,
+        IShaderRenderer? shaderRendererSystem,
+        IRenderTargetManager? renderTargetManager,
         ILogger logger,
         string systemName
     )
@@ -68,7 +68,7 @@ public static class ShaderStackingHelper
     /// <returns>The render target to use, or null if creation failed.</returns>
     public static RenderTarget2D? GetOrCreateRenderTargetForStacking(
         GraphicsDevice graphicsDevice,
-        RenderTargetManager renderTargetManager,
+        IRenderTargetManager renderTargetManager,
         int renderTargetIndex,
         ILogger logger,
         string systemName

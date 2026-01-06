@@ -9,7 +9,10 @@ namespace MonoBall.Core.ECS.Systems;
 ///     System that tracks performance statistics including FPS, frame time, entity count, memory usage, draw calls, and GC
 ///     information.
 /// </summary>
-public class PerformanceStatsSystem : BaseSystem<World, float>, IPrioritizedSystem
+public class PerformanceStatsSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IPerformanceStatsSystem
 {
     // Cached query description to avoid allocations in hot paths
     private static readonly QueryDescription _allEntitiesQuery = new();

@@ -13,7 +13,7 @@ namespace MonoBall.Core.ECS.Systems;
 ///     System that handles shader application logic, separating concerns from rendering systems.
 ///     Applies shader stacks with blend modes to render targets.
 /// </summary>
-public class ShaderRendererSystem
+public class ShaderRendererSystem : IShaderRenderer
 {
     private readonly ILogger _logger;
 
@@ -42,7 +42,7 @@ public class ShaderRendererSystem
         IReadOnlyList<(Effect effect, ShaderBlendMode blendMode, Entity entity)> shaderStack,
         SpriteBatch spriteBatch,
         GraphicsDevice graphicsDevice,
-        RenderTargetManager? renderTargetManager = null
+        IRenderTargetManager? renderTargetManager = null
     )
     {
         if (source == null)

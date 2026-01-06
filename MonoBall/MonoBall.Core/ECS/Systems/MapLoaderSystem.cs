@@ -444,30 +444,26 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         }
 
         _logger.Information(
-            "Preloading {Count} tileset(s) for map {MapId}",
+            "Preloading {Count} tileset(s) for map {MapId} (parallel)",
             mapDefinition.Tilesets.Count,
             mapDefinition.Id
         );
-        foreach (var tilesetRef in mapDefinition.Tilesets)
+
+        // Use centralized batch loading from ResourceManager
+        var tilesetIds = mapDefinition.Tilesets.Select(t => t.TilesetId);
+        var errors = _resourceManager.LoadTexturesBatch(tilesetIds);
+
+        // Log any errors after batch completion
+        foreach (var error in errors)
         {
-            _logger.Debug(
-                "Loading tileset {TilesetId} (firstGid: {FirstGid})",
-                tilesetRef.TilesetId,
-                tilesetRef.FirstGid
-            );
-            try
-            {
-                var texture = _resourceManager.LoadTexture(tilesetRef.TilesetId);
-                _logger.Information(
-                    "Successfully loaded tileset {TilesetId}",
-                    tilesetRef.TilesetId
-                );
-            }
-            catch (Exception ex)
-            {
-                _logger.Warning(ex, "Failed to load tileset {TilesetId}", tilesetRef.TilesetId);
-            }
+            _logger.Warning(error.Error, "Failed to load tileset {TilesetId}", error.ResourceId);
         }
+
+        _logger.Information(
+            "Loaded {Count} tileset(s) for map {MapId}",
+            mapDefinition.Tilesets.Count - errors.Count,
+            mapDefinition.Id
+        );
     }
 
     /// <summary>
@@ -844,6 +840,11 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         // ResourceManager is always available (required parameter)
 
+        // Phase 1: Batch-resolve and preload all NPC sprite textures in parallel
+        // This front-loads the I/O-bound work before sequential entity creation
+        PreloadNpcSprites(mapDefinition);
+
+        // Phase 2: Create entities sequentially (ECS world operations must be on main thread)
         var npcsCreated = 0;
 
         foreach (var npcDef in mapDefinition.Npcs)
@@ -867,6 +868,55 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             }
 
         return npcsCreated;
+    }
+
+    /// <summary>
+    ///     Preloads all NPC sprite textures in parallel.
+    ///     Resolves variable sprites and loads unique textures concurrently.
+    /// </summary>
+    /// <param name="mapDefinition">The map definition containing NPCs.</param>
+    private void PreloadNpcSprites(MapDefinition mapDefinition)
+    {
+        if (mapDefinition.Npcs == null || mapDefinition.Npcs.Count == 0)
+            return;
+
+        // Resolve all sprite IDs (handling variable sprites) and collect unique IDs
+        var uniqueSpriteIds = new HashSet<string>();
+        foreach (var npcDef in mapDefinition.Npcs)
+        {
+            try
+            {
+                var resolvedSpriteId = ResolveNpcSpriteId(npcDef);
+                uniqueSpriteIds.Add(resolvedSpriteId);
+            }
+            catch (Exception ex)
+            {
+                // Log but don't fail - entity creation will report the error
+                _logger.Debug(
+                    ex,
+                    "Failed to resolve sprite for NPC {NpcId} during preload",
+                    npcDef.NpcId
+                );
+            }
+        }
+
+        if (uniqueSpriteIds.Count == 0)
+            return;
+
+        _logger.Debug(
+            "Preloading {Count} unique NPC sprite(s) for map {MapId} (parallel)",
+            uniqueSpriteIds.Count,
+            mapDefinition.Id
+        );
+
+        // Use centralized batch loading from ResourceManager
+        var errors = _resourceManager.LoadTexturesBatch(uniqueSpriteIds);
+
+        // Log any errors (don't fail - entity creation will handle missing textures)
+        foreach (var error in errors)
+        {
+            _logger.Debug(error.Error, "Failed to preload NPC sprite {SpriteId}", error.ResourceId);
+        }
     }
 
     /// <summary>
@@ -1184,8 +1234,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 interactionScriptData.Value.IsActive
             );
 
-        // Preload sprite texture
-        _resourceManager.LoadTexture(actualSpriteId);
+        // Note: Sprite texture is already preloaded in PreloadNpcSprites() (parallel batch load)
 
         // Fire NpcLoadedEvent
         var loadedEvent = new NpcLoadedEvent

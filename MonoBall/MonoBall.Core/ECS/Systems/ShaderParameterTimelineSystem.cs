@@ -14,7 +14,11 @@ namespace MonoBall.Core.ECS.Systems;
 ///     System that animates shader parameters using keyframe-based timelines.
 ///     Updates shader component parameters based on timeline components and keyframes.
 /// </summary>
-public class ShaderParameterTimelineSystem : BaseSystem<World, float>
+public class ShaderParameterTimelineSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IShaderParameterTimelineSystem
 {
     private readonly QueryDescription _entityShaderTimelineQuery;
 
@@ -47,6 +51,19 @@ public class ShaderParameterTimelineSystem : BaseSystem<World, float>
             RenderingShaderComponent,
             ShaderParameterTimelineComponent
         >();
+    }
+
+    /// <summary>
+    ///     Gets the execution priority for this system.
+    /// </summary>
+    public int Priority => SystemPriority.ShaderParameterTimeline;
+
+    /// <summary>
+    ///     Disposes of system resources.
+    /// </summary>
+    public new void Dispose()
+    {
+        _keyframes.Clear();
     }
 
     /// <inheritdoc />

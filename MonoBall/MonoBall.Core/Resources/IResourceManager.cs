@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
@@ -6,6 +7,13 @@ using MonoBall.Core.Audio.Core;
 using MonoBall.Core.Maps;
 
 namespace MonoBall.Core.Resources;
+
+/// <summary>
+///     Represents an error that occurred during batch resource loading.
+/// </summary>
+/// <param name="ResourceId">The resource ID that failed to load.</param>
+/// <param name="Error">The exception that occurred.</param>
+public readonly record struct BatchLoadError(string ResourceId, Exception Error);
 
 /// <summary>
 ///     Unified resource manager for loading and caching all game resources.
@@ -282,6 +290,23 @@ public interface IResourceManager
     /// <returns>The definition, or null if not found.</returns>
     T? GetDefinition<T>(string resourceId)
         where T : class;
+
+    // Batch Loading
+    /// <summary>
+    ///     Loads multiple textures in parallel. Thread-safe with internal locking.
+    ///     Errors are collected and returned rather than throwing, allowing partial success.
+    /// </summary>
+    /// <param name="resourceIds">The resource IDs to load.</param>
+    /// <returns>A list of errors for any resources that failed to load. Empty if all succeeded.</returns>
+    IReadOnlyList<BatchLoadError> LoadTexturesBatch(IEnumerable<string> resourceIds);
+
+    /// <summary>
+    ///     Loads multiple shaders in parallel. Thread-safe with internal locking.
+    ///     Errors are collected and returned rather than throwing, allowing partial success.
+    /// </summary>
+    /// <param name="resourceIds">The resource IDs to load.</param>
+    /// <returns>A list of errors for any resources that failed to load. Empty if all succeeded.</returns>
+    IReadOnlyList<BatchLoadError> LoadShadersBatch(IEnumerable<string> resourceIds);
 
     // Cache Management
     /// <summary>

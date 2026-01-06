@@ -34,4 +34,18 @@ public interface ISceneManager
     /// </summary>
     /// <returns>True if a loading scene is active, false otherwise.</returns>
     bool IsLoadingSceneActive();
+
+    /// <summary>
+    ///     Gets a scene entity by its ID.
+    /// </summary>
+    /// <param name="sceneId">The scene ID.</param>
+    /// <returns>The scene entity, or null if not found.</returns>
+    Entity? GetSceneEntity(string sceneId);
+
+    /// <summary>
+    ///     Sets a scene's active state.
+    /// </summary>
+    /// <param name="sceneId">The scene ID.</param>
+    /// <param name="isActive">True to activate, false to deactivate.</param>
+    void SetSceneActive(string sceneId, bool isActive);
 }

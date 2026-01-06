@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Arch.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,7 +12,6 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Utilities;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
-using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scripting.Services;
 using Serilog;
 
@@ -36,13 +34,15 @@ public class MonoBallGame : Game
     // Resources for drawing.
     private readonly GraphicsDeviceManager graphicsDeviceManager;
 
-    // Track if we've shown 100% progress for at least one frame before transitioning
-    private bool _hasShownCompleteProgress;
+    // Track if initialization is complete
+    private bool _initializationComplete;
 
     // Async initialization
     private GameInitializationService? _initializationService;
     private Task<GameInitializationService.InitializationResult>? _initializationTask;
-    private Entity? _loadingSceneEntity;
+
+    // Loading renderer (used during initialization, before SystemManager exists)
+    private ILoadingRenderer? _loadingRenderer;
 
     // Service and system management
     private GameServices? gameServices;
@@ -111,7 +111,8 @@ public class MonoBallGame : Game
     }
 
     /// <summary>
-    ///     Loads game content. Creates main world early, loading scene, and starts async initialization.
+    ///     Loads game content. Creates LoadingRenderer for immediate visual feedback,
+    ///     and starts async initialization.
     /// </summary>
     protected override void LoadContent()
     {
@@ -121,28 +122,8 @@ public class MonoBallGame : Game
 
         // Load all mods synchronously first for system-critical resources (fonts, etc.)
         // Core mod (slot 0 in mod.manifest) loads first, then other mods
-        // This ensures FontService is available when the loading screen renders
+        // This ensures fonts are available when the loading screen renders
         LoadModsSynchronously();
-
-        // Create main world early (empty, just for scenes)
-        // This ensures the world exists before async initialization starts
-        var mainWorld = EcsWorld.Instance;
-        _logger.Debug("Main world created early for loading scene");
-
-        // Create minimal GameServices for early SystemManager initialization
-        var modManager = Services.GetService<ModManager>();
-        if (modManager == null)
-            throw new InvalidOperationException(
-                "ModManager not found in Game.Services after LoadModsSynchronously()"
-            );
-
-        // Create minimal services required for early SystemManager initialization
-        var ecsService = GameInitializationHelper.EnsureEcsService(this, _logger);
-        var flagVariableService = GameInitializationHelper.EnsureFlagVariableService(
-            this,
-            ecsService,
-            _logger
-        );
 
         // Get ResourceManager from Game.Services (should already exist from LoadModsSynchronously)
         var resourceManager = Services.GetService<IResourceManager>();
@@ -151,23 +132,15 @@ public class MonoBallGame : Game
                 "ResourceManager not found in Game.Services. Ensure LoadModsSynchronously() created it."
             );
 
-        // CREATE AND REGISTER COMPILATION CACHE BEFORE ANY SYSTEMMANAGER
-        // This ensures both early and async SystemManagers share the same cache
+        // CREATE AND REGISTER COMPILATION CACHE BEFORE SYSTEMMANAGER
         GameInitializationHelper.CreateAndRegisterCompilationCache(this, _logger);
 
-        // Create sprite batch for early systems
-        var loadingSpriteBatch = new SpriteBatch(GraphicsDevice);
-
-        // Initialize SystemManager early (creates SceneSystem, LoadingSceneRendererSystem, LoadingSceneSystem first)
-        var earlySystemManager = new SystemManager(
-            mainWorld,
+        // Create LoadingRenderer for immediate visual feedback (no ECS, no events, no SystemManager)
+        _loadingRenderer = new LoadingRenderer(
             GraphicsDevice,
-            modManager,
             resourceManager,
-            this,
-            LoggerFactory.CreateLogger<SystemManager>()
+            LoggerFactory.CreateLogger<LoadingRenderer>()
         );
-        earlySystemManager.Initialize(loadingSpriteBatch);
 
         // Create initialization service
         _initializationService = new GameInitializationService(
@@ -176,27 +149,32 @@ public class MonoBallGame : Game
             LoggerFactory.CreateLogger<GameInitializationService>()
         );
 
-        // Set LoadingSceneSystem for progress updates
-        if (earlySystemManager.LoadingSceneSystem == null)
-            throw new InvalidOperationException(
-                "LoadingSceneSystem must be initialized before setting it on GameInitializationService."
-            );
-        _initializationService.SetLoadingSceneSystem(earlySystemManager.LoadingSceneSystem);
+        // Set progress callback to update LoadingRenderer
+        _initializationService.SetProgressCallback(
+            (progress, message) =>
+            {
+                // Thread-safe: LoadingRenderer.SetProgress can be called from any thread
+                _loadingRenderer?.SetProgress(progress, message);
+            },
+            errorMessage =>
+            {
+                // Completion callback
+                if (errorMessage != null)
+                {
+                    // Set error on loading renderer
+                    if (_loadingRenderer is LoadingRenderer renderer)
+                    {
+                        renderer.SetError(errorMessage);
+                    }
+                }
+                _initializationComplete = true;
+            }
+        );
 
-        // Create loading scene in main world and start async initialization
-        (_loadingSceneEntity, _initializationTask) =
-            _initializationService.CreateLoadingSceneAndStartInitialization(
-                mainWorld,
-                earlySystemManager.SceneSystem,
-                GraphicsDevice,
-                loadingSpriteBatch
-            );
+        // Start async initialization (creates the ONLY SystemManager)
+        _initializationTask = _initializationService.StartInitialization();
 
-        // Store early SystemManager temporarily (will be replaced by async initialization result)
-        systemManager = earlySystemManager;
-        spriteBatch = loadingSpriteBatch;
-
-        _logger.Information("Loading scene created in main world, async initialization started");
+        _logger.Information("LoadingRenderer created, async initialization started");
     }
 
     /// <summary>
@@ -217,136 +195,72 @@ public class MonoBallGame : Game
         )
             Exit();
 
-        // Check if initialization is complete
-        if (_initializationTask != null && _initializationTask.IsCompleted)
-            if (!_initializationTask.IsFaulted && !_initializationTask.IsCanceled)
+        // During loading, update the loading renderer
+        if (_loadingRenderer != null)
+        {
+            _loadingRenderer.Update(gameTime);
+
+            // Check if initialization is complete and successful
+            if (
+                _initializationComplete
+                && _initializationTask != null
+                && _initializationTask.IsCompleted
+            )
             {
-                var result = _initializationTask.Result;
-                // Check if we need to transition to the new SystemManager from async initialization
-                if (result.Success && systemManager != result.SystemManager)
+                if (!_initializationTask.IsFaulted && !_initializationTask.IsCanceled)
                 {
-                    // Validate initialization result
-                    if (
-                        result.GameServices == null
-                        || result.SystemManager == null
-                        || result.SpriteBatch == null
-                    )
+                    var result = _initializationTask.Result;
+                    if (result.Success)
                     {
-                        _logger.Error(
-                            "Initialization succeeded but required properties are null. GameServices: {GameServices}, SystemManager: {SystemManager}, SpriteBatch: {SpriteBatch}",
-                            result.GameServices != null,
-                            result.SystemManager != null,
-                            result.SpriteBatch != null
-                        );
-                        // Keep loading scene visible to show error
-                        return;
-                    }
-
-                    // Check if we've shown 100% progress (wait for at least one frame after completion)
-                    if (_loadingSceneEntity != null)
-                    {
-                        var world = EcsWorld.Instance;
-                        if (world.Has<LoadingProgressComponent>(_loadingSceneEntity.Value))
+                        // Validate initialization result
+                        if (
+                            result.GameServices == null
+                            || result.SystemManager == null
+                            || result.SpriteBatch == null
+                        )
                         {
-                            ref var progressComponent = ref world.Get<LoadingProgressComponent>(
-                                _loadingSceneEntity.Value
+                            _logger.Error(
+                                "Initialization succeeded but required properties are null. GameServices: {GameServices}, SystemManager: {SystemManager}, SpriteBatch: {SpriteBatch}",
+                                result.GameServices != null,
+                                result.SystemManager != null,
+                                result.SpriteBatch != null
                             );
-
-                            // Check if progress is 100% and complete
-                            var isComplete =
-                                progressComponent.IsComplete
-                                && Math.Abs(progressComponent.Progress - 1.0f) < 0.001f;
-
-                            if (isComplete)
-                            {
-                                // Mark that we've seen 100% - next frame we can transition
-                                if (!_hasShownCompleteProgress)
-                                {
-                                    _hasShownCompleteProgress = true;
-                                    _logger.Debug(
-                                        "Loading reached 100% - will transition next frame"
-                                    );
-                                    return; // Wait one more frame to show 100%
-                                }
-                            }
-                            else
-                            {
-                                // Not complete yet, wait
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            // Component missing, wait
+                            // Keep loading renderer visible to show error
                             return;
                         }
+
+                        // Transition from loading to game
+                        _logger.Information("Game initialization complete, transitioning to game");
+
+                        // Assign the SystemManager, GameServices, and SpriteBatch from async init
+                        gameServices = result.GameServices;
+                        systemManager = result.SystemManager;
+                        spriteBatch = result.SpriteBatch;
+
+                        // Dispose loading renderer (we no longer need it)
+                        _loadingRenderer.Dispose();
+                        _loadingRenderer = null;
+
+                        _initializationService = null;
+                        _initializationTask = null;
+
+                        _logger.Information("Transitioned to game systems");
                     }
                     else
                     {
-                        // Entity missing, wait
-                        return;
+                        _logger.Error(
+                            "Game initialization failed: {ErrorMessage}",
+                            result.ErrorMessage
+                        );
+                        // Keep loading renderer visible to show error
                     }
-
-                    // Transition from loading to game
-                    _logger.Information(
-                        "Game initialization complete, transitioning to game scene"
-                    );
-
-                    // IMPORTANT: Save reference to early SystemManager BEFORE reassigning
-                    // so we can dispose it and its event subscriptions properly
-                    var earlySystemManager = systemManager;
-
-                    gameServices = result.GameServices;
-                    systemManager = result.SystemManager;
-                    spriteBatch = result.SpriteBatch;
-
-                    // Dispose early SystemManager (was used for loading screen only)
-                    if (earlySystemManager != null && earlySystemManager != result.SystemManager)
-                        try
-                        {
-                            earlySystemManager.Dispose();
-                            _logger.Debug(
-                                "Disposed early SystemManager and its event subscriptions"
-                            );
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.Warning(ex, "Error disposing early SystemManager");
-                        }
-
-                    // Destroy loading scene (now managed by new SystemManager's SceneSystem)
-                    if (_loadingSceneEntity != null && result.SystemManager != null)
-                    {
-                        try
-                        {
-                            result.SystemManager.SceneSystem.DestroyScene(
-                                _loadingSceneEntity.Value
-                            );
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.Warning(
-                                ex,
-                                "Error destroying loading scene: {Error}",
-                                ex.Message
-                            );
-                        }
-
-                        _loadingSceneEntity = null;
-                    }
-
-                    _initializationService = null;
-                    _initializationTask = null;
-                }
-                else if (!result.Success)
-                {
-                    _logger.Error(
-                        "Game initialization failed: {ErrorMessage}",
-                        result.ErrorMessage
-                    );
-                    // Keep loading scene visible to show error
                 }
             }
+
+            // Don't update game systems while loading
+            base.Update(gameTime);
+            return;
+        }
 
         // Update ECS systems (CameraViewportSystem handles window resize)
         systemManager?.Update(gameTime);
@@ -371,24 +285,28 @@ public class MonoBallGame : Game
     /// </param>
     protected override void Draw(GameTime gameTime)
     {
-        // Determine background color from active scene system
-        // Fail fast if systemManager is not initialized
+        // During loading, render the loading screen
+        if (_loadingRenderer != null)
+        {
+            // LoadingRenderer handles its own Clear and SpriteBatch
+            _loadingRenderer.Render(gameTime);
+            base.Draw(gameTime);
+            return;
+        }
+
+        // After loading, use SystemManager for rendering
         if (systemManager == null)
             throw new InvalidOperationException(
                 "Cannot render: SystemManager is null. "
                     + "Ensure game initialization completed successfully before calling Draw()."
             );
 
-        // Use SceneSystem to determine background color based on active scenes
-        var backgroundColor = systemManager.SceneSystem.GetBackgroundColor();
-
+        // Use SceneSystems to determine background color based on active scenes
+        var backgroundColor = systemManager.SceneSystems.GetBackgroundColor();
         GraphicsDevice.Clear(backgroundColor);
 
-        // Render ECS systems (includes loading scene if still loading, or game scene if loaded)
-        // Loading scene blocks draw, so game scene won't render until loading completes
-        if (systemManager != null)
-            // Use SystemManager's rendering (includes SceneRendererSystem)
-            systemManager.Render(gameTime);
+        // Use SystemManager's rendering (includes SceneRendererSystem)
+        systemManager.Render(gameTime);
 
         base.Draw(gameTime);
     }
@@ -515,6 +433,10 @@ public class MonoBallGame : Game
     {
         if (disposing)
         {
+            // Dispose loading renderer if still active
+            _loadingRenderer?.Dispose();
+            _loadingRenderer = null;
+
             systemManager?.Dispose();
             spriteBatch?.Dispose();
 

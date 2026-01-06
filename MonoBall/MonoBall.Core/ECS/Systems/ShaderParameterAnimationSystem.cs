@@ -17,7 +17,8 @@ namespace MonoBall.Core.ECS.Systems;
 public class ShaderParameterAnimationSystem
     : BaseSystem<World, float>,
         IPrioritizedSystem,
-        IDisposable
+        IDisposable,
+        IShaderParameterAnimationSystem
 {
     private readonly List<ShaderAnimationCompletedEvent> _completedEvents = new();
     private readonly List<Entity> _entitiesToRemoveAnimation = new();

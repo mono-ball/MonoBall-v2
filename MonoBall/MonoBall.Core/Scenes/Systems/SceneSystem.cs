@@ -40,7 +40,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     // Registry for mapping component types to scene systems
     private readonly Dictionary<Type, ISceneSystem> _sceneSystemRegistry = new();
 
-    private readonly ShaderManager? _shaderManagerSystem;
+    private readonly IShaderManager? _shaderManagerSystem;
     private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
     private ISceneSystem? _mapPopupSceneSystem;
@@ -72,7 +72,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
         World world,
         ILogger logger,
         GraphicsDevice graphicsDevice,
-        ShaderManager? shaderManagerSystem = null,
+        IShaderManager? shaderManagerSystem = null,
         ISceneSystem? gameSceneSystem = null,
         ISceneSystem? loadingSceneSystem = null,
         ISceneSystem? debugBarSceneSystem = null,

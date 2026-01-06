@@ -16,12 +16,12 @@ namespace MonoBall.Core.Scripting.Api;
 /// </summary>
 public class ShaderApiImpl : IShaderApi
 {
-    private readonly ShaderAnimationChainSystem? _chainSystem;
+    private readonly IShaderAnimationChainSystem? _chainSystem;
     private readonly DefinitionRegistry _definitionRegistry;
-    private readonly ShaderMultiParameterAnimationSystem? _multiAnimSystem;
+    private readonly IShaderMultiParameterAnimationSystem? _multiAnimSystem;
     private readonly IShaderPresetService? _presetService;
-    private readonly ShaderManager? _shaderManagerSystem;
-    private readonly ShaderTransitionSystem? _transitionSystem;
+    private readonly IShaderManager? _shaderManagerSystem;
+    private readonly IShaderTransitionSystem? _transitionSystem;
     private readonly World _world;
 
     /// <summary>
@@ -30,10 +30,10 @@ public class ShaderApiImpl : IShaderApi
     public ShaderApiImpl(
         World world,
         DefinitionRegistry definitionRegistry,
-        ShaderManager? shaderManagerSystem = null,
-        ShaderTransitionSystem? transitionSystem = null,
-        ShaderMultiParameterAnimationSystem? multiAnimSystem = null,
-        ShaderAnimationChainSystem? chainSystem = null,
+        IShaderManager? shaderManagerSystem = null,
+        IShaderTransitionSystem? transitionSystem = null,
+        IShaderMultiParameterAnimationSystem? multiAnimSystem = null,
+        IShaderAnimationChainSystem? chainSystem = null,
         IShaderPresetService? presetService = null
     )
     {

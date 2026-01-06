@@ -11,7 +11,11 @@ namespace MonoBall.Core.ECS.Systems.Audio;
 /// <summary>
 ///     System that manages audio volume settings and applies them to the audio engine.
 /// </summary>
-public class AudioVolumeSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class AudioVolumeSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IAudioVolumeSystem
 {
     private readonly IAudioEngine _audioEngine;
     private readonly ILogger _logger;

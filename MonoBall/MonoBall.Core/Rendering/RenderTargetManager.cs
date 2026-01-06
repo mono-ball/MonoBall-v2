@@ -10,7 +10,7 @@ namespace MonoBall.Core.Rendering;
 ///     Handles creation, resizing, and disposal of render targets.
 ///     Supports multiple render targets with depth buffers.
 /// </summary>
-public class RenderTargetManager : IDisposable
+public class RenderTargetManager : IRenderTargetManager
 {
     private readonly Dictionary<int, DepthFormat> _depthFormats = new();
     private readonly GraphicsDevice _graphicsDevice;

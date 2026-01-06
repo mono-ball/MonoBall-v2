@@ -4,6 +4,7 @@ using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Systems.Animation;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Resources;
 using Serilog;
@@ -14,7 +15,11 @@ namespace MonoBall.Core.ECS.Systems;
 ///     System responsible for handling sprite sheet change requests for entities that support multiple sprite sheets.
 ///     Currently used by Players, but designed to support NPCs if they need sprite sheet switching in the future.
 /// </summary>
-public class SpriteSheetSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class SpriteSheetSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        ISpriteSheetSystem
 {
     private readonly ILogger _logger;
     private readonly IResourceManager _resourceManager;

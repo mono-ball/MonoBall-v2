@@ -13,7 +13,11 @@ namespace MonoBall.Core.ECS.Systems.Audio;
 /// <summary>
 ///     System that manages looping ambient sounds attached to entities.
 /// </summary>
-public class AmbientSoundSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class AmbientSoundSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IAmbientSoundSystem
 {
     private readonly Dictionary<Entity, ISoundEffectInstance> _ambientInstances = new();
     private readonly QueryDescription _ambientSoundQuery;

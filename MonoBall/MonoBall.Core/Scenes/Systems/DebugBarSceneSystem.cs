@@ -43,7 +43,7 @@ public class DebugBarSceneSystem
         PositionComponent
     >();
 
-    private readonly PerformanceStatsSystem _performanceStatsSystem;
+    private readonly IPerformanceStatsSystem _performanceStatsSystem;
 
     private readonly QueryDescription _playerQuery = new QueryDescription().WithAll<
         PlayerComponent,
@@ -72,7 +72,7 @@ public class DebugBarSceneSystem
         GraphicsDevice graphicsDevice,
         SpriteBatch spriteBatch,
         IResourceManager resourceManager,
-        PerformanceStatsSystem performanceStatsSystem,
+        IPerformanceStatsSystem performanceStatsSystem,
         ILogger logger
     )
         : base(world)

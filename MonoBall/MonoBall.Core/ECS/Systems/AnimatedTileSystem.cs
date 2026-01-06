@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Systems.Animation;
 using MonoBall.Core.Resources;
 using Serilog;
 
@@ -11,7 +12,7 @@ namespace MonoBall.Core.ECS.Systems;
 /// <summary>
 ///     System responsible for updating animation timers and advancing frames for animated tiles.
 /// </summary>
-public class AnimatedTileSystem : BaseSystem<World, float>, IPrioritizedSystem
+public class AnimatedTileSystem : BaseSystem<World, float>, IPrioritizedSystem, IAnimatedTileSystem
 {
     private readonly ILogger _logger;
     private readonly QueryDescription _queryDescription;

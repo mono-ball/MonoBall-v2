@@ -4,7 +4,7 @@ using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS;
-using MonoBall.Core.Scenes.Systems;
+using MonoBall.Core.Scenes;
 using MonoBall.Core.UI.Windows.Animations.Events;
 using Serilog;
 
@@ -17,7 +17,7 @@ namespace MonoBall.Core.UI.Windows.Animations;
 public class WindowAnimationSystem : BaseSystem<World, float>, IPrioritizedSystem
 {
     private readonly QueryDescription _animationQuery;
-    private readonly Func<SceneSystem?> _getSceneSystem;
+    private readonly Func<ISceneSystems?> _getSceneSystems;
     private readonly ILogger _logger;
 
     /// <summary>
@@ -25,13 +25,14 @@ public class WindowAnimationSystem : BaseSystem<World, float>, IPrioritizedSyste
     /// </summary>
     /// <param name="world">The ECS world.</param>
     /// <param name="logger">The logger.</param>
-    /// <param name="getSceneSystem">Function that returns the scene system (may be null if not yet initialized).</param>
+    /// <param name="getSceneSystems">Function that returns the scene systems bundle (may be null if not yet initialized).</param>
     /// <exception cref="ArgumentNullException">Thrown when world or logger is null.</exception>
-    public WindowAnimationSystem(World world, ILogger logger, Func<SceneSystem?> getSceneSystem)
+    public WindowAnimationSystem(World world, ILogger logger, Func<ISceneSystems?> getSceneSystems)
         : base(world ?? throw new ArgumentNullException(nameof(world)))
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _getSceneSystem = getSceneSystem ?? throw new ArgumentNullException(nameof(getSceneSystem));
+        _getSceneSystems =
+            getSceneSystems ?? throw new ArgumentNullException(nameof(getSceneSystems));
         _animationQuery = new QueryDescription().WithAll<WindowAnimationComponent>();
     }
 
@@ -46,12 +47,12 @@ public class WindowAnimationSystem : BaseSystem<World, float>, IPrioritizedSyste
     /// <param name="deltaTime">The elapsed time since last update.</param>
     public override void Update(in float deltaTime)
     {
-        var sceneSystem = _getSceneSystem();
+        var sceneSystems = _getSceneSystems();
         var isBlocked = false;
 
         // Check if updates are blocked by any scene
-        if (sceneSystem != null)
-            isBlocked = sceneSystem.IsUpdateBlocked();
+        if (sceneSystems != null)
+            isBlocked = sceneSystems.IsUpdateBlocked();
 
         var dt = deltaTime;
 
@@ -63,9 +64,9 @@ public class WindowAnimationSystem : BaseSystem<World, float>, IPrioritizedSyste
             (Entity entity, ref WindowAnimationComponent anim) =>
             {
                 // If updates are blocked, only update animations for windows belonging to blocking scenes
-                // Use centralized method from SceneSystem to avoid hardcoding component types
-                if (isBlocked && sceneSystem != null)
-                    if (!sceneSystem.DoesEntityBelongToBlockingScene(anim.WindowEntity))
+                // Use centralized method from SceneSystems to avoid hardcoding component types
+                if (isBlocked && sceneSystems != null)
+                    if (!sceneSystems.DoesEntityBelongToBlockingScene(anim.WindowEntity))
                         return; // Skip this animation - it doesn't belong to a blocking scene
 
                 UpdateAnimation(entity, ref anim, dt, eventsToFire);

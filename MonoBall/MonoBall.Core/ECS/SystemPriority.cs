@@ -225,6 +225,12 @@ public static class SystemPriority
     public const int ShaderParameterAnimation = 500;
 
     /// <summary>
+    ///     Shader parameter timeline system - animates shader parameters using keyframe-based timelines.
+    ///     Runs after ShaderParameterAnimation to handle timeline animations.
+    /// </summary>
+    public const int ShaderParameterTimeline = 501;
+
+    /// <summary>
     ///     Shader multi-parameter animation system - animates multiple parameters simultaneously.
     ///     Runs after ShaderParameterAnimation to handle multi-param animations.
     /// </summary>

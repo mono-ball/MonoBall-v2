@@ -19,24 +19,24 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly IInputBindingService _inputBindingService;
     private readonly ILogger _logger;
 
-    private readonly SceneSystem _sceneSystem;
+    private readonly ISceneManager _sceneManager;
 
     /// <summary>
     ///     Initializes a new instance of the DebugBarToggleSystem.
     /// </summary>
     /// <param name="world">The ECS world.</param>
-    /// <param name="sceneSystem">The scene system for creating/toggling scenes.</param>
+    /// <param name="sceneManager">The scene manager for creating/toggling scenes.</param>
     /// <param name="inputBindingService">The input binding service for checking input.</param>
     /// <param name="logger">The logger for logging operations.</param>
     public DebugBarToggleSystem(
         World world,
-        SceneSystem sceneSystem,
+        ISceneManager sceneManager,
         IInputBindingService inputBindingService,
         ILogger logger
     )
         : base(world)
     {
-        _sceneSystem = sceneSystem ?? throw new ArgumentNullException(nameof(sceneSystem));
+        _sceneManager = sceneManager ?? throw new ArgumentNullException(nameof(sceneManager));
         _inputBindingService =
             inputBindingService ?? throw new ArgumentNullException(nameof(inputBindingService));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -64,7 +64,7 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
             _logger.Debug("F3 key pressed - toggling debug bar");
 
             // Check if scene exists
-            var sceneEntity = _sceneSystem.GetSceneEntity(DebugBarSceneId);
+            var sceneEntity = _sceneManager.GetSceneEntity(DebugBarSceneId);
 
             if (sceneEntity == null)
             {
@@ -72,7 +72,7 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
                 var sceneComponent = CreateDebugBarSceneComponent();
                 var debugBarComponent = new DebugBarSceneComponent();
 
-                var createdSceneEntity = _sceneSystem.CreateScene(
+                var createdSceneEntity = _sceneManager.CreateScene(
                     sceneComponent,
                     debugBarComponent
                 );
@@ -89,7 +89,7 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
                     // Scene entity was destroyed, recreate it
                     var sceneComponent = CreateDebugBarSceneComponent();
                     var debugBarComponent = new DebugBarSceneComponent();
-                    var recreatedSceneEntity = _sceneSystem.CreateScene(
+                    var recreatedSceneEntity = _sceneManager.CreateScene(
                         sceneComponent,
                         debugBarComponent
                     );
@@ -104,7 +104,7 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
                     var newActiveState = !currentActive;
 
                     // Use SetSceneActive which safely handles the modification
-                    _sceneSystem.SetSceneActive(DebugBarSceneId, newActiveState);
+                    _sceneManager.SetSceneActive(DebugBarSceneId, newActiveState);
 
                     _logger.Debug(
                         "Debug bar scene toggled from {OldState} to {NewState}",

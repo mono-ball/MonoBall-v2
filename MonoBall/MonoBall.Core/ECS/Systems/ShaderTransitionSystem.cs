@@ -13,7 +13,11 @@ namespace MonoBall.Core.ECS.Systems;
 ///     System that handles shader transitions with crossfade blending.
 ///     Updates transition progress and blend weights for dual-render blending.
 /// </summary>
-public class ShaderTransitionSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class ShaderTransitionSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IShaderTransitionSystem
 {
     private readonly List<ShaderTransitionCompletedEvent> _completedEvents = new();
     private readonly List<Entity> _entitiesToCleanup = new();

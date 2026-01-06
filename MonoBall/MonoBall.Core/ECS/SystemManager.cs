@@ -13,6 +13,7 @@ using MonoBall.Core.Diagnostics.Services;
 using MonoBall.Core.ECS.Rendering;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
+using MonoBall.Core.ECS.Systems.Animation;
 using MonoBall.Core.ECS.Systems.Audio;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
@@ -35,66 +36,63 @@ namespace MonoBall.Core.ECS;
 /// </summary>
 public class SystemManager : IDisposable
 {
+    private readonly IConstantsService _constantsService;
     private readonly Game _game;
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
     private readonly IModManager _modManager;
     private readonly List<BaseSystem<World, float>> _registeredUpdateSystems = new();
     private readonly IResourceManager _resourceManager;
+    private readonly IShaderParameterValidator _shaderParameterValidator;
+    private readonly IShaderService _shaderService;
     private readonly List<IDisposable> _subscriptions = new();
     private readonly World _world;
     private IActiveMapFilterService _activeMapFilterService = null!; // Initialized in Initialize()
     private ActiveMapManagementSystem _activeMapManagementSystem = null!; // Initialized in Initialize()
-    private AmbientSoundSystem _ambientSoundSystem = null!; // Initialized in Initialize()
-    private AnimatedTileSystem _animatedTileSystem = null!; // Initialized in Initialize()
     private IAudioEngine _audioEngine = null!; // Initialized in Initialize()
-    private AudioVolumeSystem _audioVolumeSystem = null!; // Initialized in Initialize()
     private bool _cachedIsUpdateBlocked;
     private ICameraService _cameraService = null!; // Initialized in Initialize()
     private CameraSystem _cameraSystem = null!; // Initialized in Initialize()
     private CameraViewportSystem _cameraViewportSystem = null!; // Initialized in Initialize()
-    private IFlagVariableService _flagVariableService = null!; // Initialized in InitializeCoreServices()
+    private readonly IFlagVariableService _flagVariableService; // Injected via constructor
 
-    // Scene-specific systems (owned by SceneSystem, not registered separately)
-    private IDebugOverlayService? _debugOverlayService; // Initialized in CreateSceneSystems()
+    // Note: Debug overlay is accessed via _sceneSystems.DebugOverlayService
     private InputBindingService _inputBindingService = null!; // Initialized in Initialize()
     private InputSystem _inputSystem = null!; // Initialized in Initialize()
-    private bool _isDisposed;
+    private volatile bool _isDisposed; // volatile for thread safety in event handlers
 
     private bool _isInitialized;
     private bool _isUpdateBlockedCacheValid;
-    private MapBorderRendererSystem _mapBorderRendererSystem = null!; // Initialized in Initialize()
     private MapConnectionSystem _mapConnectionSystem = null!; // Initialized in Initialize()
     private MapLoaderSystem _mapLoaderSystem = null!; // Initialized in Initialize()
-    private MapMusicSystem _mapMusicSystem = null!; // Initialized in Initialize()
-    private ElevationRendererSystem _elevationRendererSystem = null!; // Initialized in Initialize()
     private MapTransitionDetectionSystem _mapTransitionDetectionSystem = null!; // Initialized in Initialize()
     private MovementSystem _movementSystem = null!; // Initialized in Initialize()
-    private MusicPlaybackSystem _musicPlaybackSystem = null!; // Initialized in Initialize()
     private PlayerSystem _playerSystem = null!; // Initialized in Initialize()
-    private RenderTargetManager? _renderTargetManager; // Initialized in Initialize(), may be null
     private SceneInputSystem _sceneInputSystem = null!; // Initialized in Initialize()
-    private SceneSystem _sceneSystem = null!; // Initialized in Initialize()
+
+    // Note: SceneSystem is accessed via _sceneSystems.SceneSystemInternal (internal use only)
     private ScriptApiProvider? _scriptApiProvider; // Initialized in InitializeCoreServices()
     private ScriptCompilerService? _scriptCompilerService; // Initialized in InitializeCoreServices()
-    private IScriptCompilationCache? _compilationCache; // Retrieved from Game.Services in InitializeCoreServices()
+    private readonly IScriptCompilationCache _compilationCache; // Injected via constructor
     private ScriptLifecycleSystem? _scriptLifecycleSystem; // Initialized in CreateGameSystems()
     private ScriptLoaderService? _scriptLoaderService; // Initialized in InitializeCoreServices()
-    private ShaderAnimationChainSystem? _shaderChainSystem; // Initialized in Initialize(), may be null
-    private ShaderManager? _shaderManagerSystem; // Initialized in Initialize(), may be null
-    private ShaderMultiParameterAnimationSystem? _shaderMultiAnimSystem; // Initialized in Initialize(), may be null
-    private ShaderParameterAnimationSystem? _shaderParameterAnimationSystem; // Initialized in Initialize(), may be null
-    private IShaderPresetService? _shaderPresetService; // Initialized in Initialize(), may be null
-    private ShaderRegionDetectionSystem? _shaderRegionSystem; // Initialized in Initialize(), may be null
-    private ShaderRendererSystem? _shaderRendererSystem; // Initialized in Initialize(), may be null
-    private ShaderTemplateSystem? _shaderTemplateSystem; // Initialized in Initialize(), may be null
-    private ShaderTransitionSystem? _shaderTransitionSystem; // Initialized in Initialize(), may be null
-    private SoundEffectSystem _soundEffectSystem = null!; // Initialized in Initialize()
-    private SpriteAnimationSystem _spriteAnimationSystem = null!; // Initialized in Initialize()
-    private SpriteBatch? _spriteBatch;
 
-    // SpriteRendererSystem removed - rendering now handled by ElevationRendererSystem
-    private SpriteSheetSystem _spriteSheetSystem = null!; // Initialized in Initialize()
+    // Shader systems bundle (created by factory)
+    private IShaderSystems? _shaderSystems; // Initialized in CreateShaderSystems()
+
+    // Audio systems bundle (created by factory)
+    private IAudioSystems? _audioSystems; // Initialized in CreateAudioSystems()
+
+    // Animation systems bundle (created by factory)
+    private IAnimationSystems? _animationSystems; // Initialized in CreateAnimationAndVisibilitySystems()
+
+    // Rendering systems bundle (created by factory)
+    private IRenderingSystems? _renderingSystems; // Initialized in CreateRenderSystems()
+
+    // Scene systems bundle (created by factory)
+    private ISceneSystems? _sceneSystems; // Initialized in CreateSceneSpecificSystems()
+
+    private SpriteBatch? _spriteBatch;
 
     private Group<float> _updateSystems = null!; // Initialized in Initialize()
     private IVariableSpriteResolver? _variableSpriteResolver; // Initialized in Initialize()
@@ -107,7 +105,6 @@ public class SystemManager : IDisposable
     private ITileInteractionDispatcher _tileInteractionDispatcher = null!;
     private ICollisionService _collisionService = null!;
     private SpatialHashSystem _spatialHashSystem = null!;
-    private VisibilityFlagSystem _visibilityFlagSystem = null!; // Initialized in Initialize()
 
     /// <summary>
     ///     Initializes a new instance of the SystemManager.
@@ -116,13 +113,23 @@ public class SystemManager : IDisposable
     /// <param name="graphicsDevice">The graphics device.</param>
     /// <param name="modManager">The mod manager.</param>
     /// <param name="resourceManager">The resource manager service.</param>
-    /// <param name="game">The game instance for accessing services.</param>
+    /// <param name="shaderService">The shader service for loading and managing shaders.</param>
+    /// <param name="shaderParameterValidator">The shader parameter validator.</param>
+    /// <param name="flagVariableService">The flag/variable service for game state.</param>
+    /// <param name="scriptCompilationCache">The shared script compilation cache.</param>
+    /// <param name="constantsService">The constants service for game configuration.</param>
+    /// <param name="game">The game instance for Content and Window access.</param>
     /// <param name="logger">The logger for logging operations.</param>
     public SystemManager(
         World world,
         GraphicsDevice graphicsDevice,
         IModManager modManager,
         IResourceManager resourceManager,
+        IShaderService shaderService,
+        IShaderParameterValidator shaderParameterValidator,
+        IFlagVariableService flagVariableService,
+        IScriptCompilationCache scriptCompilationCache,
+        IConstantsService constantsService,
         Game game,
         ILogger logger
     )
@@ -132,6 +139,17 @@ public class SystemManager : IDisposable
         _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
+        _shaderService = shaderService ?? throw new ArgumentNullException(nameof(shaderService));
+        _shaderParameterValidator =
+            shaderParameterValidator
+            ?? throw new ArgumentNullException(nameof(shaderParameterValidator));
+        _flagVariableService =
+            flagVariableService ?? throw new ArgumentNullException(nameof(flagVariableService));
+        _compilationCache =
+            scriptCompilationCache
+            ?? throw new ArgumentNullException(nameof(scriptCompilationCache));
+        _constantsService =
+            constantsService ?? throw new ArgumentNullException(nameof(constantsService));
         _game = game ?? throw new ArgumentNullException(nameof(game));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
@@ -156,7 +174,7 @@ public class SystemManager : IDisposable
     ///     Gets the elevation renderer system.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
-    public ElevationRendererSystem ElevationRendererSystem
+    public ElevationRendererSystem? ElevationRendererSystem
     {
         get
         {
@@ -164,7 +182,7 @@ public class SystemManager : IDisposable
                 throw new InvalidOperationException(
                     "Systems are not initialized. Call Initialize() first."
                 );
-            return _elevationRendererSystem;
+            return _renderingSystems?.ElevationRendererSystem;
         }
     }
 
@@ -185,10 +203,10 @@ public class SystemManager : IDisposable
     }
 
     /// <summary>
-    ///     Gets the scene system.
+    ///     Gets the scene systems bundle.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown if systems are not initialized.</exception>
-    public SceneSystem SceneSystem
+    public ISceneSystems SceneSystems
     {
         get
         {
@@ -196,7 +214,7 @@ public class SystemManager : IDisposable
                 throw new InvalidOperationException(
                     "Systems are not initialized. Call Initialize() first."
                 );
-            return _sceneSystem;
+            return _sceneSystems!;
         }
     }
 
@@ -212,7 +230,7 @@ public class SystemManager : IDisposable
                 throw new InvalidOperationException(
                     "Systems are not initialized. Call Initialize() first."
                 );
-            return _sceneSystem.LoadingSceneSystem;
+            return _sceneSystems?.LoadingSceneSystem as LoadingSceneSystem;
         }
     }
 
@@ -256,9 +274,12 @@ public class SystemManager : IDisposable
         if (_isDisposed)
             return;
 
+        // Set disposed flag FIRST to prevent event handlers from running during disposal
+        _isDisposed = true;
+
         _logger.Debug("Disposing systems");
 
-        // Unsubscribe from events FIRST (before disposing systems)
+        // Unsubscribe from events (after setting flag, before disposing systems)
         // This prevents memory leaks from event handlers holding references to SystemManager
         foreach (var subscription in _subscriptions)
             subscription.Dispose();
@@ -266,7 +287,7 @@ public class SystemManager : IDisposable
         if (_isInitialized)
         {
             _updateSystems.Dispose();
-            _sceneSystem?.Cleanup();
+            _sceneSystems?.Cleanup();
         }
 
         // Reset to null after disposal (systems are no longer valid)
@@ -275,47 +296,31 @@ public class SystemManager : IDisposable
         _mapConnectionSystem = null!;
         _cameraSystem = null!;
         _cameraViewportSystem = null!;
-        _elevationRendererSystem = null!;
-        _animatedTileSystem = null!;
-        _spriteAnimationSystem = null!;
-        _spriteSheetSystem = null!;
         _playerSystem = null!;
         _inputSystem = null!;
         _movementSystem = null!;
         _mapTransitionDetectionSystem = null!;
-        _sceneSystem = null!;
         _sceneInputSystem = null!;
 
-        // Dispose shader systems
-        _shaderParameterAnimationSystem?.Dispose();
-        _shaderParameterAnimationSystem = null;
-        _shaderTransitionSystem?.Dispose();
-        _shaderTransitionSystem = null;
-        _shaderMultiAnimSystem?.Dispose();
-        _shaderMultiAnimSystem = null;
-        _shaderChainSystem?.Dispose();
-        _shaderChainSystem = null;
-        _shaderRegionSystem?.Dispose();
-        _shaderRegionSystem = null;
-        _shaderPresetService = null; // Service doesn't implement IDisposable
-        _renderTargetManager?.Dispose();
-        _renderTargetManager = null;
-        // ShaderManager doesn't need disposal (no managed resources)
+        // Dispose shader systems bundle (handles all shader system disposal)
+        _shaderSystems?.Dispose();
+        _shaderSystems = null;
 
-        // Dispose debug overlay service
-        _debugOverlayService?.Dispose();
-        _debugOverlayService = null;
+        // Dispose animation systems bundle (handles all animation system disposal)
+        _animationSystems?.Dispose();
+        _animationSystems = null;
 
-        // Dispose audio systems
-        _mapMusicSystem?.Dispose();
-        _mapMusicSystem = null!;
-        _musicPlaybackSystem?.Dispose();
-        _musicPlaybackSystem = null!;
-        _ambientSoundSystem?.Dispose();
-        _ambientSoundSystem = null!;
-        _audioVolumeSystem?.Dispose();
-        _audioVolumeSystem = null!;
-        // SoundEffectSystem doesn't need disposal (no event subscriptions)
+        // Dispose rendering systems bundle (handles all rendering system disposal)
+        _renderingSystems?.Dispose();
+        _renderingSystems = null;
+
+        // Dispose scene systems bundle (handles SceneSystem and DebugOverlayService disposal)
+        _sceneSystems?.Dispose();
+        _sceneSystems = null;
+
+        // Dispose audio systems bundle (handles all audio system disposal)
+        _audioSystems?.Dispose();
+        _audioSystems = null;
 
         // Dispose audio engine
         if (_audioEngine is IDisposable audioEngineDisposable)
@@ -335,8 +340,6 @@ public class SystemManager : IDisposable
         // NOTE: Do NOT dispose or clear the compilation cache (_compilationCache)
         // It's a shared singleton that persists across SystemManager instances
         // The cache is disposed by Game.Services when the game exits
-
-        _isDisposed = true;
     }
 
     /// <summary>
@@ -419,10 +422,6 @@ public class SystemManager : IDisposable
 
         // ResourceManager is already available from constructor (no need to get FontService)
 
-        // Get ConstantsService from Game.Services (needed for scene systems)
-        // Use helper method for consistency
-        var constantsService = GetConstantsService();
-
         // LoadingSceneSystem no longer needs LoadingSceneRendererSystem - it handles rendering internally
 
         // Create game systems
@@ -458,49 +457,17 @@ public class SystemManager : IDisposable
         // - FlagVariableMetadataComponent
         // Example: world.RegisterComponent<FlagsComponent>();
 
-        // Get FlagVariableService from Game.Services
-        var flagVariableService = _game.Services.GetService<IFlagVariableService>();
-        if (flagVariableService == null)
-            throw new InvalidOperationException(
-                "IFlagVariableService is not available in Game.Services. "
-                    + "Ensure GameServices.Initialize() was called."
-            );
-
-        // Assign to field for use by other systems
-        _flagVariableService = flagVariableService;
-
-        // Create VariableSpriteResolver
+        // Create VariableSpriteResolver using injected FlagVariableService
         _variableSpriteResolver = new VariableSpriteResolver(
             _flagVariableService,
             LoggerFactory.CreateLogger<VariableSpriteResolver>()
         );
-
-        // Get ResourceManager from Game.Services (should already be registered)
-        var resourceManager = _game.Services.GetService<IResourceManager>();
-        if (resourceManager == null)
-            throw new InvalidOperationException(
-                "IResourceManager is not available in Game.Services. "
-                    + "Ensure ResourceManager was created and registered before SystemManager initialization."
-            );
-
-        // Note: ResourceManager is passed via constructor, but we also need it from Game.Services
-        // for systems that access it directly. The constructor parameter is the primary source.
 
         _cameraService = new CameraService(_world, LoggerFactory.CreateLogger<CameraService>());
 
         // Create active map filter service (used by multiple systems for filtering entities by active maps)
         // Must be created before render systems that depend on it
         _activeMapFilterService = new ActiveMapFilterService(_world);
-
-        // Get shared script compilation cache from Game.Services
-        _compilationCache = _game.Services.GetService<IScriptCompilationCache>();
-        if (_compilationCache == null)
-        {
-            throw new InvalidOperationException(
-                "IScriptCompilationCache not registered in Game.Services. "
-                    + "Ensure the cache is registered before creating SystemManager."
-            );
-        }
 
         // Create script services (after mods are loaded)
         _scriptCompilerService = new ScriptCompilerService(
@@ -525,7 +492,7 @@ public class SystemManager : IDisposable
             null, // MapLoaderSystem - will be set later
             null, // MovementSystem - will be set later
             _cameraService,
-            flagVariableService,
+            _flagVariableService,
             _modManager.Registry
         );
 
@@ -539,33 +506,17 @@ public class SystemManager : IDisposable
     }
 
     /// <summary>
-    ///     Creates scene input system (needs SceneSystem, so created after SceneSystem is created).
+    ///     Creates scene input system (needs SceneSystems, so created after scene systems are created).
     /// </summary>
     private void CreateSceneInputSystem()
     {
-        // Create scene input system (needs SceneSystem, so created after SceneSystem)
+        // Create scene input system (needs SceneSystems, so created after scene systems)
         _sceneInputSystem = new SceneInputSystem(
             _world,
-            _sceneSystem,
+            _sceneSystems!,
             LoggerFactory.CreateLogger<SceneInputSystem>()
         );
         RegisterUpdateSystem(_sceneInputSystem);
-    }
-
-    /// <summary>
-    ///     Gets the ConstantsService from Game.Services, throwing if not available.
-    /// </summary>
-    /// <returns>The ConstantsService instance.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if ConstantsService is not available.</exception>
-    private ConstantsService GetConstantsService()
-    {
-        var service = _game.Services.GetService<ConstantsService>();
-        if (service == null)
-            throw new InvalidOperationException(
-                "ConstantsService is not available in Game.Services. "
-                    + "Ensure ConstantsService was registered after mods were loaded."
-            );
-        return service;
     }
 
     /// <summary>
@@ -573,20 +524,6 @@ public class SystemManager : IDisposable
     /// </summary>
     private void CreateGameSystems()
     {
-        // Get FlagVariableService from Game.Services
-        var flagVariableService = _game.Services.GetService<IFlagVariableService>();
-        if (flagVariableService == null)
-            throw new InvalidOperationException(
-                "IFlagVariableService is not available in Game.Services. "
-                    + "Ensure GameServices.Initialize() was called."
-            );
-
-        // Create shader services and systems
-        CreateShaderSystems();
-
-        // Get ConstantsService from Game.Services (needed for multiple systems)
-        var constantsService = GetConstantsService();
-
         // Create collision services (needed before MapLoaderSystem for loading collision data)
         _collisionLayerCache = new CollisionLayerCache();
         _entityElevationService = new EntityElevationService(_world);
@@ -610,7 +547,7 @@ public class SystemManager : IDisposable
             _variableSpriteResolver,
             _collisionLayerCache,
             LoggerFactory.CreateLogger<MapLoaderSystem>(),
-            constantsService // Pass ConstantsService for accessing constants
+            _constantsService // Pass ConstantsService for accessing constants
         );
         RegisterUpdateSystem(_mapLoaderSystem);
 
@@ -655,15 +592,15 @@ public class SystemManager : IDisposable
             _resourceManager,
             _modManager,
             LoggerFactory.CreateLogger<PlayerSystem>(),
-            constantsService // Pass ConstantsService for accessing constants
+            _constantsService // Pass ConstantsService for accessing constants
         );
         RegisterUpdateSystem(_playerSystem);
 
         // Create input and movement services
         var inputBuffer = new InputBuffer(
             LoggerFactory.CreateLogger<InputBuffer>(),
-            constantsService.Get<int>("InputBufferMaxSize"),
-            constantsService.Get<float>("InputBufferTimeoutSeconds")
+            _constantsService.Get<int>("InputBufferMaxSize"),
+            _constantsService.Get<float>("InputBufferTimeoutSeconds")
         );
         _inputBindingService = new InputBindingService(
             LoggerFactory.CreateLogger<InputBindingService>()
@@ -674,13 +611,13 @@ public class SystemManager : IDisposable
             _world,
             _inputBindingService,
             _modManager.Registry,
-            constantsService,
+            _constantsService,
             LoggerFactory.CreateLogger<InteractionSystem>()
         );
         RegisterUpdateSystem(interactionSystem);
         // Create scene-based input blocker (checks if any scene has BlocksInput=true)
-        // Use a lambda to get _sceneSystem lazily since it's created later in CreateSceneSpecificSystems()
-        var sceneInputBlocker = new SceneInputBlocker(() => _sceneSystem);
+        // Use a lambda to get _sceneSystems lazily since it's created later in CreateSceneSpecificSystems()
+        var sceneInputBlocker = new SceneInputBlocker(() => _sceneSystems);
 
         // Create SpatialHashSystem for entity position queries (implements IEntityPositionService)
         // Must run early to rebuild spatial hash before collision queries
@@ -714,12 +651,11 @@ public class SystemManager : IDisposable
         RegisterUpdateSystem(_inputSystem);
 
         // Create movement system (handles animation state directly, matching oldmonoball architecture)
-        // Reuse constantsService from earlier in this method
         _movementSystem = new MovementSystem(
             _world,
             _collisionService,
             _activeMapFilterService,
-            constantsService,
+            _constantsService,
             _modManager,
             LoggerFactory.CreateLogger<MovementSystem>()
         );
@@ -741,419 +677,198 @@ public class SystemManager : IDisposable
         );
         RegisterUpdateSystem(_cameraSystem);
 
-        var constantsServiceForCamera = GetConstantsService();
         _cameraViewportSystem = new CameraViewportSystem(
             _world,
             _graphicsDevice,
-            constantsServiceForCamera.Get<int>("ReferenceWidth"),
-            constantsServiceForCamera.Get<int>("ReferenceHeight"),
+            _constantsService.Get<int>("ReferenceWidth"),
+            _constantsService.Get<int>("ReferenceHeight"),
             LoggerFactory.CreateLogger<CameraViewportSystem>()
         );
         RegisterUpdateSystem(_cameraViewportSystem);
+
+        // Create shader services and systems (after _inputBindingService and _playerSystem are created)
+        // ShaderCycleSystem needs these for F4/F5 key handling
+        CreateShaderSystems();
     }
 
     /// <summary>
-    ///     Creates shader-related systems.
+    ///     Creates shader-related systems using the factory.
     /// </summary>
     private void CreateShaderSystems()
     {
-        // Create shader services and systems
-        var shaderService = _game.Services.GetService<IShaderService>();
-        var shaderParameterValidator = _game.Services.GetService<IShaderParameterValidator>();
+        // Create shared context for system creation
+        var context = new SystemCreationContext(
+            _world,
+            _graphicsDevice,
+            _spriteBatch!,
+            _modManager,
+            _resourceManager,
+            _shaderService,
+            _shaderParameterValidator,
+            _constantsService,
+            _game,
+            _logger
+        );
 
-        if (shaderService != null && shaderParameterValidator != null)
-        {
-            _renderTargetManager = new RenderTargetManager(
-                _graphicsDevice,
-                LoggerFactory.CreateLogger<RenderTargetManager>()
-            );
-            _shaderManagerSystem = new ShaderManager(
-                _world,
-                shaderService,
-                shaderParameterValidator,
-                _graphicsDevice,
-                LoggerFactory.CreateLogger<ShaderManager>()
-            );
-            _shaderRendererSystem = new ShaderRendererSystem(
-                LoggerFactory.CreateLogger<ShaderRendererSystem>()
-            );
-            _shaderParameterAnimationSystem = new ShaderParameterAnimationSystem(
-                _world,
-                _shaderManagerSystem,
-                LoggerFactory.CreateLogger<ShaderParameterAnimationSystem>()
-            );
-            _shaderTemplateSystem = new ShaderTemplateSystem(
-                _world,
-                _modManager,
-                LoggerFactory.CreateLogger<ShaderTemplateSystem>()
-            );
-
-            // Create shader transition system
-            _shaderTransitionSystem = new ShaderTransitionSystem(
-                _world,
-                _shaderManagerSystem,
-                LoggerFactory.CreateLogger<ShaderTransitionSystem>()
-            );
-            RegisterUpdateSystem(_shaderTransitionSystem);
-
-            // Create multi-parameter animation system
-            _shaderMultiAnimSystem = new ShaderMultiParameterAnimationSystem(
-                _world,
-                _shaderManagerSystem,
-                LoggerFactory.CreateLogger<ShaderMultiParameterAnimationSystem>()
-            );
-            RegisterUpdateSystem(_shaderMultiAnimSystem);
-
-            // Create animation chain system
-            _shaderChainSystem = new ShaderAnimationChainSystem(
-                _world,
-                _shaderManagerSystem,
-                LoggerFactory.CreateLogger<ShaderAnimationChainSystem>()
-            );
-            RegisterUpdateSystem(_shaderChainSystem);
-
-            // Create shader region detection system
-            _shaderRegionSystem = new ShaderRegionDetectionSystem(
-                _world,
-                _shaderTransitionSystem,
-                LoggerFactory.CreateLogger<ShaderRegionDetectionSystem>()
-            );
-            RegisterUpdateSystem(_shaderRegionSystem);
-
-            // Create shader preset service
-            _shaderPresetService = new ShaderPresetService(
-                _modManager.Registry,
-                LoggerFactory.CreateLogger<ShaderPresetService>()
-            );
-        }
+        // Use factory to create shader systems bundle
+        // Pass _inputBindingService and _playerSystem for ShaderCycleSystem (F4/F5 key handling)
+        var factory = new ShaderSystemFactory();
+        _shaderSystems = factory.Create(
+            context,
+            _inputBindingService,
+            _playerSystem,
+            _registeredUpdateSystems
+        );
     }
 
     /// <summary>
-    ///     Creates render systems (elevation-based unified renderer).
+    ///     Creates render systems (elevation-based unified renderer) using the factory.
     /// </summary>
     private void CreateRenderSystems()
     {
-        if (_spriteBatch == null)
-            throw new InvalidOperationException(
-                "SpriteBatch is null. Ensure Initialize() was called with a valid SpriteBatch."
-            );
-
-        // Create map border renderer system (needed by ElevationRendererSystem for border integration)
-        _mapBorderRendererSystem = new MapBorderRendererSystem(
+        // Create shared context for system creation
+        var context = new SystemCreationContext(
             _world,
             _graphicsDevice,
+            _spriteBatch!,
+            _modManager,
             _resourceManager,
+            _shaderService,
+            _shaderParameterValidator,
+            _constantsService,
+            _game,
+            _logger
+        );
+
+        // Use factory to create rendering systems bundle
+        var factory = new RenderingSystemFactory();
+        _renderingSystems = factory.Create(
+            context,
             _cameraService,
             _activeMapFilterService,
-            LoggerFactory.CreateLogger<MapBorderRendererSystem>()
-        );
-        _mapBorderRendererSystem.SetSpriteBatch(_spriteBatch);
-
-        // Get shader service for sprite renderer
-        var shaderService = _game.Services.GetService<IShaderService>();
-
-        // Create helper renderers for ElevationRendererSystem
-        var tileChunkRenderer = new TileChunkRenderer(
-            _resourceManager,
-            _modManager.Registry,
-            LoggerFactory.CreateLogger<TileChunkRenderer>()
-        );
-
-        var spriteRenderer = new SpriteRenderer(
-            _graphicsDevice,
-            _resourceManager,
-            _cameraService,
-            LoggerFactory.CreateLogger<SpriteRenderer>(),
-            shaderService
-        );
-
-        // Create unified elevation-based renderer
-        _elevationRendererSystem = new ElevationRendererSystem(
-            _world,
-            _graphicsDevice,
-            _resourceManager,
-            _cameraService,
-            tileChunkRenderer,
-            spriteRenderer,
-            _spriteBatch,
-            LoggerFactory.CreateLogger<ElevationRendererSystem>(),
-            _mapBorderRendererSystem,
-            _shaderManagerSystem,
-            _shaderRendererSystem,
-            _renderTargetManager
+            _shaderSystems
         );
     }
 
     /// <summary>
-    ///     Creates animation and visibility systems (animated tiles, sprite animation, sprite sheets, visibility flags,
-    ///     performance stats).
+    ///     Creates animation and visibility systems using the factory.
     /// </summary>
     private void CreateAnimationAndVisibilitySystems()
     {
-        // Create animated tile system
-        _animatedTileSystem = new AnimatedTileSystem(
+        // Create shared context for system creation
+        var context = new SystemCreationContext(
             _world,
+            _graphicsDevice,
+            _spriteBatch!,
+            _modManager,
             _resourceManager,
-            LoggerFactory.CreateLogger<AnimatedTileSystem>()
+            _shaderService,
+            _shaderParameterValidator,
+            _constantsService,
+            _game,
+            _logger
         );
-        RegisterUpdateSystem(_animatedTileSystem);
 
-        // Create sprite animation system
-        _spriteAnimationSystem = new SpriteAnimationSystem(
-            _world,
-            _resourceManager,
-            LoggerFactory.CreateLogger<SpriteAnimationSystem>()
+        // Use factory to create animation systems bundle
+        var factory = new AnimationSystemFactory();
+        _animationSystems = factory.Create(
+            context,
+            _flagVariableService,
+            () => _sceneSystems, // Function to get SceneSystems (null-safe)
+            _registeredUpdateSystems
         );
-        RegisterUpdateSystem(_spriteAnimationSystem);
-
-        // Create sprite sheet system
-        _spriteSheetSystem = new SpriteSheetSystem(
-            _world,
-            _resourceManager,
-            LoggerFactory.CreateLogger<SpriteSheetSystem>()
-        );
-        RegisterUpdateSystem(_spriteSheetSystem);
-
-        // Create window animation system
-        // Pass function to get SceneSystem (may be null initially, but will be set before first update)
-        var windowAnimationSystem = new WindowAnimationSystem(
-            _world,
-            LoggerFactory.CreateLogger<WindowAnimationSystem>(),
-            () => _sceneSystem // Function to get SceneSystem (null-safe)
-        );
-        RegisterUpdateSystem(windowAnimationSystem);
-
-        // Create visibility flag system
-        var flagVariableService = _game.Services.GetService<IFlagVariableService>();
-        if (flagVariableService == null)
-            throw new InvalidOperationException(
-                "IFlagVariableService is not available in Game.Services. "
-                    + "Ensure GameServices.Initialize() was called."
-            );
-        _visibilityFlagSystem = new VisibilityFlagSystem(
-            _world,
-            flagVariableService,
-            LoggerFactory.CreateLogger<VisibilityFlagSystem>()
-        );
-        RegisterUpdateSystem(_visibilityFlagSystem);
-
-        // Create performance stats system
-        var performanceStatsSystem = new PerformanceStatsSystem(
-            _world,
-            LoggerFactory.CreateLogger<PerformanceStatsSystem>()
-        );
-        RegisterUpdateSystem(performanceStatsSystem);
     }
 
     /// <summary>
-    ///     Creates audio systems.
+    ///     Creates audio systems using the factory.
     /// </summary>
     private void CreateAudioSystems()
     {
-        // Create audio systems
-        _mapMusicSystem = new MapMusicSystem(
+        // Create shared context for system creation
+        var context = new SystemCreationContext(
             _world,
-            _sceneSystem, // Pass SceneSystem as ISceneManager
-            LoggerFactory.CreateLogger<MapMusicSystem>()
+            _graphicsDevice,
+            _spriteBatch!,
+            _modManager,
+            _resourceManager,
+            _shaderService,
+            _shaderParameterValidator,
+            _constantsService,
+            _game,
+            _logger
         );
-        RegisterUpdateSystem(_mapMusicSystem);
 
-        _musicPlaybackSystem = new MusicPlaybackSystem(
-            _world,
-            _modManager.Registry,
+        // Use factory to create audio systems bundle
+        var factory = new AudioSystemFactory();
+        _audioSystems = factory.Create(
+            context,
+            _sceneSystems?.SceneManager!,
             _audioEngine,
-            LoggerFactory.CreateLogger<MusicPlaybackSystem>()
+            _registeredUpdateSystems
         );
-        RegisterUpdateSystem(_musicPlaybackSystem);
-
-        _soundEffectSystem = new SoundEffectSystem(
-            _world,
-            _modManager.Registry,
-            _audioEngine,
-            LoggerFactory.CreateLogger<SoundEffectSystem>()
-        );
-        RegisterUpdateSystem(_soundEffectSystem);
-
-        _ambientSoundSystem = new AmbientSoundSystem(
-            _world,
-            _modManager.Registry,
-            _audioEngine,
-            LoggerFactory.CreateLogger<AmbientSoundSystem>()
-        );
-        RegisterUpdateSystem(_ambientSoundSystem);
-
-        _audioVolumeSystem = new AudioVolumeSystem(
-            _world,
-            _audioEngine,
-            LoggerFactory.CreateLogger<AudioVolumeSystem>()
-        );
-        RegisterUpdateSystem(_audioVolumeSystem);
     }
 
     /// <summary>
-    ///     Creates scene-specific systems (game scene, debug bar, popups).
+    ///     Creates scene-specific systems (game scene, debug bar, popups) using the factory.
     /// </summary>
     private void CreateSceneSpecificSystems()
     {
-        // Get ConstantsService from Game.Services (needed for scene systems)
-        var constantsService = GetConstantsService();
-
-        // ResourceManager is already available from constructor (no need to get FontService)
-
-        // Get performance stats system (needed for debug bar)
-        var performanceStatsSystem = _registeredUpdateSystems
-            .OfType<PerformanceStatsSystem>()
-            .FirstOrDefault();
-        if (performanceStatsSystem == null)
-            throw new InvalidOperationException(
-                "PerformanceStatsSystem not found. Ensure it was registered before calling CreateSceneSpecificSystems."
-            );
-
-        // Create scene-specific systems first
         if (_spriteBatch == null)
             throw new InvalidOperationException(
                 "SpriteBatch must be initialized before creating scene-specific systems."
             );
-        var loadingSceneSystem = new LoadingSceneSystem(
+
+        // Create context with all dependencies needed by scene factory
+        var context = new SceneSystemCreationContext(
             _world,
             _graphicsDevice,
             _spriteBatch,
             _game,
-            LoggerFactory.CreateLogger<LoadingSceneSystem>()
-        );
-
-        var gameSceneSystem = new GameSceneSystem(
-            _world,
-            _graphicsDevice,
-            _spriteBatch,
-            _elevationRendererSystem,
-            _shaderManagerSystem,
-            _shaderRendererSystem,
-            _renderTargetManager,
-            LoggerFactory.CreateLogger<GameSceneSystem>()
-        );
-
-        var debugBarSceneSystem = new DebugBarSceneSystem(
-            _world,
-            _graphicsDevice,
-            _spriteBatch,
+            _modManager,
             _resourceManager,
-            performanceStatsSystem,
-            LoggerFactory.CreateLogger<DebugBarSceneSystem>()
-        );
-
-        // Create SceneSystem with scene-specific systems (except MapPopupSceneSystem which needs SceneSystem)
-        _sceneSystem = new SceneSystem(
-            _world,
-            LoggerFactory.CreateLogger<SceneSystem>(),
-            _graphicsDevice,
-            _shaderManagerSystem,
-            gameSceneSystem, // ISceneSystem
-            loadingSceneSystem, // ISceneSystem
-            debugBarSceneSystem // MapPopupSceneSystem will be created after SceneSystem
-        );
-
-        // Create MapPopupSceneSystem (needs ISceneManager, which SceneSystem implements)
-        var mapPopupSceneSystem = new MapPopupSceneSystem(
-            _world,
-            _sceneSystem, // Pass SceneSystem as ISceneManager
-            _graphicsDevice,
-            _spriteBatch,
-            _modManager,
-            LoggerFactory.CreateLogger<MapPopupSceneSystem>(),
-            constantsService, // Pass ConstantsService for accessing constants
-            _resourceManager // Pass ResourceManager for loading textures and fonts
-        );
-
-        // Register MapPopupSceneSystem with SceneSystem (as ISceneSystem)
-        _sceneSystem.SetMapPopupSceneSystem(mapPopupSceneSystem);
-
-        // Create TextEffectCalculator for animated text effects
-        var textEffectCalculator = new TextEffectCalculator();
-
-        // Create MessageBoxSceneSystem (needs ISceneManager, which SceneSystem implements)
-        var messageBoxSceneSystem = new MessageBoxSceneSystem(
-            _world,
-            _sceneSystem, // Pass SceneSystem as ISceneManager
-            _modManager,
+            _constantsService,
             _inputBindingService,
+            _cameraService,
             _flagVariableService,
-            _cameraService, // Pass CameraService for camera queries
-            _graphicsDevice,
-            _spriteBatch,
-            LoggerFactory.CreateLogger<MessageBoxSceneSystem>(),
-            constantsService, // Pass ConstantsService for accessing constants
-            textEffectCalculator, // Pass TextEffectCalculator for text effects
-            _resourceManager // Pass ResourceManager for loading textures and fonts
+            _shaderSystems,
+            _renderingSystems,
+            _animationSystems,
+            _playerSystem,
+            _shaderService,
+            _logger
         );
 
-        // Register MessageBoxSceneSystem with SceneSystem (as ISceneSystem)
-        _sceneSystem.SetMessageBoxSceneSystem(messageBoxSceneSystem);
+        // Use factory to create scene systems bundle
+        var factory = new SceneSystemFactory();
+        _sceneSystems = factory.Create(context, _registeredUpdateSystems);
 
-        // Register MessageBoxSceneSystem with update systems (it implements IPrioritizedSystem)
-        RegisterUpdateSystem(messageBoxSceneSystem);
-
-        // Only register SceneSystem (not scene-specific systems - they're owned by SceneSystem)
-        RegisterUpdateSystem(_sceneSystem);
-
-        // Create scene input system (needs SceneSystem, so created after it)
+        // Create scene input system (needs SceneManager, so created after factory)
         CreateSceneInputSystem();
 
         // Create map popup system (handles popup lifecycle based on map transitions)
-        var mapPopupSystem = new MapPopupSystem(
-            _world,
-            _sceneSystem, // Pass SceneSystem as ISceneManager
-            _modManager,
-            LoggerFactory.CreateLogger<MapPopupSystem>(),
-            constantsService // Pass ConstantsService for accessing constants
-        );
-        RegisterUpdateSystem(mapPopupSystem);
-
-        // Create debug bar toggle system
-        var debugBarToggleSystem = new DebugBarToggleSystem(
-            _world,
-            _sceneSystem,
-            _inputBindingService,
-            LoggerFactory.CreateLogger<DebugBarToggleSystem>()
-        );
-        RegisterUpdateSystem(debugBarToggleSystem);
-
-        // Create ImGui debug overlay service and scene system
-        _debugOverlayService = new DebugOverlayService(_world);
-        _debugOverlayService.Initialize(_game, _resourceManager, _sceneSystem, _modManager);
-
-        var debugMenuSceneSystem = new DebugMenuSceneSystem(
-            _world,
-            _sceneSystem, // Pass SceneSystem as ISceneManager
-            _inputBindingService,
-            _debugOverlayService
-        );
-
-        // Register DebugMenuSceneSystem with SceneSystem (as ISceneSystem)
-        _sceneSystem.SetDebugMenuSceneSystem(debugMenuSceneSystem);
-
-        // Register DebugMenuSceneSystem with update systems (it implements IPrioritizedSystem)
-        RegisterUpdateSystem(debugMenuSceneSystem);
-
-        // Create shader cycle system (for cycling through shader effects with F4 and F5)
-        if (_shaderManagerSystem != null)
+        // Note: This is an update system, not a scene system - it triggers popups
+        if (_sceneSystems.SceneManager != null)
         {
-            var shaderCycleSystem = new ShaderCycleSystem(
+            var mapPopupSystem = new MapPopupSystem(
                 _world,
-                _inputBindingService,
-                _shaderManagerSystem,
-                _graphicsDevice, // Pass GraphicsDevice for getting viewport dimensions
-                _modManager, // Pass ModManager for discovering available shaders
-                _game.Services.GetService<IShaderService>(), // Pass ShaderService for validating shaders exist
-                _playerSystem, // Pass PlayerSystem for F5 player shader cycling
-                LoggerFactory.CreateLogger<ShaderCycleSystem>()
+                _sceneSystems.SceneManager,
+                _modManager,
+                LoggerFactory.CreateLogger<MapPopupSystem>(),
+                _constantsService
             );
-            RegisterUpdateSystem(shaderCycleSystem);
+            RegisterUpdateSystem(mapPopupSystem);
+
+            // Create debug bar toggle system
+            var debugBarToggleSystem = new DebugBarToggleSystem(
+                _world,
+                _sceneSystems.SceneManager,
+                _inputBindingService,
+                LoggerFactory.CreateLogger<DebugBarToggleSystem>()
+            );
+            RegisterUpdateSystem(debugBarToggleSystem);
         }
 
-        // Register shader parameter animation system if it exists
-        if (_shaderParameterAnimationSystem != null)
-            RegisterUpdateSystem(_shaderParameterAnimationSystem);
+        // Note: ShaderCycleSystem is now created by ShaderSystemFactory in CreateShaderSystems()
     }
 
     /// <summary>
@@ -1181,13 +896,13 @@ public class SystemManager : IDisposable
             // Update API provider with actual system references
             _scriptApiProvider.UpdateSystems(_playerSystem, _mapLoaderSystem, _movementSystem);
 
-            // Update shader system references
+            // Update shader system references from bundle
             _scriptApiProvider.UpdateShaderSystems(
-                _shaderManagerSystem,
-                _shaderTransitionSystem,
-                _shaderMultiAnimSystem,
-                _shaderChainSystem,
-                _shaderPresetService
+                _shaderSystems?.ShaderManager,
+                _shaderSystems?.TransitionSystem,
+                _shaderSystems?.MultiParameterAnimation,
+                _shaderSystems?.AnimationChain,
+                _shaderSystems?.PresetService
             );
 
             // Initialize plugin scripts (after all systems are ready)
@@ -1214,7 +929,7 @@ public class SystemManager : IDisposable
         var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         // Check time control for pause/step/scale
-        var timeControl = _debugOverlayService?.TimeControl;
+        var timeControl = _sceneSystems?.DebugOverlayService?.TimeControl;
         if (timeControl != null)
         {
             // Handle pause state - set deltaTime to 0 so systems still run but gameplay freezes
@@ -1301,7 +1016,7 @@ public class SystemManager : IDisposable
 
         // Recalculate and cache
         var isBlocked = false;
-        _sceneSystem.IterateScenes(
+        _sceneSystems?.IterateScenes(
             (sceneEntity, sceneComponent) =>
             {
                 if (
@@ -1340,8 +1055,8 @@ public class SystemManager : IDisposable
         if (!_isInitialized || _isDisposed)
             return;
 
-        // SceneSystem coordinates rendering for all scene-specific systems
-        _sceneSystem.Render(gameTime);
+        // SceneSystems coordinates rendering for all scene-specific systems
+        _sceneSystems?.Render(gameTime);
     }
 
     /// <summary>
@@ -1372,7 +1087,7 @@ public class SystemManager : IDisposable
     }
 
     /// <summary>
-    ///     Creates the game scene using SceneSystem.
+    ///     Creates the game scene using SceneManager.
     /// </summary>
     public void CreateGameScene()
     {
@@ -1392,7 +1107,10 @@ public class SystemManager : IDisposable
 
         var gameSceneComponent = new GameSceneComponent();
 
-        var gameSceneEntity = _sceneSystem.CreateScene(sceneComponent, gameSceneComponent);
+        var sceneManager =
+            _sceneSystems?.SceneManager
+            ?? throw new InvalidOperationException("SceneManager is not available");
+        var gameSceneEntity = sceneManager.CreateScene(sceneComponent, gameSceneComponent);
         _logger.Information("Game scene created: {EntityId}", gameSceneEntity.Id);
     }
 
@@ -1402,6 +1120,8 @@ public class SystemManager : IDisposable
     /// <param name="evt">The scene created event.</param>
     private void OnSceneCreated(ref SceneCreatedEvent evt)
     {
+        if (_isDisposed)
+            return; // Guard against events during/after disposal
         InvalidateUpdateBlockedCache();
     }
 
@@ -1411,6 +1131,8 @@ public class SystemManager : IDisposable
     /// <param name="evt">The scene destroyed event.</param>
     private void OnSceneDestroyed(ref SceneDestroyedEvent evt)
     {
+        if (_isDisposed)
+            return; // Guard against events during/after disposal
         InvalidateUpdateBlockedCache();
     }
 
@@ -1420,6 +1142,8 @@ public class SystemManager : IDisposable
     /// <param name="evt">The scene activated event.</param>
     private void OnSceneActivated(ref SceneActivatedEvent evt)
     {
+        if (_isDisposed)
+            return; // Guard against events during/after disposal
         InvalidateUpdateBlockedCache();
     }
 
@@ -1429,6 +1153,8 @@ public class SystemManager : IDisposable
     /// <param name="evt">The scene deactivated event.</param>
     private void OnSceneDeactivated(ref SceneDeactivatedEvent evt)
     {
+        if (_isDisposed)
+            return; // Guard against events during/after disposal
         InvalidateUpdateBlockedCache();
     }
 
@@ -1438,6 +1164,8 @@ public class SystemManager : IDisposable
     /// <param name="evt">The scene paused event.</param>
     private void OnScenePaused(ref ScenePausedEvent evt)
     {
+        if (_isDisposed)
+            return; // Guard against events during/after disposal
         InvalidateUpdateBlockedCache();
     }
 
@@ -1447,6 +1175,8 @@ public class SystemManager : IDisposable
     /// <param name="evt">The scene resumed event.</param>
     private void OnSceneResumed(ref SceneResumedEvent evt)
     {
+        if (_isDisposed)
+            return; // Guard against events during/after disposal
         InvalidateUpdateBlockedCache();
     }
 }

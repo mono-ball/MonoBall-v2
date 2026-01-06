@@ -12,7 +12,11 @@ namespace MonoBall.Core.ECS.Systems.Audio;
 /// <summary>
 ///     System that handles music playback events and manages music state.
 /// </summary>
-public class MusicPlaybackSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class MusicPlaybackSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IMusicPlaybackSystem
 {
     private readonly IAudioEngine _audioEngine;
     private readonly ILogger _logger;

@@ -30,9 +30,9 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
     private readonly ElevationRendererSystem _elevationRendererSystem;
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
-    private readonly RenderTargetManager? _renderTargetManager;
-    private readonly ShaderManager? _shaderManagerSystem;
-    private readonly ShaderRendererSystem? _shaderRendererSystem;
+    private readonly IRenderTargetManager? _renderTargetManager;
+    private readonly IShaderManager? _shaderManagerSystem;
+    private readonly IShaderRenderer? _shaderRendererSystem;
     private readonly SpriteBatch _spriteBatch;
 
     /// <summary>
@@ -51,9 +51,9 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         GraphicsDevice graphicsDevice,
         SpriteBatch spriteBatch,
         ElevationRendererSystem elevationRendererSystem,
-        ShaderManager? shaderManagerSystem = null,
-        ShaderRendererSystem? shaderRendererSystem = null,
-        RenderTargetManager? renderTargetManager = null,
+        IShaderManager? shaderManagerSystem = null,
+        IShaderRenderer? shaderRendererSystem = null,
+        IRenderTargetManager? renderTargetManager = null,
         ILogger? logger = null
     )
         : base(world)

@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -961,6 +963,90 @@ public class ResourceManager : IResourceManager, IDisposable
     {
         // Same as UnloadAll - clears and disposes
         UnloadAll(type);
+    }
+
+    public IReadOnlyList<BatchLoadError> LoadTexturesBatch(IEnumerable<string> resourceIds)
+    {
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(ResourceManager));
+
+        if (resourceIds == null)
+            throw new ArgumentNullException(nameof(resourceIds));
+
+        // Materialize to list for count and parallel access
+        var idList = resourceIds.ToList();
+        if (idList.Count == 0)
+            return Array.Empty<BatchLoadError>();
+
+        _logger.Debug("Batch loading {Count} texture(s) in parallel", idList.Count);
+
+        // Cap parallelism to avoid excessive thread creation for small counts
+        var parallelOptions = new ParallelOptions
+        {
+            MaxDegreeOfParallelism = Math.Min(Environment.ProcessorCount, idList.Count),
+        };
+
+        var errors = new ConcurrentBag<BatchLoadError>();
+
+        Parallel.ForEach(
+            idList,
+            parallelOptions,
+            resourceId =>
+            {
+                try
+                {
+                    LoadTexture(resourceId);
+                }
+                catch (Exception ex)
+                {
+                    errors.Add(new BatchLoadError(resourceId, ex));
+                }
+            }
+        );
+
+        return errors.ToArray();
+    }
+
+    public IReadOnlyList<BatchLoadError> LoadShadersBatch(IEnumerable<string> resourceIds)
+    {
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(ResourceManager));
+
+        if (resourceIds == null)
+            throw new ArgumentNullException(nameof(resourceIds));
+
+        // Materialize to list for count and parallel access
+        var idList = resourceIds.ToList();
+        if (idList.Count == 0)
+            return Array.Empty<BatchLoadError>();
+
+        _logger.Debug("Batch loading {Count} shader(s) in parallel", idList.Count);
+
+        // Cap parallelism to avoid excessive thread creation for small counts
+        var parallelOptions = new ParallelOptions
+        {
+            MaxDegreeOfParallelism = Math.Min(Environment.ProcessorCount, idList.Count),
+        };
+
+        var errors = new ConcurrentBag<BatchLoadError>();
+
+        Parallel.ForEach(
+            idList,
+            parallelOptions,
+            resourceId =>
+            {
+                try
+                {
+                    LoadShader(resourceId);
+                }
+                catch (Exception ex)
+                {
+                    errors.Add(new BatchLoadError(resourceId, ex));
+                }
+            }
+        );
+
+        return errors.ToArray();
     }
 
     /// <summary>

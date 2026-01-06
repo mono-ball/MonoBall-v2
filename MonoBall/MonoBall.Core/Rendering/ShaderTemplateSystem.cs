@@ -12,7 +12,7 @@ namespace MonoBall.Core.Rendering;
 ///     Helper class for applying shader templates to layers.
 ///     Templates are pre-configured combinations of shaders that can be applied together.
 /// </summary>
-public class ShaderTemplateSystem
+public class ShaderTemplateSystem : IShaderTemplateSystem
 {
     // Cached query description to avoid allocations in hot paths
     private static readonly QueryDescription _renderingShaderQuery =

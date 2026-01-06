@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
+using MonoBall.Core.Audio;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Components.Audio;
 using MonoBall.Core.ECS.Events;
@@ -14,7 +15,11 @@ namespace MonoBall.Core.ECS.Systems.Audio;
 /// <summary>
 ///     System that manages map background music based on map transitions.
 /// </summary>
-public class MapMusicSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class MapMusicSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IMapMusicSystem
 {
     private readonly ILogger _logger;
     private readonly QueryDescription _mapQuery;

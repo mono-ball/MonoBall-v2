@@ -5,6 +5,7 @@ using Arch.System;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Services;
+using MonoBall.Core.ECS.Systems.Animation;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -13,7 +14,11 @@ namespace MonoBall.Core.ECS.Systems;
 ///     System that updates entity visibility based on flag values.
 ///     Reacts to flag changes and updates RenderableComponent.IsVisible accordingly.
 /// </summary>
-public class VisibilityFlagSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
+public class VisibilityFlagSystem
+    : BaseSystem<World, float>,
+        IPrioritizedSystem,
+        IDisposable,
+        IVisibilityFlagSystem
 {
     private readonly IFlagVariableService _flagVariableService;
     private readonly ILogger _logger;

@@ -17,7 +17,8 @@ namespace MonoBall.Core.ECS.Systems;
 public class ShaderMultiParameterAnimationSystem
     : BaseSystem<World, float>,
         IPrioritizedSystem,
-        IDisposable
+        IDisposable,
+        IShaderMultiParameterAnimationSystem
 {
     // External storage for animations (avoids List<T> in component struct)
     private readonly Dictionary<Entity, List<ShaderAnimationData>> _animations = new();

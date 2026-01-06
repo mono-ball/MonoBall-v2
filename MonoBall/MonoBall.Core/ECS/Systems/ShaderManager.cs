@@ -19,7 +19,7 @@ namespace MonoBall.Core.ECS.Systems;
 ///     Note: This is NOT an ECS System (no BaseSystem inheritance) - it's a Render-phase
 ///     helper that is called explicitly during rendering.
 /// </summary>
-public class ShaderManager
+public class ShaderManager : IShaderManager
 {
     /// <summary>
     ///     Parameters that are automatically set by MonoGame/SpriteBatch and should not be required in shader definitions.

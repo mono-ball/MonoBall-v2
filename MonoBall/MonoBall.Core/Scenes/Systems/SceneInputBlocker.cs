@@ -9,15 +9,16 @@ namespace MonoBall.Core.Scenes.Systems;
 /// </summary>
 public class SceneInputBlocker : IInputBlocker
 {
-    private readonly Func<SceneSystem?> _getSceneSystem;
+    private readonly Func<ISceneSystems?> _getSceneSystems;
 
     /// <summary>
     ///     Initializes a new instance of the SceneInputBlocker.
     /// </summary>
-    /// <param name="getSceneSystem">Function that returns the scene system (may be null if not yet initialized).</param>
-    public SceneInputBlocker(Func<SceneSystem?> getSceneSystem)
+    /// <param name="getSceneSystems">Function that returns the scene systems bundle (may be null if not yet initialized).</param>
+    public SceneInputBlocker(Func<ISceneSystems?> getSceneSystems)
     {
-        _getSceneSystem = getSceneSystem ?? throw new ArgumentNullException(nameof(getSceneSystem));
+        _getSceneSystems =
+            getSceneSystems ?? throw new ArgumentNullException(nameof(getSceneSystems));
     }
 
     /// <summary>
@@ -27,13 +28,13 @@ public class SceneInputBlocker : IInputBlocker
     {
         get
         {
-            var sceneSystem = _getSceneSystem();
-            if (sceneSystem == null)
-                // Scene system not yet initialized, don't block input
+            var sceneSystems = _getSceneSystems();
+            if (sceneSystems == null || !sceneSystems.IsAvailable)
+                // Scene systems not yet initialized, don't block input
                 return false;
 
             var isBlocked = false;
-            sceneSystem.IterateScenes(
+            sceneSystems.IterateScenes(
                 (sceneEntity, sceneComponent) =>
                 {
                     // Check if this scene blocks input

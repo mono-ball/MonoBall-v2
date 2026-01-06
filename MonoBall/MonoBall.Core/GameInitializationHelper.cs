@@ -8,6 +8,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Rendering;
 using MonoBall.Core.Scripting.Services;
 using Serilog;
 
@@ -104,17 +105,6 @@ public static class GameInitializationHelper
     }
 
     /// <summary>
-    ///     Loads content services (tileset loader).
-    /// </summary>
-    /// <param name="gameServices">The game services.</param>
-    /// <param name="logger">The logger for logging operations.</param>
-    public static void LoadContentServices(GameServices gameServices, ILogger logger)
-    {
-        gameServices.LoadContent();
-        logger.Debug("Content services loaded");
-    }
-
-    /// <summary>
     ///     Creates a sprite batch for game rendering.
     /// </summary>
     /// <param name="graphicsDevice">The graphics device.</param>
@@ -153,7 +143,38 @@ public static class GameInitializationHelper
         var resourceManager = gameServices.ResourceManager;
         if (resourceManager == null)
             throw new InvalidOperationException(
-                "GameServices.ResourceManager is null. Ensure GameServices.LoadContent() was called."
+                "GameServices.ResourceManager is null. Ensure LoadModsSynchronously() was called before async initialization."
+            );
+
+        // Resolve ALL dependencies explicitly (no Service Locator in SystemManager)
+        var shaderService = game.Services.GetService<IShaderService>();
+        if (shaderService == null)
+            throw new InvalidOperationException(
+                "IShaderService is not registered. Ensure LoadModsSynchronously() was called."
+            );
+
+        var shaderParameterValidator = game.Services.GetService<IShaderParameterValidator>();
+        if (shaderParameterValidator == null)
+            throw new InvalidOperationException(
+                "IShaderParameterValidator is not registered. Ensure LoadModsSynchronously() was called."
+            );
+
+        var flagVariableService = game.Services.GetService<IFlagVariableService>();
+        if (flagVariableService == null)
+            throw new InvalidOperationException(
+                "IFlagVariableService is not registered. Ensure GameServices.Initialize() was called."
+            );
+
+        var scriptCompilationCache = game.Services.GetService<IScriptCompilationCache>();
+        if (scriptCompilationCache == null)
+            throw new InvalidOperationException(
+                "IScriptCompilationCache is not registered. Ensure CreateAndRegisterCompilationCache() was called."
+            );
+
+        var constantsService = game.Services.GetService<ConstantsService>();
+        if (constantsService == null)
+            throw new InvalidOperationException(
+                "ConstantsService is not registered. Ensure LoadModsSynchronously() was called."
             );
 
         var systemManager = new SystemManager(
@@ -161,6 +182,11 @@ public static class GameInitializationHelper
             graphicsDevice,
             gameServices.ModManager,
             resourceManager,
+            shaderService,
+            shaderParameterValidator,
+            flagVariableService,
+            scriptCompilationCache,
+            constantsService,
             game,
             LoggerFactory.CreateLogger<SystemManager>()
         );
@@ -194,47 +220,70 @@ public static class GameInitializationHelper
             throw new ArgumentNullException(nameof(graphicsDevice));
         if (logger == null)
             throw new ArgumentNullException(nameof(logger));
+        if (constants == null)
+            throw new ArgumentNullException(nameof(constants));
 
         // Get default tile dimensions from constants service
         var tileWidth = constants.Get<int>("TileWidth");
         var tileHeight = constants.Get<int>("TileHeight");
 
-        if (constants == null)
-            throw new ArgumentNullException(nameof(constants));
+        // Get reference resolution (GBA: 240x160)
+        var referenceWidth = constants.Get<int>("ReferenceWidth");
+        var referenceHeight = constants.Get<int>("ReferenceHeight");
+        var baseZoom = constants.Get<float>("CameraZoom");
+        var rotation = constants.Get<float>("CameraRotation");
+        var smoothingSpeed = constants.Get<float>("CameraSmoothingSpeed");
 
-        // Create camera component with default settings
+        // Calculate integer scale that fits in window (same logic as CameraViewportSystem)
+        var windowWidth = graphicsDevice.Viewport.Width;
+        var windowHeight = graphicsDevice.Viewport.Height;
+        var scaleX = Math.Max(1, windowWidth / referenceWidth);
+        var scaleY = Math.Max(1, windowHeight / referenceHeight);
+        var scale = Math.Min(scaleX, scaleY);
+
+        // Calculate viewport dimensions using integer scale
+        var viewportWidth = referenceWidth * scale;
+        var viewportHeight = referenceHeight * scale;
+
+        // Calculate letterbox/pillarbox offset for centering
+        var virtualX = (windowWidth - viewportWidth) / 2;
+        var virtualY = (windowHeight - viewportHeight) / 2;
+
+        // Calculate initial zoom: scale factor * base zoom from constants
+        // Base zoom of 1.0 means "show reference resolution", >1 zooms in, <1 zooms out
+        var initialZoom = scale * baseZoom;
+
+        // Create camera component with properly initialized viewport and zoom
+        // This ensures the camera shows the correct world area even before CameraViewportSystem runs
         var cameraComponent = new CameraComponent
         {
             Position = Vector2.Zero,
-            Zoom = constants.Get<float>("CameraZoom"),
-            Rotation = constants.Get<float>("CameraRotation"),
-            Viewport = new Rectangle(
-                0,
-                0,
-                graphicsDevice.Viewport.Width,
-                graphicsDevice.Viewport.Height
-            ),
-            VirtualViewport = new Rectangle(
-                0,
-                0,
-                graphicsDevice.Viewport.Width,
-                graphicsDevice.Viewport.Height
-            ),
-            ReferenceWidth = constants.Get<int>("ReferenceWidth"),
-            ReferenceHeight = constants.Get<int>("ReferenceHeight"),
+            Zoom = initialZoom,
+            Rotation = rotation,
+            Viewport = new Rectangle(0, 0, viewportWidth, viewportHeight),
+            VirtualViewport = new Rectangle(virtualX, virtualY, viewportWidth, viewportHeight),
+            ReferenceWidth = windowWidth, // Track window dimensions for resize detection
+            ReferenceHeight = windowHeight,
             TileWidth = tileWidth,
             TileHeight = tileHeight,
             MapBounds = Rectangle.Empty, // No bounds initially
             FollowTarget = null,
             FollowEntity = null,
             IsFollowingLocked = false,
-            SmoothingSpeed = constants.Get<float>("CameraSmoothingSpeed"),
+            SmoothingSpeed = smoothingSpeed,
             IsActive = true,
             IsDirty = true,
         };
 
         var cameraEntity = world.Create(cameraComponent);
-        logger.Information("Created default camera entity {EntityId}", cameraEntity.Id);
+        logger.Information(
+            "Created default camera entity {EntityId} (viewport: {ViewportWidth}x{ViewportHeight}, zoom: {Zoom}, baseZoom: {BaseZoom})",
+            cameraEntity.Id,
+            viewportWidth,
+            viewportHeight,
+            initialZoom,
+            baseZoom
+        );
         return cameraEntity;
     }
 
