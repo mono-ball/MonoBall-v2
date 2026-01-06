@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerCRT
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -35,7 +30,7 @@ float ScanlineCount = 400.0;
 float ChromaticAberration = 0.003;
 float2 ScreenSize = float2(800.0, 600.0);
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     // Normalize coordinates to center
     float2 uv = input.TextureCoordinates;
@@ -54,10 +49,10 @@ float4 MainPS(PixelShaderInput input) : COLOR
     float2 offsetR = (uv - center) * (1.0 + ChromaticAberration) + center;
     float2 offsetB = (uv - center) * (1.0 - ChromaticAberration) + center;
     
-    float r = tex2D(SpriteTextureSampler, clamp(offsetR, 0.0, 1.0)).r;
-    float g = tex2D(SpriteTextureSampler, uv).g;
-    float b = tex2D(SpriteTextureSampler, clamp(offsetB, 0.0, 1.0)).b;
-    float a = tex2D(SpriteTextureSampler, uv).a;
+    float r = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(offsetR, 0.0, 1.0)).r;
+    float g = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv).g;
+    float b = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(offsetB, 0.0, 1.0)).b;
+    float a = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv).a;
     
     float4 pixelColor = float4(r, g, b, a);
     

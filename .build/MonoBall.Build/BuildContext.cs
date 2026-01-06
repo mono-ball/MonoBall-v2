@@ -14,7 +14,7 @@ namespace MonoBall.Build
     public class BuildContext : FrostingContext
     {
         private const string DefaultConfiguration = "Release";
-        private const string DefaultTargetFramework = "net10.0";
+        private const string DefaultTargetFramework = "net9.0";
         private const string DebugConfiguration = "Debug";
         private const string ReleaseConfiguration = "Release";
 
@@ -64,6 +64,16 @@ namespace MonoBall.Build
         public FilePath DesktopGLProjectPath { get; set; }
 
         /// <summary>
+        /// Gets or sets the path to the DesktopVK project file.
+        /// </summary>
+        public FilePath DesktopVKProjectPath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the path to the WindowsDX12 project file.
+        /// </summary>
+        public FilePath WindowsDX12ProjectPath { get; set; }
+
+        /// <summary>
         /// Gets or sets the path to the ArchiveTool project file.
         /// </summary>
         public FilePath ArchiveToolProjectPath { get; set; }
@@ -87,6 +97,13 @@ namespace MonoBall.Build
         /// Gets or sets a value indicating whether to skip mod copying.
         /// </summary>
         public bool SkipModCopy { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to copy mods to all configurations (Debug and Release).
+        /// When true, mods will be copied to both Debug and Release output directories.
+        /// When false (default), mods are only copied to the current configuration's output directory.
+        /// </summary>
+        public bool AllConfigurations { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to treat analyzer warnings as errors.
@@ -225,6 +242,8 @@ namespace MonoBall.Build
             // Project Paths
             CoreProjectPath = RootDirectory.CombineWithFilePath("MonoBall.Core/MonoBall.Core.csproj");
             DesktopGLProjectPath = RootDirectory.CombineWithFilePath("MonoBall.DesktopGL/MonoBall.DesktopGL.csproj");
+            DesktopVKProjectPath = RootDirectory.CombineWithFilePath("MonoBall.DesktopVK/MonoBall.DesktopVK.csproj");
+            WindowsDX12ProjectPath = RootDirectory.CombineWithFilePath("MonoBall.WindowsDX12/MonoBall.WindowsDX12.csproj");
             ArchiveToolProjectPath = RootDirectory.CombineWithFilePath("MonoBall.ArchiveTool/MonoBall.ArchiveTool.csproj");
 
             // ArchiveTool Executable (platform-specific)
@@ -241,6 +260,7 @@ namespace MonoBall.Build
             SkipModCompression = context.HasArgument("skip-mod-compression");
             SkipModCopy = context.HasArgument("skip-mod-copy");
             TreatWarningsAsErrors = context.HasArgument("treat-warnings-as-errors");
+            AllConfigurations = context.HasArgument("all-configurations");
 
             // Validate critical paths (fail fast)
             if (!context.FileExists(SolutionPath))

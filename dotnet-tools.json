@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "dotnet-mgfxc": {
-      "version": "3.8.5-preview.1",
+      "version": "3.8.5-preview.2",
       "commands": ["mgfxc"]
     },
     "roslynator.dotnet.cli": {

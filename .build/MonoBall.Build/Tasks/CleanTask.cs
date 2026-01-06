@@ -24,7 +24,7 @@ namespace MonoBall.Build.Tasks
             context.Log.Information("Cleaning build artifacts...");
 
             // Clean bin/ and obj/ directories in all projects
-            var projects = new[] { context.CoreProjectPath, context.DesktopGLProjectPath, context.ArchiveToolProjectPath };
+            var projects = new[] { context.CoreProjectPath, context.DesktopGLProjectPath, context.DesktopVKProjectPath, context.WindowsDX12ProjectPath, context.ArchiveToolProjectPath };
             foreach (var project in projects)
             {
                 var projectDir = project.GetDirectory();

@@ -7,7 +7,7 @@ using Cake.Frosting;
 namespace MonoBall.Build.Tasks
 {
     /// <summary>
-    /// Task that builds the solution (Core + DesktopGL only, ArchiveTool already built).
+    /// Task that builds the solution (Core + DesktopGL + DesktopVK + WindowsDX12, ArchiveTool already built).
     /// </summary>
     [TaskName("Build")]
     [IsDependentOn(typeof(CompressModsTask))]
@@ -38,6 +38,24 @@ namespace MonoBall.Build.Tasks
             // Build DesktopGL project
             context.DotNetBuild(
                 context.DesktopGLProjectPath.FullPath,
+                new DotNetBuildSettings
+                {
+                    Configuration = context.Configuration,
+                    NoRestore = true, // RestoreTask already ran
+                });
+
+            // Build DesktopVK project
+            context.DotNetBuild(
+                context.DesktopVKProjectPath.FullPath,
+                new DotNetBuildSettings
+                {
+                    Configuration = context.Configuration,
+                    NoRestore = true, // RestoreTask already ran
+                });
+
+            // Build WindowsDX12 project
+            context.DotNetBuild(
+                context.WindowsDX12ProjectPath.FullPath,
                 new DotNetBuildSettings
                 {
                     Configuration = context.Configuration,

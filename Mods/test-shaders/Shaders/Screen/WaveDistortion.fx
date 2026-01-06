@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerWaveDistortion
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -61,7 +56,7 @@ float noise(float2 p)
     return lerp(lerp(a, b, u.x), lerp(c, d, u.x), u.y);
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
 
@@ -98,7 +93,7 @@ float4 MainPS(PixelShaderInput input) : COLOR
     // Clamp to prevent sampling outside
     distortedUV = clamp(distortedUV, 0.001, 0.999);
 
-    float4 pixelColor = tex2D(SpriteTextureSampler, distortedUV);
+    float4 pixelColor = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, distortedUV);
     pixelColor *= input.Color;
 
     return pixelColor;

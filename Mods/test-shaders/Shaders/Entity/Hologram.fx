@@ -3,24 +3,19 @@
 // Shader ID: PerEntityHologram
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Point;
-    MagFilter = Point;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -45,7 +40,7 @@ float hash(float n)
     return frac(sin(n) * 43758.5453);
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
 
@@ -75,15 +70,15 @@ float4 MainPS(PixelShaderInput input) : COLOR
     float4 pixelColor;
     if (rgbSplit > 0.0)
     {
-        float r = tex2D(SpriteTextureSampler, uv + float2(rgbSplit, 0)).r;
-        float g = tex2D(SpriteTextureSampler, uv).g;
-        float b = tex2D(SpriteTextureSampler, uv - float2(rgbSplit, 0)).b;
-        float a = tex2D(SpriteTextureSampler, uv).a;
+        float r = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + float2(rgbSplit, 0)).r;
+        float g = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv).g;
+        float b = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv - float2(rgbSplit, 0)).b;
+        float a = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv).a;
         pixelColor = float4(r, g, b, a);
     }
     else
     {
-        pixelColor = tex2D(SpriteTextureSampler, uv);
+        pixelColor = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv);
     }
 
     if (pixelColor.a < 0.01)
@@ -121,7 +116,7 @@ float4 MainPS(PixelShaderInput input) : COLOR
     {
         float angle = float(i) * 0.785398; // 45 degree increments
         float2 offset = float2(cos(angle), sin(angle)) * texelSize * 2.0;
-        float neighbor = tex2D(SpriteTextureSampler, input.TextureCoordinates + offset).a;
+        float neighbor = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, input.TextureCoordinates + offset).a;
         if (neighbor < 0.5)
         {
             edgeGlow += 0.125;

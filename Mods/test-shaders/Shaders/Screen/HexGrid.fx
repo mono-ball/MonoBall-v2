@@ -3,23 +3,18 @@
 // DESIGNED FOR STACKING - transparent overlay that adds texture
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+Texture2D SpriteTexture : register(t0);
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -52,9 +47,9 @@ float2 hexCoord(float2 uv)
     return dot(a, a) < dot(b, b) ? a : b;
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
-    float4 tex = tex2D(SpriteTextureSampler, input.TextureCoordinates);
+    float4 tex = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, input.TextureCoordinates);
     float3 color = tex.rgb;
 
     // Create hex grid coordinates

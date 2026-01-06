@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerKaleidoscope
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Wrap;
-    AddressV = Wrap;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -38,7 +33,7 @@ float2 ScreenSize = float2(800.0, 600.0);
 
 #define PI 3.14159265359
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
     float2 center = float2(0.5, 0.5);
@@ -79,7 +74,7 @@ float4 MainPS(PixelShaderInput input) : COLOR
     // Wrap coordinates for seamless tiling
     mirroredUV = frac(mirroredUV);
 
-    float4 pixelColor = tex2D(SpriteTextureSampler, mirroredUV);
+    float4 pixelColor = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, mirroredUV);
 
     // Add subtle color shifting based on angle
     float hueShift = sin(Time * 0.2 + radius * 3.0) * 0.1;

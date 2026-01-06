@@ -3,23 +3,18 @@
 // DESIGNED FOR STACKING - uses noise-based wind, not just vertical falling
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+Texture2D SpriteTexture : register(t0);
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -161,12 +156,12 @@ float3 calculateRainParticle(float2 uv, float columnIndex, float columnSeed, flo
     return rainColor * intensity;
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
 
     // Sample base texture
-    float4 tex = tex2D(SpriteTextureSampler, uv);
+    float4 tex = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv);
     float3 color = tex.rgb;
 
     // Calculate wind field using curl noise (creates swirling patterns)

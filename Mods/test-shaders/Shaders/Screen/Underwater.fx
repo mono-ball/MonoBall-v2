@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerUnderwater
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -87,7 +82,7 @@ float caustic(float2 uv)
     return c;
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
     float2 center = float2(0.5, 0.5);
@@ -103,7 +98,7 @@ float4 MainPS(PixelShaderInput input) : COLOR
     distortedUV = clamp(distortedUV, 0.001, 0.999);
 
     // Sample the texture
-    float4 pixelColor = tex2D(SpriteTextureSampler, distortedUV);
+    float4 pixelColor = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, distortedUV);
     float3 color = pixelColor.rgb;
 
     // Caustic light patterns

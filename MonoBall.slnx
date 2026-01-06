@@ -7,7 +7,11 @@
   <Folder Name="/.build/">
     <Project Path=".build/MonoBall.Build/MonoBall.Build.csproj" />
   </Folder>
+  <Folder Name="/Platforms/">
+    <Project Path="MonoBall.DesktopGL/MonoBall.DesktopGL.csproj" />
+    <Project Path="MonoBall.DesktopVK/MonoBall.DesktopVK.csproj" />
+    <Project Path="MonoBall.WindowsDX12/MonoBall.WindowsDX12.csproj" />
+  </Folder>
   <Project Path="MonoBall.ArchiveTool/MonoBall.ArchiveTool.csproj" />
   <Project Path="MonoBall.Core/MonoBall.Core.csproj" />
-  <Project Path="MonoBall.DesktopGL/MonoBall.DesktopGL.csproj" />
 </Solution>

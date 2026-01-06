@@ -11,6 +11,7 @@ namespace MonoBall.Build.Tasks
     /// Task that publishes the application.
     /// </summary>
     [TaskName("Publish")]
+    [IsDependentOn(typeof(BuildTask))]
     [IsDependentOn(typeof(GenerateApiDocsTask))]
     [IsDependentOn(typeof(CopyModsTask))]
     public sealed class PublishTask : FrostingTask<BuildContext>
