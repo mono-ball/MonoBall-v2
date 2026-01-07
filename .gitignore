@@ -105,6 +105,15 @@ $RECYCLE.BIN/
 *.cache
 *.rsuser
 
+
+# Removed Windows wrapper files per user request
+hive-mind-prompt-*.txt
+
+pokeemerald-expansion/
+*output/
+*.monoball
+oldmonoball/
+
 # Claude Flow generated files
 .claude/settings.local.json
 .mcp.json
@@ -135,4 +144,5 @@ hive-mind-prompt-*.txt
 pokeemerald-expansion/
 *output/
 *.monoball
-oldmonoball/
+
+docs/api/

@@ -3,24 +3,19 @@
 // Creates an eerie, unsettling atmosphere perfect for horror/ghost scenes
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
 // Texture samplers
-Texture2D SpriteTexture;
-sampler2D SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+Texture2D SpriteTexture : register(t0);
+SamplerState SpriteTextureSampler : register(s0);
 
 // Parameters
 float Time = 0.0;                          // Elapsed time for animations
@@ -105,7 +100,7 @@ float fbm(float2 p)
 }
 
 // Pixel shader - main effect
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
     float2 center = float2(0.5, 0.5);
@@ -122,10 +117,10 @@ float4 MainPS(PixelShaderInput input) : COLOR
     float2 rOffset = direction * aberrationAmount * dist;
     float2 bOffset = -direction * aberrationAmount * dist;
 
-    float r = tex2D(SpriteTextureSampler, uv + rOffset).r;
-    float g = tex2D(SpriteTextureSampler, uv).g;
-    float b = tex2D(SpriteTextureSampler, uv + bOffset).b;
-    float a = tex2D(SpriteTextureSampler, uv).a;
+    float r = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + rOffset).r;
+    float g = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv).g;
+    float b = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + bOffset).b;
+    float a = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv).a;
 
     float3 color = float3(r, g, b);
 

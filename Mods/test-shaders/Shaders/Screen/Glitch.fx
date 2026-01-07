@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerGlitch
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -51,7 +46,7 @@ float hash2(float2 p)
     return frac((p3.x + p3.y) * p3.z);
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
 
@@ -98,10 +93,10 @@ float4 MainPS(PixelShaderInput input) : COLOR
     float splitAmount = RGBSplitAmount * (1.0 + glitchActive * 3.0);
 
     // Sample with RGB separation
-    float r = tex2D(SpriteTextureSampler, clamp(distortedUV + float2(splitAmount + drift, 0.0), 0.0, 1.0)).r;
-    float g = tex2D(SpriteTextureSampler, clamp(distortedUV, 0.0, 1.0)).g;
-    float b = tex2D(SpriteTextureSampler, clamp(distortedUV - float2(splitAmount + drift, 0.0), 0.0, 1.0)).b;
-    float a = tex2D(SpriteTextureSampler, clamp(distortedUV, 0.0, 1.0)).a;
+    float r = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(distortedUV + float2(splitAmount + drift, 0.0), 0.0, 1.0)).r;
+    float g = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(distortedUV, 0.0, 1.0)).g;
+    float b = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(distortedUV - float2(splitAmount + drift, 0.0), 0.0, 1.0)).b;
+    float a = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(distortedUV, 0.0, 1.0)).a;
 
     float3 color = float3(r, g, b);
 

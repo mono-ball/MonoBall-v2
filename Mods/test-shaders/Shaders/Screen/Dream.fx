@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerDream
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -48,7 +43,7 @@ float hash(float2 p)
     return frac((p3.x + p3.y) * p3.z);
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
     float2 center = float2(0.5, 0.5);
@@ -85,11 +80,11 @@ float4 MainPS(PixelShaderInput input) : COLOR
     {
         float2 sampleUV = swirlUV + offsets[i] * blurPulse;
         sampleUV = clamp(sampleUV, 0.001, 0.999);
-        color += tex2D(SpriteTextureSampler, sampleUV).rgb * weights[i];
+        color += SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, sampleUV).rgb * weights[i];
     }
 
     // Store original for alpha
-    float alpha = tex2D(SpriteTextureSampler, clamp(swirlUV, 0.001, 0.999)).a;
+    float alpha = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, clamp(swirlUV, 0.001, 0.999)).a;
 
     // Dreamy glow - brighten highlights
     float luminance = dot(color, float3(0.299, 0.587, 0.114));

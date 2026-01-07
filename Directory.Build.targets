@@ -1,0 +1,95 @@
+<Project>
+  <!--
+    MonoBall Build Targets
+
+    These targets allow running common mod/shader tasks directly via MSBuild:
+      dotnet build -t:CopyMods
+      dotnet build -t:CompileShaders
+      dotnet build -t:CompressMods
+      dotnet build -t:BuildMods          (CompileShaders + CompressMods + CopyMods)
+
+    Options (pass via -p:PropertyName=Value):
+      -p:AllConfigurations=true          Copy mods to both Debug and Release
+      -p:SkipShaderCompilation=true      Skip shader compilation in BuildMods
+
+    Examples:
+      dotnet build -t:CopyMods -p:AllConfigurations=true
+      dotnet build -t:BuildMods -p:Configuration=Debug
+      dotnet build -t:CompileShaders
+  -->
+
+  <!-- Properties for mod tasks -->
+  <PropertyGroup>
+    <MonoBallBuildProject>$(MSBuildThisFileDirectory).build/MonoBall.Build/MonoBall.Build.csproj</MonoBallBuildProject>
+    <AllConfigurations Condition="'$(AllConfigurations)' == ''">false</AllConfigurations>
+    <SkipShaderCompilation Condition="'$(SkipShaderCompilation)' == ''">false</SkipShaderCompilation>
+    <SkipModCompression Condition="'$(SkipModCompression)' == ''">false</SkipModCompression>
+    <SkipModCopy Condition="'$(SkipModCopy)' == ''">false</SkipModCopy>
+  </PropertyGroup>
+
+  <!-- Build Cake arguments based on properties -->
+  <PropertyGroup>
+    <_CakeArgs></_CakeArgs>
+    <_CakeArgs Condition="'$(Configuration)' != ''">$(_CakeArgs) --configuration=$(Configuration)</_CakeArgs>
+    <_CakeArgs Condition="'$(AllConfigurations)' == 'true'">$(_CakeArgs) --all-configurations</_CakeArgs>
+    <_CakeArgs Condition="'$(SkipShaderCompilation)' == 'true'">$(_CakeArgs) --skip-shader-compilation</_CakeArgs>
+    <_CakeArgs Condition="'$(SkipModCompression)' == 'true'">$(_CakeArgs) --skip-mod-compression</_CakeArgs>
+    <_CakeArgs Condition="'$(SkipModCopy)' == 'true'">$(_CakeArgs) --skip-mod-copy</_CakeArgs>
+  </PropertyGroup>
+
+  <!--
+    Target: CompileShaders
+    Compiles all .fx shader files in the Mods directory to .mgfxo
+  -->
+  <Target Name="CompileShaders">
+    <Message Importance="High" Text="Compiling shaders..." />
+    <Exec Command="dotnet run --project &quot;$(MonoBallBuildProject)&quot; -- --target=CompileShaders $(_CakeArgs)"
+          WorkingDirectory="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+  <!--
+    Target: CompressMods
+    Compresses mod directories into .monoball archives
+  -->
+  <Target Name="CompressMods">
+    <Message Importance="High" Text="Compressing mods..." />
+    <Exec Command="dotnet run --project &quot;$(MonoBallBuildProject)&quot; -- --target=CompressMods $(_CakeArgs)"
+          WorkingDirectory="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+  <!--
+    Target: CopyMods
+    Copies .monoball archives to output directories
+    Use -p:AllConfigurations=true to copy to both Debug and Release
+  -->
+  <Target Name="CopyMods">
+    <Message Importance="High" Text="Copying mods (AllConfigurations=$(AllConfigurations))..." />
+    <Exec Command="dotnet run --project &quot;$(MonoBallBuildProject)&quot; -- --target=CopyMods $(_CakeArgs)"
+          WorkingDirectory="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+  <!--
+    Target: BuildMods
+    Full mod build pipeline: CompileShaders -> CompressMods -> CopyMods
+  -->
+  <Target Name="BuildMods" DependsOnTargets="CompileShaders;CompressMods;CopyMods">
+    <Message Importance="High" Text="Mod build complete!" />
+  </Target>
+
+  <!--
+    Target: CleanMods
+    Cleans compiled shaders and mod archives
+  -->
+  <Target Name="CleanMods">
+    <Message Importance="High" Text="Cleaning mod artifacts..." />
+    <ItemGroup>
+      <_CompiledShaders Include="$(MSBuildThisFileDirectory)Mods/**/*.mgfxo" />
+      <_ModArchives Include="$(MSBuildThisFileDirectory)Mods/*.monoball" />
+    </ItemGroup>
+    <Delete Files="@(_CompiledShaders)" />
+    <Delete Files="@(_ModArchives)" />
+    <Message Importance="High" Text="Deleted $([System.String]::Format('{0}', @(_CompiledShaders->Count()))) compiled shaders" />
+    <Message Importance="High" Text="Deleted $([System.String]::Format('{0}', @(_ModArchives->Count()))) mod archives" />
+  </Target>
+
+</Project>

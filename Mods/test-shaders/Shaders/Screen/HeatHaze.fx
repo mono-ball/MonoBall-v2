@@ -3,24 +3,19 @@
 // Shader ID: CombinedLayerHeatHaze
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Linear;
-    MagFilter = Linear;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -61,7 +56,7 @@ float noise(float2 p)
     return lerp(lerp(a, b, u.x), lerp(c, d, u.x), u.y);
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
 
@@ -110,10 +105,10 @@ float4 MainPS(PixelShaderInput input) : COLOR
 
     // Sample with slight color separation for heat shimmer look
     float chromaOffset = heightFactor * HazeStrength * 0.3;
-    float r = tex2D(SpriteTextureSampler, distortedUV + float2(chromaOffset, 0.0)).r;
-    float g = tex2D(SpriteTextureSampler, distortedUV).g;
-    float b = tex2D(SpriteTextureSampler, distortedUV - float2(chromaOffset, 0.0)).b;
-    float a = tex2D(SpriteTextureSampler, distortedUV).a;
+    float r = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, distortedUV + float2(chromaOffset, 0.0)).r;
+    float g = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, distortedUV).g;
+    float b = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, distortedUV - float2(chromaOffset, 0.0)).b;
+    float a = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, distortedUV).a;
 
     float3 color = float3(r, g, b);
 

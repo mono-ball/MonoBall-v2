@@ -1,365 +1,737 @@
-# Architecture Issues Analysis - Comprehensive Review
+# Architecture Issues Analysis
 
 **Date:** 2025-01-XX  
-**Scope:** All recent changes for architecture violations, ECS issues, SOLID/DRY violations, bugs, and hacky fixes  
-**Status:** 🔴 **CRITICAL ISSUES FOUND**
+**Scope:** SceneSystem refactoring and related architectural patterns  
+**Status:** 🔴 CRITICAL ISSUES IDENTIFIED
 
 ---
 
 ## Executive Summary
 
-This analysis identifies multiple violations of project rules, architectural issues, and hacky fixes that need to be addressed:
+The recent refactoring consolidated scene-specific systems but introduced several architectural violations:
 
-- **🔴 CRITICAL:** 3 violations of "NO BACKWARD COMPATIBILITY" rule
-- **🔴 CRITICAL:** 3 violations of "NO FALLBACK CODE" rule  
-- **🔴 CRITICAL:** 4 QueryDescription objects created in hot paths (Update/Render methods)
-- **🔴 CRITICAL:** 1 event subscription memory leak (SystemManager)
-- **🟡 MEDIUM:** 1 hacky timing workaround (multiple Task.Yield calls)
-- **🟡 MEDIUM:** 1 unused fallback query (dead code)
+1. **🔴 CRITICAL: SceneSystem Constructor Bloat** - 13+ parameters violates SRP and DIP
+2. **🔴 CRITICAL: Circular Dependency** - MapPopupSceneSystem ↔ SceneSystem
+3. **🟡 HIGH: SceneSystem Creating Systems** - Violates SRP, should only manage lifecycle
+4. **🟡 HIGH: Tight Coupling** - SceneSystem knows all scene-specific system types
+5. **🟡 HIGH: Inconsistent Update/Render Pattern** - Update() calls systems directly, Render() iterates scenes
+6. **🟡 MEDIUM: Missing Interface Abstraction** - No ISceneSystem interface
+7. **🟡 MEDIUM: Optional Parameters** - Many nullable parameters suggest incomplete initialization
+8. **🟢 LOW: DRY Violations** - Repeated pattern matching in Update/Render
 
 ---
 
-## 🔴 CRITICAL: NO BACKWARD COMPATIBILITY Violations
+## 1. 🔴 CRITICAL: SceneSystem Constructor Bloat
 
-### 1. MovementSystem - Fallback Query for Backward Compatibility
+### Problem
 
-**Location:** `MonoBall.Core/ECS/Systems/MovementSystem.cs:100-101`
-
-**Issue:**
 ```csharp
-// Fallback query without ActiveMapEntity (for backwards compatibility, but shouldn't be needed)
-_movementQuery = new QueryDescription().WithAll<PositionComponent, GridMovement>();
+public SceneSystem(
+    World world,
+    ILogger logger,
+    GraphicsDevice graphicsDevice,
+    SpriteBatch spriteBatch,
+    Game game,                                    // For LoadingSceneSystem
+    MapRendererSystem mapRendererSystem,          // For GameSceneSystem
+    SpriteRendererSystem? spriteRendererSystem,   // For GameSceneSystem
+    MapBorderRendererSystem? mapBorderRendererSystem, // For GameSceneSystem
+    ShaderManagerSystem? shaderManagerSystem,     // For rendering
+    ShaderRendererSystem? shaderRendererSystem,   // For GameSceneSystem
+    RenderTargetManager? renderTargetManager,     // For GameSceneSystem
+    FontService? fontService,                     // For DebugBarSceneSystem, MapPopupSceneSystem
+    PerformanceStatsSystem? performanceStatsSystem, // For DebugBarSceneSystem
+    IModManager? modManager                       // For MapPopupSceneSystem
+)
 ```
 
-**Violation:** Explicitly violates "NO BACKWARD COMPATIBILITY" rule - code comment says "for backwards compatibility"
+**Issues:**
+- ❌ **13+ constructor parameters** - Violates "God Constructor" anti-pattern
+- ❌ **Violates Single Responsibility Principle** - SceneSystem shouldn't know about all scene-specific system dependencies
+- ❌ **Violates Dependency Inversion Principle** - Depends on concrete types, not abstractions
+- ❌ **Hard to test** - Requires mocking 13+ dependencies
+- ❌ **Hard to maintain** - Adding a new scene type requires modifying SceneSystem constructor
+- ❌ **Tight coupling** - SceneSystem knows about LoadingSceneSystem, GameSceneSystem, DebugBarSceneSystem, MapPopupSceneSystem internals
 
-**Problem:**
-- Query is created but **NEVER USED** (dead code)
-- Violates project rule: "NEVER maintain backward compatibility - refactor APIs freely"
-- Comment indicates uncertainty ("shouldn't be needed")
+### Root Cause
 
-**Fix Required:**
-- **Remove the fallback query entirely** - it's dead code
-- If there are call sites that need it, update them to use `_movementQueryWithActiveMap` instead
-- Remove backward compatibility comment
+SceneSystem is trying to do too much:
+1. Manage scene lifecycle (its responsibility)
+2. Create scene-specific systems (should be SystemManager's responsibility)
+3. Coordinate updates/renders (its responsibility, but wrong pattern)
 
-**Impact:** LOW (dead code, but violates rules)
+### Solution Options
 
----
-
-## 🔴 CRITICAL: NO FALLBACK CODE Violations
-
-### 1. MovementSystem - Fallback Query
-
-**Location:** `MonoBall.Core/ECS/Systems/MovementSystem.cs:100-101`
-
-**Issue:** Same as above - fallback query violates both rules.
-
-**Fix:** Remove entirely.
-
----
-
-### 2. MapPopupSystem - Fallback Scene Entity Cleanup
-
-**Location:** `MonoBall.Core/ECS/Systems/MapPopupSystem.cs:266-272`
-
-**Issue:**
+#### Option A: Factory Pattern (Recommended)
 ```csharp
-else if (_currentPopupSceneEntity.HasValue && World.IsAlive(_currentPopupSceneEntity.Value))
+public interface ISceneSystemFactory
 {
-    // Fallback: destroy tracked scene entity
-    _sceneSystem.DestroyScene(_currentPopupSceneEntity.Value);
+    GameSceneSystem CreateGameSceneSystem();
+    LoadingSceneSystem CreateLoadingSceneSystem();
+    DebugBarSceneSystem CreateDebugBarSceneSystem();
+    MapPopupSceneSystem CreateMapPopupSceneSystem(SceneSystem sceneSystem);
+}
+
+public class SceneSystem : BaseSystem<World, float>
+{
+    private readonly ISceneSystemFactory _sceneSystemFactory;
+    
+    public SceneSystem(
+        World world,
+        ILogger logger,
+        GraphicsDevice graphicsDevice,
+        ShaderManagerSystem? shaderManagerSystem,
+        ISceneSystemFactory sceneSystemFactory  // Single dependency
+    ) : base(world)
+    {
+        _sceneSystemFactory = sceneSystemFactory ?? throw new ArgumentNullException(nameof(sceneSystemFactory));
+        
+        // Create scene-specific systems via factory
+        _gameSceneSystem = _sceneSystemFactory.CreateGameSceneSystem();
+        _loadingSceneSystem = _sceneSystemFactory.CreateLoadingSceneSystem();
+        _debugBarSceneSystem = _sceneSystemFactory.CreateDebugBarSceneSystem();
+        _mapPopupSceneSystem = _sceneSystemFactory.CreateMapPopupSceneSystem(this);
+    }
 }
 ```
 
-**Violation:** Fallback code that silently handles edge cases instead of failing fast.
-
-**Problem:**
-- If `sceneEntityToDestroy` is null/invalid, falls back to tracked entity
-- This masks bugs - if scene entity isn't properly stored in component, we should fail fast
-- Violates "NEVER introduce fallback code - code should fail fast"
-
-**Fix Required:**
-- Remove fallback logic
-- If `sceneEntityToDestroy` is null/invalid, throw `InvalidOperationException` with clear message
-- Ensure `MapPopupComponent.SceneEntity` is always set correctly (fail fast if not)
-
-**Impact:** MEDIUM (could mask bugs)
-
----
-
-### 3. MonoBallGame - Fallback Background Color
-
-**Location:** `MonoBall.Core/MonoBallGame.cs:371-372`
-
-**Issue:**
+#### Option B: SystemManager Creates, SceneSystem Receives
 ```csharp
-else
+// SystemManager creates all scene-specific systems
+// SceneSystem receives them as constructor parameters
+public SceneSystem(
+    World world,
+    ILogger logger,
+    GraphicsDevice graphicsDevice,
+    ShaderManagerSystem? shaderManagerSystem,
+    GameSceneSystem gameSceneSystem,
+    LoadingSceneSystem loadingSceneSystem,
+    DebugBarSceneSystem debugBarSceneSystem,
+    MapPopupSceneSystem mapPopupSceneSystem
+)
+```
+
+**Trade-offs:**
+- ✅ SceneSystem doesn't create systems
+- ❌ Still has many parameters (but they're the systems themselves, not their dependencies)
+- ❌ SystemManager still needs to know about all scene-specific systems
+
+#### Option C: Registry Pattern
+```csharp
+public interface ISceneSystemRegistry
 {
-    // Fallback to black if no renderer available
-    backgroundColor = Color.Black;
+    void Register<T>(T system) where T : ISceneSystem;
+    T? Get<T>() where T : ISceneSystem;
+}
+
+public class SceneSystem : BaseSystem<World, float>
+{
+    private readonly ISceneSystemRegistry _registry;
+    
+    public SceneSystem(
+        World world,
+        ILogger logger,
+        GraphicsDevice graphicsDevice,
+        ShaderManagerSystem? shaderManagerSystem,
+        ISceneSystemRegistry registry
+    )
+    {
+        _registry = registry;
+        _gameSceneSystem = _registry.Get<GameSceneSystem>();
+        // ...
+    }
 }
 ```
 
-**Violation:** Fallback behavior when `systemManager` is null.
-
-**Problem:**
-- If `systemManager` is null during Draw(), we should fail fast, not silently use black
-- This masks initialization bugs
-
-**Fix Required:**
-- Throw `InvalidOperationException` if `systemManager` is null during Draw()
-- Or ensure `systemManager` is always initialized before Draw() is called
-
-**Impact:** LOW (unlikely to occur, but violates rules)
-
 ---
 
-## 🔴 CRITICAL: QueryDescription Created in Hot Paths
+## 2. 🔴 CRITICAL: Circular Dependency
 
-### 1. ShaderTemplateSystem - QueryDescription in ApplyTemplate()
+### Problem
 
-**Location:** `MonoBall.Core/Rendering/ShaderTemplateSystem.cs:66`
-
-**Issue:**
 ```csharp
-// Find existing layer shader entities for this layer
-var existingEntities = new List<Entity>();
-var query = new QueryDescription().WithAll<RenderingShaderComponent>();  // ❌ Created in method
-_world.Query(in query, ...);
+// SceneSystem.cs
+_mapPopupSceneSystem = new MapPopupSceneSystem(
+    world,
+    this, // ❌ Passes self-reference
+    // ...
+);
+
+// MapPopupSceneSystem.cs
+public MapPopupSceneSystem(
+    World world,
+    SceneSystem sceneSystem, // ❌ Needs SceneSystem
+    // ...
+)
 ```
 
-**Violation:** QueryDescription created in method instead of cached.
+**Issues:**
+- ❌ **Circular dependency** - SceneSystem creates MapPopupSceneSystem, MapPopupSceneSystem needs SceneSystem
+- ❌ **Tight coupling** - MapPopupSceneSystem directly depends on SceneSystem concrete type
+- ❌ **Hard to test** - Can't test MapPopupSceneSystem without SceneSystem
+- ❌ **Violates Dependency Inversion Principle** - Depends on concrete type
 
-**Fix Required:**
-- Cache as `private static readonly QueryDescription _renderingShaderQuery = new QueryDescription().WithAll<RenderingShaderComponent>();`
-- Use cached query in both `ApplyTemplate()` and `ClearLayer()`
+### Why MapPopupSceneSystem Needs SceneSystem
 
-**Impact:** MEDIUM (performance issue, allocation per call)
+Looking at MapPopupSceneSystem, it likely needs SceneSystem to:
+- Create/destroy scenes
+- Query scene state
+- Fire scene events
 
----
+### Solution Options
 
-### 2. ShaderTemplateSystem - QueryDescription in ClearLayer()
-
-**Location:** `MonoBall.Core/Rendering/ShaderTemplateSystem.cs:136`
-
-**Issue:**
+#### Option A: Interface Abstraction (Recommended)
 ```csharp
-// Query for all entities with RenderingShaderComponent
-var query = new QueryDescription().WithAll<RenderingShaderComponent>();  // ❌ Created in method
+public interface ISceneManager
+{
+    Entity CreateScene(SceneComponent sceneComponent, params Component[] additionalComponents);
+    void DestroyScene(string sceneId);
+    Entity? GetSceneEntity(string sceneId);
+    bool IsSceneActive(string sceneId);
+}
+
+public class SceneSystem : BaseSystem<World, float>, ISceneManager
+{
+    // Implements ISceneManager
+}
+
+public class MapPopupSceneSystem : BaseSystem<World, float>
+{
+    private readonly ISceneManager _sceneManager; // ✅ Depends on interface
+    
+    public MapPopupSceneSystem(
+        World world,
+        ISceneManager sceneManager, // ✅ Interface, not concrete type
+        // ...
+    )
+}
 ```
 
-**Violation:** Same as above - should use cached query.
+#### Option B: Event-Based Communication
+```csharp
+// MapPopupSceneSystem doesn't need SceneSystem reference
+// Instead, fires events that SceneSystem subscribes to
 
-**Fix:** Use same cached query as above.
+public struct CreateSceneEvent
+{
+    public SceneComponent SceneComponent;
+    public Component[] AdditionalComponents;
+}
+
+// MapPopupSceneSystem fires event
+EventBus.Send(ref new CreateSceneEvent { ... });
+
+// SceneSystem subscribes and handles
+EventBus.Subscribe<CreateSceneEvent>(OnCreateScene);
+```
+
+**Trade-offs:**
+- ✅ No circular dependency
+- ✅ Loose coupling
+- ❌ Less direct control
+- ❌ Async event handling complexity
 
 ---
 
-### 3. PerformanceStatsSystem - QueryDescription in Update()
+## 3. 🟡 HIGH: SceneSystem Creating Systems
 
-**Location:** `MonoBall.Core/ECS/Systems/PerformanceStatsSystem.cs:115`
+### Problem
 
-**Issue:**
+SceneSystem is responsible for:
+1. ✅ Managing scene lifecycle (its responsibility)
+2. ❌ Creating scene-specific systems (should be SystemManager's responsibility)
+3. ✅ Coordinating updates/renders (its responsibility)
+
+**Violates Single Responsibility Principle** - SceneSystem has multiple reasons to change:
+- Changes when scene lifecycle logic changes
+- Changes when scene-specific system creation logic changes
+- Changes when new scene types are added
+
+### Current Pattern
+
+```csharp
+public class SceneSystem
+{
+    public SceneSystem(/* 13+ parameters */)
+    {
+        // ❌ Creates LoadingSceneSystem
+        _loadingSceneSystem = new LoadingSceneSystem(...);
+        
+        // ❌ Creates GameSceneSystem
+        _gameSceneSystem = new GameSceneSystem(...);
+        
+        // ❌ Creates DebugBarSceneSystem
+        _debugBarSceneSystem = new DebugBarSceneSystem(...);
+        
+        // ❌ Creates MapPopupSceneSystem
+        _mapPopupSceneSystem = new MapPopupSceneSystem(...);
+    }
+}
+```
+
+### Solution
+
+**SystemManager should create scene-specific systems, SceneSystem should receive them:**
+
+```csharp
+// SystemManager.cs
+private void CreateSceneSpecificSystems()
+{
+    // Create scene-specific systems
+    var gameSceneSystem = new GameSceneSystem(...);
+    var loadingSceneSystem = new LoadingSceneSystem(...);
+    var debugBarSceneSystem = new DebugBarSceneSystem(...);
+    var mapPopupSceneSystem = new MapPopupSceneSystem(...);
+    
+    // Create SceneSystem and pass systems to it
+    _sceneSystem = new SceneSystem(
+        _world,
+        logger,
+        graphicsDevice,
+        shaderManagerSystem,
+        gameSceneSystem,
+        loadingSceneSystem,
+        debugBarSceneSystem,
+        mapPopupSceneSystem
+    );
+}
+
+// SceneSystem.cs
+public SceneSystem(
+    World world,
+    ILogger logger,
+    GraphicsDevice graphicsDevice,
+    ShaderManagerSystem? shaderManagerSystem,
+    GameSceneSystem gameSceneSystem,
+    LoadingSceneSystem loadingSceneSystem,
+    DebugBarSceneSystem debugBarSceneSystem,
+    MapPopupSceneSystem mapPopupSceneSystem
+)
+{
+    _gameSceneSystem = gameSceneSystem;
+    _loadingSceneSystem = loadingSceneSystem;
+    _debugBarSceneSystem = debugBarSceneSystem;
+    _mapPopupSceneSystem = mapPopupSceneSystem;
+}
+```
+
+**Benefits:**
+- ✅ SceneSystem only manages lifecycle and coordination
+- ✅ SystemManager owns system creation (its responsibility)
+- ✅ Easier to test SceneSystem (can inject mock systems)
+- ✅ Clear separation of concerns
+
+---
+
+## 4. 🟡 HIGH: Tight Coupling
+
+### Problem
+
+SceneSystem knows about all scene-specific system types:
+
+```csharp
+private readonly GameSceneSystem? _gameSceneSystem;
+private readonly LoadingSceneSystem? _loadingSceneSystem;
+private readonly DebugBarSceneSystem? _debugBarSceneSystem;
+private readonly MapPopupSceneSystem? _mapPopupSceneSystem;
+```
+
+**Issues:**
+- ❌ **Violates Open/Closed Principle** - Adding a new scene type requires modifying SceneSystem
+- ❌ **Can't mod scenes** - Mods can't add new scene types without modifying core code
+- ❌ **Tight coupling** - SceneSystem depends on concrete scene system types
+
+### Solution: Interface Abstraction
+
+```csharp
+public interface ISceneSystem
+{
+    void Update(Entity sceneEntity, float deltaTime);
+    void RenderScene(Entity sceneEntity, GameTime gameTime);
+}
+
+public class GameSceneSystem : BaseSystem<World, float>, ISceneSystem
+{
+    public void Update(Entity sceneEntity, float deltaTime) { /* ... */ }
+    public void RenderScene(Entity sceneEntity, GameTime gameTime) { /* ... */ }
+}
+
+public class SceneSystem : BaseSystem<World, float>
+{
+    private readonly Dictionary<Type, ISceneSystem> _sceneSystems = new();
+    
+    public void RegisterSceneSystem<T>(ISceneSystem system) where T : Component
+    {
+        _sceneSystems[typeof(T)] = system;
+    }
+    
+    public override void Update(in float deltaTime)
+    {
+        IterateScenes((sceneEntity, sceneComponent) =>
+        {
+            if (!sceneComponent.IsActive || sceneComponent.IsPaused)
+                return true;
+            
+            // Find appropriate scene system based on component type
+            var sceneSystem = FindSceneSystem(sceneEntity);
+            sceneSystem?.Update(sceneEntity, deltaTime);
+            
+            return true;
+        });
+    }
+    
+    private ISceneSystem? FindSceneSystem(Entity sceneEntity)
+    {
+        if (World.Has<GameSceneComponent>(sceneEntity))
+            return _sceneSystems.GetValueOrDefault(typeof(GameSceneComponent));
+        if (World.Has<LoadingSceneComponent>(sceneEntity))
+            return _sceneSystems.GetValueOrDefault(typeof(LoadingSceneComponent));
+        // ... etc
+    }
+}
+```
+
+**Benefits:**
+- ✅ SceneSystem doesn't know about concrete scene system types
+- ✅ Can register scene systems dynamically
+- ✅ Mods can add new scene types
+- ✅ Follows Open/Closed Principle
+
+---
+
+## 5. 🟡 HIGH: Inconsistent Update/Render Pattern
+
+### Problem
+
+**Update() pattern:**
 ```csharp
 public override void Update(in float deltaTime)
 {
+    if (isBlocked)
+    {
+        _loadingSceneSystem?.Update(in deltaTime); // ❌ Calls system.Update() directly
+    }
+    else
+    {
+        _gameSceneSystem?.Update(in deltaTime);    // ❌ Calls system.Update() directly
+        _loadingSceneSystem?.Update(in deltaTime);
+        _debugBarSceneSystem?.Update(in deltaTime);
+        _mapPopupSceneSystem?.Update(in deltaTime);
+    }
+}
+```
+
+**Render() pattern:**
+```csharp
+public void Render(GameTime gameTime)
+{
+    IterateScenesReverse((sceneEntity, sceneComponent) =>
+    {
+        if (World.Has<GameSceneComponent>(sceneEntity))
+        {
+            _gameSceneSystem?.RenderScene(sceneEntity, gameTime); // ✅ Iterates scenes, calls RenderScene()
+        }
+        // ...
+    });
+}
+```
+
+**Issues:**
+- ❌ **Inconsistent** - Update() calls systems directly, Render() iterates scenes
+- ❌ **Update() doesn't iterate scenes** - Calls all systems regardless of active scenes
+- ❌ **Render() iterates scenes** - Only renders active scenes (correct pattern)
+
+### Solution: Consistent Pattern
+
+Both Update() and Render() should iterate scenes:
+
+```csharp
+public override void Update(in float deltaTime)
+{
+    CleanupDeadEntities();
+    
+    bool isBlocked = IsUpdateBlocked();
+    
+    IterateScenes((sceneEntity, sceneComponent) =>
+    {
+        if (!sceneComponent.IsActive || sceneComponent.IsPaused)
+            return true;
+        
+        if (isBlocked && !World.Has<LoadingSceneComponent>(sceneEntity))
+            return true; // Skip non-loading scenes when blocked
+        
+        // Find appropriate scene system
+        var sceneSystem = FindSceneSystem(sceneEntity);
+        sceneSystem?.Update(sceneEntity, deltaTime);
+        
+        return true;
+    });
+}
+
+public void Render(GameTime gameTime)
+{
+    IterateScenesReverse((sceneEntity, sceneComponent) =>
+    {
+        if (!sceneComponent.IsActive)
+            return true;
+        
+        var sceneSystem = FindSceneSystem(sceneEntity);
+        sceneSystem?.RenderScene(sceneEntity, gameTime);
+        
+        return true;
+    });
+}
+```
+
+**Benefits:**
+- ✅ Consistent pattern
+- ✅ Update() only updates active scenes (correct)
+- ✅ Both methods iterate scenes (correct)
+
+---
+
+## 6. 🟡 MEDIUM: Missing Interface Abstraction
+
+### Problem
+
+No interface for scene-specific systems:
+
+```csharp
+// ❌ No interface - direct concrete types
+private readonly GameSceneSystem? _gameSceneSystem;
+private readonly LoadingSceneSystem? _loadingSceneSystem;
+```
+
+**Issues:**
+- ❌ Can't swap implementations
+- ❌ Hard to test (can't inject mocks)
+- ❌ Tight coupling
+
+### Solution
+
+```csharp
+public interface ISceneSystem
+{
+    void Update(Entity sceneEntity, float deltaTime);
+    void RenderScene(Entity sceneEntity, GameTime gameTime);
+}
+
+public class GameSceneSystem : BaseSystem<World, float>, ISceneSystem
+{
+    public void Update(Entity sceneEntity, float deltaTime) { /* ... */ }
+    public void RenderScene(Entity sceneEntity, GameTime gameTime) { /* ... */ }
+}
+```
+
+---
+
+## 7. 🟡 MEDIUM: Optional Parameters
+
+### Problem
+
+Many nullable parameters suggest incomplete initialization:
+
+```csharp
+SpriteRendererSystem? spriteRendererSystem = null,
+MapBorderRendererSystem? mapBorderRendererSystem = null,
+ShaderManagerSystem? shaderManagerSystem = null,
+ShaderRendererSystem? shaderRendererSystem = null,
+RenderTargetManager? renderTargetManager = null,
+FontService? fontService = null,
+PerformanceStatsSystem? performanceStatsSystem = null,
+IModManager? modManager = null
+```
+
+**Issues:**
+- ❌ **Nullable reference types** suggest optional dependencies, but some are required
+- ❌ **Runtime null checks** instead of compile-time guarantees
+- ❌ **Unclear requirements** - Which parameters are required vs optional?
+
+### Solution
+
+**Make required dependencies non-nullable:**
+
+```csharp
+public SceneSystem(
+    World world,
+    ILogger logger,
+    GraphicsDevice graphicsDevice,
+    SpriteBatch spriteBatch,
+    Game game,                                    // Required
+    MapRendererSystem mapRendererSystem,          // Required
+    FontService fontService,                      // Required (not optional)
+    PerformanceStatsSystem performanceStatsSystem, // Required (not optional)
+    IModManager modManager,                       // Required (not optional)
+    // Optional dependencies
+    SpriteRendererSystem? spriteRendererSystem = null,
+    MapBorderRendererSystem? mapBorderRendererSystem = null,
+    ShaderManagerSystem? shaderManagerSystem = null,
+    ShaderRendererSystem? shaderRendererSystem = null,
+    RenderTargetManager? renderTargetManager = null
+)
+```
+
+**Or use a builder pattern:**
+
+```csharp
+public class SceneSystemBuilder
+{
+    public SceneSystemBuilder WithRequired(/* required params */) { /* ... */ }
+    public SceneSystemBuilder WithOptional(/* optional params */) { /* ... */ }
+    public SceneSystem Build() { /* ... */ }
+}
+```
+
+---
+
+## 8. 🟢 LOW: DRY Violations
+
+### Problem
+
+Repeated pattern matching in Update() and Render():
+
+```csharp
+// Update()
+if (World.Has<GameSceneComponent>(sceneEntity))
+    _gameSceneSystem?.Update(sceneEntity, deltaTime);
+else if (World.Has<LoadingSceneComponent>(sceneEntity))
+    _loadingSceneSystem?.Update(sceneEntity, deltaTime);
+// ... repeated pattern
+
+// Render()
+if (World.Has<GameSceneComponent>(sceneEntity))
+    _gameSceneSystem?.RenderScene(sceneEntity, gameTime);
+else if (World.Has<LoadingSceneComponent>(sceneEntity))
+    _loadingSceneSystem?.RenderScene(sceneEntity, gameTime);
+// ... repeated pattern
+```
+
+### Solution
+
+Use a dictionary/registry:
+
+```csharp
+private readonly Dictionary<Type, ISceneSystem> _sceneSystems = new();
+
+private ISceneSystem? FindSceneSystem(Entity sceneEntity)
+{
+    if (World.Has<GameSceneComponent>(sceneEntity))
+        return _sceneSystems.GetValueOrDefault(typeof(GameSceneComponent));
+    if (World.Has<LoadingSceneComponent>(sceneEntity))
+        return _sceneSystems.GetValueOrDefault(typeof(LoadingSceneComponent));
     // ...
-    // Update entity count
-    _entityCount = World.CountEntities(new QueryDescription());  // ❌ Created in Update()
+    return null;
 }
 ```
 
-**Violation:** QueryDescription created in Update() method (hot path).
-
-**Fix Required:**
-- Cache as `private static readonly QueryDescription _allEntitiesQuery = new QueryDescription();`
-- Use cached query in Update()
-
-**Impact:** MEDIUM (allocation every frame)
-
 ---
 
-### 4. TileSizeHelper - QueryDescription in Static Methods
+## 9. Arch ECS Issues
 
-**Location:** `MonoBall.Core/ECS/Utilities/TileSizeHelper.cs:46, 88`
+### Problem: SceneSystem.Update() Doesn't Use Queries Properly
 
-**Issue:**
+**Current:**
 ```csharp
-public static int GetTileWidth(World world, IModManager? modManager = null)
+public override void Update(in float deltaTime)
 {
-    int tileWidth = 0;
-    var mapQuery = new QueryDescription().WithAll<MapComponent>();  // ❌ Created in method
-    world.Query(in mapQuery, ...);
+    // ❌ Doesn't query for scenes - uses cached _sceneStack
+    // ❌ Calls systems directly instead of querying
+    _gameSceneSystem?.Update(in deltaTime);
 }
 ```
 
-**Violation:** QueryDescription created in static helper methods (called frequently).
-
-**Fix Required:**
-- Cache as `private static readonly QueryDescription MapQuery = new QueryDescription().WithAll<MapComponent>();`
-- Use cached query in both `GetTileWidth()` and `GetTileHeight()`
-
-**Impact:** MEDIUM (allocation per call, these methods are called frequently)
-
----
-
-## 🟡 MEDIUM: Hacky Timing Workaround
-
-### 1. GameInitializationService - Multiple Task.Yield() Calls
-
-**Location:** `MonoBall.Core/GameInitializationService.cs:303-305`
-
-**Issue:**
+**Should be:**
 ```csharp
-// Give the main thread time to process the progress update
-// We need multiple yields to ensure the update is processed and rendered
-await Task.Yield();
-await Task.Yield();
-await Task.Yield();
-```
-
-**Problem:** Hacky workaround using multiple `Task.Yield()` calls to ensure progress updates are processed.
-
-**Why This Is Bad:**
-- Relies on timing/thread scheduling (non-deterministic)
-- Comment admits uncertainty ("we need multiple yields")
-- No guarantee this actually works reliably
-- Better solutions exist (proper synchronization, events, etc.)
-
-**Fix Required:**
-- Use proper synchronization mechanism:
-  - `SemaphoreSlim` to wait for progress update acknowledgment
-  - Or use `LoadingSceneSystem.EnqueueProgress()` return value/event
-  - Or use `TaskCompletionSource` to wait for specific state
-- Remove multiple `Task.Yield()` calls
-
-**Impact:** MEDIUM (works but fragile, non-deterministic)
-
----
-
-## 🔴 CRITICAL: Event Subscription Memory Leak
-
-### 1. SystemManager - Missing Event Unsubscription
-
-**Location:** `MonoBall.Core/ECS/SystemManager.cs:378-383, 524-529, 1197-1250`
-
-**Issue:**
-```csharp
-// Lines 378-383: Subscribe to events
-EventBus.Subscribe<SceneCreatedEvent>(OnSceneCreated);
-EventBus.Subscribe<SceneDestroyedEvent>(OnSceneDestroyed);
-EventBus.Subscribe<SceneActivatedEvent>(OnSceneActivated);
-EventBus.Subscribe<SceneDeactivatedEvent>(OnSceneDeactivated);
-EventBus.Subscribe<ScenePausedEvent>(OnScenePaused);
-EventBus.Subscribe<SceneResumedEvent>(OnSceneResumed);
-
-// Lines 1197-1250: Dispose() method - NO UNSUBSCRIBE CALLS!
-public void Dispose()
+public override void Update(in float deltaTime)
 {
-    // ... disposes systems ...
-    // ❌ MISSING: EventBus.Unsubscribe calls!
+    // ✅ Query for active scenes
+    World.Query(in _activeScenesQuery, (Entity e, ref SceneComponent scene) =>
+    {
+        if (scene.IsActive && !scene.IsPaused)
+        {
+            var sceneSystem = FindSceneSystem(e);
+            sceneSystem?.Update(e, deltaTime);
+        }
+    });
 }
 ```
 
-**Violation:** SystemManager subscribes to 6 events but never unsubscribes in `Dispose()`, causing memory leaks.
+**However**, SceneSystem needs to maintain `_sceneStack` for priority ordering, so caching is acceptable. But Update() should still iterate scenes, not call systems directly.
 
-**Problem:**
-- EventBus holds references to SystemManager's event handlers
-- SystemManager is never garbage collected while EventBus exists
-- Memory leak: handlers accumulate if SystemManager is recreated
+---
 
-**Fix Required:**
-- Add unsubscription calls in `Dispose()`:
+## 10. Event System Issues
+
+### Problem: MapPopupSceneSystem Needs SceneSystem
+
+Instead of direct dependency, use events:
+
 ```csharp
-public void Dispose()
+// MapPopupSceneSystem fires event
+public void ShowPopup(string mapId)
 {
-    if (_isDisposed) return;
-    
-    // Unsubscribe from events FIRST (before disposing systems)
-    EventBus.Unsubscribe<SceneCreatedEvent>(OnSceneCreated);
-    EventBus.Unsubscribe<SceneDestroyedEvent>(OnSceneDestroyed);
-    EventBus.Unsubscribe<SceneActivatedEvent>(OnSceneActivated);
-    EventBus.Unsubscribe<SceneDeactivatedEvent>(OnSceneDeactivated);
-    EventBus.Unsubscribe<ScenePausedEvent>(OnScenePaused);
-    EventBus.Unsubscribe<SceneResumedEvent>(OnSceneResumed);
-    
-    // ... rest of disposal ...
+    var showEvent = new MapPopupShowEvent { MapId = mapId };
+    EventBus.Send(ref showEvent);
+}
+
+// SceneSystem subscribes and creates scene
+EventBus.Subscribe<MapPopupShowEvent>(OnMapPopupShow);
+
+private void OnMapPopupShow(ref MapPopupShowEvent evt)
+{
+    var sceneComponent = new SceneComponent { /* ... */ };
+    var popupComponent = new MapPopupSceneComponent { MapId = evt.MapId };
+    CreateScene(sceneComponent, popupComponent);
 }
 ```
 
-**Impact:** HIGH (memory leak, prevents GC of SystemManager)
+**Benefits:**
+- ✅ No circular dependency
+- ✅ Loose coupling
+- ✅ Event-driven architecture
 
 ---
 
-## 🟡 MEDIUM: Dead Code / Unused Fallback
+## Recommended Refactoring Plan
 
-### 1. MovementSystem - Unused Fallback Query
+### Phase 1: Fix Critical Issues
+1. ✅ **Create ISceneManager interface** - Break circular dependency
+2. ✅ **Move system creation to SystemManager** - Fix SRP violation
+3. ✅ **Reduce SceneSystem constructor parameters** - Use factory or pass systems directly
 
-**Location:** `MonoBall.Core/ECS/Systems/MovementSystem.cs:100-101`
+### Phase 2: Improve Architecture
+4. ✅ **Create ISceneSystem interface** - Enable loose coupling
+5. ✅ **Use registry pattern** - Enable moddable scenes
+6. ✅ **Consistent Update/Render pattern** - Both iterate scenes
 
-**Issue:** Query `_movementQuery` is created but never used in the codebase.
-
-**Fix Required:**
-- Remove entirely (dead code)
-- Search codebase to ensure no external code references it
-
-**Impact:** LOW (dead code, but clutters codebase)
-
----
-
-## 🟢 LOW: Code Quality Issues
-
-### 1. MapPopupSystem - Incomplete Fallback Logic Comment
-
-**Location:** `MonoBall.Core/ECS/Systems/MapPopupSystem.cs:266-272`
-
-**Issue:** Comment says "Fallback" but doesn't explain why fallback is needed or what bug it's working around.
-
-**Fix:** If keeping fallback (after fixing to fail fast), add clear comment explaining the scenario. Otherwise remove.
+### Phase 3: Polish
+7. ✅ **Remove optional parameters** - Make requirements explicit
+8. ✅ **DRY improvements** - Use dictionary for scene system lookup
+9. ✅ **Event-based communication** - Replace direct dependencies with events
 
 ---
 
-## Summary of Required Fixes
+## Summary
 
-| Priority | Issue | Location | Fix |
-|----------|-------|----------|-----|
-| 🔴 CRITICAL | Backward compatibility query | MovementSystem.cs:100-101 | Remove dead code |
-| 🔴 CRITICAL | Fallback scene cleanup | MapPopupSystem.cs:266-272 | Fail fast instead |
-| 🔴 CRITICAL | Fallback background color | MonoBallGame.cs:371-372 | Fail fast instead |
-| 🔴 CRITICAL | QueryDescription in ApplyTemplate | ShaderTemplateSystem.cs:66 | Cache as static readonly |
-| 🔴 CRITICAL | QueryDescription in ClearLayer | ShaderTemplateSystem.cs:136 | Use cached query |
-| 🔴 CRITICAL | QueryDescription in Update | PerformanceStatsSystem.cs:115 | Cache as static readonly |
-| 🔴 CRITICAL | QueryDescription in helpers | TileSizeHelper.cs:46,88 | Cache as static readonly |
-| 🔴 CRITICAL | Event subscription leak | SystemManager.cs:378-383 | Unsubscribe in Dispose() |
-| 🟡 MEDIUM | Multiple Task.Yield workaround | GameInitializationService.cs:303-305 | Use proper synchronization |
-| 🟡 MEDIUM | Unused fallback query | MovementSystem.cs:100-101 | Remove dead code |
+**Critical Issues:**
+- 🔴 SceneSystem constructor bloat (13+ parameters)
+- 🔴 Circular dependency (MapPopupSceneSystem ↔ SceneSystem)
 
----
+**High Priority:**
+- 🟡 SceneSystem creating systems (should be SystemManager)
+- 🟡 Tight coupling (knows all scene system types)
+- 🟡 Inconsistent Update/Render pattern
 
-## Recommended Fix Order
+**Medium Priority:**
+- 🟡 Missing interface abstraction
+- 🟡 Optional parameters (unclear requirements)
 
-1. **First:** Fix SystemManager event subscription leak (memory leak - HIGH priority)
-2. **Second:** Fix QueryDescription caching issues (performance impact)
-3. **Third:** Remove backward compatibility code (rule violation)
-4. **Fourth:** Fix fallback code to fail fast (rule violation)
-5. **Fifth:** Fix Task.Yield workaround (fragile code)
+**Low Priority:**
+- 🟢 DRY violations (repeated pattern matching)
 
----
-
-## Testing Recommendations
-
-After fixes:
-1. Test movement system with ActiveMapEntity tag (ensure fallback removal doesn't break anything)
-2. Test map popup cleanup (ensure fail-fast doesn't cause crashes in normal operation)
-3. Test initialization timing (ensure proper synchronization works)
-4. Performance test: Verify QueryDescription caching reduces allocations
-
----
-
-## Notes
-
-- All issues violate explicit project rules in `.cursorrules`
-- Most fixes are straightforward (remove code, cache queries, fail fast)
-- Task.Yield workaround requires more careful refactoring
-- No bugs found that would cause crashes, but rule violations need addressing
+**Recommended Next Steps:**
+1. Create `ISceneManager` interface to break circular dependency
+2. Move scene-specific system creation to `SystemManager`
+3. Refactor `SceneSystem` to receive systems instead of creating them
+4. Create `ISceneSystem` interface for loose coupling
+5. Use consistent Update/Render pattern (both iterate scenes)
 

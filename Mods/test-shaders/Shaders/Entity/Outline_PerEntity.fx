@@ -3,24 +3,19 @@
 // Shader ID: PerEntityOutline
 
 #if OPENGL
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex2D(samp, uv)
     #define SV_POSITION POSITION
     #define VS_SHADERMODEL vs_3_0
     #define PS_SHADERMODEL ps_3_0
 #else
-    #define VS_SHADERMODEL vs_4_0_level_9_1
-    #define PS_SHADERMODEL ps_4_0_level_9_1
+    #define SAMPLE_TEXTURE(tex, samp, uv) tex.Sample(samp, uv)
+    #define VS_SHADERMODEL vs_6_0
+    #define PS_SHADERMODEL ps_6_0
 #endif
 
-Texture2D SpriteTexture;
+Texture2D SpriteTexture : register(t0);
 
-sampler SpriteTextureSampler = sampler_state
-{
-    Texture = <SpriteTexture>;
-    AddressU = Clamp;
-    AddressV = Clamp;
-    MinFilter = Point;
-    MagFilter = Point;
-};
+SamplerState SpriteTextureSampler : register(s0);
 
 struct PixelShaderInput
 {
@@ -43,10 +38,10 @@ float3 hsv2rgb(float3 c)
     return c.z * lerp(K.xxx, saturate(p - K.xxx), c.y);
 }
 
-float4 MainPS(PixelShaderInput input) : COLOR
+float4 MainPS(PixelShaderInput input) : SV_Target
 {
     float2 uv = input.TextureCoordinates;
-    float4 pixelColor = tex2D(SpriteTextureSampler, uv);
+    float4 pixelColor = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv);
 
     // OPAQUE pixel - check if it's on the edge (has transparent neighbor)
     if (pixelColor.a > 0.5)
@@ -54,10 +49,10 @@ float4 MainPS(PixelShaderInput input) : COLOR
         float2 texelSize = 1.0 / SpriteSize;
 
         // Sample 4 cardinal neighbors
-        float a1 = tex2D(SpriteTextureSampler, uv + float2(texelSize.x, 0)).a;
-        float a2 = tex2D(SpriteTextureSampler, uv + float2(-texelSize.x, 0)).a;
-        float a3 = tex2D(SpriteTextureSampler, uv + float2(0, texelSize.y)).a;
-        float a4 = tex2D(SpriteTextureSampler, uv + float2(0, -texelSize.y)).a;
+        float a1 = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + float2(texelSize.x, 0)).a;
+        float a2 = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + float2(-texelSize.x, 0)).a;
+        float a3 = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + float2(0, texelSize.y)).a;
+        float a4 = SAMPLE_TEXTURE(SpriteTexture, SpriteTextureSampler, uv + float2(0, -texelSize.y)).a;
 
         // Count transparent neighbors
         float edgeCount = 0.0;
