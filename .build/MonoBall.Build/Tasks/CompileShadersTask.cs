@@ -23,7 +23,7 @@ namespace MonoBall.Build.Tasks
     {
         private const string ShaderExtension = ".fx";
         private const string CompiledShaderExtension = ".mgfxo";
-        private const string ShaderProfile = "Vulkan";
+        private const string ShaderProfile = "OpenGL";
 
         /// <summary>
         /// Runs the shader compilation task.
