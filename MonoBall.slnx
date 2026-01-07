@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/.build/">
+    <Project Path=".build/MonoBall.Build/MonoBall.Build.csproj" />
+  </Folder>
+  <Project Path="MonoBall.ArchiveTool/MonoBall.ArchiveTool.csproj" />
+  <Project Path="MonoBall.Core/MonoBall.Core.csproj" />
+  <Project Path="MonoBall.DesktopGL/MonoBall.DesktopGL.csproj" />
+</Solution>

@@ -10,13 +10,5 @@
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="6.0.0" />
     <PackageReference Include="Cake.Common" Version="6.0.0" />
-    <PackageReference Include="Roslynator.Analyzers" Version="4.12.2">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.12.2">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
   </ItemGroup>
 </Project>

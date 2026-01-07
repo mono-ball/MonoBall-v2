@@ -8,7 +8,7 @@
         "name": "C#: MonoBall Debug",
         "type": "dotnet",
         "request": "launch",
-        "projectPath": "${workspaceFolder}/MonoBall.DesktopGL.csproj"
+        "projectPath": "${workspaceFolder}/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj"
       }
     ],
   }

@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Compile Mod Shaders" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="dotnet build MonoBall/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj --configuration Debug --target=CompileModShaders" />
+    <option name="SCRIPT_TEXT" value="dotnet run --project .build/MonoBall.Build/MonoBall.Build.csproj -- --target=CompileShaders --configuration Debug" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />

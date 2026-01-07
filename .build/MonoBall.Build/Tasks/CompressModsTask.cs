@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Cake.Common.IO;
 using Cake.Core;
 using Cake.Core.Diagnostics;
@@ -60,22 +63,30 @@ namespace MonoBall.Build.Tasks
                 .Where(dir => !dir.GetDirectoryName().EndsWith(ArchiveExtension))
                 .ToList();
 
-            var failedMods = new List<string>();
+            var failedMods = new ConcurrentBag<string>();
+            var compressedCount = 0;
 
-            foreach (var modDir in modDirectories)
+            // Parallelize mod compression - each mod is independent
+            var parallelOptions = new ParallelOptions
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            };
+
+            Parallel.ForEach(modDirectories, parallelOptions, modDir =>
             {
                 try
                 {
                     var archiveName = $"{modDir.GetDirectoryName()}{ArchiveExtension}";
                     var archivePath = context.ModsDirectory.CombineWithFilePath(archiveName);
                     CompressMod(context, modDir, archivePath);
+                    Interlocked.Increment(ref compressedCount);
                 }
                 catch (Exception ex)
                 {
                     context.Log.Error($"Failed to compress mod {modDir}: {ex.Message}");
                     failedMods.Add(modDir.FullPath);
                 }
-            }
+            });
 
             if (failedMods.Any())
             {
@@ -84,7 +95,7 @@ namespace MonoBall.Build.Tasks
                     $"Failed mods: {string.Join(", ", failedMods)}");
             }
 
-            context.Log.Information($"Mod compression complete. Compressed {modDirectories.Count} mod(s).");
+            context.Log.Information($"Mod compression complete. Compressed {compressedCount} mod(s).");
         }
 
         private static void CompressMod(BuildContext context, DirectoryPath modDir, FilePath archivePath)

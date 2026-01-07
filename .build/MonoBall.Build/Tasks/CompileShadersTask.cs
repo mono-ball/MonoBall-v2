@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using Cake.Common.IO;
 using Cake.Core;
 using Cake.Core.Diagnostics;
@@ -48,17 +51,24 @@ namespace MonoBall.Build.Tasks
             context.Log.Information("Compiling mod shaders...");
 
             // Discover all .fx files in Mods directory
-            var shaderFiles = context.GetFiles($"{context.ModsDirectory}/**/*{ShaderExtension}");
-            var failedShaders = new List<string>();
+            var shaderFiles = context.GetFiles($"{context.ModsDirectory}/**/*{ShaderExtension}").ToList();
+            var failedShaders = new ConcurrentBag<string>();
             var compiledCount = 0;
+            var skippedCount = 0;
 
-            foreach (var shaderFile in shaderFiles)
+            // Parallelize shader compilation - each shader is independent
+            var parallelOptions = new ParallelOptions
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            };
+
+            Parallel.ForEach(shaderFiles, parallelOptions, shaderFile =>
             {
                 try
                 {
                     var outputPath = shaderFile.ChangeExtension(CompiledShaderExtension);
                     CompileShader(context, shaderFile, outputPath);
-                    compiledCount++;
+                    Interlocked.Increment(ref compiledCount);
                 }
                 catch (InvalidOperationException ex)
                 {
@@ -71,6 +81,7 @@ namespace MonoBall.Build.Tasks
                     if (isMacOS && isWineError)
                     {
                         context.Log.Warning($"Skipped shader {shaderFile}: {ex.Message}");
+                        Interlocked.Increment(ref skippedCount);
                         // Don't add to failedShaders - allow build to continue
                     }
                     else
@@ -84,7 +95,7 @@ namespace MonoBall.Build.Tasks
                     context.Log.Error($"Failed to compile shader {shaderFile}: {ex.Message}");
                     failedShaders.Add(shaderFile.FullPath);
                 }
-            }
+            });
 
             if (failedShaders.Any())
             {
@@ -95,7 +106,12 @@ namespace MonoBall.Build.Tasks
 
             if (compiledCount > 0)
             {
-                context.Log.Information($"Shader compilation complete. Compiled {compiledCount} shader(s).");
+                var message = $"Shader compilation complete. Compiled {compiledCount} shader(s)";
+                if (skippedCount > 0)
+                {
+                    message += $" (skipped {skippedCount} shader(s))";
+                }
+                context.Log.Information(message);
             }
             else if (shaderFiles.Count > 0)
             {
@@ -110,10 +126,10 @@ namespace MonoBall.Build.Tasks
             // Try to find mgfxc tool directly for better error output
             var homeDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             var mgfxcPath = System.IO.Path.Combine(homeDir, ".dotnet", "tools", "mgfxc");
-            
+
             ProcessArgumentBuilder args;
             string executable;
-            
+
             if (context.FileExists(mgfxcPath))
             {
                 // Use mgfxc directly - this gives us better error messages
@@ -141,7 +157,7 @@ namespace MonoBall.Build.Tasks
             // MGFXC's WineHelper checks for Wine in PATH, so we need to ensure it's there
             var env = new Dictionary<string, string>();
             var currentPath = Environment.GetEnvironmentVariable("PATH") ?? string.Empty;
-            
+
             // Add common Wine locations to PATH (check both Apple Silicon and Intel Macs)
             var winePaths = new[] { "/opt/homebrew/bin", "/usr/local/bin" };
             var updatedPath = currentPath;
@@ -152,14 +168,14 @@ namespace MonoBall.Build.Tasks
                     updatedPath = $"{winePath}:{updatedPath}";
                 }
             }
-            
+
             if (updatedPath != currentPath)
             {
                 env["PATH"] = updatedPath;
             }
-            
+
             // Ensure MGFXC_WINE_PATH is set if Wine prefix exists
-            var winePrefix = Environment.GetEnvironmentVariable("MGFXC_WINE_PATH") ?? 
+            var winePrefix = Environment.GetEnvironmentVariable("MGFXC_WINE_PATH") ??
                             System.IO.Path.Combine(homeDir, ".winemonogame");
             if (System.IO.Directory.Exists(winePrefix))
             {
@@ -178,34 +194,34 @@ namespace MonoBall.Build.Tasks
 
             process.WaitForExit();
             var exitCode = process.GetExitCode();
-            
+
             // Read both stdout and stderr to check for specific error types
             var errorLines = process.GetStandardError() ?? Enumerable.Empty<string>();
             var outputLines = process.GetStandardOutput() ?? Enumerable.Empty<string>();
             var errorText = string.Join("\n", errorLines);
             var outputText = string.Join("\n", outputLines);
             var allOutput = errorText + "\n" + outputText;
-            
+
             if (exitCode != 0)
             {
                 var isMacOS = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-                
+
                 // Check if this is specifically a Wine detection error (MGFXC0001)
                 // Check both stderr and stdout as MGFXC may write errors to either
-                var isWineDetectionError = allOutput.Contains("MGFXC0001") || 
+                var isWineDetectionError = allOutput.Contains("MGFXC0001") ||
                                           allOutput.Contains("WineHelper") ||
                                           allOutput.Contains("requires a valid Wine installation") ||
                                           allOutput.Contains("type initializer") && allOutput.Contains("WineHelper");
-                
+
                 if (isMacOS && isWineDetectionError)
                 {
                     // This is specifically a Wine detection issue - provide helpful message
-                    var winePrefixPath = Environment.GetEnvironmentVariable("MGFXC_WINE_PATH") ?? 
+                    var winePrefixPath = Environment.GetEnvironmentVariable("MGFXC_WINE_PATH") ??
                                     System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".winemonogame");
                     var winePrefixExists = Directory.Exists(winePrefixPath);
-                    
+
                     var errorMsg = $"Shader compilation failed for {inputPath} (exit code {exitCode}). ";
-                    
+
                     if (!winePrefixExists)
                     {
                         errorMsg += "MGFXC requires a Wine prefix to be set up for MonoGame. " +
@@ -217,19 +233,19 @@ namespace MonoBall.Build.Tasks
                                    "Ensure Wine is properly installed and accessible in PATH. " +
                                    "Check that MGFXC_WINE_PATH points to a valid Wine prefix. ";
                     }
-                    
+
                     errorMsg += "Visit https://docs.monogame.net/errors/mgfx0001?tab=macos for troubleshooting. " +
                                "You can skip shader compilation with --skip-shader-compilation flag.";
-                    
+
                     throw new InvalidOperationException(errorMsg);
                 }
-                
+
                 // Not a Wine detection error - this is a real shader compilation error
                 // Include the actual error message from both stdout and stderr
-                var actualError = !string.IsNullOrWhiteSpace(allOutput.Trim()) 
-                    ? $"\nError details: {allOutput.Trim()}" 
+                var actualError = !string.IsNullOrWhiteSpace(allOutput.Trim())
+                    ? $"\nError details: {allOutput.Trim()}"
                     : string.Empty;
-                
+
                 throw new InvalidOperationException(
                     $"Shader compilation failed for {inputPath} with exit code {exitCode}.{actualError}");
             }

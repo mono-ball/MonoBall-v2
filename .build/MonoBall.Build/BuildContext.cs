@@ -146,24 +146,38 @@ namespace MonoBall.Build
             // When running via dotnet run --project, working directory may be the project dir or repo root
             var currentDir = context.Environment.WorkingDirectory;
 
-            // Try multiple locations for solution file
+            // Try multiple locations for solution file (.slnx format, fallback to .sln for compatibility)
             FilePath solutionPath;
             DirectoryPath rootDir;
 
-            // Try current directory first
-            var candidate1 = currentDir.CombineWithFilePath("MonoBall.sln");
-            if (context.FileExists(candidate1))
+            // Try .slnx first (new format), then fallback to .sln
+            var candidate1Slnx = currentDir.CombineWithFilePath("MonoBall.slnx");
+            var candidate1Sln = currentDir.CombineWithFilePath("MonoBall.sln");
+
+            if (context.FileExists(candidate1Slnx))
             {
-                solutionPath = candidate1;
+                solutionPath = candidate1Slnx;
+                rootDir = currentDir;
+            }
+            else if (context.FileExists(candidate1Sln))
+            {
+                solutionPath = candidate1Sln;
                 rootDir = currentDir;
             }
             else
             {
                 // Try going up from current directory (in case we're in .build/MonoBall.Build/)
-                var candidate2 = currentDir.Combine("../..").Collapse().CombineWithFilePath("MonoBall.sln");
-                if (context.FileExists(candidate2))
+                var candidate2Slnx = currentDir.Combine("../..").Collapse().CombineWithFilePath("MonoBall.slnx");
+                var candidate2Sln = currentDir.Combine("../..").Collapse().CombineWithFilePath("MonoBall.sln");
+
+                if (context.FileExists(candidate2Slnx))
                 {
-                    solutionPath = candidate2;
+                    solutionPath = candidate2Slnx;
+                    rootDir = currentDir.Combine("../..").Collapse();
+                }
+                else if (context.FileExists(candidate2Sln))
+                {
+                    solutionPath = candidate2Sln;
                     rootDir = currentDir.Combine("../..").Collapse();
                 }
                 else
@@ -171,7 +185,17 @@ namespace MonoBall.Build
                     // Last resort: assume repo root is two levels up from build project
                     var buildProjectDir = context.MakeAbsolute(context.Directory(".build/MonoBall.Build"));
                     rootDir = buildProjectDir.Combine("../..").Collapse();
-                    solutionPath = rootDir.CombineWithFilePath("MonoBall.sln");
+                    var fallbackSlnx = rootDir.CombineWithFilePath("MonoBall.slnx");
+                    var fallbackSln = rootDir.CombineWithFilePath("MonoBall.sln");
+
+                    if (context.FileExists(fallbackSlnx))
+                    {
+                        solutionPath = fallbackSlnx;
+                    }
+                    else
+                    {
+                        solutionPath = fallbackSln;
+                    }
                 }
             }
 
@@ -188,23 +212,23 @@ namespace MonoBall.Build
             var outputDir = context.EnvironmentVariable("MONOBALL_OUTPUT_DIR");
             OutputDirectory = outputDir != null
                 ? context.MakeAbsolute(context.Directory(outputDir))
-                : RootDirectory.Combine("MonoBall/MonoBall.DesktopGL/bin")
+                : RootDirectory.Combine("MonoBall.DesktopGL/bin")
                               .Combine(Configuration)
                               .Combine(TargetFramework);
 
             // Publish Directory (initialized but can be null until publish is run)
-            PublishDirectory = RootDirectory.Combine("MonoBall/MonoBall.DesktopGL/bin")
+            PublishDirectory = RootDirectory.Combine("MonoBall.DesktopGL/bin")
                                            .Combine(Configuration)
                                            .Combine(TargetFramework)
                                            .Combine("publish");
 
             // Project Paths
-            CoreProjectPath = RootDirectory.CombineWithFilePath("MonoBall/MonoBall.Core/MonoBall.Core.csproj");
-            DesktopGLProjectPath = RootDirectory.CombineWithFilePath("MonoBall/MonoBall.DesktopGL/MonoBall.DesktopGL.csproj");
-            ArchiveToolProjectPath = RootDirectory.CombineWithFilePath("MonoBall/MonoBall.ArchiveTool/MonoBall.ArchiveTool.csproj");
+            CoreProjectPath = RootDirectory.CombineWithFilePath("MonoBall.Core/MonoBall.Core.csproj");
+            DesktopGLProjectPath = RootDirectory.CombineWithFilePath("MonoBall.DesktopGL/MonoBall.DesktopGL.csproj");
+            ArchiveToolProjectPath = RootDirectory.CombineWithFilePath("MonoBall.ArchiveTool/MonoBall.ArchiveTool.csproj");
 
             // ArchiveTool Executable (platform-specific)
-            var archiveToolBinDir = RootDirectory.Combine("MonoBall/MonoBall.ArchiveTool/bin")
+            var archiveToolBinDir = RootDirectory.Combine("MonoBall.ArchiveTool/bin")
                                                    .Combine(Configuration)
                                                    .Combine(TargetFramework);
             ArchiveToolExecutable = context.IsRunningOnWindows()

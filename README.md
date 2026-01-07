@@ -123,7 +123,7 @@ The build system has been migrated from MSBuild targets to Cake Frosting. All bu
 **Build fails with "Solution not found":**
 
 - Ensure you're running the build script from the repository root
-- Verify `MonoBall.sln` exists in the root directory
+- Verify `MonoBall.slnx` (or `MonoBall.sln` for compatibility) exists in the root directory
 
 **Shader compilation fails:**
 
@@ -152,7 +152,7 @@ The build system has been migrated from MSBuild targets to Cake Frosting. All bu
 ## Project Structure
 
 ```
-MonoBall/
+MonoBall-v2/
 ├── build.ps1                    # Windows build script
 ├── build.sh                     # Unix build script
 ├── .build/                      # Build system
