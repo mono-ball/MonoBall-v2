@@ -6,6 +6,8 @@
     <RootNamespace>MonoBall.Build</RootNamespace>
     <LangVersion>default</LangVersion>
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+    <!-- Enable invariant globalization on Linux to avoid Wine/ICU issues with shader compiler -->
+    <InvariantGlobalization Condition="$([MSBuild]::IsOSPlatform('Linux'))">true</InvariantGlobalization>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="6.0.0" />

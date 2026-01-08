@@ -158,6 +158,15 @@ namespace MonoBall.Build.Tasks
             var env = new Dictionary<string, string>();
             var currentPath = Environment.GetEnvironmentVariable("PATH") ?? string.Empty;
 
+            // On Linux, set DOTNET_SYSTEM_GLOBALIZATION_INVARIANT to avoid Wine/ICU issues
+            // Note: For the build tool itself, InvariantGlobalization is set in the project file
+            // This environment variable ensures mgfxc (run as separate process) also uses invariant mode
+            var isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+            if (isLinux)
+            {
+                env["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "true";
+            }
+
             // Add common Wine locations to PATH (check both Apple Silicon and Intel Macs)
             var winePaths = new[] { "/opt/homebrew/bin", "/usr/local/bin" };
             var updatedPath = currentPath;

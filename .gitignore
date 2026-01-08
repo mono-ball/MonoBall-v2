@@ -114,6 +114,20 @@ pokeemerald-expansion/
 *.monoball
 oldmonoball/
 
+
+# Removed Windows wrapper files per user request
+hive-mind-prompt-*.txt
+
+pokeemerald-expansion/
+*output/
+*.monoball
+
+docs/api/
+
+
+# Removed Windows wrapper files per user request
+hive-mind-prompt-*.txt
+
 # Claude Flow generated files
 .claude/settings.local.json
 .mcp.json
@@ -140,9 +154,4 @@ coordination/orchestration/*
 claude-flow
 # Removed Windows wrapper files per user request
 hive-mind-prompt-*.txt
-
-pokeemerald-expansion/
-*output/
-*.monoball
-
-docs/api/
+node_modules
