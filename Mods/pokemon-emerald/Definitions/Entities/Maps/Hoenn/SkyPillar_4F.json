@@ -1,0 +1,148 @@
+{
+  "id": "pokeemerald:map:hoenn/sky_pillar_4f",
+  "name": "SkyPillar_4F",
+  "description": "",
+  "regionId": "pokeemerald:region:Hoenn",
+  "mapTypeId": "pokeemerald:maptype:underground",
+  "width": 14,
+  "height": 14,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/special/mt_chimney",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/sky_pillar",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/pacifidlog",
+    "bottomLayer": [
+      1130,
+      1130,
+      1130,
+      1130
+    ],
+    "topLayer": [
+      -1073740838,
+      -1073740838,
+      -1073740838,
+      -1073740838
+    ]
+  },
+  "layers": [
+    {
+      "id": "pokeemerald:layer:Hoenn/sky_pillar_4f/ground",
+      "name": "Ground",
+      "width": 14,
+      "height": 14,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgBAAAYAQAAGAEAABgBAAAYAQAAGAEAABgBAAAYAQAAAAAAAAAAAAAAAAAAGAEAABeBAAAYAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAQAAAAAAAAAAAAAAAAAAAAAAABgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgBAAAAAAAAAAAAAAAAAAAYAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgBAAAYAQAAAAAAABgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAQAAAAAAAAAAAAAAAAAAGAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:Hoenn/sky_pillar_4f/objects",
+      "name": "Objects",
+      "width": 14,
+      "height": 14,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "VgQAAFYEAABXBAAAWAQAAFkEAABWBAAAVwQAAFgEAABZBAAAVgQAAFcEAABYBAAAWQQAAFYEAABaBAAAWgQAAFsEAABcBAAAXQQAAFoEAABbBAAAawQAAF0EAABaBAAAWwQAAGsEAABdBAAAWgQAAF4EAABeBAAAXgQAAF4EAABeBAAAXgQAAF4EAABeBAAAXwQAAF4EAABeBAAAXgQAAF4EAABeBAAAbAQAAGwEAABfBAAAYQQAAGEEAABhBAAAXwQAAGEEAABhBAAAXwQAAGAEAABgBAAAYAQAAF8EAABhBAAAYQQAAGAEAABgBAAAbAQAAGAEAABsBAAAbAQAAGAEAABsBAAAXwQAAGAEAABgBAAAYAQAAGAEAABfBAAAYAQAAGAEAABiBAAAYwQAAGMEAABjBAAAYwQAAGQEAABgBAAAbAQAAGwEAABsBAAAYAQAAGAEAABgBAAAYAQAAGUEAABmBAAAZgQAAGYEAABmBAAAZQQAgGAEAABsBAAAbAQAAGwEAABgBAAAbAQAAGEEAABsBAAAZgQAAGYEAABmBAAAZgQAAGYEAABmBAAAYAQAAGwEAABfBAAAYAQAAGAEAABsBAAAXwQAAGwEAABmBAAAZgQAAGYEAABmBAAAZgQAAGYEAABgBAAAYAQAAGAEAABfBAAAYQQAAGwEAABfBAAAbAQAAGYEAABmBAAAZgQAAGYEAABmBAAAZgQAAGAEAABgBAAAYAQAAGAEAABhBAAAbAQAAGAEAABgBAAAZwQAAGgEAABoBAAAaAQAAGgEAABnBACAYAQAAGAEAABgBAAAYAQAAGAEAABgBAAAYAQAAGwEAABgBAAAXwQAAGAEAABsBAAAYAQAAF8EAABsBAAAbAQAAGAEAABgBAAAYAQAAGAEAABfBAAAYAQAAGwEAABgBAAAbAQAAGAEAABsBAAAYAQAAGwEAABsBAAAYAQAAGAEAABgBAAAYAQAAGAEAABsBAAAYAQAAGwEAABgBAAAXwQAAGAEAABsBAAAbAQAAGwEAABgBAAAYAQAAA=="
+    },
+    {
+      "id": "pokeemerald:layer:Hoenn/sky_pillar_4f/overhead",
+      "name": "Overhead",
+      "width": 14,
+      "height": 14,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwAAAAAAAAAAAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwNoDAMAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAA2gMAwNoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAAAAAAANoDAMAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwAAAAADaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMAAAAAA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwNoDAMDaAwDAAAAAANoDAMDaAwDA2gMAwNoDAMDaAwDA2gMAwA=="
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/pacifidlog"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:Hoenn/sky_pillar_4f/warp_to_sky_pillar_3f",
+      "name": "Warp to sky_pillar_3f",
+      "x": 176,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sky_pillar_3f",
+      "targetX": 1,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:Hoenn/sky_pillar_4f/warp_to_sky_pillar_3f",
+      "name": "Warp to sky_pillar_3f",
+      "x": 112,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sky_pillar_3f",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:warp:Hoenn/sky_pillar_4f/warp_to_sky_pillar_5f",
+      "name": "Warp to sky_pillar_5f",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/sky_pillar_5f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:Hoenn/sky_pillar_4f/elevation_0",
+      "name": "Collision_0",
+      "width": 14,
+      "height": 14,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEAAQEBAAEBAQABAQAAAAAAAAAAAAAAAAAAAAAAAQEBAAEBAAAAAAABAQAAAAAAAAAAAAAAAAAAAAABAQEBAQEAAAAAAAAAAAEBAQEBAQAAAAAAAAEAAQEBAQEBAAAAAAAAAAABAQEBAQEAAAAAAQAAAAEBAQEBAQAAAAABAAAAAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "id": "pokeemerald:collision:Hoenn/sky_pillar_4f/elevation_3",
+      "name": "Collision_3",
+      "width": 14,
+      "height": 14,
+      "elevation": 3,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAQAAAAEAAAAAAAAAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=="
+    }
+  ]
+}

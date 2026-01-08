@@ -9,13 +9,14 @@ namespace MonoBall.Core.Scenes.Components;
 ///         MessageBoxScene displays text in a message box window with typewriting effect.
 ///         Supports A/B button input for speed-up and text advancement.
 ///     </para>
-///     <para>
-///         Scene entities with MessageBoxSceneComponent should have SceneComponent with:
-///         - CameraMode = SceneCameraMode.GameCamera (uses game camera for proper scaling from GBA sprites)
-///         - Priority = ScenePriorities.GameScene + 20 (70) - above game scene, below loading/debug
-///         - BlocksUpdate = true (blocks game updates when active)
-///         - BlocksDraw = false (allows game to render behind message box)
-///     </para>
+    ///     <para>
+    ///         Scene entities with MessageBoxSceneComponent should have SceneComponent with:
+    ///         - CameraMode = SceneCameraMode.GameCamera (uses game camera for proper scaling from GBA sprites)
+    ///         - Priority = ScenePriorities.GameScene + 20 (70) - above game scene, below loading/debug
+    ///         - BlocksUpdate = false (allows animations like map popups to continue)
+    ///         - BlocksDraw = false (allows game to render behind message box)
+    ///         - BlocksInput = true (blocks input to prevent player movement while message box is open)
+    ///     </para>
 /// </remarks>
 public struct MessageBoxSceneComponent
 {

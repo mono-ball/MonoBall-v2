@@ -1,0 +1,184 @@
+{
+  "id": "pokeemerald:tileset:secondary/evergrande",
+  "name": "EverGrande",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/EverGrande.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 99,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 112,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 33,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 46,
+      "animation": [
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 74,
+      "animation": [
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 90,
+      "animation": [
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 93,
+      "animation": [
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 39,
+          "durationMs": 133
+        },
+        {
+          "tileId": 45,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 38,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        },
+        {
+          "tileId": 51,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 97,
+      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 98,
+      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    }
+  ]
+}

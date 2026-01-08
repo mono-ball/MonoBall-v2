@@ -83,7 +83,7 @@ public class MapDefinition
     /// <summary>
     ///     The map section ID.
     /// </summary>
-    [JsonPropertyName("mapSectionId")]
+    [JsonPropertyName("sectionId")]
     public string? MapSectionId { get; set; }
 
     /// <summary>

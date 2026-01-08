@@ -1,0 +1,188 @@
+{
+  "id": "pokeemerald:map:hoenn/slateport_city_sterns_shipyard_1f",
+  "name": "SlateportCity_SternsShipyard_1F",
+  "description": "",
+  "regionId": "pokeemerald:region:Hoenn",
+  "mapTypeId": "pokeemerald:maptype:indoor",
+  "width": 21,
+  "height": 15,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/slateport",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/slateport_city",
+  "showMapName": false,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": false,
+  "allowCycling": false,
+  "allowEscaping": false,
+  "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/facility",
+    "bottomLayer": [
+      1014,
+      1014,
+      1014,
+      1014
+    ],
+    "topLayer": [
+      -1073740824,
+      -1073740824,
+      -1073740824,
+      -1073740824
+    ]
+  },
+  "layers": [
+    {
+      "id": "pokeemerald:layer:Hoenn/slateport_city_sterns_shipyard_1f/ground",
+      "name": "Ground",
+      "width": 21,
+      "height": 15,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "2wMAANsDAAAAAAAAAAAAAAAAAADbAwAAAAAAANsDAADbAwAA2wMAANsDAADbAwAAAAAAANkDAIDbAwAA2QMAgNsDAADZAwCA2wMAANsDAADZAwCA3gMAgN4DAIAAAAAAAAAAAAAAAADeAwCAAAAAAN4DAIDeAwCA3gMAgN4DAIDeAwCAAAAAAN4DAIDeAwCA3gMAgN4DAIDeAwCA3gMAgN4DAIDeAwCA2wMAANsDAADpAwAAAAAAAOkDAAAAAAAAAAAAAAAAAAAIBAAACAQAAAgEAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASBAAAEgQAgBIEAIASBACAEgQAgBIEAIASBACAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAGQQAABkEAAAAAAAAAAAAAAAAAADbAwAAAAAAAN4DAIDeAwCA3gMAgN4DAIDeAwCA3gMAgN4DAIDeAwCAAAAAAAAAAAAAAAAAAAAAAAgEAAAIBAAAAAAAANsDAAAAAAAAAAAAANsDAADbAwAAAAAAAAgEAAAAAAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAAAAAAAAAAAAAAAAAgEAAAIBAAAAAAAAAAAAAAAAAAAAAAAAOcDAADnAwAAAAAAAAAAAAAAAAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQQAABkEAAAAAAAAAAAAANsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAACAQAAAgEAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6QMAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQQAABkEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAANsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAC4EAAAAAAAAAAAAAAAAAAAuBAAAAAAAAAAAAAAAAAAACAQAAAgEAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAgEAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAIBAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:Hoenn/slateport_city_sterns_shipyard_1f/objects",
+      "name": "Objects",
+      "width": 21,
+      "height": 15,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "2QMAgNkDAID3AwAA\u002BQMAAPsDAADZAwCA/AMAANkDAIDZAwCA2QMAgNkDAIDZAwCA/QMAANwDAADZAwCA3QMAANkDAID\u002BAwAA2QMAgNkDAID\u002BAwAA5QMAAOYDAAD/AwAAAAQAAAEEAADoAwDAAgQAAOgDAMDhAwAA4gMAAAMEAADoAwDABAQAAOMDAADoAwDA5AMAAOgDAMAFBAAA6AMAwOgDAMAFBAAA7QMAAO4DAAAGBAAA6QMAAAcEAADpAwAAAgQAAAgEAADrAwAA7AMAAAkEAAAIBAAACgQAAAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAA6QMAAOkDAADbAwAA2wMAANsDAADbAwAAAgQAwAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAA2wMAANsDAADbAwAA2wMAANsDAADbAwAA/AMAABAEAADdAwAAEwQAABQEAAAVBAAAFgQAABYEAIAVBACAFwQAAAgEAAAIBAAACAQAAAgEAAAYBAAAGgQAABsEAADbAwAA2wMAANsDAAAcBAAAAgQAAB0EAADkAwAAHgQAAB8EAAAgBAAAIQQAACEEAIAgBACABAQAAAgEAAAIBAAACAQAABgEAAAYBAAA2wMAABwEAADbAwAA2wMAAPEDAADyAwAAAgQAwB0EAAAIBAAAIgQAACMEAAAkBAAAJQQAACUEAIAkBACACgQAAAgEAAAIBAAACAQAACYEAAAnBAAA2wMAANsDAADbAwAA2wMAAPMDAAD0AwAAFwQAAAgEAAAIBAAAKAQAACkEAAAqBAAAKwQAACsEAIAqBACACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAAGgQAABsEAADbAwAA2wMAABwEAADbAwAABAQAAAgEAAAIBAAACAQAAAgEAAAsBAAALQQAAC0EAIAsBACACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAAHAQAANsDAADbAwAA2wMAANsDAADbAwAACgQAAAgEAAAIBAAACAQAAAgEAAAIBAAALwQAAC8EAIAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAA2wMAANsDAADbAwAA2wMAANsDAADbAwAA2wMAAAgEAAAIBAAALgQAAC4EAAAuBAAAOwQAADsEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAAGgQAABsEAADbAwAA2wMAANsDAADbAwAA/AMAAAgEAAAIBAAALgQAAC4EAAAuBAAALgQAAC4EAAAuBAAACAQAAAgEAAAIBAAACAQAAAgEAAAYBAAA2wMAABwEAADbAwAA2wMAANsDAADbAwAAAgQAABgEAAAIBAAALgQAAB0EAAAuBAAALgQAAC4EAAAdBAAACAQAAAgEAAAIBAAAGAQAABgEAAAYBAAA2wMAANsDAADbAwAA2wMAANsDAADbAwAAAgQAACYEAAAYBAAACAQAAC4EAAAuBAAALgQAAC4EAAAuBAAACAQAAAgEAAAIBAAAJgQAACYEAAAnBAAA2wMAANsDAAD1AwAA9QMAwNsDAADbAwAAAgQAACcEAAAnBAAAJgQAAAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAACAQAAAgEAAAIBAAA"
+    },
+    {
+      "id": "pokeemerald:layer:Hoenn/slateport_city_sterns_shipyard_1f/overhead",
+      "name": "Overhead",
+      "width": 21,
+      "height": 15,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAD4AwAA\u002BgMAAPgDAIAAAAAA6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoAwDA6AMAwOgDAMAAAAAA6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAwAAAAADoAwDA6AMAwOgDAMAAAAAAAAAAAAAAAADoAwDAAAAAAOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDACwQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAACwQAgOgDAMDoAwDA6AMAwOgDAMANBAAADgQAAA8EAADoAwDA6AMAwOgDAMDoAwDA6AMAwBEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwA0EAAAAAAAAAAAAAAAAAADoAwDA6AMAwOgDAMAAAAAA6AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwAAAAAAAAAAA6AMAwAAAAADoAwDA6AMAwAAAAAAAAAAACwQAAAAAAADoAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOgDAMDoAwDA6AMAwAAAAAAAAAAADgQAAA8EAADoAwDA6AMAwAAAAAAAAAAA6AMAwOgDAMDoAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDAAAAAAAAAAADoAwDA6AMAwAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMAAAAAAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDAAAAAAOgDAMDoAwDA6AMAwOgDAMDoAwDAAAAAAOgDAMDoAwDA6AMAwBEEAADoAwDAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDADgQAAA8EAADoAwDA6AMAwOgDAMDoAwDACwQAgOgDAMDoAwDA6AMAwB0EAADoAwDA6AMAwOgDAMARBAAA6AMAwOgDAMDoAwDA6AMAwOgDAMANBAAAAAAAAAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAwA0EAADoAwDA6AMAwB0EAADoAwDA6AMAwOgDAMAdBAAA6AMAwOgDAMDoAwDADQQAAA0EAAAAAAAA6AMAwAAAAADoAwDA6AMAwOgDAMDoAwDA6AMAwAAAAAANBAAA6AMAwAAAAADoAwDA6AMAwOgDAMAAAAAA6AMAwOgDAMDoAwDAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwAAAAAAAAAAADQQAAOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDAAAAAAAAAAAAAAAAA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwAAAAAAAAAAAAAAAAOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA6AMAwOgDAMDoAwDA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/facility"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:Hoenn/slateport_city_sterns_shipyard_1f/warp_to_slateport_city",
+      "name": "Warp to slateport_city",
+      "x": 32,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/slateport_city",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:Hoenn/slateport_city_sterns_shipyard_1f/warp_to_slateport_city",
+      "name": "Warp to slateport_city",
+      "x": 48,
+      "y": 224,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/slateport_city",
+      "targetX": 2,
+      "targetY": 0,
+      "elevation": 0
+    },
+    {
+      "id": "pokeemerald:warp:Hoenn/slateport_city_sterns_shipyard_1f/warp_to_slateport_city_sterns_shipyard_2f",
+      "name": "Warp to slateport_city_sterns_shipyard_2f",
+      "x": 48,
+      "y": 16,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/slateport_city_sterns_shipyard_2f",
+      "targetX": 0,
+      "targetY": 0,
+      "elevation": 0
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:Hoenn/slateport_city_sterns_shipyard_1f/localid_dock",
+      "name": "LOCALID_DOCK",
+      "x": 80,
+      "y": 80,
+      "spriteId": "pokeemerald:sprite:characters/npcs/man1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_sterns_shipyard_1f_event_script_dock",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:Hoenn/slateport_city_sterns_shipyard_1f/npc_1",
+      "name": "NPC_1",
+      "x": 160,
+      "y": 112,
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_sterns_shipyard_1f_event_script_scientist1",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:Hoenn/slateport_city_sterns_shipyard_1f/npc_2",
+      "name": "NPC_2",
+      "x": 288,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 0
+      },
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_sterns_shipyard_1f_event_script_scientist2",
+      "elevation": 3
+    },
+    {
+      "id": "pokeemerald:npc:Hoenn/slateport_city_sterns_shipyard_1f/npc_3",
+      "name": "NPC_3",
+      "x": 192,
+      "y": 176,
+      "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
+      "behaviorId": "pokeemerald:script:movement/npcs/wander",
+      "behaviorParameters": {
+        "rangeX": 1,
+        "rangeY": 2
+      },
+      "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_sterns_shipyard_1f_event_script_briney",
+      "visibilityFlag": "pokeemerald:flag:visibility/slateport_city_sterns_shipyard_mr_briney",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:Hoenn/slateport_city_sterns_shipyard_1f/elevation_0",
+      "name": "Collision_0",
+      "width": 21,
+      "height": 15,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQAAAAEBAQEAAAAAAQEBAQEBAQEBAQAAAAEBAAAAAAEBAQEAAQEBAQEBAAAAAAEBAAAAAAEBAQAAAAABAQEBAAAAAAAAAQEAAAAAAQAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAQAAAAAAAAAAAAAAAQEBAAAAAAAAAQEAAAEAAAABAAAAAQEBAAAAAAAAAQEBAQAAAAAAAAAAAQEBAAAAAAAAAQEBAQAAAAAAAAAAAAAA"
+    }
+  ]
+}

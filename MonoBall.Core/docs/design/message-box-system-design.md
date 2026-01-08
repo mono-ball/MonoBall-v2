@@ -63,7 +63,7 @@ Background (0)            - Background scenes
 #### Scene Configuration
 
 - **CameraMode**: `SceneCameraMode.GameCamera` (uses game camera for proper scaling from GBA sprites)
-- **BlocksUpdate**: `true` (blocks game updates when message box is active)
+- **BlocksUpdate**: `false` (allows animations like map popups to continue)
 - **BlocksDraw**: `false` (allows game to render behind message box)
 - **Priority**: `ScenePriorities.GameScene + 20` (renders above game scene)
 
@@ -87,7 +87,7 @@ namespace MonoBall.Core.Scenes.Components
     /// Scene entities with MessageBoxSceneComponent should have SceneComponent with:
     /// - CameraMode = SceneCameraMode.GameCamera (uses game camera for proper scaling from GBA sprites)
     /// - Priority = ScenePriorities.GameScene + 20 (70) - above game scene, below loading/debug
-    /// - BlocksUpdate = true (blocks game updates when active)
+    /// - BlocksUpdate = false (allows animations like map popups to continue)
     /// - BlocksDraw = false (allows game to render behind message box)
     /// </para>
     /// </remarks>
@@ -912,7 +912,7 @@ public void ProcessInternal(float deltaTime)
 - If message box is printing: Speed up (set delay to 0, mark as sped up)
 - If message box is waiting: Advance to next page or hide
 - If message box is finished: Hide message box
-- **Input Blocking**: When message box scene is active, it blocks game updates (`BlocksUpdate = true`)
+- **Input Blocking**: When message box scene is active, it blocks input but not updates (`BlocksUpdate = false`, `BlocksInput = true`)
 
 **Rendering** (`RenderScene`):
 
@@ -1333,7 +1333,7 @@ namespace MonoBall.Core.Scenes.Components
     - Use `ISceneManager.CreateScene()` with:
         - Priority: `ScenePriorities.GameScene + 20`
         - CameraMode: `SceneCameraMode.GameCamera` (for proper scaling from GBA sprites)
-        - BlocksUpdate: `true`
+        - BlocksUpdate: `false` (allows animations like map popups to continue)
         - BlocksDraw: `false`
 3. Implement scene destruction in `OnMessageBoxHide` event handler
     - Use `ISceneManager.DestroyScene()`
@@ -1398,7 +1398,7 @@ namespace MonoBall.Core.Scenes.Components
 - Registered with `SceneSystem` via `RegisterSceneSystem(typeof(MessageBoxSceneComponent), messageBoxSceneSystem)`
 - Scene lifecycle managed by `SceneSystem` (create/destroy/activate)
 - Scene priority: `ScenePriorities.GameScene + 20` (70) - above game scene, below loading/debug overlays
-- Blocks game updates when active (`BlocksUpdate = true`)
+- Blocks input but not updates when active (`BlocksUpdate = false`, `BlocksInput = true`)
 
 #### Input System
 

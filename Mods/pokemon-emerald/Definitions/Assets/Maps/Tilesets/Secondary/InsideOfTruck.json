@@ -1,0 +1,32 @@
+{
+  "id": "pokeemerald:tileset:secondary/insideoftruck",
+  "name": "InsideOfTruck",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/InsideOfTruck.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 27,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 1,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    },
+    {
+      "localTileId": 10,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    },
+    {
+      "localTileId": 17,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    },
+    {
+      "localTileId": 22,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_down"
+    }
+  ]
+}

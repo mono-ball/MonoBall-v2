@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Arch.Core;
 using Arch.System;
 using Microsoft.Xna.Framework;
@@ -62,15 +63,20 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
 
+        _logger.Information("MapPopupSystem: Initializing and subscribing to events");
+
         // Subscribe to MapTransitionEvent and GameEnteredEvent directly
-        _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>(OnMapTransition));
-        _subscriptions.Add(EventBus.Subscribe<GameEnteredEvent>(OnGameEntered));
+        // Explicitly use RefAction overload to match handler signatures (ref parameters)
+        _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>((EventBus.RefAction<MapTransitionEvent>)OnMapTransition));
+        _subscriptions.Add(EventBus.Subscribe<GameEnteredEvent>((EventBus.RefAction<GameEnteredEvent>)OnGameEntered));
 
         // Subscribe to WindowAnimationDestroyEvent to properly destroy popups when animation completes
         // This is CRITICAL - without this subscription, popups are never destroyed and accumulate
         _subscriptions.Add(
-            EventBus.Subscribe<WindowAnimationDestroyEvent>(OnWindowAnimationDestroy)
+            EventBus.Subscribe<WindowAnimationDestroyEvent>((EventBus.RefAction<WindowAnimationDestroyEvent>)OnWindowAnimationDestroy)
         );
+
+        _logger.Information("MapPopupSystem: Successfully initialized and subscribed to events");
     }
 
     /// <summary>
@@ -204,8 +210,8 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
     {
         try
         {
-            _logger.Debug(
-                "Received MapTransitionEvent from {SourceMapId} to {TargetMapId}",
+            _logger.Information(
+                "MapPopupSystem: Received MapTransitionEvent from {SourceMapId} to {TargetMapId}",
                 evt.SourceMapId ?? "(null)",
                 evt.TargetMapId ?? "(null)"
             );
@@ -219,7 +225,7 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
 
             if (string.IsNullOrEmpty(evt.TargetMapId))
             {
-                _logger.Debug("MapTransitionEvent has empty TargetMapId, skipping popup");
+                _logger.Warning("MapTransitionEvent has empty TargetMapId, skipping popup");
                 return;
             }
 
@@ -282,36 +288,92 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         var mapEntity = GetMapEntity(mapId);
         if (!mapEntity.HasValue)
         {
-            _logger.Warning("Map entity not found for {MapId}", mapId);
+            _logger.Warning("MapPopupSystem: Map entity not found for {MapId}", mapId);
             return;
         }
+
 
         // Check if map name display is enabled (still need definition for this)
         var mapDefinition = _modManager.GetDefinition<MapDefinition>(mapId);
         if (mapDefinition == null)
         {
-            _logger.Warning("Map definition not found for {MapId}", mapId);
+            _logger.Warning("MapPopupSystem: Map definition not found for {MapId}", mapId);
             return;
         }
 
         if (!mapDefinition.ShowMapName)
         {
-            _logger.Debug("Map {MapId} has ShowMapName=false, skipping popup", mapId);
             return;
         }
 
-        // Get MapSectionId from MapSectionComponent (allows runtime modification)
+        // Check if MapSectionComponent exists, if not try to add it (handles maps loaded before case fix)
         if (!World.Has<MapSectionComponent>(mapEntity.Value))
         {
-            _logger.Debug("Map {MapId} has no MapSectionComponent, skipping popup", mapId);
-            return;
+            // Try to add MapSectionComponent if map definition has MapSectionId
+            if (!string.IsNullOrEmpty(mapDefinition.MapSectionId))
+            {
+                // First check if definition exists at all (any type)
+                var metadata = _modManager.GetDefinitionMetadata(mapDefinition.MapSectionId);
+                if (metadata == null)
+                {
+                    _logger.Warning(
+                        "MapPopupSystem: Definition with ID {MapSectionId} not found in registry (map {MapId})",
+                        mapDefinition.MapSectionId,
+                        mapId
+                    );
+                    return;
+                }
+                
+                // Resolve MapSectionDefinition to get popup theme
+                var sectionDefForComponent = _modManager.GetDefinition<MapSectionDefinition>(
+                    mapDefinition.MapSectionId
+                );
+                
+                if (sectionDefForComponent == null)
+                {
+                    _logger.Warning(
+                        "MapPopupSystem: MapSectionDefinition not found for {MapSectionId} (map {MapId})",
+                        mapDefinition.MapSectionId,
+                        mapId
+                    );
+                    return;
+                }
+                
+                if (string.IsNullOrEmpty(sectionDefForComponent.PopupTheme))
+                {
+                    _logger.Warning(
+                        "MapPopupSystem: MapSectionDefinition for {MapSectionId} has no PopupTheme (map {MapId})",
+                        mapDefinition.MapSectionId,
+                        mapId
+                    );
+                    return;
+                }
+                
+                var sectionComponentToAdd = new MapSectionComponent
+                {
+                    MapSectionId = mapDefinition.MapSectionId,
+                    PopupThemeId = sectionDefForComponent.PopupTheme,
+                };
+                World.Add(mapEntity.Value, sectionComponentToAdd);
+                _logger.Debug(
+                    "MapPopupSystem: Added MapSectionComponent to map {MapId} with section {MapSectionId} and theme {PopupThemeId}",
+                    mapId,
+                    mapDefinition.MapSectionId,
+                    sectionDefForComponent.PopupTheme
+                );
+            }
+            else
+            {
+                _logger.Warning("MapPopupSystem: Map {MapId} has no MapSectionComponent and no MapSectionId in definition, skipping popup", mapId);
+                return;
+            }
         }
 
         ref var mapSectionComponent = ref World.Get<MapSectionComponent>(mapEntity.Value);
         if (string.IsNullOrEmpty(mapSectionComponent.MapSectionId))
         {
-            _logger.Debug(
-                "Map {MapId} has empty MapSectionId in MapSectionComponent, skipping popup",
+            _logger.Warning(
+                "MapPopupSystem: Map {MapId} has empty MapSectionId in MapSectionComponent, skipping popup",
                 mapId
             );
             return;
@@ -324,7 +386,7 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         var mapSectionDefinition = _modManager.GetDefinition<MapSectionDefinition>(mapSectionId);
         if (mapSectionDefinition == null)
         {
-            _logger.Warning("MapSection definition not found for {MapSectionId}", mapSectionId);
+            _logger.Warning("MapPopupSystem: MapSection definition not found for {MapSectionId}", mapSectionId);
             return;
         }
 
@@ -332,7 +394,7 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         if (string.IsNullOrEmpty(popupThemeId))
         {
             _logger.Warning(
-                "MapSection {MapSectionId} has no PopupThemeId in component, skipping popup",
+                "MapPopupSystem: MapSection {MapSectionId} has no PopupThemeId in component, skipping popup",
                 mapSectionId
             );
             return;
@@ -342,7 +404,7 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         if (popupThemeDefinition == null)
         {
             _logger.Warning(
-                "PopupTheme definition not found for {ThemeId}, skipping popup",
+                "MapPopupSystem: PopupTheme definition not found for {ThemeId}, skipping popup",
                 popupThemeId
             );
             return;
@@ -351,11 +413,6 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         // Prevent duplicate popup if already showing the same map section
         if (mapSectionId == _currentMapSectionId)
         {
-            _logger.Debug(
-                "Map {MapId} already showing popup for map section {MapSectionId}, skipping popup",
-                mapId,
-                mapSectionId
-            );
             return;
         }
 

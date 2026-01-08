@@ -439,7 +439,7 @@ public class MessageBoxSceneSystem
             SceneId = $"messagebox:{Guid.NewGuid()}",
             Priority = ScenePriorities.GameScene + _scenePriorityOffset, // 70
             CameraMode = SceneCameraMode.GameCamera,
-            BlocksUpdate = true,
+            BlocksUpdate = false, // Don't block updates - allows animations (like map popups) to continue
             BlocksDraw = false,
             BlocksInput = true, // Block input to prevent player movement while message box is open
             IsActive = true,
@@ -1814,7 +1814,10 @@ public class MessageBoxSceneSystem
         // Load texture using ResourceManager
         try
         {
-            return _resourceManager.LoadTexture(_messageBoxTilesheetId);
+            var texture = _resourceManager.LoadTexture(_messageBoxTilesheetId);
+            // Cache the texture for future use
+            _messageBoxTexture = texture;
+            return texture;
         }
         catch (Exception ex)
         {

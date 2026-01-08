@@ -43,7 +43,8 @@ public class MapSectionExtractor : ExtractorBase
     public MapSectionExtractor(string inputPath, string outputPath, string region, bool verbose = false)
         : base(inputPath, outputPath, verbose)
     {
-        _region = region;
+        // Normalize region to lowercase for consistent IDs (fixes Hoenn vs hoenn case mismatch)
+        _region = !string.IsNullOrEmpty(region) ? region.ToLowerInvariant() : "hoenn";
     }
 
     protected override int ExecuteExtraction()
@@ -146,15 +147,36 @@ public class MapSectionExtractor : ExtractorBase
         {
             var content = File.ReadAllText(popupCFile);
 
+            // Find the original Gen 3 theme mapping array (sMapSectionToThemeId)
+            // and extract only from that array, ignoring the Gen 5 BW array
+            var arrayStartPattern = new Regex(@"static\s+const\s+u8\s+sMapSectionToThemeId\[.*?\]\s*=\s*\{");
+            var arrayStartMatch = arrayStartPattern.Match(content);
+            
+            if (!arrayStartMatch.Success)
+            {
+                LogWarning("Could not find sMapSectionToThemeId array in map_name_popup.c");
+                return new Dictionary<string, string>();
+            }
+
+            // Find where this array ends (next closing brace at the same indentation level)
+            var startIndex = arrayStartMatch.Index + arrayStartMatch.Length;
+            var arrayContent = ExtractArrayContent(content, startIndex);
+
             // Pattern: [MAPSEC_NAME] = MAPPOPUP_THEME_NAME,
+            // Only match themes that are NOT BW_DEFAULT (original Gen 3 themes)
             var pattern = new Regex(@"\[MAPSEC_([A-Z0-9_]+)(?:\s*-\s*KANTO_MAPSEC_COUNT)?\]\s*=\s*MAPPOPUP_THEME_([A-Z0-9_]+)");
-            var matches = pattern.Matches(content);
+            var matches = pattern.Matches(arrayContent);
 
             var themeMapping = new Dictionary<string, string>();
             foreach (Match match in matches)
             {
                 var mapsecName = $"MAPSEC_{match.Groups[1].Value}";
                 var themeName = match.Groups[2].Value.ToLowerInvariant();
+                
+                // Skip BW_DEFAULT themes (they're from the Gen 5 array)
+                if (themeName == "bw_default")
+                    continue;
+                    
                 themeMapping[mapsecName] = themeName;
             }
 
@@ -165,6 +187,44 @@ public class MapSectionExtractor : ExtractorBase
             AddError("themes", $"Failed to parse theme mapping: {ex.Message}", ex);
             return new Dictionary<string, string>();
         }
+    }
+
+    /// <summary>
+    /// Extracts the content of a C array from the starting position until the matching closing brace.
+    /// </summary>
+    private string ExtractArrayContent(string content, int startIndex)
+    {
+        var result = new System.Text.StringBuilder();
+        int braceDepth = 0;
+        bool inArray = false;
+
+        for (int i = startIndex; i < content.Length; i++)
+        {
+            char c = content[i];
+            
+            if (c == '{')
+            {
+                braceDepth++;
+                inArray = true;
+                result.Append(c);
+            }
+            else if (c == '}')
+            {
+                result.Append(c);
+                braceDepth--;
+                if (braceDepth == 0 && inArray)
+                {
+                    // Found the matching closing brace
+                    break;
+                }
+            }
+            else
+            {
+                result.Append(c);
+            }
+        }
+
+        return result.ToString();
     }
 
     private Dictionary<string, MapSectionData> MergeSectionData(

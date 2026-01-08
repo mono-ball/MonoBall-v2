@@ -131,14 +131,17 @@ public class MapPopupSceneSystem
 
     /// <summary>
     ///     Performs internal processing for map popup scenes.
-    ///     Updates popup animation states by querying for popup entities.
     ///     Implements ISceneSystem interface.
     /// </summary>
     /// <param name="deltaTime">The elapsed time since last update.</param>
+    /// <remarks>
+    ///     Map popup animations are handled by WindowAnimationSystem, not this system.
+    ///     This method is intentionally empty - popups only need rendering, not per-frame processing.
+    /// </remarks>
     public void ProcessInternal(float deltaTime)
     {
-        // Delegate to the internal Update method that processes popup animations
-        Update(in deltaTime);
+        // Animation updates are handled by WindowAnimationSystem
+        // This system only handles rendering via RenderScene()
     }
 
     /// <summary>

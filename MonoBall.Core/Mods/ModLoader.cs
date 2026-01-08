@@ -719,7 +719,7 @@ public class ModLoader : IDisposable
             if (existing != null)
             {
                 // Apply operation (Modify/Extend/Replace)
-                var finalData = jsonDoc.RootElement;
+                JsonElement finalData;
                 if (
                     operation == DefinitionOperation.Modify
                     || operation == DefinitionOperation.Extend
@@ -730,8 +730,13 @@ public class ModLoader : IDisposable
                         jsonDoc.RootElement,
                         operation == DefinitionOperation.Extend
                     );
+                    // JsonElementMerger.Merge() already clones the result, so it's safe
                 }
-                // For Replace, use the new data as-is
+                else
+                {
+                    // For Replace, clone the element to avoid disposal issues
+                    finalData = jsonDoc.RootElement.Clone();
+                }
 
                 metadata = new DefinitionMetadata
                 {

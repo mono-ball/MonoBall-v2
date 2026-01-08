@@ -1,0 +1,126 @@
+{
+  "id": "pokeemerald:map:hoenn/granite_cave_stevens_room",
+  "name": "GraniteCave_StevensRoom",
+  "description": "",
+  "regionId": "pokeemerald:region:Hoenn",
+  "mapTypeId": "pokeemerald:maptype:underground",
+  "width": 15,
+  "height": 14,
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "musicId": "pokeemerald:audio:music/towns/petalburg_woods",
+  "weatherId": "pokeemerald:weather:outdoor/none",
+  "battleSceneId": "pokeemerald:battlescene:normal/normal",
+  "sectionId": "pokeemerald:section:hoenn/granite_cave",
+  "showMapName": true,
+  "canFly": false,
+  "requiresFlash": false,
+  "allowRunning": true,
+  "allowCycling": true,
+  "allowEscaping": true,
+  "connections": {},
+  "border": {
+    "tilesetId": "pokeemerald:tileset:secondary/cave",
+    "bottomLayer": [
+      1005,
+      1005,
+      1005,
+      1005
+    ],
+    "topLayer": [
+      -1073740836,
+      -1073740836,
+      -1073740836,
+      -1073740836
+    ]
+  },
+  "layers": [
+    {
+      "id": "pokeemerald:layer:Hoenn/granite_cave_stevens_room/ground",
+      "name": "Ground",
+      "width": 15,
+      "height": 14,
+      "elevation": 0,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADZAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANkDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8wMAAO0DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADzAwAAAAAAAAAAAAAAAAAAAAAAANkDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPMDAAAAAAAAAAAAANkDAADzAwAA7QMAAO0DAADtAwAA7QMAAO0DAADzAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8wMAAO0DAADtAwAA7QMAAO0DAADtAwAA7QMAAO0DAADtAwAA8wMAAAAAAAAAAAAAAAAAAAAAAADzAwAA7QMAAO0DAADtAwAA7QMAAO0DAADtAwAA7QMAAO0DAADtAwAA7QMAAPMDAAAAAAAA"
+    },
+    {
+      "id": "pokeemerald:layer:Hoenn/granite_cave_stevens_room/objects",
+      "name": "Objects",
+      "width": 15,
+      "height": 14,
+      "elevation": 3,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "7QMAAO0DAADtAwAA7QMAAO0DAADpAwAA6gMAAOoDAADqAwAA7AMAAO0DAADtAwAA7QMAAO0DAADtAwAA7QMAAOkDAADqAwAA6gMAAOoDAADxAwAA7QMAAO0DAADtAwAA9AMAAOoDAADqAwAA7AMAAO0DAADtAwAA7QMAAPMDAADtAwAA6QMAAOoDAADqAwAAbgQAAG8EAABwBAAA6gMAAOoDAADsAwAA8gMAAO0DAADtAwAA7QMAAPMDAADpAwAA8QMAAOkDAADqAwAAcQQAAHIEAABzBAAA7AMAAO0DAADyAwAA9AMAAOwDAADtAwAA7QMAAPMDAADzAwAA7QMAAPMDAADZAwAA2QMAANkDAADZAwAA8gMAAO0DAADyAwAA7QMAAPIDAADtAwAA7QMAAPMDAADzAwAA6QMAAPEDAABcBAAA2QMAANkDAADZAwAA8gMAAO0DAAD0AwAA7AMAAPIDAADtAwAA7QMAAPMDAADzAwAA8wMAANkDAADZAwAA2QMAANkDAADZAwAA9AMAAOoDAADsAwAA8gMAAPIDAADtAwAA7QMAAPMDAADzAwAA8wMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAANkDAADyAwAA8gMAAPIDAADtAwAA7QMAAPMDAADzAwAA8wMAANkDAADZAwAA2QMAANkDAADZAwAA2QMAAFwEAADyAwAA8gMAAPIDAADtAwAA7QMAAPMDAADzAwAA9QMAAPUDAAA9BAAA2QMAANkDAADZAwAA2QMAANkDAADyAwAA8gMAAPIDAADtAwAA7QMAAPMDAAD1AwAAPQQAAO0DAADzAwAA2QMAAF0EAADZAwAA2QMAANkDAADyAwAA8gMAAPIDAADtAwAA7QMAAPUDAAA9BAAA8wMAAF0EAAD1AwAA9QMAAPUDAAD1AwAA9QMAAPUDAAD1AwAA8gMAAPIDAADtAwAA7QMAAO0DAADzAwAA9QMAAPUDAAD1AwAA9QMAAPUDAAD1AwAA9QMAAPUDAAD1AwAA9QMAAPIDAADtAwAA7QMAAO0DAAD1AwAA9QMAAPUDAAD1AwAA9QMAAPUDAAD1AwAA9QMAAPUDAAD1AwAA9QMAAPUDAADtAwAA"
+    },
+    {
+      "id": "pokeemerald:layer:Hoenn/granite_cave_stevens_room/overhead",
+      "name": "Overhead",
+      "width": 15,
+      "height": 14,
+      "elevation": 15,
+      "visible": true,
+      "opacity": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMAAAAAA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwAAAAADcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDAAAAAAAAAAADcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMAAAAAA3AMAwNwDAMDcAwDA3AMAwAAAAADcAwDA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDA3AMAwAAAAADcAwDA3AMAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AMAwNwDAMDcAwDA3AMAwNwDAMDcAwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwDAMDcAwDA3AMAwNwDAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAwDA"
+    }
+  ],
+  "tilesets": [
+    {
+      "firstGid": 1,
+      "tilesetId": "pokeemerald:tileset:primary/general"
+    },
+    {
+      "firstGid": 985,
+      "tilesetId": "pokeemerald:tileset:secondary/cave"
+    }
+  ],
+  "warps": [
+    {
+      "id": "pokeemerald:warp:Hoenn/granite_cave_stevens_room/warp_to_granite_cave_1f",
+      "name": "Warp to granite_cave_1f",
+      "x": 112,
+      "y": 48,
+      "width": 16,
+      "height": 16,
+      "targetMapId": "pokeemerald:map:hoenn/granite_cave_1f",
+      "targetX": 3,
+      "targetY": 0,
+      "elevation": 3
+    }
+  ],
+  "triggers": [],
+  "interactions": [],
+  "npcs": [
+    {
+      "id": "pokeemerald:npc:Hoenn/granite_cave_stevens_room/localid_granite_cave_steven",
+      "name": "LOCALID_GRANITE_CAVE_STEVEN",
+      "x": 112,
+      "y": 128,
+      "spriteId": "pokeemerald:sprite:characters/npcs/steven",
+      "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "interactionId": "pokeemerald:script:interactions/npcs/granite_cave_stevens_room_event_script_steven",
+      "visibilityFlag": "pokeemerald:flag:visibility/granite_cave_steven",
+      "elevation": 3
+    }
+  ],
+  "collisions": [
+    {
+      "id": "pokeemerald:collision:Hoenn/granite_cave_stevens_room/elevation_0",
+      "name": "Collision_0",
+      "width": 15,
+      "height": 14,
+      "elevation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "tileData": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQABAQEBAQEBAQEBAQEAAAAAAQEBAQEBAQEBAQEBAAAAAQEBAQEBAQEBAQAAAAAAAQEBAQEBAQEBAQAAAAAAAAABAQEBAQEBAQAAAAAAAAEBAQEBAQEBAQEBAAAAAAABAQEBAQEBAQEBAAEAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB"
+    }
+  ]
+}

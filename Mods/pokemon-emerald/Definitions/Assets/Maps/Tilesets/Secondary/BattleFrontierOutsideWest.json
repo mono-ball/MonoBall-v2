@@ -1,0 +1,1749 @@
+{
+  "id": "pokeemerald:tileset:secondary/battlefrontieroutsidewest",
+  "name": "BattleFrontierOutsideWest",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/BattleFrontierOutsideWest.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 369,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 384,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 2,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 4,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 6,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 8,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 10,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 12,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 15,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 37,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 92,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 97,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 113,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 157,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 158,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 163,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 165,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 167,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 169,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 171,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 173,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 175,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 177,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 179,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 181,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 183,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 185,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 187,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 189,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 191,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 193,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 195,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 198,
+      "animation": [
+        {
+          "tileId": 361,
+          "durationMs": 133
+        },
+        {
+          "tileId": 362,
+          "durationMs": 133
+        },
+        {
+          "tileId": 363,
+          "durationMs": 133
+        },
+        {
+          "tileId": 364,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 200,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 201,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 203,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 205,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 207,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 209,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 211,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 213,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 215,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 217,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 219,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 221,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 223,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 225,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 227,
+      "animation": [
+        {
+          "tileId": 313,
+          "durationMs": 133
+        },
+        {
+          "tileId": 314,
+          "durationMs": 133
+        },
+        {
+          "tileId": 315,
+          "durationMs": 133
+        },
+        {
+          "tileId": 316,
+          "durationMs": 133
+        },
+        {
+          "tileId": 317,
+          "durationMs": 133
+        },
+        {
+          "tileId": 318,
+          "durationMs": 133
+        },
+        {
+          "tileId": 319,
+          "durationMs": 133
+        },
+        {
+          "tileId": 320,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 240,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 321,
+          "durationMs": 133
+        },
+        {
+          "tileId": 322,
+          "durationMs": 133
+        },
+        {
+          "tileId": 323,
+          "durationMs": 133
+        },
+        {
+          "tileId": 324,
+          "durationMs": 133
+        },
+        {
+          "tileId": 325,
+          "durationMs": 133
+        },
+        {
+          "tileId": 326,
+          "durationMs": 133
+        },
+        {
+          "tileId": 327,
+          "durationMs": 133
+        },
+        {
+          "tileId": 328,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 241,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand"
+    },
+    {
+      "localTileId": 243,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 249,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand",
+      "animation": [
+        {
+          "tileId": 329,
+          "durationMs": 133
+        },
+        {
+          "tileId": 330,
+          "durationMs": 133
+        },
+        {
+          "tileId": 331,
+          "durationMs": 133
+        },
+        {
+          "tileId": 332,
+          "durationMs": 133
+        },
+        {
+          "tileId": 333,
+          "durationMs": 133
+        },
+        {
+          "tileId": 334,
+          "durationMs": 133
+        },
+        {
+          "tileId": 335,
+          "durationMs": 133
+        },
+        {
+          "tileId": 336,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 250,
+      "interactionId": "pokeemerald:script:interactions/tiles/sand_cave",
+      "terrainId": "pokeemerald:terrain:sand"
+    },
+    {
+      "localTileId": 263,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 287,
+      "animation": [
+        {
+          "tileId": 361,
+          "durationMs": 133
+        },
+        {
+          "tileId": 362,
+          "durationMs": 133
+        },
+        {
+          "tileId": 363,
+          "durationMs": 133
+        },
+        {
+          "tileId": 364,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 289,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 300,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 301,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    },
+    {
+      "localTileId": 307,
+      "animation": [
+        {
+          "tileId": 337,
+          "durationMs": 133
+        },
+        {
+          "tileId": 338,
+          "durationMs": 133
+        },
+        {
+          "tileId": 339,
+          "durationMs": 133
+        },
+        {
+          "tileId": 340,
+          "durationMs": 133
+        },
+        {
+          "tileId": 341,
+          "durationMs": 133
+        },
+        {
+          "tileId": 342,
+          "durationMs": 133
+        },
+        {
+          "tileId": 343,
+          "durationMs": 133
+        },
+        {
+          "tileId": 344,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 309,
+      "animation": [
+        {
+          "tileId": 345,
+          "durationMs": 133
+        },
+        {
+          "tileId": 346,
+          "durationMs": 133
+        },
+        {
+          "tileId": 347,
+          "durationMs": 133
+        },
+        {
+          "tileId": 348,
+          "durationMs": 133
+        },
+        {
+          "tileId": 349,
+          "durationMs": 133
+        },
+        {
+          "tileId": 350,
+          "durationMs": 133
+        },
+        {
+          "tileId": 351,
+          "durationMs": 133
+        },
+        {
+          "tileId": 352,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 311,
+      "animation": [
+        {
+          "tileId": 353,
+          "durationMs": 133
+        },
+        {
+          "tileId": 354,
+          "durationMs": 133
+        },
+        {
+          "tileId": 355,
+          "durationMs": 133
+        },
+        {
+          "tileId": 356,
+          "durationMs": 133
+        },
+        {
+          "tileId": 357,
+          "durationMs": 133
+        },
+        {
+          "tileId": 358,
+          "durationMs": 133
+        },
+        {
+          "tileId": 359,
+          "durationMs": 133
+        },
+        {
+          "tileId": 360,
+          "durationMs": 133
+        }
+      ]
+    }
+  ]
+}

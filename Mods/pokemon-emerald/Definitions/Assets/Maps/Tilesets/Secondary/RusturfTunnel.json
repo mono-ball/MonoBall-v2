@@ -1,0 +1,67 @@
+{
+  "id": "pokeemerald:tileset:secondary/rusturftunnel",
+  "name": "RusturfTunnel",
+  "type": "secondary",
+  "texturePath": "Graphics/Maps/Tilesets/Secondary/RusturfTunnel.png",
+  "tileWidth": 16,
+  "tileHeight": 16,
+  "tileCount": 28,
+  "columns": 16,
+  "imageWidth": 256,
+  "imageHeight": 32,
+  "spacing": 0,
+  "margin": 0,
+  "tiles": [
+    {
+      "localTileId": 0,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 4,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 8,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 10,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_32"
+    },
+    {
+      "localTileId": 13,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 14,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3f"
+    },
+    {
+      "localTileId": 15,
+      "interactionId": "pokeemerald:script:interactions/tiles/impassable_west",
+      "collisionId": "pokeemerald:collision:impassable_west"
+    },
+    {
+      "localTileId": 16,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3e"
+    },
+    {
+      "localTileId": 19,
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 24,
+      "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
+    }
+  ]
+}
