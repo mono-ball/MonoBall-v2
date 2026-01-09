@@ -1,0 +1,10 @@
+onlyBuiltDependencies:
+  - agentdb
+  - agentic-flow
+  - better-sqlite3
+  - claude-flow
+  - diskusage
+  - hnswlib-node
+  - node-pty
+  - protobufjs
+  - sharp

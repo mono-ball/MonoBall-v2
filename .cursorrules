@@ -97,6 +97,34 @@ private Vector2 CalculateEntityCenter(Entity entity, Vector2 position)
 - **Pre-size collections** when size is known (`new List<T>(capacity)`)
 - **Reuse collections in hot paths**: Cache `List<T>` or other collections as instance fields, clear and reuse them instead of allocating new ones in Update/Render methods
 
+### Memory Management
+- **Use `ArrayPool<T>.Shared`** for temporary buffers that are frequently allocated
+- **Use `Span<T>` or `ReadOnlySpan<T>`** for zero-allocation slicing and operations
+- **Use `stackalloc`** for small temporary buffers (< 1KB) in hot paths
+- **Pool frequently allocated objects** (e.g., event instances, temporary collections)
+
+#### Example: ArrayPool Usage
+```csharp
+// For temporary buffers in hot paths
+var buffer = ArrayPool<byte>.Shared.Rent(size);
+try
+{
+    // Use buffer
+}
+finally
+{
+    ArrayPool<byte>.Shared.Return(buffer);
+}
+```
+
+#### Example: Span<T> for Zero-Allocation
+```csharp
+// Slicing without allocation
+ReadOnlySpan<byte> data = fileData;
+var header = data[..16];
+var body = data[16..];
+```
+
 ---
 
 ## SOLID Principles
@@ -180,6 +208,11 @@ MonoBall.Core/
 - **Match file name to primary class name**
 - **Code order**: Using statements → Namespace → XML docs → Constants/Fields → Properties → Constructors → Public methods → Protected → Private
 
+### Global Usings
+- **Use sparingly**: Only for very common namespaces (e.g., `System`, `System.Collections.Generic`)
+- **Document in XML**: Explain why global usings are used if non-standard
+- **Prefer explicit usings**: Use global usings only when it significantly reduces boilerplate
+
 ---
 
 ## Documentation Standards
@@ -190,12 +223,58 @@ MonoBall.Core/
 
 ---
 
+## Logging Best Practices
+
+### Performance-Critical Logging
+- **Use conditional logging in hot paths**: Check `IsEnabled()` before expensive operations
+- **Use `LoggerExtensions.DebugIfEnabled()`**: Lazy evaluation for expensive parameters (available in `MonoBall.Core.Logging`)
+- **Avoid string interpolation in log calls**: Use structured logging with parameters
+- **Serilog evaluates parameters synchronously**: Even with async sinks, all parameters are evaluated before checking if logging is enabled
+
+#### ❌ Bad: Expensive Evaluation
+```csharp
+// expensiveMethod() always runs, even if Debug logging is disabled
+_logger.Debug("Value: {Value}", expensiveMethod());
+```
+
+#### ✅ Good: Conditional Logging
+```csharp
+// Check IsEnabled first
+if (_logger.IsEnabled(LogEventLevel.Debug))
+{
+    _logger.Debug("Value: {Value}", expensiveMethod());
+}
+
+// Or use extension method for lazy evaluation
+_logger.DebugIfEnabled("Value: {Value}", () => expensiveMethod());
+```
+
+### Log Levels
+- **Debug**: Detailed diagnostic information (Update loops, frequent operations)
+- **Information**: General application flow (mod loading, system initialization)
+- **Warning**: Recoverable issues (missing optional resources, fallback paths)
+- **Error**: Failures that don't stop execution (resource loading failures)
+- **Fatal**: Critical failures that stop execution
+
+### Structured Logging
+- **Use message templates**: `"Loading map {MapId} with {EntityCount} entities"`
+- **Pass parameters separately**: Don't interpolate strings in log calls
+- **Include context**: Entity IDs, resource IDs, system names
+
+---
+
 ## Type Safety and Nullability
 
 - **Use `?` suffix** for nullable reference types (e.g., `string?`, `ModManager?`)
 - **Use null-forgiving operator `!`** sparingly and only when certain a value isn't null
 - **Prefer null-conditional operators** (`?.`, `??`) over null checks when appropriate
 - **Return null** only when null is a valid, expected state (document in XML comments)
+
+### Value Types
+- **Use `readonly struct`** for immutable value types
+- **Use `record struct`** for simple data containers (e.g., `BatchLoadError`)
+- **Use `in` parameters** for large structs passed to methods (prevents copying)
+- **Prefer structs for small, frequently copied data** (components, events)
 
 ---
 
@@ -282,6 +361,7 @@ public class MySystem : BaseSystem<World, float>, IDisposable
 - **Use appropriate filters**: `WithAll` for AND, `WithAny` for OR, `WithNone` for exclusion
 - **Single-pass queries**: Get all needed components in one query pass
 - **Avoid allocations** in hot path queries - reuse collections or use stack allocation
+- **Reuse collections in queries**: Cache `List<T>` as instance fields, clear and reuse in Update/Render methods
 
 #### QueryDescription Caching Examples
 ```csharp
@@ -679,6 +759,53 @@ public class SceneSystem : BaseSystem<World, float>
 - **Handle loading errors gracefully** - log errors but don't crash
 - **Use strongly-typed definitions** with generics (`GetDefinition<T>()`)
 - **Store definitions in registry** for efficient lookup
+
+---
+
+## Testing Guidelines
+
+### Test Naming
+- **Pattern**: `[MethodName]_[Scenario]_[ExpectedResult]`
+- **Examples**: 
+  - `Register_DuplicateId_ThrowsArgumentException`
+  - `Update_LargeEntityCount_CompletesUnder5ms`
+  - `ConvertMap_WithValidData_ReturnsSuccess`
+
+### Test Organization
+- **One test class per class under test**: `MyClassTests` for `MyClass`
+- **Group related tests**: Use nested classes or regions for test categories
+- **AAA Pattern**: Arrange-Act-Assert structure
+- **One assertion per test**: Test one behavior per test method
+
+### ECS Testing
+- **Test components in isolation**: Components are pure data, test structure/validation
+- **Test systems with World**: Create test World, add entities, verify behavior
+- **Mock services**: Use interfaces for dependency injection in tests
+- **Test queries**: Verify QueryDescription filters correctly
+
+### Example: System Test
+```csharp
+[Fact]
+public void Update_WithEntities_ProcessesCorrectly()
+{
+    // Arrange
+    var world = World.Create();
+    var system = new MySystem(world);
+    var entity = world.Create(new MyComponent { Value = 42 });
+    
+    // Act
+    system.Update(0.016f);
+    
+    // Assert
+    var component = world.Get<MyComponent>(entity);
+    Assert.Equal(43, component.Value);
+}
+```
+
+### Async Testing
+- **Use `async Task`** for async test methods
+- **Use `TaskCompletionSource`** for testing async operations
+- **Test cancellation**: Verify `CancellationToken` handling
 
 ---
 
