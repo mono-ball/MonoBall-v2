@@ -147,13 +147,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/groudon/groudonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/groudon/groudonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/groudon/groudonback",
-    "backShiny": "pokeemerald:pokemon:sprite/groudon/groudonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/groudon/groudonicon",
-    "overworld": "pokeemerald:pokemon:sprite/groudon/groudonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/groudon/groudonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/groudon/groudon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/groudon/groudon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/groudon/groudon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/groudon/groudon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/groudon/groudon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/groudon/groudon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/groudon/groudon_overworld_shiny"
   },
   "forms": [
     {
@@ -174,13 +174,13 @@
         "pokeemerald:type:fire"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/groudon/groudonprimalfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/groudon/groudonprimalfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/groudon/groudonprimalback",
-        "backShiny": "pokeemerald:pokemon:sprite/groudon/groudonprimalbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/groudon/groudonprimalicon",
-        "overworld": "pokeemerald:pokemon:sprite/groudon/groudonprimaloverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/groudon/groudonprimaloverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/groudon/groudon_primal_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/groudon/groudon_primal_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/groudon/groudon_primal_back",
+        "backShiny": "pokeemerald:pokemon:sprite/groudon/groudon_primal_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/groudon/groudon_primal_icon",
+        "overworld": "pokeemerald:pokemon:sprite/groudon/groudon_primal_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/groudon/groudon_primal_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:primal",
       "transformItem": "pokeemerald:item:red_orb",

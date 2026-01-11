@@ -147,12 +147,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mightyena/mightyenafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mightyena/mightyenafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mightyena/mightyenaback",
-    "backShiny": "pokeemerald:pokemon:sprite/mightyena/mightyenabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mightyena/mightyenaicon",
-    "overworld": "pokeemerald:pokemon:sprite/mightyena/mightyenaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mightyena/mightyenaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mightyena/mightyena_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mightyena/mightyena_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mightyena/mightyena_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mightyena/mightyena_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mightyena/mightyena_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mightyena/mightyena_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mightyena/mightyena_overworld_shiny"
   }
 }

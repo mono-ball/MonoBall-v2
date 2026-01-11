@@ -826,12 +826,14 @@ public class SpeciesExtractor : ExtractorBase
     {
         // All species go in their own directory (forms are embedded in base species JSON)
         var pascalName = ToPascalCase(species.Id!.Split(':').Last());
+        // Original name keeps underscores (e.g., "ho_oh") for sprite path matching
+        var originalName = species.OriginalSpeciesName!.ToLowerInvariant();
         var speciesDir = Path.Combine(_outputData, pascalName);
         Directory.CreateDirectory(speciesDir);
         var outputPath = Path.Combine(speciesDir, $"{pascalName}.json");
 
         // Generate sprite references for base species
-        var (sprites, hasGenderDifferences) = GenerateSpriteReferences(pascalName, "");
+        var (sprites, hasGenderDifferences) = GenerateSpriteReferences(pascalName, originalName, "");
         species.Sprites = sprites;
         species.HasGenderDifferences = hasGenderDifferences ? true : null;
 
@@ -846,7 +848,7 @@ public class SpeciesExtractor : ExtractorBase
                 // Convert form key to PascalCase suffix: "mega-x" -> "MegaX"
                 var formSuffix = string.Join("", form.FormKey!.Split('-')
                     .Select(p => char.ToUpper(p[0]) + p.Substring(1).ToLower()));
-                var (formSprites, formHasGenderDifferences) = GenerateSpriteReferences(pascalName, formSuffix);
+                var (formSprites, formHasGenderDifferences) = GenerateSpriteReferences(pascalName, originalName, formSuffix);
                 form.Sprites = formSprites;
                 form.HasGenderDifferences = formHasGenderDifferences ? true : null;
 
@@ -861,37 +863,68 @@ public class SpeciesExtractor : ExtractorBase
 
     /// <summary>
     /// Generate sprite references using sprite definition IDs.
-    /// Pattern: base:pokemon:sprite/{species}/{spritename}
-    /// Example: base:pokemon:sprite/bulbasaur/bulbasaurfront
+    /// Pattern: base:pokemon:sprite/{species}/{species}_{type}
+    /// Example: base:pokemon:sprite/bulbasaur/bulbasaur_front
     /// </summary>
-    private (SpriteReferences Sprites, bool HasGenderDifferences) GenerateSpriteReferences(string baseName, string formSuffix)
+    /// <param name="pascalName">PascalCase name for folder lookup (e.g., "HoOh")</param>
+    /// <param name="originalName">Original species name with underscores (e.g., "ho_oh")</param>
+    /// <param name="formSuffix">Form suffix in PascalCase (e.g., "Mega", "MegaX")</param>
+    private (SpriteReferences Sprites, bool HasGenderDifferences) GenerateSpriteReferences(string pascalName, string originalName, string formSuffix)
     {
-        var speciesLower = baseName.ToLowerInvariant();
-        var spriteName = $"{baseName}{formSuffix}".ToLowerInvariant();
-        var spriteFileName = $"{baseName}{formSuffix}";
+        // Path uses original name with underscores (e.g., "ho_oh")
+        var speciesPath = originalName.ToLowerInvariant();
+        // Sprite ID uses underscores: ho_oh_front, ho_oh_mega_front
+        var formSnake = string.IsNullOrEmpty(formSuffix) ? "" : $"_{PascalToSnakeCase(formSuffix)}";
+        var spriteBase = $"{speciesPath}{formSnake}";
+        var spriteFileName = $"{pascalName}{formSuffix}";
 
         // Check if female sprite definitions exist
-        var spriteDir = Path.Combine(_spriteDefinitionsPath, baseName);
+        var spriteDir = Path.Combine(_spriteDefinitionsPath, pascalName);
         var hasFrontFemale = File.Exists(Path.Combine(spriteDir, $"{spriteFileName}FrontFemale.json"));
         var hasBackFemale = File.Exists(Path.Combine(spriteDir, $"{spriteFileName}BackFemale.json"));
         var hasGenderDifferences = hasFrontFemale || hasBackFemale;
 
         var sprites = new SpriteReferences
         {
-            Front = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}front",
-            FrontShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}frontshiny",
-            FrontFemale = hasFrontFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}frontfemale" : null,
-            FrontFemaleShiny = hasFrontFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}frontfemaleshiny" : null,
-            Back = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}back",
-            BackShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}backshiny",
-            BackFemale = hasBackFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}backfemale" : null,
-            BackFemaleShiny = hasBackFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}backfemaleshiny" : null,
-            Icon = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}icon",
-            Overworld = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}overworld",
-            OverworldShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesLower}/{spriteName}overworldshiny"
+            Front = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_front",
+            FrontShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_front_shiny",
+            FrontFemale = hasFrontFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_front_female" : null,
+            FrontFemaleShiny = hasFrontFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_front_female_shiny" : null,
+            Back = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_back",
+            BackShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_back_shiny",
+            BackFemale = hasBackFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_back_female" : null,
+            BackFemaleShiny = hasBackFemale ? $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_back_female_shiny" : null,
+            Icon = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_icon",
+            Overworld = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_overworld",
+            OverworldShiny = $"{IdTransformer.Namespace}:pokemon:sprite/{speciesPath}/{spriteBase}_overworld_shiny"
         };
 
         return (sprites, hasGenderDifferences);
+    }
+
+    /// <summary>
+    /// Convert PascalCase to snake_case.
+    /// E.g., "MegaX" -> "mega_x", "Overworld" -> "overworld"
+    /// </summary>
+    private static string PascalToSnakeCase(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+
+        var result = new System.Text.StringBuilder();
+        for (int i = 0; i < input.Length; i++)
+        {
+            var c = input[i];
+            if (char.IsUpper(c))
+            {
+                if (i > 0) result.Append('_');
+                result.Append(char.ToLower(c));
+            }
+            else
+            {
+                result.Append(c);
+            }
+        }
+        return result.ToString();
     }
 
     private static string ToPascalCase(string name) => IdTransformer.ToPascalCase(name);

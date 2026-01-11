@@ -141,13 +141,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/barbaracle/barbaraclefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/barbaracle/barbaracleback",
-    "backShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/barbaracle/barbaracleicon",
-    "overworld": "pokeemerald:pokemon:sprite/barbaracle/barbaracleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_overworld_shiny"
   },
   "forms": [
     {
@@ -173,13 +173,13 @@
         "pokeemerald:ability:pickpocket"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaraclemegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/barbaracle/barbaracle_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:barbaracite",

@@ -138,17 +138,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/beautifly/beautiflyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflyfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/beautifly/beautiflyfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflyfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/beautifly/beautiflyback",
-    "backShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflybackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/beautifly/beautiflybackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflybackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/beautifly/beautiflyicon",
-    "overworld": "pokeemerald:pokemon:sprite/beautifly/beautiflyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/beautifly/beautiflyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/beautifly/beautifly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/beautifly/beautifly_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/beautifly/beautifly_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/beautifly/beautifly_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/beautifly/beautifly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/beautifly/beautifly_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/beautifly/beautifly_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/beautifly/beautifly_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/beautifly/beautifly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/beautifly/beautifly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beautifly/beautifly_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

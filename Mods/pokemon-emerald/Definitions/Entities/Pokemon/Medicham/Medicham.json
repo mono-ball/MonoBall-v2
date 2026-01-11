@@ -161,17 +161,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/medicham/medichamfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/medicham/medichamfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/medicham/medichamfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/medicham/medichamfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/medicham/medichamback",
-    "backShiny": "pokeemerald:pokemon:sprite/medicham/medichambackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/medicham/medichambackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/medicham/medichambackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/medicham/medichamicon",
-    "overworld": "pokeemerald:pokemon:sprite/medicham/medichamoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/medicham/medichamoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/medicham/medicham_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/medicham/medicham_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/medicham/medicham_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/medicham/medicham_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/medicham/medicham_back",
+    "backShiny": "pokeemerald:pokemon:sprite/medicham/medicham_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/medicham/medicham_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/medicham/medicham_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/medicham/medicham_icon",
+    "overworld": "pokeemerald:pokemon:sprite/medicham/medicham_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/medicham/medicham_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -198,13 +198,13 @@
         "pokeemerald:ability:pure_power"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/medicham/medichammegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/medicham/medichammegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/medicham/medichammegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/medicham/medichammegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/medicham/medichammegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/medicham/medichammegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/medicham/medichammegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/medicham/medicham_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/medicham/medicham_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/medicham/medicham_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/medicham/medicham_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/medicham/medicham_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/medicham/medicham_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/medicham/medicham_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:medichamite",

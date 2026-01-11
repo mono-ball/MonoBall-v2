@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -191,6 +191,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle2_event_script_ted",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -201,6 +202,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle2_event_script_paul",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -211,6 +213,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle2_event_script_georgia",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -222,6 +225,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/trick_house_puzzle_2_wave_mail",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -233,6 +237,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/trick_house_puzzle_2_harbor_mail",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

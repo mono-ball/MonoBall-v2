@@ -222,13 +222,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gallade/galladefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gallade/galladefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gallade/galladeback",
-    "backShiny": "pokeemerald:pokemon:sprite/gallade/galladebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gallade/galladeicon",
-    "overworld": "pokeemerald:pokemon:sprite/gallade/galladeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gallade/galladeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gallade/gallade_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gallade/gallade_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gallade/gallade_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gallade/gallade_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gallade/gallade_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gallade/gallade_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gallade/gallade_overworld_shiny"
   },
   "forms": [
     {
@@ -254,13 +254,13 @@
         "pokeemerald:ability:inner_focus"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/gallade/gallademegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/gallade/gallademegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/gallade/gallademegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/gallade/gallademegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/gallade/gallademegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/gallade/gallademegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/gallade/gallademegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/gallade/gallade_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/gallade/gallade_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/gallade/gallade_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/gallade/gallade_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/gallade/gallade_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/gallade/gallade_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gallade/gallade_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:galladite",

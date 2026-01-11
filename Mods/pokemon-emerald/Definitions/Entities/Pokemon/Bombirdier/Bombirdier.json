@@ -130,12 +130,12 @@
     "pokeemerald:move:sucker_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bombirdier/bombirdierfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdierfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bombirdier/bombirdierback",
-    "backShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdierbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bombirdier/bombirdiericon",
-    "overworld": "pokeemerald:pokemon:sprite/bombirdier/bombirdieroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdieroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bombirdier/bombirdier_overworld_shiny"
   }
 }

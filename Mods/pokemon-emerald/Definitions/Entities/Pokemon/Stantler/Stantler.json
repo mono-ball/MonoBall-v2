@@ -147,12 +147,12 @@
     "pokeemerald:move:me_first"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/stantler/stantlerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/stantler/stantlerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/stantler/stantlerback",
-    "backShiny": "pokeemerald:pokemon:sprite/stantler/stantlerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/stantler/stantlericon",
-    "overworld": "pokeemerald:pokemon:sprite/stantler/stantleroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/stantler/stantleroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/stantler/stantler_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/stantler/stantler_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/stantler/stantler_back",
+    "backShiny": "pokeemerald:pokemon:sprite/stantler/stantler_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/stantler/stantler_icon",
+    "overworld": "pokeemerald:pokemon:sprite/stantler/stantler_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stantler/stantler_overworld_shiny"
   }
 }

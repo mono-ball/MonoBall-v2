@@ -152,6 +152,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/magma_hideout_2f_1_r_event_script_grunt4",
       "visibilityFlag": "pokeemerald:flag:visibility/magma_hideout_grunts",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -183,6 +184,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/magma_hideout_2f_1_r_event_script_grunt5",
       "visibilityFlag": "pokeemerald:flag:visibility/magma_hideout_grunts",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -194,6 +196,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/magma_hideout_2f_1_r_event_script_grunt14",
       "visibilityFlag": "pokeemerald:flag:visibility/magma_hideout_grunts",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -205,6 +208,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/magma_hideout_2f_1_r_event_script_grunt3",
       "visibilityFlag": "pokeemerald:flag:visibility/magma_hideout_grunts",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

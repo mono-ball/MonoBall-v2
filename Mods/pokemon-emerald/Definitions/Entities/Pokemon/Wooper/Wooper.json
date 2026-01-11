@@ -156,17 +156,17 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wooper/wooperfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wooper/wooperfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/wooper/wooperfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/wooper/wooperfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/wooper/wooperback",
-    "backShiny": "pokeemerald:pokemon:sprite/wooper/wooperbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/wooper/wooperbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/wooper/wooperbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/wooper/woopericon",
-    "overworld": "pokeemerald:pokemon:sprite/wooper/wooperoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wooper/wooperoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wooper/wooper_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wooper/wooper_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/wooper/wooper_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/wooper/wooper_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/wooper/wooper_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wooper/wooper_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/wooper/wooper_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/wooper/wooper_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wooper/wooper_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wooper/wooper_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wooper/wooper_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -193,13 +193,13 @@
         "pokeemerald:ability:unaware"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/wooper/wooperpaldeafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/wooper/wooperpaldeafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaback",
-        "backShiny": "pokeemerald:pokemon:sprite/wooper/wooperpaldeabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaicon",
-        "overworld": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/wooper/wooperpaldeaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_back",
+        "backShiny": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_icon",
+        "overworld": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/wooper/wooper_paldea_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:paldea"

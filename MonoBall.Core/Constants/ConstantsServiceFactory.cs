@@ -7,19 +7,20 @@ namespace MonoBall.Core.Constants;
 
 /// <summary>
 ///     Factory for creating and registering ConstantsService instances.
-///     Ensures ConstantsService is created consistently and prevents duplicate registration.
+///     Ensures ConstantsService is created consistently.
 /// </summary>
 public static class ConstantsServiceFactory
 {
     /// <summary>
-    ///     Creates and registers ConstantsService if it doesn't already exist in Game.Services.
-    ///     Prevents duplicate registration and preserves existing ConstantsService instances with cached constants.
+    ///     Creates and registers ConstantsService in Game.Services.
+    ///     Ensures ConstantsService is created consistently.
     /// </summary>
     /// <param name="game">The game instance for accessing services.</param>
     /// <param name="modManager">The mod manager for ConstantsService.</param>
     /// <param name="logger">The logger for logging operations.</param>
-    /// <returns>The existing ConstantsService if one exists, or the newly created ConstantsService.</returns>
-    public static ConstantsService GetOrCreateConstantsService(
+    /// <returns>The newly created ConstantsService instance.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if game, modManager, or logger is null.</exception>
+    public static IConstantsService CreateConstantsService(
         Game game,
         IModManager modManager,
         ILogger logger
@@ -32,22 +33,12 @@ public static class ConstantsServiceFactory
         if (logger == null)
             throw new ArgumentNullException(nameof(logger));
 
-        // Check if ConstantsService already exists
-        var existingConstantsService = game.Services.GetService<ConstantsService>();
-        if (existingConstantsService != null)
-        {
-            logger.Debug(
-                "ConstantsService already exists in Game.Services, reusing existing instance to preserve constants cache"
-            );
-            return existingConstantsService;
-        }
-
         // Create new ConstantsService
         logger.Debug("Creating new ConstantsService");
         var constantsService = new ConstantsService(modManager, logger);
 
-        // Register in Game.Services (using concrete type for consistency with FontService pattern)
-        game.Services.AddService(typeof(ConstantsService), constantsService);
+        // Register in Game.Services as interface type (for consistency with IResourceManager pattern)
+        game.Services.AddService(typeof(IConstantsService), constantsService);
         logger.Debug("ConstantsService created and registered");
 
         return constantsService;

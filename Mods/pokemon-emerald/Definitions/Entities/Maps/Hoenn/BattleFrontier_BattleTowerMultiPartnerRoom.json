@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -94,6 +94,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_attendant",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -105,6 +106,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner1",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_1",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -116,6 +118,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner2",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_2",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -127,6 +130,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner3",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_3",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -138,6 +142,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner4",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_4",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -149,6 +154,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner5",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_5",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -160,6 +166,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner6",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_6",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -171,6 +178,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner7",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_alt_1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -182,6 +190,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_tower_multi_partner_room_event_script_partner8",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_tower_multi_battle_partner_alt_2",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

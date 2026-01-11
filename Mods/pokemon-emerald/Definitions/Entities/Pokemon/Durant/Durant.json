@@ -133,12 +133,12 @@
     "pokeemerald:move:feint_attack"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/durant/durantfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/durant/durantfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/durant/durantback",
-    "backShiny": "pokeemerald:pokemon:sprite/durant/durantbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/durant/duranticon",
-    "overworld": "pokeemerald:pokemon:sprite/durant/durantoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/durant/durantoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/durant/durant_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/durant/durant_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/durant/durant_back",
+    "backShiny": "pokeemerald:pokemon:sprite/durant/durant_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/durant/durant_icon",
+    "overworld": "pokeemerald:pokemon:sprite/durant/durant_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/durant/durant_overworld_shiny"
   }
 }

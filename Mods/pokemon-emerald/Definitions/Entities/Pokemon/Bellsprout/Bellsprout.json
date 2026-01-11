@@ -141,12 +141,12 @@
     "pokeemerald:move:strength_sap"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bellsprout/bellsproutfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsproutfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bellsprout/bellsproutback",
-    "backShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsproutbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bellsprout/bellsprouticon",
-    "overworld": "pokeemerald:pokemon:sprite/bellsprout/bellsproutoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsproutoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bellsprout/bellsprout_overworld_shiny"
   }
 }

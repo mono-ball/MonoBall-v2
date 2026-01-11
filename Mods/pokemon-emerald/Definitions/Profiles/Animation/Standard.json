@@ -1,0 +1,26 @@
+{
+  "id": "pokeemerald:profile:animation/standard",
+  "definitionType": "AnimationProfile",
+  "name": "Standard Animation Profile",
+  "description": "Standard animation durations for character sprites (face, go, go_fast, run)",
+  "animations": {
+    "face": {
+      "duration": 0.267,
+      "description": "Face animation (16 ticks @ 60fps)"
+    },
+    "go": {
+      "duration": 0.133,
+      "description": "Walking animation (8 ticks @ 60fps)"
+    },
+    "go_fast": {
+      "duration": 0.067,
+      "description": "Fast walking/running animation (4 ticks @ 60fps)"
+    },
+    "run": {
+      "duration": 0.133,
+      "frameSequence": [1.383, 0.833, 1.383, 0.833],
+      "description": "Running animation with custom frame sequence ([83, 50, 83, 50] ticks @ 60fps)"
+    }
+  },
+  "defaultAnimation": "face"
+}

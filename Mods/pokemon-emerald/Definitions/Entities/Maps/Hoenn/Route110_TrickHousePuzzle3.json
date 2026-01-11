@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -191,6 +191,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/camper",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle3_event_script_justin",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -201,6 +202,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/picnicker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle3_event_script_martha",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -211,6 +213,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle3_event_script_alan",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -222,6 +225,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/trick_house_puzzle_3_wood_mail",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -233,6 +237,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/trick_house_puzzle_3_shadow_mail",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -244,6 +249,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:temporary/15",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -255,6 +261,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:temporary/16",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -1,11 +1,17 @@
 {
-  "id": "pokeemerald:sprite:pokemon/rayquazacutscene",
+  "id": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_overworld",
   "name": "Rayquazacutscene",
   "type": "Sprite",
   "texturePath": "Graphics/Characters/Npcs/Generic/RayquazaCutscene.png",
   "frameWidth": 64,
   "frameHeight": 64,
   "frameCount": 5,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "stay_still",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -43,5 +49,19 @@
       "height": 64
     }
   ],
-  "animations": []
+  "animations": [
+    {
+      "name": "stay_still",
+      "animationType": "go",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

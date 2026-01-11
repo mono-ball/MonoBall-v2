@@ -142,12 +142,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ariados/ariadosfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ariados/ariadosfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ariados/ariadosback",
-    "backShiny": "pokeemerald:pokemon:sprite/ariados/ariadosbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ariados/ariadosicon",
-    "overworld": "pokeemerald:pokemon:sprite/ariados/ariadosoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ariados/ariadosoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ariados/ariados_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ariados/ariados_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ariados/ariados_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ariados/ariados_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ariados/ariados_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ariados/ariados_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ariados/ariados_overworld_shiny"
   }
 }

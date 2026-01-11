@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_pokemon_center_1f_event_script_pokefan_f",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -155,6 +157,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_pokemon_center_1f_event_script_man",
+      "facingDirection": "left",
       "elevation": 0
     }
   ],

@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_pokemon_center_1f_event_script_school_kid",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -151,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_pokemon_center_1f_event_script_man",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -161,6 +164,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/picnicker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_pokemon_center_1f_event_script_picnicker",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -168,9 +172,10 @@
       "name": "NPC_4",
       "x": 16,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/skittyold",
+      "spriteId": "pokeemerald:pokemon:sprite/skitty/skitty_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_pokemon_center_1f_event_script_skitty",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

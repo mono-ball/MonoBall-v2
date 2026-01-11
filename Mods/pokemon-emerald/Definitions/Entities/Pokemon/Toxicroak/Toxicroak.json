@@ -136,17 +136,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/toxicroak/toxicroakfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroakfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/toxicroak/toxicroakfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroakfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/toxicroak/toxicroakback",
-    "backShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroakbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/toxicroak/toxicroakbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroakbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/toxicroak/toxicroakicon",
-    "overworld": "pokeemerald:pokemon:sprite/toxicroak/toxicroakoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroakoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_back",
+    "backShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_icon",
+    "overworld": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toxicroak/toxicroak_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -156,6 +156,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route114_fossil_maniacs_tunnel_event_script_fossil_maniac",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

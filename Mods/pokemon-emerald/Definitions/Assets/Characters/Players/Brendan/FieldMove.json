@@ -6,6 +6,12 @@
   "frameWidth": 16,
   "frameHeight": 32,
   "frameCount": 10,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "field_move",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -81,6 +87,7 @@
   "animations": [
     {
       "name": "field_move",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0,
@@ -89,7 +96,7 @@
         3,
         4
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.06666666666666667,
         0.06666666666666667,
         0.06666666666666667,

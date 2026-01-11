@@ -132,12 +132,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mienshao/mienshaofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mienshao/mienshaofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mienshao/mienshaoback",
-    "backShiny": "pokeemerald:pokemon:sprite/mienshao/mienshaobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mienshao/mienshaoicon",
-    "overworld": "pokeemerald:pokemon:sprite/mienshao/mienshaooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mienshao/mienshaooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mienshao/mienshao_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mienshao/mienshao_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mienshao/mienshao_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mienshao/mienshao_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mienshao/mienshao_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mienshao/mienshao_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mienshao/mienshao_overworld_shiny"
   }
 }

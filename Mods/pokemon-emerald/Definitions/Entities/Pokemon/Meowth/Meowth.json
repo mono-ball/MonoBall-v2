@@ -148,13 +148,13 @@
     "pokeemerald:move:foul_play"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/meowth/meowthfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/meowth/meowthback",
-    "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/meowth/meowthicon",
-    "overworld": "pokeemerald:pokemon:sprite/meowth/meowthoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/meowth/meowth_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowth_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/meowth/meowth_back",
+    "backShiny": "pokeemerald:pokemon:sprite/meowth/meowth_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/meowth/meowth_icon",
+    "overworld": "pokeemerald:pokemon:sprite/meowth/meowth_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowth_overworld_shiny"
   },
   "forms": [
     {
@@ -179,13 +179,13 @@
         "pokeemerald:ability:unnerve"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/meowth/meowthgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/meowth/meowthgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/meowth/meowthgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/meowth/meowthgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowth_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"
@@ -212,13 +212,13 @@
         "pokeemerald:ability:unnerve"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/meowth/meowthgalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthgalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/meowth/meowthgalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthgalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/meowth/meowthgalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/meowth/meowthgalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthgalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/meowth/meowth_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowth_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/meowth/meowth_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowth_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/meowth/meowth_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/meowth/meowth_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowth_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"
@@ -245,13 +245,13 @@
         "pokeemerald:ability:rattled"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/meowth/meowthalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowthalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/meowth/meowthalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowthalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/meowth/meowthalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/meowth/meowthalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowthalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/meowth/meowth_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/meowth/meowth_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/meowth/meowth_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/meowth/meowth_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/meowth/meowth_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/meowth/meowth_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meowth/meowth_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

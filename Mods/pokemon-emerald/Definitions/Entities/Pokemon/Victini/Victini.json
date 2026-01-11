@@ -147,13 +147,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/victini/victinifront",
-    "frontShiny": "pokeemerald:pokemon:sprite/victini/victinifrontshiny",
-    "back": "pokeemerald:pokemon:sprite/victini/victiniback",
-    "backShiny": "pokeemerald:pokemon:sprite/victini/victinibackshiny",
-    "icon": "pokeemerald:pokemon:sprite/victini/victiniicon",
-    "overworld": "pokeemerald:pokemon:sprite/victini/victinioverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/victini/victinioverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/victini/victini_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/victini/victini_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/victini/victini_back",
+    "backShiny": "pokeemerald:pokemon:sprite/victini/victini_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/victini/victini_icon",
+    "overworld": "pokeemerald:pokemon:sprite/victini/victini_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/victini/victini_overworld_shiny"
   },
   "isMythical": true,
   "isFrontierBanned": true

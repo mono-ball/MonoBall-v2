@@ -132,12 +132,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shedinja/shedinjafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shedinja/shedinjafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/shedinja/shedinjaback",
-    "backShiny": "pokeemerald:pokemon:sprite/shedinja/shedinjabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/shedinja/shedinjaicon",
-    "overworld": "pokeemerald:pokemon:sprite/shedinja/shedinjaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shedinja/shedinjaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shedinja/shedinja_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shedinja/shedinja_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/shedinja/shedinja_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shedinja/shedinja_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shedinja/shedinja_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shedinja/shedinja_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shedinja/shedinja_overworld_shiny"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "id": "pokeemerald:profile:movement/npc",
+  "definitionType": "MovementProfile",
+  "name": "NPC Movement Profile",
+  "description": "Movement speeds for NPCs (walk, run)",
+  "speeds": {
+    "walk": {
+      "speed": 4.0,
+      "animationType": "go"
+    },
+    "run": {
+      "speed": 6.0,
+      "animationType": "go_fast"
+    }
+  },
+  "defaultSpeed": "walk"
+}

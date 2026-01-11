@@ -138,17 +138,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/quagsire/quagsirefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/quagsire/quagsirefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/quagsire/quagsireback",
-    "backShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/quagsire/quagsirebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/quagsire/quagsirebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/quagsire/quagsireicon",
-    "overworld": "pokeemerald:pokemon:sprite/quagsire/quagsireoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/quagsire/quagsireoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/quagsire/quagsire_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/quagsire/quagsire_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/quagsire/quagsire_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/quagsire/quagsire_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/quagsire/quagsire_back",
+    "backShiny": "pokeemerald:pokemon:sprite/quagsire/quagsire_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/quagsire/quagsire_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/quagsire/quagsire_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/quagsire/quagsire_icon",
+    "overworld": "pokeemerald:pokemon:sprite/quagsire/quagsire_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quagsire/quagsire_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

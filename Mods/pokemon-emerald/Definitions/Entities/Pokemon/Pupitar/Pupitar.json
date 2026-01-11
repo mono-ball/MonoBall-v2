@@ -143,12 +143,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pupitar/pupitarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pupitar/pupitarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pupitar/pupitarback",
-    "backShiny": "pokeemerald:pokemon:sprite/pupitar/pupitarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pupitar/pupitaricon",
-    "overworld": "pokeemerald:pokemon:sprite/pupitar/pupitaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pupitar/pupitaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pupitar/pupitar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pupitar/pupitar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pupitar/pupitar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pupitar/pupitar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pupitar/pupitar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pupitar/pupitar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pupitar/pupitar_overworld_shiny"
   }
 }

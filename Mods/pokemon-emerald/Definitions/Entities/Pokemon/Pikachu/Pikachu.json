@@ -168,17 +168,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pikachu/pikachufront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachufrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/pikachu/pikachufrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pikachu/pikachufrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/pikachu/pikachuback",
-    "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/pikachu/pikachubackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuicon",
-    "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/pikachu/pikachu_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/pikachu/pikachu_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -204,13 +204,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachustarterfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachustarterfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachustarterback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachustarterbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachustartericon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachustarteroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachustarteroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_starter_overworld_shiny"
       }
     },
     {
@@ -233,13 +233,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachugmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"
@@ -264,13 +264,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuworldfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuworldfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuworldback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuworldbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuworldicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuworldoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuworldoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_world_overworld_shiny"
       }
     },
     {
@@ -293,13 +293,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupartnerbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachupartnericon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachupartneroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupartneroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_partner_overworld_shiny"
       }
     },
     {
@@ -322,13 +322,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachualolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachualolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachualolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachualolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachualolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachualolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachualolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_alola_overworld_shiny"
       }
     },
     {
@@ -351,13 +351,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachukalosfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachukalosfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachukalosback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachukalosbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachukalosicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachukalosoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachukalosoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_kalos_overworld_shiny"
       }
     },
     {
@@ -380,13 +380,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuunovafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuunovafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuunovabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuunovaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_unova_overworld_shiny"
       }
     },
     {
@@ -409,13 +409,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachusinnohoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_sinnoh_overworld_shiny"
       }
     },
     {
@@ -438,13 +438,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuhoennoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_hoenn_overworld_shiny"
       }
     },
     {
@@ -467,13 +467,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginalicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginaloverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuoriginaloverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_original_overworld_shiny"
       }
     },
     {
@@ -496,13 +496,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachulibrefront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachulibrefrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachulibreback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachulibrebackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachulibreicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachulibreoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachulibreoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_libre_overworld_shiny"
       }
     },
     {
@@ -525,13 +525,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachuphdfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuphdfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachuphdback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuphdbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachuphdicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachuphdoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachuphdoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_phd_overworld_shiny"
       }
     },
     {
@@ -554,13 +554,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupopstarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachupopstaricon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachupopstaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachupopstaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_pop_star_overworld_shiny"
       }
     },
     {
@@ -583,13 +583,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachubellefront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubellefrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachubelleback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubellebackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachubelleicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachubelleoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachubelleoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_belle_overworld_shiny"
       }
     },
     {
@@ -612,13 +612,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachurockstarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachurockstaricon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachurockstaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachurockstaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_rock_star_overworld_shiny"
       }
     },
     {
@@ -641,13 +641,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayback",
-        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachucosplaybackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayicon",
-        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachucosplayoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pikachu/pikachu_cosplay_overworld_shiny"
       }
     }
   ]

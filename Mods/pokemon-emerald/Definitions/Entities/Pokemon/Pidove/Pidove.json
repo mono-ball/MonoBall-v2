@@ -127,12 +127,12 @@
     "pokeemerald:move:night_slash"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pidove/pidovefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pidove/pidovefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pidove/pidoveback",
-    "backShiny": "pokeemerald:pokemon:sprite/pidove/pidovebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pidove/pidoveicon",
-    "overworld": "pokeemerald:pokemon:sprite/pidove/pidoveoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pidove/pidoveoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pidove/pidove_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pidove/pidove_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pidove/pidove_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pidove/pidove_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pidove/pidove_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pidove/pidove_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pidove/pidove_overworld_shiny"
   }
 }

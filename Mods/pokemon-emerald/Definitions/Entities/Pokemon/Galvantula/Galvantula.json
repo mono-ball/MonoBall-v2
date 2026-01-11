@@ -124,12 +124,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/galvantula/galvantulafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/galvantula/galvantulafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/galvantula/galvantulaback",
-    "backShiny": "pokeemerald:pokemon:sprite/galvantula/galvantulabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/galvantula/galvantulaicon",
-    "overworld": "pokeemerald:pokemon:sprite/galvantula/galvantulaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/galvantula/galvantulaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/galvantula/galvantula_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/galvantula/galvantula_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/galvantula/galvantula_back",
+    "backShiny": "pokeemerald:pokemon:sprite/galvantula/galvantula_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/galvantula/galvantula_icon",
+    "overworld": "pokeemerald:pokemon:sprite/galvantula/galvantula_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/galvantula/galvantula_overworld_shiny"
   }
 }

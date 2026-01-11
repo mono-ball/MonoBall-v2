@@ -152,12 +152,12 @@
     "pokeemerald:move:discharge"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/amaura/amaurafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/amaura/amaurafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/amaura/amauraback",
-    "backShiny": "pokeemerald:pokemon:sprite/amaura/amaurabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/amaura/amauraicon",
-    "overworld": "pokeemerald:pokemon:sprite/amaura/amauraoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/amaura/amauraoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/amaura/amaura_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/amaura/amaura_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/amaura/amaura_back",
+    "backShiny": "pokeemerald:pokemon:sprite/amaura/amaura_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/amaura/amaura_icon",
+    "overworld": "pokeemerald:pokemon:sprite/amaura/amaura_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/amaura/amaura_overworld_shiny"
   }
 }

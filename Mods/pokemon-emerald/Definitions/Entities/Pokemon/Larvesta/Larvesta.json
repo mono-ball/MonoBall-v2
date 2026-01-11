@@ -127,12 +127,12 @@
     "pokeemerald:move:magnet_rise"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/larvesta/larvestafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/larvesta/larvestafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/larvesta/larvestaback",
-    "backShiny": "pokeemerald:pokemon:sprite/larvesta/larvestabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/larvesta/larvestaicon",
-    "overworld": "pokeemerald:pokemon:sprite/larvesta/larvestaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/larvesta/larvestaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/larvesta/larvesta_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/larvesta/larvesta_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/larvesta/larvesta_back",
+    "backShiny": "pokeemerald:pokemon:sprite/larvesta/larvesta_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/larvesta/larvesta_icon",
+    "overworld": "pokeemerald:pokemon:sprite/larvesta/larvesta_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/larvesta/larvesta_overworld_shiny"
   }
 }

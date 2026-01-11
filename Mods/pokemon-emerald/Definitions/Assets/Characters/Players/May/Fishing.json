@@ -6,6 +6,12 @@
   "frameWidth": 16,
   "frameHeight": 32,
   "frameCount": 24,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "take_out_rod_north",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -179,6 +185,7 @@
   "animations": [
     {
       "name": "take_out_rod_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         4,
@@ -186,33 +193,23 @@
         6,
         7
       ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
-      ],
       "flipHorizontal": false
     },
     {
       "name": "take_out_rod_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0,
         1,
         2,
         3
-      ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
       ],
       "flipHorizontal": false
     },
     {
       "name": "take_out_rod_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0,
@@ -220,16 +217,11 @@
         2,
         3
       ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
-      ],
       "flipHorizontal": true
     },
     {
       "name": "put_away_rod_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
@@ -237,7 +229,7 @@
         5,
         4
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.06666666666666667,
         0.1,
         0.1,
@@ -247,23 +239,19 @@
     },
     {
       "name": "put_away_rod_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
         2,
         1,
         0
-      ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
       ],
       "flipHorizontal": false
     },
     {
       "name": "put_away_rod_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
@@ -271,23 +259,18 @@
         1,
         0
       ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
-      ],
       "flipHorizontal": true
     },
     {
       "name": "hooked_pokemon_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         6,
         7,
         7
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.1,
         0.1,
         0.5
@@ -296,13 +279,14 @@
     },
     {
       "name": "hooked_pokemon_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         2,
         3,
         3
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.1,
         0.1,
         0.5
@@ -311,13 +295,14 @@
     },
     {
       "name": "hooked_pokemon_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         2,
         3,
         3
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.1,
         0.1,
         0.5

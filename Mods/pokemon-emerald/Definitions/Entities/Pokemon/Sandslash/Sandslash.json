@@ -147,13 +147,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sandslash/sandslashfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sandslash/sandslashback",
-    "backShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sandslash/sandslashicon",
-    "overworld": "pokeemerald:pokemon:sprite/sandslash/sandslashoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sandslash/sandslash_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sandslash/sandslash_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sandslash/sandslash_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sandslash/sandslash_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sandslash/sandslash_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sandslash/sandslash_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sandslash/sandslash_overworld_shiny"
   },
   "forms": [
     {
@@ -179,13 +179,13 @@
         "pokeemerald:ability:slush_rush"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/sandslash/sandslashalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/sandslash/sandslashalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sandslash/sandslash_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

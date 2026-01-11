@@ -136,13 +136,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sharpedo/sharpedofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sharpedo/sharpedoback",
-    "backShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sharpedo/sharpedoicon",
-    "overworld": "pokeemerald:pokemon:sprite/sharpedo/sharpedooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_overworld_shiny"
   },
   "forms": [
     {
@@ -168,13 +168,13 @@
         "pokeemerald:ability:strong_jaw"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedomegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sharpedo/sharpedo_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:sharpedonite",

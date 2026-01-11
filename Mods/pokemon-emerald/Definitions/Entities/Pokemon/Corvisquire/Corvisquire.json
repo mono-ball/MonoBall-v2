@@ -106,12 +106,12 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/corvisquire/corvisquirefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/corvisquire/corvisquirefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/corvisquire/corvisquireback",
-    "backShiny": "pokeemerald:pokemon:sprite/corvisquire/corvisquirebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/corvisquire/corvisquireicon",
-    "overworld": "pokeemerald:pokemon:sprite/corvisquire/corvisquireoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/corvisquire/corvisquireoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_back",
+    "backShiny": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_icon",
+    "overworld": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/corvisquire/corvisquire_overworld_shiny"
   }
 }

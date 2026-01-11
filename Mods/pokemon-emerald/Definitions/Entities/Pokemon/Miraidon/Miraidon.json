@@ -124,13 +124,13 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/miraidon/miraidonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/miraidon/miraidonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/miraidon/miraidonback",
-    "backShiny": "pokeemerald:pokemon:sprite/miraidon/miraidonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/miraidon/miraidonicon",
-    "overworld": "pokeemerald:pokemon:sprite/miraidon/miraidonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/miraidon/miraidonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/miraidon/miraidon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/miraidon/miraidon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/miraidon/miraidon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/miraidon/miraidon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/miraidon/miraidon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/miraidon/miraidon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/miraidon/miraidon_overworld_shiny"
   },
   "isLegendary": true,
   "isFrontierBanned": true

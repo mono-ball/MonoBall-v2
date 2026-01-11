@@ -35,6 +35,12 @@ public static class KnownPathMappings
         { "Definitions/Assets/Pokemon", "PokemonAsset" },
         // Constants (top-level)
         { "Definitions/Constants", "Constants" },
+        // Profile definitions (PascalCase paths - most specific first)
+        { "Definitions/Profiles/Movement", "MovementProfile" },
+        { "Definitions/Profiles/Animation", "AnimationProfile" },
+        // Legacy lowercase paths (for backward compatibility during transition)
+        { "Definitions/Profiles/movement", "MovementProfile" },
+        { "Definitions/Profiles/animation", "AnimationProfile" },
         // Entity definitions (most specific first)
         { "Definitions/Entities/Text/ColorPalettes", "ColorPalette" },
         { "Definitions/Entities/Text/TextEffects", "TextEffect" },

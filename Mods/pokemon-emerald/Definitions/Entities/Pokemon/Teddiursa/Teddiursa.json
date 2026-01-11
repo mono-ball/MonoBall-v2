@@ -168,12 +168,12 @@
     "pokeemerald:move:play_rough"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/teddiursa/teddiursafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/teddiursa/teddiursafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/teddiursa/teddiursaback",
-    "backShiny": "pokeemerald:pokemon:sprite/teddiursa/teddiursabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/teddiursa/teddiursaicon",
-    "overworld": "pokeemerald:pokemon:sprite/teddiursa/teddiursaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/teddiursa/teddiursaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_back",
+    "backShiny": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_icon",
+    "overworld": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/teddiursa/teddiursa_overworld_shiny"
   }
 }

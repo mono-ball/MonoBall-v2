@@ -131,13 +131,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/cresselia/cresseliafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/cresselia/cresseliafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/cresselia/cresseliaback",
-    "backShiny": "pokeemerald:pokemon:sprite/cresselia/cresseliabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/cresselia/cresseliaicon",
-    "overworld": "pokeemerald:pokemon:sprite/cresselia/cresseliaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/cresselia/cresseliaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/cresselia/cresselia_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/cresselia/cresselia_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/cresselia/cresselia_back",
+    "backShiny": "pokeemerald:pokemon:sprite/cresselia/cresselia_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/cresselia/cresselia_icon",
+    "overworld": "pokeemerald:pokemon:sprite/cresselia/cresselia_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cresselia/cresselia_overworld_shiny"
   },
   "isLegendary": true
 }

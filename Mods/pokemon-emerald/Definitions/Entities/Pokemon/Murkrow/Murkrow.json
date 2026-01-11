@@ -147,17 +147,17 @@
     "pokeemerald:move:punishment"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/murkrow/murkrowfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/murkrow/murkrowfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/murkrow/murkrowfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/murkrow/murkrowfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/murkrow/murkrowback",
-    "backShiny": "pokeemerald:pokemon:sprite/murkrow/murkrowbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/murkrow/murkrowbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/murkrow/murkrowbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/murkrow/murkrowicon",
-    "overworld": "pokeemerald:pokemon:sprite/murkrow/murkrowoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/murkrow/murkrowoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/murkrow/murkrow_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/murkrow/murkrow_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/murkrow/murkrow_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/murkrow/murkrow_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/murkrow/murkrow_back",
+    "backShiny": "pokeemerald:pokemon:sprite/murkrow/murkrow_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/murkrow/murkrow_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/murkrow/murkrow_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/murkrow/murkrow_icon",
+    "overworld": "pokeemerald:pokemon:sprite/murkrow/murkrow_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/murkrow/murkrow_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

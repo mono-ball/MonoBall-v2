@@ -84,12 +84,12 @@
     "pokeemerald:move:sucker_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dreepy/dreepyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dreepy/dreepyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dreepy/dreepyback",
-    "backShiny": "pokeemerald:pokemon:sprite/dreepy/dreepybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dreepy/dreepyicon",
-    "overworld": "pokeemerald:pokemon:sprite/dreepy/dreepyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dreepy/dreepyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dreepy/dreepy_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dreepy/dreepy_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dreepy/dreepy_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dreepy/dreepy_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dreepy/dreepy_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dreepy/dreepy_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dreepy/dreepy_overworld_shiny"
   }
 }

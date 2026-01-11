@@ -137,13 +137,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/vikavolt/vikavoltfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavoltfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/vikavolt/vikavoltback",
-    "backShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavoltbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/vikavolt/vikavolticon",
-    "overworld": "pokeemerald:pokemon:sprite/vikavolt/vikavoltoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavoltoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_back",
+    "backShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_icon",
+    "overworld": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_overworld_shiny"
   },
   "forms": [
     {
@@ -169,13 +169,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemback",
-        "backShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotembackshiny",
-        "icon": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemicon",
-        "overworld": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolttotemoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_back",
+        "backShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_icon",
+        "overworld": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/vikavolt/vikavolt_totem_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:totem"
     }

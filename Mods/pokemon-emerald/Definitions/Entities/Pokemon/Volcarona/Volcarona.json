@@ -154,12 +154,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/volcarona/volcaronafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/volcarona/volcaronafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/volcarona/volcaronaback",
-    "backShiny": "pokeemerald:pokemon:sprite/volcarona/volcaronabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/volcarona/volcaronaicon",
-    "overworld": "pokeemerald:pokemon:sprite/volcarona/volcaronaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/volcarona/volcaronaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/volcarona/volcarona_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/volcarona/volcarona_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/volcarona/volcarona_back",
+    "backShiny": "pokeemerald:pokemon:sprite/volcarona/volcarona_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/volcarona/volcarona_icon",
+    "overworld": "pokeemerald:pokemon:sprite/volcarona/volcarona_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/volcarona/volcarona_overworld_shiny"
   }
 }

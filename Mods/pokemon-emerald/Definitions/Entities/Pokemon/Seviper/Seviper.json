@@ -155,12 +155,12 @@
     "pokeemerald:move:final_gambit"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/seviper/seviperfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/seviper/seviperfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/seviper/seviperback",
-    "backShiny": "pokeemerald:pokemon:sprite/seviper/seviperbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/seviper/sevipericon",
-    "overworld": "pokeemerald:pokemon:sprite/seviper/seviperoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/seviper/seviperoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/seviper/seviper_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/seviper/seviper_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/seviper/seviper_back",
+    "backShiny": "pokeemerald:pokemon:sprite/seviper/seviper_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/seviper/seviper_icon",
+    "overworld": "pokeemerald:pokemon:sprite/seviper/seviper_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/seviper/seviper_overworld_shiny"
   }
 }

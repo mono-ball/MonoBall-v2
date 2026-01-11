@@ -171,17 +171,17 @@
     "pokeemerald:move:quick_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/meditite/medititefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/meditite/medititefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/meditite/medititefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/meditite/medititefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/meditite/medititeback",
-    "backShiny": "pokeemerald:pokemon:sprite/meditite/medititebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/meditite/medititebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/meditite/medititebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/meditite/medititeicon",
-    "overworld": "pokeemerald:pokemon:sprite/meditite/medititeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/meditite/medititeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/meditite/meditite_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/meditite/meditite_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/meditite/meditite_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/meditite/meditite_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/meditite/meditite_back",
+    "backShiny": "pokeemerald:pokemon:sprite/meditite/meditite_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/meditite/meditite_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/meditite/meditite_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/meditite/meditite_icon",
+    "overworld": "pokeemerald:pokemon:sprite/meditite/meditite_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/meditite/meditite_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

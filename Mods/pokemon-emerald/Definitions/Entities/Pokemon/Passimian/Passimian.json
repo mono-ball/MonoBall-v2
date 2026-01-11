@@ -137,12 +137,12 @@
     "pokeemerald:move:feint"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/passimian/passimianfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/passimian/passimianfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/passimian/passimianback",
-    "backShiny": "pokeemerald:pokemon:sprite/passimian/passimianbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/passimian/passimianicon",
-    "overworld": "pokeemerald:pokemon:sprite/passimian/passimianoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/passimian/passimianoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/passimian/passimian_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/passimian/passimian_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/passimian/passimian_back",
+    "backShiny": "pokeemerald:pokemon:sprite/passimian/passimian_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/passimian/passimian_icon",
+    "overworld": "pokeemerald:pokemon:sprite/passimian/passimian_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/passimian/passimian_overworld_shiny"
   }
 }

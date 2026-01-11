@@ -158,12 +158,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/drapion/drapionfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/drapion/drapionfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/drapion/drapionback",
-    "backShiny": "pokeemerald:pokemon:sprite/drapion/drapionbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/drapion/drapionicon",
-    "overworld": "pokeemerald:pokemon:sprite/drapion/drapionoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/drapion/drapionoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/drapion/drapion_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/drapion/drapion_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/drapion/drapion_back",
+    "backShiny": "pokeemerald:pokemon:sprite/drapion/drapion_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/drapion/drapion_icon",
+    "overworld": "pokeemerald:pokemon:sprite/drapion/drapion_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drapion/drapion_overworld_shiny"
   }
 }

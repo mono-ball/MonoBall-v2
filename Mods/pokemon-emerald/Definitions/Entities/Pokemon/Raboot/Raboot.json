@@ -110,12 +110,12 @@
     "pokeemerald:move:taunt"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/raboot/rabootfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/raboot/rabootfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/raboot/rabootback",
-    "backShiny": "pokeemerald:pokemon:sprite/raboot/rabootbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/raboot/rabooticon",
-    "overworld": "pokeemerald:pokemon:sprite/raboot/rabootoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/raboot/rabootoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/raboot/raboot_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/raboot/raboot_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/raboot/raboot_back",
+    "backShiny": "pokeemerald:pokemon:sprite/raboot/raboot_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/raboot/raboot_icon",
+    "overworld": "pokeemerald:pokemon:sprite/raboot/raboot_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/raboot/raboot_overworld_shiny"
   }
 }

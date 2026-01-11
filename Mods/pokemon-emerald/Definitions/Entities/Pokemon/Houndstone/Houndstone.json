@@ -119,12 +119,12 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/houndstone/houndstonefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/houndstone/houndstonefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/houndstone/houndstoneback",
-    "backShiny": "pokeemerald:pokemon:sprite/houndstone/houndstonebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/houndstone/houndstoneicon",
-    "overworld": "pokeemerald:pokemon:sprite/houndstone/houndstoneoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/houndstone/houndstoneoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/houndstone/houndstone_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/houndstone/houndstone_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/houndstone/houndstone_back",
+    "backShiny": "pokeemerald:pokemon:sprite/houndstone/houndstone_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/houndstone/houndstone_icon",
+    "overworld": "pokeemerald:pokemon:sprite/houndstone/houndstone_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/houndstone/houndstone_overworld_shiny"
   }
 }

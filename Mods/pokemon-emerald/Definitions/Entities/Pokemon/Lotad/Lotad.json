@@ -139,12 +139,12 @@
     "pokeemerald:move:teeter_dance"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/lotad/lotadfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/lotad/lotadfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/lotad/lotadback",
-    "backShiny": "pokeemerald:pokemon:sprite/lotad/lotadbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/lotad/lotadicon",
-    "overworld": "pokeemerald:pokemon:sprite/lotad/lotadoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/lotad/lotadoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/lotad/lotad_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/lotad/lotad_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/lotad/lotad_back",
+    "backShiny": "pokeemerald:pokemon:sprite/lotad/lotad_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/lotad/lotad_icon",
+    "overworld": "pokeemerald:pokemon:sprite/lotad/lotad_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lotad/lotad_overworld_shiny"
   }
 }

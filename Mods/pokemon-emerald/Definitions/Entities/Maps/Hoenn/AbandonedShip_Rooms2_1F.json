@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_rooms2_1f_event_script_dan",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_rooms2_1f_event_script_kira",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -152,6 +154,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_rooms_2_1f_revive",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -162,6 +165,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_rooms2_1f_event_script_garrison",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -172,6 +176,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/tuberf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_rooms2_1f_event_script_jani",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

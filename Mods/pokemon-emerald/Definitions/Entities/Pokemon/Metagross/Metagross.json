@@ -150,13 +150,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/metagross/metagrossfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/metagross/metagrossfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/metagross/metagrossback",
-    "backShiny": "pokeemerald:pokemon:sprite/metagross/metagrossbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/metagross/metagrossicon",
-    "overworld": "pokeemerald:pokemon:sprite/metagross/metagrossoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/metagross/metagrossoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/metagross/metagross_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/metagross/metagross_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/metagross/metagross_back",
+    "backShiny": "pokeemerald:pokemon:sprite/metagross/metagross_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/metagross/metagross_icon",
+    "overworld": "pokeemerald:pokemon:sprite/metagross/metagross_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/metagross/metagross_overworld_shiny"
   },
   "forms": [
     {
@@ -182,13 +182,13 @@
         "pokeemerald:ability:tough_claws"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/metagross/metagrossmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/metagross/metagrossmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/metagross/metagrossmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/metagross/metagrossmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/metagross/metagrossmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/metagross/metagrossmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/metagross/metagrossmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/metagross/metagross_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/metagross/metagross_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/metagross/metagross_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/metagross/metagross_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/metagross/metagross_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/metagross/metagross_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/metagross/metagross_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:metagrossite",

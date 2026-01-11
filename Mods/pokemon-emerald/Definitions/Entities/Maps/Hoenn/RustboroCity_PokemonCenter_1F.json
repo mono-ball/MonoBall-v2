@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_center_1f_event_script_man",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -155,6 +157,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_center_1f_event_script_boy",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -165,6 +168,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_pokemon_center_1f_event_script_girl",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

@@ -89,17 +89,17 @@
     "pokeemerald:move:safeguard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetback",
-    "backShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffeticon",
-    "overworld": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffetoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wobbuffet/wobbuffet_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -113,12 +113,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/hattrem/hattremfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/hattrem/hattremfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/hattrem/hattremback",
-    "backShiny": "pokeemerald:pokemon:sprite/hattrem/hattrembackshiny",
-    "icon": "pokeemerald:pokemon:sprite/hattrem/hattremicon",
-    "overworld": "pokeemerald:pokemon:sprite/hattrem/hattremoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/hattrem/hattremoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/hattrem/hattrem_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/hattrem/hattrem_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/hattrem/hattrem_back",
+    "backShiny": "pokeemerald:pokemon:sprite/hattrem/hattrem_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/hattrem/hattrem_icon",
+    "overworld": "pokeemerald:pokemon:sprite/hattrem/hattrem_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hattrem/hattrem_overworld_shiny"
   }
 }

@@ -107,12 +107,12 @@
     "pokeemerald:move:psychic_terrain"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/abra/abrafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/abra/abrafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/abra/abraback",
-    "backShiny": "pokeemerald:pokemon:sprite/abra/abrabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/abra/abraicon",
-    "overworld": "pokeemerald:pokemon:sprite/abra/abraoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/abra/abraoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/abra/abra_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/abra/abra_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/abra/abra_back",
+    "backShiny": "pokeemerald:pokemon:sprite/abra/abra_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/abra/abra_icon",
+    "overworld": "pokeemerald:pokemon:sprite/abra/abra_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/abra/abra_overworld_shiny"
   }
 }

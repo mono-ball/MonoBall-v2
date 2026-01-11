@@ -143,12 +143,12 @@
     "pokeemerald:move:simple_beam"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/spoink/spoinkfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/spoink/spoinkfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/spoink/spoinkback",
-    "backShiny": "pokeemerald:pokemon:sprite/spoink/spoinkbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/spoink/spoinkicon",
-    "overworld": "pokeemerald:pokemon:sprite/spoink/spoinkoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/spoink/spoinkoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/spoink/spoink_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/spoink/spoink_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/spoink/spoink_back",
+    "backShiny": "pokeemerald:pokemon:sprite/spoink/spoink_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/spoink/spoink_icon",
+    "overworld": "pokeemerald:pokemon:sprite/spoink/spoink_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spoink/spoink_overworld_shiny"
   }
 }

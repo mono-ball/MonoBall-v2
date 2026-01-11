@@ -115,12 +115,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/clodsire/clodsirefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/clodsire/clodsirefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/clodsire/clodsireback",
-    "backShiny": "pokeemerald:pokemon:sprite/clodsire/clodsirebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/clodsire/clodsireicon",
-    "overworld": "pokeemerald:pokemon:sprite/clodsire/clodsireoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/clodsire/clodsireoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/clodsire/clodsire_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/clodsire/clodsire_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/clodsire/clodsire_back",
+    "backShiny": "pokeemerald:pokemon:sprite/clodsire/clodsire_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/clodsire/clodsire_icon",
+    "overworld": "pokeemerald:pokemon:sprite/clodsire/clodsire_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clodsire/clodsire_overworld_shiny"
   }
 }

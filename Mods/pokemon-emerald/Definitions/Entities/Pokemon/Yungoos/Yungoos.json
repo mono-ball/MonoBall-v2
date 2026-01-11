@@ -133,12 +133,12 @@
     "pokeemerald:move:thunder_fang"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/yungoos/yungoosfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/yungoos/yungoosfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/yungoos/yungoosback",
-    "backShiny": "pokeemerald:pokemon:sprite/yungoos/yungoosbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/yungoos/yungoosicon",
-    "overworld": "pokeemerald:pokemon:sprite/yungoos/yungoosoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/yungoos/yungoosoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/yungoos/yungoos_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/yungoos/yungoos_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/yungoos/yungoos_back",
+    "backShiny": "pokeemerald:pokemon:sprite/yungoos/yungoos_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/yungoos/yungoos_icon",
+    "overworld": "pokeemerald:pokemon:sprite/yungoos/yungoos_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yungoos/yungoos_overworld_shiny"
   }
 }

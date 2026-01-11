@@ -128,12 +128,12 @@
     "pokeemerald:move:yawn"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fidough/fidoughfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fidough/fidoughfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fidough/fidoughback",
-    "backShiny": "pokeemerald:pokemon:sprite/fidough/fidoughbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fidough/fidoughicon",
-    "overworld": "pokeemerald:pokemon:sprite/fidough/fidoughoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fidough/fidoughoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fidough/fidough_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fidough/fidough_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fidough/fidough_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fidough/fidough_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fidough/fidough_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fidough/fidough_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fidough/fidough_overworld_shiny"
   }
 }

@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house2_event_script_expert_f",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

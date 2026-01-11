@@ -116,12 +116,12 @@
     "pokeemerald:move:defense_curl"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedeback",
-    "backShiny": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedeicon",
-    "overworld": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipedeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sizzlipede/sizzlipede_overworld_shiny"
   }
 }

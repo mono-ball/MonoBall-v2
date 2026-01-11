@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafback",
+  "id": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_back",
   "name": "Nuzleafback",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Nuzleaf/NuzleafBack.png",
   "spriteType": "back",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

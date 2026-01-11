@@ -123,6 +123,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house2_event_script_hidden_power_giver",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house2_event_script_sleep_talk_tutor",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

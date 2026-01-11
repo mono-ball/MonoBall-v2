@@ -142,12 +142,12 @@
     "pokeemerald:move:tailwind"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mantyke/mantykefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mantyke/mantykefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mantyke/mantykeback",
-    "backShiny": "pokeemerald:pokemon:sprite/mantyke/mantykebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mantyke/mantykeicon",
-    "overworld": "pokeemerald:pokemon:sprite/mantyke/mantykeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mantyke/mantykeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mantyke/mantyke_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mantyke/mantyke_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mantyke/mantyke_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mantyke/mantyke_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mantyke/mantyke_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mantyke/mantyke_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mantyke/mantyke_overworld_shiny"
   }
 }

@@ -158,12 +158,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/togetic/togeticfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/togetic/togeticfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/togetic/togeticback",
-    "backShiny": "pokeemerald:pokemon:sprite/togetic/togeticbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/togetic/togeticicon",
-    "overworld": "pokeemerald:pokemon:sprite/togetic/togeticoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/togetic/togeticoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/togetic/togetic_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/togetic/togetic_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/togetic/togetic_back",
+    "backShiny": "pokeemerald:pokemon:sprite/togetic/togetic_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/togetic/togetic_icon",
+    "overworld": "pokeemerald:pokemon:sprite/togetic/togetic_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/togetic/togetic_overworld_shiny"
   }
 }

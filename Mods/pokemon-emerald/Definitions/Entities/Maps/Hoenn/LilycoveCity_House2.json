@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_house2_event_script_fat_man",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

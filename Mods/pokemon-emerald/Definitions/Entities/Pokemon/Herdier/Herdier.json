@@ -127,12 +127,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/herdier/herdierfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/herdier/herdierfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/herdier/herdierback",
-    "backShiny": "pokeemerald:pokemon:sprite/herdier/herdierbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/herdier/herdiericon",
-    "overworld": "pokeemerald:pokemon:sprite/herdier/herdieroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/herdier/herdieroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/herdier/herdier_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/herdier/herdier_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/herdier/herdier_back",
+    "backShiny": "pokeemerald:pokemon:sprite/herdier/herdier_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/herdier/herdier_icon",
+    "overworld": "pokeemerald:pokemon:sprite/herdier/herdier_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/herdier/herdier_overworld_shiny"
   }
 }

@@ -155,6 +155,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_attendant",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -165,6 +166,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -175,6 +177,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_clerk",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -189,6 +192,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_girl",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -203,6 +207,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_entrance_event_script_man",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

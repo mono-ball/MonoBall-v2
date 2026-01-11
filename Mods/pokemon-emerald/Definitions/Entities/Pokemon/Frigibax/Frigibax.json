@@ -120,12 +120,12 @@
     "pokeemerald:move:icicle_spear"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/frigibax/frigibaxfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/frigibax/frigibaxfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/frigibax/frigibaxback",
-    "backShiny": "pokeemerald:pokemon:sprite/frigibax/frigibaxbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/frigibax/frigibaxicon",
-    "overworld": "pokeemerald:pokemon:sprite/frigibax/frigibaxoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/frigibax/frigibaxoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/frigibax/frigibax_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/frigibax/frigibax_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/frigibax/frigibax_back",
+    "backShiny": "pokeemerald:pokemon:sprite/frigibax/frigibax_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/frigibax/frigibax_icon",
+    "overworld": "pokeemerald:pokemon:sprite/frigibax/frigibax_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frigibax/frigibax_overworld_shiny"
   }
 }

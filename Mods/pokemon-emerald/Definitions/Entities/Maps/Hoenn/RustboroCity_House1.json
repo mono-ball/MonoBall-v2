@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/camper",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_house1_event_script_trader",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_house1_event_script_hiker",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

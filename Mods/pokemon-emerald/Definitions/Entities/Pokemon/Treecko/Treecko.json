@@ -164,12 +164,12 @@
     "pokeemerald:move:grassy_terrain"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/treecko/treeckofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/treecko/treeckofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/treecko/treeckoback",
-    "backShiny": "pokeemerald:pokemon:sprite/treecko/treeckobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/treecko/treeckoicon",
-    "overworld": "pokeemerald:pokemon:sprite/treecko/treeckooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/treecko/treeckooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/treecko/treecko_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/treecko/treecko_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/treecko/treecko_back",
+    "backShiny": "pokeemerald:pokemon:sprite/treecko/treecko_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/treecko/treecko_icon",
+    "overworld": "pokeemerald:pokemon:sprite/treecko/treecko_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/treecko/treecko_overworld_shiny"
   }
 }

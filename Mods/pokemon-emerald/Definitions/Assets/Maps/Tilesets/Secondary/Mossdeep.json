@@ -6566,7 +6566,7 @@
       "collisionId": "pokeemerald:collision:hazard"
     },
     {
-      "localTileId": 455,
+      "localTileId": 463,
       "interactionId": "pokeemerald:script:interactions/tiles/lava",
       "collisionId": "pokeemerald:collision:hazard",
       "animation": [
@@ -6605,7 +6605,7 @@
       ]
     },
     {
-      "localTileId": 456,
+      "localTileId": 464,
       "interactionId": "pokeemerald:script:interactions/tiles/lava",
       "collisionId": "pokeemerald:collision:hazard"
     }

@@ -121,12 +121,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tsareena/tsareenafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tsareena/tsareenafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tsareena/tsareenaback",
-    "backShiny": "pokeemerald:pokemon:sprite/tsareena/tsareenabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tsareena/tsareenaicon",
-    "overworld": "pokeemerald:pokemon:sprite/tsareena/tsareenaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tsareena/tsareenaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tsareena/tsareena_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tsareena/tsareena_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tsareena/tsareena_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tsareena/tsareena_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tsareena/tsareena_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tsareena/tsareena_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tsareena/tsareena_overworld_shiny"
   }
 }

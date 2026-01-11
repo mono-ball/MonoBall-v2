@@ -112,12 +112,12 @@
     "pokeemerald:move:swords_dance"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/arctibax/arctibaxfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/arctibax/arctibaxfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/arctibax/arctibaxback",
-    "backShiny": "pokeemerald:pokemon:sprite/arctibax/arctibaxbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/arctibax/arctibaxicon",
-    "overworld": "pokeemerald:pokemon:sprite/arctibax/arctibaxoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/arctibax/arctibaxoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/arctibax/arctibax_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/arctibax/arctibax_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/arctibax/arctibax_back",
+    "backShiny": "pokeemerald:pokemon:sprite/arctibax/arctibax_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/arctibax/arctibax_icon",
+    "overworld": "pokeemerald:pokemon:sprite/arctibax/arctibax_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arctibax/arctibax_overworld_shiny"
   }
 }

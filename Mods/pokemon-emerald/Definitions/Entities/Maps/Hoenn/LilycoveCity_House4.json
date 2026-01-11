@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -123,6 +123,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_house4_event_script_man1",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -137,6 +138,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_house4_event_script_man2",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

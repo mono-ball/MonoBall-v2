@@ -134,13 +134,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/weezing/weezingfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/weezing/weezingfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/weezing/weezingback",
-    "backShiny": "pokeemerald:pokemon:sprite/weezing/weezingbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/weezing/weezingicon",
-    "overworld": "pokeemerald:pokemon:sprite/weezing/weezingoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/weezing/weezingoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/weezing/weezing_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/weezing/weezing_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/weezing/weezing_back",
+    "backShiny": "pokeemerald:pokemon:sprite/weezing/weezing_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/weezing/weezing_icon",
+    "overworld": "pokeemerald:pokemon:sprite/weezing/weezing_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/weezing/weezing_overworld_shiny"
   },
   "forms": [
     {
@@ -166,13 +166,13 @@
         "pokeemerald:ability:misty_surge"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/weezing/weezinggalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/weezing/weezinggalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/weezing/weezinggalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/weezing/weezinggalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/weezing/weezinggalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/weezing/weezinggalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/weezing/weezinggalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/weezing/weezing_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/weezing/weezing_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/weezing/weezing_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/weezing/weezing_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/weezing/weezing_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/weezing/weezing_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/weezing/weezing_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

@@ -212,13 +212,13 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/snorlax/snorlaxfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/snorlax/snorlaxback",
-    "backShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/snorlax/snorlaxicon",
-    "overworld": "pokeemerald:pokemon:sprite/snorlax/snorlaxoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/snorlax/snorlax_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/snorlax/snorlax_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/snorlax/snorlax_back",
+    "backShiny": "pokeemerald:pokemon:sprite/snorlax/snorlax_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/snorlax/snorlax_icon",
+    "overworld": "pokeemerald:pokemon:sprite/snorlax/snorlax_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snorlax/snorlax_overworld_shiny"
   },
   "forms": [
     {
@@ -242,13 +242,13 @@
         "pokeemerald:ability:gluttony"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/snorlax/snorlaxgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/snorlax/snorlax_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

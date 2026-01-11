@@ -148,12 +148,12 @@
     "pokeemerald:move:hurricane"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/hoothoot/hoothootfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothootfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/hoothoot/hoothootback",
-    "backShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothootbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/hoothoot/hoothooticon",
-    "overworld": "pokeemerald:pokemon:sprite/hoothoot/hoothootoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothootoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_back",
+    "backShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_icon",
+    "overworld": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hoothoot/hoothoot_overworld_shiny"
   }
 }

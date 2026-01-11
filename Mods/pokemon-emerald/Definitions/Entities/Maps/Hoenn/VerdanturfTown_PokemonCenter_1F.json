@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -145,6 +146,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_pokemon_center_1f_event_script_gentleman",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -155,6 +157,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_pokemon_center_1f_event_script_expert_m",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -165,6 +168,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/littleboy",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_pokemon_center_1f_event_script_fury_cutter_tutor",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

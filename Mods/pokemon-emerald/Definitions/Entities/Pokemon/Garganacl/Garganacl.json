@@ -137,12 +137,12 @@
     "pokeemerald:move:thunder_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/garganacl/garganaclfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/garganacl/garganaclfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/garganacl/garganaclback",
-    "backShiny": "pokeemerald:pokemon:sprite/garganacl/garganaclbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/garganacl/garganaclicon",
-    "overworld": "pokeemerald:pokemon:sprite/garganacl/garganacloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/garganacl/garganacloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/garganacl/garganacl_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/garganacl/garganacl_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/garganacl/garganacl_back",
+    "backShiny": "pokeemerald:pokemon:sprite/garganacl/garganacl_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/garganacl/garganacl_icon",
+    "overworld": "pokeemerald:pokemon:sprite/garganacl/garganacl_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/garganacl/garganacl_overworld_shiny"
   }
 }

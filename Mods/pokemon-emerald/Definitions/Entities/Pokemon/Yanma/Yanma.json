@@ -141,12 +141,12 @@
     "pokeemerald:move:secret_power"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/yanma/yanmafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/yanma/yanmafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/yanma/yanmaback",
-    "backShiny": "pokeemerald:pokemon:sprite/yanma/yanmabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/yanma/yanmaicon",
-    "overworld": "pokeemerald:pokemon:sprite/yanma/yanmaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/yanma/yanmaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/yanma/yanma_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/yanma/yanma_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/yanma/yanma_back",
+    "backShiny": "pokeemerald:pokemon:sprite/yanma/yanma_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/yanma/yanma_icon",
+    "overworld": "pokeemerald:pokemon:sprite/yanma/yanma_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yanma/yanma_overworld_shiny"
   }
 }

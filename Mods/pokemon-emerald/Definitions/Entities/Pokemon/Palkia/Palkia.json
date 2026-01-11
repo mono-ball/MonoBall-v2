@@ -133,13 +133,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/palkia/palkiafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/palkia/palkiafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/palkia/palkiaback",
-    "backShiny": "pokeemerald:pokemon:sprite/palkia/palkiabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/palkia/palkiaicon",
-    "overworld": "pokeemerald:pokemon:sprite/palkia/palkiaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/palkia/palkia_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/palkia/palkia_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/palkia/palkia_back",
+    "backShiny": "pokeemerald:pokemon:sprite/palkia/palkia_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/palkia/palkia_icon",
+    "overworld": "pokeemerald:pokemon:sprite/palkia/palkia_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/palkia/palkia_overworld_shiny"
   },
   "forms": [
     {
@@ -165,13 +165,13 @@
         "pokeemerald:ability:telepathy"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/palkia/palkiaoriginfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoriginfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/palkia/palkiaoriginback",
-        "backShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoriginbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/palkia/palkiaoriginicon",
-        "overworld": "pokeemerald:pokemon:sprite/palkia/palkiaoriginoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/palkia/palkiaoriginoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/palkia/palkia_origin_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/palkia/palkia_origin_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/palkia/palkia_origin_back",
+        "backShiny": "pokeemerald:pokemon:sprite/palkia/palkia_origin_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/palkia/palkia_origin_icon",
+        "overworld": "pokeemerald:pokemon:sprite/palkia/palkia_origin_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/palkia/palkia_origin_overworld_shiny"
       }
     }
   ],

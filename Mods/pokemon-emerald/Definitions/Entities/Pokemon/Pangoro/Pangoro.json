@@ -151,12 +151,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pangoro/pangorofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pangoro/pangorofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pangoro/pangoroback",
-    "backShiny": "pokeemerald:pokemon:sprite/pangoro/pangorobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pangoro/pangoroicon",
-    "overworld": "pokeemerald:pokemon:sprite/pangoro/pangorooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pangoro/pangorooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pangoro/pangoro_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pangoro/pangoro_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pangoro/pangoro_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pangoro/pangoro_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pangoro/pangoro_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pangoro/pangoro_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pangoro/pangoro_overworld_shiny"
   }
 }

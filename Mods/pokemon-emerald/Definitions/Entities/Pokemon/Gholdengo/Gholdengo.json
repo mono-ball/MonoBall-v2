@@ -105,12 +105,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gholdengo/gholdengofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gholdengo/gholdengoback",
-    "backShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gholdengo/gholdengoicon",
-    "overworld": "pokeemerald:pokemon:sprite/gholdengo/gholdengooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gholdengo/gholdengo_overworld_shiny"
   }
 }

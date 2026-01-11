@@ -144,12 +144,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/magneton/magnetonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/magneton/magnetonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/magneton/magnetonback",
-    "backShiny": "pokeemerald:pokemon:sprite/magneton/magnetonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/magneton/magnetonicon",
-    "overworld": "pokeemerald:pokemon:sprite/magneton/magnetonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/magneton/magnetonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/magneton/magneton_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/magneton/magneton_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/magneton/magneton_back",
+    "backShiny": "pokeemerald:pokemon:sprite/magneton/magneton_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/magneton/magneton_icon",
+    "overworld": "pokeemerald:pokemon:sprite/magneton/magneton_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magneton/magneton_overworld_shiny"
   }
 }

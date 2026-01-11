@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/slateport_city_name_raters_house_event_script_name_rater",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

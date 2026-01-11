@@ -145,15 +145,15 @@
     "pokeemerald:move:baby_doll_eyes"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pachirisu/pachirisufront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisufrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/pachirisu/pachirisufrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisufrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/pachirisu/pachirisuback",
-    "backShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisubackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pachirisu/pachirisuicon",
-    "overworld": "pokeemerald:pokemon:sprite/pachirisu/pachirisuoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisuoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pachirisu/pachirisu_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

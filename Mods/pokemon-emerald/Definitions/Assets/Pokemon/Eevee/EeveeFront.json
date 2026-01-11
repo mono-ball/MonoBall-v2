@@ -1,10 +1,43 @@
 {
-  "id": "pokeemerald:pokemon:sprite/eevee/eeveefront",
+  "id": "pokeemerald:pokemon:sprite/eevee/eevee_front",
   "name": "Eeveefront",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Eevee/EeveeFront.png",
   "spriteType": "front",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 2
+  "frameCount": 2,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "index": 1,
+      "x": 0,
+      "y": 64,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

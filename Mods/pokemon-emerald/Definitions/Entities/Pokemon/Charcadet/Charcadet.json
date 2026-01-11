@@ -106,12 +106,12 @@
     "pokeemerald:move:spite"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/charcadet/charcadetfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/charcadet/charcadetfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/charcadet/charcadetback",
-    "backShiny": "pokeemerald:pokemon:sprite/charcadet/charcadetbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/charcadet/charcadeticon",
-    "overworld": "pokeemerald:pokemon:sprite/charcadet/charcadetoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/charcadet/charcadetoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/charcadet/charcadet_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/charcadet/charcadet_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/charcadet/charcadet_back",
+    "backShiny": "pokeemerald:pokemon:sprite/charcadet/charcadet_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/charcadet/charcadet_icon",
+    "overworld": "pokeemerald:pokemon:sprite/charcadet/charcadet_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charcadet/charcadet_overworld_shiny"
   }
 }

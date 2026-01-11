@@ -272,9 +272,17 @@ public class NpcDefinition
 
     /// <summary>
     ///     The initial facing direction of the NPC (null, "up", "down", "left", "right").
+    ///     Only used for sprites with Capabilities.Directional = true.
     /// </summary>
     [JsonPropertyName("facingDirection")]
     public string? FacingDirection { get; set; }
+
+    /// <summary>
+    ///     Override animation to play when the NPC is spawned (instead of sprite's defaultAnimation).
+    ///     If null, uses the sprite definition's DefaultAnimation.
+    /// </summary>
+    [JsonPropertyName("initialAnimation")]
+    public string? InitialAnimation { get; set; }
 
     /// <summary>
     ///     NPC-specific behavior parameter overrides.

@@ -126,12 +126,12 @@
     "pokeemerald:move:rage"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bruxish/bruxishfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bruxish/bruxishfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bruxish/bruxishback",
-    "backShiny": "pokeemerald:pokemon:sprite/bruxish/bruxishbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bruxish/bruxishicon",
-    "overworld": "pokeemerald:pokemon:sprite/bruxish/bruxishoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bruxish/bruxishoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bruxish/bruxish_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bruxish/bruxish_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bruxish/bruxish_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bruxish/bruxish_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bruxish/bruxish_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bruxish/bruxish_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bruxish/bruxish_overworld_shiny"
   }
 }

@@ -52,12 +52,12 @@
     }
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/silcoon/silcoonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/silcoon/silcoonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/silcoon/silcoonback",
-    "backShiny": "pokeemerald:pokemon:sprite/silcoon/silcoonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/silcoon/silcoonicon",
-    "overworld": "pokeemerald:pokemon:sprite/silcoon/silcoonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/silcoon/silcoonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/silcoon/silcoon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/silcoon/silcoon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/silcoon/silcoon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/silcoon/silcoon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/silcoon/silcoon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/silcoon/silcoon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/silcoon/silcoon_overworld_shiny"
   }
 }

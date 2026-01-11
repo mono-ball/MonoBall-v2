@@ -112,12 +112,12 @@
     "pokeemerald:move:thrash"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/veluza/veluzafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/veluza/veluzafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/veluza/veluzaback",
-    "backShiny": "pokeemerald:pokemon:sprite/veluza/veluzabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/veluza/veluzaicon",
-    "overworld": "pokeemerald:pokemon:sprite/veluza/veluzaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/veluza/veluzaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/veluza/veluza_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/veluza/veluza_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/veluza/veluza_back",
+    "backShiny": "pokeemerald:pokemon:sprite/veluza/veluza_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/veluza/veluza_icon",
+    "overworld": "pokeemerald:pokemon:sprite/veluza/veluza_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/veluza/veluza_overworld_shiny"
   }
 }

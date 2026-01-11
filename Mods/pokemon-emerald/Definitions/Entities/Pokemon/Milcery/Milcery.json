@@ -417,12 +417,12 @@
     "pokeemerald:move:last_resort"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/milcery/milceryfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/milcery/milceryfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/milcery/milceryback",
-    "backShiny": "pokeemerald:pokemon:sprite/milcery/milcerybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/milcery/milceryicon",
-    "overworld": "pokeemerald:pokemon:sprite/milcery/milceryoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/milcery/milceryoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/milcery/milcery_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/milcery/milcery_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/milcery/milcery_back",
+    "backShiny": "pokeemerald:pokemon:sprite/milcery/milcery_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/milcery/milcery_icon",
+    "overworld": "pokeemerald:pokemon:sprite/milcery/milcery_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/milcery/milcery_overworld_shiny"
   }
 }

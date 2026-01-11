@@ -112,12 +112,12 @@
     "pokeemerald:move:roost"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/quaxly/quaxlyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/quaxly/quaxlyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/quaxly/quaxlyback",
-    "backShiny": "pokeemerald:pokemon:sprite/quaxly/quaxlybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/quaxly/quaxlyicon",
-    "overworld": "pokeemerald:pokemon:sprite/quaxly/quaxlyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/quaxly/quaxlyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/quaxly/quaxly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/quaxly/quaxly_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/quaxly/quaxly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/quaxly/quaxly_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/quaxly/quaxly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/quaxly/quaxly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quaxly/quaxly_overworld_shiny"
   }
 }

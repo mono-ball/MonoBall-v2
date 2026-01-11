@@ -146,12 +146,12 @@
     "pokeemerald:move:last_resort"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/glameow/glameowfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/glameow/glameowfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/glameow/glameowback",
-    "backShiny": "pokeemerald:pokemon:sprite/glameow/glameowbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/glameow/glameowicon",
-    "overworld": "pokeemerald:pokemon:sprite/glameow/glameowoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/glameow/glameowoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/glameow/glameow_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/glameow/glameow_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/glameow/glameow_back",
+    "backShiny": "pokeemerald:pokemon:sprite/glameow/glameow_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/glameow/glameow_icon",
+    "overworld": "pokeemerald:pokemon:sprite/glameow/glameow_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/glameow/glameow_overworld_shiny"
   }
 }

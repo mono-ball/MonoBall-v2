@@ -99,12 +99,12 @@
     "pokeemerald:move:counter"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/delibird/delibirdfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/delibird/delibirdfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/delibird/delibirdback",
-    "backShiny": "pokeemerald:pokemon:sprite/delibird/delibirdbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/delibird/delibirdicon",
-    "overworld": "pokeemerald:pokemon:sprite/delibird/delibirdoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/delibird/delibirdoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/delibird/delibird_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/delibird/delibird_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/delibird/delibird_back",
+    "backShiny": "pokeemerald:pokemon:sprite/delibird/delibird_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/delibird/delibird_icon",
+    "overworld": "pokeemerald:pokemon:sprite/delibird/delibird_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/delibird/delibird_overworld_shiny"
   }
 }

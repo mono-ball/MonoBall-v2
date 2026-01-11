@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_mart_event_script_clerk",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_mart_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -143,6 +145,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_mart_event_script_pokefan_m",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -150,9 +153,10 @@
       "name": "NPC_3",
       "x": 32,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:pokemon/skittyold",
+      "spriteId": "pokeemerald:pokemon:sprite/skitty/skitty_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_mart_event_script_skitty",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -163,6 +167,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_mart_event_script_metronome_tutor",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

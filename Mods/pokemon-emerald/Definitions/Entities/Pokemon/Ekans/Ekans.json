@@ -154,12 +154,12 @@
     "pokeemerald:move:snatch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ekans/ekansfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ekans/ekansfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ekans/ekansback",
-    "backShiny": "pokeemerald:pokemon:sprite/ekans/ekansbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ekans/ekansicon",
-    "overworld": "pokeemerald:pokemon:sprite/ekans/ekansoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ekans/ekansoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ekans/ekans_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ekans/ekans_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ekans/ekans_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ekans/ekans_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ekans/ekans_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ekans/ekans_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ekans/ekans_overworld_shiny"
   }
 }

@@ -129,12 +129,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/overqwil/overqwilfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/overqwil/overqwilfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/overqwil/overqwilback",
-    "backShiny": "pokeemerald:pokemon:sprite/overqwil/overqwilbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/overqwil/overqwilicon",
-    "overworld": "pokeemerald:pokemon:sprite/overqwil/overqwiloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/overqwil/overqwiloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/overqwil/overqwil_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/overqwil/overqwil_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/overqwil/overqwil_back",
+    "backShiny": "pokeemerald:pokemon:sprite/overqwil/overqwil_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/overqwil/overqwil_icon",
+    "overworld": "pokeemerald:pokemon:sprite/overqwil/overqwil_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/overqwil/overqwil_overworld_shiny"
   }
 }

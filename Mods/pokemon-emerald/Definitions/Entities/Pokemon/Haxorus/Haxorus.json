@@ -145,12 +145,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/haxorus/haxorusfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/haxorus/haxorusfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/haxorus/haxorusback",
-    "backShiny": "pokeemerald:pokemon:sprite/haxorus/haxorusbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/haxorus/haxorusicon",
-    "overworld": "pokeemerald:pokemon:sprite/haxorus/haxorusoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/haxorus/haxorusoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/haxorus/haxorus_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/haxorus/haxorus_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/haxorus/haxorus_back",
+    "backShiny": "pokeemerald:pokemon:sprite/haxorus/haxorus_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/haxorus/haxorus_icon",
+    "overworld": "pokeemerald:pokemon:sprite/haxorus/haxorus_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/haxorus/haxorus_overworld_shiny"
   }
 }

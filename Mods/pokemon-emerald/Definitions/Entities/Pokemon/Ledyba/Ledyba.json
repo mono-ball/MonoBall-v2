@@ -150,17 +150,17 @@
     "pokeemerald:move:counter"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ledyba/ledybafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ledyba/ledybafrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/ledyba/ledybafrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ledyba/ledybafrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/ledyba/ledybaback",
-    "backShiny": "pokeemerald:pokemon:sprite/ledyba/ledybabackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/ledyba/ledybabackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/ledyba/ledybabackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/ledyba/ledybaicon",
-    "overworld": "pokeemerald:pokemon:sprite/ledyba/ledybaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ledyba/ledybaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ledyba/ledyba_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ledyba/ledyba_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/ledyba/ledyba_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ledyba/ledyba_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/ledyba/ledyba_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ledyba/ledyba_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/ledyba/ledyba_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/ledyba/ledyba_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ledyba/ledyba_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ledyba/ledyba_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ledyba/ledyba_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

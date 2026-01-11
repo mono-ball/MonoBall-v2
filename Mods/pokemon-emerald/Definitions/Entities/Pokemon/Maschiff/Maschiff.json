@@ -127,12 +127,12 @@
     "pokeemerald:move:retaliate"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/maschiff/maschifffront",
-    "frontShiny": "pokeemerald:pokemon:sprite/maschiff/maschifffrontshiny",
-    "back": "pokeemerald:pokemon:sprite/maschiff/maschiffback",
-    "backShiny": "pokeemerald:pokemon:sprite/maschiff/maschiffbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/maschiff/maschifficon",
-    "overworld": "pokeemerald:pokemon:sprite/maschiff/maschiffoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/maschiff/maschiffoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/maschiff/maschiff_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/maschiff/maschiff_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/maschiff/maschiff_back",
+    "backShiny": "pokeemerald:pokemon:sprite/maschiff/maschiff_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/maschiff/maschiff_icon",
+    "overworld": "pokeemerald:pokemon:sprite/maschiff/maschiff_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/maschiff/maschiff_overworld_shiny"
   }
 }

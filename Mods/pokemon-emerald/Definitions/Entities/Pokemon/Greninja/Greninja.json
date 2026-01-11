@@ -147,13 +147,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/greninja/greninjafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/greninja/greninjaback",
-    "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/greninja/greninjaicon",
-    "overworld": "pokeemerald:pokemon:sprite/greninja/greninjaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/greninja/greninja_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninja_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/greninja/greninja_back",
+    "backShiny": "pokeemerald:pokemon:sprite/greninja/greninja_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/greninja/greninja_icon",
+    "overworld": "pokeemerald:pokemon:sprite/greninja/greninja_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninja_overworld_shiny"
   },
   "forms": [
     {
@@ -179,13 +179,13 @@
         "pokeemerald:ability:protean"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/greninja/greninjamegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjamegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/greninja/greninjamegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjamegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/greninja/greninjamegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/greninja/greninjamegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjamegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/greninja/greninja_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninja_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/greninja/greninja_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninja_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/greninja/greninja_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/greninja/greninja_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninja_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:greninjite",
@@ -214,13 +214,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/greninja/greninjaashfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjaashfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/greninja/greninjaashback",
-        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjaashbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/greninja/greninjaashicon",
-        "overworld": "pokeemerald:pokemon:sprite/greninja/greninjaashoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjaashoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/greninja/greninja_ash_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninja_ash_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/greninja/greninja_ash_back",
+        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninja_ash_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/greninja/greninja_ash_icon",
+        "overworld": "pokeemerald:pokemon:sprite/greninja/greninja_ash_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninja_ash_overworld_shiny"
       }
     },
     {
@@ -246,13 +246,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondback",
-        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondicon",
-        "overworld": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninjabattlebondoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_back",
+        "backShiny": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_icon",
+        "overworld": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/greninja/greninja_battle_bond_overworld_shiny"
       }
     }
   ]

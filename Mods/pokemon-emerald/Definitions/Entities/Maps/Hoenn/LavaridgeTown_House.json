@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/oldman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_house_event_script_old_man",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -126,9 +127,10 @@
       "name": "NPC_1",
       "x": 96,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:pokemon/enemyzigzagoon",
+      "spriteId": "pokeemerald:pokemon:sprite/zigzagoon/zigzagoon_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_house_event_script_zigzagoon",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -143,6 +145,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lavaridge_town_house_event_script_mimic_tutor",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

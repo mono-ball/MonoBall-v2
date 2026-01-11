@@ -8,6 +8,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Profiles;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Scripting.Services;
 using Serilog;
@@ -171,10 +172,16 @@ public static class GameInitializationHelper
                 "IScriptCompilationCache is not registered. Ensure CreateAndRegisterCompilationCache() was called."
             );
 
-        var constantsService = game.Services.GetService<ConstantsService>();
+        var constantsService = game.Services.GetService<IConstantsService>();
         if (constantsService == null)
             throw new InvalidOperationException(
-                "ConstantsService is not registered. Ensure LoadModsSynchronously() was called."
+                "IConstantsService is not registered. Ensure LoadModsSynchronously() was called."
+            );
+
+        var profileService = game.Services.GetService<IProfileService>();
+        if (profileService == null)
+            throw new InvalidOperationException(
+                "IProfileService is not registered. Ensure LoadModsSynchronously() was called and ProfileService was created before ResourceManager."
             );
 
         var systemManager = new SystemManager(
@@ -182,6 +189,7 @@ public static class GameInitializationHelper
             graphicsDevice,
             gameServices.ModManager,
             resourceManager,
+            profileService, // NEW: Required dependency for profile-based movement speeds and animation selection
             shaderService,
             shaderParameterValidator,
             flagVariableService,

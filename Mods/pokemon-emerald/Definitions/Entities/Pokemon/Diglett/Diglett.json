@@ -137,13 +137,13 @@
     "pokeemerald:move:memento"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/diglett/diglettfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/diglett/diglettfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/diglett/diglettback",
-    "backShiny": "pokeemerald:pokemon:sprite/diglett/diglettbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/diglett/digletticon",
-    "overworld": "pokeemerald:pokemon:sprite/diglett/diglettoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/diglett/diglettoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/diglett/diglett_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/diglett/diglett_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/diglett/diglett_back",
+    "backShiny": "pokeemerald:pokemon:sprite/diglett/diglett_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/diglett/diglett_icon",
+    "overworld": "pokeemerald:pokemon:sprite/diglett/diglett_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/diglett/diglett_overworld_shiny"
   },
   "forms": [
     {
@@ -169,13 +169,13 @@
         "pokeemerald:ability:sand_force"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/diglett/diglettalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/diglett/diglettalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/diglett/diglettalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/diglett/diglettalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/diglett/diglettalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/diglett/diglettalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/diglett/diglettalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/diglett/diglett_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/diglett/diglett_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/diglett/diglett_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/diglett/diglett_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/diglett/diglett_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/diglett/diglett_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/diglett/diglett_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

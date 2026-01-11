@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://monoball.io/schemas/movement-profile.schema.json",
+  "title": "Movement Profile",
+  "description": "Defines movement speeds in tiles per second for different movement types (walk, run, bike, etc.)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the profile (e.g., 'base:profile:movement/player')",
+      "pattern": "^[a-z0-9]+:[a-z0-9/_-]+$"
+    },
+    "definitionType": {
+      "type": "string",
+      "const": "MovementProfile",
+      "description": "Type identifier for definition loader"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the profile"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the profile"
+    },
+    "speeds": {
+      "type": "object",
+      "description": "Movement speeds with animation type mapping for each movement type",
+      "additionalProperties": {
+        "$ref": "#/$defs/speedDefinition"
+      },
+      "minProperties": 1,
+      "examples": {
+        "walk": {
+          "speed": 4.0,
+          "animationType": "go"
+        },
+        "run": {
+          "speed": 8.0,
+          "animationType": "go_fast"
+        },
+        "bike": {
+          "speed": 12.0,
+          "animationType": "go_fastest"
+        }
+      }
+    },
+    "defaultSpeed": {
+      "type": "string",
+      "description": "Default movement type to use when not specified",
+      "examples": ["walk", "run"]
+    },
+    "validationRules": {
+      "type": "object",
+      "description": "Optional validation rules for speed values",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number",
+            "minimum": 0.1,
+            "description": "Minimum allowed speed value"
+          },
+          "max": {
+            "type": "number",
+            "maximum": 100.0,
+            "description": "Maximum allowed speed value"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the validation rule"
+          }
+        },
+        "required": ["min", "max"]
+      }
+    }
+  },
+  "required": ["id", "definitionType", "speeds", "defaultSpeed"],
+  "additionalProperties": false,
+  "$defs": {
+    "speedDefinition": {
+      "type": "object",
+      "description": "Speed definition with animation type mapping",
+      "properties": {
+        "speed": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 100.0,
+          "description": "Movement speed in tiles per second"
+        },
+        "animationType": {
+          "type": "string",
+          "description": "Animation type to use for this movement type (e.g., 'go', 'go_fast', 'run')",
+          "examples": ["go", "go_fast", "go_faster", "go_fastest", "run"]
+        }
+      },
+      "required": ["speed", "animationType"],
+      "additionalProperties": false
+    }
+  }
+}

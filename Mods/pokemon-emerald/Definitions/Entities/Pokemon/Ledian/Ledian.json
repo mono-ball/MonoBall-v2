@@ -138,17 +138,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ledian/ledianfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ledian/ledianfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/ledian/ledianfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ledian/ledianfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/ledian/ledianback",
-    "backShiny": "pokeemerald:pokemon:sprite/ledian/ledianbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/ledian/ledianbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/ledian/ledianbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/ledian/ledianicon",
-    "overworld": "pokeemerald:pokemon:sprite/ledian/ledianoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ledian/ledianoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ledian/ledian_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ledian/ledian_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/ledian/ledian_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ledian/ledian_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/ledian/ledian_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ledian/ledian_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/ledian/ledian_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/ledian/ledian_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ledian/ledian_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ledian/ledian_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ledian/ledian_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

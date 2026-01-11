@@ -138,13 +138,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/beedrill/beedrillfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/beedrill/beedrillback",
-    "backShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/beedrill/beedrillicon",
-    "overworld": "pokeemerald:pokemon:sprite/beedrill/beedrilloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/beedrill/beedrilloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/beedrill/beedrill_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/beedrill/beedrill_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/beedrill/beedrill_back",
+    "backShiny": "pokeemerald:pokemon:sprite/beedrill/beedrill_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/beedrill/beedrill_icon",
+    "overworld": "pokeemerald:pokemon:sprite/beedrill/beedrill_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beedrill/beedrill_overworld_shiny"
   },
   "forms": [
     {
@@ -169,13 +169,13 @@
         "pokeemerald:ability:adaptability"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/beedrill/beedrillmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/beedrill/beedrillmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/beedrill/beedrill_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:beedrillite",

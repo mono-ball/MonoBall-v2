@@ -145,17 +145,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/octillery/octilleryfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/octillery/octilleryfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/octillery/octilleryfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/octillery/octilleryfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/octillery/octilleryback",
-    "backShiny": "pokeemerald:pokemon:sprite/octillery/octillerybackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/octillery/octillerybackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/octillery/octillerybackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/octillery/octilleryicon",
-    "overworld": "pokeemerald:pokemon:sprite/octillery/octilleryoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/octillery/octilleryoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/octillery/octillery_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/octillery/octillery_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/octillery/octillery_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/octillery/octillery_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/octillery/octillery_back",
+    "backShiny": "pokeemerald:pokemon:sprite/octillery/octillery_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/octillery/octillery_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/octillery/octillery_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/octillery/octillery_icon",
+    "overworld": "pokeemerald:pokemon:sprite/octillery/octillery_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/octillery/octillery_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

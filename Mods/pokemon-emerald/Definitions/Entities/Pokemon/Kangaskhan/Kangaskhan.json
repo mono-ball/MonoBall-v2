@@ -166,13 +166,13 @@
     "pokeemerald:move:circle_throw"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanback",
-    "backShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanicon",
-    "overworld": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_overworld_shiny"
   },
   "forms": [
     {
@@ -197,13 +197,13 @@
         "pokeemerald:ability:parental_bond"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhanmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kangaskhan/kangaskhan_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:kangaskhanite",

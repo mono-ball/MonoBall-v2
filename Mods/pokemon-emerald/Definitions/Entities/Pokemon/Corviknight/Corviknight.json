@@ -124,13 +124,13 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/corviknight/corviknightfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/corviknight/corviknightback",
-    "backShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/corviknight/corviknighticon",
-    "overworld": "pokeemerald:pokemon:sprite/corviknight/corviknightoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/corviknight/corviknight_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/corviknight/corviknight_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/corviknight/corviknight_back",
+    "backShiny": "pokeemerald:pokemon:sprite/corviknight/corviknight_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/corviknight/corviknight_icon",
+    "overworld": "pokeemerald:pokemon:sprite/corviknight/corviknight_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/corviknight/corviknight_overworld_shiny"
   },
   "forms": [
     {
@@ -156,13 +156,13 @@
         "pokeemerald:ability:mirror_armor"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/corviknight/corviknightgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/corviknight/corviknight_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

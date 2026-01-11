@@ -127,12 +127,12 @@
     "pokeemerald:move:strength_sap"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bramblin/bramblinfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bramblin/bramblinfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bramblin/bramblinback",
-    "backShiny": "pokeemerald:pokemon:sprite/bramblin/bramblinbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bramblin/bramblinicon",
-    "overworld": "pokeemerald:pokemon:sprite/bramblin/bramblinoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bramblin/bramblinoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bramblin/bramblin_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bramblin/bramblin_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bramblin/bramblin_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bramblin/bramblin_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bramblin/bramblin_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bramblin/bramblin_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bramblin/bramblin_overworld_shiny"
   }
 }

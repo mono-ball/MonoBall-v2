@@ -141,12 +141,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/krookodile/krookodilefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/krookodile/krookodilefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/krookodile/krookodileback",
-    "backShiny": "pokeemerald:pokemon:sprite/krookodile/krookodilebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/krookodile/krookodileicon",
-    "overworld": "pokeemerald:pokemon:sprite/krookodile/krookodileoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/krookodile/krookodileoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/krookodile/krookodile_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/krookodile/krookodile_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/krookodile/krookodile_back",
+    "backShiny": "pokeemerald:pokemon:sprite/krookodile/krookodile_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/krookodile/krookodile_icon",
+    "overworld": "pokeemerald:pokemon:sprite/krookodile/krookodile_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/krookodile/krookodile_overworld_shiny"
   }
 }

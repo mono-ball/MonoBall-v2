@@ -228,6 +228,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_curator",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -243,6 +244,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_girl",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_patron_2",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -258,6 +260,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_expert_m",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_tourists",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -273,6 +276,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_2f_event_script_rich_boy",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_tourists",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

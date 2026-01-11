@@ -148,12 +148,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/croconaw/croconawfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/croconaw/croconawfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/croconaw/croconawback",
-    "backShiny": "pokeemerald:pokemon:sprite/croconaw/croconawbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/croconaw/croconawicon",
-    "overworld": "pokeemerald:pokemon:sprite/croconaw/croconawoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/croconaw/croconawoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/croconaw/croconaw_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/croconaw/croconaw_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/croconaw/croconaw_back",
+    "backShiny": "pokeemerald:pokemon:sprite/croconaw/croconaw_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/croconaw/croconaw_icon",
+    "overworld": "pokeemerald:pokemon:sprite/croconaw/croconaw_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/croconaw/croconaw_overworld_shiny"
   }
 }

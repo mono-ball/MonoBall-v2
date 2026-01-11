@@ -121,17 +121,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dodrio/dodriofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dodrio/dodriofrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/dodrio/dodriofrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/dodrio/dodriofrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/dodrio/dodrioback",
-    "backShiny": "pokeemerald:pokemon:sprite/dodrio/dodriobackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/dodrio/dodriobackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/dodrio/dodriobackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/dodrio/dodrioicon",
-    "overworld": "pokeemerald:pokemon:sprite/dodrio/dodriooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dodrio/dodriooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dodrio/dodrio_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dodrio/dodrio_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/dodrio/dodrio_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/dodrio/dodrio_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/dodrio/dodrio_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dodrio/dodrio_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/dodrio/dodrio_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/dodrio/dodrio_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dodrio/dodrio_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dodrio/dodrio_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dodrio/dodrio_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

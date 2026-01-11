@@ -137,13 +137,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/porygon/porygonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/porygon/porygonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/porygon/porygonback",
-    "backShiny": "pokeemerald:pokemon:sprite/porygon/porygonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/porygon/porygonicon",
-    "overworld": "pokeemerald:pokemon:sprite/porygon/porygonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/porygon/porygonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/porygon/porygon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/porygon/porygon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/porygon/porygon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/porygon/porygon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/porygon/porygon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/porygon/porygon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/porygon/porygon_overworld_shiny"
   },
   "forms": [
     {
@@ -168,13 +168,13 @@
         "pokeemerald:ability:analytic"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/porygon/porygonzfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/porygon/porygonzfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/porygon/porygonzback",
-        "backShiny": "pokeemerald:pokemon:sprite/porygon/porygonzbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/porygon/porygonzicon",
-        "overworld": "pokeemerald:pokemon:sprite/porygon/porygonzoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/porygon/porygonzoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/porygon/porygon_z_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/porygon/porygon_z_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/porygon/porygon_z_back",
+        "backShiny": "pokeemerald:pokemon:sprite/porygon/porygon_z_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/porygon/porygon_z_icon",
+        "overworld": "pokeemerald:pokemon:sprite/porygon/porygon_z_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/porygon/porygon_z_overworld_shiny"
       }
     }
   ]

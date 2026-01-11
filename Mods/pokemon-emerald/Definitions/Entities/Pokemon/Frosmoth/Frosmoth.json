@@ -131,12 +131,12 @@
     "pokeemerald:move:swift"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/frosmoth/frosmothfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmothfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/frosmoth/frosmothback",
-    "backShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmothbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/frosmoth/frosmothicon",
-    "overworld": "pokeemerald:pokemon:sprite/frosmoth/frosmothoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmothoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_back",
+    "backShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_icon",
+    "overworld": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frosmoth/frosmoth_overworld_shiny"
   }
 }

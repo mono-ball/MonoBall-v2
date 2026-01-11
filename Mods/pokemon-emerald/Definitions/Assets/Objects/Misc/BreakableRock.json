@@ -6,6 +6,12 @@
   "frameWidth": 16,
   "frameHeight": 16,
   "frameCount": 4,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "stay_still",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -39,6 +45,7 @@
   "animations": [
     {
       "name": "stay_still",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0,
@@ -46,28 +53,17 @@
         0,
         0
       ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
-      ],
       "flipHorizontal": false
     },
     {
       "name": "remove_obstacle",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0,
         1,
         2,
         3
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": false
     }

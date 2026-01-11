@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route113_glass_workshop_event_script_glass_worker",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route113_glass_workshop_event_script_ninja_boy",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

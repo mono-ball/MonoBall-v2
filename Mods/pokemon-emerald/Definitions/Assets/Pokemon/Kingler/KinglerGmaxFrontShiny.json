@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/kingler/kinglergmaxfrontshiny",
+  "id": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_front_shiny",
   "name": "Kinglergmaxfrontshiny",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Kingler/KinglerGmaxFrontShiny.png",
   "spriteType": "front",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

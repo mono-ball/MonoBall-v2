@@ -146,12 +146,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/noivern/noivernfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/noivern/noivernfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/noivern/noivernback",
-    "backShiny": "pokeemerald:pokemon:sprite/noivern/noivernbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/noivern/noivernicon",
-    "overworld": "pokeemerald:pokemon:sprite/noivern/noivernoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/noivern/noivernoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/noivern/noivern_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/noivern/noivern_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/noivern/noivern_back",
+    "backShiny": "pokeemerald:pokemon:sprite/noivern/noivern_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/noivern/noivern_icon",
+    "overworld": "pokeemerald:pokemon:sprite/noivern/noivern_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/noivern/noivern_overworld_shiny"
   }
 }

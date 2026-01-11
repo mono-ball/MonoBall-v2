@@ -144,13 +144,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/muk/mukfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/muk/mukfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/muk/mukback",
-    "backShiny": "pokeemerald:pokemon:sprite/muk/mukbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/muk/mukicon",
-    "overworld": "pokeemerald:pokemon:sprite/muk/mukoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/muk/mukoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/muk/muk_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/muk/muk_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/muk/muk_back",
+    "backShiny": "pokeemerald:pokemon:sprite/muk/muk_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/muk/muk_icon",
+    "overworld": "pokeemerald:pokemon:sprite/muk/muk_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/muk/muk_overworld_shiny"
   },
   "forms": [
     {
@@ -176,13 +176,13 @@
         "pokeemerald:ability:power_of_alchemy"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/muk/mukalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/muk/mukalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/muk/mukalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/muk/mukalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/muk/mukalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/muk/mukalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/muk/mukalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/muk/muk_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/muk/muk_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/muk/muk_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/muk/muk_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/muk/muk_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/muk/muk_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/muk/muk_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

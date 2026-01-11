@@ -126,12 +126,12 @@
     "pokeemerald:move:leech_seed"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/morelull/morelullfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/morelull/morelullfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/morelull/morelullback",
-    "backShiny": "pokeemerald:pokemon:sprite/morelull/morelullbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/morelull/morelullicon",
-    "overworld": "pokeemerald:pokemon:sprite/morelull/morelulloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/morelull/morelulloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/morelull/morelull_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/morelull/morelull_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/morelull/morelull_back",
+    "backShiny": "pokeemerald:pokemon:sprite/morelull/morelull_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/morelull/morelull_icon",
+    "overworld": "pokeemerald:pokemon:sprite/morelull/morelull_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/morelull/morelull_overworld_shiny"
   }
 }

@@ -129,12 +129,12 @@
     "pokeemerald:move:sticky_web"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/cutiefly/cutieflyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/cutiefly/cutieflyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/cutiefly/cutieflyback",
-    "backShiny": "pokeemerald:pokemon:sprite/cutiefly/cutieflybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/cutiefly/cutieflyicon",
-    "overworld": "pokeemerald:pokemon:sprite/cutiefly/cutieflyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/cutiefly/cutieflyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cutiefly/cutiefly_overworld_shiny"
   }
 }

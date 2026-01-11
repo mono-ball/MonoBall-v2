@@ -158,17 +158,17 @@
     "pokeemerald:move:guard_split"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornback",
-    "backShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornicon",
-    "overworld": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhornoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rhyhorn/rhyhorn_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

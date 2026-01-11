@@ -206,6 +206,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_corridors_b1f_event_script_tuber_m",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -216,6 +217,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_corridors_b1f_event_script_duncan",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

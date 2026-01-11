@@ -117,13 +117,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitifront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitifrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitiback",
-    "backShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitibackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitiicon",
-    "overworld": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitioverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipitioverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fezandipiti/fezandipiti_overworld_shiny"
   },
   "isLegendary": true
 }

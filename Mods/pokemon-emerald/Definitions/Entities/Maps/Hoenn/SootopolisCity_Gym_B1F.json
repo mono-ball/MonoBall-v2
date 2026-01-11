@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -107,6 +107,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_andrea",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -117,6 +118,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/beauty",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_connie",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -127,6 +129,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_brianna",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -137,6 +140,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/beauty",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_bridget",
+      "facingDirection": "up",
       "elevation": 0
     },
     {
@@ -147,6 +151,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/beauty",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_tiffany",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -157,6 +162,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_bethany",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -167,6 +173,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_crissy",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -177,6 +184,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/beauty",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_olivia",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -187,6 +195,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_daphne",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -197,6 +206,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_gym_b1f_event_script_annika",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

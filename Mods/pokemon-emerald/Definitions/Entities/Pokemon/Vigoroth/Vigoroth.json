@@ -141,12 +141,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/vigoroth/vigorothfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/vigoroth/vigorothfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/vigoroth/vigorothback",
-    "backShiny": "pokeemerald:pokemon:sprite/vigoroth/vigorothbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/vigoroth/vigorothicon",
-    "overworld": "pokeemerald:pokemon:sprite/vigoroth/vigorothoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/vigoroth/vigorothoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_back",
+    "backShiny": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_icon",
+    "overworld": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_overworld_shiny"
   }
 }

@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_house1_event_script_expert_m",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -126,9 +127,10 @@
       "name": "NPC_1",
       "x": 64,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:pokemon/kecleonold",
+      "spriteId": "pokeemerald:pokemon:sprite/kecleon/kecleon_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_house1_event_script_kecleon",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

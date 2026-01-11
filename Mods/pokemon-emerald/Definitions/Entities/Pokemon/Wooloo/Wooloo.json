@@ -112,12 +112,12 @@
     "pokeemerald:move:counter"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wooloo/wooloofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wooloo/wooloofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wooloo/woolooback",
-    "backShiny": "pokeemerald:pokemon:sprite/wooloo/wooloobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wooloo/woolooicon",
-    "overworld": "pokeemerald:pokemon:sprite/wooloo/wooloooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wooloo/wooloooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wooloo/wooloo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wooloo/wooloo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wooloo/wooloo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wooloo/wooloo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wooloo/wooloo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wooloo/wooloo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wooloo/wooloo_overworld_shiny"
   }
 }

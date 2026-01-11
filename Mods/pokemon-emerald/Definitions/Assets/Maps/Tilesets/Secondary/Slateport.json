@@ -445,118 +445,118 @@
     },
     {
       "localTileId": 85,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 87,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 89,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 91,
       "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
-    },
-    {
-      "localTileId": 86,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 88,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 90,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
     },
     {
       "localTileId": 92,
@@ -596,7 +596,7 @@
       ]
     },
     {
-      "localTileId": 111,
+      "localTileId": 94,
       "animation": [
         {
           "tileId": 365,
@@ -633,7 +633,7 @@
       ]
     },
     {
-      "localTileId": 113,
+      "localTileId": 96,
       "animation": [
         {
           "tileId": 365,
@@ -670,7 +670,7 @@
       ]
     },
     {
-      "localTileId": 115,
+      "localTileId": 98,
       "animation": [
         {
           "tileId": 365,
@@ -707,7 +707,118 @@
       ]
     },
     {
-      "localTileId": 117,
+      "localTileId": 100,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 102,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 105,
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 109,
       "animation": [
         {
           "tileId": 365,
@@ -781,118 +892,7 @@
       ]
     },
     {
-      "localTileId": 121,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
       "localTileId": 123,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 125,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 127,
       "animation": [
         {
           "tileId": 373,
@@ -929,7 +929,7 @@
       ]
     },
     {
-      "localTileId": 129,
+      "localTileId": 126,
       "animation": [
         {
           "tileId": 365,
@@ -966,7 +966,7 @@
       ]
     },
     {
-      "localTileId": 131,
+      "localTileId": 128,
       "animation": [
         {
           "tileId": 365,
@@ -1003,134 +1003,7 @@
       ]
     },
     {
-      "localTileId": 133,
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 136,
-      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
-      "collisionId": "pokeemerald:collision:ledge_north",
-      "animation": [
-        {
-          "tileId": 365,
-          "durationMs": 133
-        },
-        {
-          "tileId": 366,
-          "durationMs": 133
-        },
-        {
-          "tileId": 367,
-          "durationMs": 133
-        },
-        {
-          "tileId": 368,
-          "durationMs": 133
-        },
-        {
-          "tileId": 369,
-          "durationMs": 133
-        },
-        {
-          "tileId": 370,
-          "durationMs": 133
-        },
-        {
-          "tileId": 371,
-          "durationMs": 133
-        },
-        {
-          "tileId": 372,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 137,
-      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
-      "collisionId": "pokeemerald:collision:ledge_north"
-    },
-    {
-      "localTileId": 138,
-      "interactionId": "pokeemerald:script:interactions/tiles/ledge_southwest",
-      "collisionId": "pokeemerald:collision:ledge_southwest",
-      "animation": [
-        {
-          "tileId": 381,
-          "durationMs": 133
-        },
-        {
-          "tileId": 382,
-          "durationMs": 133
-        },
-        {
-          "tileId": 383,
-          "durationMs": 133
-        },
-        {
-          "tileId": 384,
-          "durationMs": 133
-        },
-        {
-          "tileId": 385,
-          "durationMs": 133
-        },
-        {
-          "tileId": 386,
-          "durationMs": 133
-        },
-        {
-          "tileId": 387,
-          "durationMs": 133
-        },
-        {
-          "tileId": 388,
-          "durationMs": 133
-        }
-      ]
-    },
-    {
-      "localTileId": 139,
-      "interactionId": "pokeemerald:script:interactions/tiles/ledge_southwest",
-      "collisionId": "pokeemerald:collision:ledge_southwest"
-    },
-    {
-      "localTileId": 140,
-      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
-      "collisionId": "pokeemerald:collision:ledge_north",
+      "localTileId": 130,
       "animation": [
         {
           "tileId": 365,
@@ -1169,30 +1042,145 @@
     {
       "localTileId": 141,
       "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north",
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
+    },
+    {
+      "localTileId": 142,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
       "collisionId": "pokeemerald:collision:ledge_north"
     },
     {
-      "localTileId": 164,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+      "localTileId": 144,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_southwest",
+      "collisionId": "pokeemerald:collision:ledge_southwest",
+      "animation": [
+        {
+          "tileId": 381,
+          "durationMs": 133
+        },
+        {
+          "tileId": 382,
+          "durationMs": 133
+        },
+        {
+          "tileId": 383,
+          "durationMs": 133
+        },
+        {
+          "tileId": 384,
+          "durationMs": 133
+        },
+        {
+          "tileId": 385,
+          "durationMs": 133
+        },
+        {
+          "tileId": 386,
+          "durationMs": 133
+        },
+        {
+          "tileId": 387,
+          "durationMs": 133
+        },
+        {
+          "tileId": 388,
+          "durationMs": 133
+        }
+      ]
     },
     {
-      "localTileId": 165,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+      "localTileId": 145,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_southwest",
+      "collisionId": "pokeemerald:collision:ledge_southwest"
     },
     {
-      "localTileId": 168,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+      "localTileId": 147,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north",
+      "animation": [
+        {
+          "tileId": 365,
+          "durationMs": 133
+        },
+        {
+          "tileId": 366,
+          "durationMs": 133
+        },
+        {
+          "tileId": 367,
+          "durationMs": 133
+        },
+        {
+          "tileId": 368,
+          "durationMs": 133
+        },
+        {
+          "tileId": 369,
+          "durationMs": 133
+        },
+        {
+          "tileId": 370,
+          "durationMs": 133
+        },
+        {
+          "tileId": 371,
+          "durationMs": 133
+        },
+        {
+          "tileId": 372,
+          "durationMs": 133
+        }
+      ]
     },
     {
-      "localTileId": 169,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+      "localTileId": 148,
+      "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
+      "collisionId": "pokeemerald:collision:ledge_north"
     },
     {
-      "localTileId": 170,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+      "localTileId": 176,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
-      "localTileId": 172,
+      "localTileId": 177,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 182,
       "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
@@ -1200,16 +1188,16 @@
       "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
-      "localTileId": 186,
-      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+      "localTileId": 189,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
-      "localTileId": 191,
-      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+      "localTileId": 190,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
-      "localTileId": 194,
-      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+      "localTileId": 199,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
       "localTileId": 200,
@@ -1220,7 +1208,27 @@
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
+      "localTileId": 204,
+      "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
+    },
+    {
+      "localTileId": 207,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+    },
+    {
+      "localTileId": 208,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+    },
+    {
+      "localTileId": 209,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+    },
+    {
       "localTileId": 212,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+    },
+    {
+      "localTileId": 213,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
@@ -1228,11 +1236,7 @@
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
-      "localTileId": 215,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
-    },
-    {
-      "localTileId": 216,
+      "localTileId": 221,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
@@ -1240,16 +1244,12 @@
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
-      "localTileId": 227,
-      "interactionId": "pokeemerald:script:interactions/tiles/trainer_see_east"
-    },
-    {
-      "localTileId": 228,
+      "localTileId": 225,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
       "localTileId": 229,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
+      "interactionId": "pokeemerald:script:interactions/tiles/trainer_see_east"
     },
     {
       "localTileId": 231,

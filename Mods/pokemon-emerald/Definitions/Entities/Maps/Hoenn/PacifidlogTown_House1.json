@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house1_event_script_man",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house1_event_script_woman",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

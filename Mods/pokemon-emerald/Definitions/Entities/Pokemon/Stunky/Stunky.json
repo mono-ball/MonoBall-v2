@@ -157,12 +157,12 @@
     "pokeemerald:move:play_rough"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/stunky/stunkyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/stunky/stunkyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/stunky/stunkyback",
-    "backShiny": "pokeemerald:pokemon:sprite/stunky/stunkybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/stunky/stunkyicon",
-    "overworld": "pokeemerald:pokemon:sprite/stunky/stunkyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/stunky/stunkyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/stunky/stunky_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/stunky/stunky_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/stunky/stunky_back",
+    "backShiny": "pokeemerald:pokemon:sprite/stunky/stunky_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/stunky/stunky_icon",
+    "overworld": "pokeemerald:pokemon:sprite/stunky/stunky_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stunky/stunky_overworld_shiny"
   }
 }

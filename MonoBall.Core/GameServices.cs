@@ -7,6 +7,7 @@ using MonoBall.Core.ECS;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Utilities;
+using MonoBall.Core.Profiles;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using Serilog;
@@ -100,6 +101,18 @@ public class GameServices
             _logger.Information("Reusing existing ModManager from Game.Services");
             ModManager = existingModManager;
 
+            // Ensure ProfileService exists (should already exist from LoadModsSynchronously)
+            var existingProfileService = _game.Services.GetService<IProfileService>();
+            if (existingProfileService == null)
+            {
+                _logger.Warning("ProfileService not found in Game.Services, creating it now");
+                ProfileServiceFactory.CreateProfileService(
+                    _game,
+                    ModManager,
+                    LoggerFactory.CreateLogger<ProfileService>()
+                );
+            }
+
             // Ensure ResourceManager exists (should already exist from LoadModsSynchronously)
             var existingResourceManager = _game.Services.GetService<IResourceManager>();
             if (existingResourceManager != null)
@@ -156,8 +169,28 @@ public class GameServices
                 _logger.Debug("ModManager registered");
             }
 
-            // Create and register ResourceManager immediately after mods load (if not already registered)
+            // Create and register ProfileService BEFORE ResourceManager (CRITICAL ORDER)
+            // Check if ProfileService already exists (from MonoBallGame.LoadModsSynchronously)
+            var existingProfileService = _game.Services.GetService<IProfileService>();
+            IProfileService profileService;
+            if (existingProfileService == null)
+            {
+                profileService = ProfileServiceFactory.CreateProfileService(
+                    _game,
+                    ModManager,
+                    LoggerFactory.CreateLogger<ProfileService>()
+                );
+                _logger.Debug("ProfileService created and registered");
+            }
+            else
+            {
+                profileService = existingProfileService;
+                _logger.Debug("ProfileService already registered");
+            }
+
+            // Create and register ResourceManager immediately after ProfileService (if not already registered)
             // This ensures resources are available for the loading screen
+            // NOTE: ResourceManager now requires IProfileService (CRITICAL: ProfileService must be available before any sprite loading)
             var existingResourceManager = _game.Services.GetService<IResourceManager>();
             if (existingResourceManager == null)
             {
@@ -171,6 +204,7 @@ public class GameServices
                     _graphicsDevice,
                     ModManager,
                     pathResolver,
+                    profileService, // NEW: Required dependency - ProfileService must be available before sprite loading
                     LoggerFactory.CreateLogger<ResourceManager>()
                 );
                 _game.Services.AddService(typeof(IResourceManager), ResourceManager);

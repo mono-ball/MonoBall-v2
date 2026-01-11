@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/oldwoman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route117_pokemon_day_care_event_script_daycare_woman",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

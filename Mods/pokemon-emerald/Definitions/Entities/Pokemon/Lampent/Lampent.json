@@ -137,12 +137,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/lampent/lampentfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/lampent/lampentfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/lampent/lampentback",
-    "backShiny": "pokeemerald:pokemon:sprite/lampent/lampentbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/lampent/lampenticon",
-    "overworld": "pokeemerald:pokemon:sprite/lampent/lampentoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/lampent/lampentoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/lampent/lampent_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/lampent/lampent_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/lampent/lampent_back",
+    "backShiny": "pokeemerald:pokemon:sprite/lampent/lampent_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/lampent/lampent_icon",
+    "overworld": "pokeemerald:pokemon:sprite/lampent/lampent_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lampent/lampent_overworld_shiny"
   }
 }

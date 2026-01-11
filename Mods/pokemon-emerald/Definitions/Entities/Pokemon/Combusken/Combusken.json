@@ -159,17 +159,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/combusken/combuskenfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/combusken/combuskenfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/combusken/combuskenfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/combusken/combuskenfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/combusken/combuskenback",
-    "backShiny": "pokeemerald:pokemon:sprite/combusken/combuskenbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/combusken/combuskenbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/combusken/combuskenbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/combusken/combuskenicon",
-    "overworld": "pokeemerald:pokemon:sprite/combusken/combuskenoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/combusken/combuskenoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/combusken/combusken_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/combusken/combusken_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/combusken/combusken_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/combusken/combusken_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/combusken/combusken_back",
+    "backShiny": "pokeemerald:pokemon:sprite/combusken/combusken_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/combusken/combusken_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/combusken/combusken_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/combusken/combusken_icon",
+    "overworld": "pokeemerald:pokemon:sprite/combusken/combusken_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/combusken/combusken_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

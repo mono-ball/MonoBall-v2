@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_captains_office_event_script_capt_stern_aide",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -130,6 +131,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_captains_office_storage_key",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

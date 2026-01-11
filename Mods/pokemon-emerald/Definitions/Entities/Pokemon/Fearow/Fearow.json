@@ -124,12 +124,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fearow/fearowfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fearow/fearowfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fearow/fearowback",
-    "backShiny": "pokeemerald:pokemon:sprite/fearow/fearowbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fearow/fearowicon",
-    "overworld": "pokeemerald:pokemon:sprite/fearow/fearowoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fearow/fearowoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fearow/fearow_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fearow/fearow_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fearow/fearow_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fearow/fearow_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fearow/fearow_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fearow/fearow_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fearow/fearow_overworld_shiny"
   }
 }

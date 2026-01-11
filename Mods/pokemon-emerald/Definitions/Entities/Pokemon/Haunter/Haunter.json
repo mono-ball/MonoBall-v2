@@ -142,12 +142,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/haunter/haunterfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/haunter/haunterfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/haunter/haunterback",
-    "backShiny": "pokeemerald:pokemon:sprite/haunter/haunterbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/haunter/hauntericon",
-    "overworld": "pokeemerald:pokemon:sprite/haunter/haunteroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/haunter/haunteroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/haunter/haunter_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/haunter/haunter_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/haunter/haunter_back",
+    "backShiny": "pokeemerald:pokemon:sprite/haunter/haunter_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/haunter/haunter_icon",
+    "overworld": "pokeemerald:pokemon:sprite/haunter/haunter_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/haunter/haunter_overworld_shiny"
   }
 }

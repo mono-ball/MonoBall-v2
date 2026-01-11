@@ -140,17 +140,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/hypno/hypnofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/hypno/hypnofrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/hypno/hypnofrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/hypno/hypnofrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/hypno/hypnoback",
-    "backShiny": "pokeemerald:pokemon:sprite/hypno/hypnobackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/hypno/hypnobackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/hypno/hypnobackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/hypno/hypnoicon",
-    "overworld": "pokeemerald:pokemon:sprite/hypno/hypnooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/hypno/hypnooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/hypno/hypno_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/hypno/hypno_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/hypno/hypno_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/hypno/hypno_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/hypno/hypno_back",
+    "backShiny": "pokeemerald:pokemon:sprite/hypno/hypno_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/hypno/hypno_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/hypno/hypno_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/hypno/hypno_icon",
+    "overworld": "pokeemerald:pokemon:sprite/hypno/hypno_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hypno/hypno_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

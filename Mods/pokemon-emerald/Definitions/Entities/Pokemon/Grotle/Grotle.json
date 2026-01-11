@@ -123,12 +123,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/grotle/grotlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/grotle/grotlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/grotle/grotleback",
-    "backShiny": "pokeemerald:pokemon:sprite/grotle/grotlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/grotle/grotleicon",
-    "overworld": "pokeemerald:pokemon:sprite/grotle/grotleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/grotle/grotleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/grotle/grotle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/grotle/grotle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/grotle/grotle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/grotle/grotle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/grotle/grotle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/grotle/grotle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grotle/grotle_overworld_shiny"
   }
 }

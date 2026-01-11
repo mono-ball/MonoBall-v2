@@ -136,13 +136,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kingler/kinglerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kingler/kinglerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/kingler/kinglerback",
-    "backShiny": "pokeemerald:pokemon:sprite/kingler/kinglerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/kingler/kinglericon",
-    "overworld": "pokeemerald:pokemon:sprite/kingler/kingleroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kingler/kingleroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kingler/kingler_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kingler/kingler_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/kingler/kingler_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kingler/kingler_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kingler/kingler_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kingler/kingler_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kingler/kingler_overworld_shiny"
   },
   "forms": [
     {
@@ -167,13 +167,13 @@
         "pokeemerald:ability:sheer_force"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/kingler/kinglergmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/kingler/kinglergmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/kingler/kinglergmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/kingler/kinglergmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/kingler/kinglergmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/kingler/kinglergmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/kingler/kinglergmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kingler/kingler_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

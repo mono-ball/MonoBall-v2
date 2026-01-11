@@ -56,17 +56,17 @@
     }
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/magikarp/magikarpfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/magikarp/magikarpfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/magikarp/magikarpback",
-    "backShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/magikarp/magikarpbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/magikarp/magikarpicon",
-    "overworld": "pokeemerald:pokemon:sprite/magikarp/magikarpoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/magikarp/magikarpoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/magikarp/magikarp_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/magikarp/magikarp_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/magikarp/magikarp_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/magikarp/magikarp_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/magikarp/magikarp_back",
+    "backShiny": "pokeemerald:pokemon:sprite/magikarp/magikarp_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/magikarp/magikarp_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/magikarp/magikarp_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/magikarp/magikarp_icon",
+    "overworld": "pokeemerald:pokemon:sprite/magikarp/magikarp_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magikarp/magikarp_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

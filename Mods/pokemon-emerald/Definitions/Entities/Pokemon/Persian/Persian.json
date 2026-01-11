@@ -136,13 +136,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/persian/persianfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/persian/persianfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/persian/persianback",
-    "backShiny": "pokeemerald:pokemon:sprite/persian/persianbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/persian/persianicon",
-    "overworld": "pokeemerald:pokemon:sprite/persian/persianoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/persian/persianoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/persian/persian_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/persian/persian_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/persian/persian_back",
+    "backShiny": "pokeemerald:pokemon:sprite/persian/persian_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/persian/persian_icon",
+    "overworld": "pokeemerald:pokemon:sprite/persian/persian_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/persian/persian_overworld_shiny"
   },
   "forms": [
     {
@@ -167,13 +167,13 @@
         "pokeemerald:ability:rattled"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/persian/persianalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/persian/persianalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/persian/persianalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/persian/persianalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/persian/persianalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/persian/persianalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/persian/persianalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/persian/persian_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/persian/persian_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/persian/persian_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/persian/persian_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/persian/persian_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/persian/persian_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/persian/persian_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

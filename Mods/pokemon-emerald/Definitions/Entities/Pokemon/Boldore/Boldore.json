@@ -131,12 +131,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/boldore/boldorefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/boldore/boldorefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/boldore/boldoreback",
-    "backShiny": "pokeemerald:pokemon:sprite/boldore/boldorebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/boldore/boldoreicon",
-    "overworld": "pokeemerald:pokemon:sprite/boldore/boldoreoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/boldore/boldoreoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/boldore/boldore_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/boldore/boldore_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/boldore/boldore_back",
+    "backShiny": "pokeemerald:pokemon:sprite/boldore/boldore_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/boldore/boldore_icon",
+    "overworld": "pokeemerald:pokemon:sprite/boldore/boldore_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/boldore/boldore_overworld_shiny"
   }
 }

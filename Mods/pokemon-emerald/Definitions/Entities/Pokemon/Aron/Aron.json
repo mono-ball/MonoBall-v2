@@ -160,12 +160,12 @@
     "pokeemerald:move:reversal"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/aron/aronfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/aron/aronfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/aron/aronback",
-    "backShiny": "pokeemerald:pokemon:sprite/aron/aronbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/aron/aronicon",
-    "overworld": "pokeemerald:pokemon:sprite/aron/aronoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/aron/aronoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/aron/aron_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/aron/aron_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/aron/aron_back",
+    "backShiny": "pokeemerald:pokemon:sprite/aron/aron_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/aron/aron_icon",
+    "overworld": "pokeemerald:pokemon:sprite/aron/aron_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/aron/aron_overworld_shiny"
   }
 }

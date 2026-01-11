@@ -107,12 +107,12 @@
     "pokeemerald:move:block"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rolycoly/rolycolyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rolycoly/rolycolyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/rolycoly/rolycolyback",
-    "backShiny": "pokeemerald:pokemon:sprite/rolycoly/rolycolybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/rolycoly/rolycolyicon",
-    "overworld": "pokeemerald:pokemon:sprite/rolycoly/rolycolyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rolycoly/rolycolyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rolycoly/rolycoly_overworld_shiny"
   }
 }

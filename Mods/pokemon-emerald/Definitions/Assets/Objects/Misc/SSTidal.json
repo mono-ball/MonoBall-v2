@@ -6,6 +6,13 @@
   "frameWidth": 40,
   "frameHeight": 40,
   "frameCount": 1,
+  "movementProfileId": "pokeemerald:profile:movement/npc",
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "face_south",
+  "capabilities": {
+    "directional": true,
+    "movementAnimated": true
+  },
   "frames": [
     {
       "index": 0,
@@ -18,203 +25,151 @@
   "animations": [
     {
       "name": "face_south",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         0
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "face_north",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         1
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "face_west",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         2
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "face_east",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         2
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": true
     },
     {
       "name": "go_south",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
         0,
         4,
         0
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5,
         1,
         6,
         1
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": true
     },
     {
       "name": "go_fast_south",
+      "animationType": "go_fast",
       "loop": true,
       "frameIndices": [
         3,
         0,
         4,
         0
-      ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_fast_north",
+      "animationType": "go_fast",
       "loop": true,
       "frameIndices": [
         5,
         1,
         6,
         1
-      ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_fast_west",
+      "animationType": "go_fast",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_fast_east",
+      "animationType": "go_fast",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667,
-        0.06666666666666667
       ],
       "flipHorizontal": true
     },
     {
       "name": "go_faster_south",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
         0,
         4,
         0
-      ],
-      "frameDurations": [
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_faster_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5,
@@ -222,33 +177,23 @@
         6,
         1
       ],
-      "frameDurations": [
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333
-      ],
       "flipHorizontal": false
     },
     {
       "name": "go_faster_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_faster_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
@@ -256,16 +201,11 @@
         8,
         2
       ],
-      "frameDurations": [
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333,
-        0.03333333333333333
-      ],
       "flipHorizontal": true
     },
     {
       "name": "go_fastest_south",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
@@ -273,16 +213,11 @@
         4,
         0
       ],
-      "frameDurations": [
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666
-      ],
       "flipHorizontal": false
     },
     {
       "name": "go_fastest_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5,
@@ -290,45 +225,29 @@
         6,
         1
       ],
-      "frameDurations": [
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666
-      ],
       "flipHorizontal": false
     },
     {
       "name": "go_fastest_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_fastest_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         7,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666,
-        0.016666666666666666
       ],
       "flipHorizontal": true
     }

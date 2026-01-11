@@ -120,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:temporary/11",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -131,6 +132,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:temporary/12",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

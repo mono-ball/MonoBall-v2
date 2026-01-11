@@ -108,12 +108,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/swadloon/swadloonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/swadloon/swadloonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/swadloon/swadloonback",
-    "backShiny": "pokeemerald:pokemon:sprite/swadloon/swadloonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/swadloon/swadloonicon",
-    "overworld": "pokeemerald:pokemon:sprite/swadloon/swadloonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/swadloon/swadloonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/swadloon/swadloon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/swadloon/swadloon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/swadloon/swadloon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/swadloon/swadloon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/swadloon/swadloon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/swadloon/swadloon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swadloon/swadloon_overworld_shiny"
   }
 }

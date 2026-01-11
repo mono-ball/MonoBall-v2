@@ -131,12 +131,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumback",
-    "backShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumicon",
-    "overworld": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrumoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tyrantrum/tyrantrum_overworld_shiny"
   }
 }

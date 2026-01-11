@@ -139,17 +139,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/alakazam/alakazamfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/alakazam/alakazamfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/alakazam/alakazamfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/alakazam/alakazamfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/alakazam/alakazamback",
-    "backShiny": "pokeemerald:pokemon:sprite/alakazam/alakazambackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/alakazam/alakazambackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/alakazam/alakazambackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/alakazam/alakazamicon",
-    "overworld": "pokeemerald:pokemon:sprite/alakazam/alakazamoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/alakazam/alakazamoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/alakazam/alakazam_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/alakazam/alakazam_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/alakazam/alakazam_back",
+    "backShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/alakazam/alakazam_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/alakazam/alakazam_icon",
+    "overworld": "pokeemerald:pokemon:sprite/alakazam/alakazam_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -175,13 +175,13 @@
         "pokeemerald:ability:trace"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/alakazam/alakazammegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/alakazam/alakazammegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/alakazam/alakazammegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/alakazam/alakazammegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/alakazam/alakazammegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/alakazam/alakazammegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/alakazam/alakazammegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/alakazam/alakazam_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:alakazite",

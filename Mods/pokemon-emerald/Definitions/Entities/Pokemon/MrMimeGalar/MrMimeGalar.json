@@ -42,12 +42,12 @@
     }
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarback",
-    "backShiny": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalaricon",
-    "overworld": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mrmimegalar/mrmimegalaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mr_mime_galar/mr_mime_galar_overworld_shiny"
   }
 }

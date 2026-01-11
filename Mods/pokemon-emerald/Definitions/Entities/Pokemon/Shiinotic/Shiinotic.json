@@ -114,12 +114,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shiinotic/shiinoticfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinoticfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/shiinotic/shiinoticback",
-    "backShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinoticbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/shiinotic/shiinoticicon",
-    "overworld": "pokeemerald:pokemon:sprite/shiinotic/shiinoticoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinoticoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shiinotic/shiinotic_overworld_shiny"
   }
 }

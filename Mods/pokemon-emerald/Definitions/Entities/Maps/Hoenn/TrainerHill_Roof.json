@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/trainer_hill_roof_event_script_owner",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

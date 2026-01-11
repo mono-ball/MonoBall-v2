@@ -151,12 +151,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/purugly/puruglyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/purugly/puruglyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/purugly/puruglyback",
-    "backShiny": "pokeemerald:pokemon:sprite/purugly/puruglybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/purugly/puruglyicon",
-    "overworld": "pokeemerald:pokemon:sprite/purugly/puruglyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/purugly/puruglyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/purugly/purugly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/purugly/purugly_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/purugly/purugly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/purugly/purugly_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/purugly/purugly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/purugly/purugly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/purugly/purugly_overworld_shiny"
   }
 }

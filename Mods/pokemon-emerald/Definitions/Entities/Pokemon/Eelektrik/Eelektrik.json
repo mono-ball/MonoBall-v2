@@ -127,12 +127,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/eelektrik/eelektrikfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrikfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/eelektrik/eelektrikback",
-    "backShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrikbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/eelektrik/eelektrikicon",
-    "overworld": "pokeemerald:pokemon:sprite/eelektrik/eelektrikoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrikoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_back",
+    "backShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_icon",
+    "overworld": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eelektrik/eelektrik_overworld_shiny"
   }
 }

@@ -127,17 +127,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/golbat/golbatfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/golbat/golbatfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/golbat/golbatfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/golbat/golbatfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/golbat/golbatback",
-    "backShiny": "pokeemerald:pokemon:sprite/golbat/golbatbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/golbat/golbatbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/golbat/golbatbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/golbat/golbaticon",
-    "overworld": "pokeemerald:pokemon:sprite/golbat/golbatoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/golbat/golbatoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/golbat/golbat_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/golbat/golbat_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/golbat/golbat_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/golbat/golbat_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/golbat/golbat_back",
+    "backShiny": "pokeemerald:pokemon:sprite/golbat/golbat_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/golbat/golbat_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/golbat/golbat_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/golbat/golbat_icon",
+    "overworld": "pokeemerald:pokemon:sprite/golbat/golbat_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/golbat/golbat_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -156,6 +156,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_1f_event_script_employee",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -170,6 +171,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_1f_event_script_stair_guard",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -180,6 +182,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_1f_event_script_greeter",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

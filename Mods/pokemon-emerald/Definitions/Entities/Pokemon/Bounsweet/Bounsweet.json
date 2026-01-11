@@ -109,12 +109,12 @@
     "pokeemerald:move:acupressure"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bounsweet/bounsweetfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweetfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bounsweet/bounsweetback",
-    "backShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweetbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bounsweet/bounsweeticon",
-    "overworld": "pokeemerald:pokemon:sprite/bounsweet/bounsweetoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweetoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bounsweet/bounsweet_overworld_shiny"
   }
 }

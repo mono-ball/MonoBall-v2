@@ -141,13 +141,13 @@
     "pokeemerald:move:copycat"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/zorua/zoruafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/zorua/zoruafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/zorua/zoruaback",
-    "backShiny": "pokeemerald:pokemon:sprite/zorua/zoruabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/zorua/zoruaicon",
-    "overworld": "pokeemerald:pokemon:sprite/zorua/zoruaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/zorua/zoruaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/zorua/zorua_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/zorua/zorua_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/zorua/zorua_back",
+    "backShiny": "pokeemerald:pokemon:sprite/zorua/zorua_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/zorua/zorua_icon",
+    "overworld": "pokeemerald:pokemon:sprite/zorua/zorua_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zorua/zorua_overworld_shiny"
   },
   "forms": [
     {
@@ -173,13 +173,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/zorua/zoruahisuifront",
-        "frontShiny": "pokeemerald:pokemon:sprite/zorua/zoruahisuifrontshiny",
-        "back": "pokeemerald:pokemon:sprite/zorua/zoruahisuiback",
-        "backShiny": "pokeemerald:pokemon:sprite/zorua/zoruahisuibackshiny",
-        "icon": "pokeemerald:pokemon:sprite/zorua/zoruahisuiicon",
-        "overworld": "pokeemerald:pokemon:sprite/zorua/zoruahisuioverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/zorua/zoruahisuioverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_back",
+        "backShiny": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_icon",
+        "overworld": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/zorua/zorua_hisui_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:hisui"

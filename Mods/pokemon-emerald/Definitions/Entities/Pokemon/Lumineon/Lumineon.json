@@ -117,17 +117,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/lumineon/lumineonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/lumineon/lumineonfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/lumineon/lumineonfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/lumineon/lumineonfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/lumineon/lumineonback",
-    "backShiny": "pokeemerald:pokemon:sprite/lumineon/lumineonbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/lumineon/lumineonbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/lumineon/lumineonbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/lumineon/lumineonicon",
-    "overworld": "pokeemerald:pokemon:sprite/lumineon/lumineonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/lumineon/lumineonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/lumineon/lumineon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/lumineon/lumineon_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/lumineon/lumineon_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/lumineon/lumineon_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/lumineon/lumineon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/lumineon/lumineon_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/lumineon/lumineon_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/lumineon/lumineon_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/lumineon/lumineon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/lumineon/lumineon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lumineon/lumineon_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

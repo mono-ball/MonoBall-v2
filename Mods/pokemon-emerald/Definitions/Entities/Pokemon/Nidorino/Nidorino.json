@@ -129,12 +129,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/nidorino/nidorinofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/nidorino/nidorinofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/nidorino/nidorinoback",
-    "backShiny": "pokeemerald:pokemon:sprite/nidorino/nidorinobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/nidorino/nidorinoicon",
-    "overworld": "pokeemerald:pokemon:sprite/nidorino/nidorinooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/nidorino/nidorinooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/nidorino/nidorino_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/nidorino/nidorino_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/nidorino/nidorino_back",
+    "backShiny": "pokeemerald:pokemon:sprite/nidorino/nidorino_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/nidorino/nidorino_icon",
+    "overworld": "pokeemerald:pokemon:sprite/nidorino/nidorino_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nidorino/nidorino_overworld_shiny"
   }
 }

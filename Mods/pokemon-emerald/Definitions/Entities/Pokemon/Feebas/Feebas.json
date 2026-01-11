@@ -106,12 +106,12 @@
     "pokeemerald:move:captivate"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/feebas/feebasfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/feebas/feebasfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/feebas/feebasback",
-    "backShiny": "pokeemerald:pokemon:sprite/feebas/feebasbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/feebas/feebasicon",
-    "overworld": "pokeemerald:pokemon:sprite/feebas/feebasoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/feebas/feebasoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/feebas/feebas_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/feebas/feebas_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/feebas/feebas_back",
+    "backShiny": "pokeemerald:pokemon:sprite/feebas/feebas_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/feebas/feebas_icon",
+    "overworld": "pokeemerald:pokemon:sprite/feebas/feebas_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/feebas/feebas_overworld_shiny"
   }
 }

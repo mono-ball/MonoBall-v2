@@ -139,13 +139,13 @@
     "pokeemerald:move:superpower"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pinsir/pinsirfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pinsir/pinsirback",
-    "backShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pinsir/pinsiricon",
-    "overworld": "pokeemerald:pokemon:sprite/pinsir/pinsiroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pinsir/pinsiroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pinsir/pinsir_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pinsir/pinsir_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pinsir/pinsir_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pinsir/pinsir_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pinsir/pinsir_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pinsir/pinsir_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pinsir/pinsir_overworld_shiny"
   },
   "forms": [
     {
@@ -171,13 +171,13 @@
         "pokeemerald:ability:aerilate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pinsir/pinsirmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pinsir/pinsirmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pinsir/pinsir_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:pinsirite",

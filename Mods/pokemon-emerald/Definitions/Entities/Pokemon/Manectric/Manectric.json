@@ -127,13 +127,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/manectric/manectricfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/manectric/manectricfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/manectric/manectricback",
-    "backShiny": "pokeemerald:pokemon:sprite/manectric/manectricbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/manectric/manectricicon",
-    "overworld": "pokeemerald:pokemon:sprite/manectric/manectricoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/manectric/manectricoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/manectric/manectric_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/manectric/manectric_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/manectric/manectric_back",
+    "backShiny": "pokeemerald:pokemon:sprite/manectric/manectric_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/manectric/manectric_icon",
+    "overworld": "pokeemerald:pokemon:sprite/manectric/manectric_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/manectric/manectric_overworld_shiny"
   },
   "forms": [
     {
@@ -158,13 +158,13 @@
         "pokeemerald:ability:intimidate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/manectric/manectricmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/manectric/manectricmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/manectric/manectricmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/manectric/manectricmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/manectric/manectricmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/manectric/manectricmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/manectric/manectricmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/manectric/manectric_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/manectric/manectric_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/manectric/manectric_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/manectric/manectric_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/manectric/manectric_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/manectric/manectric_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/manectric/manectric_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:manectite",

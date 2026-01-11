@@ -8,6 +8,8 @@ using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Profiles;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -47,6 +49,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly IConstantsService _constants;
     private readonly ILogger _logger;
     private readonly IModManager? _modManager;
+    private readonly IProfileService _profileService;
+    private readonly IResourceManager _resourceManager;
     private readonly QueryDescription _movementQueryWithActiveMap;
     private readonly QueryDescription _movementRequestQuery;
 
@@ -57,6 +61,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="collisionService">The collision service for movement validation.</param>
     /// <param name="activeMapFilterService">The active map filter service for filtering entities by active maps.</param>
     /// <param name="constants">The constants service for accessing game constants. Required.</param>
+    /// <param name="profileService">The profile service for accessing movement and animation profiles. Required.</param>
+    /// <param name="resourceManager">The resource manager for accessing sprite definitions. Required.</param>
     /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
     /// <param name="logger">The logger for logging operations.</param>
     public MovementSystem(
@@ -64,6 +70,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
         ICollisionService collisionService,
         IActiveMapFilterService activeMapFilterService,
         IConstantsService constants,
+        IProfileService profileService,
+        IResourceManager resourceManager,
         IModManager? modManager = null,
         ILogger? logger = null
     )
@@ -75,6 +83,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
             activeMapFilterService
             ?? throw new ArgumentNullException(nameof(activeMapFilterService));
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
+        _resourceManager = resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _modManager = modManager;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
@@ -306,6 +316,7 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 if (
                     World.IsAlive(entity)
                     && World.TryGet<SpriteAnimationComponent>(entity, out var animation)
+                    && World.TryGet<SpriteComponent>(entity, out var sprite)
                 )
                 {
                     ProcessMovementWithAnimation(
@@ -313,6 +324,7 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                         ref position,
                         ref movement,
                         ref animation,
+                        sprite.SpriteId,
                         deltaTime
                     );
 
@@ -337,15 +349,24 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <remarks>
     ///     Animation state changes are handled atomically with movement state changes to prevent
     ///     timing bugs. See MovementAnimationHelper for details on why this coupling is necessary.
+    ///     For sprites with Capabilities.MovementAnimated = false, position updates still occur
+    ///     but animation changes are skipped (e.g., pushed boulders slide without animation change).
     /// </remarks>
     private void ProcessMovementWithAnimation(
         Entity entity,
         ref PositionComponent position,
         ref GridMovement movement,
         ref SpriteAnimationComponent animation,
+        string spriteId,
         float deltaTime
     )
     {
+        // Check if sprite has movement animations (directional walk/run cycles)
+        // If not, only do position updates without animation changes
+        var spriteDef = _resourceManager.GetSpriteDefinition(spriteId);
+        var hasMovementAnimation = spriteDef.Capabilities.MovementAnimated;
+        var hasDirectionalAnimation = spriteDef.Capabilities.Directional;
+
         if (movement.IsMoving)
         {
             UpdateMovementProgress(ref movement, deltaTime);
@@ -355,19 +376,31 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                 // Movement complete - handle animation-specific logic before completing
                 // CRITICAL: Check for next movement BEFORE completing movement to prevent
                 // animation reset between consecutive tile movements
-                var hasNextMovement = World.Has<MovementRequest>(entity);
-                MovementAnimationHelper.OnMovementComplete(
-                    ref animation,
-                    ref movement,
-                    hasNextMovement
-                );
+                if (hasMovementAnimation)
+                {
+                    var hasNextMovement = World.Has<MovementRequest>(entity);
+                    MovementAnimationHelper.OnMovementComplete(
+                        ref animation,
+                        ref movement,
+                        hasNextMovement
+                    );
+                }
 
                 CompleteMovement(entity, ref position, ref movement);
             }
             else
             {
                 InterpolatePosition(ref position, ref movement);
-                MovementAnimationHelper.OnMovementInProgress(ref animation, ref movement);
+                if (hasMovementAnimation)
+                {
+                    MovementAnimationHelper.OnMovementInProgress(
+                        ref animation,
+                        ref movement,
+                        spriteId,
+                        _profileService,
+                        _resourceManager
+                    );
+                }
             }
         }
         else
@@ -378,7 +411,8 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
             // for map offset, which gives wrong results for entities on connected maps.
 
             // Handle turn-in-place state (Pokemon Emerald behavior)
-            if (movement.RunningState == RunningState.TurnDirection)
+            // Only for directional sprites that can show facing direction
+            if (movement.RunningState == RunningState.TurnDirection && hasDirectionalAnimation)
             {
                 var turnComplete = MovementAnimationHelper.OnTurnInPlace(
                     ref animation,
@@ -389,10 +423,16 @@ public class MovementSystem : BaseSystem<World, float>, IPrioritizedSystem
                     // Turn complete - allow movement on next input
                     movement.RunningState = RunningState.NotMoving;
             }
-            else
+            else if (movement.RunningState == RunningState.TurnDirection)
+            {
+                // Non-directional sprite - skip turn animation, just complete turn
+                movement.RunningState = RunningState.NotMoving;
+            }
+            else if (hasDirectionalAnimation)
             {
                 MovementAnimationHelper.OnIdle(ref animation, ref movement);
             }
+            // For non-directional sprites, keep the current animation playing
         }
     }
 

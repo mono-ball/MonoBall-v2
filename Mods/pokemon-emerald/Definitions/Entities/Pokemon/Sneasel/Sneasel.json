@@ -165,17 +165,17 @@
     "pokeemerald:move:throat_chop"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sneasel/sneaselfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/sneasel/sneaselfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/sneasel/sneaselback",
-    "backShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/sneasel/sneaselbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/sneasel/sneaselicon",
-    "overworld": "pokeemerald:pokemon:sprite/sneasel/sneaseloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sneasel/sneaseloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sneasel/sneasel_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/sneasel/sneasel_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/sneasel/sneasel_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/sneasel/sneasel_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sneasel/sneasel_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sneasel/sneasel_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -202,13 +202,13 @@
         "pokeemerald:ability:pickpocket"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuifront",
-        "frontShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuifrontshiny",
-        "back": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuiback",
-        "backShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuibackshiny",
-        "icon": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuiicon",
-        "overworld": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuioverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/sneasel/sneaselhisuioverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_back",
+        "backShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_icon",
+        "overworld": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sneasel/sneasel_hisui_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:hisui"

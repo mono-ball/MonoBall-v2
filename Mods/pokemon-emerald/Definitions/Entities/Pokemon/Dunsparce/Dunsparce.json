@@ -169,12 +169,12 @@
     "pokeemerald:move:hex"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dunsparce/dunsparcefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparcefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dunsparce/dunsparceback",
-    "backShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparcebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dunsparce/dunsparceicon",
-    "overworld": "pokeemerald:pokemon:sprite/dunsparce/dunsparceoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparceoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dunsparce/dunsparce_overworld_shiny"
   }
 }

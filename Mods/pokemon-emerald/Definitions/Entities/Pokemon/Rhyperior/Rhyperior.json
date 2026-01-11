@@ -153,17 +153,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorback",
-    "backShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperiorbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/rhyperior/rhyperioricon",
-    "overworld": "pokeemerald:pokemon:sprite/rhyperior/rhyperioroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperioroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rhyperior/rhyperior_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

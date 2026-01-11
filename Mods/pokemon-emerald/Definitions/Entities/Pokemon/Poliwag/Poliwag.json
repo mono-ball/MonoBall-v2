@@ -134,12 +134,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/poliwag/poliwagfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/poliwag/poliwagfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/poliwag/poliwagback",
-    "backShiny": "pokeemerald:pokemon:sprite/poliwag/poliwagbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/poliwag/poliwagicon",
-    "overworld": "pokeemerald:pokemon:sprite/poliwag/poliwagoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/poliwag/poliwagoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/poliwag/poliwag_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/poliwag/poliwag_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/poliwag/poliwag_back",
+    "backShiny": "pokeemerald:pokemon:sprite/poliwag/poliwag_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/poliwag/poliwag_icon",
+    "overworld": "pokeemerald:pokemon:sprite/poliwag/poliwag_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/poliwag/poliwag_overworld_shiny"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "id": "pokeemerald:profile:movement/player",
+  "definitionType": "MovementProfile",
+  "name": "Player Movement Profile",
+  "description": "Movement speeds for player character (walk, run, bike)",
+  "speeds": {
+    "walk": {
+      "speed": 4.0,
+      "animationType": "go"
+    },
+    "run": {
+      "speed": 8.0,
+      "animationType": "go_fast"
+    },
+    "bike": {
+      "speed": 12.0,
+      "animationType": "go_fast"
+    }
+  },
+  "defaultSpeed": "walk"
+}

@@ -147,17 +147,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/raticate/raticatefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticatefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/raticate/raticatefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/raticate/raticatefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/raticate/raticateback",
-    "backShiny": "pokeemerald:pokemon:sprite/raticate/raticatebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/raticate/raticatebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/raticate/raticatebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/raticate/raticateicon",
-    "overworld": "pokeemerald:pokemon:sprite/raticate/raticateoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticateoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/raticate/raticate_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticate_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/raticate/raticate_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/raticate/raticate_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/raticate/raticate_back",
+    "backShiny": "pokeemerald:pokemon:sprite/raticate/raticate_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/raticate/raticate_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/raticate/raticate_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/raticate/raticate_icon",
+    "overworld": "pokeemerald:pokemon:sprite/raticate/raticate_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticate_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -184,13 +184,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemback",
-        "backShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolatotembackshiny",
-        "icon": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemicon",
-        "overworld": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolatotemoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_back",
+        "backShiny": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_icon",
+        "overworld": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticate_alola_totem_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"
@@ -218,13 +218,13 @@
         "pokeemerald:ability:thick_fat"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/raticate/raticatealolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/raticate/raticatealolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/raticate/raticatealolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/raticate/raticatealolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticatealolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/raticate/raticate_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/raticate/raticate_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/raticate/raticate_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/raticate/raticate_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/raticate/raticate_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/raticate/raticate_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/raticate/raticate_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

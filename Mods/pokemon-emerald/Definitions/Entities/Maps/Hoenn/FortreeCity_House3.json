@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house3_event_script_maniac",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house3_event_script_school_kid_m",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

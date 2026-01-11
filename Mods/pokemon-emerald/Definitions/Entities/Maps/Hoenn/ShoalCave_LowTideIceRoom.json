@@ -108,6 +108,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/shoal_cave_ice_room_tm_hail",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -119,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/shoal_cave_ice_room_never_melt_ice",
+      "facingDirection": "down",
       "elevation": 4
     }
   ],

@@ -111,12 +111,12 @@
     "pokeemerald:move:waterfall"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/arctovish/arctovishfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/arctovish/arctovishfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/arctovish/arctovishback",
-    "backShiny": "pokeemerald:pokemon:sprite/arctovish/arctovishbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/arctovish/arctovishicon",
-    "overworld": "pokeemerald:pokemon:sprite/arctovish/arctovishoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/arctovish/arctovishoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/arctovish/arctovish_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/arctovish/arctovish_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/arctovish/arctovish_back",
+    "backShiny": "pokeemerald:pokemon:sprite/arctovish/arctovish_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/arctovish/arctovish_icon",
+    "overworld": "pokeemerald:pokemon:sprite/arctovish/arctovish_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/arctovish/arctovish_overworld_shiny"
   }
 }

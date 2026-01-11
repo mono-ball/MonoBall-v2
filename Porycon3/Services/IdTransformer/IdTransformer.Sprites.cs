@@ -22,44 +22,48 @@ public static partial class IdTransformer
         "ss_tidal", "statue", "submarine_shadow", "truck"
     };
 
-    // Pokemon overworld sprites - maps OBJ_EVENT_GFX names to extracted sprite IDs
+    // Pokemon overworld sprites - maps OBJ_EVENT_GFX names to species names for overworld sprites
+    // These map to the extracted Pokemon overworld sprites: pokeemerald:pokemon:sprite/{species}/{species}overworld
     private static readonly Dictionary<string, string> PokemonSprites = new(StringComparer.OrdinalIgnoreCase)
     {
-        ["azumarill"] = "pokemon/azumarillold",
-        ["azurill"] = "pokemon/azurillold",
-        ["deoxys"] = "pokemon/deoxysold",
-        ["deoxys_triangle"] = "pokemon/deoxysold",
-        ["dusclops"] = "pokemon/dusclopsold",
-        ["groudon"] = "pokemon/groudonfront",
-        ["groudon_front"] = "pokemon/groudonfront",
-        ["groudon_asleep"] = "pokemon/groudonside",
-        ["groudon_side"] = "pokemon/groudonside",
-        ["ho_oh"] = "pokemon/hoohold",
-        ["hooh"] = "pokemon/hoohold",
-        ["kecleon"] = "pokemon/kecleonold",
-        ["kecleon_bridge_shadow"] = "pokemon/kecleonold",
-        ["kirlia"] = "pokemon/kirliaold",
-        ["kyogre"] = "pokemon/kyogrefront",
-        ["kyogre_front"] = "pokemon/kyogrefront",
-        ["kyogre_asleep"] = "pokemon/kyogreside",
-        ["kyogre_side"] = "pokemon/kyogreside",
-        ["lugia"] = "pokemon/lugiaold",
-        ["mew"] = "pokemon/mewold",
-        ["pikachu"] = "pokemon/pikachuold",
-        ["poochyena"] = "pokemon/poochyenaold",
-        ["rayquaza"] = "pokemon/rayquazacutscene",
-        ["rayquaza_cutscene"] = "pokemon/rayquazacutscene",
-        ["rayquaza_still"] = "pokemon/rayquazastill",
-        ["regice"] = "pokemon/regi",
-        ["regirock"] = "pokemon/regi",
-        ["registeel"] = "pokemon/regi",
-        ["skitty"] = "pokemon/skittyold",
-        ["sudowoodo"] = "pokemon/sudowoodotree",
-        ["wingull"] = "pokemon/wingullold",
-        ["zigzagoon_1"] = "pokemon/zigzagoonold",
-        ["zigzagoon_2"] = "pokemon/enemyzigzagoon",
-        ["vigoroth_carrying_box"] = "pokemon/vigorothcarryingbox",
-        ["vigoroth_facing_away"] = "pokemon/vigorothfacingaway"
+        ["azumarill"] = "azumarill",
+        ["azurill"] = "azurill",
+        ["deoxys"] = "deoxys",
+        ["deoxys_triangle"] = "deoxys",
+        ["dusclops"] = "dusclops",
+        ["groudon"] = "groudon",
+        ["groudon_front"] = "groudon",
+        ["groudon_asleep"] = "groudon",
+        ["groudon_side"] = "groudon",
+        ["ho_oh"] = "ho_oh",
+        ["hooh"] = "ho_oh",
+        ["kecleon"] = "kecleon",
+        ["kecleon_bridge_shadow"] = "kecleon",
+        ["kirlia"] = "kirlia",
+        ["kyogre"] = "kyogre",
+        ["kyogre_front"] = "kyogre",
+        ["kyogre_asleep"] = "kyogre",
+        ["kyogre_side"] = "kyogre",
+        ["latias"] = "latias",
+        ["latios"] = "latios",
+        ["lugia"] = "lugia",
+        ["mew"] = "mew",
+        ["pikachu"] = "pikachu",
+        ["poochyena"] = "poochyena",
+        ["rayquaza"] = "rayquaza",
+        ["rayquaza_cutscene"] = "rayquaza",
+        ["rayquaza_still"] = "rayquaza",
+        ["regice"] = "regice",
+        ["regirock"] = "regirock",
+        ["registeel"] = "registeel",
+        ["skitty"] = "skitty",
+        ["sudowoodo"] = "sudowoodo",
+        ["wingull"] = "wingull",
+        ["zigzagoon_1"] = "zigzagoon",
+        ["zigzagoon_2"] = "zigzagoon",
+        ["vigoroth"] = "vigoroth",
+        ["vigoroth_carrying_box"] = "vigoroth",
+        ["vigoroth_facing_away"] = "vigoroth"
     };
 
     // Sprite aliases: some OBJ_EVENT_GFX names map to different sprite names
@@ -112,8 +116,9 @@ public static partial class IdTransformer
         }
 
         // Check for Pokemon overworld sprites
-        if (PokemonSprites.TryGetValue(name, out var pokemonPath))
-            return $"{Namespace}:sprite:{pokemonPath}";
+        // Format: pokeemerald:pokemon:sprite/{species}/{species}_overworld
+        if (PokemonSprites.TryGetValue(name, out var speciesName))
+            return $"{Namespace}:pokemon:sprite/{speciesName}/{speciesName}_overworld";
 
         // Handle variable sprites (VAR_0 through VAR_F)
         if (name.StartsWith("var_"))

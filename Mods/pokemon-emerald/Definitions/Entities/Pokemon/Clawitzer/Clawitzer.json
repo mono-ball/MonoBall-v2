@@ -134,12 +134,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/clawitzer/clawitzerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/clawitzer/clawitzerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/clawitzer/clawitzerback",
-    "backShiny": "pokeemerald:pokemon:sprite/clawitzer/clawitzerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/clawitzer/clawitzericon",
-    "overworld": "pokeemerald:pokemon:sprite/clawitzer/clawitzeroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/clawitzer/clawitzeroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_back",
+    "backShiny": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_icon",
+    "overworld": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clawitzer/clawitzer_overworld_shiny"
   }
 }

@@ -122,12 +122,12 @@
     "pokeemerald:move:sky_attack"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/flamigo/flamigofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/flamigo/flamigofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/flamigo/flamigoback",
-    "backShiny": "pokeemerald:pokemon:sprite/flamigo/flamigobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/flamigo/flamigoicon",
-    "overworld": "pokeemerald:pokemon:sprite/flamigo/flamigooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/flamigo/flamigooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/flamigo/flamigo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/flamigo/flamigo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/flamigo/flamigo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/flamigo/flamigo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/flamigo/flamigo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/flamigo/flamigo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/flamigo/flamigo_overworld_shiny"
   }
 }

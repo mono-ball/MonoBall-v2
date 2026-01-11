@@ -127,12 +127,12 @@
     "pokeemerald:move:razor_wind"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/spearow/spearowfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/spearow/spearowfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/spearow/spearowback",
-    "backShiny": "pokeemerald:pokemon:sprite/spearow/spearowbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/spearow/spearowicon",
-    "overworld": "pokeemerald:pokemon:sprite/spearow/spearowoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/spearow/spearowoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/spearow/spearow_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/spearow/spearow_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/spearow/spearow_back",
+    "backShiny": "pokeemerald:pokemon:sprite/spearow/spearow_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/spearow/spearow_icon",
+    "overworld": "pokeemerald:pokemon:sprite/spearow/spearow_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spearow/spearow_overworld_shiny"
   }
 }

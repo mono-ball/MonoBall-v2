@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house5_event_script_maniac",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house5_event_script_girl",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

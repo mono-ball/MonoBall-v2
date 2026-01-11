@@ -155,12 +155,12 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/chimchar/chimcharfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/chimchar/chimcharfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/chimchar/chimcharback",
-    "backShiny": "pokeemerald:pokemon:sprite/chimchar/chimcharbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/chimchar/chimcharicon",
-    "overworld": "pokeemerald:pokemon:sprite/chimchar/chimcharoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/chimchar/chimcharoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/chimchar/chimchar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/chimchar/chimchar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/chimchar/chimchar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/chimchar/chimchar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/chimchar/chimchar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/chimchar/chimchar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chimchar/chimchar_overworld_shiny"
   }
 }

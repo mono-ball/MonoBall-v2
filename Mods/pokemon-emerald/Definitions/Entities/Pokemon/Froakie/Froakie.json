@@ -143,12 +143,12 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/froakie/froakiefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/froakie/froakiefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/froakie/froakieback",
-    "backShiny": "pokeemerald:pokemon:sprite/froakie/froakiebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/froakie/froakieicon",
-    "overworld": "pokeemerald:pokemon:sprite/froakie/froakieoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/froakie/froakieoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/froakie/froakie_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/froakie/froakie_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/froakie/froakie_back",
+    "backShiny": "pokeemerald:pokemon:sprite/froakie/froakie_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/froakie/froakie_icon",
+    "overworld": "pokeemerald:pokemon:sprite/froakie/froakie_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/froakie/froakie_overworld_shiny"
   }
 }

@@ -143,12 +143,12 @@
     "pokeemerald:move:heal_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gothita/gothitafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gothita/gothitafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gothita/gothitaback",
-    "backShiny": "pokeemerald:pokemon:sprite/gothita/gothitabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gothita/gothitaicon",
-    "overworld": "pokeemerald:pokemon:sprite/gothita/gothitaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gothita/gothitaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gothita/gothita_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gothita/gothita_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gothita/gothita_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gothita/gothita_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gothita/gothita_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gothita/gothita_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gothita/gothita_overworld_shiny"
   }
 }

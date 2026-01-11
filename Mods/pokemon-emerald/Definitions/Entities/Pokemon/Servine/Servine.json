@@ -132,12 +132,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/servine/servinefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/servine/servinefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/servine/servineback",
-    "backShiny": "pokeemerald:pokemon:sprite/servine/servinebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/servine/servineicon",
-    "overworld": "pokeemerald:pokemon:sprite/servine/servineoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/servine/servineoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/servine/servine_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/servine/servine_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/servine/servine_back",
+    "backShiny": "pokeemerald:pokemon:sprite/servine/servine_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/servine/servine_icon",
+    "overworld": "pokeemerald:pokemon:sprite/servine/servine_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/servine/servine_overworld_shiny"
   }
 }

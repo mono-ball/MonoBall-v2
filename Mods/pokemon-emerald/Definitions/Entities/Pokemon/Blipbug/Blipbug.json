@@ -55,12 +55,12 @@
     "pokeemerald:move:recover"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/blipbug/blipbugfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/blipbug/blipbugfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/blipbug/blipbugback",
-    "backShiny": "pokeemerald:pokemon:sprite/blipbug/blipbugbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/blipbug/blipbugicon",
-    "overworld": "pokeemerald:pokemon:sprite/blipbug/blipbugoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/blipbug/blipbugoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/blipbug/blipbug_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/blipbug/blipbug_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/blipbug/blipbug_back",
+    "backShiny": "pokeemerald:pokemon:sprite/blipbug/blipbug_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/blipbug/blipbug_icon",
+    "overworld": "pokeemerald:pokemon:sprite/blipbug/blipbug_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blipbug/blipbug_overworld_shiny"
   }
 }

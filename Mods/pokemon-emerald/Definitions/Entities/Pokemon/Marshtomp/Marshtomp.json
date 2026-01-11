@@ -152,12 +152,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/marshtomp/marshtompfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/marshtomp/marshtompfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/marshtomp/marshtompback",
-    "backShiny": "pokeemerald:pokemon:sprite/marshtomp/marshtompbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/marshtomp/marshtompicon",
-    "overworld": "pokeemerald:pokemon:sprite/marshtomp/marshtompoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/marshtomp/marshtompoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_back",
+    "backShiny": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_icon",
+    "overworld": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/marshtomp/marshtomp_overworld_shiny"
   }
 }

@@ -146,12 +146,12 @@
     "pokeemerald:move:belch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/heatmor/heatmorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/heatmor/heatmorfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/heatmor/heatmorback",
-    "backShiny": "pokeemerald:pokemon:sprite/heatmor/heatmorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/heatmor/heatmoricon",
-    "overworld": "pokeemerald:pokemon:sprite/heatmor/heatmoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/heatmor/heatmoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/heatmor/heatmor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/heatmor/heatmor_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/heatmor/heatmor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/heatmor/heatmor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/heatmor/heatmor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/heatmor/heatmor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/heatmor/heatmor_overworld_shiny"
   }
 }

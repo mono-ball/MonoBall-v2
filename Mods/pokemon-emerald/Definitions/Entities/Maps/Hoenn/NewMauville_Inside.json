@@ -310,6 +310,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/new_mauville_ultra_ball",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -321,6 +322,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/new_mauville_escape_rope",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -332,6 +334,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/new_mauville_thunder_stone",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -343,6 +346,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/new_mauville_full_heal",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -354,6 +358,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/new_mauville_paralyze_heal",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -365,6 +370,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/new_mauville_inside_event_script_voltorb1",
       "visibilityFlag": "pokeemerald:flag:visibility/new_mauville_voltorb_1",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -376,6 +382,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/new_mauville_inside_event_script_voltorb2",
       "visibilityFlag": "pokeemerald:flag:visibility/new_mauville_voltorb_2",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -387,6 +394,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/new_mauville_inside_event_script_voltorb3",
       "visibilityFlag": "pokeemerald:flag:visibility/new_mauville_voltorb_3",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

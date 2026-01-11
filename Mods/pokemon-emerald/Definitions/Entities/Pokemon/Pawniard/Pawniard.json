@@ -143,12 +143,12 @@
     "pokeemerald:move:quick_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pawniard/pawniardfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pawniard/pawniardfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pawniard/pawniardback",
-    "backShiny": "pokeemerald:pokemon:sprite/pawniard/pawniardbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pawniard/pawniardicon",
-    "overworld": "pokeemerald:pokemon:sprite/pawniard/pawniardoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pawniard/pawniardoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pawniard/pawniard_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pawniard/pawniard_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pawniard/pawniard_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pawniard/pawniard_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pawniard/pawniard_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pawniard/pawniard_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pawniard/pawniard_overworld_shiny"
   }
 }

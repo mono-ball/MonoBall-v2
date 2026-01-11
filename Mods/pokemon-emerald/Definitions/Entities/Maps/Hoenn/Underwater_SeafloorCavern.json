@@ -108,6 +108,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -119,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -130,6 +132,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +144,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/underwater_seafloor_cavern_event_script_check_stolen_sub",
       "visibilityFlag": "pokeemerald:flag:visibility/underwater_sea_floor_cavern_stolen_submarine",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

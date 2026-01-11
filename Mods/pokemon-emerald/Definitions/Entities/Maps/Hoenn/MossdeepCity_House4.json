@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_house4_event_script_woman",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_house4_event_script_ninja_boy",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -140,9 +142,10 @@
       "name": "NPC_2",
       "x": 32,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:pokemon/skittyold",
+      "spriteId": "pokeemerald:pokemon:sprite/skitty/skitty_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_house4_event_script_skitty",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

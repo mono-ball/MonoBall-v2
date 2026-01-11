@@ -147,12 +147,12 @@
     "pokeemerald:move:switcheroo"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/snorunt/snoruntfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/snorunt/snoruntfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/snorunt/snoruntback",
-    "backShiny": "pokeemerald:pokemon:sprite/snorunt/snoruntbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/snorunt/snorunticon",
-    "overworld": "pokeemerald:pokemon:sprite/snorunt/snoruntoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/snorunt/snoruntoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/snorunt/snorunt_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/snorunt/snorunt_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/snorunt/snorunt_back",
+    "backShiny": "pokeemerald:pokemon:sprite/snorunt/snorunt_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/snorunt/snorunt_icon",
+    "overworld": "pokeemerald:pokemon:sprite/snorunt/snorunt_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snorunt/snorunt_overworld_shiny"
   }
 }

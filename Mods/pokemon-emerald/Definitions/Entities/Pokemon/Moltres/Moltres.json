@@ -131,13 +131,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/moltres/moltresfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/moltres/moltresfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/moltres/moltresback",
-    "backShiny": "pokeemerald:pokemon:sprite/moltres/moltresbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/moltres/moltresicon",
-    "overworld": "pokeemerald:pokemon:sprite/moltres/moltresoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/moltres/moltresoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/moltres/moltres_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/moltres/moltres_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/moltres/moltres_back",
+    "backShiny": "pokeemerald:pokemon:sprite/moltres/moltres_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/moltres/moltres_icon",
+    "overworld": "pokeemerald:pokemon:sprite/moltres/moltres_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/moltres/moltres_overworld_shiny"
   },
   "forms": [
     {
@@ -163,13 +163,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/moltres/moltresgalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/moltres/moltresgalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/moltres/moltresgalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/moltres/moltresgalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/moltres/moltresgalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/moltres/moltresgalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/moltres/moltresgalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/moltres/moltres_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/moltres/moltres_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/moltres/moltres_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/moltres/moltres_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/moltres/moltres_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/moltres/moltres_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/moltres/moltres_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

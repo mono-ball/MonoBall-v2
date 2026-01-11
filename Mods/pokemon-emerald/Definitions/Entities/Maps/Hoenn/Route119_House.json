@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -126,13 +127,14 @@
       "name": "NPC_1",
       "x": 16,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 2
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_wingull",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -140,13 +142,14 @@
       "name": "NPC_2",
       "x": 0,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 3,
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_wingull",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -154,13 +157,14 @@
       "name": "NPC_3",
       "x": 32,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_wingull",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -168,13 +172,14 @@
       "name": "NPC_4",
       "x": 128,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 3,
         "rangeY": 2
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_wingull",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -182,13 +187,14 @@
       "name": "NPC_5",
       "x": 96,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 2,
         "rangeY": 2
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_wingull",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -196,13 +202,14 @@
       "name": "NPC_6",
       "x": 80,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/wander",
       "behaviorParameters": {
         "rangeX": 1,
         "rangeY": 3
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_house_event_script_wingull",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

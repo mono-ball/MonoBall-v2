@@ -130,17 +130,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gabite/gabitefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gabite/gabitefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/gabite/gabitefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gabite/gabitefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/gabite/gabiteback",
-    "backShiny": "pokeemerald:pokemon:sprite/gabite/gabitebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/gabite/gabitebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/gabite/gabitebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/gabite/gabiteicon",
-    "overworld": "pokeemerald:pokemon:sprite/gabite/gabiteoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gabite/gabiteoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gabite/gabite_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gabite/gabite_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gabite/gabite_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gabite/gabite_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/gabite/gabite_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gabite/gabite_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gabite/gabite_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gabite/gabite_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gabite/gabite_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gabite/gabite_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gabite/gabite_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -147,12 +147,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/delcatty/delcattyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/delcatty/delcattyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/delcatty/delcattyback",
-    "backShiny": "pokeemerald:pokemon:sprite/delcatty/delcattybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/delcatty/delcattyicon",
-    "overworld": "pokeemerald:pokemon:sprite/delcatty/delcattyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/delcatty/delcattyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/delcatty/delcatty_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/delcatty/delcatty_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/delcatty/delcatty_back",
+    "backShiny": "pokeemerald:pokemon:sprite/delcatty/delcatty_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/delcatty/delcatty_icon",
+    "overworld": "pokeemerald:pokemon:sprite/delcatty/delcatty_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/delcatty/delcatty_overworld_shiny"
   }
 }

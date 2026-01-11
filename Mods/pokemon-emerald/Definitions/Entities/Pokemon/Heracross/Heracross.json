@@ -145,17 +145,17 @@
     "pokeemerald:move:rock_blast"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/heracross/heracrossfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/heracross/heracrossfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/heracross/heracrossfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/heracross/heracrossfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/heracross/heracrossback",
-    "backShiny": "pokeemerald:pokemon:sprite/heracross/heracrossbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/heracross/heracrossbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/heracross/heracrossbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/heracross/heracrossicon",
-    "overworld": "pokeemerald:pokemon:sprite/heracross/heracrossoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/heracross/heracrossoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/heracross/heracross_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/heracross/heracross_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/heracross/heracross_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/heracross/heracross_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/heracross/heracross_back",
+    "backShiny": "pokeemerald:pokemon:sprite/heracross/heracross_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/heracross/heracross_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/heracross/heracross_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/heracross/heracross_icon",
+    "overworld": "pokeemerald:pokemon:sprite/heracross/heracross_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/heracross/heracross_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -182,13 +182,13 @@
         "pokeemerald:ability:skill_link"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/heracross/heracrossmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/heracross/heracrossmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/heracross/heracrossmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/heracross/heracrossmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/heracross/heracrossmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/heracross/heracrossmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/heracross/heracrossmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/heracross/heracross_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/heracross/heracross_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/heracross/heracross_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/heracross/heracross_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/heracross/heracross_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/heracross/heracross_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/heracross/heracross_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:heracronite",

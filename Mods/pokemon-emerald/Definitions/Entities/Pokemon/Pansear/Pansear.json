@@ -155,12 +155,12 @@
     "pokeemerald:move:flare_blitz"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pansear/pansearfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pansear/pansearfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pansear/pansearback",
-    "backShiny": "pokeemerald:pokemon:sprite/pansear/pansearbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pansear/pansearicon",
-    "overworld": "pokeemerald:pokemon:sprite/pansear/pansearoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pansear/pansearoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pansear/pansear_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pansear/pansear_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pansear/pansear_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pansear/pansear_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pansear/pansear_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pansear/pansear_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pansear/pansear_overworld_shiny"
   }
 }

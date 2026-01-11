@@ -131,17 +131,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/jellicent/jellicentfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/jellicent/jellicentfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/jellicent/jellicentback",
-    "backShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/jellicent/jellicentbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/jellicent/jellicenticon",
-    "overworld": "pokeemerald:pokemon:sprite/jellicent/jellicentoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/jellicent/jellicentoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/jellicent/jellicent_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/jellicent/jellicent_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/jellicent/jellicent_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/jellicent/jellicent_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/jellicent/jellicent_back",
+    "backShiny": "pokeemerald:pokemon:sprite/jellicent/jellicent_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/jellicent/jellicent_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/jellicent/jellicent_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/jellicent/jellicent_icon",
+    "overworld": "pokeemerald:pokemon:sprite/jellicent/jellicent_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/jellicent/jellicent_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

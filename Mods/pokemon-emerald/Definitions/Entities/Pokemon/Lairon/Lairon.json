@@ -146,12 +146,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/lairon/laironfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/lairon/laironfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/lairon/laironback",
-    "backShiny": "pokeemerald:pokemon:sprite/lairon/laironbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/lairon/laironicon",
-    "overworld": "pokeemerald:pokemon:sprite/lairon/laironoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/lairon/laironoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/lairon/lairon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/lairon/lairon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/lairon/lairon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/lairon/lairon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/lairon/lairon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/lairon/lairon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lairon/lairon_overworld_shiny"
   }
 }

@@ -149,12 +149,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/whimsicott/whimsicottfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/whimsicott/whimsicottfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/whimsicott/whimsicottback",
-    "backShiny": "pokeemerald:pokemon:sprite/whimsicott/whimsicottbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/whimsicott/whimsicotticon",
-    "overworld": "pokeemerald:pokemon:sprite/whimsicott/whimsicottoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/whimsicott/whimsicottoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_back",
+    "backShiny": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_icon",
+    "overworld": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/whimsicott/whimsicott_overworld_shiny"
   }
 }

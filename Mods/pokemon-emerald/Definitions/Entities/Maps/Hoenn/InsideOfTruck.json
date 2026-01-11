@@ -219,6 +219,7 @@
       "spriteId": "pokeemerald:sprite:objects/misc/movingbox",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/inside_of_truck_event_script_moving_box",
+      "facingDirection": "down",
       "elevation": 8
     },
     {
@@ -229,6 +230,7 @@
       "spriteId": "pokeemerald:sprite:objects/misc/movingbox",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/inside_of_truck_event_script_moving_box",
+      "facingDirection": "down",
       "elevation": 8
     },
     {
@@ -239,6 +241,7 @@
       "spriteId": "pokeemerald:sprite:objects/misc/movingbox",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/inside_of_truck_event_script_moving_box",
+      "facingDirection": "down",
       "elevation": 8
     }
   ],

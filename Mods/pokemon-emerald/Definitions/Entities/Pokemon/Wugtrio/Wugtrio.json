@@ -107,12 +107,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wugtrio/wugtriofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wugtrio/wugtriofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wugtrio/wugtrioback",
-    "backShiny": "pokeemerald:pokemon:sprite/wugtrio/wugtriobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wugtrio/wugtrioicon",
-    "overworld": "pokeemerald:pokemon:sprite/wugtrio/wugtriooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wugtrio/wugtriooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wugtrio/wugtrio_overworld_shiny"
   }
 }

@@ -132,12 +132,12 @@
     "pokeemerald:move:toxic_spikes"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shelmet/shelmetfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shelmet/shelmetfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/shelmet/shelmetback",
-    "backShiny": "pokeemerald:pokemon:sprite/shelmet/shelmetbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/shelmet/shelmeticon",
-    "overworld": "pokeemerald:pokemon:sprite/shelmet/shelmetoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shelmet/shelmetoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shelmet/shelmet_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shelmet/shelmet_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/shelmet/shelmet_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shelmet/shelmet_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shelmet/shelmet_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shelmet/shelmet_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shelmet/shelmet_overworld_shiny"
   }
 }

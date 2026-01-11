@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -128,6 +128,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_arena_lobby_event_script_attendant",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -142,6 +143,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_arena_lobby_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -152,6 +154,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_arena_lobby_event_script_man",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -162,6 +165,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/camper",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_arena_lobby_event_script_camper",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -172,6 +176,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_battle_arena_lobby_event_script_youngster",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

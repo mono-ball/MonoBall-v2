@@ -157,12 +157,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/primeape/primeapefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/primeape/primeapefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/primeape/primeapeback",
-    "backShiny": "pokeemerald:pokemon:sprite/primeape/primeapebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/primeape/primeapeicon",
-    "overworld": "pokeemerald:pokemon:sprite/primeape/primeapeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/primeape/primeapeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/primeape/primeape_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/primeape/primeape_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/primeape/primeape_back",
+    "backShiny": "pokeemerald:pokemon:sprite/primeape/primeape_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/primeape/primeape_icon",
+    "overworld": "pokeemerald:pokemon:sprite/primeape/primeape_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/primeape/primeape_overworld_shiny"
   }
 }

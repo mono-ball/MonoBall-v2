@@ -146,12 +146,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/escavalier/escavalierfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/escavalier/escavalierfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/escavalier/escavalierback",
-    "backShiny": "pokeemerald:pokemon:sprite/escavalier/escavalierbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/escavalier/escavaliericon",
-    "overworld": "pokeemerald:pokemon:sprite/escavalier/escavalieroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/escavalier/escavalieroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/escavalier/escavalier_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/escavalier/escavalier_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/escavalier/escavalier_back",
+    "backShiny": "pokeemerald:pokemon:sprite/escavalier/escavalier_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/escavalier/escavalier_icon",
+    "overworld": "pokeemerald:pokemon:sprite/escavalier/escavalier_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/escavalier/escavalier_overworld_shiny"
   }
 }

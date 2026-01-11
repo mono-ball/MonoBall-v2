@@ -136,12 +136,12 @@
     "pokeemerald:move:fire_spin"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/turtonator/turtonatorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/turtonator/turtonatorfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/turtonator/turtonatorback",
-    "backShiny": "pokeemerald:pokemon:sprite/turtonator/turtonatorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/turtonator/turtonatoricon",
-    "overworld": "pokeemerald:pokemon:sprite/turtonator/turtonatoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/turtonator/turtonatoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/turtonator/turtonator_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/turtonator/turtonator_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/turtonator/turtonator_back",
+    "backShiny": "pokeemerald:pokemon:sprite/turtonator/turtonator_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/turtonator/turtonator_icon",
+    "overworld": "pokeemerald:pokemon:sprite/turtonator/turtonator_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/turtonator/turtonator_overworld_shiny"
   }
 }

@@ -139,15 +139,15 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tangrowth/tangrowthfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowthfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/tangrowth/tangrowthfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowthfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/tangrowth/tangrowthback",
-    "backShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowthbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tangrowth/tangrowthicon",
-    "overworld": "pokeemerald:pokemon:sprite/tangrowth/tangrowthoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowthoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tangrowth/tangrowth_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

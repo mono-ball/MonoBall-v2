@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/finneon/finneonbackfemaleshiny",
+  "id": "pokeemerald:pokemon:sprite/finneon/finneon_back_female_shiny",
   "name": "Finneonbackfemaleshiny",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Finneon/FinneonBackFemaleShiny.png",
   "spriteType": "back",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

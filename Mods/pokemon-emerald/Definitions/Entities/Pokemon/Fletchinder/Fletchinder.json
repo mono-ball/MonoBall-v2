@@ -128,12 +128,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fletchinder/fletchinderfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinderfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fletchinder/fletchinderback",
-    "backShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinderbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fletchinder/fletchindericon",
-    "overworld": "pokeemerald:pokemon:sprite/fletchinder/fletchinderoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinderoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fletchinder/fletchinder_overworld_shiny"
   }
 }

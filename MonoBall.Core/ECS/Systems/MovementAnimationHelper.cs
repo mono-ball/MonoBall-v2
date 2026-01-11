@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.Maps;
+using MonoBall.Core.Profiles;
+using MonoBall.Core.Resources;
 
 namespace MonoBall.Core.ECS.Systems;
 
@@ -40,6 +45,7 @@ internal static class MovementAnimationHelper
     )
     {
         if (!hasNextMovement)
+        {
             // No more movement - switch to idle animation
             ChangeAnimation(
                 ref animation,
@@ -47,22 +53,81 @@ internal static class MovementAnimationHelper
                 false,
                 false
             );
+        }
         // else: Keep walk animation playing - next movement will continue it
     }
 
     /// <summary>
-    ///     Updates animation state during movement to ensure walk animation is playing.
+    ///     Updates animation state during movement to ensure appropriate animation is playing based on CurrentMovementType.
+    ///     Uses profile service to determine animation type from movement type (e.g., "walk" -> "go", "run" -> "go_fast").
     /// </summary>
     /// <param name="animation">The animation component to update.</param>
     /// <param name="movement">The movement component to check.</param>
+    /// <param name="spriteId">The sprite ID to get sprite definition and profile references. Must not be null or empty.</param>
+    /// <param name="profileService">The profile service for accessing movement profiles. Must not be null.</param>
+    /// <param name="resourceManager">The resource manager for accessing sprite definitions. Must not be null.</param>
+    /// <exception cref="System.ArgumentNullException">If spriteId, profileService, or resourceManager is null or empty.</exception>
+    /// <exception cref="System.InvalidOperationException">If sprite definition is missing required profile references.</exception>
+    /// <exception cref="ProfileNotFoundException">If movement profile doesn't exist.</exception>
+    /// <exception cref="System.Collections.Generic.KeyNotFoundException">If movement type doesn't exist in profile.</exception>
     public static void OnMovementInProgress(
         ref SpriteAnimationComponent animation,
-        ref GridMovement movement
+        ref GridMovement movement,
+        string spriteId,
+        IProfileService profileService,
+        IResourceManager resourceManager
     )
     {
-        // Ensure walk animation is playing
+        if (string.IsNullOrWhiteSpace(spriteId))
+            throw new ArgumentException("Sprite ID cannot be null or empty.", nameof(spriteId));
+        if (profileService == null)
+            throw new ArgumentNullException(nameof(profileService));
+        if (resourceManager == null)
+            throw new ArgumentNullException(nameof(resourceManager));
+
+        // Get sprite definition to access profile references
+        var spriteDef = resourceManager.GetSpriteDefinition(spriteId);
+
+        // Validate required profile references (fail-fast)
+        if (string.IsNullOrWhiteSpace(spriteDef.MovementProfileId))
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{spriteId}' is missing required field 'movementProfileId'. " +
+                "Cannot determine animation type from movement profile."
+            );
+        }
+
+        // Get animation type from profile based on CurrentMovementType
+        string animationType;
+        try
+        {
+            animationType = profileService.GetAnimationTypeForMovementType(
+                spriteDef.MovementProfileId,
+                movement.CurrentMovementType
+            );
+        }
+        catch (ProfileNotFoundException ex)
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{spriteId}' references movement profile '{spriteDef.MovementProfileId}' which does not exist. " +
+                "Cannot determine animation type.",
+                ex
+            );
+        }
+        catch (KeyNotFoundException ex)
+        {
+            throw new InvalidOperationException(
+                $"Movement type '{movement.CurrentMovementType}' not found in movement profile '{spriteDef.MovementProfileId}' for sprite '{spriteId}'. " +
+                "Cannot determine animation type.",
+                ex
+            );
+        }
+
+        // Build animation name: "{animationType}_{direction}" (e.g., "go_fast_south")
+        var directionSuffix = movement.FacingDirection.ToAnimationSuffix();
+        var expectedAnimation = $"{animationType}_{directionSuffix}";
+
         // Only change animation if switching from different animation
-        var expectedAnimation = movement.FacingDirection.ToWalkAnimation();
         if (animation.CurrentAnimationName != expectedAnimation)
             ChangeAnimation(ref animation, expectedAnimation);
     }

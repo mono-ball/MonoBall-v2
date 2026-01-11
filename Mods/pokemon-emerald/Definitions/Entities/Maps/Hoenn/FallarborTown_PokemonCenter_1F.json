@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_pokemon_center_1f_event_script_girl",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -151,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_pokemon_center_1f_event_script_expert_m",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -162,6 +165,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fallarbor_town_pokemon_center_1f_event_script_lanette",
       "visibilityFlag": "pokeemerald:flag:visibility/fallarbor_pokemon_center_lanette",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

@@ -133,17 +133,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/donphan/donphanfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/donphan/donphanfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/donphan/donphanfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/donphan/donphanfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/donphan/donphanback",
-    "backShiny": "pokeemerald:pokemon:sprite/donphan/donphanbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/donphan/donphanbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/donphan/donphanbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/donphan/donphanicon",
-    "overworld": "pokeemerald:pokemon:sprite/donphan/donphanoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/donphan/donphanoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/donphan/donphan_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/donphan/donphan_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/donphan/donphan_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/donphan/donphan_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/donphan/donphan_back",
+    "backShiny": "pokeemerald:pokemon:sprite/donphan/donphan_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/donphan/donphan_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/donphan/donphan_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/donphan/donphan_icon",
+    "overworld": "pokeemerald:pokemon:sprite/donphan/donphan_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/donphan/donphan_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

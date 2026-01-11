@@ -138,12 +138,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ivysaur/ivysaurfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaurfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ivysaur/ivysaurback",
-    "backShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaurbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ivysaur/ivysauricon",
-    "overworld": "pokeemerald:pokemon:sprite/ivysaur/ivysauroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysauroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ivysaur/ivysaur_overworld_shiny"
   }
 }

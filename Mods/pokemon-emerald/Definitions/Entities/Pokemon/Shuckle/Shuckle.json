@@ -142,12 +142,12 @@
     "pokeemerald:move:final_gambit"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shuckle/shucklefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shuckle/shucklefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/shuckle/shuckleback",
-    "backShiny": "pokeemerald:pokemon:sprite/shuckle/shucklebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/shuckle/shuckleicon",
-    "overworld": "pokeemerald:pokemon:sprite/shuckle/shuckleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shuckle/shuckleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shuckle/shuckle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shuckle/shuckle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/shuckle/shuckle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shuckle/shuckle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shuckle/shuckle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shuckle/shuckle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shuckle/shuckle_overworld_shiny"
   }
 }

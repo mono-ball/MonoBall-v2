@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -57,7 +57,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
       "id": "pokeemerald:layer:Hoenn/littleroot_town_brendans_house_1f/overhead",
@@ -69,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     }
   ],
   "tilesets": [
@@ -181,6 +181,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/players_house_1f_event_script_mom",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_brendans_house_mom",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -188,7 +189,7 @@
       "name": "NPC_1",
       "x": 16,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/vigorothcarryingbox",
+      "spriteId": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/walk",
       "behaviorParameters": {
         "rangeX": 3,
@@ -196,6 +197,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/players_house_1f_event_script_vigoroth2",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_players_house_vigoroth_2",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -203,10 +205,11 @@
       "name": "NPC_2",
       "x": 64,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:pokemon/vigorothfacingaway",
+      "spriteId": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/walk",
       "interactionId": "pokeemerald:script:interactions/npcs/players_house_1f_event_script_vigoroth1",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_players_house_vigoroth_1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -218,6 +221,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rivals_house_1f_event_script_rival_mom",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_brendans_house_rival_mom",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -228,6 +232,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/norman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/players_house_dad",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -243,6 +248,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rivals_house_1f_event_script_rival_sibling",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_brendans_house_rival_sibling",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -253,6 +259,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/rubysapphirebrendan/rubysapphirebrendan",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_brendans_house_brendan",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

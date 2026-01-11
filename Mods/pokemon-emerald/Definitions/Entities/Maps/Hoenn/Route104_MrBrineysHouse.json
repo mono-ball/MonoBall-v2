@@ -140,6 +140,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route104_mr_brineys_house_event_script_briney",
       "visibilityFlag": "pokeemerald:flag:visibility/brineys_house_mr_briney",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -147,10 +148,11 @@
       "name": "LOCALID_BRINEYS_HOUSE_PEEKO",
       "x": 96,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route104_mr_brineys_house_event_script_peeko",
       "visibilityFlag": "pokeemerald:flag:visibility/brineys_house_peeko",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

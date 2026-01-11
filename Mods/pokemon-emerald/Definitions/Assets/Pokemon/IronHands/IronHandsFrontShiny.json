@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/iron_hands/ironhandsfrontshiny",
+  "id": "pokeemerald:pokemon:sprite/iron_hands/iron_hands_front_shiny",
   "name": "Ironhandsfrontshiny",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/IronHands/IronHandsFrontShiny.png",
   "spriteType": "front",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

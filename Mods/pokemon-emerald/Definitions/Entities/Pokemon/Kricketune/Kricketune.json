@@ -123,17 +123,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kricketune/kricketunefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/kricketune/kricketunefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/kricketune/kricketuneback",
-    "backShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/kricketune/kricketunebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/kricketune/kricketunebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/kricketune/kricketuneicon",
-    "overworld": "pokeemerald:pokemon:sprite/kricketune/kricketuneoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kricketune/kricketuneoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kricketune/kricketune_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kricketune/kricketune_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/kricketune/kricketune_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kricketune/kricketune_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/kricketune/kricketune_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kricketune/kricketune_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/kricketune/kricketune_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/kricketune/kricketune_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kricketune/kricketune_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kricketune/kricketune_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kricketune/kricketune_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

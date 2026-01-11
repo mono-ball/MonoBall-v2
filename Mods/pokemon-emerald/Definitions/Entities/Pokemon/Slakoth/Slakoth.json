@@ -149,12 +149,12 @@
     "pokeemerald:move:tickle"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/slakoth/slakothfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/slakoth/slakothfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/slakoth/slakothback",
-    "backShiny": "pokeemerald:pokemon:sprite/slakoth/slakothbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/slakoth/slakothicon",
-    "overworld": "pokeemerald:pokemon:sprite/slakoth/slakothoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/slakoth/slakothoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/slakoth/slakoth_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/slakoth/slakoth_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/slakoth/slakoth_back",
+    "backShiny": "pokeemerald:pokemon:sprite/slakoth/slakoth_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/slakoth/slakoth_icon",
+    "overworld": "pokeemerald:pokemon:sprite/slakoth/slakoth_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/slakoth/slakoth_overworld_shiny"
   }
 }

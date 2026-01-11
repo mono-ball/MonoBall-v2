@@ -138,12 +138,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/duosion/duosionfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/duosion/duosionfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/duosion/duosionback",
-    "backShiny": "pokeemerald:pokemon:sprite/duosion/duosionbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/duosion/duosionicon",
-    "overworld": "pokeemerald:pokemon:sprite/duosion/duosionoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/duosion/duosionoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/duosion/duosion_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/duosion/duosion_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/duosion/duosion_back",
+    "backShiny": "pokeemerald:pokemon:sprite/duosion/duosion_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/duosion/duosion_icon",
+    "overworld": "pokeemerald:pokemon:sprite/duosion/duosion_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/duosion/duosion_overworld_shiny"
   }
 }

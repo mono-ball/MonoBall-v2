@@ -128,12 +128,12 @@
     "pokeemerald:move:wide_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/roggenrola/roggenrolafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrolafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaback",
-    "backShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrolabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaicon",
-    "overworld": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrolaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_back",
+    "backShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_icon",
+    "overworld": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/roggenrola/roggenrola_overworld_shiny"
   }
 }

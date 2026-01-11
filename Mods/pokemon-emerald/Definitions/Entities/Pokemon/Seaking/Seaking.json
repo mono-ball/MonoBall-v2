@@ -112,17 +112,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/seaking/seakingfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/seaking/seakingfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/seaking/seakingfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/seaking/seakingfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/seaking/seakingback",
-    "backShiny": "pokeemerald:pokemon:sprite/seaking/seakingbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/seaking/seakingbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/seaking/seakingbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/seaking/seakingicon",
-    "overworld": "pokeemerald:pokemon:sprite/seaking/seakingoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/seaking/seakingoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/seaking/seaking_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/seaking/seaking_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/seaking/seaking_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/seaking/seaking_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/seaking/seaking_back",
+    "backShiny": "pokeemerald:pokemon:sprite/seaking/seaking_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/seaking/seaking_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/seaking/seaking_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/seaking/seaking_icon",
+    "overworld": "pokeemerald:pokemon:sprite/seaking/seaking_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/seaking/seaking_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

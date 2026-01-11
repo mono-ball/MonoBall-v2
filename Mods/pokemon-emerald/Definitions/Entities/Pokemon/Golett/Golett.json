@@ -154,12 +154,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/golett/golettfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/golett/golettfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/golett/golettback",
-    "backShiny": "pokeemerald:pokemon:sprite/golett/golettbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/golett/goletticon",
-    "overworld": "pokeemerald:pokemon:sprite/golett/golettoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/golett/golettoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/golett/golett_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/golett/golett_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/golett/golett_back",
+    "backShiny": "pokeemerald:pokemon:sprite/golett/golett_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/golett/golett_icon",
+    "overworld": "pokeemerald:pokemon:sprite/golett/golett_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/golett/golett_overworld_shiny"
   }
 }

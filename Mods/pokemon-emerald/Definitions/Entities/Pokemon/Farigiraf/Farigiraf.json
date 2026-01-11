@@ -129,12 +129,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/farigiraf/farigiraffront",
-    "frontShiny": "pokeemerald:pokemon:sprite/farigiraf/farigiraffrontshiny",
-    "back": "pokeemerald:pokemon:sprite/farigiraf/farigirafback",
-    "backShiny": "pokeemerald:pokemon:sprite/farigiraf/farigirafbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/farigiraf/farigiraficon",
-    "overworld": "pokeemerald:pokemon:sprite/farigiraf/farigirafoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/farigiraf/farigirafoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_back",
+    "backShiny": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_icon",
+    "overworld": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/farigiraf/farigiraf_overworld_shiny"
   }
 }

@@ -137,13 +137,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/zekrom/zekromfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/zekrom/zekromfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/zekrom/zekromback",
-    "backShiny": "pokeemerald:pokemon:sprite/zekrom/zekrombackshiny",
-    "icon": "pokeemerald:pokemon:sprite/zekrom/zekromicon",
-    "overworld": "pokeemerald:pokemon:sprite/zekrom/zekromoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/zekrom/zekromoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/zekrom/zekrom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/zekrom/zekrom_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/zekrom/zekrom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/zekrom/zekrom_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/zekrom/zekrom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/zekrom/zekrom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zekrom/zekrom_overworld_shiny"
   },
   "isLegendary": true,
   "isFrontierBanned": true

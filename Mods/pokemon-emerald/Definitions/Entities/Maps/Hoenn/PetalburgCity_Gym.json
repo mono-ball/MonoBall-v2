@@ -693,6 +693,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_norman",
       "visibilityFlag": "pokeemerald:flag:visibility/petalburg_gym_norman",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -703,6 +704,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_mary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -713,6 +715,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_randall",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -723,6 +726,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_parker",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -733,6 +737,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_alexia",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -743,6 +748,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_george",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -753,6 +759,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_jody",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -763,6 +770,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_berke",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -774,6 +782,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_gym_event_script_gym_guide",
       "visibilityFlag": "pokeemerald:flag:visibility/petalburg_gym_greeter",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -784,6 +793,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/wally",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/petalburg_gym_wally",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -794,6 +804,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/petalburg_gym_wallys_dad",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

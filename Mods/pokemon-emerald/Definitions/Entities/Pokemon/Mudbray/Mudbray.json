@@ -129,12 +129,12 @@
     "pokeemerald:move:mud_bomb"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mudbray/mudbrayfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mudbray/mudbrayfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mudbray/mudbrayback",
-    "backShiny": "pokeemerald:pokemon:sprite/mudbray/mudbraybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mudbray/mudbrayicon",
-    "overworld": "pokeemerald:pokemon:sprite/mudbray/mudbrayoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mudbray/mudbrayoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mudbray/mudbray_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mudbray/mudbray_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mudbray/mudbray_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mudbray/mudbray_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mudbray/mudbray_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mudbray/mudbray_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mudbray/mudbray_overworld_shiny"
   }
 }

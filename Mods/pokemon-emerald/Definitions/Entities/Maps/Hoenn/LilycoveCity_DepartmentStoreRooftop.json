@@ -128,6 +128,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_department_store_rooftop_event_script_man",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -142,6 +143,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_department_store_rooftop_event_script_thirsty_man",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -153,6 +155,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_department_store_rooftop_event_script_sale_woman",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_department_store_rooftop_sale_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -163,6 +166,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_department_store_rooftop_event_script_substitute_tutor",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -144,12 +144,12 @@
     "pokeemerald:move:autotomize"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/trubbish/trubbishfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/trubbish/trubbishfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/trubbish/trubbishback",
-    "backShiny": "pokeemerald:pokemon:sprite/trubbish/trubbishbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/trubbish/trubbishicon",
-    "overworld": "pokeemerald:pokemon:sprite/trubbish/trubbishoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/trubbish/trubbishoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/trubbish/trubbish_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/trubbish/trubbish_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/trubbish/trubbish_back",
+    "backShiny": "pokeemerald:pokemon:sprite/trubbish/trubbish_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/trubbish/trubbish_icon",
+    "overworld": "pokeemerald:pokemon:sprite/trubbish/trubbish_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/trubbish/trubbish_overworld_shiny"
   }
 }

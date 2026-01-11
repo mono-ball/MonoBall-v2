@@ -136,17 +136,17 @@
     "pokeemerald:move:confuse_ray"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/finneon/finneonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/finneon/finneonfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/finneon/finneonfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/finneon/finneonfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/finneon/finneonback",
-    "backShiny": "pokeemerald:pokemon:sprite/finneon/finneonbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/finneon/finneonbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/finneon/finneonbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/finneon/finneonicon",
-    "overworld": "pokeemerald:pokemon:sprite/finneon/finneonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/finneon/finneonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/finneon/finneon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/finneon/finneon_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/finneon/finneon_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/finneon/finneon_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/finneon/finneon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/finneon/finneon_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/finneon/finneon_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/finneon/finneon_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/finneon/finneon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/finneon/finneon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/finneon/finneon_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

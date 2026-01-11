@@ -150,13 +150,13 @@
     "pokeemerald:move:wide_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/geodude/geodudefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/geodude/geodudefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/geodude/geodudeback",
-    "backShiny": "pokeemerald:pokemon:sprite/geodude/geodudebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/geodude/geodudeicon",
-    "overworld": "pokeemerald:pokemon:sprite/geodude/geodudeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/geodude/geodudeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/geodude/geodude_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/geodude/geodude_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/geodude/geodude_back",
+    "backShiny": "pokeemerald:pokemon:sprite/geodude/geodude_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/geodude/geodude_icon",
+    "overworld": "pokeemerald:pokemon:sprite/geodude/geodude_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/geodude/geodude_overworld_shiny"
   },
   "forms": [
     {
@@ -182,13 +182,13 @@
         "pokeemerald:ability:galvanize"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/geodude/geodudealolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/geodude/geodudealolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/geodude/geodudealolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/geodude/geodudealolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/geodude/geodudealolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/geodude/geodudealolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/geodude/geodudealolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/geodude/geodude_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/geodude/geodude_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/geodude/geodude_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/geodude/geodude_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/geodude/geodude_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/geodude/geodude_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/geodude/geodude_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

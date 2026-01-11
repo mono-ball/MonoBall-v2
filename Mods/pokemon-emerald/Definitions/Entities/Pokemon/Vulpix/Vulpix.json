@@ -144,13 +144,13 @@
     "pokeemerald:move:captivate"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/vulpix/vulpixfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/vulpix/vulpixfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/vulpix/vulpixback",
-    "backShiny": "pokeemerald:pokemon:sprite/vulpix/vulpixbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/vulpix/vulpixicon",
-    "overworld": "pokeemerald:pokemon:sprite/vulpix/vulpixoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/vulpix/vulpixoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/vulpix/vulpix_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/vulpix/vulpix_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/vulpix/vulpix_back",
+    "backShiny": "pokeemerald:pokemon:sprite/vulpix/vulpix_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/vulpix/vulpix_icon",
+    "overworld": "pokeemerald:pokemon:sprite/vulpix/vulpix_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vulpix/vulpix_overworld_shiny"
   },
   "forms": [
     {
@@ -175,13 +175,13 @@
         "pokeemerald:ability:snow_warning"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/vulpix/vulpixalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/vulpix/vulpixalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/vulpix/vulpixalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/vulpix/vulpixalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/vulpix/vulpixalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/vulpix/vulpixalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/vulpix/vulpixalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/vulpix/vulpix_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

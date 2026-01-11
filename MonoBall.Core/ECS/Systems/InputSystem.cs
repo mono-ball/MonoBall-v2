@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Arch.Core;
 using Arch.System;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
+using MonoBall.Core.Maps;
+using MonoBall.Core.Profiles;
+using MonoBall.Core.Resources;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -22,6 +26,8 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly IInputBlocker _inputBlocker;
     private readonly InputBuffer _inputBuffer;
     private readonly ILogger _logger;
+    private readonly IProfileService _profileService;
+    private readonly IResourceManager _resourceManager;
     private readonly QueryDescription _playerQuery;
 
     // Cache to prevent duplicate buffering
@@ -36,12 +42,16 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="inputBlocker">The input blocker service (can be NullInputBlocker).</param>
     /// <param name="inputBuffer">The input buffer service.</param>
     /// <param name="inputBindingService">The input binding service for named input actions.</param>
+    /// <param name="profileService">The profile service for accessing movement profiles. Required.</param>
+    /// <param name="resourceManager">The resource manager for accessing sprite definitions. Required.</param>
     /// <param name="logger">The logger for logging operations.</param>
     public InputSystem(
         World world,
         IInputBlocker inputBlocker,
         InputBuffer inputBuffer,
         IInputBindingService inputBindingService,
+        IProfileService profileService,
+        IResourceManager resourceManager,
         ILogger logger
     )
         : base(world)
@@ -50,6 +60,8 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
         _inputBuffer = inputBuffer ?? throw new ArgumentNullException(nameof(inputBuffer));
         _inputBindingService =
             inputBindingService ?? throw new ArgumentNullException(nameof(inputBindingService));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
+        _resourceManager = resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         _playerQuery = new QueryDescription().WithAll<
@@ -57,7 +69,8 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
             PositionComponent,
             GridMovement,
             InputState,
-            DirectionComponent
+            DirectionComponent,
+            SpriteComponent
         >();
     }
 
@@ -90,11 +103,19 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
                 ref PositionComponent position,
                 ref GridMovement movement,
                 ref InputState inputState,
-                ref DirectionComponent directionComponent
+                ref DirectionComponent directionComponent,
+                ref SpriteComponent sprite
             ) =>
             {
                 if (!inputState.InputEnabled)
                     return;
+
+                // Handle run button press (toggle walk/run movement type)
+                // Use IsActionJustPressed to only toggle once when key is first pressed
+                if (_inputBindingService.IsActionJustPressed(InputAction.Run))
+                {
+                    HandleRunButtonPressed(entity, ref movement, sprite.SpriteId);
+                }
 
                 // Get current input direction from named input actions
                 var currentDirection = _inputBindingService.GetMovementDirection();
@@ -203,14 +224,25 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
                                 "Consumed buffered input: {Direction}",
                                 bufferedDirection
                             );
-                            _lastBufferedDirection = Direction.None;
+                            // CRITICAL: Set to consumed direction, NOT Direction.None
+                            // Setting to None would cause shouldBuffer check to pass on next frame
+                            // (currentDirection != None = true), buffering another input while moving
+                            // and causing 2-tile movement at faster speeds
+                            _lastBufferedDirection = bufferedDirection;
+                            // Clear remaining buffer entries to prevent stale inputs at faster movement speeds
+                            // At running speed (0.125s/tile < 0.2s buffer timeout), old entries would persist
+                            // and cause extra movements. One consumed input = one tile of movement.
+                            _inputBuffer.Clear();
                         }
                     }
                     else
                     {
                         World.Add(entity, new MovementRequest(bufferedDirection));
                         _logger.Debug("Consumed buffered input: {Direction}", bufferedDirection);
-                        _lastBufferedDirection = Direction.None;
+                        // CRITICAL: Set to consumed direction, NOT Direction.None (see comment above)
+                        _lastBufferedDirection = bufferedDirection;
+                        // Clear remaining buffer entries to prevent stale inputs at faster movement speeds
+                        _inputBuffer.Clear();
                     }
                 }
             }
@@ -239,5 +271,64 @@ public class InputSystem : BaseSystem<World, float>, IPrioritizedSystem
             if (_inputBindingService.IsActionJustReleased(action))
                 inputState.JustReleasedActions.Add(action);
         }
+    }
+
+    /// <summary>
+    ///     Handles run button press by toggling between walk and run movement types.
+    ///     Updates GridMovement.MovementSpeed and CurrentMovementType from profile.
+    ///     Fail-fast: Throws exceptions if sprite definition or profile references are invalid.
+    /// </summary>
+    /// <param name="entity">The player entity.</param>
+    /// <param name="movement">The movement component to update.</param>
+    /// <param name="spriteId">The sprite ID to get sprite definition and profile references. Must not be null or empty.</param>
+    /// <exception cref="System.ArgumentException">If spriteId is null or empty.</exception>
+    /// <exception cref="System.InvalidOperationException">If sprite definition is missing or has invalid profile references.</exception>
+    /// <exception cref="ProfileNotFoundException">If movement profile doesn't exist.</exception>
+    /// <exception cref="System.Collections.Generic.KeyNotFoundException">If movement type doesn't exist in profile.</exception>
+    private void HandleRunButtonPressed(Entity entity, ref GridMovement movement, string spriteId)
+    {
+        if (string.IsNullOrWhiteSpace(spriteId))
+        {
+            throw new ArgumentException("Sprite ID cannot be null or empty.", nameof(spriteId));
+        }
+
+        // Get sprite definition to access profile references (fail-fast - no try-catch)
+        var spriteDef = _resourceManager.GetSpriteDefinition(spriteId);
+
+        // Validate required profile references (fail-fast)
+        if (string.IsNullOrWhiteSpace(spriteDef.MovementProfileId))
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{spriteId}' is missing required field 'movementProfileId'. " +
+                "Cannot determine movement speeds from profile. " +
+                "This should have been caught during mod loading validation.");
+        }
+
+        // Toggle between walk and run movement types
+        string targetMovementType;
+        if (movement.CurrentMovementType == "walk")
+        {
+            targetMovementType = "run";
+        }
+        else if (movement.CurrentMovementType == "run")
+        {
+            targetMovementType = "walk";
+        }
+        else
+        {
+            // If current type is not walk or run (e.g., "bike"), default to run when run button pressed
+            targetMovementType = "run";
+        }
+
+        // Get movement speed from profile for target movement type (fail-fast - no try-catch)
+        // Exceptions will propagate: ProfileNotFoundException or KeyNotFoundException
+        var targetSpeed = _profileService.GetMovementSpeed(spriteDef.MovementProfileId, targetMovementType);
+
+        // Update movement speed and type
+        movement.MovementSpeed = targetSpeed;
+        movement.CurrentMovementType = targetMovementType;
+
+        // Animation will be automatically updated by MovementAnimationHelper.OnMovementInProgress()
+        // which uses CurrentMovementType to determine animation type (e.g., "go_fast" for "run")
     }
 }

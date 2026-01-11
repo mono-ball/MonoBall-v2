@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route116_tunnelers_rest_house_event_script_tunneler1",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route116_tunnelers_rest_house_event_script_tunneler3",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -139,6 +141,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route116_tunnelers_rest_house_event_script_tunneler2",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

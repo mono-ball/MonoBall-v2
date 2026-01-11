@@ -162,12 +162,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/obstagoon/obstagoonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/obstagoon/obstagoonback",
-    "backShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/obstagoon/obstagoonicon",
-    "overworld": "pokeemerald:pokemon:sprite/obstagoon/obstagoonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/obstagoon/obstagoon_overworld_shiny"
   }
 }

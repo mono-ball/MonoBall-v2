@@ -144,12 +144,12 @@
     "pokeemerald:move:power_trip"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/piplup/piplupfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/piplup/piplupfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/piplup/piplupback",
-    "backShiny": "pokeemerald:pokemon:sprite/piplup/piplupbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/piplup/piplupicon",
-    "overworld": "pokeemerald:pokemon:sprite/piplup/piplupoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/piplup/piplupoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/piplup/piplup_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/piplup/piplup_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/piplup/piplup_back",
+    "backShiny": "pokeemerald:pokemon:sprite/piplup/piplup_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/piplup/piplup_icon",
+    "overworld": "pokeemerald:pokemon:sprite/piplup/piplup_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/piplup/piplup_overworld_shiny"
   }
 }

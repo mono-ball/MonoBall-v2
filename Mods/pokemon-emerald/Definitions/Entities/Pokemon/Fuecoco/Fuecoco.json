@@ -114,12 +114,12 @@
     "pokeemerald:move:slack_off"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fuecoco/fuecocofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecocofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fuecoco/fuecocoback",
-    "backShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecocobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fuecoco/fuecocoicon",
-    "overworld": "pokeemerald:pokemon:sprite/fuecoco/fuecocooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecocooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fuecoco/fuecoco_overworld_shiny"
   }
 }

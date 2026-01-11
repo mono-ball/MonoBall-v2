@@ -136,13 +136,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kyurem/kyuremfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/kyurem/kyuremback",
-    "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyurembackshiny",
-    "icon": "pokeemerald:pokemon:sprite/kyurem/kyuremicon",
-    "overworld": "pokeemerald:pokemon:sprite/kyurem/kyuremoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kyurem/kyurem_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/kyurem/kyurem_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kyurem/kyurem_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kyurem/kyurem_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_overworld_shiny"
   },
   "forms": [
     {
@@ -168,13 +168,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/kyurem/kyuremblackfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremblackfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/kyurem/kyuremblackback",
-        "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremblackbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/kyurem/kyuremblackicon",
-        "overworld": "pokeemerald:pokemon:sprite/kyurem/kyuremblackoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremblackoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_back",
+        "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_icon",
+        "overworld": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_black_overworld_shiny"
       }
     },
     {
@@ -200,13 +200,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/kyurem/kyuremwhitefront",
-        "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremwhitefrontshiny",
-        "back": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteback",
-        "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremwhitebackshiny",
-        "icon": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteicon",
-        "overworld": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyuremwhiteoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_back",
+        "backShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_icon",
+        "overworld": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/kyurem/kyurem_white_overworld_shiny"
       }
     }
   ],

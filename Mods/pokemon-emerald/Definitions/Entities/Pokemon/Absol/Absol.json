@@ -157,13 +157,13 @@
     "pokeemerald:move:play_rough"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/absol/absolfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/absol/absolfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/absol/absolback",
-    "backShiny": "pokeemerald:pokemon:sprite/absol/absolbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/absol/absolicon",
-    "overworld": "pokeemerald:pokemon:sprite/absol/absoloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/absol/absoloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/absol/absol_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/absol/absol_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/absol/absol_back",
+    "backShiny": "pokeemerald:pokemon:sprite/absol/absol_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/absol/absol_icon",
+    "overworld": "pokeemerald:pokemon:sprite/absol/absol_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/absol/absol_overworld_shiny"
   },
   "forms": [
     {
@@ -188,13 +188,13 @@
         "pokeemerald:ability:magic_bounce"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/absol/absolmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/absol/absolmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/absol/absolmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/absol/absolmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/absol/absolmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/absol/absolmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/absol/absolmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/absol/absol_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/absol/absol_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/absol/absol_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/absol/absol_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/absol/absol_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/absol/absol_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/absol/absol_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:absolite",

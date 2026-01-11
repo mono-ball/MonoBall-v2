@@ -128,6 +128,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_3f_event_script_mr_stone",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -139,6 +140,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_3f_event_script_employee",
       "visibilityFlag": "pokeemerald:flag:visibility/rustboro_city_devon_corp_3f_employee",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -149,6 +151,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_3f_event_script_mr_stone",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

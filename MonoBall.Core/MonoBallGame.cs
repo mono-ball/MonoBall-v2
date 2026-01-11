@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,6 +11,7 @@ using MonoBall.Core.ECS;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Utilities;
+using MonoBall.Core.Profiles;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scripting.Services;
@@ -345,8 +347,21 @@ public class MonoBallGame : Game
             modManager.LoadedMods.Count
         );
 
-        // Create and register ResourceManager immediately after mods load
+        // Create and register ProfileService BEFORE ResourceManager (CRITICAL ORDER)
+        // Factory handles creation and registration as IProfileService interface
+        var profileService = ProfileServiceFactory.CreateProfileService(
+            this,
+            modManager,
+            LoggerFactory.CreateLogger<ProfileService>()
+        );
+        _logger.Debug("ProfileService created and registered");
+
+        // NEW: Post-load sprite validation - validate all sprite profile references before ResourceManager starts loading sprites
+        ValidateSpriteProfileReferences(modManager, profileService);
+
+        // Create and register ResourceManager immediately after ProfileService
         // This ensures resources (fonts, etc.) are available for the loading screen
+        // NOTE: ResourceManager now requires IProfileService (CRITICAL: ProfileService must be available before any sprite loading)
         var pathResolver = new ResourcePathResolver(
             modManager,
             LoggerFactory.CreateLogger<ResourcePathResolver>()
@@ -357,6 +372,7 @@ public class MonoBallGame : Game
             GraphicsDevice,
             modManager,
             pathResolver,
+            profileService, // NEW: Required dependency - ProfileService must be available before sprite loading
             LoggerFactory.CreateLogger<ResourceManager>()
         );
         Services.AddService(typeof(IResourceManager), resourceManager);
@@ -382,8 +398,8 @@ public class MonoBallGame : Game
         _logger.Debug("ShaderParameterValidator created and registered");
 
         // Create and register ConstantsService immediately after mods load
-        // Use factory pattern for consistency with FontService
-        var constantsService = ConstantsServiceFactory.GetOrCreateConstantsService(
+        // Use factory pattern for consistency with ProfileService
+        var constantsService = ConstantsServiceFactory.CreateConstantsService(
             this,
             modManager,
             LoggerFactory.CreateLogger<ConstantsService>()
@@ -401,7 +417,7 @@ public class MonoBallGame : Game
                 "PlayerInitialMapId",
                 "PlayerSpawnX",
                 "PlayerSpawnY",
-                "PlayerMovementSpeed",
+                // NOTE: PlayerMovementSpeed removed - movement speeds now come from profiles
                 "ReferenceWidth",
                 "ReferenceHeight",
                 "CameraZoom",
@@ -458,5 +474,96 @@ public class MonoBallGame : Game
         }
 
         base.Dispose(disposing);
+    }
+
+    /// <summary>
+    ///     Validates all sprite definition profile references after mod loading completes.
+    ///     Fail-fast: Throws InvalidOperationException if any sprite definitions have invalid profile references.
+    ///     Called after ProfileService initialization, before ResourceManager starts loading sprites.
+    /// </summary>
+    /// <param name="modManager">The mod manager containing all loaded definitions.</param>
+    /// <param name="profileService">The profile service for validating profile references.</param>
+    /// <exception cref="System.InvalidOperationException">Thrown if any sprite definitions have invalid profile references.</exception>
+    private void ValidateSpriteProfileReferences(IModManager modManager, IProfileService profileService)
+    {
+        _logger.Debug("Validating sprite profile references");
+
+        var spriteDefIds = modManager.Registry.GetByType("SpriteDefinition").ToList();
+        var validationIssues = new List<string>();
+
+        foreach (var spriteId in spriteDefIds)
+        {
+            var spriteDef = modManager.GetDefinition<Maps.SpriteDefinition>(spriteId);
+            if (spriteDef == null)
+            {
+                validationIssues.Add($"Sprite definition '{spriteId}' failed to deserialize. Skipping validation.");
+                continue;
+            }
+
+            // Validate movement profile reference
+            if (string.IsNullOrWhiteSpace(spriteDef.MovementProfileId))
+            {
+                validationIssues.Add($"Sprite '{spriteId}' is missing required field 'movementProfileId'.");
+                continue;
+            }
+
+            if (!profileService.HasMovementProfile(spriteDef.MovementProfileId))
+            {
+                validationIssues.Add(
+                    $"Sprite '{spriteId}' references movement profile '{spriteDef.MovementProfileId}' which does not exist.");
+                continue;
+            }
+
+            // Validate animation profile reference
+            if (string.IsNullOrWhiteSpace(spriteDef.AnimationProfileId))
+            {
+                validationIssues.Add($"Sprite '{spriteId}' is missing required field 'animationProfileId'.");
+                continue;
+            }
+
+            if (!profileService.HasAnimationProfile(spriteDef.AnimationProfileId))
+            {
+                validationIssues.Add(
+                    $"Sprite '{spriteId}' references animation profile '{spriteDef.AnimationProfileId}' which does not exist.");
+                continue;
+            }
+
+            // Cross-profile validation: Check that all animation types referenced by movement profile exist in animation profile
+            try
+            {
+                var movementProfile = profileService.GetMovementProfile(spriteDef.MovementProfileId);
+                var animationProfile = profileService.GetAnimationProfile(spriteDef.AnimationProfileId);
+
+                foreach (var (movementType, speedDef) in movementProfile.Speeds)
+                {
+                    if (!animationProfile.Animations.ContainsKey(speedDef.AnimationType))
+                    {
+                        var availableAnimationTypes = string.Join(", ", animationProfile.Animations.Keys);
+                        validationIssues.Add(
+                            $"Sprite '{spriteId}' movement profile '{spriteDef.MovementProfileId}' references animation type '{speedDef.AnimationType}' " +
+                            $"for movement type '{movementType}', but this animation type doesn't exist in animation profile '{spriteDef.AnimationProfileId}'. " +
+                            $"Available animation types: {availableAnimationTypes}");
+                    }
+                }
+            }
+            catch (ProfileNotFoundException ex)
+            {
+                // Profile not found errors are already handled above, but handle just in case
+                validationIssues.Add($"Sprite '{spriteId}' profile validation failed: {ex.Message}");
+            }
+        }
+
+        if (validationIssues.Count > 0)
+        {
+            foreach (var issue in validationIssues)
+                _logger.Error("Sprite validation error: {Message}", issue);
+
+            throw new InvalidOperationException(
+                $"Sprite validation failed with {validationIssues.Count} error(s). " +
+                "Fix sprite definition profile references before continuing. " +
+                "Errors:\n" + string.Join("\n", validationIssues.Select((msg, idx) => $"  {idx + 1}. {msg}")));
+        }
+
+        _logger.Debug("Validated {SpriteCount} sprite definitions - all profile references are valid", spriteDefIds.Count);
     }
 }

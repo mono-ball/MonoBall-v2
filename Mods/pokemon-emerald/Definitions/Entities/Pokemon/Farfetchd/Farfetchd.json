@@ -144,13 +144,13 @@
     "pokeemerald:move:final_gambit"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/farfetchd/farfetchdfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/farfetchd/farfetchdback",
-    "backShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/farfetchd/farfetchdicon",
-    "overworld": "pokeemerald:pokemon:sprite/farfetchd/farfetchdoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_back",
+    "backShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_icon",
+    "overworld": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_overworld_shiny"
   },
   "forms": [
     {
@@ -174,13 +174,13 @@
         "pokeemerald:ability:scrappy"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchdgalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/farfetchd/farfetchd_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

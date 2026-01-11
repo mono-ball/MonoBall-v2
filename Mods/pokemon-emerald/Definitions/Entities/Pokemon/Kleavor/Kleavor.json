@@ -120,12 +120,12 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kleavor/kleavorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kleavor/kleavorfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/kleavor/kleavorback",
-    "backShiny": "pokeemerald:pokemon:sprite/kleavor/kleavorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/kleavor/kleavoricon",
-    "overworld": "pokeemerald:pokemon:sprite/kleavor/kleavoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kleavor/kleavoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kleavor/kleavor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kleavor/kleavor_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/kleavor/kleavor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kleavor/kleavor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kleavor/kleavor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kleavor/kleavor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kleavor/kleavor_overworld_shiny"
   }
 }

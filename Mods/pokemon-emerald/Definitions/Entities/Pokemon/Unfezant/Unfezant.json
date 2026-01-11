@@ -111,17 +111,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/unfezant/unfezantfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/unfezant/unfezantfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/unfezant/unfezantback",
-    "backShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/unfezant/unfezantbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/unfezant/unfezanticon",
-    "overworld": "pokeemerald:pokemon:sprite/unfezant/unfezantoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/unfezant/unfezantoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/unfezant/unfezant_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/unfezant/unfezant_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/unfezant/unfezant_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/unfezant/unfezant_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/unfezant/unfezant_back",
+    "backShiny": "pokeemerald:pokemon:sprite/unfezant/unfezant_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/unfezant/unfezant_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/unfezant/unfezant_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/unfezant/unfezant_icon",
+    "overworld": "pokeemerald:pokemon:sprite/unfezant/unfezant_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/unfezant/unfezant_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

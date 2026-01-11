@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_rocket_launch_counter",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_scientist",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -151,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_sun_stone_man",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -161,6 +164,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/oldman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_old_man",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -175,6 +179,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_woman",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -186,6 +191,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt3",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -197,6 +203,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt1",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -208,6 +215,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt4",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -219,6 +227,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_grunt2",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_team_magma",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -230,6 +239,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_magma_note",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_magma_note",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -241,6 +251,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_space_center_1f_event_script_steven",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_space_center_1f_steven",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

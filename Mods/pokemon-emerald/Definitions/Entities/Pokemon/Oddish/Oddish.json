@@ -135,12 +135,12 @@
     "pokeemerald:move:strength_sap"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/oddish/oddishfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/oddish/oddishfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/oddish/oddishback",
-    "backShiny": "pokeemerald:pokemon:sprite/oddish/oddishbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/oddish/oddishicon",
-    "overworld": "pokeemerald:pokemon:sprite/oddish/oddishoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/oddish/oddishoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/oddish/oddish_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/oddish/oddish_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/oddish/oddish_back",
+    "backShiny": "pokeemerald:pokemon:sprite/oddish/oddish_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/oddish/oddish_icon",
+    "overworld": "pokeemerald:pokemon:sprite/oddish/oddish_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/oddish/oddish_overworld_shiny"
   }
 }

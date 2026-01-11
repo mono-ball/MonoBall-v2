@@ -167,17 +167,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/steelix/steelixfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/steelix/steelixfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/steelix/steelixfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/steelix/steelixfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/steelix/steelixback",
-    "backShiny": "pokeemerald:pokemon:sprite/steelix/steelixbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/steelix/steelixbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/steelix/steelixbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/steelix/steelixicon",
-    "overworld": "pokeemerald:pokemon:sprite/steelix/steelixoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/steelix/steelixoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/steelix/steelix_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/steelix/steelix_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/steelix/steelix_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/steelix/steelix_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/steelix/steelix_back",
+    "backShiny": "pokeemerald:pokemon:sprite/steelix/steelix_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/steelix/steelix_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/steelix/steelix_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/steelix/steelix_icon",
+    "overworld": "pokeemerald:pokemon:sprite/steelix/steelix_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/steelix/steelix_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -204,13 +204,13 @@
         "pokeemerald:ability:sand_force"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/steelix/steelixmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/steelix/steelixmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/steelix/steelixmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/steelix/steelixmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/steelix/steelixmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/steelix/steelixmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/steelix/steelixmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/steelix/steelix_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/steelix/steelix_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/steelix/steelix_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/steelix/steelix_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/steelix/steelix_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/steelix/steelix_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/steelix/steelix_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:steelixite",

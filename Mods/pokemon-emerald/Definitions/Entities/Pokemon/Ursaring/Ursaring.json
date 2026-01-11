@@ -164,17 +164,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ursaring/ursaringfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ursaring/ursaringfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/ursaring/ursaringfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ursaring/ursaringfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/ursaring/ursaringback",
-    "backShiny": "pokeemerald:pokemon:sprite/ursaring/ursaringbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/ursaring/ursaringbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/ursaring/ursaringbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/ursaring/ursaringicon",
-    "overworld": "pokeemerald:pokemon:sprite/ursaring/ursaringoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ursaring/ursaringoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ursaring/ursaring_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ursaring/ursaring_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/ursaring/ursaring_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ursaring/ursaring_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/ursaring/ursaring_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ursaring/ursaring_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/ursaring/ursaring_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/ursaring/ursaring_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ursaring/ursaring_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ursaring/ursaring_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ursaring/ursaring_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

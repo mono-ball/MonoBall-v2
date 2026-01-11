@@ -144,17 +144,17 @@
     "pokeemerald:move:fake_tears"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shinx/shinxfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shinx/shinxfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/shinx/shinxfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/shinx/shinxfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/shinx/shinxback",
-    "backShiny": "pokeemerald:pokemon:sprite/shinx/shinxbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/shinx/shinxbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/shinx/shinxbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/shinx/shinxicon",
-    "overworld": "pokeemerald:pokemon:sprite/shinx/shinxoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shinx/shinxoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shinx/shinx_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shinx/shinx_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/shinx/shinx_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/shinx/shinx_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/shinx/shinx_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shinx/shinx_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/shinx/shinx_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/shinx/shinx_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shinx/shinx_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shinx/shinx_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shinx/shinx_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

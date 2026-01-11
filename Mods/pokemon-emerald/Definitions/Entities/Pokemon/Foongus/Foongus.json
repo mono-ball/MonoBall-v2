@@ -134,12 +134,12 @@
     "pokeemerald:move:body_slam"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/foongus/foongusfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/foongus/foongusfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/foongus/foongusback",
-    "backShiny": "pokeemerald:pokemon:sprite/foongus/foongusbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/foongus/foongusicon",
-    "overworld": "pokeemerald:pokemon:sprite/foongus/foongusoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/foongus/foongusoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/foongus/foongus_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/foongus/foongus_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/foongus/foongus_back",
+    "backShiny": "pokeemerald:pokemon:sprite/foongus/foongus_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/foongus/foongus_icon",
+    "overworld": "pokeemerald:pokemon:sprite/foongus/foongus_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/foongus/foongus_overworld_shiny"
   }
 }

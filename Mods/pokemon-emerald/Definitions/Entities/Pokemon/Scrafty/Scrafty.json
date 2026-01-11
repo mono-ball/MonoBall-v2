@@ -143,13 +143,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/scrafty/scraftyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/scrafty/scraftyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/scrafty/scraftyback",
-    "backShiny": "pokeemerald:pokemon:sprite/scrafty/scraftybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/scrafty/scraftyicon",
-    "overworld": "pokeemerald:pokemon:sprite/scrafty/scraftyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/scrafty/scraftyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/scrafty/scrafty_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/scrafty/scrafty_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/scrafty/scrafty_back",
+    "backShiny": "pokeemerald:pokemon:sprite/scrafty/scrafty_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/scrafty/scrafty_icon",
+    "overworld": "pokeemerald:pokemon:sprite/scrafty/scrafty_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/scrafty/scrafty_overworld_shiny"
   },
   "forms": [
     {
@@ -175,13 +175,13 @@
         "pokeemerald:ability:intimidate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/scrafty/scraftymegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/scrafty/scraftymegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/scrafty/scraftymegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/scrafty/scraftymegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/scrafty/scraftymegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/scrafty/scraftymegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/scrafty/scraftymegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/scrafty/scrafty_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:scraftinite",

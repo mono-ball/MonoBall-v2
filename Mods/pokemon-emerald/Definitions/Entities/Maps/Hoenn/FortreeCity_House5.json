@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house5_event_script_pokefan_f",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -126,9 +127,10 @@
       "name": "NPC_1",
       "x": 96,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/enemyzigzagoon",
+      "spriteId": "pokeemerald:pokemon:sprite/zigzagoon/zigzagoon_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house5_event_script_zigzagoon",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -139,6 +141,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house5_event_script_man",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

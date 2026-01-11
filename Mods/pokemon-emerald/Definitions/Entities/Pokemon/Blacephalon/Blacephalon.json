@@ -129,13 +129,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/blacephalon/blacephalonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/blacephalon/blacephalonback",
-    "backShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/blacephalon/blacephalonicon",
-    "overworld": "pokeemerald:pokemon:sprite/blacephalon/blacephalonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blacephalon/blacephalon_overworld_shiny"
   },
   "isUltraBeast": true
 }

@@ -76,12 +76,12 @@
     "pokeemerald:move:recycle"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/applin/applinfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/applin/applinfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/applin/applinback",
-    "backShiny": "pokeemerald:pokemon:sprite/applin/applinbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/applin/applinicon",
-    "overworld": "pokeemerald:pokemon:sprite/applin/applinoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/applin/applinoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/applin/applin_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/applin/applin_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/applin/applin_back",
+    "backShiny": "pokeemerald:pokemon:sprite/applin/applin_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/applin/applin_icon",
+    "overworld": "pokeemerald:pokemon:sprite/applin/applin_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/applin/applin_overworld_shiny"
   }
 }

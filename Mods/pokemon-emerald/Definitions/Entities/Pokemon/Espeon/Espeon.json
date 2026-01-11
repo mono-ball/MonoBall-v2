@@ -164,12 +164,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/espeon/espeonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/espeon/espeonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/espeon/espeonback",
-    "backShiny": "pokeemerald:pokemon:sprite/espeon/espeonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/espeon/espeonicon",
-    "overworld": "pokeemerald:pokemon:sprite/espeon/espeonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/espeon/espeonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/espeon/espeon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/espeon/espeon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/espeon/espeon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/espeon/espeon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/espeon/espeon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/espeon/espeon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/espeon/espeon_overworld_shiny"
   }
 }

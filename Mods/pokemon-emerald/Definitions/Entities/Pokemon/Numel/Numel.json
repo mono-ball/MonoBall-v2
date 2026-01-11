@@ -150,17 +150,17 @@
     "pokeemerald:move:heavy_slam"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/numel/numelfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/numel/numelfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/numel/numelfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/numel/numelfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/numel/numelback",
-    "backShiny": "pokeemerald:pokemon:sprite/numel/numelbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/numel/numelbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/numel/numelbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/numel/numelicon",
-    "overworld": "pokeemerald:pokemon:sprite/numel/numeloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/numel/numeloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/numel/numel_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/numel/numel_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/numel/numel_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/numel/numel_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/numel/numel_back",
+    "backShiny": "pokeemerald:pokemon:sprite/numel/numel_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/numel/numel_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/numel/numel_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/numel/numel_icon",
+    "overworld": "pokeemerald:pokemon:sprite/numel/numel_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/numel/numel_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

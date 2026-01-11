@@ -128,12 +128,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/charjabug/charjabugfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/charjabug/charjabugfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/charjabug/charjabugback",
-    "backShiny": "pokeemerald:pokemon:sprite/charjabug/charjabugbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/charjabug/charjabugicon",
-    "overworld": "pokeemerald:pokemon:sprite/charjabug/charjabugoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/charjabug/charjabugoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/charjabug/charjabug_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/charjabug/charjabug_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/charjabug/charjabug_back",
+    "backShiny": "pokeemerald:pokemon:sprite/charjabug/charjabug_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/charjabug/charjabug_icon",
+    "overworld": "pokeemerald:pokemon:sprite/charjabug/charjabug_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charjabug/charjabug_overworld_shiny"
   }
 }

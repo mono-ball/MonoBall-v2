@@ -136,17 +136,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ambipom/ambipomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ambipom/ambipomfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/ambipom/ambipomfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ambipom/ambipomfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/ambipom/ambipomback",
-    "backShiny": "pokeemerald:pokemon:sprite/ambipom/ambipombackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/ambipom/ambipombackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/ambipom/ambipombackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/ambipom/ambipomicon",
-    "overworld": "pokeemerald:pokemon:sprite/ambipom/ambipomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ambipom/ambipomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ambipom/ambipom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ambipom/ambipom_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/ambipom/ambipom_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/ambipom/ambipom_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/ambipom/ambipom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ambipom/ambipom_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/ambipom/ambipom_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/ambipom/ambipom_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ambipom/ambipom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ambipom/ambipom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ambipom/ambipom_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

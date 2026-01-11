@@ -108,6 +108,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_game_designer",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -119,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_graphic_artist",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -130,6 +132,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_fat_man",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -141,6 +144,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_programmer",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -152,6 +156,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_game_boy_kid",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -163,6 +168,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_woman",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_game_designers",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -174,6 +180,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_2f_event_script_scott",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_motel_scott",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

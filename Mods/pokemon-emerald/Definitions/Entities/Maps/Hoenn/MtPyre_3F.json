@@ -57,7 +57,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "6AMAwPcDAAD5AwAA\u002BwMAAOgDAMDoAwDA6AMAwOgDAMDoAwDA9wMAAPkDAID7AwAA6AMAwOgDAMD/AwAAAAQAAAEEAADoAwDA6AMAwOgDAMDoAwDA6AMAwD8EAABABAAAQQQAAOgDAMC9BAAABgQAALwEAAAHBAAAvAQAAL0EAAC9BAAAvQQAALwEAAAGBAAAvAQAAAcEAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvwQAAL8EAAC/BAAAvQQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL8EAAC/BAAAvQQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvwQAAL8EAAC/BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL8EAAC/BAAAvwQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL8EAAC8BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvAQAAL8EAAC/BAAAvQQAAL0EAAC/BAAAwgQAAL0EAAC9BAAAvwQAAMIEAAC9BAAAvQQAAA=="
+      "tileData": "6AMAwPcDAAD5AwAA\u002BwMAAOgDAMDoAwDA6AMAwOgDAMDoAwDA9wMAAPkDAID7AwAA6AMAwOgDAMD/AwAAAAQAAAEEAADoAwDA6AMAwOgDAMDoAwDA6AMAwDwEAAA9BAAAPgQAAOgDAMC9BAAABgQAALwEAAAHBAAAvAQAAL0EAAC9BAAAvQQAALwEAAAGBAAAvAQAAAcEAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvwQAAL8EAAC/BAAAvQQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL8EAAC/BAAAvQQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvwQAAL8EAAC/BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL8EAAC/BAAAvwQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL8EAAC8BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvAQAAL8EAAC/BAAAvQQAAL0EAAC/BAAAwgQAAL0EAAC9BAAAvwQAAMIEAAC9BAAAvQQAAA=="
     },
     {
       "id": "pokeemerald:layer:Hoenn/mt_pyre_3f/overhead",
@@ -167,6 +167,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_3f_event_script_william",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -177,6 +178,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_3f_event_script_kayla",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -188,6 +190,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/mt_pyre_3f_super_repel",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -198,6 +201,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_3f_event_script_gabrielle",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

@@ -29,6 +29,10 @@ public class PokemonExtractor : ExtractorBase
     private const int IconHeight = 32;
     private const int OverworldFrameSize = 32;
 
+    // Profile ID constants - must match SpriteExtractor for consistency
+    private const string MovementProfileNpc = "pokeemerald:profile:movement/npc";
+    private const string AnimationProfileStandard = "pokeemerald:profile:animation/standard";
+
     public PokemonExtractor(string inputPath, string outputPath, bool verbose = false)
         : base(inputPath, outputPath, verbose)
     {
@@ -476,6 +480,7 @@ public class PokemonExtractor : ExtractorBase
     /// <summary>
     /// Generate individual sprite definition JSON files for a Pokemon.
     /// One file per sprite, not a combined manifest.
+    /// Uses the same format as SpriteExtractor with profiles and capabilities.
     /// </summary>
     private void GenerateSpriteDefinitions(string pokemonName, string outputDataDir, string outputGraphicsDir, PokemonAnimationInfo? animInfo)
     {
@@ -490,11 +495,32 @@ public class PokemonExtractor : ExtractorBase
             var spriteType = DetermineSpriteType(spriteName);
             var (frameWidth, frameHeight, frameCount) = DetermineFrameInfo(file, spriteType);
 
-            var animations = GenerateAnimations(spriteName, spriteType, frameCount, animInfo);
+            // Generate animations with proper format (animationType, frameSequence)
+            var animResult = GenerateAnimationsWithProfile(spriteName, spriteType, frameCount, frameWidth, animInfo);
+
+            // Generate consistent underscore ID: ho_oh/ho_oh_front instead of ho_oh/hoohfront
+            var spriteIdName = GenerateSpriteIdName(normalizedName, spriteName, pascalName);
+
+            // Build frames array - required for animation frame lookup
+            var frames = new List<object>();
+            for (int i = 0; i < frameCount; i++)
+            {
+                frames.Add(new
+                {
+                    index = i,
+                    x = spriteType == "overworld" ? i * frameWidth : 0, // Overworld is horizontal strip
+                    y = spriteType == "overworld" ? 0 : i * frameHeight, // Other sprites are vertical
+                    width = frameWidth,
+                    height = frameHeight
+                });
+            }
+
+            // Determine if movement profile is needed (only for sprites with movement animations)
+            string? movementProfileId = animResult.Capabilities.MovementAnimated ? MovementProfileNpc : null;
 
             var spriteDefinition = new
             {
-                id = $"{IdTransformer.Namespace}:pokemon:sprite/{normalizedName}/{spriteName.ToLowerInvariant()}",
+                id = $"{IdTransformer.Namespace}:pokemon:sprite/{normalizedName}/{spriteIdName}",
                 name = FormatDisplayName(spriteName),
                 type = "Sprite",
                 texturePath = $"Graphics/Pokemon/{pascalName}/{spriteName}.png",
@@ -502,12 +528,67 @@ public class PokemonExtractor : ExtractorBase
                 frameWidth,
                 frameHeight,
                 frameCount,
-                animations = animations.Count > 0 ? animations : null
+                movementProfileId,
+                animationProfileId = AnimationProfileStandard,
+                defaultAnimation = animResult.DefaultAnimation,
+                capabilities = new
+                {
+                    directional = animResult.Capabilities.Directional,
+                    movementAnimated = animResult.Capabilities.MovementAnimated
+                },
+                frames,
+                animations = animResult.Animations.Count > 0 ? animResult.Animations : null
             };
 
             var defPath = Path.Combine(outputDataDir, $"{spriteName}.json");
             File.WriteAllText(defPath, JsonSerializer.Serialize(spriteDefinition, JsonOptions.Default));
         }
+    }
+
+    /// <summary>
+    /// Generate sprite ID name with consistent underscores.
+    /// E.g., "HoOhFrontShiny" with pokemon "ho_oh" becomes "ho_oh_front_shiny"
+    /// </summary>
+    private static string GenerateSpriteIdName(string normalizedPokemonName, string spriteName, string pascalPokemonName)
+    {
+        // Remove the pokemon name prefix from sprite name to get suffix
+        // "HoOhFrontShiny" -> "FrontShiny"
+        var suffix = spriteName;
+        if (spriteName.StartsWith(pascalPokemonName, StringComparison.OrdinalIgnoreCase))
+            suffix = spriteName.Substring(pascalPokemonName.Length);
+
+        // Convert PascalCase suffix to snake_case: "FrontShiny" -> "front_shiny"
+        var snakeSuffix = PascalToSnakeCase(suffix);
+
+        // Combine: "ho_oh" + "_" + "front_shiny" = "ho_oh_front_shiny"
+        return string.IsNullOrEmpty(snakeSuffix)
+            ? normalizedPokemonName
+            : $"{normalizedPokemonName}_{snakeSuffix}";
+    }
+
+    /// <summary>
+    /// Convert PascalCase to snake_case.
+    /// E.g., "FrontShiny" -> "front_shiny", "Overworld" -> "overworld"
+    /// </summary>
+    private static string PascalToSnakeCase(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+
+        var result = new System.Text.StringBuilder();
+        for (int i = 0; i < input.Length; i++)
+        {
+            var c = input[i];
+            if (char.IsUpper(c))
+            {
+                if (i > 0) result.Append('_');
+                result.Append(char.ToLower(c));
+            }
+            else
+            {
+                result.Append(c);
+            }
+        }
+        return result.ToString();
     }
 
     /// <summary>
@@ -636,51 +717,113 @@ public class PokemonExtractor : ExtractorBase
         };
     }
 
-    private static List<object> GenerateAnimations(string spriteName, string spriteType, int frameCount, PokemonAnimationInfo? animInfo)
+    /// <summary>
+    /// Generate animations with proper profile-compatible format.
+    /// Uses animationType and frameSequence instead of legacy frameDurations.
+    /// Returns capabilities and defaultAnimation for sprite definition.
+    /// </summary>
+    private static PokemonAnimationResult GenerateAnimationsWithProfile(string spriteName, string spriteType, int frameCount, int frameWidth, PokemonAnimationInfo? animInfo)
     {
-        var animations = new List<object>();
+        var result = new PokemonAnimationResult();
 
         if (spriteType == "front" && animInfo?.AnimationCommands != null)
         {
             var frames = animInfo.AnimationCommands.Select(c => c.Frame).ToList();
-            var durations = animInfo.AnimationCommands.Select(c => c.Duration / 60.0).ToList();
+            var durations = animInfo.AnimationCommands.Select(c => c.Duration / 60.0).ToArray();
 
-            animations.Add(new
+            result.Animations.Add(new
             {
                 name = "idle",
+                animationType = "go", // Battle animations use "go" type
                 loop = true,
                 frameIndices = frames,
-                frameDurations = durations
+                frameSequence = durations,
+                flipHorizontal = false
             });
+
+            result.DefaultAnimation = "idle";
+            result.Capabilities = new PokemonSpriteCapabilities { Directional = false, MovementAnimated = false };
         }
         else if (spriteType == "icon" && frameCount >= 2)
         {
-            animations.Add(new
+            result.Animations.Add(new
             {
                 name = "bounce",
+                animationType = "go",
                 loop = true,
                 frameIndices = new[] { 0, 1 },
-                frameDurations = new[] { 0.5, 0.5 }
+                frameSequence = new[] { 0.5, 0.5 },
+                flipHorizontal = false
             });
+
+            result.DefaultAnimation = "bounce";
+            result.Capabilities = new PokemonSpriteCapabilities { Directional = false, MovementAnimated = false };
         }
         else if (spriteType == "overworld" && frameCount >= 4)
         {
-            // Standard overworld: 6 frames (down, down-walk, up, up-walk, side, side-walk)
-            animations.Add(new { name = "face_down", loop = true, frameIndices = new[] { 0 }, frameDurations = new[] { 1.0 } });
-            animations.Add(new { name = "walk_down", loop = true, frameIndices = new[] { 0, 1 }, frameDurations = new[] { 0.25, 0.25 } });
-            if (frameCount >= 4)
-            {
-                animations.Add(new { name = "face_up", loop = true, frameIndices = new[] { 2 }, frameDurations = new[] { 1.0 } });
-                animations.Add(new { name = "walk_up", loop = true, frameIndices = new[] { 2, 3 }, frameDurations = new[] { 0.25, 0.25 } });
-            }
+            // Standard Pokemon overworld: 6 frames (down, down-walk, up, up-walk, side, side-walk)
+            // Maps to standard directional animations used by NPCs
+
+            // Face animations use "face" animation type
+            result.Animations.Add(new { name = "face_south", animationType = "face", loop = true, frameIndices = new[] { 0 }, flipHorizontal = false });
+            result.Animations.Add(new { name = "face_north", animationType = "face", loop = true, frameIndices = new[] { 2 }, flipHorizontal = false });
+
+            // Walk animations use "go" animation type with 4-frame cycle
+            result.Animations.Add(new { name = "go_south", animationType = "go", loop = true, frameIndices = new[] { 1, 0 }, flipHorizontal = false });
+            result.Animations.Add(new { name = "go_north", animationType = "go", loop = true, frameIndices = new[] { 3, 2 }, flipHorizontal = false });
+
             if (frameCount >= 6)
             {
-                animations.Add(new { name = "face_side", loop = true, frameIndices = new[] { 4 }, frameDurations = new[] { 1.0 } });
-                animations.Add(new { name = "walk_side", loop = true, frameIndices = new[] { 4, 5 }, frameDurations = new[] { 0.25, 0.25 } });
+                // Side animations - west is normal, east is flipped
+                result.Animations.Add(new { name = "face_west", animationType = "face", loop = true, frameIndices = new[] { 4 }, flipHorizontal = false });
+                result.Animations.Add(new { name = "face_east", animationType = "face", loop = true, frameIndices = new[] { 4 }, flipHorizontal = true });
+                result.Animations.Add(new { name = "go_west", animationType = "go", loop = true, frameIndices = new[] { 5, 4 }, flipHorizontal = false });
+                result.Animations.Add(new { name = "go_east", animationType = "go", loop = true, frameIndices = new[] { 5, 4 }, flipHorizontal = true });
             }
+            else
+            {
+                // Fallback for 4-frame sprites - use south frame for side
+                result.Animations.Add(new { name = "face_west", animationType = "face", loop = true, frameIndices = new[] { 0 }, flipHorizontal = false });
+                result.Animations.Add(new { name = "face_east", animationType = "face", loop = true, frameIndices = new[] { 0 }, flipHorizontal = true });
+                result.Animations.Add(new { name = "go_west", animationType = "go", loop = true, frameIndices = new[] { 1, 0 }, flipHorizontal = false });
+                result.Animations.Add(new { name = "go_east", animationType = "go", loop = true, frameIndices = new[] { 1, 0 }, flipHorizontal = true });
+            }
+
+            result.DefaultAnimation = "face_south";
+            result.Capabilities = new PokemonSpriteCapabilities { Directional = true, MovementAnimated = true };
+        }
+        else if (spriteType == "back")
+        {
+            // Back sprites are single frame, non-animated
+            result.Animations.Add(new
+            {
+                name = "idle",
+                animationType = "face",
+                loop = true,
+                frameIndices = new[] { 0 },
+                flipHorizontal = false
+            });
+
+            result.DefaultAnimation = "idle";
+            result.Capabilities = new PokemonSpriteCapabilities { Directional = false, MovementAnimated = false };
+        }
+        else
+        {
+            // Default: single frame idle animation
+            result.Animations.Add(new
+            {
+                name = "idle",
+                animationType = "face",
+                loop = true,
+                frameIndices = new[] { 0 },
+                flipHorizontal = false
+            });
+
+            result.DefaultAnimation = "idle";
+            result.Capabilities = new PokemonSpriteCapabilities { Directional = false, MovementAnimated = false };
         }
 
-        return animations;
+        return result;
     }
 
     /// <summary>
@@ -701,4 +844,23 @@ public class PokemonAnimationInfo
 {
     public int FrontFrames { get; set; }
     public List<(int Frame, int Duration)> AnimationCommands { get; set; } = new();
+}
+
+/// <summary>
+/// Result of animation generation for Pokemon sprites.
+/// </summary>
+public class PokemonAnimationResult
+{
+    public List<object> Animations { get; set; } = new();
+    public PokemonSpriteCapabilities Capabilities { get; set; } = new();
+    public string DefaultAnimation { get; set; } = "";
+}
+
+/// <summary>
+/// Sprite capabilities for Pokemon sprites.
+/// </summary>
+public class PokemonSpriteCapabilities
+{
+    public bool Directional { get; set; }
+    public bool MovementAnimated { get; set; }
 }

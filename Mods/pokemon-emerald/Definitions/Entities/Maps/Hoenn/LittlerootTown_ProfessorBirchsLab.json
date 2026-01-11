@@ -274,6 +274,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_professor_birchs_lab_event_script_aide",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -285,6 +286,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_professor_birchs_lab_event_script_birch",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_birch",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -296,6 +298,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_professor_birchs_lab_event_script_rival",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_rival",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -307,6 +310,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_professor_birchs_lab_event_script_cyndaquil",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_pokeball_cyndaquil",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -318,6 +322,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_professor_birchs_lab_event_script_totodile",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_pokeball_totodile",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -329,6 +334,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/littleroot_town_professor_birchs_lab_event_script_chikorita",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_birchs_lab_pokeball_chikorita",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

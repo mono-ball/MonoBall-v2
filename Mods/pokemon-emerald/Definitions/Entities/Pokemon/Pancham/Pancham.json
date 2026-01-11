@@ -144,12 +144,12 @@
     "pokeemerald:move:power_trip"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pancham/panchamfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pancham/panchamfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pancham/panchamback",
-    "backShiny": "pokeemerald:pokemon:sprite/pancham/panchambackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pancham/panchamicon",
-    "overworld": "pokeemerald:pokemon:sprite/pancham/panchamoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pancham/panchamoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pancham/pancham_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pancham/pancham_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pancham/pancham_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pancham/pancham_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pancham/pancham_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pancham/pancham_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pancham/pancham_overworld_shiny"
   }
 }

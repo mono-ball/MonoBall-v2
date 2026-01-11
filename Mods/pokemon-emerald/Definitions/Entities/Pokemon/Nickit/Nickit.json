@@ -109,12 +109,12 @@
     "pokeemerald:move:torment"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/nickit/nickitfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/nickit/nickitfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/nickit/nickitback",
-    "backShiny": "pokeemerald:pokemon:sprite/nickit/nickitbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/nickit/nickiticon",
-    "overworld": "pokeemerald:pokemon:sprite/nickit/nickitoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/nickit/nickitoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/nickit/nickit_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/nickit/nickit_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/nickit/nickit_back",
+    "backShiny": "pokeemerald:pokemon:sprite/nickit/nickit_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/nickit/nickit_icon",
+    "overworld": "pokeemerald:pokemon:sprite/nickit/nickit_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nickit/nickit_overworld_shiny"
   }
 }

@@ -37,6 +37,13 @@ public struct GridMovement
     public float MovementSpeed { get; set; }
 
     /// <summary>
+    ///     Gets or sets the current movement type (e.g., "walk", "run", "bike").
+    ///     This is used to select the appropriate animation type from the movement profile.
+    ///     Distinct from <see cref="RunningState" /> which is an enum for movement state machine logic.
+    /// </summary>
+    public string CurrentMovementType { get; set; }
+
+    /// <summary>
     ///     Gets or sets the current facing direction.
     ///     This is which way the sprite is facing and can change during turn-in-place.
     /// </summary>
@@ -64,13 +71,15 @@ public struct GridMovement
     ///     Initializes a new instance of the GridMovement struct.
     /// </summary>
     /// <param name="speed">Movement speed in tiles per second (default 4.0).</param>
-    public GridMovement(float speed = 4.0f)
+    /// <param name="movementType">The initial movement type (e.g., "walk", "run", "bike"). Defaults to "walk".</param>
+    public GridMovement(float speed = 4.0f, string? movementType = null)
     {
         IsMoving = false;
         StartPosition = Vector2.Zero;
         TargetPosition = Vector2.Zero;
         MovementProgress = 0f;
         MovementSpeed = speed;
+        CurrentMovementType = movementType ?? "walk";
         FacingDirection = Direction.South;
         MovementDirection = Direction.South;
         MovementLocked = false;

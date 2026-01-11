@@ -243,6 +243,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_corridors_1f_event_script_youngster",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -273,6 +274,7 @@
         ]
       },
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_corridors_1f_event_script_charlie",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

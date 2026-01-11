@@ -126,12 +126,12 @@
     "pokeemerald:move:uproar"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pikipek/pikipekfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pikipek/pikipekfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pikipek/pikipekback",
-    "backShiny": "pokeemerald:pokemon:sprite/pikipek/pikipekbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pikipek/pikipekicon",
-    "overworld": "pokeemerald:pokemon:sprite/pikipek/pikipekoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pikipek/pikipekoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pikipek/pikipek_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pikipek/pikipek_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pikipek/pikipek_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pikipek/pikipek_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pikipek/pikipek_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pikipek/pikipek_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pikipek/pikipek_overworld_shiny"
   }
 }

@@ -14,6 +14,7 @@ using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
 using MonoBall.Core.Mods.Utilities;
+using MonoBall.Core.Profiles;
 using Serilog;
 
 // For AudioDefinition
@@ -45,6 +46,7 @@ public class ResourceManager : IResourceManager, IDisposable
     private readonly object _lock = new();
     private readonly ILogger _logger;
     private readonly IModManager _modManager;
+    private readonly IProfileService _profileService;
     private readonly IResourcePathResolver _pathResolver;
     private readonly LinkedList<string> _shaderAccessOrder = new();
 
@@ -74,6 +76,7 @@ public class ResourceManager : IResourceManager, IDisposable
     /// <param name="graphicsDevice">The graphics device for loading textures and shaders.</param>
     /// <param name="modManager">The mod manager for accessing definitions.</param>
     /// <param name="pathResolver">The resource path resolver.</param>
+    /// <param name="profileService">The profile service for accessing movement and animation profiles. Must not be null.</param>
     /// <param name="logger">The logger for logging operations.</param>
     /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
     /// <exception cref="ArgumentNullException">Thrown when any required parameter is null.</exception>
@@ -81,6 +84,7 @@ public class ResourceManager : IResourceManager, IDisposable
         GraphicsDevice graphicsDevice,
         IModManager modManager,
         IResourcePathResolver pathResolver,
+        IProfileService profileService,
         ILogger logger,
         IVariableSpriteResolver? variableSpriteResolver = null
     )
@@ -88,6 +92,7 @@ public class ResourceManager : IResourceManager, IDisposable
         _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
         _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
         _pathResolver = pathResolver ?? throw new ArgumentNullException(nameof(pathResolver));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _variableSpriteResolver = variableSpriteResolver;
     }
@@ -1140,23 +1145,131 @@ public class ResourceManager : IResourceManager, IDisposable
         if (definition.Animations == null || definition.Frames == null)
             return;
 
+        // Check if sprite has movement capabilities
+        var hasMovementAnimations = definition.Capabilities?.MovementAnimated ?? false;
+
+        // Validate required profile references (fail-fast)
+        // Movement profile is only required for sprites with movement animations
+        if (hasMovementAnimations && string.IsNullOrWhiteSpace(definition.MovementProfileId))
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{spriteId}' has movementAnimated=true but is missing required field 'movementProfileId'. " +
+                "Sprites with movement animations must reference a movement profile (e.g., 'pokeemerald:profile:movement/npc')."
+            );
+        }
+
+        if (string.IsNullOrWhiteSpace(definition.AnimationProfileId))
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{spriteId}' is missing required field 'animationProfileId'. " +
+                "All sprite definitions must reference an animation profile (e.g., 'pokeemerald:profile:animation/standard')."
+            );
+        }
+
+        // Validate profiles exist (fail-fast)
+        // Only validate movement profile if sprite has movement animations
+        if (hasMovementAnimations && !_profileService.HasMovementProfile(definition.MovementProfileId!))
+        {
+            throw new ProfileNotFoundException(
+                definition.MovementProfileId!,
+                $"Sprite definition '{spriteId}' references movement profile '{definition.MovementProfileId}' which does not exist. " +
+                "Available movement profiles: " + string.Join(", ", GetAvailableMovementProfiles())
+            );
+        }
+
+        if (!_profileService.HasAnimationProfile(definition.AnimationProfileId))
+        {
+            throw new ProfileNotFoundException(
+                definition.AnimationProfileId,
+                $"Sprite definition '{spriteId}' references animation profile '{definition.AnimationProfileId}' which does not exist. " +
+                "Available animation profiles: " + string.Join(", ", GetAvailableAnimationProfiles())
+            );
+        }
+
+        // Cross-profile validation - only for sprites with movement animations
+        if (hasMovementAnimations)
+        {
+            try
+            {
+                var movementProfile = _profileService.GetMovementProfile(definition.MovementProfileId!);
+                var animationProfile = _profileService.GetAnimationProfile(definition.AnimationProfileId);
+
+                foreach (var (movementType, speedDef) in movementProfile.Speeds)
+                {
+                    if (!animationProfile.Animations.ContainsKey(speedDef.AnimationType))
+                    {
+                        var availableAnimationTypes = string.Join(", ", animationProfile.Animations.Keys);
+                        throw new InvalidOperationException(
+                            $"Sprite definition '{spriteId}' movement profile '{definition.MovementProfileId}' references animation type '{speedDef.AnimationType}' " +
+                            $"for movement type '{movementType}', but this animation type doesn't exist in animation profile '{definition.AnimationProfileId}'. " +
+                            $"Available animation types in profile: {availableAnimationTypes}");
+                    }
+                }
+            }
+            catch (ProfileNotFoundException)
+            {
+                // Profile not found errors are already handled above, rethrow
+                throw;
+            }
+            catch (InvalidOperationException)
+            {
+                // Cross-profile validation errors, rethrow
+                throw;
+            }
+        }
+
         foreach (var animation in definition.Animations)
         {
             var frameList = new List<SpriteAnimationFrame>();
 
-            if (animation.FrameIndices == null || animation.FrameDurations == null)
+            if (animation.FrameIndices == null || animation.FrameIndices.Count == 0)
                 continue;
 
+            // Validate required animationType (fail-fast)
+            if (string.IsNullOrWhiteSpace(animation.AnimationType))
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{spriteId}' animation '{animation.Name}' is missing required field 'animationType'. " +
+                    "All animations must specify an animation type (e.g., 'face', 'go', 'go_fast', 'run') that exists in the sprite's animation profile."
+                );
+            }
+
+            // Calculate frame durations from profile (all durations in seconds)
+            var frameCount = animation.FrameIndices.Count;
+            double[] frameDurations;
+
+            try
+            {
+                frameDurations = _profileService.CalculateAnimationDurations(
+                    definition.AnimationProfileId,
+                    animation.AnimationType,
+                    frameCount,
+                    animation.FrameSequence // Optional per-frame override from animation definition
+                );
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{spriteId}' animation '{animation.Name}' references animation type '{animation.AnimationType}' " +
+                    $"which does not exist in animation profile '{definition.AnimationProfileId}'. " +
+                    $"Available animation types in profile: {GetAvailableAnimationTypes(definition.AnimationProfileId)}",
+                    ex
+                );
+            }
+            catch (ProfileNotFoundException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{spriteId}' references animation profile '{definition.AnimationProfileId}' which does not exist. " +
+                    "This should have been caught earlier, but ProfileService state may have changed.",
+                    ex
+                );
+            }
+
+            // Create animation frames with precomputed durations
             for (var i = 0; i < animation.FrameIndices.Count; i++)
             {
                 var frameIndex = animation.FrameIndices[i];
-                var frameDuration =
-                    i < animation.FrameDurations.Count ? animation.FrameDurations[i] : 0.0;
-
-                // Handle frame duration unit conversion
-                var durationSeconds = (float)frameDuration;
-                if (frameDuration > MillisecondsThreshold)
-                    durationSeconds = (float)(frameDuration / 1000.0);
+                var durationSeconds = (float)frameDurations[i];
 
                 // Find the frame definition
                 var frameDef = definition.Frames.FirstOrDefault(f => f.Index == frameIndex);
@@ -1190,6 +1303,32 @@ public class ResourceManager : IResourceManager, IDisposable
                 var key = (spriteId, animation.Name);
                 _animationFrameCache[key] = frameList;
             }
+        }
+    }
+
+    private IEnumerable<string> GetAvailableMovementProfiles()
+    {
+        // Helper method for error messages - ProfileService doesn't expose GetAllProfiles, so we'll use a placeholder
+        // In practice, this should list actual available profiles from ProfileService
+        return new[] { "pokeemerald:profile:movement/player", "pokeemerald:profile:movement/npc", "pokeemerald:profile:movement/pokemon" };
+    }
+
+    private IEnumerable<string> GetAvailableAnimationProfiles()
+    {
+        // Helper method for error messages
+        return new[] { "pokeemerald:profile:animation/standard", "pokeemerald:profile:animation/overworld" };
+    }
+
+    private string GetAvailableAnimationTypes(string profileId)
+    {
+        try
+        {
+            var profile = _profileService.GetAnimationProfile(profileId);
+            return string.Join(", ", profile.Animations.Keys);
+        }
+        catch
+        {
+            return "unavailable";
         }
     }
 }

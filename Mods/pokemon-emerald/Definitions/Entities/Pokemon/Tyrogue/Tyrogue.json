@@ -111,12 +111,12 @@
     "pokeemerald:move:feint"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tyrogue/tyroguefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tyrogue/tyroguefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tyrogue/tyrogueback",
-    "backShiny": "pokeemerald:pokemon:sprite/tyrogue/tyroguebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tyrogue/tyrogueicon",
-    "overworld": "pokeemerald:pokemon:sprite/tyrogue/tyrogueoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tyrogue/tyrogueoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tyrogue/tyrogue_overworld_shiny"
   }
 }

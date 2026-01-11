@@ -135,12 +135,12 @@
     "pokeemerald:move:psychic_fangs"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/carvanha/carvanhafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/carvanha/carvanhafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/carvanha/carvanhaback",
-    "backShiny": "pokeemerald:pokemon:sprite/carvanha/carvanhabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/carvanha/carvanhaicon",
-    "overworld": "pokeemerald:pokemon:sprite/carvanha/carvanhaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/carvanha/carvanhaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/carvanha/carvanha_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/carvanha/carvanha_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/carvanha/carvanha_back",
+    "backShiny": "pokeemerald:pokemon:sprite/carvanha/carvanha_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/carvanha/carvanha_icon",
+    "overworld": "pokeemerald:pokemon:sprite/carvanha/carvanha_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carvanha/carvanha_overworld_shiny"
   }
 }

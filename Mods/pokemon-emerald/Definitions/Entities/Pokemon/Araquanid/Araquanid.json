@@ -124,13 +124,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/araquanid/araquanidfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/araquanid/araquanidfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/araquanid/araquanidback",
-    "backShiny": "pokeemerald:pokemon:sprite/araquanid/araquanidbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/araquanid/araquanidicon",
-    "overworld": "pokeemerald:pokemon:sprite/araquanid/araquanidoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/araquanid/araquanidoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/araquanid/araquanid_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/araquanid/araquanid_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/araquanid/araquanid_back",
+    "backShiny": "pokeemerald:pokemon:sprite/araquanid/araquanid_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/araquanid/araquanid_icon",
+    "overworld": "pokeemerald:pokemon:sprite/araquanid/araquanid_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/araquanid/araquanid_overworld_shiny"
   },
   "forms": [
     {
@@ -156,13 +156,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/araquanid/araquanidtotemfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/araquanid/araquanidtotemfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/araquanid/araquanidtotemback",
-        "backShiny": "pokeemerald:pokemon:sprite/araquanid/araquanidtotembackshiny",
-        "icon": "pokeemerald:pokemon:sprite/araquanid/araquanidtotemicon",
-        "overworld": "pokeemerald:pokemon:sprite/araquanid/araquanidtotemoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/araquanid/araquanidtotemoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_back",
+        "backShiny": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_icon",
+        "overworld": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/araquanid/araquanid_totem_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:totem"
     }

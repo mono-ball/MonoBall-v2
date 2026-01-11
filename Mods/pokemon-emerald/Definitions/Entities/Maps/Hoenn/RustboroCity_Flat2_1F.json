@@ -128,9 +128,10 @@
       "name": "NPC_0",
       "x": 176,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:pokemon/skittyold",
+      "spriteId": "pokeemerald:pokemon:sprite/skitty/skitty_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat2_1f_event_script_skitty",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/oldwoman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat2_1f_event_script_old_woman",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

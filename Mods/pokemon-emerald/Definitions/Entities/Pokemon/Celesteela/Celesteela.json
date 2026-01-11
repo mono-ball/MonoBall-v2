@@ -127,13 +127,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/celesteela/celesteelafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/celesteela/celesteelafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/celesteela/celesteelaback",
-    "backShiny": "pokeemerald:pokemon:sprite/celesteela/celesteelabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/celesteela/celesteelaicon",
-    "overworld": "pokeemerald:pokemon:sprite/celesteela/celesteelaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/celesteela/celesteelaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/celesteela/celesteela_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/celesteela/celesteela_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/celesteela/celesteela_back",
+    "backShiny": "pokeemerald:pokemon:sprite/celesteela/celesteela_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/celesteela/celesteela_icon",
+    "overworld": "pokeemerald:pokemon:sprite/celesteela/celesteela_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/celesteela/celesteela_overworld_shiny"
   },
   "isUltraBeast": true
 }

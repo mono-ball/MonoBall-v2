@@ -134,12 +134,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/omastar/omastarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/omastar/omastarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/omastar/omastarback",
-    "backShiny": "pokeemerald:pokemon:sprite/omastar/omastarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/omastar/omastaricon",
-    "overworld": "pokeemerald:pokemon:sprite/omastar/omastaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/omastar/omastaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/omastar/omastar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/omastar/omastar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/omastar/omastar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/omastar/omastar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/omastar/omastar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/omastar/omastar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/omastar/omastar_overworld_shiny"
   }
 }

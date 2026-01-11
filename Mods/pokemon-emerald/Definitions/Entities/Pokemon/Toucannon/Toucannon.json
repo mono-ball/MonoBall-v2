@@ -123,12 +123,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/toucannon/toucannonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/toucannon/toucannonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/toucannon/toucannonback",
-    "backShiny": "pokeemerald:pokemon:sprite/toucannon/toucannonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/toucannon/toucannonicon",
-    "overworld": "pokeemerald:pokemon:sprite/toucannon/toucannonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/toucannon/toucannonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/toucannon/toucannon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/toucannon/toucannon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/toucannon/toucannon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/toucannon/toucannon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/toucannon/toucannon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/toucannon/toucannon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toucannon/toucannon_overworld_shiny"
   }
 }

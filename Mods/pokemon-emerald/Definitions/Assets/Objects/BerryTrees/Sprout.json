@@ -6,6 +6,12 @@
   "frameWidth": 16,
   "frameHeight": 16,
   "frameCount": 2,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "stage0",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -25,11 +31,12 @@
   "animations": [
     {
       "name": "stage0",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.5333333333333333
       ],
       "flipHorizontal": false

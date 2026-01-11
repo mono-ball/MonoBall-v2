@@ -159,12 +159,12 @@
     "pokeemerald:move:aura_sphere"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/squirtle/squirtlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/squirtle/squirtlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/squirtle/squirtleback",
-    "backShiny": "pokeemerald:pokemon:sprite/squirtle/squirtlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/squirtle/squirtleicon",
-    "overworld": "pokeemerald:pokemon:sprite/squirtle/squirtleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/squirtle/squirtleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/squirtle/squirtle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/squirtle/squirtle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/squirtle/squirtle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/squirtle/squirtle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/squirtle/squirtle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/squirtle/squirtle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/squirtle/squirtle_overworld_shiny"
   }
 }

@@ -131,12 +131,12 @@
     "pokeemerald:move:defense_curl"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/cufant/cufantfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/cufant/cufantfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/cufant/cufantback",
-    "backShiny": "pokeemerald:pokemon:sprite/cufant/cufantbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/cufant/cufanticon",
-    "overworld": "pokeemerald:pokemon:sprite/cufant/cufantoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/cufant/cufantoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/cufant/cufant_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/cufant/cufant_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/cufant/cufant_back",
+    "backShiny": "pokeemerald:pokemon:sprite/cufant/cufant_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/cufant/cufant_icon",
+    "overworld": "pokeemerald:pokemon:sprite/cufant/cufant_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cufant/cufant_overworld_shiny"
   }
 }

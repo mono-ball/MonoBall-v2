@@ -127,12 +127,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pawmo/pawmofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pawmo/pawmofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pawmo/pawmoback",
-    "backShiny": "pokeemerald:pokemon:sprite/pawmo/pawmobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pawmo/pawmoicon",
-    "overworld": "pokeemerald:pokemon:sprite/pawmo/pawmooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pawmo/pawmooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pawmo/pawmo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pawmo/pawmo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pawmo/pawmo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pawmo/pawmo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pawmo/pawmo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pawmo/pawmo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pawmo/pawmo_overworld_shiny"
   }
 }

@@ -6,6 +6,13 @@
   "frameWidth": 16,
   "frameHeight": 32,
   "frameCount": 18,
+  "movementProfileId": "pokeemerald:profile:movement/npc",
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "face_south",
+  "capabilities": {
+    "directional": true,
+    "movementAnimated": true
+  },
   "frames": [
     {
       "index": 0,
@@ -137,50 +144,43 @@
   "animations": [
     {
       "name": "face_south",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         0
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "face_north",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         1
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "face_west",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         2
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": false
     },
     {
       "name": "face_east",
+      "animationType": "face",
       "loop": true,
       "frameIndices": [
         2
-      ],
-      "frameDurations": [
-        0.26666666666666666
       ],
       "flipHorizontal": true
     },
     {
       "name": "go_south",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
@@ -188,16 +188,11 @@
         6,
         0
       ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
-      ],
       "flipHorizontal": false
     },
     {
       "name": "go_north",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         4,
@@ -205,45 +200,29 @@
         7,
         1
       ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
-      ],
       "flipHorizontal": false
     },
     {
       "name": "go_west",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "go_east",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5,
         2,
         8,
         2
-      ],
-      "frameDurations": [
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333,
-        0.13333333333333333
       ],
       "flipHorizontal": true
     }

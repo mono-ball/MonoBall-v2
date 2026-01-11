@@ -152,15 +152,15 @@
     "pokeemerald:move:low_kick"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/torchic/torchicfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/torchic/torchicfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/torchic/torchicback",
-    "backShiny": "pokeemerald:pokemon:sprite/torchic/torchicbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/torchic/torchicbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/torchic/torchicbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/torchic/torchicicon",
-    "overworld": "pokeemerald:pokemon:sprite/torchic/torchicoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/torchic/torchicoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/torchic/torchic_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/torchic/torchic_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/torchic/torchic_back",
+    "backShiny": "pokeemerald:pokemon:sprite/torchic/torchic_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/torchic/torchic_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/torchic/torchic_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/torchic/torchic_icon",
+    "overworld": "pokeemerald:pokemon:sprite/torchic/torchic_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/torchic/torchic_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

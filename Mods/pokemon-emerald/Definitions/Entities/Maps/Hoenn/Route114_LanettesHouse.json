@@ -151,6 +151,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route114_lanettes_house_event_script_lanette",
       "visibilityFlag": "pokeemerald:flag:visibility/lanettes_house_lanette",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

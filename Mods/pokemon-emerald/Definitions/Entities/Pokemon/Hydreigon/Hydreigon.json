@@ -153,12 +153,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/hydreigon/hydreigonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/hydreigon/hydreigonback",
-    "backShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/hydreigon/hydreigonicon",
-    "overworld": "pokeemerald:pokemon:sprite/hydreigon/hydreigonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hydreigon/hydreigon_overworld_shiny"
   }
 }

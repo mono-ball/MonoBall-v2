@@ -89,12 +89,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/simipour/simipourfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/simipour/simipourfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/simipour/simipourback",
-    "backShiny": "pokeemerald:pokemon:sprite/simipour/simipourbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/simipour/simipouricon",
-    "overworld": "pokeemerald:pokemon:sprite/simipour/simipouroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/simipour/simipouroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/simipour/simipour_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/simipour/simipour_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/simipour/simipour_back",
+    "backShiny": "pokeemerald:pokemon:sprite/simipour/simipour_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/simipour/simipour_icon",
+    "overworld": "pokeemerald:pokemon:sprite/simipour/simipour_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/simipour/simipour_overworld_shiny"
   }
 }

@@ -111,6 +111,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat2_3f_event_script_devon_employee",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -121,6 +122,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat2_3f_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

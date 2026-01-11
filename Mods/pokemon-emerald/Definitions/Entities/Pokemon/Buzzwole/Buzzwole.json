@@ -127,13 +127,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/buzzwole/buzzwolefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwolefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleback",
-    "backShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwolebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleicon",
-    "overworld": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwoleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_back",
+    "backShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_icon",
+    "overworld": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/buzzwole/buzzwole_overworld_shiny"
   },
   "isUltraBeast": true
 }

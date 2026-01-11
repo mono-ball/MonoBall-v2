@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/aron/aronbackshiny",
+  "id": "pokeemerald:pokemon:sprite/aron/aron_back_shiny",
   "name": "Aronbackshiny",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Aron/AronBackShiny.png",
   "spriteType": "back",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

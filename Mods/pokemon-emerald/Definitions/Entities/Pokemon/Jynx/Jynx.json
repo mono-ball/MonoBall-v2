@@ -140,12 +140,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/jynx/jynxfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/jynx/jynxfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/jynx/jynxback",
-    "backShiny": "pokeemerald:pokemon:sprite/jynx/jynxbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/jynx/jynxicon",
-    "overworld": "pokeemerald:pokemon:sprite/jynx/jynxoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/jynx/jynxoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/jynx/jynx_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/jynx/jynx_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/jynx/jynx_back",
+    "backShiny": "pokeemerald:pokemon:sprite/jynx/jynx_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/jynx/jynx_icon",
+    "overworld": "pokeemerald:pokemon:sprite/jynx/jynx_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/jynx/jynx_overworld_shiny"
   }
 }

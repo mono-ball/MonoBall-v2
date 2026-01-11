@@ -163,13 +163,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/aggron/aggronfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/aggron/aggronfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/aggron/aggronback",
-    "backShiny": "pokeemerald:pokemon:sprite/aggron/aggronbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/aggron/aggronicon",
-    "overworld": "pokeemerald:pokemon:sprite/aggron/aggronoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/aggron/aggronoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/aggron/aggron_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/aggron/aggron_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/aggron/aggron_back",
+    "backShiny": "pokeemerald:pokemon:sprite/aggron/aggron_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/aggron/aggron_icon",
+    "overworld": "pokeemerald:pokemon:sprite/aggron/aggron_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/aggron/aggron_overworld_shiny"
   },
   "forms": [
     {
@@ -194,13 +194,13 @@
         "pokeemerald:ability:filter"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/aggron/aggronmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/aggron/aggronmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/aggron/aggronmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/aggron/aggronmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/aggron/aggronmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/aggron/aggronmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/aggron/aggronmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/aggron/aggron_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/aggron/aggron_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/aggron/aggron_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/aggron/aggron_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/aggron/aggron_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/aggron/aggron_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/aggron/aggron_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:aggronite",

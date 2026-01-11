@@ -127,17 +127,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gloom/gloomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gloom/gloomfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/gloom/gloomfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gloom/gloomfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/gloom/gloomback",
-    "backShiny": "pokeemerald:pokemon:sprite/gloom/gloombackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/gloom/gloombackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/gloom/gloombackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/gloom/gloomicon",
-    "overworld": "pokeemerald:pokemon:sprite/gloom/gloomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gloom/gloomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gloom/gloom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gloom/gloom_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gloom/gloom_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gloom/gloom_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/gloom/gloom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gloom/gloom_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gloom/gloom_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gloom/gloom_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gloom/gloom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gloom/gloom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gloom/gloom_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

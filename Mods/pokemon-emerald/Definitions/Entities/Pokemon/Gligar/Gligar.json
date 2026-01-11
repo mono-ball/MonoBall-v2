@@ -159,17 +159,17 @@
     "pokeemerald:move:poison_tail"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gligar/gligarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gligar/gligarfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/gligar/gligarfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gligar/gligarfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/gligar/gligarback",
-    "backShiny": "pokeemerald:pokemon:sprite/gligar/gligarbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/gligar/gligarbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/gligar/gligarbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/gligar/gligaricon",
-    "overworld": "pokeemerald:pokemon:sprite/gligar/gligaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gligar/gligaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gligar/gligar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gligar/gligar_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gligar/gligar_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gligar/gligar_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/gligar/gligar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gligar/gligar_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gligar/gligar_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gligar/gligar_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gligar/gligar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gligar/gligar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gligar/gligar_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

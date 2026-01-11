@@ -143,12 +143,12 @@
     "pokeemerald:move:tailwind"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/noibat/noibatfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/noibat/noibatfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/noibat/noibatback",
-    "backShiny": "pokeemerald:pokemon:sprite/noibat/noibatbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/noibat/noibaticon",
-    "overworld": "pokeemerald:pokemon:sprite/noibat/noibatoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/noibat/noibatoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/noibat/noibat_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/noibat/noibat_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/noibat/noibat_back",
+    "backShiny": "pokeemerald:pokemon:sprite/noibat/noibat_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/noibat/noibat_icon",
+    "overworld": "pokeemerald:pokemon:sprite/noibat/noibat_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/noibat/noibat_overworld_shiny"
   }
 }

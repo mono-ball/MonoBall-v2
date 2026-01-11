@@ -6,6 +6,12 @@
   "frameWidth": 16,
   "frameHeight": 32,
   "frameCount": 7,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "stay_still",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -57,5 +63,21 @@
       "height": 32
     }
   ],
-  "animations": []
+  "animations": [
+    {
+      "name": "stay_still",
+      "animationType": "go",
+      "loop": true,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

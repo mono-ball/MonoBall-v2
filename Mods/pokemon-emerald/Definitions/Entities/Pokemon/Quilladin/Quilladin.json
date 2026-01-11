@@ -136,12 +136,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/quilladin/quilladinfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/quilladin/quilladinfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/quilladin/quilladinback",
-    "backShiny": "pokeemerald:pokemon:sprite/quilladin/quilladinbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/quilladin/quilladinicon",
-    "overworld": "pokeemerald:pokemon:sprite/quilladin/quilladinoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/quilladin/quilladinoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/quilladin/quilladin_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/quilladin/quilladin_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/quilladin/quilladin_back",
+    "backShiny": "pokeemerald:pokemon:sprite/quilladin/quilladin_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/quilladin/quilladin_icon",
+    "overworld": "pokeemerald:pokemon:sprite/quilladin/quilladin_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quilladin/quilladin_overworld_shiny"
   }
 }

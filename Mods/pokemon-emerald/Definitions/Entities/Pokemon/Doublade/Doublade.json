@@ -124,12 +124,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/doublade/doubladefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/doublade/doubladefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/doublade/doubladeback",
-    "backShiny": "pokeemerald:pokemon:sprite/doublade/doubladebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/doublade/doubladeicon",
-    "overworld": "pokeemerald:pokemon:sprite/doublade/doubladeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/doublade/doubladeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/doublade/doublade_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/doublade/doublade_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/doublade/doublade_back",
+    "backShiny": "pokeemerald:pokemon:sprite/doublade/doublade_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/doublade/doublade_icon",
+    "overworld": "pokeemerald:pokemon:sprite/doublade/doublade_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/doublade/doublade_overworld_shiny"
   }
 }

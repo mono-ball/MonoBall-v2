@@ -108,6 +108,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_2f_event_script_grunt2",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -119,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_2f_event_script_grunt3",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -130,6 +132,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_2f_event_script_shelly",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -140,6 +143,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_2f_workers",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -150,6 +154,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_2f_event_script_weather_scientist",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -160,6 +165,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_2f_workers",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -170,6 +176,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teamaqua/aquamemberm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_2f_aqua_grunt_m",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -181,6 +188,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_2f_event_script_grunt5",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

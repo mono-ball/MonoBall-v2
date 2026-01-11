@@ -162,12 +162,12 @@
     "pokeemerald:move:meteor_mash"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/riolu/riolufront",
-    "frontShiny": "pokeemerald:pokemon:sprite/riolu/riolufrontshiny",
-    "back": "pokeemerald:pokemon:sprite/riolu/rioluback",
-    "backShiny": "pokeemerald:pokemon:sprite/riolu/riolubackshiny",
-    "icon": "pokeemerald:pokemon:sprite/riolu/rioluicon",
-    "overworld": "pokeemerald:pokemon:sprite/riolu/rioluoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/riolu/rioluoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/riolu/riolu_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/riolu/riolu_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/riolu/riolu_back",
+    "backShiny": "pokeemerald:pokemon:sprite/riolu/riolu_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/riolu/riolu_icon",
+    "overworld": "pokeemerald:pokemon:sprite/riolu/riolu_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/riolu/riolu_overworld_shiny"
   }
 }

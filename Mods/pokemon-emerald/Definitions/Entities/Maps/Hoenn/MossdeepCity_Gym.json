@@ -393,6 +393,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/tate",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_tate_and_liza",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -403,6 +404,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_preston",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -413,6 +415,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_blake",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -423,6 +426,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_maura",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -433,6 +437,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_samantha",
+      "facingDirection": "up",
       "elevation": 0
     },
     {
@@ -443,6 +448,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_virgil",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -453,6 +459,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_hannah",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -463,6 +470,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_gym_guide",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -473,6 +481,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/liza",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_tate_and_liza",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -482,6 +491,7 @@
       "y": 480,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -491,6 +501,7 @@
       "y": 464,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -500,6 +511,7 @@
       "y": 480,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -509,6 +521,7 @@
       "y": 464,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -518,6 +531,7 @@
       "y": 336,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -527,6 +541,7 @@
       "y": 144,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -536,6 +551,7 @@
       "y": 128,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -546,6 +562,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_nate",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -556,6 +573,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hexmaniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_sylvia",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -565,6 +583,7 @@
       "y": 96,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -574,6 +593,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -583,6 +603,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -592,6 +613,7 @@
       "y": 544,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -601,6 +623,7 @@
       "y": 528,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -610,6 +633,7 @@
       "y": 544,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -620,6 +644,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_clifford",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -629,6 +654,7 @@
       "y": 416,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -639,6 +665,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_macey",
+      "facingDirection": "left",
       "elevation": 0
     },
     {
@@ -649,6 +676,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hexmaniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_kathleen",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -658,6 +686,7 @@
       "y": 368,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -667,6 +696,7 @@
       "y": 352,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -676,6 +706,7 @@
       "y": 352,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -686,6 +717,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_gym_event_script_nicholas",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -695,6 +727,7 @@
       "y": 352,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -704,6 +737,7 @@
       "y": 368,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -713,6 +747,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -722,6 +757,7 @@
       "y": 400,
       "spriteId": "pokeemerald:sprite:objects/misc/statue",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

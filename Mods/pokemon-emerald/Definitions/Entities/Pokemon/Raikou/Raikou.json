@@ -146,13 +146,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/raikou/raikoufront",
-    "frontShiny": "pokeemerald:pokemon:sprite/raikou/raikoufrontshiny",
-    "back": "pokeemerald:pokemon:sprite/raikou/raikouback",
-    "backShiny": "pokeemerald:pokemon:sprite/raikou/raikoubackshiny",
-    "icon": "pokeemerald:pokemon:sprite/raikou/raikouicon",
-    "overworld": "pokeemerald:pokemon:sprite/raikou/raikouoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/raikou/raikouoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/raikou/raikou_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/raikou/raikou_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/raikou/raikou_back",
+    "backShiny": "pokeemerald:pokemon:sprite/raikou/raikou_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/raikou/raikou_icon",
+    "overworld": "pokeemerald:pokemon:sprite/raikou/raikou_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/raikou/raikou_overworld_shiny"
   },
   "isLegendary": true
 }

@@ -134,12 +134,12 @@
     "pokeemerald:move:outrage"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/horsea/horseafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/horsea/horseafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/horsea/horseaback",
-    "backShiny": "pokeemerald:pokemon:sprite/horsea/horseabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/horsea/horseaicon",
-    "overworld": "pokeemerald:pokemon:sprite/horsea/horseaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/horsea/horseaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/horsea/horsea_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/horsea/horsea_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/horsea/horsea_back",
+    "backShiny": "pokeemerald:pokemon:sprite/horsea/horsea_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/horsea/horsea_icon",
+    "overworld": "pokeemerald:pokemon:sprite/horsea/horsea_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/horsea/horsea_overworld_shiny"
   }
 }

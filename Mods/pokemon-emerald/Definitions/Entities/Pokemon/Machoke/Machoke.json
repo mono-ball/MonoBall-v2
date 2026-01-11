@@ -148,12 +148,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/machoke/machokefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/machoke/machokefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/machoke/machokeback",
-    "backShiny": "pokeemerald:pokemon:sprite/machoke/machokebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/machoke/machokeicon",
-    "overworld": "pokeemerald:pokemon:sprite/machoke/machokeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/machoke/machokeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/machoke/machoke_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/machoke/machoke_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/machoke/machoke_back",
+    "backShiny": "pokeemerald:pokemon:sprite/machoke/machoke_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/machoke/machoke_icon",
+    "overworld": "pokeemerald:pokemon:sprite/machoke/machoke_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/machoke/machoke_overworld_shiny"
   }
 }

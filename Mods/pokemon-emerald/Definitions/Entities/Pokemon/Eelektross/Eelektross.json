@@ -116,13 +116,13 @@
     "pokeemerald:move:waterfall"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/eelektross/eelektrossfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/eelektross/eelektrossback",
-    "backShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/eelektross/eelektrossicon",
-    "overworld": "pokeemerald:pokemon:sprite/eelektross/eelektrossoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/eelektross/eelektross_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/eelektross/eelektross_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/eelektross/eelektross_back",
+    "backShiny": "pokeemerald:pokemon:sprite/eelektross/eelektross_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/eelektross/eelektross_icon",
+    "overworld": "pokeemerald:pokemon:sprite/eelektross/eelektross_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eelektross/eelektross_overworld_shiny"
   },
   "forms": [
     {
@@ -147,13 +147,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/eelektross/eelektrossmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eelektross/eelektross_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:eelektrossite",

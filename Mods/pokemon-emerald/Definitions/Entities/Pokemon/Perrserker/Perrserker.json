@@ -128,12 +128,12 @@
     "pokeemerald:move:thunderbolt"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/perrserker/perrserkerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/perrserker/perrserkerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/perrserker/perrserkerback",
-    "backShiny": "pokeemerald:pokemon:sprite/perrserker/perrserkerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/perrserker/perrserkericon",
-    "overworld": "pokeemerald:pokemon:sprite/perrserker/perrserkeroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/perrserker/perrserkeroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/perrserker/perrserker_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/perrserker/perrserker_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/perrserker/perrserker_back",
+    "backShiny": "pokeemerald:pokemon:sprite/perrserker/perrserker_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/perrserker/perrserker_icon",
+    "overworld": "pokeemerald:pokemon:sprite/perrserker/perrserker_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/perrserker/perrserker_overworld_shiny"
   }
 }

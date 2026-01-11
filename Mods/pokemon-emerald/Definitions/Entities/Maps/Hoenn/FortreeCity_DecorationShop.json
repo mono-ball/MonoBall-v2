@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_pokefan_m",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_girl",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -139,6 +141,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_clerk_desks",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -149,6 +152,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_decoration_shop_event_script_clerk_chairs",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

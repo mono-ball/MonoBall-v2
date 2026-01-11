@@ -160,18 +160,26 @@ public class MapOutputBuilder
 
     private IEnumerable<object> BuildNpcs(List<ObjectEvent> objects, string normalizedName)
     {
-        return objects.Select((o, idx) => new
+        return objects.Select((o, idx) =>
         {
-            id = $"{IdTransformer.Namespace}:npc:{_region}/{normalizedName}/{(o.LocalId ?? $"npc_{idx}").ToLowerInvariant()}",
-            name = o.LocalId ?? $"NPC_{idx}",
-            x = o.X * MetatileSize,
-            y = o.Y * MetatileSize,
-            spriteId = IdTransformer.SpriteId(o.GraphicsId),
-            behaviorId = BehaviorTransformer.TransformBehaviorId(o.MovementType),
-            behaviorParameters = BehaviorTransformer.BuildBehaviorParameters(o.MovementType, o.X * MetatileSize, o.Y * MetatileSize, o.MovementRangeX, o.MovementRangeY),
-            interactionId = TransformInteractionId(o.Script, "npcs"),
-            visibilityFlag = string.IsNullOrEmpty(o.Flag) || o.Flag == "0" ? null : IdTransformer.FlagId(o.Flag),
-            elevation = o.Elevation
+            // Extract facing direction from movement type (e.g., MOVEMENT_TYPE_FACE_DOWN -> "down")
+            // Default to "down" (south) for wandering/other movement types
+            var facingDirection = BehaviorTransformer.ExtractDirection(o.MovementType) ?? "down";
+
+            return new
+            {
+                id = $"{IdTransformer.Namespace}:npc:{_region}/{normalizedName}/{(o.LocalId ?? $"npc_{idx}").ToLowerInvariant()}",
+                name = o.LocalId ?? $"NPC_{idx}",
+                x = o.X * MetatileSize,
+                y = o.Y * MetatileSize,
+                spriteId = IdTransformer.SpriteId(o.GraphicsId),
+                behaviorId = BehaviorTransformer.TransformBehaviorId(o.MovementType),
+                behaviorParameters = BehaviorTransformer.BuildBehaviorParameters(o.MovementType, o.X * MetatileSize, o.Y * MetatileSize, o.MovementRangeX, o.MovementRangeY),
+                interactionId = TransformInteractionId(o.Script, "npcs"),
+                visibilityFlag = string.IsNullOrEmpty(o.Flag) || o.Flag == "0" ? null : IdTransformer.FlagId(o.Flag),
+                facingDirection,
+                elevation = o.Elevation
+            };
         });
     }
 

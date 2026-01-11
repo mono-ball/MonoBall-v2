@@ -140,17 +140,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dustox/dustoxfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dustox/dustoxfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/dustox/dustoxfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/dustox/dustoxfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/dustox/dustoxback",
-    "backShiny": "pokeemerald:pokemon:sprite/dustox/dustoxbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/dustox/dustoxbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/dustox/dustoxbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/dustox/dustoxicon",
-    "overworld": "pokeemerald:pokemon:sprite/dustox/dustoxoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dustox/dustoxoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dustox/dustox_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dustox/dustox_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/dustox/dustox_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/dustox/dustox_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/dustox/dustox_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dustox/dustox_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/dustox/dustox_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/dustox/dustox_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dustox/dustox_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dustox/dustox_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dustox/dustox_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

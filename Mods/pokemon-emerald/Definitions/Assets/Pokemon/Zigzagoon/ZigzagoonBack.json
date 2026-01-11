@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/zigzagoon/zigzagoonback",
+  "id": "pokeemerald:pokemon:sprite/zigzagoon/zigzagoon_back",
   "name": "Zigzagoonback",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Zigzagoon/ZigzagoonBack.png",
   "spriteType": "back",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

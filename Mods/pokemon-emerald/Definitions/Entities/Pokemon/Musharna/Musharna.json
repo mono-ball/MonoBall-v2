@@ -133,12 +133,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/musharna/musharnafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/musharna/musharnafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/musharna/musharnaback",
-    "backShiny": "pokeemerald:pokemon:sprite/musharna/musharnabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/musharna/musharnaicon",
-    "overworld": "pokeemerald:pokemon:sprite/musharna/musharnaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/musharna/musharnaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/musharna/musharna_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/musharna/musharna_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/musharna/musharna_back",
+    "backShiny": "pokeemerald:pokemon:sprite/musharna/musharna_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/musharna/musharna_icon",
+    "overworld": "pokeemerald:pokemon:sprite/musharna/musharna_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/musharna/musharna_overworld_shiny"
   }
 }

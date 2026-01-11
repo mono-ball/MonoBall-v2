@@ -142,12 +142,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/zweilous/zweilousfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/zweilous/zweilousfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/zweilous/zweilousback",
-    "backShiny": "pokeemerald:pokemon:sprite/zweilous/zweilousbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/zweilous/zweilousicon",
-    "overworld": "pokeemerald:pokemon:sprite/zweilous/zweilousoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/zweilous/zweilousoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/zweilous/zweilous_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/zweilous/zweilous_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/zweilous/zweilous_back",
+    "backShiny": "pokeemerald:pokemon:sprite/zweilous/zweilous_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/zweilous/zweilous_icon",
+    "overworld": "pokeemerald:pokemon:sprite/zweilous/zweilous_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zweilous/zweilous_overworld_shiny"
   }
 }

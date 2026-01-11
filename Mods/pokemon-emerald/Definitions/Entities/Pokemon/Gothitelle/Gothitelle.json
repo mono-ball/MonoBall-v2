@@ -130,12 +130,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gothitelle/gothitellefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gothitelle/gothitellefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gothitelle/gothitelleback",
-    "backShiny": "pokeemerald:pokemon:sprite/gothitelle/gothitellebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gothitelle/gothitelleicon",
-    "overworld": "pokeemerald:pokemon:sprite/gothitelle/gothitelleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gothitelle/gothitelleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gothitelle/gothitelle_overworld_shiny"
   }
 }

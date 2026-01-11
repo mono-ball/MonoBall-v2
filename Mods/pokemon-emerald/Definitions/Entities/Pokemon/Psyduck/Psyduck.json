@@ -164,12 +164,12 @@
     "pokeemerald:move:clear_smog"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/psyduck/psyduckfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/psyduck/psyduckfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/psyduck/psyduckback",
-    "backShiny": "pokeemerald:pokemon:sprite/psyduck/psyduckbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/psyduck/psyduckicon",
-    "overworld": "pokeemerald:pokemon:sprite/psyduck/psyduckoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/psyduck/psyduckoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/psyduck/psyduck_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/psyduck/psyduck_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/psyduck/psyduck_back",
+    "backShiny": "pokeemerald:pokemon:sprite/psyduck/psyduck_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/psyduck/psyduck_icon",
+    "overworld": "pokeemerald:pokemon:sprite/psyduck/psyduck_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/psyduck/psyduck_overworld_shiny"
   }
 }

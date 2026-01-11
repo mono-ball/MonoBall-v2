@@ -167,12 +167,12 @@
     "pokeemerald:move:chip_away"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/makuhita/makuhitafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/makuhita/makuhitafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/makuhita/makuhitaback",
-    "backShiny": "pokeemerald:pokemon:sprite/makuhita/makuhitabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/makuhita/makuhitaicon",
-    "overworld": "pokeemerald:pokemon:sprite/makuhita/makuhitaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/makuhita/makuhitaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/makuhita/makuhita_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/makuhita/makuhita_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/makuhita/makuhita_back",
+    "backShiny": "pokeemerald:pokemon:sprite/makuhita/makuhita_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/makuhita/makuhita_icon",
+    "overworld": "pokeemerald:pokemon:sprite/makuhita/makuhita_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/makuhita/makuhita_overworld_shiny"
   }
 }

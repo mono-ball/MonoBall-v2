@@ -147,12 +147,12 @@
     "pokeemerald:move:healing_wish"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/munna/munnafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/munna/munnafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/munna/munnaback",
-    "backShiny": "pokeemerald:pokemon:sprite/munna/munnabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/munna/munnaicon",
-    "overworld": "pokeemerald:pokemon:sprite/munna/munnaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/munna/munnaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/munna/munna_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/munna/munna_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/munna/munna_back",
+    "backShiny": "pokeemerald:pokemon:sprite/munna/munna_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/munna/munna_icon",
+    "overworld": "pokeemerald:pokemon:sprite/munna/munna_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/munna/munna_overworld_shiny"
   }
 }

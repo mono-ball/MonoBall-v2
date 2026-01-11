@@ -160,13 +160,13 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/grimer/grimerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/grimer/grimerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/grimer/grimerback",
-    "backShiny": "pokeemerald:pokemon:sprite/grimer/grimerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/grimer/grimericon",
-    "overworld": "pokeemerald:pokemon:sprite/grimer/grimeroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/grimer/grimeroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/grimer/grimer_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/grimer/grimer_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/grimer/grimer_back",
+    "backShiny": "pokeemerald:pokemon:sprite/grimer/grimer_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/grimer/grimer_icon",
+    "overworld": "pokeemerald:pokemon:sprite/grimer/grimer_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grimer/grimer_overworld_shiny"
   },
   "forms": [
     {
@@ -192,13 +192,13 @@
         "pokeemerald:ability:power_of_alchemy"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/grimer/grimeralolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/grimer/grimeralolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/grimer/grimeralolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/grimer/grimeralolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/grimer/grimeralolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/grimer/grimeralolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/grimer/grimeralolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/grimer/grimer_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/grimer/grimer_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/grimer/grimer_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/grimer/grimer_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/grimer/grimer_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/grimer/grimer_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/grimer/grimer_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

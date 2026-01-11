@@ -129,12 +129,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/toedscruel/toedscruelfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruelfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/toedscruel/toedscruelback",
-    "backShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruelbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/toedscruel/toedscruelicon",
-    "overworld": "pokeemerald:pokemon:sprite/toedscruel/toedscrueloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscrueloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_back",
+    "backShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_icon",
+    "overworld": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toedscruel/toedscruel_overworld_shiny"
   }
 }

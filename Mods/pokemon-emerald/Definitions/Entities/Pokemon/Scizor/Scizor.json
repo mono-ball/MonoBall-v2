@@ -137,15 +137,15 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/scizor/scizorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/scizor/scizorfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/scizor/scizorfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/scizor/scizorfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/scizor/scizorback",
-    "backShiny": "pokeemerald:pokemon:sprite/scizor/scizorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/scizor/scizoricon",
-    "overworld": "pokeemerald:pokemon:sprite/scizor/scizoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/scizor/scizoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/scizor/scizor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/scizor/scizor_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/scizor/scizor_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/scizor/scizor_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/scizor/scizor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/scizor/scizor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/scizor/scizor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/scizor/scizor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/scizor/scizor_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -172,13 +172,13 @@
         "pokeemerald:ability:technician"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/scizor/scizormegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/scizor/scizormegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/scizor/scizormegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/scizor/scizormegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/scizor/scizormegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/scizor/scizormegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/scizor/scizormegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/scizor/scizor_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/scizor/scizor_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/scizor/scizor_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/scizor/scizor_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/scizor/scizor_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/scizor/scizor_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/scizor/scizor_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:scizorite",

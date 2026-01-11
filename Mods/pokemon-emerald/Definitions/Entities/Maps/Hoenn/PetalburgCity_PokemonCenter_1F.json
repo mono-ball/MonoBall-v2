@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/profile_man_event_script_man",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -151,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_pokemon_center_1f_event_script_fat_man",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -165,6 +168,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_pokemon_center_1f_event_script_youngster",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -175,6 +179,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/petalburg_city_pokemon_center_1f_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -127,12 +127,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/revavroom/revavroomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/revavroom/revavroomfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/revavroom/revavroomback",
-    "backShiny": "pokeemerald:pokemon:sprite/revavroom/revavroombackshiny",
-    "icon": "pokeemerald:pokemon:sprite/revavroom/revavroomicon",
-    "overworld": "pokeemerald:pokemon:sprite/revavroom/revavroomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/revavroom/revavroomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/revavroom/revavroom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/revavroom/revavroom_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/revavroom/revavroom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/revavroom/revavroom_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/revavroom/revavroom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/revavroom/revavroom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/revavroom/revavroom_overworld_shiny"
   }
 }

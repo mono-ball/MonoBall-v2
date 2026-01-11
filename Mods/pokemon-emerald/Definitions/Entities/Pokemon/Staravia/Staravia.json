@@ -114,17 +114,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/staravia/staraviafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/staravia/staraviafrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/staravia/staraviafrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/staravia/staraviafrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/staravia/staraviaback",
-    "backShiny": "pokeemerald:pokemon:sprite/staravia/staraviabackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/staravia/staraviabackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/staravia/staraviabackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/staravia/staraviaicon",
-    "overworld": "pokeemerald:pokemon:sprite/staravia/staraviaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/staravia/staraviaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/staravia/staravia_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/staravia/staravia_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/staravia/staravia_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/staravia/staravia_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/staravia/staravia_back",
+    "backShiny": "pokeemerald:pokemon:sprite/staravia/staravia_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/staravia/staravia_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/staravia/staravia_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/staravia/staravia_icon",
+    "overworld": "pokeemerald:pokemon:sprite/staravia/staravia_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/staravia/staravia_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

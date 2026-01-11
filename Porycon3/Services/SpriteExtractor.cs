@@ -346,12 +346,12 @@ public class SpriteExtractor : ExtractorBase
             FrameHeight = frameInfo.FrameHeight,
             FrameCount = frames.Count
         };
-        var animations = GenerateAnimations(picTableName, combinedFrameInfo, sourceCategory);
+        var animResult = GenerateAnimations(picTableName, combinedFrameInfo, sourceCategory);
 
         // Create manifest (IDs are lowercase, file paths preserve case)
         var relativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
         var texturePath = $"Graphics/{baseFolder}/{relativePath}.png";
-        
+
         // Generate sprite ID using IdTransformer.SpriteId() to match map definitions
         // Maps use IdTransformer.SpriteId(graphicsId), so we must use the same method
         // Reconstruct graphics ID from pic table name and category information
@@ -363,8 +363,8 @@ public class SpriteExtractor : ExtractorBase
             var picTableLower = picTableName.ToLowerInvariant();
             if (!picTableLower.StartsWith(playerName + "_"))
             {
-                var variant = picTableLower.StartsWith(playerName) 
-                    ? picTableLower.Substring(playerName.Length) 
+                var variant = picTableLower.StartsWith(playerName)
+                    ? picTableLower.Substring(playerName.Length)
                     : picTableLower;
                 graphicsIdInput = $"{playerName}_{variant}";
             }
@@ -379,6 +379,13 @@ public class SpriteExtractor : ExtractorBase
         }
         var graphicsId = ReconstructGraphicsId(graphicsIdInput, sourceCategory, spriteName);
         var spriteId = IdTransformer.SpriteId(graphicsId);
+        // Determine appropriate profile IDs based on sprite type
+        // Only set MovementProfileId if sprite has movement animations
+        var animationProfileId = DetermineAnimationProfileId(sourceCategory, isPlayerSprite);
+        string? movementProfileId = animResult.Capabilities.MovementAnimated
+            ? DetermineMovementProfileId(sourceCategory, isPlayerSprite)
+            : null;
+
         var manifest = new SpriteManifest
         {
             Id = spriteId,
@@ -388,8 +395,12 @@ public class SpriteExtractor : ExtractorBase
             FrameWidth = frameInfo.FrameWidth,
             FrameHeight = frameInfo.FrameHeight,
             FrameCount = frames.Count,
+            MovementProfileId = movementProfileId,
+            AnimationProfileId = animationProfileId,
+            DefaultAnimation = animResult.DefaultAnimation,
+            Capabilities = animResult.Capabilities,
             Frames = frames,
-            Animations = animations
+            Animations = animResult.Animations
         };
 
             var manifestPath = Path.Combine(dataDir, $"{spriteName}.json");
@@ -485,12 +496,12 @@ public class SpriteExtractor : ExtractorBase
         }
 
         // Generate animations (may not have any for standalone)
-        var animations = GenerateAnimations(spriteName, frameInfo, sourceCategory);
+        var animResult = GenerateAnimations(spriteName, frameInfo, sourceCategory);
 
         // Create manifest (IDs are lowercase, file paths preserve case)
         var outputRelativePath = string.IsNullOrEmpty(spriteCategory) ? spriteName : $"{spriteCategory}/{spriteName}";
         var texturePath = $"Graphics/{baseFolder}/{outputRelativePath}.png";
-        
+
         // Generate sprite ID using IdTransformer.SpriteId() to match map definitions
         // Maps use IdTransformer.SpriteId(graphicsId), so we must use the same method
         // Reconstruct graphics ID from original file name (before PascalCase conversion)
@@ -498,6 +509,13 @@ public class SpriteExtractor : ExtractorBase
             ? ReconstructGraphicsId($"{subDirectory.ToLowerInvariant()}_{originalFileName.ToLowerInvariant()}", sourceCategory, spriteName)
             : ReconstructGraphicsId(originalFileName, sourceCategory, spriteName);
         var spriteId = IdTransformer.SpriteId(graphicsId);
+        // Determine appropriate profile IDs based on sprite type
+        // Only set MovementProfileId if sprite has movement animations
+        var animationProfileId = DetermineAnimationProfileId(sourceCategory, isPlayerSprite);
+        string? movementProfileId = animResult.Capabilities.MovementAnimated
+            ? DetermineMovementProfileId(sourceCategory, isPlayerSprite)
+            : null;
+
         var manifest = new SpriteManifest
         {
             Id = spriteId,
@@ -507,8 +525,12 @@ public class SpriteExtractor : ExtractorBase
             FrameWidth = frameInfo.FrameWidth,
             FrameHeight = frameInfo.FrameHeight,
             FrameCount = frames.Count,
+            MovementProfileId = movementProfileId,
+            AnimationProfileId = animationProfileId,
+            DefaultAnimation = animResult.DefaultAnimation,
+            Capabilities = animResult.Capabilities,
             Frames = frames,
-            Animations = animations
+            Animations = animResult.Animations
         };
 
         var manifestPath = Path.Combine(dataDir, $"{spriteName}.json");
@@ -586,15 +608,19 @@ public class SpriteExtractor : ExtractorBase
         };
     }
 
-    private List<SpriteAnimation> GenerateAnimations(string spriteName, SpriteSheetInfo info, string sourceCategory)
+    private AnimationGenerationResult GenerateAnimations(string spriteName, SpriteSheetInfo info, string sourceCategory)
     {
-        var animations = new List<SpriteAnimation>();
+        var result = new AnimationGenerationResult();
+        var animations = result.Animations;
 
         // Special handling for berry trees (stage-based animations)
         if (sourceCategory == "berry_trees")
         {
             animations.AddRange(GenerateBerryTreeAnimations(info.FrameCount));
-            return animations;
+            // Berry trees: not directional, not movement animated, default to stage0
+            result.Capabilities = new SpriteCapabilities { Directional = false, MovementAnimated = false };
+            result.DefaultAnimation = "stage0";
+            return result;
         }
 
         // Try to find animation table for this sprite
@@ -630,17 +656,35 @@ public class SpriteExtractor : ExtractorBase
                     continue;
 
                 var usesFlip = animDef.Frames.Any(f => f.FlipHorizontal);
-                var frameDurations = animDef.Frames.Select(f => f.Duration / 60.0).ToList();
+
+                // Map animation name to animation type based on pokeemerald patterns
+                // face_* → "face", go_* → "go", go_fast_* → "go_fast", run_* → "run"
+                var animationType = ExtractAnimationTypeFromName(animDef.Name);
+
+                // For custom frame sequences (like run animation), extract frame durations as frameSequence override
+                // This allows per-frame durations that override the profile's default
+                double[]? frameSequenceOverride = null;
+                var frameDurationsFromTicks = animDef.Frames.Select(f => f.Duration / 60.0).ToArray();
+                // Only use frameSequence override if durations vary (not all same value)
+                if (frameDurationsFromTicks.Length > 1 && frameDurationsFromTicks.Distinct().Count() > 1)
+                {
+                    frameSequenceOverride = frameDurationsFromTicks;
+                }
 
                 animations.Add(new SpriteAnimation
                 {
                     Name = animDef.Name,
+                    AnimationType = animationType,
                     Loop = true,
                     FrameIndices = frameIndices,
-                    FrameDurations = frameDurations,
+                    FrameSequence = frameSequenceOverride, // Optional per-frame override
                     FlipHorizontal = usesFlip
                 });
             }
+
+            // Detect capabilities from generated animations
+            result.Capabilities = DetectCapabilities(animations);
+            result.DefaultAnimation = DetermineDefaultAnimation(animations, result.Capabilities);
         }
         else if (info.FrameCount >= 9)
         {
@@ -650,32 +694,154 @@ public class SpriteExtractor : ExtractorBase
             var isRunning = lowerName.Contains("running") || lowerName.Contains("run");
 
             animations.AddRange(GenerateDefaultAnimations(info.FrameCount, isRunning));
+
+            // Standard directional sprites are fully capable
+            result.Capabilities = new SpriteCapabilities { Directional = true, MovementAnimated = true };
+            result.DefaultAnimation = "face_south";
+        }
+        else
+        {
+            // Single frame or simple sprites without directional animations
+            // Generate a simple "stay_still" animation
+            animations.Add(new SpriteAnimation
+            {
+                Name = "stay_still",
+                AnimationType = "go",
+                Loop = true,
+                FrameIndices = Enumerable.Range(0, Math.Max(1, info.FrameCount)).ToList(),
+                FlipHorizontal = false
+            });
+
+            // Simple sprites: not directional, not movement animated
+            result.Capabilities = new SpriteCapabilities { Directional = false, MovementAnimated = false };
+            result.DefaultAnimation = "stay_still";
         }
 
-        return animations;
+        return result;
+    }
+
+    /// <summary>
+    /// Detects sprite capabilities from the generated animations list.
+    /// </summary>
+    private static SpriteCapabilities DetectCapabilities(List<SpriteAnimation> animations)
+    {
+        var animationNames = animations.Select(a => a.Name.ToLowerInvariant()).ToHashSet();
+
+        // Directional: has face_south/north/east/west animations
+        var hasDirectional = animationNames.Contains("face_south") &&
+                            animationNames.Contains("face_north") &&
+                            (animationNames.Contains("face_east") || animationNames.Contains("face_west"));
+
+        // MovementAnimated: has go_* animations (walking animations)
+        var hasMovementAnimations = animationNames.Any(n => n.StartsWith("go_south") ||
+                                                           n.StartsWith("go_north") ||
+                                                           n.StartsWith("go_east") ||
+                                                           n.StartsWith("go_west"));
+
+        return new SpriteCapabilities
+        {
+            Directional = hasDirectional,
+            MovementAnimated = hasMovementAnimations
+        };
+    }
+
+    /// <summary>
+    /// Determines the appropriate default animation based on capabilities.
+    /// </summary>
+    private static string DetermineDefaultAnimation(List<SpriteAnimation> animations, SpriteCapabilities capabilities)
+    {
+        var animationNames = animations.Select(a => a.Name).ToList();
+
+        // Prefer face_south for directional sprites
+        if (capabilities.Directional && animationNames.Contains("face_south"))
+            return "face_south";
+
+        // Fall back to stay_still if available
+        if (animationNames.Contains("stay_still"))
+            return "stay_still";
+
+        // Use first animation as fallback
+        return animationNames.FirstOrDefault() ?? "stay_still";
+    }
+
+    // Profile ID constants - centralized for maintainability
+    private const string MovementProfilePlayer = "pokeemerald:profile:movement/player";
+    private const string MovementProfileNpc = "pokeemerald:profile:movement/npc";
+    private const string AnimationProfileStandard = "pokeemerald:profile:animation/standard";
+
+    /// <summary>
+    ///     Determines the appropriate movement profile ID based on sprite category and type.
+    ///     Uses constants instead of hardcoded strings for maintainability.
+    /// </summary>
+    private static string DetermineMovementProfileId(string sourceCategory, bool isPlayerSprite)
+    {
+        if (isPlayerSprite)
+            return MovementProfilePlayer;
+        // All NPCs, objects, berry trees, etc. use NPC movement profile
+        return MovementProfileNpc;
+    }
+
+    /// <summary>
+    ///     Determines the appropriate animation profile ID for the sprite.
+    ///     Currently all sprites use the standard animation profile, but this can be extended
+    ///     in the future to support sprite-specific animation profiles.
+    /// </summary>
+    private static string DetermineAnimationProfileId(string sourceCategory, bool isPlayerSprite)
+    {
+        // All sprites currently use the standard animation profile
+        // This can be extended in the future for sprite-specific animation profiles
+        return AnimationProfileStandard;
+    }
+
+    /// <summary>
+    ///     Extracts animation type from animation name based on pokeemerald naming patterns.
+    ///     Maps: face_* → "face", go_* → "go", go_fast_* → "go_fast", run_* → "run".
+    ///     Falls back to "go" for unrecognized patterns.
+    /// </summary>
+    private static string ExtractAnimationTypeFromName(string animationName)
+    {
+        if (string.IsNullOrWhiteSpace(animationName))
+            return "go"; // Default fallback
+
+        var lowerName = animationName.ToLowerInvariant();
+        if (lowerName.StartsWith("face_"))
+            return "face";
+        if (lowerName.StartsWith("go_fast_"))
+            return "go_fast";
+        if (lowerName.StartsWith("run_"))
+            return "run";
+        if (lowerName.StartsWith("go_"))
+            return "go";
+
+        // Fallback to "go" for unrecognized patterns (berry tree stages, custom animations)
+        return "go";
     }
 
     /// <summary>
     /// Generates berry tree stage-based animations.
     /// Based on pokeemerald's sAnimTable_BerryTree with 5 growth stage animations.
+    /// Uses "go" animation type as default (berry tree stages don't map to standard animation types).
     /// </summary>
     private List<SpriteAnimation> GenerateBerryTreeAnimations(int frameCount)
     {
         var animations = new List<SpriteAnimation>();
 
         // Berry tree animations from pokeemerald's object_event_anims.h:
-        // - Stage0 (PLANTED): frame 0, 32 ticks
-        // - Stage1 (SPROUTED): frames 1, 2, 32 ticks each
-        // - Stage2 (TALLER/TRUNK/BUDDING): frames 3, 4, 48 ticks each
-        // - Stage3 (FLOWERING): frames 5, 5, 6, 6, 32 ticks each (frame 6 may not exist)
-        // - Stage4 (BERRIES): frames 7, 7, 8, 8, 48 ticks each (frames 7-8 may not exist)
+        // - Stage0 (PLANTED): frame 0, 32 ticks @ 60fps = ~0.533s
+        // - Stage1 (SPROUTED): frames 1, 2, 32 ticks each = ~0.533s each
+        // - Stage2 (TALLER/TRUNK/BUDDING): frames 3, 4, 48 ticks each = ~0.8s each
+        // - Stage3 (FLOWERING): frames 5, 5, 6, 6, 32 ticks each = ~0.533s each (frame 6 may not exist)
+        // - Stage4 (BERRIES): frames 7, 7, 8, 8, 48 ticks each = ~0.8s each (frames 7-8 may not exist)
 
-        // Animation durations (converted from ticks to seconds)
+        // Convert tick durations to seconds for frameSequence override
         var stage0Duration = 32 / 60.0; // ~0.533s
         var stage1Duration = 32 / 60.0; // ~0.533s
         var stage2Duration = 48 / 60.0; // ~0.8s
         var stage3Duration = 32 / 60.0; // ~0.533s
         var stage4Duration = 48 / 60.0; // ~0.8s
+
+        // Note: Berry tree animations use "go" animation type as default
+        // Since these are custom stage-based animations, they can use frameSequence override for per-frame durations
 
         // Stage0 (PLANTED): frame 0
         if (frameCount > 0)
@@ -683,9 +849,10 @@ public class SpriteExtractor : ExtractorBase
             animations.Add(new SpriteAnimation
             {
                 Name = "stage0",
+                AnimationType = "go", // Default animation type
                 Loop = true,
                 FrameIndices = new List<int> { 0 },
-                FrameDurations = new List<double> { stage0Duration },
+                FrameSequence = new[] { stage0Duration }, // Per-frame override for custom duration
                 FlipHorizontal = false
             });
         }
@@ -696,9 +863,10 @@ public class SpriteExtractor : ExtractorBase
             animations.Add(new SpriteAnimation
             {
                 Name = "stage1",
+                AnimationType = "go", // Default animation type
                 Loop = true,
                 FrameIndices = new List<int> { 1, 2 },
-                FrameDurations = new List<double> { stage1Duration, stage1Duration },
+                FrameSequence = new[] { stage1Duration, stage1Duration }, // Per-frame override
                 FlipHorizontal = false
             });
         }
@@ -709,9 +877,10 @@ public class SpriteExtractor : ExtractorBase
             animations.Add(new SpriteAnimation
             {
                 Name = "stage2",
+                AnimationType = "go", // Default animation type
                 Loop = true,
                 FrameIndices = new List<int> { 3, 4 },
-                FrameDurations = new List<double> { stage2Duration, stage2Duration },
+                FrameSequence = new[] { stage2Duration, stage2Duration }, // Per-frame override
                 FlipHorizontal = false
             });
         }
@@ -725,9 +894,10 @@ public class SpriteExtractor : ExtractorBase
                 animations.Add(new SpriteAnimation
                 {
                     Name = "stage3",
+                    AnimationType = "go", // Default animation type
                     Loop = true,
                     FrameIndices = new List<int> { 5, 5, 6, 6 },
-                    FrameDurations = new List<double> { stage3Duration, stage3Duration, stage3Duration, stage3Duration },
+                    FrameSequence = new[] { stage3Duration, stage3Duration, stage3Duration, stage3Duration }, // Per-frame override
                     FlipHorizontal = false
                 });
             }
@@ -737,9 +907,10 @@ public class SpriteExtractor : ExtractorBase
                 animations.Add(new SpriteAnimation
                 {
                     Name = "stage3",
+                    AnimationType = "go", // Default animation type
                     Loop = true,
                     FrameIndices = new List<int> { 5 },
-                    FrameDurations = new List<double> { stage3Duration },
+                    FrameSequence = new[] { stage3Duration }, // Per-frame override
                     FlipHorizontal = false
                 });
             }
@@ -752,9 +923,10 @@ public class SpriteExtractor : ExtractorBase
             animations.Add(new SpriteAnimation
             {
                 Name = "stage4",
+                AnimationType = "go", // Default animation type
                 Loop = true,
                 FrameIndices = new List<int> { 7, 7, 8, 8 },
-                FrameDurations = new List<double> { stage4Duration, stage4Duration, stage4Duration, stage4Duration },
+                FrameSequence = new[] { stage4Duration, stage4Duration, stage4Duration, stage4Duration }, // Per-frame override
                 FlipHorizontal = false
             });
         }
@@ -764,9 +936,10 @@ public class SpriteExtractor : ExtractorBase
             animations.Add(new SpriteAnimation
             {
                 Name = "stage4",
+                AnimationType = "go", // Default animation type
                 Loop = true,
                 FrameIndices = new List<int> { 5 },
-                FrameDurations = new List<double> { stage4Duration },
+                FrameSequence = new[] { stage4Duration }, // Per-frame override
                 FlipHorizontal = false
             });
         }
@@ -781,22 +954,26 @@ public class SpriteExtractor : ExtractorBase
         // Standard 9-frame layout: 3 directions (S, N, W) x 3 frames (idle, walk1, walk2)
         // Frame indices: 0=S_idle, 1=N_idle, 2=W_idle, 3=S_walk1, 4=N_walk1, 5=W_walk1, 6=S_walk2, 7=N_walk2, 8=W_walk2
 
-        // Timing based on whether this is walking or running
-        var faceDuration = 16 / 60.0; // ~0.267s
-        var moveDuration = isRunning ? 4 / 60.0 : 8 / 60.0; // faster for running
+        // Map pokeemerald animation constants to profile animation types:
+        // ANIM_STD_FACE (16 ticks @ 60fps = 0.267s) → "face" animation type
+        // ANIM_STD_GO (8 ticks @ 60fps = 0.133s) → "go" animation type
+        // ANIM_STD_GO_FAST (4 ticks @ 60fps = 0.067s) → "go_fast" animation type
+        // ANIM_STD_RUN (custom frame sequence) → "run" animation type with frameSequence override
 
-        // Face animations (single frame)
-        animations.Add(new SpriteAnimation { Name = "face_south", Loop = true, FrameIndices = new List<int> { 0 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = false });
-        animations.Add(new SpriteAnimation { Name = "face_north", Loop = true, FrameIndices = new List<int> { 1 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = false });
-        animations.Add(new SpriteAnimation { Name = "face_west", Loop = true, FrameIndices = new List<int> { 2 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = false });
-        animations.Add(new SpriteAnimation { Name = "face_east", Loop = true, FrameIndices = new List<int> { 2 }, FrameDurations = new List<double> { faceDuration }, FlipHorizontal = true });
+        // Face animations (single frame) - use "face" animation type
+        animations.Add(new SpriteAnimation { Name = "face_south", AnimationType = "face", Loop = true, FrameIndices = new List<int> { 0 }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = "face_north", AnimationType = "face", Loop = true, FrameIndices = new List<int> { 1 }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = "face_west", AnimationType = "face", Loop = true, FrameIndices = new List<int> { 2 }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = "face_east", AnimationType = "face", Loop = true, FrameIndices = new List<int> { 2 }, FlipHorizontal = true });
 
         // Walk/run cycle: idle -> walk1 -> idle -> walk2 (4 frames per cycle)
+        // Use "go" animation type for walking, "go_fast" for running
+        var animationType = isRunning ? "go_fast" : "go";
         var prefix = isRunning ? "go_fast" : "go";
-        animations.Add(new SpriteAnimation { Name = $"{prefix}_south", Loop = true, FrameIndices = new List<int> { 3, 0, 6, 0 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = false });
-        animations.Add(new SpriteAnimation { Name = $"{prefix}_north", Loop = true, FrameIndices = new List<int> { 4, 1, 7, 1 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = false });
-        animations.Add(new SpriteAnimation { Name = $"{prefix}_west", Loop = true, FrameIndices = new List<int> { 5, 2, 8, 2 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = false });
-        animations.Add(new SpriteAnimation { Name = $"{prefix}_east", Loop = true, FrameIndices = new List<int> { 5, 2, 8, 2 }, FrameDurations = new List<double> { moveDuration, moveDuration, moveDuration, moveDuration }, FlipHorizontal = true });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_south", AnimationType = animationType, Loop = true, FrameIndices = new List<int> { 3, 0, 6, 0 }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_north", AnimationType = animationType, Loop = true, FrameIndices = new List<int> { 4, 1, 7, 1 }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_west", AnimationType = animationType, Loop = true, FrameIndices = new List<int> { 5, 2, 8, 2 }, FlipHorizontal = false });
+        animations.Add(new SpriteAnimation { Name = $"{prefix}_east", AnimationType = animationType, Loop = true, FrameIndices = new List<int> { 5, 2, 8, 2 }, FlipHorizontal = true });
 
         return animations;
     }
@@ -1303,6 +1480,36 @@ public class SpriteExtractor : ExtractorBase
 
 // Data classes for sprite definitions
 
+/// <summary>
+/// Defines the capabilities of a sprite for runtime feature detection.
+/// Used by the game engine to determine what animations and behaviors are supported.
+/// </summary>
+public class SpriteCapabilities
+{
+    /// <summary>
+    /// Whether the sprite has directional animations (face_*, go_* for north/south/east/west).
+    /// If false, the sprite uses a single animation regardless of facing direction.
+    /// </summary>
+    public bool Directional { get; set; }
+
+    /// <summary>
+    /// Whether the sprite's animation changes when moving (go_* animations).
+    /// If false, the sprite keeps its default animation while moving (like a pushed boulder).
+    /// Note: This is separate from GridMovement - a sprite can move without animated movement.
+    /// </summary>
+    public bool MovementAnimated { get; set; }
+}
+
+/// <summary>
+/// Result of animation generation, including the animations list, detected capabilities, and default animation.
+/// </summary>
+public class AnimationGenerationResult
+{
+    public List<SpriteAnimation> Animations { get; set; } = new();
+    public SpriteCapabilities Capabilities { get; set; } = new();
+    public string DefaultAnimation { get; set; } = "";
+}
+
 public class SpriteSheetInfo
 {
     public int FrameWidth { get; set; }
@@ -1322,9 +1529,10 @@ public class FrameDefinition
 public class SpriteAnimation
 {
     public string Name { get; set; } = "";
+    public string AnimationType { get; set; } = ""; // NEW: References animation type in profile (e.g., "face", "go", "go_fast", "run")
     public bool Loop { get; set; }
     public List<int> FrameIndices { get; set; } = new();
-    public List<double> FrameDurations { get; set; } = new();
+    public double[]? FrameSequence { get; set; } // NEW: Optional per-frame durations override (in seconds)
     public bool FlipHorizontal { get; set; }
 }
 
@@ -1337,6 +1545,10 @@ public class SpriteManifest
     public int FrameWidth { get; set; }
     public int FrameHeight { get; set; }
     public int FrameCount { get; set; }
+    public string? MovementProfileId { get; set; } // Optional - only for sprites that can move with animations
+    public string AnimationProfileId { get; set; } = "pokeemerald:profile:animation/standard";
+    public string DefaultAnimation { get; set; } = ""; // Required - the animation to play when spawned/idle
+    public SpriteCapabilities Capabilities { get; set; } = new(); // Required - sprite feature flags
     public List<FrameDefinition> Frames { get; set; } = new();
     public List<SpriteAnimation> Animations { get; set; } = new();
 }

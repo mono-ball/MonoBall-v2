@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house1_event_script_woman",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house1_event_script_man",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -136,9 +138,10 @@
       "name": "NPC_2",
       "x": 64,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:pokemon/enemyzigzagoon",
+      "spriteId": "pokeemerald:pokemon:sprite/zigzagoon/zigzagoon_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house1_event_script_zigzagoon",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -5,6 +5,28 @@ using Microsoft.Xna.Framework;
 namespace MonoBall.Core.Maps;
 
 /// <summary>
+///     Defines the capabilities of a sprite for runtime feature detection.
+///     Used by the game engine to determine what animations and behaviors are supported.
+/// </summary>
+public class SpriteCapabilities
+{
+    /// <summary>
+    ///     Whether the sprite has directional animations (face_*, go_* for north/south/east/west).
+    ///     If false, the sprite uses a single animation regardless of facing direction.
+    /// </summary>
+    [JsonPropertyName("directional")]
+    public bool Directional { get; set; }
+
+    /// <summary>
+    ///     Whether the sprite's animation changes when moving (go_* animations).
+    ///     If false, the sprite keeps its default animation while moving (like a pushed boulder).
+    ///     Note: This is separate from GridMovement - a sprite can move without animated movement.
+    /// </summary>
+    [JsonPropertyName("movementAnimated")]
+    public bool MovementAnimated { get; set; }
+}
+
+/// <summary>
 ///     Represents a sprite definition loaded from JSON.
 /// </summary>
 public class SpriteDefinition
@@ -50,6 +72,34 @@ public class SpriteDefinition
     /// </summary>
     [JsonPropertyName("frameCount")]
     public int FrameCount { get; set; }
+
+    /// <summary>
+    ///     The movement profile ID that defines movement speeds and animation type mappings for this sprite.
+    ///     Optional - only required for sprites that have movement animations (Capabilities.MovementAnimated = true).
+    /// </summary>
+    [JsonPropertyName("movementProfileId")]
+    public string? MovementProfileId { get; set; }
+
+    /// <summary>
+    ///     The animation profile ID that defines animation durations for this sprite.
+    ///     Required field - must reference an existing animation profile (e.g., "pokeemerald:profile:animation/standard").
+    /// </summary>
+    [JsonPropertyName("animationProfileId")]
+    public string AnimationProfileId { get; set; } = string.Empty;
+
+    /// <summary>
+    ///     The default animation to play when the sprite is spawned or idle.
+    ///     Required field - must reference an animation in the Animations list.
+    /// </summary>
+    [JsonPropertyName("defaultAnimation")]
+    public string DefaultAnimation { get; set; } = string.Empty;
+
+    /// <summary>
+    ///     The capabilities of this sprite (directional, movement animated, etc.).
+    ///     Used by the engine to determine what features are available for this sprite.
+    /// </summary>
+    [JsonPropertyName("capabilities")]
+    public SpriteCapabilities Capabilities { get; set; } = new();
 
     /// <summary>
     ///     The list of frame definitions.
@@ -112,6 +162,14 @@ public class SpriteAnimation
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
+    ///     The animation type that references an animation definition in the animation profile (e.g., "face", "go", "go_fast", "run").
+    ///     Required field - used to lookup duration from the sprite's animation profile.
+    ///     The animation name typically follows the pattern "{animationType}_{direction}" (e.g., "go_south", "go_fast_north").
+    /// </summary>
+    [JsonPropertyName("animationType")]
+    public string AnimationType { get; set; } = string.Empty;
+
+    /// <summary>
     ///     Whether this animation loops.
     /// </summary>
     [JsonPropertyName("loop")]
@@ -124,10 +182,13 @@ public class SpriteAnimation
     public List<int> FrameIndices { get; set; } = new();
 
     /// <summary>
-    ///     The durations for each frame in seconds.
+    ///     Optional per-frame durations in seconds (overrides profile's frameSequence or duration for each frame).
+    ///     If specified, length must match the number of frames in FrameIndices.
+    ///     Values are in seconds (same unit as animation profile durations).
+    ///     If null, durations are calculated from the sprite's animation profile.
     /// </summary>
-    [JsonPropertyName("frameDurations")]
-    public List<double> FrameDurations { get; set; } = new();
+    [JsonPropertyName("frameSequence")]
+    public double[]? FrameSequence { get; set; }
 
     /// <summary>
     ///     Whether to flip the sprite horizontally for this animation.

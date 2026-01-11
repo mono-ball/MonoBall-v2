@@ -140,12 +140,12 @@
     "pokeemerald:move:ally_switch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/elgyem/elgyemfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/elgyem/elgyemfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/elgyem/elgyemback",
-    "backShiny": "pokeemerald:pokemon:sprite/elgyem/elgyembackshiny",
-    "icon": "pokeemerald:pokemon:sprite/elgyem/elgyemicon",
-    "overworld": "pokeemerald:pokemon:sprite/elgyem/elgyemoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/elgyem/elgyemoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/elgyem/elgyem_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/elgyem/elgyem_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/elgyem/elgyem_back",
+    "backShiny": "pokeemerald:pokemon:sprite/elgyem/elgyem_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/elgyem/elgyem_icon",
+    "overworld": "pokeemerald:pokemon:sprite/elgyem/elgyem_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/elgyem/elgyem_overworld_shiny"
   }
 }

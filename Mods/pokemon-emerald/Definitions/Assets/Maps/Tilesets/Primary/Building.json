@@ -13,11 +13,11 @@
   "margin": 0,
   "tiles": [
     {
-      "localTileId": 1,
+      "localTileId": 0,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_86"
     },
     {
-      "localTileId": 2,
+      "localTileId": 1,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_86"
     },
     {

@@ -11,6 +11,10 @@
 
     <!-- Generate documentation file for analyzers -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Exclude satellite assemblies with unsupported locales to prevent NETSDK1188 warnings -->
+    <!-- Since we don't use localization, only include English resources to avoid unsupported locale warnings -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <ItemGroup>

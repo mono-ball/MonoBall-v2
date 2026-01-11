@@ -208,6 +208,7 @@
         "rangeY": 4
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_boy1",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -222,6 +223,7 @@
         "rangeY": 3
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_boy2",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -236,6 +238,7 @@
         "rangeY": 2
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_girl",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -246,6 +249,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contest_mc",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -256,6 +260,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/contestjudge",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contest_judge",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -266,6 +271,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contestant1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -276,6 +282,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contestant2",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -286,6 +293,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contestant3",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -296,6 +304,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/linkreceptionist",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contestant4",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -306,6 +315,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contest_audience1",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -316,6 +326,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contest_audience4",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -326,6 +337,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/boy1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contest_audience2",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -336,6 +348,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contest_mc",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -346,6 +359,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/contestjudge",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contest_judge",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -356,6 +370,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contestant1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -366,6 +381,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/twin",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contestant2",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -376,6 +392,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contestant3",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -386,6 +403,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contestant4",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -396,6 +414,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contest_audience1",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -406,6 +425,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contest_audience3",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -416,6 +436,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_beauty_contest_audience2",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -426,6 +447,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/camper",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_smart_contest_audience3",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -436,6 +458,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contest_mc",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -446,6 +469,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/contestjudge",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contest_judge",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -456,6 +480,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/boy2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contestant1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -466,6 +491,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contestant2",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -476,6 +502,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/boy3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contestant3",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -486,6 +513,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contestant4",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -496,6 +524,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contest_audience1",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -506,6 +535,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contest_audience3",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -516,6 +546,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/littlegirl",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_cute_contest_audience2",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -530,6 +561,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_hall_event_script_sailor",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -142,17 +142,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/politoed/politoedfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/politoed/politoedfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/politoed/politoedfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/politoed/politoedfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/politoed/politoedback",
-    "backShiny": "pokeemerald:pokemon:sprite/politoed/politoedbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/politoed/politoedbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/politoed/politoedbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/politoed/politoedicon",
-    "overworld": "pokeemerald:pokemon:sprite/politoed/politoedoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/politoed/politoedoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/politoed/politoed_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/politoed/politoed_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/politoed/politoed_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/politoed/politoed_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/politoed/politoed_back",
+    "backShiny": "pokeemerald:pokemon:sprite/politoed/politoed_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/politoed/politoed_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/politoed/politoed_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/politoed/politoed_icon",
+    "overworld": "pokeemerald:pokemon:sprite/politoed/politoed_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/politoed/politoed_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

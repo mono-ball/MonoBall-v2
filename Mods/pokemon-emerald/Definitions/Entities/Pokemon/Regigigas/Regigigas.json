@@ -135,13 +135,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/regigigas/regigigasfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/regigigas/regigigasfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/regigigas/regigigasback",
-    "backShiny": "pokeemerald:pokemon:sprite/regigigas/regigigasbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/regigigas/regigigasicon",
-    "overworld": "pokeemerald:pokemon:sprite/regigigas/regigigasoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/regigigas/regigigasoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/regigigas/regigigas_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/regigigas/regigigas_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/regigigas/regigigas_back",
+    "backShiny": "pokeemerald:pokemon:sprite/regigigas/regigigas_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/regigigas/regigigas_icon",
+    "overworld": "pokeemerald:pokemon:sprite/regigigas/regigigas_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/regigigas/regigigas_overworld_shiny"
   },
   "isLegendary": true
 }

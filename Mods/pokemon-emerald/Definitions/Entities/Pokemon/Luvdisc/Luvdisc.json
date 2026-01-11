@@ -138,12 +138,12 @@
     "pokeemerald:move:entrainment"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/luvdisc/luvdiscfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdiscfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/luvdisc/luvdiscback",
-    "backShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdiscbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/luvdisc/luvdiscicon",
-    "overworld": "pokeemerald:pokemon:sprite/luvdisc/luvdiscoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdiscoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_back",
+    "backShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_icon",
+    "overworld": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/luvdisc/luvdisc_overworld_shiny"
   }
 }

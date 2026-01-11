@@ -292,9 +292,9 @@
     },
     {
       "localTileId": 102,
-      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
-      "terrainId": "pokeemerald:terrain:mountain",
-      "collisionId": "pokeemerald:collision:mountain"
+      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 103,
@@ -303,10 +303,10 @@
       "collisionId": "pokeemerald:collision:mountain"
     },
     {
-      "localTileId": 109,
-      "interactionId": "pokeemerald:script:interactions/tiles/pond_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
+      "localTileId": 104,
+      "interactionId": "pokeemerald:script:interactions/tiles/mountain",
+      "terrainId": "pokeemerald:terrain:mountain",
+      "collisionId": "pokeemerald:collision:mountain"
     },
     {
       "localTileId": 110,

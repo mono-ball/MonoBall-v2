@@ -129,13 +129,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/excadrill/excadrillfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/excadrill/excadrillback",
-    "backShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/excadrill/excadrillicon",
-    "overworld": "pokeemerald:pokemon:sprite/excadrill/excadrilloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/excadrill/excadrilloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/excadrill/excadrill_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/excadrill/excadrill_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/excadrill/excadrill_back",
+    "backShiny": "pokeemerald:pokemon:sprite/excadrill/excadrill_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/excadrill/excadrill_icon",
+    "overworld": "pokeemerald:pokemon:sprite/excadrill/excadrill_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/excadrill/excadrill_overworld_shiny"
   },
   "forms": [
     {
@@ -161,13 +161,13 @@
         "pokeemerald:ability:mold_breaker"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/excadrill/excadrillmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/excadrill/excadrillmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/excadrill/excadrill_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:excadrite",

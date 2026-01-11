@@ -139,13 +139,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/decidueye/decidueyefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/decidueye/decidueyefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/decidueye/decidueyeback",
-    "backShiny": "pokeemerald:pokemon:sprite/decidueye/decidueyebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/decidueye/decidueyeicon",
-    "overworld": "pokeemerald:pokemon:sprite/decidueye/decidueyeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/decidueye/decidueyeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/decidueye/decidueye_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/decidueye/decidueye_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/decidueye/decidueye_back",
+    "backShiny": "pokeemerald:pokemon:sprite/decidueye/decidueye_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/decidueye/decidueye_icon",
+    "overworld": "pokeemerald:pokemon:sprite/decidueye/decidueye_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/decidueye/decidueye_overworld_shiny"
   },
   "forms": [
     {
@@ -171,13 +171,13 @@
         "pokeemerald:ability:scrappy"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuifront",
-        "frontShiny": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuifrontshiny",
-        "back": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuiback",
-        "backShiny": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuibackshiny",
-        "icon": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuiicon",
-        "overworld": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuioverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/decidueye/decidueyehisuioverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_back",
+        "backShiny": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_icon",
+        "overworld": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/decidueye/decidueye_hisui_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:hisui"

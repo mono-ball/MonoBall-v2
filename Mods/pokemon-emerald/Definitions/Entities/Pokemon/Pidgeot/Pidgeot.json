@@ -133,13 +133,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pidgeot/pidgeotfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pidgeot/pidgeotback",
-    "backShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pidgeot/pidgeoticon",
-    "overworld": "pokeemerald:pokemon:sprite/pidgeot/pidgeotoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_overworld_shiny"
   },
   "forms": [
     {
@@ -164,13 +164,13 @@
         "pokeemerald:ability:no_guard"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeotmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pidgeot/pidgeot_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:pidgeotite",

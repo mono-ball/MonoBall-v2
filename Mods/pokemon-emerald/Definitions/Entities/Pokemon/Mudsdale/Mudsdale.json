@@ -116,12 +116,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mudsdale/mudsdalefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdalefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleback",
-    "backShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdalebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleicon",
-    "overworld": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdaleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mudsdale/mudsdale_overworld_shiny"
   }
 }

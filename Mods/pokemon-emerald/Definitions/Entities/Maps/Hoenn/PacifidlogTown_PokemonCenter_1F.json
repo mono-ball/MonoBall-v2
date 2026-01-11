@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/oldman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_pokemon_center_1f_event_script_old_man",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -151,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_pokemon_center_1f_event_script_girl",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -161,6 +164,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_pokemon_center_1f_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -171,6 +175,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_pokemon_center_1f_event_script_explosion_tutor",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

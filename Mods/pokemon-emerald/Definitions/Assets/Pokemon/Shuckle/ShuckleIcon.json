@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:pokemon:sprite/shuckle/shuckleicon",
+  "id": "pokeemerald:pokemon:sprite/shuckle/shuckle_icon",
   "name": "Shuckleicon",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Shuckle/ShuckleIcon.png",
@@ -7,18 +7,42 @@
   "frameWidth": 32,
   "frameHeight": 32,
   "frameCount": 2,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "bounce",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "index": 1,
+      "x": 0,
+      "y": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
   "animations": [
     {
       "name": "bounce",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0,
         1
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.5,
         0.5
-      ]
+      ],
+      "flipHorizontal": false
     }
   ]
 }

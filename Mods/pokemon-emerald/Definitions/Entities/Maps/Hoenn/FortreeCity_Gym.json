@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -140,6 +140,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/winona",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_winona",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -150,6 +151,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_jared",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -160,6 +162,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/camper",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_flint",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -170,6 +173,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/picnicker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_ashley",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -180,6 +184,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_edwardo",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -190,6 +195,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_gym_guide",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -200,6 +206,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_humberto",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -210,6 +217,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_gym_event_script_darius",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

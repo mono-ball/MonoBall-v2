@@ -144,12 +144,12 @@
     "pokeemerald:move:psycho_shift"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/woobat/woobatfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/woobat/woobatfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/woobat/woobatback",
-    "backShiny": "pokeemerald:pokemon:sprite/woobat/woobatbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/woobat/woobaticon",
-    "overworld": "pokeemerald:pokemon:sprite/woobat/woobatoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/woobat/woobatoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/woobat/woobat_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/woobat/woobat_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/woobat/woobat_back",
+    "backShiny": "pokeemerald:pokemon:sprite/woobat/woobat_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/woobat/woobat_icon",
+    "overworld": "pokeemerald:pokemon:sprite/woobat/woobat_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/woobat/woobat_overworld_shiny"
   }
 }

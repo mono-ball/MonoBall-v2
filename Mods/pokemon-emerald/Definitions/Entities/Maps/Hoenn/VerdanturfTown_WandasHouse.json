@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -124,6 +124,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_wandas_house_event_script_wally",
       "visibilityFlag": "pokeemerald:flag:visibility/verdanturf_town_wandas_house_wally",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -135,6 +136,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_wandas_house_event_script_wandas_boyfriend",
       "visibilityFlag": "pokeemerald:flag:visibility/verdanturf_town_wandas_house_wandas_boyfriend",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -146,6 +148,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_wandas_house_event_script_wallys_uncle",
       "visibilityFlag": "pokeemerald:flag:visibility/verdanturf_town_wandas_house_wallys_uncle",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -156,6 +159,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_wandas_house_event_script_wallys_aunt",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -167,6 +171,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/verdanturf_town_wandas_house_event_script_wanda",
       "visibilityFlag": "pokeemerald:flag:visibility/verdanturf_town_wandas_house_wanda",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

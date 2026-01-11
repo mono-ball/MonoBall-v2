@@ -137,12 +137,12 @@
     "pokeemerald:move:endure"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/alomomola/alomomolafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/alomomola/alomomolafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/alomomola/alomomolaback",
-    "backShiny": "pokeemerald:pokemon:sprite/alomomola/alomomolabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/alomomola/alomomolaicon",
-    "overworld": "pokeemerald:pokemon:sprite/alomomola/alomomolaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/alomomola/alomomolaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/alomomola/alomomola_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/alomomola/alomomola_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/alomomola/alomomola_back",
+    "backShiny": "pokeemerald:pokemon:sprite/alomomola/alomomola_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/alomomola/alomomola_icon",
+    "overworld": "pokeemerald:pokemon:sprite/alomomola/alomomola_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/alomomola/alomomola_overworld_shiny"
   }
 }

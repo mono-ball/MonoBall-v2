@@ -123,12 +123,12 @@
     "pokeemerald:move:quick_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fletchling/fletchlingfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fletchling/fletchlingfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fletchling/fletchlingback",
-    "backShiny": "pokeemerald:pokemon:sprite/fletchling/fletchlingbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fletchling/fletchlingicon",
-    "overworld": "pokeemerald:pokemon:sprite/fletchling/fletchlingoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fletchling/fletchlingoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fletchling/fletchling_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fletchling/fletchling_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fletchling/fletchling_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fletchling/fletchling_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fletchling/fletchling_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fletchling/fletchling_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fletchling/fletchling_overworld_shiny"
   }
 }

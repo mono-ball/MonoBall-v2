@@ -120,12 +120,12 @@
     "pokeemerald:move:cosmic_power"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/chingling/chinglingfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/chingling/chinglingfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/chingling/chinglingback",
-    "backShiny": "pokeemerald:pokemon:sprite/chingling/chinglingbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/chingling/chinglingicon",
-    "overworld": "pokeemerald:pokemon:sprite/chingling/chinglingoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/chingling/chinglingoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/chingling/chingling_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/chingling/chingling_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/chingling/chingling_back",
+    "backShiny": "pokeemerald:pokemon:sprite/chingling/chingling_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/chingling/chingling_icon",
+    "overworld": "pokeemerald:pokemon:sprite/chingling/chingling_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chingling/chingling_overworld_shiny"
   }
 }

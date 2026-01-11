@@ -136,17 +136,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/meganium/meganiumfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/meganium/meganiumfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/meganium/meganiumfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/meganium/meganiumfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/meganium/meganiumback",
-    "backShiny": "pokeemerald:pokemon:sprite/meganium/meganiumbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/meganium/meganiumbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/meganium/meganiumbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/meganium/meganiumicon",
-    "overworld": "pokeemerald:pokemon:sprite/meganium/meganiumoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/meganium/meganiumoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/meganium/meganium_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/meganium/meganium_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/meganium/meganium_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/meganium/meganium_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/meganium/meganium_back",
+    "backShiny": "pokeemerald:pokemon:sprite/meganium/meganium_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/meganium/meganium_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/meganium/meganium_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/meganium/meganium_icon",
+    "overworld": "pokeemerald:pokemon:sprite/meganium/meganium_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/meganium/meganium_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -173,13 +173,13 @@
         "pokeemerald:ability:leaf_guard"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/meganium/meganiummegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/meganium/meganiummegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/meganium/meganiummegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/meganium/meganiummegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/meganium/meganiummegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/meganium/meganiummegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/meganium/meganiummegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/meganium/meganium_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/meganium/meganium_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/meganium/meganium_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/meganium/meganium_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/meganium/meganium_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/meganium/meganium_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/meganium/meganium_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:meganiumite",

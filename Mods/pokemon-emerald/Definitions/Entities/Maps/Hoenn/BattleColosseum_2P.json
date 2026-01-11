@@ -144,6 +144,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/linkreceptionist",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_colosseum_2_p_event_script_attendant",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

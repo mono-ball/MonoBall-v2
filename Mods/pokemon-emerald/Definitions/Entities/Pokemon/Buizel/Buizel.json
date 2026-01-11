@@ -158,15 +158,15 @@
     "pokeemerald:move:helping_hand"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/buizel/buizelfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/buizel/buizelfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/buizel/buizelback",
-    "backShiny": "pokeemerald:pokemon:sprite/buizel/buizelbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/buizel/buizelbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/buizel/buizelbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/buizel/buizelicon",
-    "overworld": "pokeemerald:pokemon:sprite/buizel/buizeloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/buizel/buizeloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/buizel/buizel_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/buizel/buizel_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/buizel/buizel_back",
+    "backShiny": "pokeemerald:pokemon:sprite/buizel/buizel_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/buizel/buizel_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/buizel/buizel_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/buizel/buizel_icon",
+    "overworld": "pokeemerald:pokemon:sprite/buizel/buizel_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/buizel/buizel_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -130,12 +130,12 @@
     "pokeemerald:move:muddy_water"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/barboach/barboachfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/barboach/barboachfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/barboach/barboachback",
-    "backShiny": "pokeemerald:pokemon:sprite/barboach/barboachbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/barboach/barboachicon",
-    "overworld": "pokeemerald:pokemon:sprite/barboach/barboachoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/barboach/barboachoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/barboach/barboach_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/barboach/barboach_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/barboach/barboach_back",
+    "backShiny": "pokeemerald:pokemon:sprite/barboach/barboach_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/barboach/barboach_icon",
+    "overworld": "pokeemerald:pokemon:sprite/barboach/barboach_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/barboach/barboach_overworld_shiny"
   }
 }

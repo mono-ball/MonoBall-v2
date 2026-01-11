@@ -115,12 +115,12 @@
     "pokeemerald:move:sunny_day"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/carkol/carkolfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/carkol/carkolfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/carkol/carkolback",
-    "backShiny": "pokeemerald:pokemon:sprite/carkol/carkolbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/carkol/carkolicon",
-    "overworld": "pokeemerald:pokemon:sprite/carkol/carkoloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/carkol/carkoloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/carkol/carkol_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/carkol/carkol_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/carkol/carkol_back",
+    "backShiny": "pokeemerald:pokemon:sprite/carkol/carkol_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/carkol/carkol_icon",
+    "overworld": "pokeemerald:pokemon:sprite/carkol/carkol_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carkol/carkol_overworld_shiny"
   }
 }

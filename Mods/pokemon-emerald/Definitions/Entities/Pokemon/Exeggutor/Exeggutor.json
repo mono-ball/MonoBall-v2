@@ -147,13 +147,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/exeggutor/exeggutorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutorfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/exeggutor/exeggutorback",
-    "backShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/exeggutor/exeggutoricon",
-    "overworld": "pokeemerald:pokemon:sprite/exeggutor/exeggutoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_overworld_shiny"
   },
   "forms": [
     {
@@ -178,13 +178,13 @@
         "pokeemerald:ability:harvest"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutoralolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/exeggutor/exeggutor_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

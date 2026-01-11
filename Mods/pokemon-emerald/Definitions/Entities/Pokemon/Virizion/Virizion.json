@@ -131,13 +131,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/virizion/virizionfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/virizion/virizionfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/virizion/virizionback",
-    "backShiny": "pokeemerald:pokemon:sprite/virizion/virizionbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/virizion/virizionicon",
-    "overworld": "pokeemerald:pokemon:sprite/virizion/virizionoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/virizion/virizionoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/virizion/virizion_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/virizion/virizion_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/virizion/virizion_back",
+    "backShiny": "pokeemerald:pokemon:sprite/virizion/virizion_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/virizion/virizion_icon",
+    "overworld": "pokeemerald:pokemon:sprite/virizion/virizion_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/virizion/virizion_overworld_shiny"
   },
   "isLegendary": true
 }

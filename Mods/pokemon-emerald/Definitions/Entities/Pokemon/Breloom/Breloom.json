@@ -160,12 +160,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/breloom/breloomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/breloom/breloomfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/breloom/breloomback",
-    "backShiny": "pokeemerald:pokemon:sprite/breloom/breloombackshiny",
-    "icon": "pokeemerald:pokemon:sprite/breloom/breloomicon",
-    "overworld": "pokeemerald:pokemon:sprite/breloom/breloomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/breloom/breloomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/breloom/breloom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/breloom/breloom_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/breloom/breloom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/breloom/breloom_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/breloom/breloom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/breloom/breloom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/breloom/breloom_overworld_shiny"
   }
 }

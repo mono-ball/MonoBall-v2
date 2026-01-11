@@ -141,12 +141,12 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rabsca/rabscafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rabsca/rabscafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/rabsca/rabscaback",
-    "backShiny": "pokeemerald:pokemon:sprite/rabsca/rabscabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/rabsca/rabscaicon",
-    "overworld": "pokeemerald:pokemon:sprite/rabsca/rabscaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rabsca/rabscaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rabsca/rabsca_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rabsca/rabsca_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/rabsca/rabsca_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rabsca/rabsca_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rabsca/rabsca_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rabsca/rabsca_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rabsca/rabsca_overworld_shiny"
   }
 }

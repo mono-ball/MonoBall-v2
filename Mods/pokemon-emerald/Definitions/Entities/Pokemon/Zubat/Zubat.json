@@ -138,17 +138,17 @@
     "pokeemerald:move:venom_drench"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/zubat/zubatfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/zubat/zubatfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/zubat/zubatfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/zubat/zubatfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/zubat/zubatback",
-    "backShiny": "pokeemerald:pokemon:sprite/zubat/zubatbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/zubat/zubatbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/zubat/zubatbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/zubat/zubaticon",
-    "overworld": "pokeemerald:pokemon:sprite/zubat/zubatoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/zubat/zubatoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/zubat/zubat_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/zubat/zubat_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/zubat/zubat_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/zubat/zubat_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/zubat/zubat_back",
+    "backShiny": "pokeemerald:pokemon:sprite/zubat/zubat_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/zubat/zubat_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/zubat/zubat_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/zubat/zubat_icon",
+    "overworld": "pokeemerald:pokemon:sprite/zubat/zubat_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zubat/zubat_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

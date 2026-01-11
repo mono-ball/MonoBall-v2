@@ -57,7 +57,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
     {
       "id": "pokeemerald:layer:Hoenn/littleroot_town_mays_house_1f/overhead",
@@ -69,7 +69,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      "tileData": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     }
   ],
   "tilesets": [
@@ -181,6 +181,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/players_house_1f_event_script_mom",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_mom",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -188,10 +189,11 @@
       "name": "NPC_1",
       "x": 96,
       "y": 80,
-      "spriteId": "pokeemerald:sprite:pokemon/vigorothfacingaway",
+      "spriteId": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/walk",
       "interactionId": "pokeemerald:script:interactions/npcs/players_house_1f_event_script_vigoroth1",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_players_house_vigoroth_1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -199,7 +201,7 @@
       "name": "NPC_2",
       "x": 144,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/vigorothcarryingbox",
+      "spriteId": "pokeemerald:pokemon:sprite/vigoroth/vigoroth_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/walk",
       "behaviorParameters": {
         "rangeX": 3,
@@ -207,6 +209,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/players_house_1f_event_script_vigoroth2",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_players_house_vigoroth_2",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -218,6 +221,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rivals_house_1f_event_script_rival_mom",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_rival_mom",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -228,6 +232,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gymleaders/norman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/players_house_dad",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -243,6 +248,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rivals_house_1f_event_script_rival_sibling",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_rival_sibling",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -253,6 +259,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/rubysapphiremay/rubysapphiremay",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/littleroot_town_mays_house_may",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

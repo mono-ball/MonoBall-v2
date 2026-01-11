@@ -139,17 +139,17 @@
     "pokeemerald:move:zen_headbutt"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/relicanth/relicanthfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/relicanth/relicanthfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/relicanth/relicanthback",
-    "backShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/relicanth/relicanthbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/relicanth/relicanthicon",
-    "overworld": "pokeemerald:pokemon:sprite/relicanth/relicanthoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/relicanth/relicanthoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/relicanth/relicanth_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/relicanth/relicanth_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/relicanth/relicanth_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/relicanth/relicanth_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/relicanth/relicanth_back",
+    "backShiny": "pokeemerald:pokemon:sprite/relicanth/relicanth_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/relicanth/relicanth_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/relicanth/relicanth_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/relicanth/relicanth_icon",
+    "overworld": "pokeemerald:pokemon:sprite/relicanth/relicanth_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/relicanth/relicanth_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

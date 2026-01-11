@@ -162,17 +162,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rhydon/rhydonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rhydon/rhydonfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/rhydon/rhydonfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhydon/rhydonfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/rhydon/rhydonback",
-    "backShiny": "pokeemerald:pokemon:sprite/rhydon/rhydonbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/rhydon/rhydonbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhydon/rhydonbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/rhydon/rhydonicon",
-    "overworld": "pokeemerald:pokemon:sprite/rhydon/rhydonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rhydon/rhydonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rhydon/rhydon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rhydon/rhydon_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rhydon/rhydon_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rhydon/rhydon_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/rhydon/rhydon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rhydon/rhydon_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rhydon/rhydon_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rhydon/rhydon_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rhydon/rhydon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rhydon/rhydon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rhydon/rhydon_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

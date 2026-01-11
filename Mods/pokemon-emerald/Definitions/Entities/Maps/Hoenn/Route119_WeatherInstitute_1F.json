@@ -173,6 +173,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_grunt1",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -184,6 +185,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_grunt4",
       "visibilityFlag": "pokeemerald:flag:visibility/route_119_team_aqua",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -195,6 +197,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_institute_worker2",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_1f_workers",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -206,6 +209,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_institute_worker1",
       "visibilityFlag": "pokeemerald:flag:visibility/weather_institute_1f_workers",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -220,6 +224,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/route119_weather_institute_1f_event_script_little_boy",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

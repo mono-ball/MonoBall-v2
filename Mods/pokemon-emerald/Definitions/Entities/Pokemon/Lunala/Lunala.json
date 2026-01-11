@@ -136,13 +136,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/lunala/lunalafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/lunala/lunalafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/lunala/lunalaback",
-    "backShiny": "pokeemerald:pokemon:sprite/lunala/lunalabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/lunala/lunalaicon",
-    "overworld": "pokeemerald:pokemon:sprite/lunala/lunalaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/lunala/lunalaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/lunala/lunala_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/lunala/lunala_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/lunala/lunala_back",
+    "backShiny": "pokeemerald:pokemon:sprite/lunala/lunala_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/lunala/lunala_icon",
+    "overworld": "pokeemerald:pokemon:sprite/lunala/lunala_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lunala/lunala_overworld_shiny"
   },
   "isLegendary": true,
   "isFrontierBanned": true

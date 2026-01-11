@@ -147,13 +147,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gengar/gengarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gengar/gengarback",
-    "backShiny": "pokeemerald:pokemon:sprite/gengar/gengarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gengar/gengaricon",
-    "overworld": "pokeemerald:pokemon:sprite/gengar/gengaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gengar/gengar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gengar/gengar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gengar/gengar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gengar/gengar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gengar/gengar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengar_overworld_shiny"
   },
   "forms": [
     {
@@ -173,13 +173,13 @@
         "pokeemerald:type:poison"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/gengar/gengargmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengargmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/gengar/gengargmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/gengar/gengargmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/gengar/gengargmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/gengar/gengargmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengargmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"
@@ -207,13 +207,13 @@
         "pokeemerald:ability:shadow_tag"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/gengar/gengarmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengarmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/gengar/gengarmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/gengar/gengarmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/gengar/gengarmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/gengar/gengarmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengarmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/gengar/gengar_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/gengar/gengar_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/gengar/gengar_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/gengar/gengar_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/gengar/gengar_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/gengar/gengar_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gengar/gengar_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:gengarite",

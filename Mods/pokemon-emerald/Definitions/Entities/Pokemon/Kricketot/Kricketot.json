@@ -64,17 +64,17 @@
     "pokeemerald:move:snore"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kricketot/kricketotfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kricketot/kricketotfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/kricketot/kricketotfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kricketot/kricketotfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/kricketot/kricketotback",
-    "backShiny": "pokeemerald:pokemon:sprite/kricketot/kricketotbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/kricketot/kricketotbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/kricketot/kricketotbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/kricketot/kricketoticon",
-    "overworld": "pokeemerald:pokemon:sprite/kricketot/kricketotoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kricketot/kricketotoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kricketot/kricketot_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kricketot/kricketot_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/kricketot/kricketot_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kricketot/kricketot_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/kricketot/kricketot_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kricketot/kricketot_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/kricketot/kricketot_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/kricketot/kricketot_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kricketot/kricketot_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kricketot/kricketot_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kricketot/kricketot_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

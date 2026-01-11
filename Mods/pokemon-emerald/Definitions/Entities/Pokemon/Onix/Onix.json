@@ -164,12 +164,12 @@
     "pokeemerald:move:wide_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/onix/onixfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/onix/onixfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/onix/onixback",
-    "backShiny": "pokeemerald:pokemon:sprite/onix/onixbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/onix/onixicon",
-    "overworld": "pokeemerald:pokemon:sprite/onix/onixoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/onix/onixoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/onix/onix_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/onix/onix_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/onix/onix_back",
+    "backShiny": "pokeemerald:pokemon:sprite/onix/onix_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/onix/onix_icon",
+    "overworld": "pokeemerald:pokemon:sprite/onix/onix_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/onix/onix_overworld_shiny"
   }
 }

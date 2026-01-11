@@ -144,12 +144,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/forretress/forretressfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/forretress/forretressfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/forretress/forretressback",
-    "backShiny": "pokeemerald:pokemon:sprite/forretress/forretressbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/forretress/forretressicon",
-    "overworld": "pokeemerald:pokemon:sprite/forretress/forretressoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/forretress/forretressoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/forretress/forretress_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/forretress/forretress_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/forretress/forretress_back",
+    "backShiny": "pokeemerald:pokemon:sprite/forretress/forretress_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/forretress/forretress_icon",
+    "overworld": "pokeemerald:pokemon:sprite/forretress/forretress_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/forretress/forretress_overworld_shiny"
   }
 }

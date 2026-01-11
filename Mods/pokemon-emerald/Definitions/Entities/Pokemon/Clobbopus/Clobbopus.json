@@ -117,12 +117,12 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/clobbopus/clobbopusfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopusfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/clobbopus/clobbopusback",
-    "backShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopusbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/clobbopus/clobbopusicon",
-    "overworld": "pokeemerald:pokemon:sprite/clobbopus/clobbopusoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopusoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_back",
+    "backShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_icon",
+    "overworld": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/clobbopus/clobbopus_overworld_shiny"
   }
 }

@@ -142,12 +142,12 @@
     "pokeemerald:move:me_first"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/misdreavus/misdreavusfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavusfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/misdreavus/misdreavusback",
-    "backShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavusbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/misdreavus/misdreavusicon",
-    "overworld": "pokeemerald:pokemon:sprite/misdreavus/misdreavusoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavusoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_back",
+    "backShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_icon",
+    "overworld": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/misdreavus/misdreavus_overworld_shiny"
   }
 }

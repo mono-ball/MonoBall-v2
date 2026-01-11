@@ -167,6 +167,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/oldwoman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_1f_event_script_cleanse_tag_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -177,6 +178,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_1f_event_script_pokefan_f",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -187,6 +189,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_1f_event_script_man",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

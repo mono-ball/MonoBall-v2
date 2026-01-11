@@ -125,13 +125,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/braviary/braviaryfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/braviary/braviaryfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/braviary/braviaryback",
-    "backShiny": "pokeemerald:pokemon:sprite/braviary/braviarybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/braviary/braviaryicon",
-    "overworld": "pokeemerald:pokemon:sprite/braviary/braviaryoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/braviary/braviaryoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/braviary/braviary_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/braviary/braviary_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/braviary/braviary_back",
+    "backShiny": "pokeemerald:pokemon:sprite/braviary/braviary_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/braviary/braviary_icon",
+    "overworld": "pokeemerald:pokemon:sprite/braviary/braviary_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/braviary/braviary_overworld_shiny"
   },
   "forms": [
     {
@@ -157,13 +157,13 @@
         "pokeemerald:ability:tinted_lens"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/braviary/braviaryhisuifront",
-        "frontShiny": "pokeemerald:pokemon:sprite/braviary/braviaryhisuifrontshiny",
-        "back": "pokeemerald:pokemon:sprite/braviary/braviaryhisuiback",
-        "backShiny": "pokeemerald:pokemon:sprite/braviary/braviaryhisuibackshiny",
-        "icon": "pokeemerald:pokemon:sprite/braviary/braviaryhisuiicon",
-        "overworld": "pokeemerald:pokemon:sprite/braviary/braviaryhisuioverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/braviary/braviaryhisuioverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_back",
+        "backShiny": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_icon",
+        "overworld": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/braviary/braviary_hisui_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:hisui"

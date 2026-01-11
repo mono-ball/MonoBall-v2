@@ -123,6 +123,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house4_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/boy3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house4_event_script_boy",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -140,10 +142,11 @@
       "name": "LOCALID_FORTREE_HOUSE_WINGULL",
       "x": 32,
       "y": 48,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/fortree_city_house4_event_script_wingull",
       "visibilityFlag": "pokeemerald:flag:visibility/fortree_city_house_4_wingull",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

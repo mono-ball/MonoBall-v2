@@ -127,12 +127,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/whirlipede/whirlipedefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipedefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeback",
-    "backShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipedebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeicon",
-    "overworld": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipedeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_back",
+    "backShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_icon",
+    "overworld": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/whirlipede/whirlipede_overworld_shiny"
   }
 }

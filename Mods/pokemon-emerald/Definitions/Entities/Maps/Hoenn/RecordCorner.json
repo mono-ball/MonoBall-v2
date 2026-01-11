@@ -192,6 +192,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/linkreceptionist",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/record_corner_event_script_attendant",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

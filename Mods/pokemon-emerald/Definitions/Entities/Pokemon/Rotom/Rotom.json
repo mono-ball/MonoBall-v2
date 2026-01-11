@@ -118,13 +118,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rotom/rotomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/rotom/rotomback",
-    "backShiny": "pokeemerald:pokemon:sprite/rotom/rotombackshiny",
-    "icon": "pokeemerald:pokemon:sprite/rotom/rotomicon",
-    "overworld": "pokeemerald:pokemon:sprite/rotom/rotomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rotom/rotom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotom_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/rotom/rotom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rotom/rotom_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rotom/rotom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rotom/rotom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotom_overworld_shiny"
   },
   "forms": [
     {
@@ -150,13 +150,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rotom/rotommowfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotommowfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rotom/rotommowback",
-        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotommowbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rotom/rotommowicon",
-        "overworld": "pokeemerald:pokemon:sprite/rotom/rotommowoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotommowoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rotom/rotom_mow_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotom_mow_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotom_mow_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotom_mow_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotom_mow_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotom_mow_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotom_mow_overworld_shiny"
       }
     },
     {
@@ -182,13 +182,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rotom/rotomfanfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomfanfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rotom/rotomfanback",
-        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomfanbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rotom/rotomfanicon",
-        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomfanoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomfanoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rotom/rotom_fan_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotom_fan_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotom_fan_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotom_fan_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotom_fan_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotom_fan_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotom_fan_overworld_shiny"
       }
     },
     {
@@ -214,13 +214,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rotom/rotomfrostfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrostfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rotom/rotomfrostback",
-        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrostbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rotom/rotomfrosticon",
-        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomfrostoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomfrostoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rotom/rotom_frost_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotom_frost_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotom_frost_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotom_frost_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotom_frost_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotom_frost_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotom_frost_overworld_shiny"
       }
     },
     {
@@ -246,13 +246,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rotom/rotomwashfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomwashfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rotom/rotomwashback",
-        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomwashbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rotom/rotomwashicon",
-        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomwashoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomwashoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rotom/rotom_wash_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotom_wash_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotom_wash_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotom_wash_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotom_wash_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotom_wash_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotom_wash_overworld_shiny"
       }
     },
     {
@@ -278,13 +278,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rotom/rotomheatfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotomheatfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rotom/rotomheatback",
-        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotomheatbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rotom/rotomheaticon",
-        "overworld": "pokeemerald:pokemon:sprite/rotom/rotomheatoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotomheatoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rotom/rotom_heat_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rotom/rotom_heat_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rotom/rotom_heat_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rotom/rotom_heat_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rotom/rotom_heat_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rotom/rotom_heat_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rotom/rotom_heat_overworld_shiny"
       }
     }
   ]

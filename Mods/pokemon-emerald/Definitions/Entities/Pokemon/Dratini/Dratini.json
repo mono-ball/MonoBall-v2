@@ -149,12 +149,12 @@
     "pokeemerald:move:iron_tail"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dratini/dratinifront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dratini/dratinifrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dratini/dratiniback",
-    "backShiny": "pokeemerald:pokemon:sprite/dratini/dratinibackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dratini/dratiniicon",
-    "overworld": "pokeemerald:pokemon:sprite/dratini/dratinioverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dratini/dratinioverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dratini/dratini_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dratini/dratini_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dratini/dratini_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dratini/dratini_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dratini/dratini_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dratini/dratini_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dratini/dratini_overworld_shiny"
   }
 }

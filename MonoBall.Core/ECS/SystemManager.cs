@@ -17,6 +17,7 @@ using MonoBall.Core.ECS.Systems.Animation;
 using MonoBall.Core.ECS.Systems.Audio;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Profiles;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes;
@@ -41,6 +42,7 @@ public class SystemManager : IDisposable
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
     private readonly IModManager _modManager;
+    private readonly IProfileService _profileService;
     private readonly List<BaseSystem<World, float>> _registeredUpdateSystems = new();
     private readonly IResourceManager _resourceManager;
     private readonly IShaderParameterValidator _shaderParameterValidator;
@@ -113,6 +115,7 @@ public class SystemManager : IDisposable
     /// <param name="graphicsDevice">The graphics device.</param>
     /// <param name="modManager">The mod manager.</param>
     /// <param name="resourceManager">The resource manager service.</param>
+    /// <param name="profileService">The profile service for accessing movement and animation profiles. Required.</param>
     /// <param name="shaderService">The shader service for loading and managing shaders.</param>
     /// <param name="shaderParameterValidator">The shader parameter validator.</param>
     /// <param name="flagVariableService">The flag/variable service for game state.</param>
@@ -125,6 +128,7 @@ public class SystemManager : IDisposable
         GraphicsDevice graphicsDevice,
         IModManager modManager,
         IResourceManager resourceManager,
+        IProfileService profileService,
         IShaderService shaderService,
         IShaderParameterValidator shaderParameterValidator,
         IFlagVariableService flagVariableService,
@@ -139,6 +143,7 @@ public class SystemManager : IDisposable
         _modManager = modManager ?? throw new ArgumentNullException(nameof(modManager));
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
         _shaderService = shaderService ?? throw new ArgumentNullException(nameof(shaderService));
         _shaderParameterValidator =
             shaderParameterValidator
@@ -493,7 +498,9 @@ public class SystemManager : IDisposable
             null, // MovementSystem - will be set later
             _cameraService,
             _flagVariableService,
-            _modManager.Registry
+            _modManager.Registry,
+            _profileService, // NEW: Required dependency for MovementApiImpl
+            _resourceManager // NEW: Required dependency for MovementApiImpl
         );
 
         // Create audio engine (AudioEngine needs ResourceManager)
@@ -543,6 +550,7 @@ public class SystemManager : IDisposable
             _world,
             _modManager.Registry,
             _resourceManager,
+            _profileService, // NEW: Required dependency for profile-based movement speeds
             _flagVariableService,
             _variableSpriteResolver,
             _collisionLayerCache,
@@ -590,6 +598,7 @@ public class SystemManager : IDisposable
             _world,
             _cameraService,
             _resourceManager,
+            _profileService, // NEW: Required dependency for profile-based movement speeds
             _modManager,
             LoggerFactory.CreateLogger<PlayerSystem>(),
             _constantsService // Pass ConstantsService for accessing constants
@@ -646,6 +655,8 @@ public class SystemManager : IDisposable
             sceneInputBlocker,
             inputBuffer,
             _inputBindingService,
+            _profileService, // NEW: Required dependency for run button handling
+            _resourceManager, // NEW: Required dependency for sprite definition access
             LoggerFactory.CreateLogger<InputSystem>()
         );
         RegisterUpdateSystem(_inputSystem);
@@ -656,6 +667,8 @@ public class SystemManager : IDisposable
             _collisionService,
             _activeMapFilterService,
             _constantsService,
+            _profileService, // NEW: Required dependency for profile-based animation selection
+            _resourceManager, // NEW: Required dependency for sprite definition access
             _modManager,
             LoggerFactory.CreateLogger<MovementSystem>()
         );

@@ -143,17 +143,17 @@
     "pokeemerald:move:iron_tail"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gible/giblefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gible/giblefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/gible/giblefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gible/giblefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/gible/gibleback",
-    "backShiny": "pokeemerald:pokemon:sprite/gible/giblebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/gible/giblebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/gible/giblebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/gible/gibleicon",
-    "overworld": "pokeemerald:pokemon:sprite/gible/gibleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gible/gibleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gible/gible_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gible/gible_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gible/gible_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gible/gible_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/gible/gible_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gible/gible_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gible/gible_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gible/gible_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gible/gible_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gible/gible_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gible/gible_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

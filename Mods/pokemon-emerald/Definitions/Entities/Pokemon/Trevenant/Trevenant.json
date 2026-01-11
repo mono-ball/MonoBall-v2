@@ -136,12 +136,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/trevenant/trevenantfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/trevenant/trevenantfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/trevenant/trevenantback",
-    "backShiny": "pokeemerald:pokemon:sprite/trevenant/trevenantbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/trevenant/trevenanticon",
-    "overworld": "pokeemerald:pokemon:sprite/trevenant/trevenantoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/trevenant/trevenantoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/trevenant/trevenant_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/trevenant/trevenant_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/trevenant/trevenant_back",
+    "backShiny": "pokeemerald:pokemon:sprite/trevenant/trevenant_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/trevenant/trevenant_icon",
+    "overworld": "pokeemerald:pokemon:sprite/trevenant/trevenant_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/trevenant/trevenant_overworld_shiny"
   }
 }

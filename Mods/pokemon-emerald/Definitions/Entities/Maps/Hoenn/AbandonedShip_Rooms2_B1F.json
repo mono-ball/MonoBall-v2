@@ -147,6 +147,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/abandoned_ship_rooms2_b1f_event_script_camper",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -158,6 +159,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_rooms_2_b1f_dive_ball",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -158,17 +158,17 @@
     "pokeemerald:move:venom_drench"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gulpin/gulpinfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gulpin/gulpinfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/gulpin/gulpinfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gulpin/gulpinfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/gulpin/gulpinback",
-    "backShiny": "pokeemerald:pokemon:sprite/gulpin/gulpinbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/gulpin/gulpinbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/gulpin/gulpinbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/gulpin/gulpinicon",
-    "overworld": "pokeemerald:pokemon:sprite/gulpin/gulpinoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gulpin/gulpinoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gulpin/gulpin_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gulpin/gulpin_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/gulpin/gulpin_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/gulpin/gulpin_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/gulpin/gulpin_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gulpin/gulpin_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/gulpin/gulpin_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/gulpin/gulpin_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gulpin/gulpin_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gulpin/gulpin_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gulpin/gulpin_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

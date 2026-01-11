@@ -148,13 +148,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/charizard/charizardfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/charizard/charizardback",
-    "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/charizard/charizardicon",
-    "overworld": "pokeemerald:pokemon:sprite/charizard/charizardoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/charizard/charizard_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizard_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/charizard/charizard_back",
+    "backShiny": "pokeemerald:pokemon:sprite/charizard/charizard_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/charizard/charizard_icon",
+    "overworld": "pokeemerald:pokemon:sprite/charizard/charizard_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizard_overworld_shiny"
   },
   "forms": [
     {
@@ -179,13 +179,13 @@
         "pokeemerald:ability:solar_power"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/charizard/charizardgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/charizard/charizardgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/charizard/charizardgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/charizard/charizardgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizard_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"
@@ -213,13 +213,13 @@
         "pokeemerald:ability:drought"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/charizard/charizardmegayfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegayfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/charizard/charizardmegayback",
-        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaybackshiny",
-        "icon": "pokeemerald:pokemon:sprite/charizard/charizardmegayicon",
-        "overworld": "pokeemerald:pokemon:sprite/charizard/charizardmegayoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegayoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_back",
+        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_icon",
+        "overworld": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizard_mega_y_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:charizardite_y",
@@ -248,13 +248,13 @@
         "pokeemerald:ability:tough_claws"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/charizard/charizardmegaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/charizard/charizardmegaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/charizard/charizardmegaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/charizard/charizardmegaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizardmegaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_back",
+        "backShiny": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_icon",
+        "overworld": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/charizard/charizard_mega_x_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:charizardite_x",

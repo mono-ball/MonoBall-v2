@@ -114,12 +114,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/honchkrow/honchkrowfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/honchkrow/honchkrowfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/honchkrow/honchkrowback",
-    "backShiny": "pokeemerald:pokemon:sprite/honchkrow/honchkrowbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/honchkrow/honchkrowicon",
-    "overworld": "pokeemerald:pokemon:sprite/honchkrow/honchkrowoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/honchkrow/honchkrowoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_back",
+    "backShiny": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_icon",
+    "overworld": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/honchkrow/honchkrow_overworld_shiny"
   }
 }

@@ -145,13 +145,13 @@
     "pokeemerald:move:liquidation"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/corsola/corsolafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/corsola/corsolafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/corsola/corsolaback",
-    "backShiny": "pokeemerald:pokemon:sprite/corsola/corsolabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/corsola/corsolaicon",
-    "overworld": "pokeemerald:pokemon:sprite/corsola/corsolaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/corsola/corsolaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/corsola/corsola_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/corsola/corsola_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/corsola/corsola_back",
+    "backShiny": "pokeemerald:pokemon:sprite/corsola/corsola_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/corsola/corsola_icon",
+    "overworld": "pokeemerald:pokemon:sprite/corsola/corsola_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/corsola/corsola_overworld_shiny"
   },
   "forms": [
     {
@@ -173,13 +173,13 @@
         "pokeemerald:ability:cursed_body"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/corsola/corsolagalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/corsola/corsolagalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/corsola/corsolagalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/corsola/corsolagalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/corsola/corsolagalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/corsola/corsolagalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/corsola/corsolagalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/corsola/corsola_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/corsola/corsola_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/corsola/corsola_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/corsola/corsola_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/corsola/corsola_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/corsola/corsola_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/corsola/corsola_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

@@ -138,12 +138,12 @@
     "pokeemerald:move:haze"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/duskull/duskullfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/duskull/duskullfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/duskull/duskullback",
-    "backShiny": "pokeemerald:pokemon:sprite/duskull/duskullbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/duskull/duskullicon",
-    "overworld": "pokeemerald:pokemon:sprite/duskull/duskulloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/duskull/duskulloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/duskull/duskull_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/duskull/duskull_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/duskull/duskull_back",
+    "backShiny": "pokeemerald:pokemon:sprite/duskull/duskull_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/duskull/duskull_icon",
+    "overworld": "pokeemerald:pokemon:sprite/duskull/duskull_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/duskull/duskull_overworld_shiny"
   }
 }

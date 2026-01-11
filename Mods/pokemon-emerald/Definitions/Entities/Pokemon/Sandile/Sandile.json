@@ -152,12 +152,12 @@
     "pokeemerald:move:power_trip"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sandile/sandilefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sandile/sandilefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sandile/sandileback",
-    "backShiny": "pokeemerald:pokemon:sprite/sandile/sandilebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sandile/sandileicon",
-    "overworld": "pokeemerald:pokemon:sprite/sandile/sandileoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sandile/sandileoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sandile/sandile_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sandile/sandile_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sandile/sandile_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sandile/sandile_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sandile/sandile_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sandile/sandile_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sandile/sandile_overworld_shiny"
   }
 }

@@ -168,12 +168,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/vaporeon/vaporeonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/vaporeon/vaporeonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/vaporeon/vaporeonback",
-    "backShiny": "pokeemerald:pokemon:sprite/vaporeon/vaporeonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/vaporeon/vaporeonicon",
-    "overworld": "pokeemerald:pokemon:sprite/vaporeon/vaporeonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/vaporeon/vaporeonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vaporeon/vaporeon_overworld_shiny"
   }
 }

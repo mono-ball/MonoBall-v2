@@ -156,12 +156,12 @@
     "pokeemerald:move:ally_switch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ralts/raltsfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ralts/raltsfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ralts/raltsback",
-    "backShiny": "pokeemerald:pokemon:sprite/ralts/raltsbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ralts/raltsicon",
-    "overworld": "pokeemerald:pokemon:sprite/ralts/raltsoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ralts/raltsoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ralts/ralts_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ralts/ralts_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ralts/ralts_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ralts/ralts_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ralts/ralts_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ralts/ralts_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ralts/ralts_overworld_shiny"
   }
 }

@@ -161,12 +161,12 @@
     "pokeemerald:move:tearful_look"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/plusle/pluslefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/plusle/pluslefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/plusle/plusleback",
-    "backShiny": "pokeemerald:pokemon:sprite/plusle/pluslebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/plusle/plusleicon",
-    "overworld": "pokeemerald:pokemon:sprite/plusle/plusleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/plusle/plusleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/plusle/plusle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/plusle/plusle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/plusle/plusle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/plusle/plusle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/plusle/plusle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/plusle/plusle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/plusle/plusle_overworld_shiny"
   }
 }

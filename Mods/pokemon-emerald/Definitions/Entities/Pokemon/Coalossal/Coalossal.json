@@ -118,13 +118,13 @@
     "pokeemerald:move:sunny_day"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/coalossal/coalossalfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/coalossal/coalossalback",
-    "backShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/coalossal/coalossalicon",
-    "overworld": "pokeemerald:pokemon:sprite/coalossal/coalossaloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/coalossal/coalossaloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/coalossal/coalossal_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/coalossal/coalossal_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/coalossal/coalossal_back",
+    "backShiny": "pokeemerald:pokemon:sprite/coalossal/coalossal_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/coalossal/coalossal_icon",
+    "overworld": "pokeemerald:pokemon:sprite/coalossal/coalossal_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/coalossal/coalossal_overworld_shiny"
   },
   "forms": [
     {
@@ -150,13 +150,13 @@
         "pokeemerald:ability:flash_fire"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/coalossal/coalossalgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/coalossal/coalossal_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

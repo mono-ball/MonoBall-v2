@@ -141,13 +141,13 @@
     "pokeemerald:move:me_first"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/stunfisk/stunfiskfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/stunfisk/stunfiskback",
-    "backShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/stunfisk/stunfiskicon",
-    "overworld": "pokeemerald:pokemon:sprite/stunfisk/stunfiskoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_back",
+    "backShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_icon",
+    "overworld": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_overworld_shiny"
   },
   "forms": [
     {
@@ -173,13 +173,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfiskgalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/stunfisk/stunfisk_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

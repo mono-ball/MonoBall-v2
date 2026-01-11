@@ -117,12 +117,12 @@
     "pokeemerald:move:soak"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tadbulb/tadbulbfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulbfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tadbulb/tadbulbback",
-    "backShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulbbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tadbulb/tadbulbicon",
-    "overworld": "pokeemerald:pokemon:sprite/tadbulb/tadbulboverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulboverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tadbulb/tadbulb_overworld_shiny"
   }
 }

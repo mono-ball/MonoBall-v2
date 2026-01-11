@@ -154,12 +154,12 @@
     "pokeemerald:move:play_rough"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/cubchoo/cubchoofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/cubchoo/cubchooback",
-    "backShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/cubchoo/cubchooicon",
-    "overworld": "pokeemerald:pokemon:sprite/cubchoo/cubchoooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cubchoo/cubchoo_overworld_shiny"
   }
 }

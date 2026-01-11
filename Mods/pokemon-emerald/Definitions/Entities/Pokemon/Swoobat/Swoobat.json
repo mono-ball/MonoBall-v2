@@ -126,12 +126,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/swoobat/swoobatfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/swoobat/swoobatfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/swoobat/swoobatback",
-    "backShiny": "pokeemerald:pokemon:sprite/swoobat/swoobatbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/swoobat/swoobaticon",
-    "overworld": "pokeemerald:pokemon:sprite/swoobat/swoobatoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/swoobat/swoobatoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/swoobat/swoobat_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/swoobat/swoobat_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/swoobat/swoobat_back",
+    "backShiny": "pokeemerald:pokemon:sprite/swoobat/swoobat_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/swoobat/swoobat_icon",
+    "overworld": "pokeemerald:pokemon:sprite/swoobat/swoobat_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swoobat/swoobat_overworld_shiny"
   }
 }

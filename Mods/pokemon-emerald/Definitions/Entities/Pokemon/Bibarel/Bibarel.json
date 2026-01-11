@@ -149,15 +149,15 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bibarel/bibarelfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bibarel/bibarelfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/bibarel/bibarelfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/bibarel/bibarelfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/bibarel/bibarelback",
-    "backShiny": "pokeemerald:pokemon:sprite/bibarel/bibarelbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bibarel/bibarelicon",
-    "overworld": "pokeemerald:pokemon:sprite/bibarel/bibareloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bibarel/bibareloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bibarel/bibarel_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bibarel/bibarel_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/bibarel/bibarel_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/bibarel/bibarel_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/bibarel/bibarel_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bibarel/bibarel_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bibarel/bibarel_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bibarel/bibarel_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bibarel/bibarel_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

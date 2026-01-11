@@ -162,17 +162,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaffront",
-    "frontShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaffrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaffrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaffrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafback",
-    "backShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaficon",
-    "overworld": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleafoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_back",
+    "backShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_icon",
+    "overworld": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nuzleaf/nuzleaf_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -141,17 +141,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/houndoom/houndoomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/houndoom/houndoomfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/houndoom/houndoomfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/houndoom/houndoomfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/houndoom/houndoomback",
-    "backShiny": "pokeemerald:pokemon:sprite/houndoom/houndoombackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/houndoom/houndoombackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/houndoom/houndoombackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/houndoom/houndoomicon",
-    "overworld": "pokeemerald:pokemon:sprite/houndoom/houndoomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/houndoom/houndoomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/houndoom/houndoom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/houndoom/houndoom_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/houndoom/houndoom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/houndoom/houndoom_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/houndoom/houndoom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/houndoom/houndoom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -178,13 +178,13 @@
         "pokeemerald:ability:solar_power"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/houndoom/houndoommegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/houndoom/houndoommegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/houndoom/houndoommegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/houndoom/houndoommegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/houndoom/houndoommegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/houndoom/houndoommegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/houndoom/houndoommegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/houndoom/houndoom_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:houndoominite",

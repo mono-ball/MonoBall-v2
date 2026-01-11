@@ -144,17 +144,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/milotic/miloticfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/milotic/miloticfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/milotic/miloticfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/milotic/miloticfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/milotic/miloticback",
-    "backShiny": "pokeemerald:pokemon:sprite/milotic/miloticbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/milotic/miloticbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/milotic/miloticbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/milotic/miloticicon",
-    "overworld": "pokeemerald:pokemon:sprite/milotic/miloticoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/milotic/miloticoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/milotic/milotic_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/milotic/milotic_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/milotic/milotic_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/milotic/milotic_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/milotic/milotic_back",
+    "backShiny": "pokeemerald:pokemon:sprite/milotic/milotic_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/milotic/milotic_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/milotic/milotic_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/milotic/milotic_icon",
+    "overworld": "pokeemerald:pokemon:sprite/milotic/milotic_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/milotic/milotic_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

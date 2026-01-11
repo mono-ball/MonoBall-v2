@@ -112,12 +112,12 @@
     "pokeemerald:move:skitter_smack"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/nymble/nymblefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/nymble/nymblefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/nymble/nymbleback",
-    "backShiny": "pokeemerald:pokemon:sprite/nymble/nymblebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/nymble/nymbleicon",
-    "overworld": "pokeemerald:pokemon:sprite/nymble/nymbleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/nymble/nymbleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/nymble/nymble_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/nymble/nymble_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/nymble/nymble_back",
+    "backShiny": "pokeemerald:pokemon:sprite/nymble/nymble_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/nymble/nymble_icon",
+    "overworld": "pokeemerald:pokemon:sprite/nymble/nymble_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/nymble/nymble_overworld_shiny"
   }
 }

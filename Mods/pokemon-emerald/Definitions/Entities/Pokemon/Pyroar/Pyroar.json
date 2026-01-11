@@ -134,17 +134,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pyroar/pyroarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/pyroar/pyroarfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/pyroar/pyroarback",
-    "backShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/pyroar/pyroarbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/pyroar/pyroaricon",
-    "overworld": "pokeemerald:pokemon:sprite/pyroar/pyroaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pyroar/pyroaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pyroar/pyroar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/pyroar/pyroar_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/pyroar/pyroar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/pyroar/pyroar_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pyroar/pyroar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pyroar/pyroar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -171,13 +171,13 @@
         "pokeemerald:ability:moxie"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/pyroar/pyroarmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/pyroar/pyroarmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/pyroar/pyroar_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:pyroarite",

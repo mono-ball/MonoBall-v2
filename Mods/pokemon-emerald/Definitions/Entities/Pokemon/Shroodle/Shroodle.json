@@ -134,12 +134,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shroodle/shroodlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shroodle/shroodlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/shroodle/shroodleback",
-    "backShiny": "pokeemerald:pokemon:sprite/shroodle/shroodlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/shroodle/shroodleicon",
-    "overworld": "pokeemerald:pokemon:sprite/shroodle/shroodleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shroodle/shroodleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shroodle/shroodle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shroodle/shroodle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/shroodle/shroodle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shroodle/shroodle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shroodle/shroodle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shroodle/shroodle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shroodle/shroodle_overworld_shiny"
   }
 }

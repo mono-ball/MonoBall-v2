@@ -120,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_rooms_b1f_tm_ice_beam",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

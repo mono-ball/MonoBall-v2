@@ -122,12 +122,12 @@
     "pokeemerald:move:belly_drum"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/skwovet/skwovetfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/skwovet/skwovetfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/skwovet/skwovetback",
-    "backShiny": "pokeemerald:pokemon:sprite/skwovet/skwovetbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/skwovet/skwoveticon",
-    "overworld": "pokeemerald:pokemon:sprite/skwovet/skwovetoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/skwovet/skwovetoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/skwovet/skwovet_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/skwovet/skwovet_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/skwovet/skwovet_back",
+    "backShiny": "pokeemerald:pokemon:sprite/skwovet/skwovet_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/skwovet/skwovet_icon",
+    "overworld": "pokeemerald:pokemon:sprite/skwovet/skwovet_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skwovet/skwovet_overworld_shiny"
   }
 }

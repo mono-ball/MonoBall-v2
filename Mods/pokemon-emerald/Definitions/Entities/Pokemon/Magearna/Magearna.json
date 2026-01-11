@@ -135,13 +135,13 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/magearna/magearnafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/magearna/magearnafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/magearna/magearnaback",
-    "backShiny": "pokeemerald:pokemon:sprite/magearna/magearnabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/magearna/magearnaicon",
-    "overworld": "pokeemerald:pokemon:sprite/magearna/magearnaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/magearna/magearnaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/magearna/magearna_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/magearna/magearna_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/magearna/magearna_back",
+    "backShiny": "pokeemerald:pokemon:sprite/magearna/magearna_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/magearna/magearna_icon",
+    "overworld": "pokeemerald:pokemon:sprite/magearna/magearna_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magearna/magearna_overworld_shiny"
   },
   "forms": [
     {
@@ -167,13 +167,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/magearna/magearnaoriginalfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/magearna/magearnaoriginalfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/magearna/magearnaoriginalback",
-        "backShiny": "pokeemerald:pokemon:sprite/magearna/magearnaoriginalbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/magearna/magearnaoriginalicon",
-        "overworld": "pokeemerald:pokemon:sprite/magearna/magearnaoriginaloverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/magearna/magearnaoriginaloverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/magearna/magearna_original_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/magearna/magearna_original_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/magearna/magearna_original_back",
+        "backShiny": "pokeemerald:pokemon:sprite/magearna/magearna_original_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/magearna/magearna_original_icon",
+        "overworld": "pokeemerald:pokemon:sprite/magearna/magearna_original_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/magearna/magearna_original_overworld_shiny"
       }
     }
   ],

@@ -138,13 +138,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/starmie/starmiefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/starmie/starmiefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/starmie/starmieback",
-    "backShiny": "pokeemerald:pokemon:sprite/starmie/starmiebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/starmie/starmieicon",
-    "overworld": "pokeemerald:pokemon:sprite/starmie/starmieoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/starmie/starmieoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/starmie/starmie_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/starmie/starmie_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/starmie/starmie_back",
+    "backShiny": "pokeemerald:pokemon:sprite/starmie/starmie_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/starmie/starmie_icon",
+    "overworld": "pokeemerald:pokemon:sprite/starmie/starmie_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/starmie/starmie_overworld_shiny"
   },
   "forms": [
     {
@@ -170,13 +170,13 @@
         "pokeemerald:ability:analytic"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/starmie/starmiemegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/starmie/starmiemegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/starmie/starmiemegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/starmie/starmiemegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/starmie/starmiemegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/starmie/starmiemegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/starmie/starmiemegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/starmie/starmie_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/starmie/starmie_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/starmie/starmie_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/starmie/starmie_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/starmie/starmie_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/starmie/starmie_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/starmie/starmie_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:starminite",

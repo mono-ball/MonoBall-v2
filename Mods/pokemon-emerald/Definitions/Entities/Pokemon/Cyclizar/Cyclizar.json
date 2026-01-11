@@ -121,12 +121,12 @@
     "pokeemerald:move:power_whip"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/cyclizar/cyclizarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/cyclizar/cyclizarback",
-    "backShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/cyclizar/cyclizaricon",
-    "overworld": "pokeemerald:pokemon:sprite/cyclizar/cyclizaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cyclizar/cyclizar_overworld_shiny"
   }
 }

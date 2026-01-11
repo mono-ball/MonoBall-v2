@@ -164,13 +164,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sceptile/sceptilefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sceptile/sceptileback",
-    "backShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sceptile/sceptileicon",
-    "overworld": "pokeemerald:pokemon:sprite/sceptile/sceptileoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sceptile/sceptileoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sceptile/sceptile_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sceptile/sceptile_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sceptile/sceptile_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sceptile/sceptile_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sceptile/sceptile_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sceptile/sceptile_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sceptile/sceptile_overworld_shiny"
   },
   "forms": [
     {
@@ -196,13 +196,13 @@
         "pokeemerald:ability:lightning_rod"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/sceptile/sceptilemegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilemegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilemegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/sceptile/sceptilemegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sceptile/sceptile_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:sceptilite",

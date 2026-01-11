@@ -131,12 +131,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dartrix/dartrixfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dartrix/dartrixfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dartrix/dartrixback",
-    "backShiny": "pokeemerald:pokemon:sprite/dartrix/dartrixbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dartrix/dartrixicon",
-    "overworld": "pokeemerald:pokemon:sprite/dartrix/dartrixoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dartrix/dartrixoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dartrix/dartrix_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dartrix/dartrix_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dartrix/dartrix_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dartrix/dartrix_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dartrix/dartrix_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dartrix/dartrix_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dartrix/dartrix_overworld_shiny"
   }
 }

@@ -144,12 +144,12 @@
     "pokeemerald:move:whirlwind"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/whismur/whismurfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/whismur/whismurfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/whismur/whismurback",
-    "backShiny": "pokeemerald:pokemon:sprite/whismur/whismurbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/whismur/whismuricon",
-    "overworld": "pokeemerald:pokemon:sprite/whismur/whismuroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/whismur/whismuroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/whismur/whismur_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/whismur/whismur_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/whismur/whismur_back",
+    "backShiny": "pokeemerald:pokemon:sprite/whismur/whismur_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/whismur/whismur_icon",
+    "overworld": "pokeemerald:pokemon:sprite/whismur/whismur_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/whismur/whismur_overworld_shiny"
   }
 }

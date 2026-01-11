@@ -125,12 +125,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tinkaton/tinkatonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tinkaton/tinkatonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tinkaton/tinkatonback",
-    "backShiny": "pokeemerald:pokemon:sprite/tinkaton/tinkatonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tinkaton/tinkatonicon",
-    "overworld": "pokeemerald:pokemon:sprite/tinkaton/tinkatonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tinkaton/tinkatonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tinkaton/tinkaton_overworld_shiny"
   }
 }

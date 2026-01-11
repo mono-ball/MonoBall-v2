@@ -144,6 +144,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_cove_lily_motel_1f_event_script_motel_owner",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

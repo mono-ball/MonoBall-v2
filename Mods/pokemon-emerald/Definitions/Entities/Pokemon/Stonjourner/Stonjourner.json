@@ -113,12 +113,12 @@
     "pokeemerald:move:ancient_power"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/stonjourner/stonjournerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjournerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/stonjourner/stonjournerback",
-    "backShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjournerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/stonjourner/stonjournericon",
-    "overworld": "pokeemerald:pokemon:sprite/stonjourner/stonjourneroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjourneroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_back",
+    "backShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_icon",
+    "overworld": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/stonjourner/stonjourner_overworld_shiny"
   }
 }

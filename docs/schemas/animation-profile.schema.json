@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://monoball.io/schemas/animation-profile.schema.json",
+  "title": "Animation Profile",
+  "description": "Defines animation speeds and durations for standardized animation types (face, go, go_fast, run, etc.) following pokeemerald-expansion patterns",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the profile (e.g., 'base:profile:animation/standard')",
+      "pattern": "^[a-z0-9]+:[a-z0-9/_-]+$"
+    },
+    "definitionType": {
+      "type": "string",
+      "const": "AnimationProfile",
+      "description": "Type identifier for definition loader"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the profile"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the profile"
+    },
+    "animations": {
+      "type": "object",
+      "description": "Animation speeds/durations for each animation type",
+      "additionalProperties": {
+        "$ref": "#/$defs/animationDefinition"
+      },
+      "minProperties": 1,
+      "examples": {
+        "face": {
+          "duration": 0.267,
+          "description": "Idle/facing animations (matches pokeemerald ANIM_STD_FACE: 16 ticks @ 60fps = 0.267s)"
+        },
+        "go": {
+          "duration": 0.133,
+          "description": "Walking animations (matches pokeemerald ANIM_STD_GO: 8 ticks @ 60fps = 0.133s)"
+        },
+        "go_fast": {
+          "duration": 0.067,
+          "description": "Fast walking animations (matches pokeemerald ANIM_STD_GO_FAST: 4 ticks @ 60fps = 0.067s)"
+        },
+        "run": {
+          "duration": 0.083,
+          "frameSequence": [1.383, 0.833, 1.383, 0.833],
+          "description": "Running animations (matches pokeemerald ANIM_STD_RUN: [83, 50, 83, 50] ticks @ 60fps)"
+        }
+      }
+    },
+    "defaultAnimation": {
+      "type": "string",
+      "description": "Default animation type to use when not specified",
+      "examples": ["face", "go", "go_fast"]
+    }
+  },
+  "required": ["id", "definitionType", "animations", "defaultAnimation"],
+  "additionalProperties": false,
+  "$defs": {
+    "animationDefinition": {
+      "type": "object",
+      "description": "Animation duration definition (all durations in seconds)",
+      "properties": {
+        "duration": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 10.0,
+          "description": "Base duration per frame in seconds. Used for all frames unless frameSequence is specified."
+        },
+        "frameSequence": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 10.0
+          },
+          "description": "Optional per-frame durations in seconds. Overrides duration for each frame. Length must match number of frames in animation.",
+          "minItems": 1
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the animation type"
+        }
+      },
+      "required": ["duration"],
+      "additionalProperties": false
+    }
+  }
+}

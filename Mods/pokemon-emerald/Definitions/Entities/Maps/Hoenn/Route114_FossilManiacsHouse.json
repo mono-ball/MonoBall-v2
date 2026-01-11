@@ -172,6 +172,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route114_fossil_maniacs_house_event_script_fossil_maniacs_brother",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

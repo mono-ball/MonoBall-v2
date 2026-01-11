@@ -49,12 +49,12 @@
     }
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/beldum/beldumfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/beldum/beldumfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/beldum/beldumback",
-    "backShiny": "pokeemerald:pokemon:sprite/beldum/beldumbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/beldum/beldumicon",
-    "overworld": "pokeemerald:pokemon:sprite/beldum/beldumoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/beldum/beldumoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/beldum/beldum_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/beldum/beldum_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/beldum/beldum_back",
+    "backShiny": "pokeemerald:pokemon:sprite/beldum/beldum_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/beldum/beldum_icon",
+    "overworld": "pokeemerald:pokemon:sprite/beldum/beldum_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beldum/beldum_overworld_shiny"
   }
 }

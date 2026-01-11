@@ -1,0 +1,21 @@
+{
+  "id": "pokeemerald:profile:movement/pokemon",
+  "definitionType": "MovementProfile",
+  "name": "Pokemon Movement Profile",
+  "description": "Movement speeds for Pokemon (walk, run, follow)",
+  "speeds": {
+    "walk": {
+      "speed": 3.0,
+      "animationType": "go"
+    },
+    "run": {
+      "speed": 5.0,
+      "animationType": "go_fast"
+    },
+    "follow": {
+      "speed": 4.0,
+      "animationType": "go"
+    }
+  },
+  "defaultSpeed": "walk"
+}

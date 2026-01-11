@@ -138,13 +138,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/altaria/altariafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/altaria/altariafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/altaria/altariaback",
-    "backShiny": "pokeemerald:pokemon:sprite/altaria/altariabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/altaria/altariaicon",
-    "overworld": "pokeemerald:pokemon:sprite/altaria/altariaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/altaria/altariaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/altaria/altaria_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/altaria/altaria_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/altaria/altaria_back",
+    "backShiny": "pokeemerald:pokemon:sprite/altaria/altaria_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/altaria/altaria_icon",
+    "overworld": "pokeemerald:pokemon:sprite/altaria/altaria_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/altaria/altaria_overworld_shiny"
   },
   "forms": [
     {
@@ -170,13 +170,13 @@
         "pokeemerald:ability:pixilate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/altaria/altariamegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/altaria/altariamegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/altaria/altariamegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/altaria/altariamegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/altaria/altariamegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/altaria/altariamegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/altaria/altariamegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/altaria/altaria_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/altaria/altaria_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/altaria/altaria_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/altaria/altaria_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/altaria/altaria_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/altaria/altaria_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/altaria/altaria_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:altarianite",

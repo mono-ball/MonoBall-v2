@@ -184,12 +184,12 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kecleon/kecleonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kecleon/kecleonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/kecleon/kecleonback",
-    "backShiny": "pokeemerald:pokemon:sprite/kecleon/kecleonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/kecleon/kecleonicon",
-    "overworld": "pokeemerald:pokemon:sprite/kecleon/kecleonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kecleon/kecleonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kecleon/kecleon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kecleon/kecleon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/kecleon/kecleon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kecleon/kecleon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kecleon/kecleon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kecleon/kecleon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kecleon/kecleon_overworld_shiny"
   }
 }

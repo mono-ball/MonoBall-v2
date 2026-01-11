@@ -133,12 +133,12 @@
     "pokeemerald:move:defog"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rowlet/rowletfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rowlet/rowletfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/rowlet/rowletback",
-    "backShiny": "pokeemerald:pokemon:sprite/rowlet/rowletbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/rowlet/rowleticon",
-    "overworld": "pokeemerald:pokemon:sprite/rowlet/rowletoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rowlet/rowletoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rowlet/rowlet_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rowlet/rowlet_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/rowlet/rowlet_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rowlet/rowlet_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rowlet/rowlet_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rowlet/rowlet_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rowlet/rowlet_overworld_shiny"
   }
 }

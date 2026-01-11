@@ -161,13 +161,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gardevoir/gardevoirfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gardevoir/gardevoirback",
-    "backShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gardevoir/gardevoiricon",
-    "overworld": "pokeemerald:pokemon:sprite/gardevoir/gardevoiroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoiroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_overworld_shiny"
   },
   "forms": [
     {
@@ -189,13 +189,13 @@
         "pokeemerald:ability:pixilate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoirmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/gardevoir/gardevoir_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:gardevoirite",

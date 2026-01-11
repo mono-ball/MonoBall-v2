@@ -193,10 +193,50 @@
       "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
-      "localTileId": 161,
+      "localTileId": 165,
+      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 172,
+      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 173,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 178,
+      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 184,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 188,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 195,
+      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
+      "terrainId": "pokeemerald:terrain:water",
+      "collisionId": "pokeemerald:collision:water"
+    },
+    {
+      "localTileId": 203,
+      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+    },
+    {
+      "localTileId": 205,
       "animation": [
         {
-          "tileId": 159,
+          "tileId": 204,
           "durationMs": 133
         },
         {
@@ -218,64 +258,24 @@
       ]
     },
     {
-      "localTileId": 163,
-      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
-    },
-    {
-      "localTileId": 164,
-      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
-    },
-    {
-      "localTileId": 168,
+      "localTileId": 217,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_3e"
     },
     {
-      "localTileId": 169,
+      "localTileId": 218,
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_3e"
-    },
-    {
-      "localTileId": 170,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3f"
-    },
-    {
-      "localTileId": 171,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3f"
-    },
-    {
-      "localTileId": 189,
-      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
-    },
-    {
-      "localTileId": 190,
-      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
-    },
-    {
-      "localTileId": 191,
-      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
-    },
-    {
-      "localTileId": 202,
-      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
-    },
-    {
-      "localTileId": 205,
-      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
-    },
-    {
-      "localTileId": 212,
-      "interactionId": "pokeemerald:script:interactions/tiles/ocean_water",
-      "terrainId": "pokeemerald:terrain:water",
-      "collisionId": "pokeemerald:collision:water"
     },
     {
       "localTileId": 219,
-      "interactionId": "pokeemerald:script:interactions/tiles/secret_base_shrub"
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3f"
+    },
+    {
+      "localTileId": 220,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_3f"
+    },
+    {
+      "localTileId": 225,
+      "interactionId": "pokeemerald:script:interactions/tiles/unknown_21"
     },
     {
       "localTileId": 233,

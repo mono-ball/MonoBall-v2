@@ -113,12 +113,12 @@
     "pokeemerald:move:memento"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wiglett/wiglettfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wiglett/wiglettfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wiglett/wiglettback",
-    "backShiny": "pokeemerald:pokemon:sprite/wiglett/wiglettbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wiglett/wigletticon",
-    "overworld": "pokeemerald:pokemon:sprite/wiglett/wiglettoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wiglett/wiglettoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wiglett/wiglett_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wiglett/wiglett_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wiglett/wiglett_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wiglett/wiglett_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wiglett/wiglett_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wiglett/wiglett_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wiglett/wiglett_overworld_shiny"
   }
 }

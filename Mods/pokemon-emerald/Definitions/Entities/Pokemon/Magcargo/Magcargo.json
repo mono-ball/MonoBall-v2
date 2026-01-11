@@ -134,12 +134,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/magcargo/magcargofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/magcargo/magcargofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/magcargo/magcargoback",
-    "backShiny": "pokeemerald:pokemon:sprite/magcargo/magcargobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/magcargo/magcargoicon",
-    "overworld": "pokeemerald:pokemon:sprite/magcargo/magcargooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/magcargo/magcargooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/magcargo/magcargo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/magcargo/magcargo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/magcargo/magcargo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/magcargo/magcargo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/magcargo/magcargo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/magcargo/magcargo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/magcargo/magcargo_overworld_shiny"
   }
 }

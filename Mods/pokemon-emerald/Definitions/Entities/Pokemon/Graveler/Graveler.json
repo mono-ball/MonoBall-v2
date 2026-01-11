@@ -143,13 +143,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/graveler/gravelerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/graveler/gravelerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/graveler/gravelerback",
-    "backShiny": "pokeemerald:pokemon:sprite/graveler/gravelerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/graveler/gravelericon",
-    "overworld": "pokeemerald:pokemon:sprite/graveler/graveleroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/graveler/graveleroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/graveler/graveler_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/graveler/graveler_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/graveler/graveler_back",
+    "backShiny": "pokeemerald:pokemon:sprite/graveler/graveler_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/graveler/graveler_icon",
+    "overworld": "pokeemerald:pokemon:sprite/graveler/graveler_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/graveler/graveler_overworld_shiny"
   },
   "forms": [
     {
@@ -175,13 +175,13 @@
         "pokeemerald:ability:galvanize"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/graveler/graveleralolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/graveler/graveleralolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/graveler/graveleralolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/graveler/graveleralolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/graveler/graveleralolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/graveler/graveleralolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/graveler/graveleralolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/graveler/graveler_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/graveler/graveler_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/graveler/graveler_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/graveler/graveler_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/graveler/graveler_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/graveler/graveler_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/graveler/graveler_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

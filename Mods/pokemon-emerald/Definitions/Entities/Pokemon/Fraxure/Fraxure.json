@@ -149,12 +149,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/fraxure/fraxurefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/fraxure/fraxurefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/fraxure/fraxureback",
-    "backShiny": "pokeemerald:pokemon:sprite/fraxure/fraxurebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/fraxure/fraxureicon",
-    "overworld": "pokeemerald:pokemon:sprite/fraxure/fraxureoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/fraxure/fraxureoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/fraxure/fraxure_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/fraxure/fraxure_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/fraxure/fraxure_back",
+    "backShiny": "pokeemerald:pokemon:sprite/fraxure/fraxure_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/fraxure/fraxure_icon",
+    "overworld": "pokeemerald:pokemon:sprite/fraxure/fraxure_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/fraxure/fraxure_overworld_shiny"
   }
 }

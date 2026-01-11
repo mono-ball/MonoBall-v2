@@ -141,17 +141,17 @@
     "pokeemerald:move:constrict"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/frillish/frillishfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/frillish/frillishfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/frillish/frillishfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/frillish/frillishfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/frillish/frillishback",
-    "backShiny": "pokeemerald:pokemon:sprite/frillish/frillishbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/frillish/frillishbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/frillish/frillishbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/frillish/frillishicon",
-    "overworld": "pokeemerald:pokemon:sprite/frillish/frillishoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/frillish/frillishoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/frillish/frillish_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/frillish/frillish_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/frillish/frillish_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/frillish/frillish_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/frillish/frillish_back",
+    "backShiny": "pokeemerald:pokemon:sprite/frillish/frillish_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/frillish/frillish_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/frillish/frillish_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/frillish/frillish_icon",
+    "overworld": "pokeemerald:pokemon:sprite/frillish/frillish_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/frillish/frillish_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

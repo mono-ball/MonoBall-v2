@@ -127,9 +127,10 @@
       "name": "LOCALID_NAVEL_ROCK_HO_OH",
       "x": 192,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:pokemon/hoohold",
+      "spriteId": "pokeemerald:pokemon:sprite/ho_oh/ho_oh_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/ho_oh",
+      "facingDirection": "down",
       "elevation": 0
     }
   ],

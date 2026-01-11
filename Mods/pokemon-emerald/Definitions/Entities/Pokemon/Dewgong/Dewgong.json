@@ -134,12 +134,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dewgong/dewgongfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dewgong/dewgongfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dewgong/dewgongback",
-    "backShiny": "pokeemerald:pokemon:sprite/dewgong/dewgongbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dewgong/dewgongicon",
-    "overworld": "pokeemerald:pokemon:sprite/dewgong/dewgongoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dewgong/dewgongoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dewgong/dewgong_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dewgong/dewgong_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dewgong/dewgong_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dewgong/dewgong_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dewgong/dewgong_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dewgong/dewgong_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dewgong/dewgong_overworld_shiny"
   }
 }

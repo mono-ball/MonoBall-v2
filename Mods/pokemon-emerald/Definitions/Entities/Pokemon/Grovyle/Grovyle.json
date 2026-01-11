@@ -162,12 +162,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/grovyle/grovylefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/grovyle/grovylefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/grovyle/grovyleback",
-    "backShiny": "pokeemerald:pokemon:sprite/grovyle/grovylebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/grovyle/grovyleicon",
-    "overworld": "pokeemerald:pokemon:sprite/grovyle/grovyleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/grovyle/grovyleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/grovyle/grovyle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/grovyle/grovyle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/grovyle/grovyle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/grovyle/grovyle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/grovyle/grovyle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/grovyle/grovyle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/grovyle/grovyle_overworld_shiny"
   }
 }

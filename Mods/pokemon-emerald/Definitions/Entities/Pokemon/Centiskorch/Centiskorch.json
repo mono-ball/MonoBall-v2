@@ -112,13 +112,13 @@
     "pokeemerald:move:sunny_day"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/centiskorch/centiskorchfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/centiskorch/centiskorchback",
-    "backShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/centiskorch/centiskorchicon",
-    "overworld": "pokeemerald:pokemon:sprite/centiskorch/centiskorchoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_back",
+    "backShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_icon",
+    "overworld": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_overworld_shiny"
   },
   "forms": [
     {
@@ -144,13 +144,13 @@
         "pokeemerald:ability:flame_body"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorchgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/centiskorch/centiskorch_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

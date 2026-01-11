@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -142,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle1_event_script_sally",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -152,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle1_event_script_eddie",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -162,6 +164,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/lass",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route110_trick_house_puzzle1_event_script_robin",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -173,6 +176,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/13",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -184,6 +188,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/12",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -195,6 +200,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/14",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -206,6 +212,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/17",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -217,6 +224,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/16",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -228,6 +236,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/15",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -239,6 +248,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/19",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -250,6 +260,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/18",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -261,6 +272,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/1_b",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -272,6 +284,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/trick_house_puzzle_1_orange_mail",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -283,6 +296,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/1_c",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -294,6 +308,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_cut_tree",
       "visibilityFlag": "pokeemerald:flag:temporary/1_e",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

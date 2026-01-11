@@ -136,12 +136,12 @@
     "pokeemerald:move:endure"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bonsly/bonslyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bonsly/bonslyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bonsly/bonslyback",
-    "backShiny": "pokeemerald:pokemon:sprite/bonsly/bonslybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bonsly/bonslyicon",
-    "overworld": "pokeemerald:pokemon:sprite/bonsly/bonslyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bonsly/bonslyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bonsly/bonsly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bonsly/bonsly_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bonsly/bonsly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bonsly/bonsly_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bonsly/bonsly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bonsly/bonsly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bonsly/bonsly_overworld_shiny"
   }
 }

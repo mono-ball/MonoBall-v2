@@ -129,12 +129,12 @@
     "pokeemerald:move:endure"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/goomy/goomyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/goomy/goomyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/goomy/goomyback",
-    "backShiny": "pokeemerald:pokemon:sprite/goomy/goomybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/goomy/goomyicon",
-    "overworld": "pokeemerald:pokemon:sprite/goomy/goomyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/goomy/goomyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/goomy/goomy_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/goomy/goomy_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/goomy/goomy_back",
+    "backShiny": "pokeemerald:pokemon:sprite/goomy/goomy_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/goomy/goomy_icon",
+    "overworld": "pokeemerald:pokemon:sprite/goomy/goomy_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/goomy/goomy_overworld_shiny"
   }
 }

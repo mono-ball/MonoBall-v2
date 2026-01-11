@@ -142,17 +142,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/venusaur/venusaurfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/venusaur/venusaurfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/venusaur/venusaurback",
-    "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/venusaur/venusaurbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/venusaur/venusauricon",
-    "overworld": "pokeemerald:pokemon:sprite/venusaur/venusauroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusauroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/venusaur/venusaur_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/venusaur/venusaur_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/venusaur/venusaur_back",
+    "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/venusaur/venusaur_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/venusaur/venusaur_icon",
+    "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaur_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -179,13 +179,13 @@
         "pokeemerald:ability:chlorophyll"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"
@@ -213,13 +213,13 @@
         "pokeemerald:ability:thick_fat"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/venusaur/venusaurmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaurmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/venusaur/venusaur_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:venusaurite",

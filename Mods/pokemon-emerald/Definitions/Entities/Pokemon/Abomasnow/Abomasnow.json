@@ -137,15 +137,15 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/abomasnow/abomasnowback",
-    "backShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/abomasnow/abomasnowicon",
-    "overworld": "pokeemerald:pokemon:sprite/abomasnow/abomasnowoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_back",
+    "backShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_icon",
+    "overworld": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -172,13 +172,13 @@
         "pokeemerald:ability:snow_warning"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnowmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/abomasnow/abomasnow_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:abomasite",

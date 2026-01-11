@@ -140,6 +140,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_bike_shop_event_script_rydel",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -154,6 +155,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_bike_shop_event_script_assistant",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

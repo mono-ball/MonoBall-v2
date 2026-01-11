@@ -1,10 +1,36 @@
 {
-  "id": "pokeemerald:pokemon:sprite/mimikyu/mimikyufront",
+  "id": "pokeemerald:pokemon:sprite/mimikyu/mimikyu_front",
   "name": "Mimikyufront",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Mimikyu/MimikyuFront.png",
   "spriteType": "front",
   "frameWidth": 64,
   "frameHeight": 64,
-  "frameCount": 1
+  "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
+  "animations": [
+    {
+      "name": "idle",
+      "animationType": "face",
+      "loop": true,
+      "frameIndices": [
+        0
+      ],
+      "flipHorizontal": false
+    }
+  ]
 }

@@ -144,12 +144,12 @@
     "pokeemerald:move:boomburst"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/chatot/chatotfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/chatot/chatotfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/chatot/chatotback",
-    "backShiny": "pokeemerald:pokemon:sprite/chatot/chatotbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/chatot/chatoticon",
-    "overworld": "pokeemerald:pokemon:sprite/chatot/chatotoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/chatot/chatotoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/chatot/chatot_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/chatot/chatot_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/chatot/chatot_back",
+    "backShiny": "pokeemerald:pokemon:sprite/chatot/chatot_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/chatot/chatot_icon",
+    "overworld": "pokeemerald:pokemon:sprite/chatot/chatot_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chatot/chatot_overworld_shiny"
   }
 }

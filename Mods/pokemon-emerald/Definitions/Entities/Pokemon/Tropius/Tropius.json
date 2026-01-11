@@ -148,12 +148,12 @@
     "pokeemerald:move:dragon_hammer"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tropius/tropiusfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tropius/tropiusfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tropius/tropiusback",
-    "backShiny": "pokeemerald:pokemon:sprite/tropius/tropiusbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tropius/tropiusicon",
-    "overworld": "pokeemerald:pokemon:sprite/tropius/tropiusoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tropius/tropiusoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tropius/tropius_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tropius/tropius_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tropius/tropius_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tropius/tropius_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tropius/tropius_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tropius/tropius_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tropius/tropius_overworld_shiny"
   }
 }

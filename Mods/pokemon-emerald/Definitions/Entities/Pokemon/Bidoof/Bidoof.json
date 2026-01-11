@@ -151,17 +151,17 @@
     "pokeemerald:move:mud_sport"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bidoof/bidooffront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bidoof/bidooffrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/bidoof/bidooffrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/bidoof/bidooffrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/bidoof/bidoofback",
-    "backShiny": "pokeemerald:pokemon:sprite/bidoof/bidoofbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/bidoof/bidoofbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/bidoof/bidoofbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/bidoof/bidooficon",
-    "overworld": "pokeemerald:pokemon:sprite/bidoof/bidoofoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bidoof/bidoofoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bidoof/bidoof_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bidoof/bidoof_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/bidoof/bidoof_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/bidoof/bidoof_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/bidoof/bidoof_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bidoof/bidoof_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/bidoof/bidoof_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/bidoof/bidoof_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bidoof/bidoof_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bidoof/bidoof_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bidoof/bidoof_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -117,12 +117,12 @@
     "pokeemerald:move:torment"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/impidimp/impidimpfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/impidimp/impidimpfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/impidimp/impidimpback",
-    "backShiny": "pokeemerald:pokemon:sprite/impidimp/impidimpbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/impidimp/impidimpicon",
-    "overworld": "pokeemerald:pokemon:sprite/impidimp/impidimpoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/impidimp/impidimpoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/impidimp/impidimp_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/impidimp/impidimp_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/impidimp/impidimp_back",
+    "backShiny": "pokeemerald:pokemon:sprite/impidimp/impidimp_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/impidimp/impidimp_icon",
+    "overworld": "pokeemerald:pokemon:sprite/impidimp/impidimp_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/impidimp/impidimp_overworld_shiny"
   }
 }

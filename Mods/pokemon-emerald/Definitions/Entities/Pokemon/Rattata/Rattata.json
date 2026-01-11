@@ -143,17 +143,17 @@
     "pokeemerald:move:final_gambit"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rattata/rattatafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rattata/rattatafrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/rattata/rattatafrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rattata/rattatafrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/rattata/rattataback",
-    "backShiny": "pokeemerald:pokemon:sprite/rattata/rattatabackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/rattata/rattatabackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/rattata/rattatabackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/rattata/rattataicon",
-    "overworld": "pokeemerald:pokemon:sprite/rattata/rattataoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rattata/rattataoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rattata/rattata_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rattata/rattata_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/rattata/rattata_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/rattata/rattata_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/rattata/rattata_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rattata/rattata_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/rattata/rattata_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/rattata/rattata_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rattata/rattata_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rattata/rattata_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rattata/rattata_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -180,13 +180,13 @@
         "pokeemerald:ability:thick_fat"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rattata/rattataalolafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rattata/rattataalolafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rattata/rattataalolaback",
-        "backShiny": "pokeemerald:pokemon:sprite/rattata/rattataalolabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rattata/rattataalolaicon",
-        "overworld": "pokeemerald:pokemon:sprite/rattata/rattataalolaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rattata/rattataalolaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rattata/rattata_alola_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rattata/rattata_alola_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rattata/rattata_alola_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rattata/rattata_alola_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rattata/rattata_alola_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rattata/rattata_alola_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rattata/rattata_alola_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:alola"

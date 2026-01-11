@@ -128,17 +128,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/luxray/luxrayfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/luxray/luxrayfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/luxray/luxrayfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/luxray/luxrayfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/luxray/luxrayback",
-    "backShiny": "pokeemerald:pokemon:sprite/luxray/luxraybackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/luxray/luxraybackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/luxray/luxraybackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/luxray/luxrayicon",
-    "overworld": "pokeemerald:pokemon:sprite/luxray/luxrayoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/luxray/luxrayoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/luxray/luxray_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/luxray/luxray_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/luxray/luxray_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/luxray/luxray_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/luxray/luxray_back",
+    "backShiny": "pokeemerald:pokemon:sprite/luxray/luxray_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/luxray/luxray_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/luxray/luxray_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/luxray/luxray_icon",
+    "overworld": "pokeemerald:pokemon:sprite/luxray/luxray_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/luxray/luxray_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

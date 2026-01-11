@@ -135,13 +135,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/zoroark/zoroarkfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/zoroark/zoroarkback",
-    "backShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/zoroark/zoroarkicon",
-    "overworld": "pokeemerald:pokemon:sprite/zoroark/zoroarkoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/zoroark/zoroark_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/zoroark/zoroark_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/zoroark/zoroark_back",
+    "backShiny": "pokeemerald:pokemon:sprite/zoroark/zoroark_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/zoroark/zoroark_icon",
+    "overworld": "pokeemerald:pokemon:sprite/zoroark/zoroark_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zoroark/zoroark_overworld_shiny"
   },
   "forms": [
     {
@@ -167,13 +167,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuifront",
-        "frontShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuifrontshiny",
-        "back": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuiback",
-        "backShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuibackshiny",
-        "icon": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuiicon",
-        "overworld": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuioverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/zoroark/zoroarkhisuioverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_back",
+        "backShiny": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_icon",
+        "overworld": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/zoroark/zoroark_hisui_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:hisui"

@@ -133,17 +133,17 @@
     "pokeemerald:move:assurance"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/doduo/doduofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/doduo/doduofrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/doduo/doduofrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/doduo/doduofrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/doduo/doduoback",
-    "backShiny": "pokeemerald:pokemon:sprite/doduo/doduobackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/doduo/doduobackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/doduo/doduobackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/doduo/doduoicon",
-    "overworld": "pokeemerald:pokemon:sprite/doduo/doduooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/doduo/doduooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/doduo/doduo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/doduo/doduo_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/doduo/doduo_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/doduo/doduo_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/doduo/doduo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/doduo/doduo_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/doduo/doduo_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/doduo/doduo_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/doduo/doduo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/doduo/doduo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/doduo/doduo_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

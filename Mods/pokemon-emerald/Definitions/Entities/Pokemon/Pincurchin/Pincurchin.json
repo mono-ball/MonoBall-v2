@@ -116,12 +116,12 @@
     "pokeemerald:move:sucker_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pincurchin/pincurchinfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchinfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pincurchin/pincurchinback",
-    "backShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchinbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pincurchin/pincurchinicon",
-    "overworld": "pokeemerald:pokemon:sprite/pincurchin/pincurchinoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchinoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pincurchin/pincurchin_overworld_shiny"
   }
 }

@@ -191,17 +191,17 @@
     "pokeemerald:move:captivate"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/eevee/eeveefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/eevee/eeveefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/eevee/eeveefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/eevee/eeveefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/eevee/eeveeback",
-    "backShiny": "pokeemerald:pokemon:sprite/eevee/eeveebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/eevee/eeveebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/eevee/eeveebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/eevee/eeveeicon",
-    "overworld": "pokeemerald:pokemon:sprite/eevee/eeveeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eeveeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/eevee/eevee_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/eevee/eevee_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/eevee/eevee_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/eevee/eevee_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/eevee/eevee_back",
+    "backShiny": "pokeemerald:pokemon:sprite/eevee/eevee_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/eevee/eevee_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/eevee/eevee_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/eevee/eevee_icon",
+    "overworld": "pokeemerald:pokemon:sprite/eevee/eevee_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eevee_overworld_shiny"
   },
   "hasGenderDifferences": true,
   "forms": [
@@ -227,13 +227,13 @@
         "pokeemerald:ability:anticipation"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/eevee/eeveestarterfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/eevee/eeveestarterfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/eevee/eeveestarterback",
-        "backShiny": "pokeemerald:pokemon:sprite/eevee/eeveestarterbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/eevee/eeveestartericon",
-        "overworld": "pokeemerald:pokemon:sprite/eevee/eeveestarteroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eeveestarteroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/eevee/eevee_starter_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/eevee/eevee_starter_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/eevee/eevee_starter_back",
+        "backShiny": "pokeemerald:pokemon:sprite/eevee/eevee_starter_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/eevee/eevee_starter_icon",
+        "overworld": "pokeemerald:pokemon:sprite/eevee/eevee_starter_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eevee_starter_overworld_shiny"
       }
     },
     {
@@ -257,13 +257,13 @@
         "pokeemerald:ability:anticipation"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/eevee/eeveegmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/eevee/eeveegmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/eevee/eeveegmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/eevee/eeveegmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/eevee/eeveegmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/eevee/eeveegmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eeveegmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eevee/eevee_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

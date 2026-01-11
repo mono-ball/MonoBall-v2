@@ -125,12 +125,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/crabominable/crabominablefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/crabominable/crabominablefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/crabominable/crabominableback",
-    "backShiny": "pokeemerald:pokemon:sprite/crabominable/crabominablebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/crabominable/crabominableicon",
-    "overworld": "pokeemerald:pokemon:sprite/crabominable/crabominableoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/crabominable/crabominableoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/crabominable/crabominable_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/crabominable/crabominable_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/crabominable/crabominable_back",
+    "backShiny": "pokeemerald:pokemon:sprite/crabominable/crabominable_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/crabominable/crabominable_icon",
+    "overworld": "pokeemerald:pokemon:sprite/crabominable/crabominable_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/crabominable/crabominable_overworld_shiny"
   }
 }

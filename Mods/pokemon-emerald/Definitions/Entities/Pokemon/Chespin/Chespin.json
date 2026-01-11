@@ -142,12 +142,12 @@
     "pokeemerald:move:power_up_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/chespin/chespinfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/chespin/chespinfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/chespin/chespinback",
-    "backShiny": "pokeemerald:pokemon:sprite/chespin/chespinbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/chespin/chespinicon",
-    "overworld": "pokeemerald:pokemon:sprite/chespin/chespinoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/chespin/chespinoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/chespin/chespin_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/chespin/chespin_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/chespin/chespin_back",
+    "backShiny": "pokeemerald:pokemon:sprite/chespin/chespin_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/chespin/chespin_icon",
+    "overworld": "pokeemerald:pokemon:sprite/chespin/chespin_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chespin/chespin_overworld_shiny"
   }
 }

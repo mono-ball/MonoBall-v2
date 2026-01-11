@@ -194,6 +194,8 @@ public class InputBindingService : IInputBindingService
         // Action buttons - Interact (A button) = X key only
         // Note: Enter/Return is reserved for Start button (Menu), NOT interaction
         _keyBindings[InputAction.Interact] = Keys.X;
+        // Run button (B button on GBA) = Z key - toggles walk/run movement type
+        _keyBindings[InputAction.Run] = Keys.Z;
         _keyBindings[InputAction.Pause] = Keys.Escape;
         // Menu (Start button) uses Enter/Return key
         _keyBindings[InputAction.Menu] = Keys.Enter;
@@ -222,6 +224,7 @@ public class InputBindingService : IInputBindingService
             InputAction.MoveWest => _currentGamePadState.DPad.Left == ButtonState.Pressed
                 || _currentGamePadState.ThumbSticks.Left.X < -0.5f,
             InputAction.Interact => _currentGamePadState.Buttons.A == ButtonState.Pressed,
+            InputAction.Run => _currentGamePadState.Buttons.B == ButtonState.Pressed,
             InputAction.Pause => _currentGamePadState.Buttons.Start == ButtonState.Pressed,
             InputAction.Menu => _currentGamePadState.Buttons.Back == ButtonState.Pressed,
             _ => false,
@@ -272,6 +275,8 @@ public class InputBindingService : IInputBindingService
                 ),
             InputAction.Interact => _currentGamePadState.Buttons.A == ButtonState.Pressed
                 && _previousGamePadState.Buttons.A == ButtonState.Released,
+            InputAction.Run => _currentGamePadState.Buttons.B == ButtonState.Pressed
+                && _previousGamePadState.Buttons.B == ButtonState.Released,
             InputAction.Pause => _currentGamePadState.Buttons.Start == ButtonState.Pressed
                 && _previousGamePadState.Buttons.Start == ButtonState.Released,
             InputAction.Menu => _currentGamePadState.Buttons.Back == ButtonState.Pressed
@@ -324,6 +329,8 @@ public class InputBindingService : IInputBindingService
                 ),
             InputAction.Interact => _currentGamePadState.Buttons.A == ButtonState.Released
                 && _previousGamePadState.Buttons.A == ButtonState.Pressed,
+            InputAction.Run => _currentGamePadState.Buttons.B == ButtonState.Released
+                && _previousGamePadState.Buttons.B == ButtonState.Pressed,
             InputAction.Pause => _currentGamePadState.Buttons.Start == ButtonState.Released
                 && _previousGamePadState.Buttons.Start == ButtonState.Pressed,
             InputAction.Menu => _currentGamePadState.Buttons.Back == ButtonState.Released

@@ -108,6 +108,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mirage_tower_4f_event_script_root_fossil",
       "visibilityFlag": "pokeemerald:flag:visibility/mirage_tower_root_fossil",
+      "facingDirection": "down",
       "elevation": 4
     },
     {
@@ -119,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mirage_tower_4f_event_script_claw_fossil",
       "visibilityFlag": "pokeemerald:flag:visibility/mirage_tower_claw_fossil",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -130,6 +132,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:temporary/11",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

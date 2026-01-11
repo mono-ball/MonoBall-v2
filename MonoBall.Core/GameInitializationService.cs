@@ -189,10 +189,10 @@ public class GameInitializationService
             await Task.Yield();
 
             // Get ConstantsService for initial map and camera creation
-            var constantsService = _game.Services.GetService<ConstantsService>();
+            var constantsService = _game.Services.GetService<IConstantsService>();
             if (constantsService == null)
                 throw new InvalidOperationException(
-                    "ConstantsService is not available in Game.Services. "
+                    "IConstantsService is not available in Game.Services. "
                         + "Ensure ConstantsService was registered after mods were loaded."
                 );
 

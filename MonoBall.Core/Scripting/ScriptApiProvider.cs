@@ -5,7 +5,10 @@ using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
+using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Profiles;
+using MonoBall.Core.Resources;
 using MonoBall.Core.Scripting.Api;
 using MonoBall.Core.Scripting.Utilities;
 using ShaderApiImpl = MonoBall.Core.Scripting.Api.ShaderApiImpl;
@@ -19,6 +22,8 @@ namespace MonoBall.Core.Scripting;
 public class ScriptApiProvider : IScriptApiProvider
 {
     private readonly ICameraService? _cameraService;
+    private readonly IProfileService _profileService;
+    private readonly IResourceManager _resourceManager;
     private readonly World _world;
     private ICameraApi? _cameraApi;
     private IMapApi? _mapApi;
@@ -48,6 +53,8 @@ public class ScriptApiProvider : IScriptApiProvider
     /// <param name="cameraService">Optional camera service.</param>
     /// <param name="flagVariableService">The flag/variable service.</param>
     /// <param name="definitionRegistry">The definition registry.</param>
+    /// <param name="profileService">The profile service for accessing movement profiles. Required.</param>
+    /// <param name="resourceManager">The resource manager for accessing sprite definitions. Required.</param>
     public ScriptApiProvider(
         World world,
         PlayerSystem? playerSystem,
@@ -55,7 +62,9 @@ public class ScriptApiProvider : IScriptApiProvider
         MovementSystem? movementSystem,
         ICameraService? cameraService,
         IFlagVariableService flagVariableService,
-        DefinitionRegistry definitionRegistry
+        DefinitionRegistry definitionRegistry,
+        IProfileService profileService,
+        IResourceManager resourceManager
     )
     {
         _world = world ?? throw new ArgumentNullException(nameof(world));
@@ -66,6 +75,8 @@ public class ScriptApiProvider : IScriptApiProvider
         Flags = flagVariableService ?? throw new ArgumentNullException(nameof(flagVariableService));
         Definitions =
             definitionRegistry ?? throw new ArgumentNullException(nameof(definitionRegistry));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
+        _resourceManager = resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
     }
 
     /// <summary>
@@ -102,7 +113,12 @@ public class ScriptApiProvider : IScriptApiProvider
         get
         {
             if (_movementApi == null)
-                _movementApi = new MovementApiImpl(_world, _movementSystem);
+                _movementApi = new MovementApiImpl(
+                    _world,
+                    _movementSystem,
+                    _profileService,
+                    _resourceManager
+                );
             return _movementApi;
         }
     }
@@ -138,7 +154,7 @@ public class ScriptApiProvider : IScriptApiProvider
         get
         {
             if (_npcApi == null)
-                _npcApi = new NpcApiImpl(_world);
+                _npcApi = new NpcApiImpl(_world, _resourceManager);
 
             return _npcApi;
         }
@@ -352,18 +368,32 @@ public class ScriptApiProvider : IScriptApiProvider
     private class MovementApiImpl : IMovementApi
     {
         private readonly MovementSystem? _movementSystem;
+        private readonly IProfileService _profileService;
+        private readonly IResourceManager _resourceManager;
         private readonly World _world;
 
-        public MovementApiImpl(World world, MovementSystem? movementSystem)
+        public MovementApiImpl(
+            World world,
+            MovementSystem? movementSystem,
+            IProfileService profileService,
+            IResourceManager resourceManager
+        )
         {
-            _world = world;
+            _world = world ?? throw new ArgumentNullException(nameof(world));
             _movementSystem = movementSystem;
+            _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
+            _resourceManager = resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         }
 
         public bool RequestMovement(Entity entity, Direction direction)
         {
             if (!_world.IsAlive(entity) || !_world.Has<GridMovement>(entity))
                 return false;
+
+            // Update FacingDirection immediately so animation changes even if movement is blocked
+            // This matches Pokemon Emerald behavior where sprites turn to face the direction they want to move
+            ref var movement = ref _world.Get<GridMovement>(entity);
+            movement.FacingDirection = direction;
 
             // Add MovementRequest component
             var request = new MovementRequest(direction);
@@ -403,6 +433,174 @@ public class ScriptApiProvider : IScriptApiProvider
                 return false;
             return _world.Get<GridMovement>(entity).MovementLocked;
         }
+
+        public float? GetMovementSpeed(Entity entity)
+        {
+            if (!_world.IsAlive(entity) || !_world.Has<GridMovement>(entity))
+                return null;
+
+            return _world.Get<GridMovement>(entity).MovementSpeed;
+        }
+
+        public string? GetMovementType(Entity entity)
+        {
+            if (!_world.IsAlive(entity) || !_world.Has<GridMovement>(entity))
+                return null;
+
+            return _world.Get<GridMovement>(entity).CurrentMovementType;
+        }
+
+        public void SetMovementType(Entity entity, string movementType)
+        {
+            if (!_world.IsAlive(entity))
+                throw new ArgumentException($"Entity {entity.Id} is not alive.", nameof(entity));
+
+            if (!_world.Has<GridMovement>(entity))
+                throw new ArgumentException(
+                    $"Entity {entity.Id} does not have GridMovement component. Cannot set movement type.",
+                    nameof(entity)
+                );
+
+            if (!_world.Has<SpriteComponent>(entity))
+                throw new ArgumentException(
+                    $"Entity {entity.Id} does not have SpriteComponent. Cannot determine movement profile.",
+                    nameof(entity)
+                );
+
+            var sprite = _world.Get<SpriteComponent>(entity);
+            if (string.IsNullOrWhiteSpace(sprite.SpriteId))
+                throw new InvalidOperationException(
+                    $"Entity {entity.Id} has SpriteComponent with null or empty SpriteId. Cannot determine movement profile."
+                );
+
+            // Get sprite definition to access profile references (fail-fast)
+            SpriteDefinition spriteDef;
+            try
+            {
+                spriteDef = _resourceManager.GetSpriteDefinition(sprite.SpriteId);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition not found for sprite ID '{sprite.SpriteId}' for entity {entity.Id}. Cannot set movement type.",
+                    ex
+                );
+            }
+
+            // Validate required profile references (fail-fast)
+            if (string.IsNullOrWhiteSpace(spriteDef.MovementProfileId))
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{sprite.SpriteId}' for entity {entity.Id} is missing required field 'movementProfileId'. " +
+                    "Cannot set movement type from profile."
+                );
+            }
+
+            // Get movement speed from profile for specified movement type (fail-fast)
+            float movementSpeed;
+            try
+            {
+                movementSpeed = _profileService.GetMovementSpeed(spriteDef.MovementProfileId, movementType);
+            }
+            catch (ProfileNotFoundException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Movement profile '{spriteDef.MovementProfileId}' not found for sprite '{sprite.SpriteId}' for entity {entity.Id}. " +
+                    "Cannot set movement type.",
+                    ex
+                );
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Movement type '{movementType}' not found in profile '{spriteDef.MovementProfileId}' for sprite '{sprite.SpriteId}' for entity {entity.Id}.",
+                    ex
+                );
+            }
+
+            // Update movement speed and type
+            ref var movement = ref _world.Get<GridMovement>(entity);
+            movement.MovementSpeed = movementSpeed;
+            movement.CurrentMovementType = movementType;
+
+            // Animation will be automatically updated by MovementAnimationHelper.OnMovementInProgress()
+            // which uses CurrentMovementType to determine animation type
+        }
+
+        public void SetMovementSpeed(Entity entity, float speed)
+        {
+            if (!_world.IsAlive(entity))
+                throw new ArgumentException($"Entity {entity.Id} is not alive.", nameof(entity));
+
+            if (!_world.Has<GridMovement>(entity))
+                throw new ArgumentException(
+                    $"Entity {entity.Id} does not have GridMovement component. Cannot set movement speed.",
+                    nameof(entity)
+                );
+
+            if (!_world.Has<SpriteComponent>(entity))
+                throw new ArgumentException(
+                    $"Entity {entity.Id} does not have SpriteComponent. Cannot determine movement profile.",
+                    nameof(entity)
+                );
+
+            var sprite = _world.Get<SpriteComponent>(entity);
+            if (string.IsNullOrWhiteSpace(sprite.SpriteId))
+                throw new InvalidOperationException(
+                    $"Entity {entity.Id} has SpriteComponent with null or empty SpriteId. Cannot determine movement profile."
+                );
+
+            // Get sprite definition to access profile references (fail-fast)
+            SpriteDefinition spriteDef;
+            try
+            {
+                spriteDef = _resourceManager.GetSpriteDefinition(sprite.SpriteId);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition not found for sprite ID '{sprite.SpriteId}' for entity {entity.Id}. Cannot set movement speed.",
+                    ex
+                );
+            }
+
+            // Validate required profile references (fail-fast)
+            if (string.IsNullOrWhiteSpace(spriteDef.MovementProfileId))
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{sprite.SpriteId}' for entity {entity.Id} is missing required field 'movementProfileId'. " +
+                    "Cannot determine movement type from profile."
+                );
+            }
+
+            // Update movement speed
+            ref var movement = ref _world.Get<GridMovement>(entity);
+            movement.MovementSpeed = speed;
+
+            // Determine movement type from speed (within tolerance) or use default
+            string movementType;
+            try
+            {
+                movementType = _profileService.GetMovementTypeForSpeed(
+                    spriteDef.MovementProfileId,
+                    speed,
+                    tolerance: 0.1f
+                );
+            }
+            catch (ProfileNotFoundException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Movement profile '{spriteDef.MovementProfileId}' not found for sprite '{sprite.SpriteId}' for entity {entity.Id}. " +
+                    "Cannot determine movement type from profile.",
+                    ex
+                );
+            }
+
+            movement.CurrentMovementType = movementType;
+
+            // Animation will be automatically updated by MovementAnimationHelper.OnMovementInProgress()
+            // which uses CurrentMovementType to determine animation type
+        }
     }
 
     private class CameraApiImpl : ICameraApi
@@ -437,10 +635,12 @@ public class ScriptApiProvider : IScriptApiProvider
     private class NpcApiImpl : INpcApi
     {
         private readonly World _world;
+        private readonly IResourceManager _resourceManager;
 
-        public NpcApiImpl(World world)
+        public NpcApiImpl(World world, IResourceManager resourceManager)
         {
             _world = world;
+            _resourceManager = resourceManager;
         }
 
         public void FaceDirection(Entity npc, Direction direction)
@@ -458,8 +658,28 @@ public class ScriptApiProvider : IScriptApiProvider
 
             // Only trigger turn animation if direction is different
             if (movement.FacingDirection != direction)
-                // Use StartTurnInPlace to trigger the turn animation
-                movement.StartTurnInPlace(direction);
+            {
+                // Check if sprite has directional animations
+                // If not, just update the FacingDirection without turn animation
+                var hasDirectional = false;
+                if (_world.Has<SpriteComponent>(npc))
+                {
+                    var spriteId = _world.Get<SpriteComponent>(npc).SpriteId;
+                    var spriteDef = _resourceManager.GetSpriteDefinition(spriteId);
+                    hasDirectional = spriteDef.Capabilities.Directional;
+                }
+
+                if (hasDirectional)
+                {
+                    // Use StartTurnInPlace to trigger the turn animation
+                    movement.StartTurnInPlace(direction);
+                }
+                else
+                {
+                    // Non-directional sprite - just update facing direction without animation
+                    movement.FacingDirection = direction;
+                }
+            }
             // If already facing that direction, no need to do anything
         }
 

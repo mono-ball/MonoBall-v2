@@ -6,6 +6,12 @@
   "frameWidth": 16,
   "frameHeight": 32,
   "frameCount": 6,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "stage0",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
   "frames": [
     {
       "index": 0,
@@ -53,23 +59,25 @@
   "animations": [
     {
       "name": "stage0",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         0
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.5333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "stage1",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         1,
         2
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.5333333333333333,
         0.5333333333333333
       ],
@@ -77,12 +85,13 @@
     },
     {
       "name": "stage2",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         3,
         4
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.8,
         0.8
       ],
@@ -90,22 +99,24 @@
     },
     {
       "name": "stage3",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.5333333333333333
       ],
       "flipHorizontal": false
     },
     {
       "name": "stage4",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         5
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.8
       ],
       "flipHorizontal": false

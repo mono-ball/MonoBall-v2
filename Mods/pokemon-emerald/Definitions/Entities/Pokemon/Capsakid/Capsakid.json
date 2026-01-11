@@ -114,12 +114,12 @@
     "pokeemerald:move:worry_seed"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/capsakid/capsakidfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/capsakid/capsakidfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/capsakid/capsakidback",
-    "backShiny": "pokeemerald:pokemon:sprite/capsakid/capsakidbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/capsakid/capsakidicon",
-    "overworld": "pokeemerald:pokemon:sprite/capsakid/capsakidoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/capsakid/capsakidoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/capsakid/capsakid_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/capsakid/capsakid_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/capsakid/capsakid_back",
+    "backShiny": "pokeemerald:pokemon:sprite/capsakid/capsakid_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/capsakid/capsakid_icon",
+    "overworld": "pokeemerald:pokemon:sprite/capsakid/capsakid_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/capsakid/capsakid_overworld_shiny"
   }
 }

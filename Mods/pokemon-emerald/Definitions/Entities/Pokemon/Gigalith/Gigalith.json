@@ -115,12 +115,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/gigalith/gigalithfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/gigalith/gigalithfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/gigalith/gigalithback",
-    "backShiny": "pokeemerald:pokemon:sprite/gigalith/gigalithbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/gigalith/gigalithicon",
-    "overworld": "pokeemerald:pokemon:sprite/gigalith/gigalithoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/gigalith/gigalithoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/gigalith/gigalith_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/gigalith/gigalith_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/gigalith/gigalith_back",
+    "backShiny": "pokeemerald:pokemon:sprite/gigalith/gigalith_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/gigalith/gigalith_icon",
+    "overworld": "pokeemerald:pokemon:sprite/gigalith/gigalith_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/gigalith/gigalith_overworld_shiny"
   }
 }

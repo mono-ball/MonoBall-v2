@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house5_event_script_mirage_island_watcher",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house5_event_script_gentleman",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

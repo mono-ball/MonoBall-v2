@@ -122,17 +122,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/vileplume/vileplumefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/vileplume/vileplumefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/vileplume/vileplumefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/vileplume/vileplumefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/vileplume/vileplumeback",
-    "backShiny": "pokeemerald:pokemon:sprite/vileplume/vileplumebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/vileplume/vileplumebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/vileplume/vileplumebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/vileplume/vileplumeicon",
-    "overworld": "pokeemerald:pokemon:sprite/vileplume/vileplumeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/vileplume/vileplumeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/vileplume/vileplume_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/vileplume/vileplume_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/vileplume/vileplume_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/vileplume/vileplume_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/vileplume/vileplume_back",
+    "backShiny": "pokeemerald:pokemon:sprite/vileplume/vileplume_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/vileplume/vileplume_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/vileplume/vileplume_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/vileplume/vileplume_icon",
+    "overworld": "pokeemerald:pokemon:sprite/vileplume/vileplume_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vileplume/vileplume_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

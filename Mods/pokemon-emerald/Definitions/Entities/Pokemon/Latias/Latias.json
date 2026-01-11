@@ -151,13 +151,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/latias/latiasfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/latias/latiasfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/latias/latiasback",
-    "backShiny": "pokeemerald:pokemon:sprite/latias/latiasbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/latias/latiasicon",
-    "overworld": "pokeemerald:pokemon:sprite/latias/latiasoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/latias/latiasoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/latias/latias_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/latias/latias_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/latias/latias_back",
+    "backShiny": "pokeemerald:pokemon:sprite/latias/latias_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/latias/latias_icon",
+    "overworld": "pokeemerald:pokemon:sprite/latias/latias_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/latias/latias_overworld_shiny"
   },
   "forms": [
     {
@@ -183,13 +183,13 @@
         "pokeemerald:ability:levitate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/latias/latiasmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/latias/latiasmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/latias/latiasmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/latias/latiasmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/latias/latiasmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/latias/latiasmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/latias/latiasmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/latias/latias_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/latias/latias_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/latias/latias_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/latias/latias_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/latias/latias_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/latias/latias_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/latias/latias_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:latiasite",

@@ -137,12 +137,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/aromatisse/aromatissefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatissefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/aromatisse/aromatisseback",
-    "backShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatissebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/aromatisse/aromatisseicon",
-    "overworld": "pokeemerald:pokemon:sprite/aromatisse/aromatisseoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatisseoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_back",
+    "backShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_icon",
+    "overworld": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/aromatisse/aromatisse_overworld_shiny"
   }
 }

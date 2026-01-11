@@ -128,12 +128,12 @@
     "pokeemerald:move:iron_defense"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/klefki/klefkifront",
-    "frontShiny": "pokeemerald:pokemon:sprite/klefki/klefkifrontshiny",
-    "back": "pokeemerald:pokemon:sprite/klefki/klefkiback",
-    "backShiny": "pokeemerald:pokemon:sprite/klefki/klefkibackshiny",
-    "icon": "pokeemerald:pokemon:sprite/klefki/klefkiicon",
-    "overworld": "pokeemerald:pokemon:sprite/klefki/klefkioverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/klefki/klefkioverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/klefki/klefki_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/klefki/klefki_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/klefki/klefki_back",
+    "backShiny": "pokeemerald:pokemon:sprite/klefki/klefki_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/klefki/klefki_icon",
+    "overworld": "pokeemerald:pokemon:sprite/klefki/klefki_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/klefki/klefki_overworld_shiny"
   }
 }

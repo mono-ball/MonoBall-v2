@@ -112,15 +112,15 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/staraptor/staraptorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/staraptor/staraptorfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/staraptor/staraptorfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/staraptor/staraptorfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/staraptor/staraptorback",
-    "backShiny": "pokeemerald:pokemon:sprite/staraptor/staraptorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/staraptor/staraptoricon",
-    "overworld": "pokeemerald:pokemon:sprite/staraptor/staraptoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/staraptor/staraptoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/staraptor/staraptor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/staraptor/staraptor_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/staraptor/staraptor_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/staraptor/staraptor_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/staraptor/staraptor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/staraptor/staraptor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/staraptor/staraptor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/staraptor/staraptor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/staraptor/staraptor_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

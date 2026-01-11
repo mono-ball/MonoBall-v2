@@ -128,12 +128,12 @@
     "pokeemerald:move:acid_spray"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ferroseed/ferroseedfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseedfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ferroseed/ferroseedback",
-    "backShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseedbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ferroseed/ferroseedicon",
-    "overworld": "pokeemerald:pokemon:sprite/ferroseed/ferroseedoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseedoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ferroseed/ferroseed_overworld_shiny"
   }
 }

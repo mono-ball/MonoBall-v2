@@ -93,6 +93,7 @@
       "y": 64,
       "spriteId": "pokeemerald:sprite:characters/npcs/woman3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -102,6 +103,7 @@
       "y": 64,
       "spriteId": "pokeemerald:sprite:characters/npcs/contestjudge",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -111,6 +113,7 @@
       "y": 112,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -120,6 +123,7 @@
       "y": 112,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_player}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -129,6 +133,7 @@
       "y": 112,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_2}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -138,6 +143,7 @@
       "y": 96,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_4}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -147,6 +153,7 @@
       "y": 32,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_6}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -156,6 +163,7 @@
       "y": 32,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_7}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -165,6 +173,7 @@
       "y": 32,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_8}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -174,6 +183,7 @@
       "y": 32,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_9}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -183,6 +193,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_a}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -192,6 +203,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_5}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -202,6 +214,7 @@
       "spriteId": "pokeemerald:sprite:objects/misc/pokeball",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/contest_poke_ball",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -211,6 +224,7 @@
       "y": 112,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_3}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -220,6 +234,7 @@
       "y": 96,
       "spriteId": "pokeemerald:sprite:characters/npcs/artist",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

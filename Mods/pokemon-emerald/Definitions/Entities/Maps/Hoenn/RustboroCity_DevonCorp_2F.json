@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_2f_event_script_talk_to_pokemon_scientist",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_2f_event_script_ball_scientist",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -139,6 +141,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_2f_event_script_pokenav_scientist",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -149,6 +152,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_2f_event_script_pokemon_dreams_scientist",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -159,6 +163,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_2f_event_script_fossil_scientist",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -169,6 +174,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scientist1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_devon_corp_2f_event_script_match_call_scientist",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

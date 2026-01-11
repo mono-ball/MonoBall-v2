@@ -150,12 +150,12 @@
     "pokeemerald:move:helping_hand"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/solosis/solosisfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/solosis/solosisfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/solosis/solosisback",
-    "backShiny": "pokeemerald:pokemon:sprite/solosis/solosisbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/solosis/solosisicon",
-    "overworld": "pokeemerald:pokemon:sprite/solosis/solosisoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/solosis/solosisoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/solosis/solosis_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/solosis/solosis_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/solosis/solosis_back",
+    "backShiny": "pokeemerald:pokemon:sprite/solosis/solosis_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/solosis/solosis_icon",
+    "overworld": "pokeemerald:pokemon:sprite/solosis/solosis_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/solosis/solosis_overworld_shiny"
   }
 }

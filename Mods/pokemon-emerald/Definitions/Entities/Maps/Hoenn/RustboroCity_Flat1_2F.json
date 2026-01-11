@@ -111,6 +111,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_waldas_mom",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -120,6 +121,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:characters/npcs/twin",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -130,6 +132,7 @@
       "spriteId": "pokeemerald:sprite:objects/dolls/skittydoll",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_poke_doll",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -140,6 +143,7 @@
       "spriteId": "pokeemerald:sprite:objects/dolls/treeckodoll",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_poke_doll",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -150,6 +154,7 @@
       "spriteId": "pokeemerald:sprite:objects/dolls/torchicdoll",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_poke_doll",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -160,6 +165,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_waldas_dad",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -170,6 +176,7 @@
       "spriteId": "pokeemerald:sprite:objects/dolls/mudkipdoll",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_poke_doll",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -180,6 +187,7 @@
       "spriteId": "pokeemerald:sprite:objects/dolls/pikachudoll",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_2f_event_script_poke_doll",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

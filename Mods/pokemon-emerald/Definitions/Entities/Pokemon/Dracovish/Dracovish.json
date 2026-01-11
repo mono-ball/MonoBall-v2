@@ -109,12 +109,12 @@
     "pokeemerald:move:waterfall"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dracovish/dracovishfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dracovish/dracovishfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dracovish/dracovishback",
-    "backShiny": "pokeemerald:pokemon:sprite/dracovish/dracovishbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dracovish/dracovishicon",
-    "overworld": "pokeemerald:pokemon:sprite/dracovish/dracovishoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dracovish/dracovishoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dracovish/dracovish_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dracovish/dracovish_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dracovish/dracovish_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dracovish/dracovish_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dracovish/dracovish_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dracovish/dracovish_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dracovish/dracovish_overworld_shiny"
   }
 }

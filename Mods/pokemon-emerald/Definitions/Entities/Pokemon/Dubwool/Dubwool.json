@@ -108,12 +108,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dubwool/dubwoolfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dubwool/dubwoolfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dubwool/dubwoolback",
-    "backShiny": "pokeemerald:pokemon:sprite/dubwool/dubwoolbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dubwool/dubwoolicon",
-    "overworld": "pokeemerald:pokemon:sprite/dubwool/dubwooloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dubwool/dubwooloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dubwool/dubwool_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dubwool/dubwool_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dubwool/dubwool_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dubwool/dubwool_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dubwool/dubwool_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dubwool/dubwool_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dubwool/dubwool_overworld_shiny"
   }
 }

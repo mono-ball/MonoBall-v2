@@ -148,15 +148,15 @@
     "pokeemerald:move:quick_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/scyther/scytherfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/scyther/scytherfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/scyther/scytherfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/scyther/scytherfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/scyther/scytherback",
-    "backShiny": "pokeemerald:pokemon:sprite/scyther/scytherbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/scyther/scythericon",
-    "overworld": "pokeemerald:pokemon:sprite/scyther/scytheroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/scyther/scytheroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/scyther/scyther_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/scyther/scyther_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/scyther/scyther_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/scyther/scyther_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/scyther/scyther_back",
+    "backShiny": "pokeemerald:pokemon:sprite/scyther/scyther_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/scyther/scyther_icon",
+    "overworld": "pokeemerald:pokemon:sprite/scyther/scyther_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/scyther/scyther_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -163,17 +163,17 @@
     "pokeemerald:move:psychic_fangs"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/girafarig/girafarigfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/girafarig/girafarigfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/girafarig/girafarigfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/girafarig/girafarigfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/girafarig/girafarigback",
-    "backShiny": "pokeemerald:pokemon:sprite/girafarig/girafarigbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/girafarig/girafarigbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/girafarig/girafarigbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/girafarig/girafarigicon",
-    "overworld": "pokeemerald:pokemon:sprite/girafarig/girafarigoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/girafarig/girafarigoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/girafarig/girafarig_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/girafarig/girafarig_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/girafarig/girafarig_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/girafarig/girafarig_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/girafarig/girafarig_back",
+    "backShiny": "pokeemerald:pokemon:sprite/girafarig/girafarig_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/girafarig/girafarig_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/girafarig/girafarig_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/girafarig/girafarig_icon",
+    "overworld": "pokeemerald:pokemon:sprite/girafarig/girafarig_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/girafarig/girafarig_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

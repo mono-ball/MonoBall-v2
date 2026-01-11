@@ -1,0 +1,17 @@
+{
+  "id": "pokeemerald:profile:animation/overworld",
+  "definitionType": "AnimationProfile",
+  "name": "Overworld Animation Profile",
+  "description": "Animation durations for overworld Pokemon sprites",
+  "animations": {
+    "face": {
+      "duration": 1.0,
+      "description": "Face/idle animation"
+    },
+    "go": {
+      "duration": 0.25,
+      "description": "Walking animation (2-frame cycle)"
+    }
+  },
+  "defaultAnimation": "face"
+}

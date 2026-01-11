@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -145,6 +146,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_gentleman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -159,6 +161,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_woman",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -173,6 +176,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_pokemon_center_1f_event_script_double_edge_tutor",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

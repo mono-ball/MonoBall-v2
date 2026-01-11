@@ -144,12 +144,12 @@
     "pokeemerald:move:mirror_coat"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bergmite/bergmitefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bergmite/bergmitefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bergmite/bergmiteback",
-    "backShiny": "pokeemerald:pokemon:sprite/bergmite/bergmitebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bergmite/bergmiteicon",
-    "overworld": "pokeemerald:pokemon:sprite/bergmite/bergmiteoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bergmite/bergmiteoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bergmite/bergmite_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bergmite/bergmite_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bergmite/bergmite_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bergmite/bergmite_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bergmite/bergmite_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bergmite/bergmite_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bergmite/bergmite_overworld_shiny"
   }
 }

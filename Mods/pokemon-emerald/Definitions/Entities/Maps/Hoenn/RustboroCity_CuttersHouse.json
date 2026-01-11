@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_cutters_house_event_script_cutter",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_cutters_house_event_script_lass",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

@@ -123,12 +123,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/armaldo/armaldofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/armaldo/armaldofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/armaldo/armaldoback",
-    "backShiny": "pokeemerald:pokemon:sprite/armaldo/armaldobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/armaldo/armaldoicon",
-    "overworld": "pokeemerald:pokemon:sprite/armaldo/armaldooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/armaldo/armaldooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/armaldo/armaldo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/armaldo/armaldo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/armaldo/armaldo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/armaldo/armaldo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/armaldo/armaldo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/armaldo/armaldo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/armaldo/armaldo_overworld_shiny"
   }
 }

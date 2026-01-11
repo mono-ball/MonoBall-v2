@@ -142,12 +142,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wartortle/wartortlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wartortle/wartortlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wartortle/wartortleback",
-    "backShiny": "pokeemerald:pokemon:sprite/wartortle/wartortlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wartortle/wartortleicon",
-    "overworld": "pokeemerald:pokemon:sprite/wartortle/wartortleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wartortle/wartortleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wartortle/wartortle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wartortle/wartortle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wartortle/wartortle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wartortle/wartortle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wartortle/wartortle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wartortle/wartortle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wartortle/wartortle_overworld_shiny"
   }
 }

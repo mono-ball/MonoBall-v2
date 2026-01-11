@@ -132,12 +132,12 @@
     "pokeemerald:move:venom_drench"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tympole/tympolefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tympole/tympolefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tympole/tympoleback",
-    "backShiny": "pokeemerald:pokemon:sprite/tympole/tympolebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tympole/tympoleicon",
-    "overworld": "pokeemerald:pokemon:sprite/tympole/tympoleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tympole/tympoleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tympole/tympole_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tympole/tympole_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tympole/tympole_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tympole/tympole_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tympole/tympole_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tympole/tympole_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tympole/tympole_overworld_shiny"
   }
 }

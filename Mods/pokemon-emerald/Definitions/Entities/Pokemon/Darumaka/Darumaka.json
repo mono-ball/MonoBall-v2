@@ -146,13 +146,13 @@
     "pokeemerald:move:extrasensory"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/darumaka/darumakafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/darumaka/darumakafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/darumaka/darumakaback",
-    "backShiny": "pokeemerald:pokemon:sprite/darumaka/darumakabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/darumaka/darumakaicon",
-    "overworld": "pokeemerald:pokemon:sprite/darumaka/darumakaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/darumaka/darumakaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/darumaka/darumaka_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/darumaka/darumaka_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/darumaka/darumaka_back",
+    "backShiny": "pokeemerald:pokemon:sprite/darumaka/darumaka_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/darumaka/darumaka_icon",
+    "overworld": "pokeemerald:pokemon:sprite/darumaka/darumaka_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/darumaka/darumaka_overworld_shiny"
   },
   "forms": [
     {
@@ -177,13 +177,13 @@
         "pokeemerald:ability:inner_focus"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/darumaka/darumakagalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/darumaka/darumakagalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/darumaka/darumakagalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/darumaka/darumakagalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/darumaka/darumakagalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/darumaka/darumakagalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/darumaka/darumakagalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/darumaka/darumaka_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

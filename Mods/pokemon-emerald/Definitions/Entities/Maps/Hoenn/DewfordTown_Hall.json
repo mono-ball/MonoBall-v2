@@ -140,6 +140,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_girl",
+      "facingDirection": "up",
       "elevation": 0
     },
     {
@@ -150,6 +151,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_woman",
+      "facingDirection": "right",
       "elevation": 0
     },
     {
@@ -160,6 +162,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_man",
+      "facingDirection": "left",
       "elevation": 0
     },
     {
@@ -170,6 +173,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_expert_m",
+      "facingDirection": "up",
       "elevation": 0
     },
     {
@@ -180,6 +184,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/twin",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_twin",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -194,6 +199,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_little_boy",
+      "facingDirection": "left",
       "elevation": 0
     },
     {
@@ -204,6 +210,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_school_kid_m",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -214,6 +221,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/psychicm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_psychic_m",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -229,6 +237,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_hall_event_script_sludge_bomb_man",
       "visibilityFlag": "pokeemerald:flag:visibility/dewford_hall_sludge_bomb_man",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

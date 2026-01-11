@@ -147,12 +147,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/quilava/quilavafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/quilava/quilavafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/quilava/quilavaback",
-    "backShiny": "pokeemerald:pokemon:sprite/quilava/quilavabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/quilava/quilavaicon",
-    "overworld": "pokeemerald:pokemon:sprite/quilava/quilavaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/quilava/quilavaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/quilava/quilava_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/quilava/quilava_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/quilava/quilava_back",
+    "backShiny": "pokeemerald:pokemon:sprite/quilava/quilava_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/quilava/quilava_icon",
+    "overworld": "pokeemerald:pokemon:sprite/quilava/quilava_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/quilava/quilava_overworld_shiny"
   }
 }

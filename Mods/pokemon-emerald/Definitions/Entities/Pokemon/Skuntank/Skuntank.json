@@ -137,12 +137,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/skuntank/skuntankfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/skuntank/skuntankfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/skuntank/skuntankback",
-    "backShiny": "pokeemerald:pokemon:sprite/skuntank/skuntankbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/skuntank/skuntankicon",
-    "overworld": "pokeemerald:pokemon:sprite/skuntank/skuntankoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/skuntank/skuntankoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/skuntank/skuntank_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/skuntank/skuntank_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/skuntank/skuntank_back",
+    "backShiny": "pokeemerald:pokemon:sprite/skuntank/skuntank_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/skuntank/skuntank_icon",
+    "overworld": "pokeemerald:pokemon:sprite/skuntank/skuntank_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skuntank/skuntank_overworld_shiny"
   }
 }

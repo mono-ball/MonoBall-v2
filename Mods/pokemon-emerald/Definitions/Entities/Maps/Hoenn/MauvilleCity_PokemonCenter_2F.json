@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_union_room_attendant",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_wireless_club_attendant",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -151,6 +153,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_direct_corner_attendant",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -162,6 +165,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/cable_club_event_script_mystery_gift_man",
       "visibilityFlag": "pokeemerald:flag:visibility/pokemon_center_2f_mystery_gift_man",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -172,6 +176,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/youngster",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mauville_city_pokemon_center_2f_event_script_youngster",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

@@ -69,12 +69,12 @@
     "pokeemerald:move:snore"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wurmple/wurmplefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wurmple/wurmplefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wurmple/wurmpleback",
-    "backShiny": "pokeemerald:pokemon:sprite/wurmple/wurmplebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wurmple/wurmpleicon",
-    "overworld": "pokeemerald:pokemon:sprite/wurmple/wurmpleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wurmple/wurmpleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wurmple/wurmple_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wurmple/wurmple_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wurmple/wurmple_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wurmple/wurmple_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wurmple/wurmple_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wurmple/wurmple_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wurmple/wurmple_overworld_shiny"
   }
 }

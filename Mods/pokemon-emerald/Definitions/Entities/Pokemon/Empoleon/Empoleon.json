@@ -144,12 +144,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/empoleon/empoleonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/empoleon/empoleonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/empoleon/empoleonback",
-    "backShiny": "pokeemerald:pokemon:sprite/empoleon/empoleonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/empoleon/empoleonicon",
-    "overworld": "pokeemerald:pokemon:sprite/empoleon/empoleonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/empoleon/empoleonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/empoleon/empoleon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/empoleon/empoleon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/empoleon/empoleon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/empoleon/empoleon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/empoleon/empoleon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/empoleon/empoleon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/empoleon/empoleon_overworld_shiny"
   }
 }

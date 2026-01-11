@@ -107,6 +107,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/steven",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/meteor_falls_stevens_cave_event_script_steven",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

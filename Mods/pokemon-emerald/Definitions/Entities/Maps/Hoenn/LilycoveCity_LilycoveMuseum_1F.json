@@ -292,6 +292,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/beauty",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_greeter",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -303,6 +304,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_curator",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_curator",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -313,6 +315,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/schoolkidm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_school_kid_m",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -327,6 +330,7 @@
         "rangeY": 0
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_artist1",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -337,6 +341,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/ninjaboy",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_ninja_boy",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -347,6 +352,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_woman1",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -362,6 +368,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_woman2",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_patron_1",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -373,6 +380,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_artist2",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_patron_4",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -388,6 +396,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_fat_man",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_tourists",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -403,6 +412,7 @@
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_lilycove_museum_1f_event_script_psychic_m",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_museum_patron_3",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

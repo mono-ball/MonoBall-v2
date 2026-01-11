@@ -119,13 +119,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kartana/kartanafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kartana/kartanafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/kartana/kartanaback",
-    "backShiny": "pokeemerald:pokemon:sprite/kartana/kartanabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/kartana/kartanaicon",
-    "overworld": "pokeemerald:pokemon:sprite/kartana/kartanaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kartana/kartanaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kartana/kartana_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kartana/kartana_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/kartana/kartana_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kartana/kartana_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kartana/kartana_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kartana/kartana_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kartana/kartana_overworld_shiny"
   },
   "isUltraBeast": true
 }

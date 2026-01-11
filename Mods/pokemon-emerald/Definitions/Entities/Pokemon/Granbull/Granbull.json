@@ -160,12 +160,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/granbull/granbullfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/granbull/granbullfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/granbull/granbullback",
-    "backShiny": "pokeemerald:pokemon:sprite/granbull/granbullbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/granbull/granbullicon",
-    "overworld": "pokeemerald:pokemon:sprite/granbull/granbulloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/granbull/granbulloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/granbull/granbull_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/granbull/granbull_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/granbull/granbull_back",
+    "backShiny": "pokeemerald:pokemon:sprite/granbull/granbull_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/granbull/granbull_icon",
+    "overworld": "pokeemerald:pokemon:sprite/granbull/granbull_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/granbull/granbull_overworld_shiny"
   }
 }

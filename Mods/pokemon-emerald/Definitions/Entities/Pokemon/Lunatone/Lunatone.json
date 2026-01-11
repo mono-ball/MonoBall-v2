@@ -139,12 +139,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/lunatone/lunatonefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/lunatone/lunatonefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/lunatone/lunatoneback",
-    "backShiny": "pokeemerald:pokemon:sprite/lunatone/lunatonebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/lunatone/lunatoneicon",
-    "overworld": "pokeemerald:pokemon:sprite/lunatone/lunatoneoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/lunatone/lunatoneoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/lunatone/lunatone_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/lunatone/lunatone_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/lunatone/lunatone_back",
+    "backShiny": "pokeemerald:pokemon:sprite/lunatone/lunatone_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/lunatone/lunatone_icon",
+    "overworld": "pokeemerald:pokemon:sprite/lunatone/lunatone_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/lunatone/lunatone_overworld_shiny"
   }
 }

@@ -125,13 +125,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/terrakion/terrakionfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/terrakion/terrakionfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/terrakion/terrakionback",
-    "backShiny": "pokeemerald:pokemon:sprite/terrakion/terrakionbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/terrakion/terrakionicon",
-    "overworld": "pokeemerald:pokemon:sprite/terrakion/terrakionoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/terrakion/terrakionoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/terrakion/terrakion_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/terrakion/terrakion_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/terrakion/terrakion_back",
+    "backShiny": "pokeemerald:pokemon:sprite/terrakion/terrakion_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/terrakion/terrakion_icon",
+    "overworld": "pokeemerald:pokemon:sprite/terrakion/terrakion_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/terrakion/terrakion_overworld_shiny"
   },
   "isLegendary": true
 }

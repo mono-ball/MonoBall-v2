@@ -154,12 +154,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/claydol/claydolfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/claydol/claydolfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/claydol/claydolback",
-    "backShiny": "pokeemerald:pokemon:sprite/claydol/claydolbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/claydol/claydolicon",
-    "overworld": "pokeemerald:pokemon:sprite/claydol/claydoloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/claydol/claydoloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/claydol/claydol_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/claydol/claydol_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/claydol/claydol_back",
+    "backShiny": "pokeemerald:pokemon:sprite/claydol/claydol_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/claydol/claydol_icon",
+    "overworld": "pokeemerald:pokemon:sprite/claydol/claydol_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/claydol/claydol_overworld_shiny"
   }
 }

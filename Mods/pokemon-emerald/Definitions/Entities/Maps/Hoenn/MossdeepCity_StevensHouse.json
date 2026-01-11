@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -161,6 +161,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_stevens_house_event_script_steven",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_stevens_house_steven",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -172,6 +173,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_stevens_house_event_script_beldum_pokeball",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_stevens_house_beldum_pokeball",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -183,6 +185,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/invisible",
       "interactionId": "pokeemerald:script:interactions/npcs/mossdeep_city_stevens_house_event_script_letter",
       "visibilityFlag": "pokeemerald:flag:visibility/mossdeep_city_stevens_house_invisible_ninja_boy",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

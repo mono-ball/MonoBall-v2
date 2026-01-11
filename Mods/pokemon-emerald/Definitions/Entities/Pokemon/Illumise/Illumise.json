@@ -149,12 +149,12 @@
     "pokeemerald:move:aromatherapy"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/illumise/illumisefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/illumise/illumisefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/illumise/illumiseback",
-    "backShiny": "pokeemerald:pokemon:sprite/illumise/illumisebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/illumise/illumiseicon",
-    "overworld": "pokeemerald:pokemon:sprite/illumise/illumiseoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/illumise/illumiseoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/illumise/illumise_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/illumise/illumise_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/illumise/illumise_back",
+    "backShiny": "pokeemerald:pokemon:sprite/illumise/illumise_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/illumise/illumise_icon",
+    "overworld": "pokeemerald:pokemon:sprite/illumise/illumise_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/illumise/illumise_overworld_shiny"
   }
 }

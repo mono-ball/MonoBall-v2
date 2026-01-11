@@ -116,12 +116,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/toxapex/toxapexfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/toxapex/toxapexfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/toxapex/toxapexback",
-    "backShiny": "pokeemerald:pokemon:sprite/toxapex/toxapexbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/toxapex/toxapexicon",
-    "overworld": "pokeemerald:pokemon:sprite/toxapex/toxapexoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/toxapex/toxapexoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/toxapex/toxapex_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/toxapex/toxapex_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/toxapex/toxapex_back",
+    "backShiny": "pokeemerald:pokemon:sprite/toxapex/toxapex_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/toxapex/toxapex_icon",
+    "overworld": "pokeemerald:pokemon:sprite/toxapex/toxapex_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/toxapex/toxapex_overworld_shiny"
   }
 }

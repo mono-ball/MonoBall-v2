@@ -130,12 +130,12 @@
     "pokeemerald:move:taunt"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/armarouge/armarougefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/armarouge/armarougefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/armarouge/armarougeback",
-    "backShiny": "pokeemerald:pokemon:sprite/armarouge/armarougebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/armarouge/armarougeicon",
-    "overworld": "pokeemerald:pokemon:sprite/armarouge/armarougeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/armarouge/armarougeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/armarouge/armarouge_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/armarouge/armarouge_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/armarouge/armarouge_back",
+    "backShiny": "pokeemerald:pokemon:sprite/armarouge/armarouge_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/armarouge/armarouge_icon",
+    "overworld": "pokeemerald:pokemon:sprite/armarouge/armarouge_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/armarouge/armarouge_overworld_shiny"
   }
 }

@@ -137,12 +137,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dhelmise/dhelmisefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dhelmise/dhelmisefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dhelmise/dhelmiseback",
-    "backShiny": "pokeemerald:pokemon:sprite/dhelmise/dhelmisebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dhelmise/dhelmiseicon",
-    "overworld": "pokeemerald:pokemon:sprite/dhelmise/dhelmiseoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dhelmise/dhelmiseoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dhelmise/dhelmise_overworld_shiny"
   }
 }

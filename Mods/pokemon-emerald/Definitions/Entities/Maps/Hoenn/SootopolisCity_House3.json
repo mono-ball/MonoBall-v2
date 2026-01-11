@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house3_event_script_woman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -133,6 +134,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_house3_event_script_girl",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

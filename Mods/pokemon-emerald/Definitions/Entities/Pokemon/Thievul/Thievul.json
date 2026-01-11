@@ -111,12 +111,12 @@
     "pokeemerald:move:torment"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/thievul/thievulfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/thievul/thievulfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/thievul/thievulback",
-    "backShiny": "pokeemerald:pokemon:sprite/thievul/thievulbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/thievul/thievulicon",
-    "overworld": "pokeemerald:pokemon:sprite/thievul/thievuloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/thievul/thievuloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/thievul/thievul_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/thievul/thievul_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/thievul/thievul_back",
+    "backShiny": "pokeemerald:pokemon:sprite/thievul/thievul_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/thievul/thievul_icon",
+    "overworld": "pokeemerald:pokemon:sprite/thievul/thievul_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/thievul/thievul_overworld_shiny"
   }
 }

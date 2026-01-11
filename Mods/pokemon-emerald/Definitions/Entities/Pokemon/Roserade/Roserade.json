@@ -144,17 +144,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/roserade/roseradefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/roserade/roseradefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/roserade/roseradefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/roserade/roseradefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/roserade/roseradeback",
-    "backShiny": "pokeemerald:pokemon:sprite/roserade/roseradebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/roserade/roseradebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/roserade/roseradebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/roserade/roseradeicon",
-    "overworld": "pokeemerald:pokemon:sprite/roserade/roseradeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/roserade/roseradeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/roserade/roserade_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/roserade/roserade_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/roserade/roserade_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/roserade/roserade_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/roserade/roserade_back",
+    "backShiny": "pokeemerald:pokemon:sprite/roserade/roserade_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/roserade/roserade_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/roserade/roserade_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/roserade/roserade_icon",
+    "overworld": "pokeemerald:pokemon:sprite/roserade/roserade_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/roserade/roserade_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

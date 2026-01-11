@@ -114,12 +114,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/liepard/liepardfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/liepard/liepardfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/liepard/liepardback",
-    "backShiny": "pokeemerald:pokemon:sprite/liepard/liepardbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/liepard/liepardicon",
-    "overworld": "pokeemerald:pokemon:sprite/liepard/liepardoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/liepard/liepardoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/liepard/liepard_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/liepard/liepard_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/liepard/liepard_back",
+    "backShiny": "pokeemerald:pokemon:sprite/liepard/liepard_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/liepard/liepard_icon",
+    "overworld": "pokeemerald:pokemon:sprite/liepard/liepard_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/liepard/liepard_overworld_shiny"
   }
 }

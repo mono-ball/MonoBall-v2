@@ -320,7 +320,7 @@ public class SpriteAnimationSystem
             )
                 anim.CurrentAnimationFrameIndex = 0;
 
-            // Get new frame duration
+            // Get new frame duration for next iteration
             frameDurationSeconds = frames[anim.CurrentAnimationFrameIndex].DurationSeconds;
         }
     }

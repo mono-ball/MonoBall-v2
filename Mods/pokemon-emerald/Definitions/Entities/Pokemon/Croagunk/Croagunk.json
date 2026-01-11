@@ -157,17 +157,17 @@
     "pokeemerald:move:quick_guard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/croagunk/croagunkfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/croagunk/croagunkfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/croagunk/croagunkfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/croagunk/croagunkfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/croagunk/croagunkback",
-    "backShiny": "pokeemerald:pokemon:sprite/croagunk/croagunkbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/croagunk/croagunkbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/croagunk/croagunkbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/croagunk/croagunkicon",
-    "overworld": "pokeemerald:pokemon:sprite/croagunk/croagunkoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/croagunk/croagunkoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/croagunk/croagunk_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/croagunk/croagunk_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/croagunk/croagunk_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/croagunk/croagunk_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/croagunk/croagunk_back",
+    "backShiny": "pokeemerald:pokemon:sprite/croagunk/croagunk_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/croagunk/croagunk_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/croagunk/croagunk_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/croagunk/croagunk_icon",
+    "overworld": "pokeemerald:pokemon:sprite/croagunk/croagunk_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/croagunk/croagunk_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

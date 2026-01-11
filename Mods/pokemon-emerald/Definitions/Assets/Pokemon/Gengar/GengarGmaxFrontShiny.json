@@ -1,5 +1,5 @@
 {
-  "id": "pokeemerald:pokemon:sprite/gengar/gengargmaxfrontshiny",
+  "id": "pokeemerald:pokemon:sprite/gengar/gengar_gmax_front_shiny",
   "name": "Gengargmaxfrontshiny",
   "type": "Sprite",
   "texturePath": "Graphics/Pokemon/Gengar/GengarGmaxFrontShiny.png",
@@ -7,20 +7,37 @@
   "frameWidth": 64,
   "frameHeight": 64,
   "frameCount": 1,
+  "animationProfileId": "pokeemerald:profile:animation/standard",
+  "defaultAnimation": "idle",
+  "capabilities": {
+    "directional": false,
+    "movementAnimated": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ],
   "animations": [
     {
       "name": "idle",
+      "animationType": "go",
       "loop": true,
       "frameIndices": [
         1,
         1,
         0
       ],
-      "frameDurations": [
+      "frameSequence": [
         0.8333333333333334,
         0.6666666666666666,
         0.16666666666666666
-      ]
+      ],
+      "flipHorizontal": false
     }
   ]
 }

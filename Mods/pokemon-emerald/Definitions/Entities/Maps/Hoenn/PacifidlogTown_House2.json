@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/gentleman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house2_event_script_fan_club_younger_brother",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -126,9 +127,10 @@
       "name": "NPC_1",
       "x": 128,
       "y": 96,
-      "spriteId": "pokeemerald:sprite:pokemon/azurillold",
+      "spriteId": "pokeemerald:pokemon:sprite/azurill/azurill_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house2_event_script_happy_azurill",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -136,9 +138,10 @@
       "name": "NPC_2",
       "x": 16,
       "y": 112,
-      "spriteId": "pokeemerald:sprite:pokemon/azurillold",
+      "spriteId": "pokeemerald:pokemon:sprite/azurill/azurill_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/pacifidlog_town_house2_event_script_unhappy_azurill",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

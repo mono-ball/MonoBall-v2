@@ -104,13 +104,13 @@
     "pokeemerald:move:snore"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sandaconda/sandacondafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sandaconda/sandacondaback",
-    "backShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sandaconda/sandacondaicon",
-    "overworld": "pokeemerald:pokemon:sprite/sandaconda/sandacondaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_overworld_shiny"
   },
   "forms": [
     {
@@ -135,13 +135,13 @@
         "pokeemerald:ability:sand_veil"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/sandaconda/sandacondagmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/sandaconda/sandaconda_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

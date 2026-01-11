@@ -155,6 +155,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/nurse",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_nurse",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -165,6 +166,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/martemployee",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_clerk",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -175,6 +177,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_door_guard",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -185,6 +188,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ever_grande_city_pokemon_league_1f_event_script_door_guard",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

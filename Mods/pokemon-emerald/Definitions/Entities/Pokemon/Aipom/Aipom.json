@@ -165,17 +165,17 @@
     "pokeemerald:move:tail_slap"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/aipom/aipomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/aipom/aipomfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/aipom/aipomfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/aipom/aipomfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/aipom/aipomback",
-    "backShiny": "pokeemerald:pokemon:sprite/aipom/aipombackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/aipom/aipombackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/aipom/aipombackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/aipom/aipomicon",
-    "overworld": "pokeemerald:pokemon:sprite/aipom/aipomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/aipom/aipomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/aipom/aipom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/aipom/aipom_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/aipom/aipom_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/aipom/aipom_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/aipom/aipom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/aipom/aipom_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/aipom/aipom_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/aipom/aipom_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/aipom/aipom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/aipom/aipom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/aipom/aipom_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

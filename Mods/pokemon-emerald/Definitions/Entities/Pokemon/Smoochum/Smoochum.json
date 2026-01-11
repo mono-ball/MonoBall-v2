@@ -149,12 +149,12 @@
     "pokeemerald:move:captivate"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/smoochum/smoochumfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/smoochum/smoochumfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/smoochum/smoochumback",
-    "backShiny": "pokeemerald:pokemon:sprite/smoochum/smoochumbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/smoochum/smoochumicon",
-    "overworld": "pokeemerald:pokemon:sprite/smoochum/smoochumoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/smoochum/smoochumoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/smoochum/smoochum_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/smoochum/smoochum_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/smoochum/smoochum_back",
+    "backShiny": "pokeemerald:pokemon:sprite/smoochum/smoochum_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/smoochum/smoochum_icon",
+    "overworld": "pokeemerald:pokemon:sprite/smoochum/smoochum_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/smoochum/smoochum_overworld_shiny"
   }
 }

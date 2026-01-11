@@ -118,12 +118,12 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/greedent/greedentfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/greedent/greedentfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/greedent/greedentback",
-    "backShiny": "pokeemerald:pokemon:sprite/greedent/greedentbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/greedent/greedenticon",
-    "overworld": "pokeemerald:pokemon:sprite/greedent/greedentoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/greedent/greedentoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/greedent/greedent_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/greedent/greedent_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/greedent/greedent_back",
+    "backShiny": "pokeemerald:pokemon:sprite/greedent/greedent_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/greedent/greedent_icon",
+    "overworld": "pokeemerald:pokemon:sprite/greedent/greedent_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/greedent/greedent_overworld_shiny"
   }
 }

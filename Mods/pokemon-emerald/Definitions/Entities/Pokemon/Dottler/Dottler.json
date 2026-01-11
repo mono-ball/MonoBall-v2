@@ -91,12 +91,12 @@
     "pokeemerald:move:solar_beam"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dottler/dottlerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dottler/dottlerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dottler/dottlerback",
-    "backShiny": "pokeemerald:pokemon:sprite/dottler/dottlerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dottler/dottlericon",
-    "overworld": "pokeemerald:pokemon:sprite/dottler/dottleroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dottler/dottleroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dottler/dottler_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dottler/dottler_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dottler/dottler_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dottler/dottler_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dottler/dottler_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dottler/dottler_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dottler/dottler_overworld_shiny"
   }
 }

@@ -10,6 +10,8 @@ using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Mods;
+using MonoBall.Core.Maps;
+using MonoBall.Core.Profiles;
 using MonoBall.Core.Resources;
 using Serilog;
 
@@ -25,6 +27,7 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly IConstantsService _constants;
     private readonly ILogger _logger;
     private readonly IModManager? _modManager;
+    private readonly IProfileService _profileService;
     private readonly QueryDescription _playerQuery;
     private readonly IResourceManager _resourceManager;
     private bool _playerCreated;
@@ -35,7 +38,8 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// </summary>
     /// <param name="world">The ECS world.</param>
     /// <param name="cameraService">The camera service for getting camera position.</param>
-    /// <param name="resourceManager">The resource manager for validating sprite sheets.</param>
+    /// <param name="resourceManager">The resource manager for validating sprite sheets and accessing sprite definitions.</param>
+    /// <param name="profileService">The profile service for accessing movement profiles. Required.</param>
     /// <param name="modManager">Optional mod manager for getting default tile sizes.</param>
     /// <param name="logger">The logger for logging operations.</param>
     /// <param name="constants">The constants service for accessing game constants. Required.</param>
@@ -43,6 +47,7 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
         World world,
         ICameraService cameraService,
         IResourceManager resourceManager,
+        IProfileService profileService,
         IModManager? modManager = null,
         ILogger? logger = null,
         IConstantsService? constants = null
@@ -52,6 +57,7 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
         _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
         _modManager = modManager;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
@@ -205,6 +211,44 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
             "player:main"
         );
 
+        // Get sprite definition to access profile references (fail-fast)
+        var spriteDef = _resourceManager.GetSpriteDefinition(initialSpriteSheetId);
+
+        // Validate required profile references (fail-fast)
+        if (string.IsNullOrWhiteSpace(spriteDef.MovementProfileId))
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{initialSpriteSheetId}' is missing required field 'movementProfileId'. " +
+                "Cannot initialize player movement speed from profile."
+            );
+        }
+
+        // Get default movement speed and type from profile (fail-fast)
+        float movementSpeed;
+        string defaultMovementType;
+        try
+        {
+            movementSpeed = _profileService.GetDefaultMovementSpeed(spriteDef.MovementProfileId);
+            // Get default movement type from profile
+            var movementProfile = _profileService.GetMovementProfile(spriteDef.MovementProfileId);
+            if (string.IsNullOrWhiteSpace(movementProfile.DefaultSpeed))
+            {
+                throw new InvalidOperationException(
+                    $"Movement profile '{spriteDef.MovementProfileId}' has null or empty DefaultSpeed. " +
+                    "Cannot determine default movement type for player."
+                );
+            }
+            defaultMovementType = movementProfile.DefaultSpeed;
+        }
+        catch (ProfileNotFoundException ex)
+        {
+            throw new InvalidOperationException(
+                $"Sprite definition '{initialSpriteSheetId}' references movement profile '{spriteDef.MovementProfileId}' which does not exist. " +
+                "Cannot initialize player movement speed from profile.",
+                ex
+            );
+        }
+
         // Convert pixel position to grid coordinates for PositionComponent
         // Get tile dimensions from loaded maps or constants service (supports rectangular tiles)
         var tileWidth = TileSizeHelper.GetTileWidth(World, _constants);
@@ -242,7 +286,7 @@ public class PlayerSystem : BaseSystem<World, float>, IPrioritizedSystem
                 PixelX = pixelX,
                 PixelY = pixelY,
             },
-            new GridMovement(_constants.Get<float>("PlayerMovementSpeed"))
+            new GridMovement(movementSpeed, defaultMovementType)
             {
                 FacingDirection = Direction.South,
                 MovementDirection = Direction.South,

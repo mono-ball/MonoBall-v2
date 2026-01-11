@@ -132,12 +132,12 @@
     "pokeemerald:move:drill_run"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/karrablast/karrablastfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/karrablast/karrablastfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/karrablast/karrablastback",
-    "backShiny": "pokeemerald:pokemon:sprite/karrablast/karrablastbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/karrablast/karrablasticon",
-    "overworld": "pokeemerald:pokemon:sprite/karrablast/karrablastoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/karrablast/karrablastoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/karrablast/karrablast_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/karrablast/karrablast_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/karrablast/karrablast_back",
+    "backShiny": "pokeemerald:pokemon:sprite/karrablast/karrablast_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/karrablast/karrablast_icon",
+    "overworld": "pokeemerald:pokemon:sprite/karrablast/karrablast_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/karrablast/karrablast_overworld_shiny"
   }
 }

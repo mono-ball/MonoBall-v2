@@ -80,12 +80,12 @@
     "pokeemerald:move:safeguard"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wynaut/wynautfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wynaut/wynautfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wynaut/wynautback",
-    "backShiny": "pokeemerald:pokemon:sprite/wynaut/wynautbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wynaut/wynauticon",
-    "overworld": "pokeemerald:pokemon:sprite/wynaut/wynautoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wynaut/wynautoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wynaut/wynaut_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wynaut/wynaut_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wynaut/wynaut_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wynaut/wynaut_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wynaut/wynaut_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wynaut/wynaut_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wynaut/wynaut_overworld_shiny"
   }
 }

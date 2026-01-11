@@ -152,15 +152,15 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/cacturne/cacturnefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/cacturne/cacturnefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/cacturne/cacturnefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/cacturne/cacturnefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/cacturne/cacturneback",
-    "backShiny": "pokeemerald:pokemon:sprite/cacturne/cacturnebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/cacturne/cacturneicon",
-    "overworld": "pokeemerald:pokemon:sprite/cacturne/cacturneoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/cacturne/cacturneoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/cacturne/cacturne_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/cacturne/cacturne_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/cacturne/cacturne_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/cacturne/cacturne_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/cacturne/cacturne_back",
+    "backShiny": "pokeemerald:pokemon:sprite/cacturne/cacturne_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/cacturne/cacturne_icon",
+    "overworld": "pokeemerald:pokemon:sprite/cacturne/cacturne_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/cacturne/cacturne_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

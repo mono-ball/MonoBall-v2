@@ -123,12 +123,12 @@
     "pokeemerald:move:thief"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mabosstiff/mabosstifffront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstifffrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffback",
-    "backShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mabosstiff/mabosstifficon",
-    "overworld": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiffoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mabosstiff/mabosstiff_overworld_shiny"
   }
 }

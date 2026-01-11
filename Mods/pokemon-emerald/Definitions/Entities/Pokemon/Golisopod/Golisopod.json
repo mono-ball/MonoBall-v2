@@ -144,12 +144,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/golisopod/golisopodfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/golisopod/golisopodfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/golisopod/golisopodback",
-    "backShiny": "pokeemerald:pokemon:sprite/golisopod/golisopodbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/golisopod/golisopodicon",
-    "overworld": "pokeemerald:pokemon:sprite/golisopod/golisopodoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/golisopod/golisopodoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/golisopod/golisopod_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/golisopod/golisopod_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/golisopod/golisopod_back",
+    "backShiny": "pokeemerald:pokemon:sprite/golisopod/golisopod_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/golisopod/golisopod_icon",
+    "overworld": "pokeemerald:pokemon:sprite/golisopod/golisopod_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/golisopod/golisopod_overworld_shiny"
   }
 }

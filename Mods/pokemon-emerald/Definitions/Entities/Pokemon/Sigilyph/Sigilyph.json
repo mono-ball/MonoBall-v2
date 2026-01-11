@@ -142,12 +142,12 @@
     "pokeemerald:move:future_sight"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sigilyph/sigilyphfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyphfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sigilyph/sigilyphback",
-    "backShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyphbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sigilyph/sigilyphicon",
-    "overworld": "pokeemerald:pokemon:sprite/sigilyph/sigilyphoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyphoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sigilyph/sigilyph_overworld_shiny"
   }
 }

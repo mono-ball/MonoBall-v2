@@ -151,12 +151,12 @@
     "pokeemerald:move:superpower"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/torkoal/torkoalfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/torkoal/torkoalfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/torkoal/torkoalback",
-    "backShiny": "pokeemerald:pokemon:sprite/torkoal/torkoalbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/torkoal/torkoalicon",
-    "overworld": "pokeemerald:pokemon:sprite/torkoal/torkoaloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/torkoal/torkoaloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/torkoal/torkoal_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/torkoal/torkoal_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/torkoal/torkoal_back",
+    "backShiny": "pokeemerald:pokemon:sprite/torkoal/torkoal_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/torkoal/torkoal_icon",
+    "overworld": "pokeemerald:pokemon:sprite/torkoal/torkoal_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/torkoal/torkoal_overworld_shiny"
   }
 }

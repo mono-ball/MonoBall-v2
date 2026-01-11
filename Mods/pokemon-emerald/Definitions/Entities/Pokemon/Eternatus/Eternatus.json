@@ -120,13 +120,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/eternatus/eternatusfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/eternatus/eternatusfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/eternatus/eternatusback",
-    "backShiny": "pokeemerald:pokemon:sprite/eternatus/eternatusbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/eternatus/eternatusicon",
-    "overworld": "pokeemerald:pokemon:sprite/eternatus/eternatusoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/eternatus/eternatusoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/eternatus/eternatus_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/eternatus/eternatus_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/eternatus/eternatus_back",
+    "backShiny": "pokeemerald:pokemon:sprite/eternatus/eternatus_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/eternatus/eternatus_icon",
+    "overworld": "pokeemerald:pokemon:sprite/eternatus/eternatus_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/eternatus/eternatus_overworld_shiny"
   },
   "forms": [
     {
@@ -152,13 +152,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/eternatus/eternatuseternamaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/eternatus/eternatus_eternamax_overworld_shiny"
       }
     }
   ],

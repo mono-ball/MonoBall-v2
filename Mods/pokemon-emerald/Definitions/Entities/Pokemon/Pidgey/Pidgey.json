@@ -134,12 +134,12 @@
     "pokeemerald:move:defog"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pidgey/pidgeyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pidgey/pidgeyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pidgey/pidgeyback",
-    "backShiny": "pokeemerald:pokemon:sprite/pidgey/pidgeybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pidgey/pidgeyicon",
-    "overworld": "pokeemerald:pokemon:sprite/pidgey/pidgeyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pidgey/pidgeyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pidgey/pidgey_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pidgey/pidgey_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pidgey/pidgey_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pidgey/pidgey_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pidgey/pidgey_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pidgey/pidgey_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pidgey/pidgey_overworld_shiny"
   }
 }

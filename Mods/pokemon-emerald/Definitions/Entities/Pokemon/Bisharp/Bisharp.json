@@ -138,12 +138,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bisharp/bisharpfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bisharp/bisharpfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bisharp/bisharpback",
-    "backShiny": "pokeemerald:pokemon:sprite/bisharp/bisharpbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bisharp/bisharpicon",
-    "overworld": "pokeemerald:pokemon:sprite/bisharp/bisharpoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bisharp/bisharpoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bisharp/bisharp_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bisharp/bisharp_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bisharp/bisharp_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bisharp/bisharp_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bisharp/bisharp_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bisharp/bisharp_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bisharp/bisharp_overworld_shiny"
   }
 }

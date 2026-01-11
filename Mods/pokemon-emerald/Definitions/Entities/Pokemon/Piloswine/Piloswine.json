@@ -138,17 +138,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/piloswine/piloswinefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinefrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/piloswine/piloswinefrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinefrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/piloswine/piloswineback",
-    "backShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinebackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/piloswine/piloswinebackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/piloswine/piloswinebackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/piloswine/piloswineicon",
-    "overworld": "pokeemerald:pokemon:sprite/piloswine/piloswineoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/piloswine/piloswineoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/piloswine/piloswine_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/piloswine/piloswine_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/piloswine/piloswine_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/piloswine/piloswine_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/piloswine/piloswine_back",
+    "backShiny": "pokeemerald:pokemon:sprite/piloswine/piloswine_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/piloswine/piloswine_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/piloswine/piloswine_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/piloswine/piloswine_icon",
+    "overworld": "pokeemerald:pokemon:sprite/piloswine/piloswine_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/piloswine/piloswine_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -35,12 +35,12 @@
   "weight": 545,
   "description": "A Mr. Mime is a master of pantomime. It can  convince others that something unseeable  actually exists. Once believed, the  imaginary object does become real.",
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mrmime/mrmimefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mrmime/mrmimefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mrmime/mrmimeback",
-    "backShiny": "pokeemerald:pokemon:sprite/mrmime/mrmimebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mrmime/mrmimeicon",
-    "overworld": "pokeemerald:pokemon:sprite/mrmime/mrmimeoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mrmime/mrmimeoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mr_mime/mr_mime_overworld_shiny"
   }
 }

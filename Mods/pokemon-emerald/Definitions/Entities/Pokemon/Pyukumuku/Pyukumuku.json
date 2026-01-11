@@ -119,12 +119,12 @@
     "pokeemerald:move:spite"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukufront",
-    "frontShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukufrontshiny",
-    "back": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuback",
-    "backShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukubackshiny",
-    "icon": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuicon",
-    "overworld": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumukuoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_back",
+    "backShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_icon",
+    "overworld": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/pyukumuku/pyukumuku_overworld_shiny"
   }
 }

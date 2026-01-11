@@ -154,17 +154,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/kadabra/kadabrafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrafrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/kadabra/kadabrafrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrafrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/kadabra/kadabraback",
-    "backShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrabackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/kadabra/kadabrabackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/kadabra/kadabrabackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/kadabra/kadabraicon",
-    "overworld": "pokeemerald:pokemon:sprite/kadabra/kadabraoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/kadabra/kadabraoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/kadabra/kadabra_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/kadabra/kadabra_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/kadabra/kadabra_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/kadabra/kadabra_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/kadabra/kadabra_back",
+    "backShiny": "pokeemerald:pokemon:sprite/kadabra/kadabra_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/kadabra/kadabra_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/kadabra/kadabra_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/kadabra/kadabra_icon",
+    "overworld": "pokeemerald:pokemon:sprite/kadabra/kadabra_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/kadabra/kadabra_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

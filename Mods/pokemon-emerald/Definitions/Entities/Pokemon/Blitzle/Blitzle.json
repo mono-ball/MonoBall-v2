@@ -130,12 +130,12 @@
     "pokeemerald:move:feint"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/blitzle/blitzlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/blitzle/blitzlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/blitzle/blitzleback",
-    "backShiny": "pokeemerald:pokemon:sprite/blitzle/blitzlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/blitzle/blitzleicon",
-    "overworld": "pokeemerald:pokemon:sprite/blitzle/blitzleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/blitzle/blitzleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/blitzle/blitzle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/blitzle/blitzle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/blitzle/blitzle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/blitzle/blitzle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/blitzle/blitzle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/blitzle/blitzle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blitzle/blitzle_overworld_shiny"
   }
 }

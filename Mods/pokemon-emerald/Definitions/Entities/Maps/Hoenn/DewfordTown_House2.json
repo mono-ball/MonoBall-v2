@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house2_event_script_man",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/boy2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/dewford_town_house2_event_script_boy",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

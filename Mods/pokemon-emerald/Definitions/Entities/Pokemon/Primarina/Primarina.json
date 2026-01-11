@@ -130,12 +130,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/primarina/primarinafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/primarina/primarinafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/primarina/primarinaback",
-    "backShiny": "pokeemerald:pokemon:sprite/primarina/primarinabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/primarina/primarinaicon",
-    "overworld": "pokeemerald:pokemon:sprite/primarina/primarinaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/primarina/primarinaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/primarina/primarina_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/primarina/primarina_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/primarina/primarina_back",
+    "backShiny": "pokeemerald:pokemon:sprite/primarina/primarina_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/primarina/primarina_icon",
+    "overworld": "pokeemerald:pokemon:sprite/primarina/primarina_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/primarina/primarina_overworld_shiny"
   }
 }

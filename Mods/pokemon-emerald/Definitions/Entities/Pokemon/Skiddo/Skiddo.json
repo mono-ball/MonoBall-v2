@@ -142,12 +142,12 @@
     "pokeemerald:move:grassy_terrain"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/skiddo/skiddofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/skiddo/skiddofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/skiddo/skiddoback",
-    "backShiny": "pokeemerald:pokemon:sprite/skiddo/skiddobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/skiddo/skiddoicon",
-    "overworld": "pokeemerald:pokemon:sprite/skiddo/skiddooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/skiddo/skiddooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/skiddo/skiddo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/skiddo/skiddo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/skiddo/skiddo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/skiddo/skiddo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/skiddo/skiddo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/skiddo/skiddo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/skiddo/skiddo_overworld_shiny"
   }
 }

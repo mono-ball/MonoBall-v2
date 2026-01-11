@@ -144,12 +144,12 @@
     "pokeemerald:move:ally_switch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mienfoo/mienfoofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mienfoo/mienfoofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mienfoo/mienfooback",
-    "backShiny": "pokeemerald:pokemon:sprite/mienfoo/mienfoobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mienfoo/mienfooicon",
-    "overworld": "pokeemerald:pokemon:sprite/mienfoo/mienfoooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mienfoo/mienfoooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mienfoo/mienfoo_overworld_shiny"
   }
 }

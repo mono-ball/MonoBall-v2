@@ -139,17 +139,17 @@
     "pokeemerald:move:bullet_seed"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/snover/snoverfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/snover/snoverfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/snover/snoverfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/snover/snoverfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/snover/snoverback",
-    "backShiny": "pokeemerald:pokemon:sprite/snover/snoverbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/snover/snoverbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/snover/snoverbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/snover/snovericon",
-    "overworld": "pokeemerald:pokemon:sprite/snover/snoveroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/snover/snoveroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/snover/snover_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/snover/snover_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/snover/snover_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/snover/snover_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/snover/snover_back",
+    "backShiny": "pokeemerald:pokemon:sprite/snover/snover_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/snover/snover_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/snover/snover_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/snover/snover_icon",
+    "overworld": "pokeemerald:pokemon:sprite/snover/snover_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/snover/snover_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

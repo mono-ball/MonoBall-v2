@@ -145,17 +145,17 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/swalot/swalotfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/swalot/swalotfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/swalot/swalotfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/swalot/swalotfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/swalot/swalotback",
-    "backShiny": "pokeemerald:pokemon:sprite/swalot/swalotbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/swalot/swalotbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/swalot/swalotbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/swalot/swaloticon",
-    "overworld": "pokeemerald:pokemon:sprite/swalot/swalotoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/swalot/swalotoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/swalot/swalot_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/swalot/swalot_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/swalot/swalot_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/swalot/swalot_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/swalot/swalot_back",
+    "backShiny": "pokeemerald:pokemon:sprite/swalot/swalot_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/swalot/swalot_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/swalot/swalot_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/swalot/swalot_icon",
+    "overworld": "pokeemerald:pokemon:sprite/swalot/swalot_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swalot/swalot_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

@@ -158,12 +158,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/beartic/bearticfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/beartic/bearticfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/beartic/bearticback",
-    "backShiny": "pokeemerald:pokemon:sprite/beartic/bearticbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/beartic/bearticicon",
-    "overworld": "pokeemerald:pokemon:sprite/beartic/bearticoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/beartic/bearticoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/beartic/beartic_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/beartic/beartic_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/beartic/beartic_back",
+    "backShiny": "pokeemerald:pokemon:sprite/beartic/beartic_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/beartic/beartic_icon",
+    "overworld": "pokeemerald:pokemon:sprite/beartic/beartic_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/beartic/beartic_overworld_shiny"
   }
 }

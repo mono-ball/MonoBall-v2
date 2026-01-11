@@ -53,12 +53,12 @@
     }
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/metapod/metapodfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/metapod/metapodfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/metapod/metapodback",
-    "backShiny": "pokeemerald:pokemon:sprite/metapod/metapodbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/metapod/metapodicon",
-    "overworld": "pokeemerald:pokemon:sprite/metapod/metapodoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/metapod/metapodoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/metapod/metapod_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/metapod/metapod_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/metapod/metapod_back",
+    "backShiny": "pokeemerald:pokemon:sprite/metapod/metapod_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/metapod/metapod_icon",
+    "overworld": "pokeemerald:pokemon:sprite/metapod/metapod_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/metapod/metapod_overworld_shiny"
   }
 }

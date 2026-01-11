@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -140,6 +140,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/fisherman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_lotad_and_seedot_house_event_script_lotad_brother",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -150,6 +151,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/sootopolis_city_lotad_and_seedot_house_event_script_seedot_brother",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

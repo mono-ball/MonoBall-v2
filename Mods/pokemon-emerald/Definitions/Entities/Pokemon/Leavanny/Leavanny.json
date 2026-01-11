@@ -122,12 +122,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/leavanny/leavannyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/leavanny/leavannyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/leavanny/leavannyback",
-    "backShiny": "pokeemerald:pokemon:sprite/leavanny/leavannybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/leavanny/leavannyicon",
-    "overworld": "pokeemerald:pokemon:sprite/leavanny/leavannyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/leavanny/leavannyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/leavanny/leavanny_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/leavanny/leavanny_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/leavanny/leavanny_back",
+    "backShiny": "pokeemerald:pokemon:sprite/leavanny/leavanny_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/leavanny/leavanny_icon",
+    "overworld": "pokeemerald:pokemon:sprite/leavanny/leavanny_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/leavanny/leavanny_overworld_shiny"
   }
 }

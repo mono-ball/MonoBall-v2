@@ -147,12 +147,12 @@
     "pokeemerald:move:sacred_sword"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/oshawott/oshawottfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/oshawott/oshawottfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/oshawott/oshawottback",
-    "backShiny": "pokeemerald:pokemon:sprite/oshawott/oshawottbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/oshawott/oshawotticon",
-    "overworld": "pokeemerald:pokemon:sprite/oshawott/oshawottoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/oshawott/oshawottoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/oshawott/oshawott_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/oshawott/oshawott_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/oshawott/oshawott_back",
+    "backShiny": "pokeemerald:pokemon:sprite/oshawott/oshawott_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/oshawott/oshawott_icon",
+    "overworld": "pokeemerald:pokemon:sprite/oshawott/oshawott_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/oshawott/oshawott_overworld_shiny"
   }
 }

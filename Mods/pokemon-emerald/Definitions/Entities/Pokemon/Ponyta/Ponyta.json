@@ -133,13 +133,13 @@
     "pokeemerald:move:high_horsepower"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ponyta/ponytafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ponyta/ponytafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ponyta/ponytaback",
-    "backShiny": "pokeemerald:pokemon:sprite/ponyta/ponytabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ponyta/ponytaicon",
-    "overworld": "pokeemerald:pokemon:sprite/ponyta/ponytaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ponyta/ponytaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ponyta/ponyta_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ponyta/ponyta_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ponyta/ponyta_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ponyta/ponyta_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ponyta/ponyta_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ponyta/ponyta_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ponyta/ponyta_overworld_shiny"
   },
   "forms": [
     {
@@ -164,13 +164,13 @@
         "pokeemerald:ability:anticipation"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/ponyta/ponytagalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/ponyta/ponytagalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/ponyta/ponytagalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/ponyta/ponytagalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/ponyta/ponytagalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/ponyta/ponytagalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/ponyta/ponytagalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/ponyta/ponyta_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

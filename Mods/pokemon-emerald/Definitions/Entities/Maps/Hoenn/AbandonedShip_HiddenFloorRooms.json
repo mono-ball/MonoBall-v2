@@ -301,6 +301,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_hidden_floor_room_6_luxury_ball",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -312,6 +313,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_hidden_floor_room_2_scanner",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -323,6 +325,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_hidden_floor_room_1_tm_rain_dance",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -334,6 +337,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/abandoned_ship_hidden_floor_room_3_water_stone",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

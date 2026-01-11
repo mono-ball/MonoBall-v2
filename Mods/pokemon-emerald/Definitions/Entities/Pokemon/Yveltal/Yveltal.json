@@ -142,13 +142,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/yveltal/yveltalfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/yveltal/yveltalfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/yveltal/yveltalback",
-    "backShiny": "pokeemerald:pokemon:sprite/yveltal/yveltalbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/yveltal/yveltalicon",
-    "overworld": "pokeemerald:pokemon:sprite/yveltal/yveltaloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/yveltal/yveltaloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/yveltal/yveltal_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/yveltal/yveltal_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/yveltal/yveltal_back",
+    "backShiny": "pokeemerald:pokemon:sprite/yveltal/yveltal_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/yveltal/yveltal_icon",
+    "overworld": "pokeemerald:pokemon:sprite/yveltal/yveltal_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yveltal/yveltal_overworld_shiny"
   },
   "isLegendary": true,
   "isFrontierBanned": true

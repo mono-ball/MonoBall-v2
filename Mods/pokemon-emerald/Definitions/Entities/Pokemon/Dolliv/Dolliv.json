@@ -110,12 +110,12 @@
     "pokeemerald:move:swift"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dolliv/dollivfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dolliv/dollivfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dolliv/dollivback",
-    "backShiny": "pokeemerald:pokemon:sprite/dolliv/dollivbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dolliv/dollivicon",
-    "overworld": "pokeemerald:pokemon:sprite/dolliv/dollivoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dolliv/dollivoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dolliv/dolliv_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dolliv/dolliv_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dolliv/dolliv_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dolliv/dolliv_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dolliv/dolliv_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dolliv/dolliv_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dolliv/dolliv_overworld_shiny"
   }
 }

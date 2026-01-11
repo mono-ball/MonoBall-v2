@@ -129,12 +129,12 @@
     "pokeemerald:move:lunge"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/surskit/surskitfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/surskit/surskitfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/surskit/surskitback",
-    "backShiny": "pokeemerald:pokemon:sprite/surskit/surskitbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/surskit/surskiticon",
-    "overworld": "pokeemerald:pokemon:sprite/surskit/surskitoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/surskit/surskitoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/surskit/surskit_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/surskit/surskit_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/surskit/surskit_back",
+    "backShiny": "pokeemerald:pokemon:sprite/surskit/surskit_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/surskit/surskit_icon",
+    "overworld": "pokeemerald:pokemon:sprite/surskit/surskit_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/surskit/surskit_overworld_shiny"
   }
 }

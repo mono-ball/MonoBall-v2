@@ -151,12 +151,12 @@
     "pokeemerald:move:iron_tail"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/larvitar/larvitarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/larvitar/larvitarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/larvitar/larvitarback",
-    "backShiny": "pokeemerald:pokemon:sprite/larvitar/larvitarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/larvitar/larvitaricon",
-    "overworld": "pokeemerald:pokemon:sprite/larvitar/larvitaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/larvitar/larvitaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/larvitar/larvitar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/larvitar/larvitar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/larvitar/larvitar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/larvitar/larvitar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/larvitar/larvitar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/larvitar/larvitar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/larvitar/larvitar_overworld_shiny"
   }
 }

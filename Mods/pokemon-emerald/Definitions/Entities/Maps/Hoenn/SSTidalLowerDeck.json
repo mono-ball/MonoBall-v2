@@ -137,6 +137,7 @@
         ]
       },
       "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_lower_deck_event_script_phillip",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -167,6 +168,7 @@
         ]
       },
       "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_lower_deck_event_script_leonard",
+      "facingDirection": "up",
       "elevation": 3
     }
   ],

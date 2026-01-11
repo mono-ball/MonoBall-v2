@@ -155,12 +155,12 @@
     "pokeemerald:move:spotlight"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/spinda/spindafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/spinda/spindafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/spinda/spindaback",
-    "backShiny": "pokeemerald:pokemon:sprite/spinda/spindabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/spinda/spindaicon",
-    "overworld": "pokeemerald:pokemon:sprite/spinda/spindaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/spinda/spindaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/spinda/spinda_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/spinda/spinda_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/spinda/spinda_back",
+    "backShiny": "pokeemerald:pokemon:sprite/spinda/spinda_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/spinda/spinda_icon",
+    "overworld": "pokeemerald:pokemon:sprite/spinda/spinda_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spinda/spinda_overworld_shiny"
   }
 }

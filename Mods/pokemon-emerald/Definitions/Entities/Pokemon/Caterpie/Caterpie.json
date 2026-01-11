@@ -59,12 +59,12 @@
     "pokeemerald:move:snore"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/caterpie/caterpiefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/caterpie/caterpiefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/caterpie/caterpieback",
-    "backShiny": "pokeemerald:pokemon:sprite/caterpie/caterpiebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/caterpie/caterpieicon",
-    "overworld": "pokeemerald:pokemon:sprite/caterpie/caterpieoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/caterpie/caterpieoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/caterpie/caterpie_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/caterpie/caterpie_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/caterpie/caterpie_back",
+    "backShiny": "pokeemerald:pokemon:sprite/caterpie/caterpie_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/caterpie/caterpie_icon",
+    "overworld": "pokeemerald:pokemon:sprite/caterpie/caterpie_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/caterpie/caterpie_overworld_shiny"
   }
 }

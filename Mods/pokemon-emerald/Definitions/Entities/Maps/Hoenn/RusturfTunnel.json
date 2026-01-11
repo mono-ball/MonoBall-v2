@@ -193,6 +193,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rusturf_tunnel_event_script_wandas_boyfriend",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_wandas_boyfriend",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -204,6 +205,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_rock_1",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -215,6 +217,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/rusturf_tunnel_poke_ball",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -226,6 +229,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/rusturf_tunnel_max_ether",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -236,6 +240,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_briney",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -247,6 +252,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rusturf_tunnel_event_script_grunt",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_aqua_grunt",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -254,10 +260,11 @@
       "name": "LOCALID_RUSTURF_TUNNEL_PEEKO",
       "x": 224,
       "y": 64,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rusturf_tunnel_event_script_peeko",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_peeko",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -269,6 +276,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/event_script_rock_smash",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_rock_2",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -279,6 +287,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hiker",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rusturf_tunnel_event_script_mike",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -290,6 +299,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rusturf_tunnel_event_script_wanda",
       "visibilityFlag": "pokeemerald:flag:visibility/rusturf_tunnel_wanda",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

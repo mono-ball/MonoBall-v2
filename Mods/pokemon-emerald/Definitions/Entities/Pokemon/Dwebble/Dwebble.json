@@ -140,12 +140,12 @@
     "pokeemerald:move:rototiller"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/dwebble/dwebblefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/dwebble/dwebblefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/dwebble/dwebbleback",
-    "backShiny": "pokeemerald:pokemon:sprite/dwebble/dwebblebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/dwebble/dwebbleicon",
-    "overworld": "pokeemerald:pokemon:sprite/dwebble/dwebbleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/dwebble/dwebbleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/dwebble/dwebble_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/dwebble/dwebble_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/dwebble/dwebble_back",
+    "backShiny": "pokeemerald:pokemon:sprite/dwebble/dwebble_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/dwebble/dwebble_icon",
+    "overworld": "pokeemerald:pokemon:sprite/dwebble/dwebble_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/dwebble/dwebble_overworld_shiny"
   }
 }

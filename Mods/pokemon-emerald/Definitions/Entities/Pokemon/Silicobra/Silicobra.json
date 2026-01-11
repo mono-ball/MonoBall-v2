@@ -117,12 +117,12 @@
     "pokeemerald:move:poison_tail"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/silicobra/silicobrafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/silicobra/silicobrafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/silicobra/silicobraback",
-    "backShiny": "pokeemerald:pokemon:sprite/silicobra/silicobrabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/silicobra/silicobraicon",
-    "overworld": "pokeemerald:pokemon:sprite/silicobra/silicobraoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/silicobra/silicobraoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/silicobra/silicobra_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/silicobra/silicobra_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/silicobra/silicobra_back",
+    "backShiny": "pokeemerald:pokemon:sprite/silicobra/silicobra_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/silicobra/silicobra_icon",
+    "overworld": "pokeemerald:pokemon:sprite/silicobra/silicobra_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/silicobra/silicobra_overworld_shiny"
   }
 }

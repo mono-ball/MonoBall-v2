@@ -142,13 +142,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/blastoise/blastoisefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/blastoise/blastoiseback",
-    "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/blastoise/blastoiseicon",
-    "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoiseoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoiseoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/blastoise/blastoise_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/blastoise/blastoise_back",
+    "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/blastoise/blastoise_icon",
+    "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoise_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_overworld_shiny"
   },
   "forms": [
     {
@@ -172,13 +172,13 @@
         "pokeemerald:ability:rain_dish"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisegmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"
@@ -205,13 +205,13 @@
         "pokeemerald:ability:mega_launcher"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/blastoise/blastoisemegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisemegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisemegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoisemegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/blastoise/blastoise_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:blastoisinite",

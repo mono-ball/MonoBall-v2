@@ -137,12 +137,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/archeops/archeopsfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/archeops/archeopsfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/archeops/archeopsback",
-    "backShiny": "pokeemerald:pokemon:sprite/archeops/archeopsbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/archeops/archeopsicon",
-    "overworld": "pokeemerald:pokemon:sprite/archeops/archeopsoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/archeops/archeopsoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/archeops/archeops_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/archeops/archeops_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/archeops/archeops_back",
+    "backShiny": "pokeemerald:pokemon:sprite/archeops/archeops_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/archeops/archeops_icon",
+    "overworld": "pokeemerald:pokemon:sprite/archeops/archeops_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/archeops/archeops_overworld_shiny"
   }
 }

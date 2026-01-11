@@ -131,6 +131,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man3",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_1f_event_script_man",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -141,6 +142,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman5",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/rustboro_city_flat1_1f_event_script_woman",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

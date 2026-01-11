@@ -144,12 +144,12 @@
     "pokeemerald:move:guard_split"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shieldon/shieldonfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shieldon/shieldonfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/shieldon/shieldonback",
-    "backShiny": "pokeemerald:pokemon:sprite/shieldon/shieldonbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/shieldon/shieldonicon",
-    "overworld": "pokeemerald:pokemon:sprite/shieldon/shieldonoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shieldon/shieldonoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shieldon/shieldon_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shieldon/shieldon_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/shieldon/shieldon_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shieldon/shieldon_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shieldon/shieldon_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shieldon/shieldon_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shieldon/shieldon_overworld_shiny"
   }
 }

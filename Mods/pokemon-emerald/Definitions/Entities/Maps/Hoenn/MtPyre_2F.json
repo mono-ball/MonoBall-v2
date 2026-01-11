@@ -57,7 +57,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "6AMAwPcDAAD5AwCA\u002BwMAAOgDAMDoAwDA6AMAwOgDAMDoAwDA9wMAAPkDAAD7AwAA6AMAwOgDAMA/BAAAQAQAAEEEAADoAwDA6AMAwOgDAMDoAwDA6AMAwP8DAAAABAAAAQQAAOgDAMC8BAAABgQAALwEAAAHBAAAvAQAALwEAAC9BAAAvQQAALwEAAAGBAAAvAQAAAcEAAC9BAAAvAQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL0EAAC/BAAAvwQAAL8EAAC/BAAAvQQAAL0EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL0EAAC/BAAAvQQAAL0EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvwQAAL0EAAC/BAAAvwQAAL8EAAC/BAAAvAQAAL8EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL0EAAC9BAAAvwQAALwEAAC/BAAAvQQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL8EAAC9BAAAvQQAAL8EAADCBAAAvQQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL0EAAC9BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC9BAAAvQQAAA=="
+      "tileData": "6AMAwPcDAAD5AwCA\u002BwMAAOgDAMDoAwDA6AMAwOgDAMDoAwDA9wMAAPkDAAD7AwAA6AMAwOgDAMA8BAAAPQQAAD4EAADoAwDA6AMAwOgDAMDoAwDA6AMAwP8DAAAABAAAAQQAAOgDAMC8BAAABgQAALwEAAAHBAAAvAQAALwEAAC9BAAAvQQAALwEAAAGBAAAvAQAAAcEAAC9BAAAvAQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL0EAAC/BAAAvwQAAL8EAAC/BAAAvQQAAL0EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL0EAAC/BAAAvQQAAL0EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvwQAAL0EAAC/BAAAvwQAAL8EAAC/BAAAvAQAAL8EAAC9BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL0EAAC9BAAAvwQAALwEAAC/BAAAvQQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC9BAAAvQQAAL0EAAC9BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL8EAAC9BAAAvQQAAL8EAADCBAAAvQQAALwEAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC/BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC/BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL0EAAC9BAAAvQQAAL0EAAC/BAAAvwQAAL0EAAC9BAAAvwQAAL8EAAC9BAAAvQQAAL8EAAC9BAAAvQQAAA=="
     },
     {
       "id": "pokeemerald:layer:Hoenn/mt_pyre_2f/overhead",
@@ -155,6 +155,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/maniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_mark",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -166,6 +167,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/mt_pyre_2f_ultra_ball",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -176,6 +178,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_woman",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -186,6 +189,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_pokefan_m",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -196,6 +200,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/woman4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_dez",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -206,6 +211,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_luke",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -216,6 +222,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_zander",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -226,6 +233,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/hexmaniac",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/mt_pyre_2f_event_script_leah",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

@@ -71,19 +71,19 @@
       "collisionId": "pokeemerald:collision:water"
     },
     {
-      "localTileId": 103,
+      "localTileId": 100,
       "interactionId": "pokeemerald:script:interactions/tiles/spin_right"
     },
     {
-      "localTileId": 113,
+      "localTileId": 110,
       "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
     },
     {
-      "localTileId": 114,
+      "localTileId": 111,
       "interactionId": "pokeemerald:script:interactions/tiles/ice_spin_left"
     },
     {
-      "localTileId": 115,
+      "localTileId": 112,
       "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
       "collisionId": "pokeemerald:collision:ledge_north",
       "animation": [
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "localTileId": 116,
+      "localTileId": 113,
       "interactionId": "pokeemerald:script:interactions/tiles/ledge_north",
       "collisionId": "pokeemerald:collision:ledge_north"
     },
@@ -314,7 +314,7 @@
       "interactionId": "pokeemerald:script:interactions/tiles/unknown_e6"
     },
     {
-      "localTileId": 180,
+      "localTileId": 181,
       "interactionId": "pokeemerald:script:interactions/tiles/lava",
       "collisionId": "pokeemerald:collision:hazard",
       "animation": [
@@ -353,7 +353,7 @@
       ]
     },
     {
-      "localTileId": 181,
+      "localTileId": 182,
       "interactionId": "pokeemerald:script:interactions/tiles/lava",
       "collisionId": "pokeemerald:collision:hazard"
     },

@@ -158,12 +158,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ninjask/ninjaskfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ninjask/ninjaskfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ninjask/ninjaskback",
-    "backShiny": "pokeemerald:pokemon:sprite/ninjask/ninjaskbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ninjask/ninjaskicon",
-    "overworld": "pokeemerald:pokemon:sprite/ninjask/ninjaskoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ninjask/ninjaskoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ninjask/ninjask_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ninjask/ninjask_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ninjask/ninjask_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ninjask/ninjask_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ninjask/ninjask_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ninjask/ninjask_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ninjask/ninjask_overworld_shiny"
   }
 }

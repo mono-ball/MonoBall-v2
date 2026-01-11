@@ -148,12 +148,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/slaking/slakingfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/slaking/slakingfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/slaking/slakingback",
-    "backShiny": "pokeemerald:pokemon:sprite/slaking/slakingbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/slaking/slakingicon",
-    "overworld": "pokeemerald:pokemon:sprite/slaking/slakingoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/slaking/slakingoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/slaking/slaking_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/slaking/slaking_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/slaking/slaking_back",
+    "backShiny": "pokeemerald:pokemon:sprite/slaking/slaking_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/slaking/slaking_icon",
+    "overworld": "pokeemerald:pokemon:sprite/slaking/slaking_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/slaking/slaking_overworld_shiny"
   }
 }

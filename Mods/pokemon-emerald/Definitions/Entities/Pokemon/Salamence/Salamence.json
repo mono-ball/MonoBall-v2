@@ -144,13 +144,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/salamence/salamencefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/salamence/salamencefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/salamence/salamenceback",
-    "backShiny": "pokeemerald:pokemon:sprite/salamence/salamencebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/salamence/salamenceicon",
-    "overworld": "pokeemerald:pokemon:sprite/salamence/salamenceoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/salamence/salamenceoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/salamence/salamence_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/salamence/salamence_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/salamence/salamence_back",
+    "backShiny": "pokeemerald:pokemon:sprite/salamence/salamence_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/salamence/salamence_icon",
+    "overworld": "pokeemerald:pokemon:sprite/salamence/salamence_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/salamence/salamence_overworld_shiny"
   },
   "forms": [
     {
@@ -176,13 +176,13 @@
         "pokeemerald:ability:aerilate"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/salamence/salamencemegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/salamence/salamencemegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/salamence/salamencemegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/salamence/salamencemegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/salamence/salamencemegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/salamence/salamencemegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/salamence/salamencemegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/salamence/salamence_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/salamence/salamence_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/salamence/salamence_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/salamence/salamence_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/salamence/salamence_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/salamence/salamence_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/salamence/salamence_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:salamencite",

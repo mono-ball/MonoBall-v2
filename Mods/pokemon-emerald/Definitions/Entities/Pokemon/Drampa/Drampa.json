@@ -138,13 +138,13 @@
     "pokeemerald:move:play_rough"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/drampa/drampafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/drampa/drampafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/drampa/drampaback",
-    "backShiny": "pokeemerald:pokemon:sprite/drampa/drampabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/drampa/drampaicon",
-    "overworld": "pokeemerald:pokemon:sprite/drampa/drampaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/drampa/drampaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/drampa/drampa_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/drampa/drampa_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/drampa/drampa_back",
+    "backShiny": "pokeemerald:pokemon:sprite/drampa/drampa_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/drampa/drampa_icon",
+    "overworld": "pokeemerald:pokemon:sprite/drampa/drampa_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drampa/drampa_overworld_shiny"
   },
   "forms": [
     {
@@ -170,13 +170,13 @@
         "pokeemerald:ability:cloud_nine"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/drampa/drampamegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/drampa/drampamegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/drampa/drampamegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/drampa/drampamegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/drampa/drampamegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/drampa/drampamegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/drampa/drampamegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/drampa/drampa_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/drampa/drampa_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/drampa/drampa_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/drampa/drampa_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/drampa/drampa_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/drampa/drampa_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/drampa/drampa_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:drampanite",

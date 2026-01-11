@@ -150,12 +150,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/golduck/golduckfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/golduck/golduckfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/golduck/golduckback",
-    "backShiny": "pokeemerald:pokemon:sprite/golduck/golduckbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/golduck/golduckicon",
-    "overworld": "pokeemerald:pokemon:sprite/golduck/golduckoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/golduck/golduckoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/golduck/golduck_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/golduck/golduck_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/golduck/golduck_back",
+    "backShiny": "pokeemerald:pokemon:sprite/golduck/golduck_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/golduck/golduck_icon",
+    "overworld": "pokeemerald:pokemon:sprite/golduck/golduck_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/golduck/golduck_overworld_shiny"
   }
 }

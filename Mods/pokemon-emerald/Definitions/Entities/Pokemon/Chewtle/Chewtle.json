@@ -103,12 +103,12 @@
     "pokeemerald:move:dragon_tail"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/chewtle/chewtlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/chewtle/chewtlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/chewtle/chewtleback",
-    "backShiny": "pokeemerald:pokemon:sprite/chewtle/chewtlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/chewtle/chewtleicon",
-    "overworld": "pokeemerald:pokemon:sprite/chewtle/chewtleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/chewtle/chewtleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/chewtle/chewtle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/chewtle/chewtle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/chewtle/chewtle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/chewtle/chewtle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/chewtle/chewtle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/chewtle/chewtle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chewtle/chewtle_overworld_shiny"
   }
 }

@@ -123,12 +123,12 @@
     "pokeemerald:move:sing"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/komala/komalafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/komala/komalafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/komala/komalaback",
-    "backShiny": "pokeemerald:pokemon:sprite/komala/komalabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/komala/komalaicon",
-    "overworld": "pokeemerald:pokemon:sprite/komala/komalaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/komala/komalaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/komala/komala_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/komala/komala_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/komala/komala_back",
+    "backShiny": "pokeemerald:pokemon:sprite/komala/komala_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/komala/komala_icon",
+    "overworld": "pokeemerald:pokemon:sprite/komala/komala_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/komala/komala_overworld_shiny"
   }
 }

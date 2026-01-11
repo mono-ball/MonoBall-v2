@@ -139,12 +139,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/vespiquen/vespiquenfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquenfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/vespiquen/vespiquenback",
-    "backShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquenbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/vespiquen/vespiquenicon",
-    "overworld": "pokeemerald:pokemon:sprite/vespiquen/vespiquenoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquenoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_back",
+    "backShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_icon",
+    "overworld": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/vespiquen/vespiquen_overworld_shiny"
   }
 }

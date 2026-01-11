@@ -139,12 +139,12 @@
     "pokeemerald:move:rock_climb"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/drilbur/drilburfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/drilbur/drilburfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/drilbur/drilburback",
-    "backShiny": "pokeemerald:pokemon:sprite/drilbur/drilburbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/drilbur/drilburicon",
-    "overworld": "pokeemerald:pokemon:sprite/drilbur/drilburoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/drilbur/drilburoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/drilbur/drilbur_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/drilbur/drilbur_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/drilbur/drilbur_back",
+    "backShiny": "pokeemerald:pokemon:sprite/drilbur/drilbur_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/drilbur/drilbur_icon",
+    "overworld": "pokeemerald:pokemon:sprite/drilbur/drilbur_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/drilbur/drilbur_overworld_shiny"
   }
 }

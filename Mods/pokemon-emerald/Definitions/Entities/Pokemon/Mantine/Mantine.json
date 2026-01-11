@@ -149,12 +149,12 @@
     "pokeemerald:move:amnesia"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/mantine/mantinefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/mantine/mantinefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/mantine/mantineback",
-    "backShiny": "pokeemerald:pokemon:sprite/mantine/mantinebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/mantine/mantineicon",
-    "overworld": "pokeemerald:pokemon:sprite/mantine/mantineoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/mantine/mantineoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/mantine/mantine_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/mantine/mantine_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/mantine/mantine_back",
+    "backShiny": "pokeemerald:pokemon:sprite/mantine/mantine_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/mantine/mantine_icon",
+    "overworld": "pokeemerald:pokemon:sprite/mantine/mantine_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/mantine/mantine_overworld_shiny"
   }
 }

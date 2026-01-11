@@ -264,6 +264,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_contest_receptionist",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -274,6 +275,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_link_contest_receptionist",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -284,6 +286,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man4",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/berry_blender_event_script_blender2_man",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -294,6 +297,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/artist",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_contest_attendant_1",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -308,6 +312,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_black_belt",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -322,6 +327,7 @@
         "rangeY": 2
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_girl",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -336,6 +342,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_artist",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -347,6 +354,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_reporter",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_reporter",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -357,6 +365,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/boy1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blender3_boy",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -367,6 +376,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/twin",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/berry_blender_event_script_blender2_twin",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -377,6 +387,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/artist",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_contest_attendant_2",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -391,6 +402,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_fisherman",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -401,6 +413,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/fatman",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_fat_man",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -415,6 +428,7 @@
         "rangeY": 1
       },
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_ninja_boy",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -425,6 +439,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/berry_blender_event_script_blender3_pokefan_f",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -436,6 +451,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/berry_blender_event_script_blender1_expert_m",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master_replacement",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -446,6 +462,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/girl1",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blender3_girl",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -457,6 +474,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master_onlooker2",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -468,6 +486,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master_onlooker3",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -479,6 +498,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master_onlooker4",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -490,6 +510,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master_onlooker5",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -501,6 +522,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master_onlooker6",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -512,6 +534,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master_onlooker1",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -523,6 +546,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_blend_master",
       "visibilityFlag": "pokeemerald:flag:visibility/lilycove_contest_hall_blend_master",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -533,6 +557,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/littlegirl",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/lilycove_city_contest_lobby_event_script_little_girl",
+      "facingDirection": "right",
       "elevation": 3
     }
   ],

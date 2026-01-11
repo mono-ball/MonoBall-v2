@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/expertf",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route111_old_ladys_rest_stop_event_script_old_lady",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

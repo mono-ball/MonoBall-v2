@@ -152,13 +152,13 @@
     "pokeemerald:move:burn_up"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/growlithe/growlithefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/growlithe/growlithefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/growlithe/growlitheback",
-    "backShiny": "pokeemerald:pokemon:sprite/growlithe/growlithebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/growlithe/growlitheicon",
-    "overworld": "pokeemerald:pokemon:sprite/growlithe/growlitheoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/growlithe/growlitheoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/growlithe/growlithe_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/growlithe/growlithe_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/growlithe/growlithe_back",
+    "backShiny": "pokeemerald:pokemon:sprite/growlithe/growlithe_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/growlithe/growlithe_icon",
+    "overworld": "pokeemerald:pokemon:sprite/growlithe/growlithe_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/growlithe/growlithe_overworld_shiny"
   },
   "forms": [
     {
@@ -184,13 +184,13 @@
         "pokeemerald:ability:rock_head"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/growlithe/growlithehisuifront",
-        "frontShiny": "pokeemerald:pokemon:sprite/growlithe/growlithehisuifrontshiny",
-        "back": "pokeemerald:pokemon:sprite/growlithe/growlithehisuiback",
-        "backShiny": "pokeemerald:pokemon:sprite/growlithe/growlithehisuibackshiny",
-        "icon": "pokeemerald:pokemon:sprite/growlithe/growlithehisuiicon",
-        "overworld": "pokeemerald:pokemon:sprite/growlithe/growlithehisuioverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/growlithe/growlithehisuioverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_back",
+        "backShiny": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_icon",
+        "overworld": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/growlithe/growlithe_hisui_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:hisui"

@@ -32,6 +32,12 @@ public enum InputAction
     Interact,
 
     /// <summary>
+    ///     Run button (hold to run, toggle walk/run).
+    ///     Used to toggle between walk and run movement types.
+    /// </summary>
+    Run,
+
+    /// <summary>
     ///     Pause menu.
     /// </summary>
     Pause,

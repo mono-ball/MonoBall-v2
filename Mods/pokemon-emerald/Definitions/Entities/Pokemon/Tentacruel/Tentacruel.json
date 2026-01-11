@@ -128,12 +128,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tentacruel/tentacruelfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tentacruel/tentacruelfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tentacruel/tentacruelback",
-    "backShiny": "pokeemerald:pokemon:sprite/tentacruel/tentacruelbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tentacruel/tentacruelicon",
-    "overworld": "pokeemerald:pokemon:sprite/tentacruel/tentacrueloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tentacruel/tentacrueloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tentacruel/tentacruel_overworld_shiny"
   }
 }

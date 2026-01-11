@@ -158,12 +158,12 @@
     "pokeemerald:move:destiny_bond"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/houndour/houndourfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/houndour/houndourfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/houndour/houndourback",
-    "backShiny": "pokeemerald:pokemon:sprite/houndour/houndourbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/houndour/houndouricon",
-    "overworld": "pokeemerald:pokemon:sprite/houndour/houndouroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/houndour/houndouroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/houndour/houndour_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/houndour/houndour_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/houndour/houndour_back",
+    "backShiny": "pokeemerald:pokemon:sprite/houndour/houndour_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/houndour/houndour_icon",
+    "overworld": "pokeemerald:pokemon:sprite/houndour/houndour_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/houndour/houndour_overworld_shiny"
   }
 }

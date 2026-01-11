@@ -143,12 +143,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/diggersby/diggersbyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/diggersby/diggersbyfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/diggersby/diggersbyback",
-    "backShiny": "pokeemerald:pokemon:sprite/diggersby/diggersbybackshiny",
-    "icon": "pokeemerald:pokemon:sprite/diggersby/diggersbyicon",
-    "overworld": "pokeemerald:pokemon:sprite/diggersby/diggersbyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/diggersby/diggersbyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/diggersby/diggersby_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/diggersby/diggersby_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/diggersby/diggersby_back",
+    "backShiny": "pokeemerald:pokemon:sprite/diggersby/diggersby_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/diggersby/diggersby_icon",
+    "overworld": "pokeemerald:pokemon:sprite/diggersby/diggersby_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/diggersby/diggersby_overworld_shiny"
   }
 }

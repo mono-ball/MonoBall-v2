@@ -136,12 +136,12 @@
     "pokeemerald:move:aqua_jet"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/anorith/anorithfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/anorith/anorithfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/anorith/anorithback",
-    "backShiny": "pokeemerald:pokemon:sprite/anorith/anorithbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/anorith/anorithicon",
-    "overworld": "pokeemerald:pokemon:sprite/anorith/anorithoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/anorith/anorithoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/anorith/anorith_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/anorith/anorith_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/anorith/anorith_back",
+    "backShiny": "pokeemerald:pokemon:sprite/anorith/anorith_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/anorith/anorith_icon",
+    "overworld": "pokeemerald:pokemon:sprite/anorith/anorith_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/anorith/anorith_overworld_shiny"
   }
 }

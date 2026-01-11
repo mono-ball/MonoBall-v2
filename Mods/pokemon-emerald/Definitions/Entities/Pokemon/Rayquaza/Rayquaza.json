@@ -149,13 +149,13 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/rayquaza/rayquazafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquazafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/rayquaza/rayquazaback",
-    "backShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquazabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/rayquaza/rayquazaicon",
-    "overworld": "pokeemerald:pokemon:sprite/rayquaza/rayquazaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquazaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_back",
+    "backShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_icon",
+    "overworld": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_overworld_shiny"
   },
   "forms": [
     {
@@ -181,13 +181,13 @@
         "pokeemerald:ability:delta_stream"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquazamegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/rayquaza/rayquaza_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformMethod": "pokeemerald:transform_method:mega_evolution"

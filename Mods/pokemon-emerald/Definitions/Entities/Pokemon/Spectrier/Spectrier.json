@@ -110,13 +110,13 @@
     "pokeemerald:move:taunt"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/spectrier/spectrierfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/spectrier/spectrierfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/spectrier/spectrierback",
-    "backShiny": "pokeemerald:pokemon:sprite/spectrier/spectrierbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/spectrier/spectriericon",
-    "overworld": "pokeemerald:pokemon:sprite/spectrier/spectrieroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/spectrier/spectrieroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/spectrier/spectrier_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/spectrier/spectrier_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/spectrier/spectrier_back",
+    "backShiny": "pokeemerald:pokemon:sprite/spectrier/spectrier_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/spectrier/spectrier_icon",
+    "overworld": "pokeemerald:pokemon:sprite/spectrier/spectrier_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/spectrier/spectrier_overworld_shiny"
   },
   "isLegendary": true
 }

@@ -112,12 +112,12 @@
     "pokeemerald:move:howl"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/yamper/yamperfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/yamper/yamperfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/yamper/yamperback",
-    "backShiny": "pokeemerald:pokemon:sprite/yamper/yamperbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/yamper/yampericon",
-    "overworld": "pokeemerald:pokemon:sprite/yamper/yamperoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/yamper/yamperoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/yamper/yamper_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/yamper/yamper_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/yamper/yamper_back",
+    "backShiny": "pokeemerald:pokemon:sprite/yamper/yamper_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/yamper/yamper_icon",
+    "overworld": "pokeemerald:pokemon:sprite/yamper/yamper_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/yamper/yamper_overworld_shiny"
   }
 }

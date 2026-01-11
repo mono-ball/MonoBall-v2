@@ -108,6 +108,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/magma_hideout_3f_2_r_event_script_grunt10",
       "visibilityFlag": "pokeemerald:flag:visibility/magma_hideout_grunts",
+      "facingDirection": "down",
       "elevation": 0
     },
     {
@@ -119,6 +120,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/common_event_script_find_item",
       "visibilityFlag": "pokeemerald:flag:item/magma_hideout_3f_2_r_pp_max",
+      "facingDirection": "down",
       "elevation": 0
     }
   ],

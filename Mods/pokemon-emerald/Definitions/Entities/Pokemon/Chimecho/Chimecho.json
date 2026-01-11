@@ -139,12 +139,12 @@
     "pokeemerald:move:perish_song"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/chimecho/chimechofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/chimecho/chimechofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/chimecho/chimechoback",
-    "backShiny": "pokeemerald:pokemon:sprite/chimecho/chimechobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/chimecho/chimechoicon",
-    "overworld": "pokeemerald:pokemon:sprite/chimecho/chimechooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/chimecho/chimechooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/chimecho/chimecho_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/chimecho/chimecho_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/chimecho/chimecho_back",
+    "backShiny": "pokeemerald:pokemon:sprite/chimecho/chimecho_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/chimecho/chimecho_icon",
+    "overworld": "pokeemerald:pokemon:sprite/chimecho/chimecho_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/chimecho/chimecho_overworld_shiny"
   }
 }

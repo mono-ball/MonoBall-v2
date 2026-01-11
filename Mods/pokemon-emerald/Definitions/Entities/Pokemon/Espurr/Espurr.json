@@ -128,12 +128,12 @@
     "pokeemerald:move:barrier"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/espurr/espurrfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/espurr/espurrfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/espurr/espurrback",
-    "backShiny": "pokeemerald:pokemon:sprite/espurr/espurrbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/espurr/espurricon",
-    "overworld": "pokeemerald:pokemon:sprite/espurr/espurroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/espurr/espurroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/espurr/espurr_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/espurr/espurr_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/espurr/espurr_back",
+    "backShiny": "pokeemerald:pokemon:sprite/espurr/espurr_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/espurr/espurr_icon",
+    "overworld": "pokeemerald:pokemon:sprite/espurr/espurr_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/espurr/espurr_overworld_shiny"
   }
 }

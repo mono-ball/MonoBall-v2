@@ -122,12 +122,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/masquerain/masquerainfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/masquerain/masquerainfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/masquerain/masquerainback",
-    "backShiny": "pokeemerald:pokemon:sprite/masquerain/masquerainbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/masquerain/masquerainicon",
-    "overworld": "pokeemerald:pokemon:sprite/masquerain/masquerainoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/masquerain/masquerainoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/masquerain/masquerain_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/masquerain/masquerain_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/masquerain/masquerain_back",
+    "backShiny": "pokeemerald:pokemon:sprite/masquerain/masquerain_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/masquerain/masquerain_icon",
+    "overworld": "pokeemerald:pokemon:sprite/masquerain/masquerain_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/masquerain/masquerain_overworld_shiny"
   }
 }

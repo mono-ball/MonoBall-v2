@@ -135,12 +135,12 @@
     "pokeemerald:move:sunny_day"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/hydrapple/hydrapplefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/hydrapple/hydrapplefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/hydrapple/hydrappleback",
-    "backShiny": "pokeemerald:pokemon:sprite/hydrapple/hydrapplebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/hydrapple/hydrappleicon",
-    "overworld": "pokeemerald:pokemon:sprite/hydrapple/hydrappleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/hydrapple/hydrappleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_back",
+    "backShiny": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_icon",
+    "overworld": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/hydrapple/hydrapple_overworld_shiny"
   }
 }

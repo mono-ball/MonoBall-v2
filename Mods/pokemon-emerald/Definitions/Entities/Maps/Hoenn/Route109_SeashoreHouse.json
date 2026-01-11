@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/pokefanm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route109_seashore_house_event_script_owner",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route109_seashore_house_event_script_dwayne",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -139,6 +141,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/tuberm",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route109_seashore_house_event_script_simon",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -149,6 +152,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/beauty",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/route109_seashore_house_event_script_johanna",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

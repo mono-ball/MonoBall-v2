@@ -124,12 +124,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bellossom/bellossomfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bellossom/bellossomfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bellossom/bellossomback",
-    "backShiny": "pokeemerald:pokemon:sprite/bellossom/bellossombackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bellossom/bellossomicon",
-    "overworld": "pokeemerald:pokemon:sprite/bellossom/bellossomoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bellossom/bellossomoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bellossom/bellossom_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bellossom/bellossom_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bellossom/bellossom_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bellossom/bellossom_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bellossom/bellossom_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bellossom/bellossom_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bellossom/bellossom_overworld_shiny"
   }
 }

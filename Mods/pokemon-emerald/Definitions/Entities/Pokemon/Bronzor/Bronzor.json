@@ -127,12 +127,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/bronzor/bronzorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/bronzor/bronzorfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/bronzor/bronzorback",
-    "backShiny": "pokeemerald:pokemon:sprite/bronzor/bronzorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/bronzor/bronzoricon",
-    "overworld": "pokeemerald:pokemon:sprite/bronzor/bronzoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/bronzor/bronzoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/bronzor/bronzor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/bronzor/bronzor_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/bronzor/bronzor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/bronzor/bronzor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/bronzor/bronzor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/bronzor/bronzor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/bronzor/bronzor_overworld_shiny"
   }
 }

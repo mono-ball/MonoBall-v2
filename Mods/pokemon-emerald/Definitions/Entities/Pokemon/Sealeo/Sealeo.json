@@ -147,12 +147,12 @@
     "pokeemerald:move:water_pulse"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sealeo/sealeofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sealeo/sealeofrontshiny",
-    "back": "pokeemerald:pokemon:sprite/sealeo/sealeoback",
-    "backShiny": "pokeemerald:pokemon:sprite/sealeo/sealeobackshiny",
-    "icon": "pokeemerald:pokemon:sprite/sealeo/sealeoicon",
-    "overworld": "pokeemerald:pokemon:sprite/sealeo/sealeooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sealeo/sealeooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sealeo/sealeo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sealeo/sealeo_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/sealeo/sealeo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sealeo/sealeo_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sealeo/sealeo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sealeo/sealeo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sealeo/sealeo_overworld_shiny"
   }
 }

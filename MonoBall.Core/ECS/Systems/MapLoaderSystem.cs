@@ -14,6 +14,7 @@ using MonoBall.Core.Maps;
 using MonoBall.Core.Maps.Utilities;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
+using MonoBall.Core.Profiles;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scripting.Services;
 using MonoBall.Core.Scripting.Utilities;
@@ -45,6 +46,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly Dictionary<string, List<TilesetReference>> _mapTilesetRefs = new(); // Map tileset references for GID resolution
 
     private readonly DefinitionRegistry _registry;
+    private readonly IProfileService _profileService;
     private readonly IResourceManager _resourceManager;
     private readonly IVariableSpriteResolver? _variableSpriteResolver;
     private readonly ICollisionLayerCache? _collisionLayerCache;
@@ -55,6 +57,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     /// <param name="world">The ECS world.</param>
     /// <param name="registry">The definition registry.</param>
     /// <param name="resourceManager">The resource manager for loading textures and validating sprites.</param>
+    /// <param name="profileService">The profile service for accessing movement profiles. Required.</param>
     /// <param name="flagVariableService">Optional flag/variable service for checking NPC visibility flags.</param>
     /// <param name="variableSpriteResolver">Optional variable sprite resolver for resolving variable sprite IDs.</param>
     /// <param name="collisionLayerCache">Optional collision layer cache for loading per-elevation collision data.</param>
@@ -64,6 +67,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         World world,
         DefinitionRegistry registry,
         IResourceManager resourceManager,
+        IProfileService profileService,
         IFlagVariableService? flagVariableService = null,
         IVariableSpriteResolver? variableSpriteResolver = null,
         ICollisionLayerCache? collisionLayerCache = null,
@@ -75,6 +79,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         _registry = registry ?? throw new ArgumentNullException(nameof(registry));
         _resourceManager =
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
+        _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
         _flagVariableService = flagVariableService;
         _variableSpriteResolver = variableSpriteResolver;
         _collisionLayerCache = collisionLayerCache;
@@ -958,11 +963,113 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             npcDef.NpcId
         );
 
-        // Get sprite definition to determine initial flip state
+        // Get sprite definition to determine initial flip state and profile references
         // CRITICAL: Use actualSpriteId (resolved), not npcDef.SpriteId (may be variable sprite)
         // Behavior scripts will handle animation selection
         var spriteDefinition = _resourceManager.GetSpriteDefinition(actualSpriteId);
         var flipHorizontal = false; // Default - behavior scripts will set animation and flip state
+
+        // Determine initial animation based on sprite capabilities
+        // Priority: 1. NPC's InitialAnimation override, 2. Directional face animation, 3. Sprite's DefaultAnimation, 4. First animation
+        string initialAnimationName;
+        if (!string.IsNullOrWhiteSpace(npcDef.InitialAnimation))
+        {
+            // NPC-level override
+            initialAnimationName = npcDef.InitialAnimation;
+        }
+        else if (spriteDefinition.Capabilities.Directional)
+        {
+            // Directional sprite: use facing direction to determine idle animation
+            initialAnimationName = DirectionParser.Parse(npcDef.FacingDirection, Direction.South).ToIdleAnimation();
+        }
+        else
+        {
+            // Non-directional sprite: use sprite's default animation
+            initialAnimationName = spriteDefinition.DefaultAnimation;
+        }
+
+        // Validate initial animation is not empty - fallback to first animation if needed
+        if (string.IsNullOrWhiteSpace(initialAnimationName))
+        {
+            var firstAnimation = spriteDefinition.Animations?.FirstOrDefault()?.Name;
+            if (!string.IsNullOrWhiteSpace(firstAnimation))
+            {
+                _logger.Warning(
+                    "NPC '{NpcId}' sprite '{SpriteId}' has no defaultAnimation set and no facingDirection. Using first animation '{Animation}'",
+                    npcDef.NpcId,
+                    actualSpriteId,
+                    firstAnimation
+                );
+                initialAnimationName = firstAnimation;
+            }
+            else
+            {
+                throw new InvalidOperationException(
+                    $"NPC '{npcDef.NpcId}' sprite '{actualSpriteId}' has no animations defined. " +
+                    "Cannot determine initial animation."
+                );
+            }
+        }
+
+        // Movement profile is only required for sprites with movement animations
+        float movementSpeed = 1.0f; // Default fallback for non-moving sprites
+        string defaultMovementType = "walk"; // Default fallback
+
+        if (spriteDefinition.Capabilities.MovementAnimated)
+        {
+            // Validate required profile references (fail-fast) for movement-animated sprites
+            if (string.IsNullOrWhiteSpace(spriteDefinition.MovementProfileId))
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{actualSpriteId}' for NPC '{npcDef.NpcId}' has MovementAnimated=true but is missing required field 'movementProfileId'. " +
+                    "Cannot initialize NPC movement speed from profile."
+                );
+            }
+
+            // Get default movement speed and type from profile (fail-fast)
+            try
+            {
+                movementSpeed = _profileService.GetDefaultMovementSpeed(spriteDefinition.MovementProfileId);
+                // Get default movement type from profile
+                var movementProfile = _profileService.GetMovementProfile(spriteDefinition.MovementProfileId);
+                if (string.IsNullOrWhiteSpace(movementProfile.DefaultSpeed))
+                {
+                    throw new InvalidOperationException(
+                        $"Movement profile '{spriteDefinition.MovementProfileId}' has null or empty DefaultSpeed. " +
+                        $"Cannot determine default movement type for NPC '{npcDef.NpcId}'."
+                    );
+                }
+                defaultMovementType = movementProfile.DefaultSpeed;
+            }
+            catch (ProfileNotFoundException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Sprite definition '{actualSpriteId}' for NPC '{npcDef.NpcId}' references movement profile '{spriteDefinition.MovementProfileId}' which does not exist. " +
+                    "Cannot initialize NPC movement speed from profile.",
+                    ex
+                );
+            }
+        }
+        else if (!string.IsNullOrWhiteSpace(spriteDefinition.MovementProfileId))
+        {
+            // Non-movement-animated sprite but has a profile - use it for basic movement speed
+            try
+            {
+                movementSpeed = _profileService.GetDefaultMovementSpeed(spriteDefinition.MovementProfileId);
+                var movementProfile = _profileService.GetMovementProfile(spriteDefinition.MovementProfileId);
+                if (!string.IsNullOrWhiteSpace(movementProfile.DefaultSpeed))
+                    defaultMovementType = movementProfile.DefaultSpeed;
+            }
+            catch (ProfileNotFoundException)
+            {
+                // Non-critical for non-movement-animated sprites - use defaults
+                _logger.Warning(
+                    "Movement profile '{ProfileId}' not found for NPC '{NpcId}', using default movement speed",
+                    spriteDefinition.MovementProfileId,
+                    npcDef.NpcId
+                );
+            }
+        }
 
         // NPC coordinates in JSON are already in pixel coordinates (not tile coordinates)
         // Add map pixel position offset to get world pixel position
@@ -981,10 +1088,8 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             isVisible = _flagVariableService.GetFlag(npcDef.VisibilityFlag);
 
         // Create NPC entity with all required components
-        // All NPCs get GridMovement component (even stationary ones) to store facing direction
-        // Default movement speed: 3.75 tiles/second (matches oldmonoball NpcSpawnBuilder default)
+        // All NPCs get GridMovement component (even stationary ones) to store facing direction and movement type
         // NPCs created in loaded maps get ActiveMapEntity tag immediately for query-level filtering
-        const float defaultNpcMovementSpeed = 3.75f;
 
         // Create NpcComponent with explicit non-null strings to avoid Arch.Core issues
         // Note: Elevation is now in ElevationComponent, not NpcComponent
@@ -1018,6 +1123,18 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 FlipHorizontal = flipHorizontal,
                 FlipVertical = false, // Will be updated by SpriteAnimationSystem
             },
+            new SpriteAnimationComponent
+            {
+                // Initialize with animation determined by capabilities
+                // Directional sprites use facing direction, non-directional use defaultAnimation
+                CurrentAnimationName = initialAnimationName,
+                CurrentAnimationFrameIndex = 0,
+                ElapsedTime = 0.0f,
+                IsPlaying = true,
+                IsComplete = false,
+                PlayOnce = false,
+                TriggeredEventFrames = 0,
+            },
             new PositionComponent { Position = npcPixelPosition },
             new RenderableComponent
             {
@@ -1025,10 +1142,12 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 RenderOrder = npcDef.Elevation,
                 Opacity = 1.0f,
             },
-            new GridMovement(defaultNpcMovementSpeed)
+            new GridMovement(movementSpeed, defaultMovementType)
             {
-                FacingDirection = Direction.South, // Default - behavior scripts will set actual direction
-                MovementDirection = Direction.South,
+                // Parse facing direction from NpcDefinition, default to South if not specified
+                FacingDirection = DirectionParser.Parse(npcDef.FacingDirection, Direction.South),
+                MovementDirection = DirectionParser.Parse(npcDef.FacingDirection, Direction.South),
+                RunningState = RunningState.NotMoving,
             },
             new ActiveMapEntity(), // Tag NPCs in loaded maps immediately
         };
@@ -1129,10 +1248,11 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             npcEntity = World.Create(
                 npcComponent,
                 (SpriteComponent)components[1],
-                (PositionComponent)components[2],
-                (RenderableComponent)components[3],
-                (GridMovement)components[4],
-                (ActiveMapEntity)components[5],
+                (SpriteAnimationComponent)components[2],
+                (PositionComponent)components[3],
+                (RenderableComponent)components[4],
+                (GridMovement)components[5],
+                (ActiveMapEntity)components[6],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
                 CollisionComponent.Solid,
                 scriptComp,
@@ -1155,10 +1275,11 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             npcEntity = World.Create(
                 npcComponent,
                 (SpriteComponent)components[1],
-                (PositionComponent)components[2],
-                (RenderableComponent)components[3],
-                (GridMovement)components[4],
-                (ActiveMapEntity)components[5],
+                (SpriteAnimationComponent)components[2],
+                (PositionComponent)components[3],
+                (RenderableComponent)components[4],
+                (GridMovement)components[5],
+                (ActiveMapEntity)components[6],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
                 CollisionComponent.Solid,
                 scriptComp
@@ -1174,10 +1295,11 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             npcEntity = World.Create(
                 npcComponent,
                 (SpriteComponent)components[1],
-                (PositionComponent)components[2],
-                (RenderableComponent)components[3],
-                (GridMovement)components[4],
-                (ActiveMapEntity)components[5],
+                (SpriteAnimationComponent)components[2],
+                (PositionComponent)components[3],
+                (RenderableComponent)components[4],
+                (GridMovement)components[5],
+                (ActiveMapEntity)components[6],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
                 CollisionComponent.Solid,
                 scriptComp,
@@ -1189,10 +1311,11 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
             npcEntity = World.Create(
                 npcComponent,
                 (SpriteComponent)components[1],
-                (PositionComponent)components[2],
-                (RenderableComponent)components[3],
-                (GridMovement)components[4],
-                (ActiveMapEntity)components[5],
+                (SpriteAnimationComponent)components[2],
+                (PositionComponent)components[3],
+                (RenderableComponent)components[4],
+                (GridMovement)components[5],
+                (ActiveMapEntity)components[6],
                 new ElevationComponent { Value = (byte)npcDef.Elevation },
                 CollisionComponent.Solid
             );

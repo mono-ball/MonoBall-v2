@@ -140,13 +140,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/garbodor/garbodorfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/garbodor/garbodorfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/garbodor/garbodorback",
-    "backShiny": "pokeemerald:pokemon:sprite/garbodor/garbodorbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/garbodor/garbodoricon",
-    "overworld": "pokeemerald:pokemon:sprite/garbodor/garbodoroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/garbodor/garbodoroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/garbodor/garbodor_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/garbodor/garbodor_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/garbodor/garbodor_back",
+    "backShiny": "pokeemerald:pokemon:sprite/garbodor/garbodor_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/garbodor/garbodor_icon",
+    "overworld": "pokeemerald:pokemon:sprite/garbodor/garbodor_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/garbodor/garbodor_overworld_shiny"
   },
   "forms": [
     {
@@ -171,13 +171,13 @@
         "pokeemerald:ability:aftermath"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/garbodor/garbodorgmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/garbodor/garbodor_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

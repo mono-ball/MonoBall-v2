@@ -43,13 +43,13 @@
     }
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/typenull/typenullfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/typenull/typenullfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/typenull/typenullback",
-    "backShiny": "pokeemerald:pokemon:sprite/typenull/typenullbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/typenull/typenullicon",
-    "overworld": "pokeemerald:pokemon:sprite/typenull/typenulloverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/typenull/typenulloverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/type_null/type_null_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/type_null/type_null_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/type_null/type_null_back",
+    "backShiny": "pokeemerald:pokemon:sprite/type_null/type_null_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/type_null/type_null_icon",
+    "overworld": "pokeemerald:pokemon:sprite/type_null/type_null_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/type_null/type_null_overworld_shiny"
   },
   "isLegendary": true
 }

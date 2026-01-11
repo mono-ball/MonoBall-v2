@@ -162,17 +162,17 @@
     "pokeemerald:move:endure"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofront",
-    "frontShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodofrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodoback",
-    "backShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodobackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodobackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodobackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodoicon",
-    "overworld": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodooverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodooverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_back",
+    "backShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_icon",
+    "overworld": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/sudowoodo/sudowoodo_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

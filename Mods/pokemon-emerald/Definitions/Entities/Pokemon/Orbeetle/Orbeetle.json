@@ -122,13 +122,13 @@
     "pokeemerald:move:solar_beam"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/orbeetle/orbeetlefront",
-    "frontShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetlefrontshiny",
-    "back": "pokeemerald:pokemon:sprite/orbeetle/orbeetleback",
-    "backShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetlebackshiny",
-    "icon": "pokeemerald:pokemon:sprite/orbeetle/orbeetleicon",
-    "overworld": "pokeemerald:pokemon:sprite/orbeetle/orbeetleoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetleoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_back",
+    "backShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_icon",
+    "overworld": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_overworld_shiny"
   },
   "forms": [
     {
@@ -154,13 +154,13 @@
         "pokeemerald:ability:telepathy"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxback",
-        "backShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxicon",
-        "overworld": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetlegmaxoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_back",
+        "backShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_icon",
+        "overworld": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/orbeetle/orbeetle_gmax_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:gigantamax",
       "transformMethod": "pokeemerald:transform_method:gigantamax"

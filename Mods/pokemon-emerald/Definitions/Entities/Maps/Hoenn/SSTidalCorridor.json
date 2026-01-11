@@ -324,6 +324,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/sailor",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_exit_sailor",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -338,6 +339,7 @@
         "rangeY": 2
       },
       "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_sailor",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -349,6 +351,7 @@
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_briney",
       "visibilityFlag": "pokeemerald:flag:visibility/ss_tidal_corridor_mr_briney",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -356,10 +359,11 @@
       "name": "NPC_3",
       "x": 112,
       "y": 32,
-      "spriteId": "pokeemerald:sprite:pokemon/wingullold",
+      "spriteId": "pokeemerald:pokemon:sprite/wingull/wingull_overworld",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/ss_tidal_corridor_event_script_peeko",
       "visibilityFlag": "pokeemerald:flag:visibility/ss_tidal_corridor_mr_briney",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -370,6 +374,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scott",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/ss_tidal_corridor_scott",
+      "facingDirection": "left",
       "elevation": 3
     }
   ],

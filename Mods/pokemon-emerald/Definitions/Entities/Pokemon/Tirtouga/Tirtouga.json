@@ -158,12 +158,12 @@
     "pokeemerald:move:liquidation"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tirtouga/tirtougafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtougafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tirtouga/tirtougaback",
-    "backShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtougabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tirtouga/tirtougaicon",
-    "overworld": "pokeemerald:pokemon:sprite/tirtouga/tirtougaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtougaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tirtouga/tirtouga_overworld_shiny"
   }
 }

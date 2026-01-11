@@ -126,12 +126,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/carbink/carbinkfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/carbink/carbinkfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/carbink/carbinkback",
-    "backShiny": "pokeemerald:pokemon:sprite/carbink/carbinkbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/carbink/carbinkicon",
-    "overworld": "pokeemerald:pokemon:sprite/carbink/carbinkoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/carbink/carbinkoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/carbink/carbink_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/carbink/carbink_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/carbink/carbink_back",
+    "backShiny": "pokeemerald:pokemon:sprite/carbink/carbink_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/carbink/carbink_icon",
+    "overworld": "pokeemerald:pokemon:sprite/carbink/carbink_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/carbink/carbink_overworld_shiny"
   }
 }

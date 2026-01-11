@@ -171,17 +171,17 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/shiftry/shiftryfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/shiftry/shiftryfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/shiftry/shiftryfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/shiftry/shiftryfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/shiftry/shiftryback",
-    "backShiny": "pokeemerald:pokemon:sprite/shiftry/shiftrybackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/shiftry/shiftrybackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/shiftry/shiftrybackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/shiftry/shiftryicon",
-    "overworld": "pokeemerald:pokemon:sprite/shiftry/shiftryoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/shiftry/shiftryoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/shiftry/shiftry_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/shiftry/shiftry_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/shiftry/shiftry_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/shiftry/shiftry_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/shiftry/shiftry_back",
+    "backShiny": "pokeemerald:pokemon:sprite/shiftry/shiftry_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/shiftry/shiftry_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/shiftry/shiftry_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/shiftry/shiftry_icon",
+    "overworld": "pokeemerald:pokemon:sprite/shiftry/shiftry_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/shiftry/shiftry_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

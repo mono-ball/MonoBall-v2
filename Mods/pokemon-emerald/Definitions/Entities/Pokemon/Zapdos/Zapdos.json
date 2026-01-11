@@ -133,13 +133,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/zapdos/zapdosfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/zapdos/zapdosback",
-    "backShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/zapdos/zapdosicon",
-    "overworld": "pokeemerald:pokemon:sprite/zapdos/zapdosoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/zapdos/zapdos_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/zapdos/zapdos_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/zapdos/zapdos_back",
+    "backShiny": "pokeemerald:pokemon:sprite/zapdos/zapdos_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/zapdos/zapdos_icon",
+    "overworld": "pokeemerald:pokemon:sprite/zapdos/zapdos_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/zapdos/zapdos_overworld_shiny"
   },
   "forms": [
     {
@@ -165,13 +165,13 @@
         null
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarfront",
-        "frontShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarfrontshiny",
-        "back": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarback",
-        "backShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosgalarbackshiny",
-        "icon": "pokeemerald:pokemon:sprite/zapdos/zapdosgalaricon",
-        "overworld": "pokeemerald:pokemon:sprite/zapdos/zapdosgalaroverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/zapdos/zapdosgalaroverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_back",
+        "backShiny": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_icon",
+        "overworld": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/zapdos/zapdos_galar_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:regional",
       "region": "pokeemerald:region:galar"

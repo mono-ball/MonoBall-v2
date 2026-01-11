@@ -121,12 +121,12 @@
     "pokeemerald:move:sucker_punch"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/tarountula/tarountulafront",
-    "frontShiny": "pokeemerald:pokemon:sprite/tarountula/tarountulafrontshiny",
-    "back": "pokeemerald:pokemon:sprite/tarountula/tarountulaback",
-    "backShiny": "pokeemerald:pokemon:sprite/tarountula/tarountulabackshiny",
-    "icon": "pokeemerald:pokemon:sprite/tarountula/tarountulaicon",
-    "overworld": "pokeemerald:pokemon:sprite/tarountula/tarountulaoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/tarountula/tarountulaoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/tarountula/tarountula_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/tarountula/tarountula_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/tarountula/tarountula_back",
+    "backShiny": "pokeemerald:pokemon:sprite/tarountula/tarountula_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/tarountula/tarountula_icon",
+    "overworld": "pokeemerald:pokemon:sprite/tarountula/tarountula_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/tarountula/tarountula_overworld_shiny"
   }
 }

@@ -143,12 +143,12 @@
     "pokeemerald:move:sticky_web"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/swirlix/swirlixfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/swirlix/swirlixfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/swirlix/swirlixback",
-    "backShiny": "pokeemerald:pokemon:sprite/swirlix/swirlixbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/swirlix/swirlixicon",
-    "overworld": "pokeemerald:pokemon:sprite/swirlix/swirlixoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/swirlix/swirlixoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/swirlix/swirlix_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/swirlix/swirlix_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/swirlix/swirlix_back",
+    "backShiny": "pokeemerald:pokemon:sprite/swirlix/swirlix_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/swirlix/swirlix_icon",
+    "overworld": "pokeemerald:pokemon:sprite/swirlix/swirlix_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/swirlix/swirlix_overworld_shiny"
   }
 }

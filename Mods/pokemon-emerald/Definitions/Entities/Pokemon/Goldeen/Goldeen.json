@@ -131,17 +131,17 @@
     "pokeemerald:move:signal_beam"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/goldeen/goldeenfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/goldeen/goldeenfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/goldeen/goldeenback",
-    "backShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenbackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/goldeen/goldeenbackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenbackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/goldeen/goldeenicon",
-    "overworld": "pokeemerald:pokemon:sprite/goldeen/goldeenoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/goldeen/goldeenoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/goldeen/goldeen_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/goldeen/goldeen_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/goldeen/goldeen_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/goldeen/goldeen_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/goldeen/goldeen_back",
+    "backShiny": "pokeemerald:pokemon:sprite/goldeen/goldeen_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/goldeen/goldeen_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/goldeen/goldeen_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/goldeen/goldeen_icon",
+    "overworld": "pokeemerald:pokemon:sprite/goldeen/goldeen_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/goldeen/goldeen_overworld_shiny"
   },
   "hasGenderDifferences": true
 }

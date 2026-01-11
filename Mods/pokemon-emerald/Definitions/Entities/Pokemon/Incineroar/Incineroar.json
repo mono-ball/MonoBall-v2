@@ -144,12 +144,12 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/incineroar/incineroarfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/incineroar/incineroarfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/incineroar/incineroarback",
-    "backShiny": "pokeemerald:pokemon:sprite/incineroar/incineroarbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/incineroar/incineroaricon",
-    "overworld": "pokeemerald:pokemon:sprite/incineroar/incineroaroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/incineroar/incineroaroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/incineroar/incineroar_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/incineroar/incineroar_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/incineroar/incineroar_back",
+    "backShiny": "pokeemerald:pokemon:sprite/incineroar/incineroar_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/incineroar/incineroar_icon",
+    "overworld": "pokeemerald:pokemon:sprite/incineroar/incineroar_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/incineroar/incineroar_overworld_shiny"
   }
 }

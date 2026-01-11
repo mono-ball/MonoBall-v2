@@ -160,13 +160,13 @@
     "pokeemerald:move:toxic"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/ampharos/ampharosfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/ampharos/ampharosback",
-    "backShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/ampharos/ampharosicon",
-    "overworld": "pokeemerald:pokemon:sprite/ampharos/ampharosoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/ampharos/ampharos_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/ampharos/ampharos_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/ampharos/ampharos_back",
+    "backShiny": "pokeemerald:pokemon:sprite/ampharos/ampharos_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/ampharos/ampharos_icon",
+    "overworld": "pokeemerald:pokemon:sprite/ampharos/ampharos_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/ampharos/ampharos_overworld_shiny"
   },
   "forms": [
     {
@@ -191,13 +191,13 @@
         "pokeemerald:ability:mold_breaker"
       ],
       "sprites": {
-        "front": "pokeemerald:pokemon:sprite/ampharos/ampharosmegafront",
-        "frontShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosmegafrontshiny",
-        "back": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaback",
-        "backShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosmegabackshiny",
-        "icon": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaicon",
-        "overworld": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaoverworld",
-        "overworldShiny": "pokeemerald:pokemon:sprite/ampharos/ampharosmegaoverworldshiny"
+        "front": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_front",
+        "frontShiny": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_front_shiny",
+        "back": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_back",
+        "backShiny": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_back_shiny",
+        "icon": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_icon",
+        "overworld": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_overworld",
+        "overworldShiny": "pokeemerald:pokemon:sprite/ampharos/ampharos_mega_overworld_shiny"
       },
       "formType": "pokeemerald:form_type:mega",
       "transformItem": "pokeemerald:item:ampharosite",

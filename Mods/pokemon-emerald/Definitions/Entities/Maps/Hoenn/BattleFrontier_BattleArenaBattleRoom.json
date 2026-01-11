@@ -22,16 +22,16 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/building",
     "bottomLayer": [
-      1,
-      1,
-      1,
-      1
+      3,
+      3,
+      3,
+      3
     ],
     "topLayer": [
-      2,
-      2,
-      2,
-      2
+      -1073741822,
+      -1073741822,
+      -1073741822,
+      -1073741822
     ]
   },
   "layers": [
@@ -93,6 +93,7 @@
       "y": 48,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -102,6 +103,7 @@
       "y": 48,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -111,6 +113,7 @@
       "y": 144,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -120,6 +123,7 @@
       "y": 144,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "up",
       "elevation": 3
     },
     {
@@ -129,6 +133,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -138,6 +143,7 @@
       "y": 80,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -147,6 +153,7 @@
       "y": 96,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_rival}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "left",
       "elevation": 3
     },
     {
@@ -156,6 +163,7 @@
       "y": 96,
       "spriteId": "pokeemerald:sprite:characters/npcs/{var_player}",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "right",
       "elevation": 3
     },
     {
@@ -165,6 +173,7 @@
       "y": 64,
       "spriteId": "pokeemerald:sprite:characters/npcs/blackbelt",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
+      "facingDirection": "down",
       "elevation": 3
     }
   ],

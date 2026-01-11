@@ -129,12 +129,12 @@
     "pokeemerald:move:thunder_wave"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerfrontshiny",
-    "back": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerback",
-    "backShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeerbackshiny",
-    "icon": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeericon",
-    "overworld": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeeroverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeeroverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_front_shiny",
+    "back": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_back",
+    "backShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_back_shiny",
+    "icon": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_icon",
+    "overworld": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/wyrdeer/wyrdeer_overworld_shiny"
   }
 }

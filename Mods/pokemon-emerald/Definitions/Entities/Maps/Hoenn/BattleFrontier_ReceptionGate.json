@@ -22,10 +22,10 @@
   "border": {
     "tilesetId": "pokeemerald:tileset:primary/general",
     "bottomLayer": [
-      325,
-      325,
-      325,
-      325
+      345,
+      345,
+      345,
+      345
     ],
     "topLayer": [
       -1073741822,
@@ -57,7 +57,7 @@
       "opacity": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "tileData": "3wMAAN8DAADfAwAA4QMAAOIDAADhAwCA3wMAAN8DAADfAwCA4wMAAOMDAIDjAwCA5AMAAOUDAADmAwAA4wMAAOMDAADjAwCA5wMAAOcDAADnAwCA6gMAAOsDAADqAwCA5wMAgOcDAIDnAwCA7AMAAO0DAADuAwAA7wMAAPADAADvAwDA7gMAAO0DAIDsAwCA5wMAAPEDAADnAwCA7wMAAPADAADvAwDA5wMAgPEDAIDnAwCA7AMAAOwDAIDuAwAA7wMAAPADAADvAwDA7gMAAOwDAADsAwCA8gMAAJkAAACZAAAA7wMAAPADAADvAwDA5wMAgOcDAIDnAwCA8gMAAOcDAIDnAwCA7wMAAPADAADvAwDA3AMAgNwDAIDcAwCA8gMAANwDAIDcAwCA7wMAAPADAADvAwDAmQAAAJkAAADyAwCA5wMAAOcDAADnAwCA7wMAAPADAADvAwDA5wMAgOcDAIDnAwCA7AMAAO0DAADuAwAA7wMAAPADAADvAwDA7gMAAO0DAIDsAwCA5wMAAPEDAADnAwCA7wMAAPADAADvAwDA5wMAgPEDAIDnAwCA7AMAAOwDAIDuAwAA7wMAAPADAADvAwDA7gMAAOwDAADsAwCAmQAAAJkAAACZAAAA6gMAQOsDAMDqAwDAmQAAAJkAAACZAAAA"
+      "tileData": "3wMAAN8DAADfAwAA4QMAAOIDAADhAwCA3wMAAN8DAADfAwCA4wMAAOMDAIDjAwCA5AMAAOUDAADmAwAA4wMAAOMDAADjAwCA5wMAAOcDAADnAwCA6gMAAOsDAADqAwCA5wMAgOcDAIDnAwCA7AMAAO0DAADuAwAA7wMAAPADAADvAwDA7gMAAO0DAIDsAwCA5wMAAPEDAADnAwCA7wMAAPADAADvAwDA5wMAgPEDAIDnAwCA7AMAAOwDAIDuAwAA7wMAAPADAADvAwDA7gMAAOwDAADsAwCA8gMAAI0AAACNAAAA7wMAAPADAADvAwDA5wMAgOcDAIDnAwCA8gMAAOcDAIDnAwCA7wMAAPADAADvAwDA3AMAgNwDAIDcAwCA8gMAANwDAIDcAwCA7wMAAPADAADvAwDAjQAAAI0AAADyAwCA5wMAAOcDAADnAwCA7wMAAPADAADvAwDA5wMAgOcDAIDnAwCA7AMAAO0DAADuAwAA7wMAAPADAADvAwDA7gMAAO0DAIDsAwCA5wMAAPEDAADnAwCA7wMAAPADAADvAwDA5wMAgPEDAIDnAwCA7AMAAOwDAIDuAwAA7wMAAPADAADvAwDA7gMAAOwDAADsAwCAjQAAAI0AAACNAAAA6gMAQOsDAMDqAwDAjQAAAI0AAACNAAAA"
     },
     {
       "id": "pokeemerald:layer:Hoenn/battle_frontier_reception_gate/overhead",
@@ -119,6 +119,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_greeter",
+      "facingDirection": "right",
       "elevation": 0
     },
     {
@@ -129,6 +130,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/teala",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_facility_guide",
+      "facingDirection": "left",
       "elevation": 0
     },
     {
@@ -139,6 +141,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_rules_guide",
+      "facingDirection": "left",
       "elevation": 0
     },
     {
@@ -149,6 +152,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/scott",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "visibilityFlag": "pokeemerald:flag:visibility/battle_frontier_reception_gate_scott",
+      "facingDirection": "down",
       "elevation": 3
     },
     {
@@ -159,6 +163,7 @@
       "spriteId": "pokeemerald:sprite:characters/npcs/man2",
       "behaviorId": "pokeemerald:script:movement/npcs/stationary",
       "interactionId": "pokeemerald:script:interactions/npcs/battle_frontier_reception_gate_event_script_frontier_pass_guide",
+      "facingDirection": "right",
       "elevation": 0
     }
   ],

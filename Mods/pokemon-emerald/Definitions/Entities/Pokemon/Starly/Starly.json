@@ -129,17 +129,17 @@
     "pokeemerald:move:mirror_move"
   ],
   "sprites": {
-    "front": "pokeemerald:pokemon:sprite/starly/starlyfront",
-    "frontShiny": "pokeemerald:pokemon:sprite/starly/starlyfrontshiny",
-    "frontFemale": "pokeemerald:pokemon:sprite/starly/starlyfrontfemale",
-    "frontFemaleShiny": "pokeemerald:pokemon:sprite/starly/starlyfrontfemaleshiny",
-    "back": "pokeemerald:pokemon:sprite/starly/starlyback",
-    "backShiny": "pokeemerald:pokemon:sprite/starly/starlybackshiny",
-    "backFemale": "pokeemerald:pokemon:sprite/starly/starlybackfemale",
-    "backFemaleShiny": "pokeemerald:pokemon:sprite/starly/starlybackfemaleshiny",
-    "icon": "pokeemerald:pokemon:sprite/starly/starlyicon",
-    "overworld": "pokeemerald:pokemon:sprite/starly/starlyoverworld",
-    "overworldShiny": "pokeemerald:pokemon:sprite/starly/starlyoverworldshiny"
+    "front": "pokeemerald:pokemon:sprite/starly/starly_front",
+    "frontShiny": "pokeemerald:pokemon:sprite/starly/starly_front_shiny",
+    "frontFemale": "pokeemerald:pokemon:sprite/starly/starly_front_female",
+    "frontFemaleShiny": "pokeemerald:pokemon:sprite/starly/starly_front_female_shiny",
+    "back": "pokeemerald:pokemon:sprite/starly/starly_back",
+    "backShiny": "pokeemerald:pokemon:sprite/starly/starly_back_shiny",
+    "backFemale": "pokeemerald:pokemon:sprite/starly/starly_back_female",
+    "backFemaleShiny": "pokeemerald:pokemon:sprite/starly/starly_back_female_shiny",
+    "icon": "pokeemerald:pokemon:sprite/starly/starly_icon",
+    "overworld": "pokeemerald:pokemon:sprite/starly/starly_overworld",
+    "overworldShiny": "pokeemerald:pokemon:sprite/starly/starly_overworld_shiny"
   },
   "hasGenderDifferences": true
 }
