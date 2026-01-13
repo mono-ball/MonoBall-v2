@@ -160,7 +160,8 @@ public class LoadingSceneSystem
         }
 
         // Render the loading scene
-        RenderLoadingScene(sceneEntity, ref scene, gameTime);
+        // Use renderContext.SpriteBatch which is already begun by the coordinator
+        RenderLoadingScene(sceneEntity, ref scene, gameTime, renderContext);
     }
 
     /// <summary>
@@ -253,18 +254,25 @@ public class LoadingSceneSystem
 
     /// <summary>
     ///     Renders the loading scene in screen space.
+    ///     Uses the SpriteBatch from renderContext which is already begun by the coordinator.
     /// </summary>
     /// <param name="sceneEntity">The scene entity.</param>
     /// <param name="scene">The scene component.</param>
     /// <param name="gameTime">The game time.</param>
-    private void RenderLoadingScene(Entity sceneEntity, ref SceneComponent scene, GameTime gameTime)
+    /// <param name="renderContext">The render context with prepared SpriteBatch.</param>
+    private void RenderLoadingScene(
+        Entity sceneEntity,
+        ref SceneComponent scene,
+        GameTime gameTime,
+        IRenderContext renderContext
+    )
     {
         // Save original viewport
         var savedViewport = _graphicsDevice.Viewport;
 
         try
         {
-            // Set viewport to full window
+            // Set viewport to full window for screen-space rendering
             _graphicsDevice.Viewport = new Viewport(
                 0,
                 0,
@@ -272,53 +280,39 @@ public class LoadingSceneSystem
                 _graphicsDevice.Viewport.Height
             );
 
-            // Begin SpriteBatch with identity matrix for screen-space rendering
-            _spriteBatch.Begin(
-                SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
-                SamplerState.PointClamp,
-                DepthStencilState.None,
-                RasterizerState.CullCounterClockwise,
-                null,
-                Matrix.Identity
-            );
+            // Use renderContext.SpriteBatch which is already begun by the coordinator
+            // For ScreenCamera mode, coordinator should already use Matrix.Identity
+            // If we need different settings, we'd need to end coordinator's batch and start new one
+            // but for screen-space rendering, the coordinator's settings should be correct
 
-            try
+            // Load fonts if not already loaded
+            if (_fontSystem == null)
+                LoadFonts();
+
+            // Create pixel texture if not already created
+            if (_pixelTexture == null)
             {
-                // Load fonts if not already loaded
-                if (_fontSystem == null)
-                    LoadFonts();
+                _pixelTexture = new Texture2D(_graphicsDevice, 1, 1);
+                _pixelTexture.SetData(new[] { Color.White });
+            }
 
-                // Create pixel texture if not already created
-                if (_pixelTexture == null)
+            // Query for loading progress component
+            var foundProgress = false;
+            World.Query(
+                in _loadingProgressQuery,
+                (
+                    Entity entity,
+                    ref LoadingSceneComponent _,
+                    ref LoadingProgressComponent progress
+                ) =>
                 {
-                    _pixelTexture = new Texture2D(_graphicsDevice, 1, 1);
-                    _pixelTexture.SetData(new[] { Color.White });
+                    if (foundProgress)
+                        return; // Only render first loading scene found
+
+                    foundProgress = true;
+                    RenderLoadingScreen(ref progress, renderContext.SpriteBatch);
                 }
-
-                // Query for loading progress component
-                var foundProgress = false;
-                World.Query(
-                    in _loadingProgressQuery,
-                    (
-                        Entity entity,
-                        ref LoadingSceneComponent _,
-                        ref LoadingProgressComponent progress
-                    ) =>
-                    {
-                        if (foundProgress)
-                            return; // Only render first loading scene found
-
-                        foundProgress = true;
-                        RenderLoadingScreen(ref progress);
-                    }
-                );
-            }
-            finally
-            {
-                // Always End SpriteBatch, even if Render() throws an exception
-                _spriteBatch.End();
-            }
+            );
         }
         finally
         {
@@ -373,7 +367,8 @@ public class LoadingSceneSystem
     ///     Renders the loading screen UI elements.
     /// </summary>
     /// <param name="progress">The loading progress component.</param>
-    private void RenderLoadingScreen(ref LoadingProgressComponent progress)
+    /// <param name="spriteBatch">The sprite batch to draw to (must be in an active Begin/End block).</param>
+    private void RenderLoadingScreen(ref LoadingProgressComponent progress, SpriteBatch spriteBatch)
     {
         var viewport = _graphicsDevice.Viewport;
         var centerX = viewport.Width / 2;
@@ -385,6 +380,7 @@ public class LoadingSceneSystem
 
         // Draw progress bar shadow (offset slightly down and right)
         DrawRectangle(
+            spriteBatch,
             barX + 4,
             barY + 4,
             ProgressBarWidth,
@@ -394,6 +390,7 @@ public class LoadingSceneSystem
 
         // Draw progress bar background
         DrawRectangle(
+            spriteBatch,
             barX,
             barY,
             ProgressBarWidth,
@@ -403,6 +400,7 @@ public class LoadingSceneSystem
 
         // Draw progress bar border
         DrawRectangleOutline(
+            spriteBatch,
             barX,
             barY,
             ProgressBarWidth,
@@ -421,6 +419,7 @@ public class LoadingSceneSystem
 
             // Main fill
             DrawRectangle(
+                spriteBatch,
                 fillX,
                 fillY,
                 fillWidth,
@@ -432,6 +431,7 @@ public class LoadingSceneSystem
             var highlightHeight = fillHeight / 3;
             if (highlightHeight > 0 && fillWidth > 0)
                 DrawRectangle(
+                    spriteBatch,
                     fillX,
                     fillY,
                     fillWidth,
@@ -450,7 +450,7 @@ public class LoadingSceneSystem
                 var textX = centerX - textSize.X / 2;
                 var textY = barY + (ProgressBarHeight - textSize.Y) / 2;
                 _fontMedium.DrawText(
-                    _spriteBatch,
+                    spriteBatch,
                     percentText,
                     new Vector2(textX, textY),
                     LoadingScreenTheme.TextColor
@@ -472,7 +472,7 @@ public class LoadingSceneSystem
                 var stepX = centerX - stepSize.X / 2;
                 var stepY = barY - StepSpacing - stepSize.Y;
                 _fontSmall.DrawText(
-                    _spriteBatch,
+                    spriteBatch,
                     stepText,
                     new Vector2(stepX, stepY),
                     LoadingScreenTheme.TextSecondaryColor
@@ -494,7 +494,7 @@ public class LoadingSceneSystem
 
                 // Draw title shadow (offset down and right)
                 _font.DrawText(
-                    _spriteBatch,
+                    spriteBatch,
                     title,
                     new Vector2(titleX + 3, titleY + 3),
                     LoadingScreenTheme.TitleShadowColor
@@ -502,7 +502,7 @@ public class LoadingSceneSystem
 
                 // Draw title
                 _font.DrawText(
-                    _spriteBatch,
+                    spriteBatch,
                     title,
                     new Vector2(titleX, titleY),
                     LoadingScreenTheme.TextColor
@@ -524,6 +524,7 @@ public class LoadingSceneSystem
             // Draw error background with padding
             var padding = 15;
             DrawRectangle(
+                spriteBatch,
                 (int)errorX - padding,
                 errorY - padding / 2,
                 (int)errorSize.X + padding * 2,
@@ -533,7 +534,7 @@ public class LoadingSceneSystem
 
             // Draw error text
             _fontSmall.DrawText(
-                _spriteBatch,
+                spriteBatch,
                 errorText,
                 new Vector2(errorX, errorY),
                 LoadingScreenTheme.ErrorColor
@@ -544,18 +545,32 @@ public class LoadingSceneSystem
     /// <summary>
     ///     Draws a filled rectangle.
     /// </summary>
-    private void DrawRectangle(int x, int y, int width, int height, Color color)
+    /// <param name="spriteBatch">The sprite batch to draw to (must be in an active Begin/End block).</param>
+    /// <param name="x">The X coordinate.</param>
+    /// <param name="y">The Y coordinate.</param>
+    /// <param name="width">The width.</param>
+    /// <param name="height">The height.</param>
+    /// <param name="color">The color.</param>
+    private void DrawRectangle(SpriteBatch spriteBatch, int x, int y, int width, int height, Color color)
     {
         if (_pixelTexture == null)
             return;
 
-        _spriteBatch.Draw(_pixelTexture, new Rectangle(x, y, width, height), color);
+        spriteBatch.Draw(_pixelTexture, new Rectangle(x, y, width, height), color);
     }
 
     /// <summary>
     ///     Draws a rectangle outline.
     /// </summary>
+    /// <param name="spriteBatch">The sprite batch to draw to (must be in an active Begin/End block).</param>
+    /// <param name="x">The X coordinate.</param>
+    /// <param name="y">The Y coordinate.</param>
+    /// <param name="width">The width.</param>
+    /// <param name="height">The height.</param>
+    /// <param name="color">The color.</param>
+    /// <param name="thickness">The outline thickness.</param>
     private void DrawRectangleOutline(
+        SpriteBatch spriteBatch,
         int x,
         int y,
         int width,
@@ -568,17 +583,17 @@ public class LoadingSceneSystem
             return;
 
         // Top
-        _spriteBatch.Draw(_pixelTexture, new Rectangle(x, y, width, thickness), color);
+        spriteBatch.Draw(_pixelTexture, new Rectangle(x, y, width, thickness), color);
         // Bottom
-        _spriteBatch.Draw(
+        spriteBatch.Draw(
             _pixelTexture,
             new Rectangle(x, y + height - thickness, width, thickness),
             color
         );
         // Left
-        _spriteBatch.Draw(_pixelTexture, new Rectangle(x, y, thickness, height), color);
+        spriteBatch.Draw(_pixelTexture, new Rectangle(x, y, thickness, height), color);
         // Right
-        _spriteBatch.Draw(
+        spriteBatch.Draw(
             _pixelTexture,
             new Rectangle(x + width - thickness, y, thickness, height),
             color

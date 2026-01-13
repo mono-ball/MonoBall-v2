@@ -152,7 +152,8 @@ public class DebugBarSceneSystem
         }
 
         // Render the debug bar scene
-        RenderDebugBarScene(sceneEntity, ref scene, gameTime);
+        // Use renderContext.SpriteBatch which is already begun by the coordinator
+        RenderDebugBarScene(sceneEntity, ref scene, gameTime, renderContext);
     }
 
     /// <summary>
@@ -177,14 +178,17 @@ public class DebugBarSceneSystem
 
     /// <summary>
     ///     Renders the debug bar scene in screen space.
+    ///     Uses the SpriteBatch from renderContext which is already begun by the coordinator.
     /// </summary>
     /// <param name="sceneEntity">The scene entity.</param>
     /// <param name="scene">The scene component.</param>
     /// <param name="gameTime">The game time.</param>
+    /// <param name="renderContext">The render context with prepared SpriteBatch.</param>
     private void RenderDebugBarScene(
         Entity sceneEntity,
         ref SceneComponent scene,
-        GameTime gameTime
+        GameTime gameTime,
+        IRenderContext renderContext
     )
     {
         // Save original viewport
@@ -192,7 +196,7 @@ public class DebugBarSceneSystem
 
         try
         {
-            // Set viewport to full window
+            // Set viewport to full window for screen-space rendering
             _graphicsDevice.Viewport = new Viewport(
                 0,
                 0,
@@ -200,27 +204,11 @@ public class DebugBarSceneSystem
                 _graphicsDevice.Viewport.Height
             );
 
-            // Begin SpriteBatch with identity matrix for screen-space rendering
-            _spriteBatch.Begin(
-                SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
-                SamplerState.PointClamp,
-                DepthStencilState.None,
-                RasterizerState.CullCounterClockwise,
-                null,
-                Matrix.Identity
-            );
-
-            try
-            {
-                // Render debug bar
-                RenderDebugBar(gameTime);
-            }
-            finally
-            {
-                // Always End SpriteBatch, even if Render() throws an exception
-                _spriteBatch.End();
-            }
+            // Use renderContext.SpriteBatch which is already begun by the coordinator
+            // For ScreenCamera mode, coordinator should already use Matrix.Identity
+            // If we need different settings, we'd need to end coordinator's batch and start new one
+            // but for screen-space rendering, the coordinator's settings should be correct
+            RenderDebugBar(gameTime, renderContext.SpriteBatch);
         }
         finally
         {
@@ -233,7 +221,8 @@ public class DebugBarSceneSystem
     ///     Renders the debug bar at the bottom of the screen.
     /// </summary>
     /// <param name="gameTime">The game time.</param>
-    private void RenderDebugBar(GameTime gameTime)
+    /// <param name="spriteBatch">The sprite batch to draw to (must be in an active Begin/End block).</param>
+    private void RenderDebugBar(GameTime gameTime, SpriteBatch spriteBatch)
     {
         // Load font if not already loaded
         if (_debugFont == null)
@@ -263,7 +252,7 @@ public class DebugBarSceneSystem
 
         // Render background rectangle
         var backgroundRect = new Rectangle(0, barY, screenWidth, BarHeight);
-        _spriteBatch.Draw(
+        spriteBatch.Draw(
             _pixelTexture,
             backgroundRect,
             new Color(0, 0, 0, 200) // Semi-transparent black
@@ -301,27 +290,27 @@ public class DebugBarSceneSystem
 
         // Render text (each DrawText call is a draw call)
         var x = Padding;
-        font.DrawText(_spriteBatch, fpsText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, fpsText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(fpsText).X + Spacing;
 
-        font.DrawText(_spriteBatch, frameTimeText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, frameTimeText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(frameTimeText).X + Spacing;
 
-        font.DrawText(_spriteBatch, entityText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, entityText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(entityText).X + Spacing;
 
-        font.DrawText(_spriteBatch, memoryText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, memoryText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(memoryText).X + Spacing;
 
-        font.DrawText(_spriteBatch, drawCallsText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, drawCallsText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(drawCallsText).X + Spacing;
 
-        font.DrawText(_spriteBatch, gcText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, gcText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(gcText).X + Spacing;
 
@@ -330,11 +319,11 @@ public class DebugBarSceneSystem
         var locationText = $"Player: ({playerX}, {playerY})";
         var mapText = $"Map: {mapId}";
 
-        font.DrawText(_spriteBatch, locationText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, locationText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
         x += (int)font.MeasureString(locationText).X + Spacing;
 
-        font.DrawText(_spriteBatch, mapText, new Vector2(x, textY), textColor);
+        font.DrawText(spriteBatch, mapText, new Vector2(x, textY), textColor);
         _performanceStatsSystem.IncrementDrawCalls();
     }
 
