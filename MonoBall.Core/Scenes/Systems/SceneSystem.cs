@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Arch.Core;
+using Arch.Relationships;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,6 +10,7 @@ using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Events;
+using MonoBall.Core.Scenes.Relationships;
 using Serilog;
 
 namespace MonoBall.Core.Scenes.Systems;
@@ -325,6 +327,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     ///     Called by SystemManager after creating MapPopupSceneSystem (which needs ISceneManager).
     /// </summary>
     /// <param name="mapPopupSceneSystem">The map popup scene system.</param>
+    /// <exception cref="ArgumentNullException">Thrown if mapPopupSceneSystem is null.</exception>
     public void SetMapPopupSceneSystem(ISceneSystem mapPopupSceneSystem)
     {
         _mapPopupSceneSystem =
@@ -337,6 +340,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     ///     Called by SystemManager after creating MessageBoxSceneSystem (which needs ISceneManager).
     /// </summary>
     /// <param name="messageBoxSceneSystem">The message box scene system.</param>
+    /// <exception cref="ArgumentNullException">Thrown if messageBoxSceneSystem is null.</exception>
     public void SetMessageBoxSceneSystem(ISceneSystem messageBoxSceneSystem)
     {
         _messageBoxSceneSystem =
@@ -349,6 +353,7 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     ///     Called by SystemManager after creating DebugMenuSceneSystem (which needs ISceneManager).
     /// </summary>
     /// <param name="debugMenuSceneSystem">The debug menu scene system.</param>
+    /// <exception cref="ArgumentNullException">Thrown if debugMenuSceneSystem is null.</exception>
     public void SetDebugMenuSceneSystem(ISceneSystem debugMenuSceneSystem)
     {
         ArgumentNullException.ThrowIfNull(debugMenuSceneSystem);
@@ -701,13 +706,39 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
             if (entity.Id == blockingScene.Id)
                 return true;
 
-        // Check if entity has SceneOwnershipComponent (preferred, explicit ownership)
-        if (World.Has<SceneOwnershipComponent>(entity))
+        // Check if entity is owned by a blocking scene via relationships
+        foreach (var blockingScene in blockingScenes)
         {
-            ref var ownership = ref World.Get<SceneOwnershipComponent>(entity);
-            foreach (var blockingScene in blockingScenes)
-                if (ownership.SceneEntity.Id == blockingScene.Id)
-                    return true;
+            if (!World.IsAlive(blockingScene))
+                continue;
+
+            try
+            {
+                var relationships = World.GetRelationships<OwnsSceneEntity>(blockingScene);
+                if (relationships != null)
+                {
+                    foreach (var kvp in relationships)
+                    {
+                        var ownedEntity = kvp.Key;
+                        if (!World.IsAlive(ownedEntity))
+                            continue;
+
+                        if (ownedEntity.Id == entity.Id)
+                            return true;
+                    }
+                }
+            }
+            catch (InvalidOperationException)
+            {
+                // Relationship query failed - skip this scene
+                // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+                continue;
+            }
+            catch (ArgumentException)
+            {
+                // Invalid entity or relationship type - skip this scene
+                continue;
+            }
         }
 
         // Legacy: Check MapPopupComponent.SceneEntity (for backward compatibility during migration)
@@ -953,6 +984,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
             _sceneStack.Clear();
             _sceneIds.Clear();
             _sceneInsertionOrder.Clear();
+            
+            GC.SuppressFinalize(this);
         }
 
         _disposed = true;

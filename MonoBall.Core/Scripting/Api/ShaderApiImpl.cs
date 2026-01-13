@@ -16,6 +16,9 @@ namespace MonoBall.Core.Scripting.Api;
 /// </summary>
 public class ShaderApiImpl : IShaderApi
 {
+    // Cached query descriptions (never create in hot paths)
+    private static readonly QueryDescription RenderingShaderQuery = new QueryDescription().WithAll<RenderingShaderComponent>();
+
     private readonly IShaderAnimationChainSystem? _chainSystem;
     private readonly DefinitionRegistry _definitionRegistry;
     private readonly IShaderMultiParameterAnimationSystem? _multiAnimSystem;
@@ -141,7 +144,7 @@ public class ShaderApiImpl : IShaderApi
                 RenderOrder = renderOrder,
                 BlendMode = ShaderBlendMode.Replace,
                 Parameters = null,
-                SceneEntity = null,
+                // Note: Scene association is now handled via OwnsSceneEntity relationship
             }
         );
 
@@ -220,11 +223,10 @@ public class ShaderApiImpl : IShaderApi
     /// <inheritdoc />
     public Entity? FindLayerShader(ShaderLayer layer, string shaderId)
     {
-        var query = new QueryDescription().WithAll<RenderingShaderComponent>();
         Entity? found = null;
 
         _world.Query(
-            in query,
+            in RenderingShaderQuery,
             (Entity entity, ref RenderingShaderComponent shader) =>
             {
                 if (shader.Layer == layer && shader.ShaderId == shaderId)
@@ -239,10 +241,9 @@ public class ShaderApiImpl : IShaderApi
     public IEnumerable<Entity> GetLayerShaders(ShaderLayer layer)
     {
         var result = new List<Entity>();
-        var query = new QueryDescription().WithAll<RenderingShaderComponent>();
 
         _world.Query(
-            in query,
+            in RenderingShaderQuery,
             (Entity entity, ref RenderingShaderComponent shader) =>
             {
                 if (shader.Layer == layer)

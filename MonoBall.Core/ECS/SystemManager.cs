@@ -295,6 +295,9 @@ public class SystemManager : IDisposable
             _sceneSystems?.Cleanup();
         }
 
+        // Dispose systems that implement IDisposable
+        _mapLoaderSystem?.Dispose();
+
         // Reset to null after disposal (systems are no longer valid)
         _updateSystems = null!;
         _mapLoaderSystem = null!;
@@ -472,7 +475,10 @@ public class SystemManager : IDisposable
 
         // Create active map filter service (used by multiple systems for filtering entities by active maps)
         // Must be created before render systems that depend on it
-        _activeMapFilterService = new ActiveMapFilterService(_world);
+        _activeMapFilterService = new ActiveMapFilterService(
+            _world,
+            LoggerFactory.CreateLogger<ActiveMapFilterService>()
+        );
 
         // Create script services (after mods are loaded)
         _scriptCompilerService = new ScriptCompilerService(
@@ -638,6 +644,7 @@ public class SystemManager : IDisposable
         RegisterUpdateSystem(_spatialHashSystem);
 
         // Create CollisionService with all dependencies
+        // Pass MapLoaderSystem so it can load maps on-demand during transitions
         _collisionService = new CollisionService(
             _world,
             _collisionLayerCache,
@@ -646,7 +653,8 @@ public class SystemManager : IDisposable
             _entityQueryService,
             _tileInteractionCache,
             _tileInteractionDispatcher,
-            LoggerFactory.CreateLogger<CollisionService>()
+            LoggerFactory.CreateLogger<CollisionService>(),
+            _mapLoaderSystem // Pass MapLoaderSystem for on-demand map loading
         );
 
         // Create input system

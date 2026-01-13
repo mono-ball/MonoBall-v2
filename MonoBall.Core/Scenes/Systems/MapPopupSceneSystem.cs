@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Arch.Core;
+using Arch.Relationships;
 using Arch.System;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
@@ -13,6 +14,7 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Relationships;
 using MonoBall.Core.UI.Windows.Animations;
 using Serilog;
 
@@ -349,11 +351,29 @@ public class MapPopupSceneSystem
         // Create entity first, then set WindowEntity reference
         _currentPopupEntity = World.Create(popupComponent);
 
-        // Add explicit scene ownership component for queryable scene membership
-        World.Add(
-            _currentPopupEntity.Value,
-            new SceneOwnershipComponent { SceneEntity = popupSceneEntity }
-        );
+        // Validate scene entity before adding relationship
+        if (!World.IsAlive(popupSceneEntity))
+            throw new InvalidOperationException($"Scene entity {popupSceneEntity.Id} is not alive.");
+
+        if (!World.Has<SceneComponent>(popupSceneEntity))
+            throw new InvalidOperationException($"Scene entity {popupSceneEntity.Id} does not have SceneComponent.");
+
+        // Validate popup entity was created
+        if (!World.IsAlive(_currentPopupEntity.Value))
+            throw new InvalidOperationException("Failed to create popup entity.");
+
+        // Add relationship from scene to popup entity
+        try
+        {
+            World.AddRelationship(popupSceneEntity, _currentPopupEntity.Value, new OwnsSceneEntity());
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Failed to add relationship from scene {SceneId} to popup {PopupId}", 
+                popupSceneEntity.Id, _currentPopupEntity.Value.Id);
+            World.Destroy(_currentPopupEntity.Value); // Cleanup on failure
+            throw;
+        }
 
         var windowAnim = new WindowAnimationComponent
         {
@@ -1100,6 +1120,7 @@ public class MapPopupSceneSystem
             if (disposing)
             {
                 // No event subscriptions to unsubscribe (MapPopupSystem handles lifecycle)
+                GC.SuppressFinalize(this);
             }
 
             _disposed = true;

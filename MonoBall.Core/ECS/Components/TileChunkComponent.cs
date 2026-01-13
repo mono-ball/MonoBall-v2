@@ -34,4 +34,11 @@ public struct TileChunkComponent
     ///     The layer index for rendering order.
     /// </summary>
     public int LayerIndex { get; set; }
+
+    /// <summary>
+    ///     The map ID this chunk belongs to.
+    ///     Used for tileset resolution during rendering.
+    ///     Immutable - chunks never move between maps.
+    /// </summary>
+    public string MapId { get; set; }
 }

@@ -43,10 +43,7 @@ public struct RenderingShaderComponent
     /// </summary>
     public ShaderBlendMode BlendMode { get; set; }
 
-    /// <summary>
-    ///     Optional scene entity this shader is associated with.
-    ///     If null, the shader applies globally to all scenes.
-    ///     If set, the shader only applies to the specified scene.
-    /// </summary>
-    public Entity? SceneEntity { get; set; }
+    // Note: Scene association is now handled via OwnsSceneEntity relationship
+    // Global shaders: No relationship
+    // Per-scene shaders: Add OwnsSceneEntity relationship from scene to shader entity
 }

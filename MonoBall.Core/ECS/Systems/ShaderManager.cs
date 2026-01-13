@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Arch.Core;
+using Arch.Relationships;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS.Components;
@@ -9,6 +10,8 @@ using MonoBall.Core.ECS.Events;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Mods.Definitions;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Relationships;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -65,6 +68,10 @@ public class ShaderManager : IShaderManager
         new();
 
     private readonly QueryDescription _renderingShaderQuery;
+
+    // Cached query descriptions (never create in hot paths)
+    private static readonly QueryDescription SceneQuery = new QueryDescription().WithAll<SceneComponent>();
+
     private readonly IShaderService _shaderService;
 
     private readonly List<(Entity entity, RenderingShaderComponent shader)> _spriteShaders = new();
@@ -153,15 +160,12 @@ public class ShaderManager : IShaderManager
         if (sceneEntity == null)
             return _activeTileLayerShaders;
 
-        // Filter by scene entity (include global shaders with null SceneEntity and shaders matching this scene)
+        // Filter by scene entity (include global shaders with no relationship and shaders matching this scene)
+        if (!sceneEntity.HasValue || !_world.IsAlive(sceneEntity.Value))
+            return _activeTileLayerShaders;
+
         return _activeTileLayerShaders
-            .Where(s =>
-            {
-                if (!_world.Has<RenderingShaderComponent>(s.entity))
-                    return false;
-                ref var shader = ref _world.Get<RenderingShaderComponent>(s.entity);
-                return shader.SceneEntity == null || shader.SceneEntity == sceneEntity;
-            })
+            .Where(s => ShouldIncludeShaderForScene(s.entity, sceneEntity.Value))
             .ToList();
     }
 
@@ -179,15 +183,12 @@ public class ShaderManager : IShaderManager
         if (sceneEntity == null)
             return _activeSpriteLayerShaders;
 
-        // Filter by scene entity (include global shaders with null SceneEntity and shaders matching this scene)
+        // Filter by scene entity (include global shaders with no relationship and shaders matching this scene)
+        if (!sceneEntity.HasValue || !_world.IsAlive(sceneEntity.Value))
+            return _activeSpriteLayerShaders;
+
         return _activeSpriteLayerShaders
-            .Where(s =>
-            {
-                if (!_world.Has<RenderingShaderComponent>(s.entity))
-                    return false;
-                ref var shader = ref _world.Get<RenderingShaderComponent>(s.entity);
-                return shader.SceneEntity == null || shader.SceneEntity == sceneEntity;
-            })
+            .Where(s => ShouldIncludeShaderForScene(s.entity, sceneEntity.Value))
             .ToList();
     }
 
@@ -205,15 +206,12 @@ public class ShaderManager : IShaderManager
         if (sceneEntity == null)
             return _activeCombinedLayerShaders;
 
-        // Filter by scene entity (include global shaders with null SceneEntity and shaders matching this scene)
+        // Filter by scene entity (include global shaders with no relationship and shaders matching this scene)
+        if (!sceneEntity.HasValue || !_world.IsAlive(sceneEntity.Value))
+            return _activeCombinedLayerShaders;
+
         return _activeCombinedLayerShaders
-            .Where(s =>
-            {
-                if (!_world.Has<RenderingShaderComponent>(s.entity))
-                    return false;
-                ref var shader = ref _world.Get<RenderingShaderComponent>(s.entity);
-                return shader.SceneEntity == null || shader.SceneEntity == sceneEntity;
-            })
+            .Where(s => ShouldIncludeShaderForScene(s.entity, sceneEntity.Value))
             .ToList();
     }
 
@@ -344,11 +342,13 @@ public class ShaderManager : IShaderManager
                 totalFound++;
 
                 // Filter by scene entity if provided
-                // Include shaders with null SceneEntity (global) and shaders matching the scene
-                if (sceneEntity != null)
-                    if (shader.SceneEntity != null && shader.SceneEntity != sceneEntity)
-                        // Shader is scoped to a different scene, skip it
-                        return;
+                // Include global shaders (no relationship) and shaders matching the scene (via relationship)
+                if (sceneEntity.HasValue && _world.IsAlive(sceneEntity.Value))
+                {
+                    // Use helper method to determine if shader should be included for this scene
+                    if (!ShouldIncludeShaderForScene(entity, sceneEntity.Value))
+                        return; // Shader is owned by another scene or doesn't match, skip it
+                }
 
                 if (!shader.IsEnabled)
                     return;
@@ -854,6 +854,99 @@ public class ShaderManager : IShaderManager
             }
 
         return allCompatible;
+    }
+
+    /// <summary>
+    ///     Checks if an entity is owned by a specific scene via OwnsSceneEntity relationship.
+    /// </summary>
+    /// <param name="entity">The entity to check.</param>
+    /// <param name="sceneEntity">The scene entity.</param>
+    /// <returns>True if the entity is owned by the scene, false otherwise.</returns>
+    private bool IsEntityOwnedByScene(Entity entity, Entity sceneEntity)
+    {
+        try
+        {
+            var sceneRelationships = _world.GetRelationships<OwnsSceneEntity>(sceneEntity);
+            if (sceneRelationships == null)
+                return false;
+
+            foreach (var kvp in sceneRelationships)
+            {
+                var ownedEntity = kvp.Key;
+                if (!_world.IsAlive(ownedEntity))
+                    continue;
+
+                if (ownedEntity.Id == entity.Id)
+                    return true;
+            }
+        }
+        catch
+        {
+            // Relationship query failed - treat as not owned
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    ///     Checks if an entity is owned by any scene other than the specified scene.
+    ///     Used to determine if a shader is per-scene (owned by another scene) or global (not owned by any scene).
+    /// </summary>
+    /// <param name="entity">The entity to check.</param>
+    /// <param name="excludeSceneEntity">The scene entity to exclude from the check.</param>
+    /// <returns>True if the entity is owned by any other scene, false otherwise.</returns>
+    private bool IsEntityOwnedByAnyOtherScene(Entity entity, Entity excludeSceneEntity)
+    {
+        bool foundOwnership = false;
+
+        try
+        {
+            _world.Query(
+                in SceneQuery,
+                (Entity otherSceneEntity, ref SceneComponent _) =>
+                {
+                    if (foundOwnership)
+                        return; // Already found, stop iterating
+
+                    if (otherSceneEntity.Id == excludeSceneEntity.Id)
+                        return; // Skip excluded scene
+
+                    if (!_world.IsAlive(otherSceneEntity))
+                        return;
+
+                    if (IsEntityOwnedByScene(entity, otherSceneEntity))
+                        foundOwnership = true; // Found ownership in another scene
+                }
+            );
+        }
+        catch
+        {
+            // Scene query failed - treat as not owned
+        }
+
+        return foundOwnership;
+    }
+
+    /// <summary>
+    ///     Checks if a shader entity should be included for a given scene.
+    ///     Includes shaders owned by the scene and global shaders (not owned by any scene).
+    ///     Excludes shaders owned by other scenes.
+    /// </summary>
+    /// <param name="shaderEntity">The shader entity to check.</param>
+    /// <param name="sceneEntity">The scene entity to filter for.</param>
+    /// <returns>True if the shader should be included, false otherwise.</returns>
+    private bool ShouldIncludeShaderForScene(Entity shaderEntity, Entity sceneEntity)
+    {
+        // Check if shader is owned by this scene
+        if (IsEntityOwnedByScene(shaderEntity, sceneEntity))
+            return true; // Shader is owned by this scene
+
+        // Check if shader is owned by any other scene (if so, exclude it)
+        if (IsEntityOwnedByAnyOtherScene(shaderEntity, sceneEntity))
+            return false; // Shader is owned by another scene, exclude it
+
+        // Shader is not owned by any scene (global shader), include it
+        return true;
     }
 
     /// <summary>

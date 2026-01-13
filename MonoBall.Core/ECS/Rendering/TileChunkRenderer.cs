@@ -69,19 +69,19 @@ internal sealed class TileChunkRenderer : ITileChunkRenderer
             return 0;
         }
 
-        // Get map ID from chunk's MapComponent to resolve tileset refs
-        if (!world.Has<MapComponent>(chunkEntity))
+        // Get map ID directly from chunk component (O(1) lookup)
+        // MapId is stored in TileChunkComponent to avoid expensive reverse relationship queries
+        if (string.IsNullOrEmpty(chunk.MapId))
         {
             _logger.Warning(
-                "TileChunkRenderer.RenderChunk: Chunk at ({X}, {Y}) has no MapComponent",
+                "TileChunkRenderer.RenderChunk: Chunk at ({X}, {Y}) has no MapId",
                 pos.Position.X,
                 pos.Position.Y
             );
             return 0;
         }
 
-        ref var mapComp = ref world.Get<MapComponent>(chunkEntity);
-        var mapId = mapComp.MapId;
+        var mapId = chunk.MapId;
 
         // Get tileset references for this map (cached)
         var tilesetRefs = GetTilesetRefsForMap(mapId);

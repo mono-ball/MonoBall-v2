@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Arch.Core;
+using Arch.Relationships;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.Constants;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Components.Audio;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Relationships;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Utilities;
 using MonoBall.Core.Maps;
@@ -25,7 +27,7 @@ namespace MonoBall.Core.ECS.Systems;
 /// <summary>
 ///     System responsible for loading and unloading maps, creating tile chunks, and managing map connections.
 /// </summary>
-public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
+public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem, IDisposable
 {
     private readonly int _chunkSize; // 16x16 tiles per chunk (cached from constants service)
     private readonly IConstantsService _constants;
@@ -33,23 +35,26 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
     private readonly HashSet<string> _loadedMaps = new();
     private readonly ILogger _logger;
 
-    private readonly Dictionary<string, List<Entity>> _mapChunkEntities = new();
-
-    private readonly Dictionary<string, List<Entity>> _mapConnectionEntities = new();
-
+    // Map entity tracking (still needed for map ID lookup)
     private readonly Dictionary<string, Entity> _mapEntities = new();
-
-    private readonly Dictionary<string, List<Entity>> _mapNpcEntities = new();
 
     private readonly Dictionary<string, Vector2> _mapPositions = new(); // Map positions in tile coordinates
 
     private readonly Dictionary<string, List<TilesetReference>> _mapTilesetRefs = new(); // Map tileset references for GID resolution
+
+    // Note: Child entities (chunks, connections, NPCs) are now tracked via Arch.Extended relationships
+    // Use World.GetRelationships<OwnsTileChunk>(mapEntity) to query chunks
+    // Use World.GetRelationships<OwnsMapConnection>(mapEntity) to query connections
+    // Use World.GetRelationships<OwnsNpc>(mapEntity) to query NPCs
 
     private readonly DefinitionRegistry _registry;
     private readonly IProfileService _profileService;
     private readonly IResourceManager _resourceManager;
     private readonly IVariableSpriteResolver? _variableSpriteResolver;
     private readonly ICollisionLayerCache? _collisionLayerCache;
+    private readonly List<IDisposable> _subscriptions = new();
+    private readonly QueryDescription _mapQuery;
+    private bool _disposed;
 
     /// <summary>
     ///     Initializes a new instance of the MapLoaderSystem.
@@ -88,6 +93,12 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         // Cache chunk size from constants service (performance optimization)
         _chunkSize = _constants.Get<int>("TileChunkSize");
+
+        // Cache QueryDescription in constructor (never create in hot paths)
+        _mapQuery = new QueryDescription().WithAll<MapComponent>();
+
+        // Subscribe to MapTransitionEvent to ensure target map is loaded
+        _subscriptions.Add(EventBus.Subscribe<MapTransitionEvent>((EventBus.RefAction<MapTransitionEvent>)OnMapTransition));
     }
 
     /// <summary>
@@ -155,9 +166,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         _mapEntities[mapId] = mapEntity;
         _loadedMaps.Add(mapId);
-        _mapChunkEntities[mapId] = new List<Entity>();
-        _mapConnectionEntities[mapId] = new List<Entity>();
-        _mapNpcEntities[mapId] = new List<Entity>();
+        // Note: Child entities are tracked via relationships, not dictionaries
 
         // Load collision data from MapDefinition.Collisions
         LoadMapCollisionData(mapId, mapDefinition);
@@ -351,73 +360,133 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
 
         if (_mapEntities.TryGetValue(mapId, out var mapEntity))
         {
-            // Destroy all chunk entities
-            if (_mapChunkEntities.TryGetValue(mapId, out var chunkEntities))
+            // Validate map entity is alive
+            if (!World.IsAlive(mapEntity))
             {
-                foreach (var chunkEntity in chunkEntities)
-                {
-                    // Fire EntityDestroyedEvent before destroying
-                    var destroyedEvent = new EntityDestroyedEvent
-                    {
-                        Entity = chunkEntity,
-                        DestroyedAt = DateTime.UtcNow,
-                    };
-                    EventBus.Send(ref destroyedEvent);
-                    World.Destroy(chunkEntity);
-                }
-
-                _mapChunkEntities.Remove(mapId);
+                _logger.Warning("Map entity {MapId} is not alive during unload", mapId);
+                _mapEntities.Remove(mapId);
+                _loadedMaps.Remove(mapId);
+                return;
             }
 
-            // Destroy all connection entities
-            if (_mapConnectionEntities.TryGetValue(mapId, out var connectionEntities))
+            // Destroy all chunk entities via relationships
+            try
             {
-                foreach (var connectionEntity in connectionEntities)
+                var chunkRelationships = World.GetRelationships<OwnsTileChunk>(mapEntity);
+                if (chunkRelationships != null)
                 {
-                    // Fire EntityDestroyedEvent before destroying
-                    var destroyedEvent = new EntityDestroyedEvent
+                    foreach (var kvp in chunkRelationships)
                     {
-                        Entity = connectionEntity,
-                        DestroyedAt = DateTime.UtcNow,
-                    };
-                    EventBus.Send(ref destroyedEvent);
-                    World.Destroy(connectionEntity);
-                }
+                        var chunkEntity = kvp.Key;
+                        if (!World.IsAlive(chunkEntity))
+                            continue;
 
-                _mapConnectionEntities.Remove(mapId);
-            }
-
-            // Destroy all NPC entities
-            if (_mapNpcEntities.TryGetValue(mapId, out var npcEntities))
-            {
-                foreach (var npcEntity in npcEntities)
-                {
-                    // Fire NpcUnloadedEvent before destroying
-                    if (World.Has<NpcComponent>(npcEntity))
-                    {
-                        ref var npcComp = ref World.Get<NpcComponent>(npcEntity);
-                        var npcUnloadedEvent = new NpcUnloadedEvent
+                        // Fire EntityDestroyedEvent before destroying
+                        var destroyedEvent = new EntityDestroyedEvent
                         {
-                            NpcId = npcComp.NpcId,
-                            MapId = mapId,
+                            Entity = chunkEntity,
+                            DestroyedAt = DateTime.UtcNow,
                         };
-                        EventBus.Send(ref npcUnloadedEvent);
+                        EventBus.Send(ref destroyedEvent);
+                        World.Destroy(chunkEntity);
                     }
-
-                    // Fire EntityDestroyedEvent before destroying
-                    var destroyedEvent = new EntityDestroyedEvent
-                    {
-                        Entity = npcEntity,
-                        DestroyedAt = DateTime.UtcNow,
-                    };
-                    EventBus.Send(ref destroyedEvent);
-                    World.Destroy(npcEntity);
                 }
-
-                _mapNpcEntities.Remove(mapId);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Relationship query failed - log and continue
+                // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+                _logger.Warning(ex, "Failed to query chunk relationships for map {MapId}", mapId);
+            }
+            catch (ArgumentException ex)
+            {
+                // Invalid entity or relationship type
+                _logger.Warning(ex, "Invalid argument in chunk relationship query for map {MapId}", mapId);
             }
 
-            // Destroy the map entity
+            // Destroy all connection entities via relationships
+            try
+            {
+                var connectionRelationships = World.GetRelationships<OwnsMapConnection>(mapEntity);
+                if (connectionRelationships != null)
+                {
+                    foreach (var kvp in connectionRelationships)
+                    {
+                        var connectionEntity = kvp.Key;
+                        if (!World.IsAlive(connectionEntity))
+                            continue;
+
+                        // Fire EntityDestroyedEvent before destroying
+                        var destroyedEvent = new EntityDestroyedEvent
+                        {
+                            Entity = connectionEntity,
+                            DestroyedAt = DateTime.UtcNow,
+                        };
+                        EventBus.Send(ref destroyedEvent);
+                        World.Destroy(connectionEntity);
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Relationship query failed - log and continue
+                // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+                _logger.Warning(ex, "Failed to query connection relationships for map {MapId}", mapId);
+            }
+            catch (ArgumentException ex)
+            {
+                // Invalid entity or relationship type
+                _logger.Warning(ex, "Invalid argument in connection relationship query for map {MapId}", mapId);
+            }
+
+            // Destroy all NPC entities via relationships
+            try
+            {
+                var npcRelationships = World.GetRelationships<OwnsNpc>(mapEntity);
+                if (npcRelationships != null)
+                {
+                    foreach (var kvp in npcRelationships)
+                    {
+                        var npcEntity = kvp.Key;
+                        if (!World.IsAlive(npcEntity))
+                            continue;
+
+                        // Fire NpcUnloadedEvent before destroying
+                        if (World.Has<NpcComponent>(npcEntity))
+                        {
+                            ref var npcComp = ref World.Get<NpcComponent>(npcEntity);
+                            var npcUnloadedEvent = new NpcUnloadedEvent
+                            {
+                                NpcId = npcComp.NpcId,
+                                MapId = mapId,
+                            };
+                            EventBus.Send(ref npcUnloadedEvent);
+                        }
+
+                        // Fire EntityDestroyedEvent before destroying
+                        var destroyedEvent = new EntityDestroyedEvent
+                        {
+                            Entity = npcEntity,
+                            DestroyedAt = DateTime.UtcNow,
+                        };
+                        EventBus.Send(ref destroyedEvent);
+                        World.Destroy(npcEntity);
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Relationship query failed - log and continue
+                // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+                _logger.Warning(ex, "Failed to query NPC relationships for map {MapId}", mapId);
+            }
+            catch (ArgumentException ex)
+            {
+                // Invalid entity or relationship type
+                _logger.Warning(ex, "Invalid argument in NPC relationship query for map {MapId}", mapId);
+            }
+
+            // Destroy the map entity (relationships automatically cleaned up by Arch.Extended)
             var mapDestroyedEvent = new EntityDestroyedEvent
             {
                 Entity = mapEntity,
@@ -718,12 +787,18 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                     (mapTilePosition.Y + chunkStartY) * mapDefinition.TileHeight
                 );
 
-                // Create chunk entity with components
+                // Validate map entity before creating chunk
+                if (!World.IsAlive(mapEntity))
+                    throw new InvalidOperationException($"Map entity {mapEntity.Id} is not alive.");
+
+                if (!World.Has<MapComponent>(mapEntity))
+                    throw new InvalidOperationException($"Map entity {mapEntity.Id} does not have MapComponent.");
+
+                // Create chunk entity with components (no MapComponent - chunks aren't maps)
                 Entity chunkEntity;
                 if (hasAnimatedTiles)
                     // Create with AnimatedTileDataComponent
                     chunkEntity = World.Create(
-                        new MapComponent { MapId = mapDefinition.Id },
                         new TileChunkComponent
                         {
                             ChunkX = chunkX,
@@ -732,6 +807,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                             ChunkHeight = chunkHeight,
                             LayerId = layer.LayerId,
                             LayerIndex = layerIndex,
+                            MapId = mapDefinition.Id,
                         },
                         new TileDataComponent
                         {
@@ -753,7 +829,6 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 else
                     // Create without AnimatedTileDataComponent
                     chunkEntity = World.Create(
-                        new MapComponent { MapId = mapDefinition.Id },
                         new TileChunkComponent
                         {
                             ChunkX = chunkX,
@@ -762,6 +837,7 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                             ChunkHeight = chunkHeight,
                             LayerId = layer.LayerId,
                             LayerIndex = layerIndex,
+                            MapId = mapDefinition.Id,
                         },
                         new TileDataComponent
                         {
@@ -780,8 +856,36 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                         new ElevationComponent { Value = (byte)layer.Elevation }
                     );
 
-                // Track chunk entity for unloading
-                _mapChunkEntities[mapDefinition.Id].Add(chunkEntity);
+                // Validate chunk entity was created
+                if (!World.IsAlive(chunkEntity))
+                    throw new InvalidOperationException("Failed to create chunk entity.");
+
+                if (!World.Has<TileChunkComponent>(chunkEntity))
+                    throw new InvalidOperationException("Chunk entity missing required TileChunkComponent.");
+
+                // Add relationship from map to chunk
+                try
+                {
+                    World.AddRelationship(mapEntity, chunkEntity, new OwnsTileChunk());
+                }
+                catch (InvalidOperationException ex)
+                {
+                    // Relationship addition failed - log and cleanup
+                    // InvalidOperationException is thrown by Arch.Extended when relationship operations fail
+                    _logger.Error(ex, "Failed to add relationship from map {MapId} to chunk {ChunkId}", 
+                        mapEntity.Id, chunkEntity.Id);
+                    World.Destroy(chunkEntity); // Cleanup on failure
+                    throw;
+                }
+                catch (ArgumentException ex)
+                {
+                    // Invalid entity or relationship type
+                    _logger.Error(ex, "Invalid argument when adding relationship from map {MapId} to chunk {ChunkId}", 
+                        mapEntity.Id, chunkEntity.Id);
+                    World.Destroy(chunkEntity); // Cleanup on failure
+                    throw;
+                }
+
                 layerChunks++;
             }
 
@@ -802,6 +906,13 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         if (mapDefinition.Connections == null)
             return;
 
+        // Validate map entity
+        if (!World.IsAlive(mapEntity))
+            throw new InvalidOperationException($"Map entity {mapEntity.Id} is not alive.");
+
+        if (!World.Has<MapComponent>(mapEntity))
+            throw new InvalidOperationException($"Map entity {mapEntity.Id} does not have MapComponent.");
+
         foreach (var kvp in mapDefinition.Connections)
         {
             var directionStr = kvp.Key.ToLowerInvariant();
@@ -816,8 +927,8 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 _ => MapConnectionDirection.North,
             };
 
+            // Create connection entity (no MapComponent - connections aren't maps)
             var connectionEntity = World.Create(
-                new MapComponent { MapId = mapDefinition.Id },
                 new MapConnectionComponent
                 {
                     Direction = direction,
@@ -826,8 +937,35 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 }
             );
 
-            // Track connection entity for unloading
-            _mapConnectionEntities[mapDefinition.Id].Add(connectionEntity);
+            // Validate connection entity was created
+            if (!World.IsAlive(connectionEntity))
+                throw new InvalidOperationException("Failed to create connection entity.");
+
+            if (!World.Has<MapConnectionComponent>(connectionEntity))
+                throw new InvalidOperationException("Connection entity missing required MapConnectionComponent.");
+
+            // Add relationship from map to connection
+            try
+            {
+                World.AddRelationship(mapEntity, connectionEntity, new OwnsMapConnection());
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Relationship addition failed - log and cleanup
+                // InvalidOperationException is thrown by Arch.Extended when relationship operations fail
+                _logger.Error(ex, "Failed to add relationship from map {MapId} to connection {ConnectionId}", 
+                    mapEntity.Id, connectionEntity.Id);
+                World.Destroy(connectionEntity); // Cleanup on failure
+                throw;
+            }
+            catch (ArgumentException ex)
+            {
+                // Invalid entity or relationship type
+                _logger.Error(ex, "Invalid argument when adding relationship from map {MapId} to connection {ConnectionId}", 
+                    mapEntity.Id, connectionEntity.Id);
+                World.Destroy(connectionEntity); // Cleanup on failure
+                throw;
+            }
         }
     }
 
@@ -852,13 +990,48 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
         // Phase 2: Create entities sequentially (ECS world operations must be on main thread)
         var npcsCreated = 0;
 
+        // Validate map entity
+        if (!World.IsAlive(mapEntity))
+            throw new InvalidOperationException($"Map entity {mapEntity.Id} is not alive.");
+
+        if (!World.Has<MapComponent>(mapEntity))
+            throw new InvalidOperationException($"Map entity {mapEntity.Id} does not have MapComponent.");
+
         foreach (var npcDef in mapDefinition.Npcs)
             try
             {
                 var npcEntity = CreateNpcEntity(npcDef, mapDefinition, mapTilePosition);
 
-                // Track NPC entity for unloading
-                _mapNpcEntities[mapDefinition.Id].Add(npcEntity);
+                // Validate NPC entity was created
+                if (!World.IsAlive(npcEntity))
+                    throw new InvalidOperationException($"Failed to create NPC entity for {npcDef.NpcId}.");
+
+                if (!World.Has<NpcComponent>(npcEntity))
+                    throw new InvalidOperationException($"NPC entity missing required NpcComponent for {npcDef.NpcId}.");
+
+                // Add relationship from map to NPC
+                try
+                {
+                    World.AddRelationship(mapEntity, npcEntity, new OwnsNpc());
+                }
+                catch (InvalidOperationException ex)
+                {
+                    // Relationship addition failed - log and cleanup
+                    // InvalidOperationException is thrown by Arch.Extended when relationship operations fail
+                    _logger.Error(ex, "Failed to add relationship from map {MapId} to NPC {NpcId}", 
+                        mapEntity.Id, npcDef.NpcId);
+                    World.Destroy(npcEntity); // Cleanup on failure
+                    throw;
+                }
+                catch (ArgumentException ex)
+                {
+                    // Invalid entity or relationship type
+                    _logger.Error(ex, "Invalid argument when adding relationship from map {MapId} to NPC {NpcId}", 
+                        mapEntity.Id, npcDef.NpcId);
+                    World.Destroy(npcEntity); // Cleanup on failure
+                    throw;
+                }
+
                 npcsCreated++;
             }
             catch (Exception ex)
@@ -1806,5 +1979,154 @@ public class MapLoaderSystem : BaseSystem<World, float>, IPrioritizedSystem
                 );
             }
         }
+    }
+
+    /// <summary>
+    ///     Handles MapTransitionEvent by ensuring the target map is loaded.
+    ///     If the target map is not already loaded, loads it using connection information from the source map.
+    /// </summary>
+    /// <param name="evt">The map transition event.</param>
+    private void OnMapTransition(ref MapTransitionEvent evt)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(evt.TargetMapId))
+            {
+                _logger.Debug("MapTransitionEvent has empty TargetMapId, skipping map loading");
+                return;
+            }
+
+            // Check if target map is already loaded
+            if (_loadedMaps.Contains(evt.TargetMapId))
+            {
+                _logger.Debug("Target map {TargetMapId} is already loaded", evt.TargetMapId);
+                return;
+            }
+
+            _logger.Information(
+                "MapTransitionEvent: Target map {TargetMapId} is not loaded, loading it now",
+                evt.TargetMapId
+            );
+
+            // Try to find source map entity to get connection information
+            Vector2? targetMapPosition = null;
+
+            if (!string.IsNullOrEmpty(evt.SourceMapId) && _mapEntities.TryGetValue(evt.SourceMapId, out var sourceMapEntity))
+            {
+                if (World.IsAlive(sourceMapEntity) && World.Has<MapComponent>(sourceMapEntity))
+                {
+                    ref var sourceMapComponent = ref World.Get<MapComponent>(sourceMapEntity);
+
+                    // Try to find connection from source map to target map
+                    try
+                    {
+                        var connectionRelationships = World.GetRelationships<OwnsMapConnection>(sourceMapEntity);
+                        if (connectionRelationships != null)
+                        {
+                            foreach (var kvp in connectionRelationships)
+                            {
+                                var connectionEntity = kvp.Key;
+                                if (!World.IsAlive(connectionEntity))
+                                    continue;
+
+                                if (!World.Has<MapConnectionComponent>(connectionEntity))
+                                    continue;
+
+                                ref var connComp = ref World.Get<MapConnectionComponent>(connectionEntity);
+                                if (connComp.TargetMapId == evt.TargetMapId && connComp.Direction == evt.Direction)
+                                {
+                                    // Found matching connection - calculate position
+                                    if (_mapPositions.TryGetValue(evt.SourceMapId, out var sourceMapPosition))
+                                    {
+                                        // Get target map definition to calculate position
+                                        var targetMapDefinition = _registry.GetById<MapDefinition>(evt.TargetMapId);
+                                        if (targetMapDefinition != null)
+                                        {
+                                            var directionStr = evt.Direction switch
+                                            {
+                                                MapConnectionDirection.North => "north",
+                                                MapConnectionDirection.South => "south",
+                                                MapConnectionDirection.East => "east",
+                                                MapConnectionDirection.West => "west",
+                                                _ => "north"
+                                            };
+
+                                            targetMapPosition = CalculateConnectedMapPosition(
+                                                sourceMapPosition,
+                                                sourceMapComponent.Width,
+                                                sourceMapComponent.Height,
+                                                targetMapDefinition.Width,
+                                                targetMapDefinition.Height,
+                                                directionStr,
+                                                connComp.Offset
+                                            );
+
+                                            _logger.Debug(
+                                                "Found connection from {SourceMapId} to {TargetMapId}, calculated position ({X}, {Y})",
+                                                evt.SourceMapId,
+                                                evt.TargetMapId,
+                                                targetMapPosition.Value.X,
+                                                targetMapPosition.Value.Y
+                                            );
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        // Relationship query failed - log and continue with default position
+                        // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+                        _logger.Debug(
+                            ex,
+                            "Failed to query connections for source map {SourceMapId}, loading target map at default position",
+                            evt.SourceMapId
+                        );
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        // Invalid entity or relationship type
+                        _logger.Debug(
+                            ex,
+                            "Invalid argument in relationship query for source map {SourceMapId}, loading target map at default position",
+                            evt.SourceMapId
+                        );
+                    }
+                }
+            }
+
+            // Load the target map (with calculated position if available, otherwise at default position)
+            LoadMap(evt.TargetMapId, targetMapPosition);
+        }
+        catch (Exception ex)
+        {
+            // Catch all exceptions to prevent event handler from crashing the game
+            // LoadMap can throw various exceptions (InvalidOperationException, ArgumentException, etc.)
+            // but event handlers should be resilient and log errors rather than crashing
+            _logger.Error(ex, "Error handling MapTransitionEvent in MapLoaderSystem");
+        }
+    }
+
+    /// <summary>
+    ///     Disposes the system and unsubscribes from events.
+    /// </summary>
+    public new void Dispose() => Dispose(true);
+
+    /// <summary>
+    ///     Protected dispose method following standard dispose pattern.
+    /// </summary>
+    /// <param name="disposing">True if called from Dispose(), false if called from finalizer.</param>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed && disposing)
+        {
+            foreach (var subscription in _subscriptions)
+                subscription.Dispose();
+            
+            GC.SuppressFinalize(this);
+        }
+        _disposed = true;
     }
 }

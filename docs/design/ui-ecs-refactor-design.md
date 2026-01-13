@@ -44,7 +44,7 @@ This document describes the design for refactoring the UI system to follow true 
 
 1. **UI as Entities**: All UI elements (windows, sprites, text, borders, backgrounds) are ECS entities
 2. **Component Composition**: UI elements are composed of multiple components (position, sprite, animation, visibility, etc.)
-3. **System Separation**: 
+3. **System Separation**:
    - Update systems: Process logic (text state machine, animations)
    - Render systems: Query and render entities
 4. **Relationship-Based Hierarchy**: Use Arch.Extended Relationships for parent-child links
@@ -268,15 +268,15 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
     private readonly SpriteBatch _spriteBatch;
     private readonly IResourceManager _resourceManager;
     private readonly ILogger _logger;
-    
+
     // Cached queries (created in constructor, never in hot paths)
     private readonly QueryDescription _uiWindowQuery;
     private readonly QueryDescription _uiSpriteQuery;
     private readonly QueryDescription _uiTextQuery;
-    
+
     // Reusable collection for collecting UI elements to render (avoids allocations in hot path)
     private readonly List<(Entity entity, UIElementComponent ui, int zOrder)> _renderList = new();
-    
+
     private bool _disposed;
 
     /// <summary>
@@ -300,14 +300,14 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
         _spriteBatch = spriteBatch ?? throw new ArgumentNullException(nameof(spriteBatch));
         _resourceManager = resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        
+
         // Cache QueryDescription in constructor (never create in Update/Render)
         _uiWindowQuery = new QueryDescription()
             .WithAll<WindowComponent, UIElementComponent, PositionComponent, RenderableComponent>();
-        
+
         _uiSpriteQuery = new QueryDescription()
             .WithAll<SpriteComponent, UIElementComponent, PositionComponent, RenderableComponent>();
-        
+
         _uiTextQuery = new QueryDescription()
             .WithAll<UITextComponent, UIElementComponent, PositionComponent, RenderableComponent>();
     }
@@ -357,7 +357,7 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
 
             ref var ui = ref World.Get<UIElementComponent>(uiElement);
             ref var render = ref World.Get<RenderableComponent>(uiElement);
-            
+
             if (!render.IsVisible)
                 continue;
 
@@ -509,7 +509,7 @@ public class MessageBoxSceneSystem : BaseSystem<World, float>, ISceneSystem
     // 2. Update text state machine (character-by-character printing)
     // 3. Handle input (speed-up, advance text)
     // 4. Create/destroy UI entities (window, border, background, text, down arrow sprite)
-    
+
     // NO RENDERING - delegates to UIRenderSystem
 }
 ```
@@ -541,7 +541,7 @@ public class MapPopupSceneSystem : BaseSystem<World, float>, ISceneSystem
     // 1. Handle MapPopupShowEvent → Create scene + UI entities
     // 2. Create popup window entity with WindowComponent
     // 3. Create child entities (border, background, text) via relationships
-    
+
     // NO RENDERING - delegates to UIRenderSystem
 }
 ```
@@ -757,7 +757,7 @@ foreach (var uiElement in uiElements)
     // Get components and validate visibility
     ref var ui = ref World.Get<UIElementComponent>(uiElement);
     ref var render = ref World.Get<RenderableComponent>(uiElement);
-    
+
     if (!render.IsVisible)
         continue;
 
@@ -786,7 +786,7 @@ foreach (var child in children)
     // Get components and check visibility
     ref var ui = ref World.Get<UIElementComponent>(child);
     ref var render = ref World.Get<RenderableComponent>(child);
-    
+
     if (!render.IsVisible)
         continue;
 
@@ -946,7 +946,7 @@ public SceneSystem(
 )
 {
     _uiRenderSystem = uiRenderSystem;
-    
+
     // Register UIRenderSystem for UI scene types
     if (_uiRenderSystem != null)
     {

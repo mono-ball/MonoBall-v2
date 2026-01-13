@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Arch.Core;
+using Arch.Relationships;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.Constants;
@@ -11,6 +12,7 @@ using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Relationships;
 using MonoBall.Core.UI.Windows.Animations;
 using MonoBall.Core.UI.Windows.Animations.Events;
 using Serilog;
@@ -136,6 +138,8 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         }
         catch (Exception ex)
         {
+            // Catch all exceptions to prevent event handler from crashing the game
+            // Event handlers should be resilient and log errors rather than crashing
             _isProcessingPopupEvent = false;
             _logger.Error(ex, "Error handling GameEnteredEvent");
         }
@@ -198,6 +202,8 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         }
         catch (Exception ex)
         {
+            // Catch all exceptions to prevent event handler from crashing the game
+            // Event handlers should be resilient and log errors rather than crashing
             _logger.Error(ex, "Error handling WindowAnimationDestroyEvent");
         }
     }
@@ -306,67 +312,21 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
             return;
         }
 
-        // Check if MapSectionComponent exists, if not try to add it (handles maps loaded before case fix)
+        // Fail fast if MapSectionComponent is missing - MapLoaderSystem should always add it when loading maps
         if (!World.Has<MapSectionComponent>(mapEntity.Value))
         {
-            // Try to add MapSectionComponent if map definition has MapSectionId
             if (!string.IsNullOrEmpty(mapDefinition.MapSectionId))
             {
-                // First check if definition exists at all (any type)
-                var metadata = _modManager.GetDefinitionMetadata(mapDefinition.MapSectionId);
-                if (metadata == null)
-                {
-                    _logger.Warning(
-                        "MapPopupSystem: Definition with ID {MapSectionId} not found in registry (map {MapId})",
-                        mapDefinition.MapSectionId,
-                        mapId
-                    );
-                    return;
-                }
-                
-                // Resolve MapSectionDefinition to get popup theme
-                var sectionDefForComponent = _modManager.GetDefinition<MapSectionDefinition>(
-                    mapDefinition.MapSectionId
-                );
-                
-                if (sectionDefForComponent == null)
-                {
-                    _logger.Warning(
-                        "MapPopupSystem: MapSectionDefinition not found for {MapSectionId} (map {MapId})",
-                        mapDefinition.MapSectionId,
-                        mapId
-                    );
-                    return;
-                }
-                
-                if (string.IsNullOrEmpty(sectionDefForComponent.PopupTheme))
-                {
-                    _logger.Warning(
-                        "MapPopupSystem: MapSectionDefinition for {MapSectionId} has no PopupTheme (map {MapId})",
-                        mapDefinition.MapSectionId,
-                        mapId
-                    );
-                    return;
-                }
-                
-                var sectionComponentToAdd = new MapSectionComponent
-                {
-                    MapSectionId = mapDefinition.MapSectionId,
-                    PopupThemeId = sectionDefForComponent.PopupTheme,
-                };
-                World.Add(mapEntity.Value, sectionComponentToAdd);
-                _logger.Debug(
-                    "MapPopupSystem: Added MapSectionComponent to map {MapId} with section {MapSectionId} and theme {PopupThemeId}",
-                    mapId,
-                    mapDefinition.MapSectionId,
-                    sectionDefForComponent.PopupTheme
+                throw new InvalidOperationException(
+                    $"Map entity {mapEntity.Value.Id} (map {mapId}) has MapSectionId '{mapDefinition.MapSectionId}' in definition " +
+                    "but is missing MapSectionComponent. MapLoaderSystem should add this component when loading maps. " +
+                    "This indicates the map was loaded incorrectly or the component was removed."
                 );
             }
-            else
-            {
-                _logger.Warning("MapPopupSystem: Map {MapId} has no MapSectionComponent and no MapSectionId in definition, skipping popup", mapId);
-                return;
-            }
+            
+            // Map has no MapSectionId - this is valid, just skip popup
+            _logger.Debug("MapPopupSystem: Map {MapId} has no MapSectionId in definition, skipping popup", mapId);
+            return;
         }
 
         ref var mapSectionComponent = ref World.Get<MapSectionComponent>(mapEntity.Value);
@@ -517,11 +477,39 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         // Create entity first, then set WindowEntity reference
         _currentPopupEntity = World.Create(popupComponent);
 
-        // Add explicit scene ownership component for queryable scene membership
-        World.Add(
-            _currentPopupEntity.Value,
-            new SceneOwnershipComponent { SceneEntity = popupSceneEntity }
-        );
+        // Validate scene entity before adding relationship
+        if (!World.IsAlive(popupSceneEntity))
+            throw new InvalidOperationException($"Scene entity {popupSceneEntity.Id} is not alive.");
+
+        if (!World.Has<SceneComponent>(popupSceneEntity))
+            throw new InvalidOperationException($"Scene entity {popupSceneEntity.Id} does not have SceneComponent.");
+
+        // Validate popup entity was created
+        if (!World.IsAlive(_currentPopupEntity.Value))
+            throw new InvalidOperationException("Failed to create popup entity.");
+
+        // Add relationship from scene to popup entity
+        try
+        {
+            World.AddRelationship(popupSceneEntity, _currentPopupEntity.Value, new OwnsSceneEntity());
+        }
+        catch (InvalidOperationException ex)
+        {
+            // Relationship addition failed - log and cleanup
+            // InvalidOperationException is thrown by Arch.Extended when relationship operations fail
+            _logger.Error(ex, "Failed to add relationship from scene {SceneId} to popup {PopupId}", 
+                popupSceneEntity.Id, _currentPopupEntity.Value.Id);
+            World.Destroy(_currentPopupEntity.Value); // Cleanup on failure
+            throw;
+        }
+        catch (ArgumentException ex)
+        {
+            // Invalid entity or relationship type
+            _logger.Error(ex, "Invalid argument when adding relationship from scene {SceneId} to popup {PopupId}", 
+                popupSceneEntity.Id, _currentPopupEntity.Value.Id);
+            World.Destroy(_currentPopupEntity.Value); // Cleanup on failure
+            throw;
+        }
 
         var windowAnim = new WindowAnimationComponent
         {
@@ -610,8 +598,12 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         if (!_disposed)
         {
             if (disposing)
+            {
                 foreach (var subscription in _subscriptions)
                     subscription.Dispose();
+                
+                GC.SuppressFinalize(this);
+            }
 
             _disposed = true;
         }

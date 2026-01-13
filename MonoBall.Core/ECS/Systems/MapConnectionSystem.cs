@@ -1,9 +1,11 @@
 using System;
 using Arch.Core;
+using Arch.Relationships;
 using Arch.System;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Relationships;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -13,7 +15,7 @@ namespace MonoBall.Core.ECS.Systems;
 /// </summary>
 public class MapConnectionSystem : BaseSystem<World, float>, IPrioritizedSystem
 {
-    private readonly QueryDescription _connectionQueryDescription;
+    private readonly QueryDescription _mapQuery;
     private readonly ILogger _logger;
 
     /// <summary>
@@ -24,10 +26,7 @@ public class MapConnectionSystem : BaseSystem<World, float>, IPrioritizedSystem
     public MapConnectionSystem(World world, ILogger logger)
         : base(world)
     {
-        _connectionQueryDescription = new QueryDescription().WithAll<
-            MapComponent,
-            MapConnectionComponent
-        >();
+        _mapQuery = new QueryDescription().WithAll<MapComponent>();
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -89,18 +88,66 @@ public class MapConnectionSystem : BaseSystem<World, float>, IPrioritizedSystem
         if (string.IsNullOrEmpty(mapId))
             return null;
 
-        MapConnectionComponent? foundConnection = null;
-
+        // Find map entity by mapId
+        Entity? mapEntity = null;
         World.Query(
-            in _connectionQueryDescription,
-            (ref MapComponent mapComp, ref MapConnectionComponent connComp) =>
+            in _mapQuery,
+            (Entity entity, ref MapComponent mapComp) =>
             {
-                if (mapComp.MapId == mapId && connComp.Direction == direction)
-                    foundConnection = connComp;
+                if (mapComp.MapId == mapId)
+                    mapEntity = entity;
             }
         );
 
-        return foundConnection;
+        if (!mapEntity.HasValue || !World.IsAlive(mapEntity.Value))
+            return null;
+
+        // Query connections via relationships
+        try
+        {
+            var connectionRelationships = World.GetRelationships<OwnsMapConnection>(mapEntity.Value);
+            if (connectionRelationships != null)
+            {
+                foreach (var kvp in connectionRelationships)
+                {
+                    var connectionEntity = kvp.Key;
+                    if (!World.IsAlive(connectionEntity))
+                        continue;
+
+                    if (!World.Has<MapConnectionComponent>(connectionEntity))
+                        continue;
+
+                    ref var connComp = ref World.Get<MapConnectionComponent>(connectionEntity);
+                    if (connComp.Direction == direction)
+                        return connComp;
+                }
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            // Relationship query failed - log and return null
+            // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+            _logger.Debug(
+                ex,
+                "Failed to query map connections for map {MapId} in direction {Direction}",
+                mapId,
+                direction
+            );
+            return null;
+        }
+        catch (ArgumentException ex)
+        {
+            // Invalid entity or relationship type - log and return null
+            _logger.Debug(
+                ex,
+                "Invalid argument in relationship query for map {MapId} in direction {Direction}",
+                mapId,
+                direction
+            );
+            return null;
+        }
+
+        return null;
     }
 
     /// <summary>

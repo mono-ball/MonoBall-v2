@@ -1,7 +1,10 @@
 using System;
 using Arch.Core;
+using Arch.Relationships;
 using Microsoft.Xna.Framework;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Relationships;
+using MonoBall.Core.ECS.Systems;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Services;
@@ -20,6 +23,7 @@ public sealed class CollisionService : ICollisionService
     private readonly ITileInteractionCache _tileInteractionCache;
     private readonly ITileInteractionDispatcher _tileInteractionDispatcher;
     private readonly World _world;
+    private readonly MapLoaderSystem? _mapLoaderSystem;
 
     // Cached query descriptions
     private static readonly QueryDescription MapWithPositionQuery = new QueryDescription().WithAll<
@@ -30,6 +34,7 @@ public sealed class CollisionService : ICollisionService
     /// <summary>
     ///     Initializes a new instance of CollisionService.
     /// </summary>
+    /// <param name="mapLoaderSystem">Optional map loader system for loading maps on-demand during transitions.</param>
     public CollisionService(
         World world,
         ICollisionLayerCache collisionLayerCache,
@@ -38,7 +43,8 @@ public sealed class CollisionService : ICollisionService
         IEntityQueryService entityQueryService,
         ITileInteractionCache tileInteractionCache,
         ITileInteractionDispatcher tileInteractionDispatcher,
-        ILogger logger
+        ILogger logger,
+        MapLoaderSystem? mapLoaderSystem = null
     )
     {
         _world = world ?? throw new ArgumentNullException(nameof(world));
@@ -57,6 +63,7 @@ public sealed class CollisionService : ICollisionService
             tileInteractionDispatcher
             ?? throw new ArgumentNullException(nameof(tileInteractionDispatcher));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _mapLoaderSystem = mapLoaderSystem;
     }
 
     /// <inheritdoc />
@@ -250,7 +257,7 @@ public sealed class CollisionService : ICollisionService
             (Entity mapEntity, ref MapComponent map, ref PositionComponent pos) =>
             {
                 // Filter to main map entity only (has Width/Height set)
-                // Tile chunk entities also have MapComponent but with Width=0
+                // Chunks no longer have MapComponent, but this filter ensures we only process actual map entities
                 if (map.MapId == mapId && map.Width > 0)
                 {
                     tileWidth = map.TileWidth;
@@ -583,7 +590,7 @@ public sealed class CollisionService : ICollisionService
                     return;
 
                 // Filter to main map entity only (has Width/Height set)
-                // Tile chunk entities also have MapComponent but with Width=0
+                // Chunks no longer have MapComponent, but this filter ensures we only process actual map entities
                 if (map.MapId == mapId && map.Width > 0)
                 {
                     // Calculate tile offset from pixel position
@@ -598,15 +605,9 @@ public sealed class CollisionService : ICollisionService
         return (mapTileOffsetX + localX, mapTileOffsetY + localY);
     }
 
-    // Cached query for map connections
-    private static readonly QueryDescription MapConnectionQuery = new QueryDescription().WithAll<
-        MapComponent,
-        MapConnectionComponent
-    >();
-
     /// <summary>
     ///     Finds the connected map and grid position for an out-of-bounds position.
-    ///     Uses explicit MapConnectionComponent data to find the correct target map.
+    ///     Uses relationships to find connection entities linked to the source map.
     /// </summary>
     /// <param name="sourceMapId">The source map ID.</param>
     /// <param name="targetX">The target X position (may be out of bounds).</param>
@@ -621,7 +622,8 @@ public sealed class CollisionService : ICollisionService
         int targetY
     )
     {
-        // Query 1: Get source map dimensions from main map entity (has Width > 0)
+        // Query 1: Get source map entity and dimensions
+        Entity? sourceMapEntity = null;
         MapComponent? sourceMap = null;
         _world.Query(
             in MapWithPositionQuery,
@@ -630,11 +632,14 @@ public sealed class CollisionService : ICollisionService
                 // Filter to main map entity only (has Width/Height set)
                 // Tile chunk entities also have MapComponent but with Width=0
                 if (map.MapId == sourceMapId && map.Width > 0)
+                {
+                    sourceMapEntity = entity;
                     sourceMap = map;
+                }
             }
         );
 
-        if (!sourceMap.HasValue)
+        if (!sourceMapEntity.HasValue || !sourceMap.HasValue)
         {
             _logger.Debug(
                 "[Collision] FindCrossMapPosition: Source map {MapId} not found",
@@ -667,21 +672,53 @@ public sealed class CollisionService : ICollisionService
             return (null, 0, 0);
         }
 
-        // Query 2: Find connection for this direction
-        // Connection entities have both MapComponent (with source MapId) and MapConnectionComponent
+        // Query 2: Find connection for this direction using relationships
+        // Connection entities are separate entities linked via OwnsMapConnection relationship
         string? targetMapId = null;
         int connectionOffset = 0;
-        _world.Query(
-            in MapConnectionQuery,
-            (Entity entity, ref MapComponent map, ref MapConnectionComponent connection) =>
+        try
+        {
+            var connectionRelationships = _world.GetRelationships<OwnsMapConnection>(sourceMapEntity.Value);
+            if (connectionRelationships != null)
             {
-                if (map.MapId == sourceMapId && connection.Direction == crossingDir.Value)
+                foreach (var kvp in connectionRelationships)
                 {
-                    targetMapId = connection.TargetMapId;
-                    connectionOffset = connection.Offset;
+                    var connectionEntity = kvp.Key;
+                    if (!_world.IsAlive(connectionEntity))
+                        continue;
+
+                    if (!_world.Has<MapConnectionComponent>(connectionEntity))
+                        continue;
+
+                    ref var connection = ref _world.Get<MapConnectionComponent>(connectionEntity);
+                    if (connection.Direction == crossingDir.Value)
+                    {
+                        targetMapId = connection.TargetMapId;
+                        connectionOffset = connection.Offset;
+                        break;
+                    }
                 }
             }
-        );
+        }
+        catch (InvalidOperationException ex)
+        {
+            // Relationship query failed - log and continue
+            // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+            _logger.Debug(
+                ex,
+                "[Collision] FindCrossMapPosition: Failed to query connections for map {MapId}",
+                sourceMapId
+            );
+        }
+        catch (ArgumentException ex)
+        {
+            // Invalid entity or relationship type
+            _logger.Debug(
+                ex,
+                "[Collision] FindCrossMapPosition: Invalid argument in relationship query for map {MapId}",
+                sourceMapId
+            );
+        }
 
         if (targetMapId == null)
         {
@@ -710,11 +747,39 @@ public sealed class CollisionService : ICollisionService
 
         if (!targetMap.HasValue)
         {
-            _logger.Debug(
-                "[Collision] FindCrossMapPosition: Target map {MapId} not loaded",
-                targetMapId
-            );
-            return (null, 0, 0);
+            // Target map is not loaded - try to load it if MapLoaderSystem is available
+            if (_mapLoaderSystem != null && !string.IsNullOrEmpty(targetMapId))
+            {
+                _logger.Information(
+                    "[Collision] FindCrossMapPosition: Target map {MapId} not loaded, attempting to load it",
+                    targetMapId
+                );
+
+                // Try to load the map (will calculate position from connection if possible)
+                // Note: This is a synchronous load, which may cause a brief pause
+                _mapLoaderSystem.LoadMap(targetMapId);
+
+                // Query again to see if the map is now loaded
+                _world.Query(
+                    in MapWithPositionQuery,
+                    (Entity entity, ref MapComponent map, ref PositionComponent pos) =>
+                    {
+                        if (map.MapId == targetMapId && map.Width > 0)
+                        {
+                            targetMap = map;
+                        }
+                    }
+                );
+            }
+
+            if (!targetMap.HasValue)
+            {
+                _logger.Debug(
+                    "[Collision] FindCrossMapPosition: Target map {MapId} not loaded",
+                    targetMapId
+                );
+                return (null, 0, 0);
+            }
         }
 
         var tgtWidth = targetMap.Value.Width;
