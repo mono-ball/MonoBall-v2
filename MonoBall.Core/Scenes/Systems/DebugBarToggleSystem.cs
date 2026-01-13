@@ -74,6 +74,7 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
 
                 var createdSceneEntity = _sceneManager.CreateScene(
                     sceneComponent,
+                    cameraEntity: null,
                     debugBarComponent
                 );
 
@@ -91,6 +92,7 @@ public class DebugBarToggleSystem : BaseSystem<World, float>, IPrioritizedSystem
                     var debugBarComponent = new DebugBarSceneComponent();
                     var recreatedSceneEntity = _sceneManager.CreateScene(
                         sceneComponent,
+                        cameraEntity: null,
                         debugBarComponent
                     );
 

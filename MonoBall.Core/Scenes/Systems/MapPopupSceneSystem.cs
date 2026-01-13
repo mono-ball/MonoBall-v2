@@ -10,11 +10,14 @@ using MonoBall.Core.Constants;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
 using MonoBall.Core.ECS.Events;
+using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
+using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Relationships;
+using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.UI.Windows.Animations;
 using Serilog;
 
@@ -31,9 +34,7 @@ public class MapPopupSceneSystem
         IDisposable,
         ISceneSystem
 {
-    private readonly QueryDescription _cameraQuery =
-        new QueryDescription().WithAll<CameraComponent>();
-
+    private readonly ICameraService _cameraService;
     private readonly IConstantsService _constants;
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
@@ -72,6 +73,7 @@ public class MapPopupSceneSystem
     /// <param name="logger">The logger for logging operations.</param>
     /// <param name="constants">The constants service for accessing game constants. Required.</param>
     /// <param name="resourceManager">The resource manager for loading textures and fonts. Required.</param>
+    /// <param name="cameraService">The camera service for camera queries.</param>
     public MapPopupSceneSystem(
         World world,
         ISceneManager sceneManager,
@@ -80,7 +82,8 @@ public class MapPopupSceneSystem
         IModManager modManager,
         ILogger logger,
         IConstantsService constants,
-        IResourceManager resourceManager
+        IResourceManager resourceManager,
+        ICameraService cameraService
     )
         : base(world)
     {
@@ -92,6 +95,7 @@ public class MapPopupSceneSystem
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
+        _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
 
         // NOTE: This system only handles rendering. MapPopupSystem handles popup lifecycle.
         // No event subscriptions needed - popups are created/destroyed by MapPopupSystem.
@@ -151,8 +155,17 @@ public class MapPopupSceneSystem
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render.</param>
     /// <param name="gameTime">The game time.</param>
-    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    /// <param name="renderContext">The render context with prepared SpriteBatch and camera. Required.</param>
+    /// <exception cref="ArgumentNullException">Thrown when renderContext is null.</exception>
+    public void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext)
     {
+        if (renderContext == null)
+            throw new ArgumentNullException(nameof(renderContext));
+
+        // Validate entity is alive before accessing components
+        if (!World.IsAlive(sceneEntity))
+            throw new ArgumentException($"Scene entity {sceneEntity.Id} is not alive.", nameof(sceneEntity));
+
         // Verify this is actually a map popup scene
         if (!World.Has<MapPopupSceneComponent>(sceneEntity))
             return;
@@ -161,74 +174,34 @@ public class MapPopupSceneSystem
         if (!scene.IsActive)
             return;
 
-        // Determine camera based on CameraMode
-        CameraComponent? camera = null;
+        // UX scenes render in screen space (Matrix.Identity), not with camera transform
+        // End the coordinator's batch and begin a new one with Matrix.Identity
+        renderContext.SpriteBatch.End();
+        renderContext.MarkBatchEnded(); // Notify coordinator that we ended the batch
 
-        switch (scene.CameraMode)
+        // Begin new batch for screen space rendering
+        renderContext.MarkNewBatchStarted(); // Notify coordinator that we're starting a new batch
+        renderContext.SpriteBatch.Begin(
+            SpriteSortMode.Deferred,
+            BlendState.AlphaBlend,
+            SamplerState.PointClamp,
+            DepthStencilState.None,
+            RasterizerState.CullCounterClockwise,
+            null,
+            Matrix.Identity // Screen space - no camera transform
+        );
+
+        // Render popups (use renderContext.SpriteBatch)
+        // Use viewport dimensions directly via renderContext.GetViewportScale()
+        if (renderContext.Camera.HasValue)
         {
-            case SceneCameraMode.GameCamera:
-                camera = GetActiveGameCamera();
-                break;
-
-            case SceneCameraMode.SceneCamera:
-                if (scene.CameraEntityId.HasValue)
-                {
-                    // Query for camera entity by ID
-                    var cameraEntityId = scene.CameraEntityId.Value;
-                    var foundCamera = false;
-                    World.Query(
-                        in _cameraQuery,
-                        (Entity entity, ref CameraComponent cam) =>
-                        {
-                            if (entity.Id == cameraEntityId)
-                            {
-                                camera = cam;
-                                foundCamera = true;
-                            }
-                        }
-                    );
-
-                    if (!foundCamera)
-                    {
-                        _logger.Warning(
-                            "MapPopupScene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found or doesn't have CameraComponent",
-                            scene.SceneId,
-                            cameraEntityId
-                        );
-                        return;
-                    }
-                }
-                else
-                {
-                    _logger.Warning(
-                        "MapPopupScene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
-                        scene.SceneId
-                    );
-                    return;
-                }
-
-                break;
-
-            case SceneCameraMode.ScreenCamera:
-                // MapPopupScene requires a camera for viewport
-                _logger.Warning(
-                    "MapPopupScene '{SceneId}' requires a camera for viewport. Use GameCamera or SceneCamera mode.",
-                    scene.SceneId
-                );
-                return;
+            RenderPopupsWithViewport(sceneEntity, renderContext.Camera.Value, gameTime, renderContext.SpriteBatch, renderContext);
         }
 
-        if (!camera.HasValue)
-        {
-            _logger.Warning(
-                "MapPopupScene '{SceneId}' requires camera but none was found. Scene will not render.",
-                scene.SceneId
-            );
-            return;
-        }
-
-        // Render the map popup scene
-        RenderMapPopupScene(sceneEntity, ref scene, gameTime, camera.Value);
+        // End our batch (new batch we started)
+        renderContext.SpriteBatch.End();
+        renderContext.MarkNewBatchEnded(); // Mark that we ended the new batch we started
+        // Note: Coordinator will check IsNewBatchEnded and skip ending the batch
     }
 
     /// <summary>
@@ -312,7 +285,7 @@ public class MapPopupSceneSystem
         Entity popupSceneEntity;
         try
         {
-            popupSceneEntity = _sceneManager.CreateScene(sceneComponent, popupSceneComponent);
+            popupSceneEntity = _sceneManager.CreateScene(sceneComponent, cameraEntity: null, popupSceneComponent);
         }
         catch (Exception ex)
         {
@@ -513,7 +486,51 @@ public class MapPopupSceneSystem
     }
 
     /// <summary>
-    ///     Renders popups for the specified scene entity.
+    ///     Renders popups for the specified scene entity using viewport dimensions directly (no camera scale).
+    ///     Used when render context is provided (coordinator manages state).
+    /// </summary>
+    /// <param name="sceneEntity">The popup scene entity.</param>
+    /// <param name="camera">The camera component (for viewport dimensions only).</param>
+    /// <param name="gameTime">The game time.</param>
+    /// <param name="spriteBatch">The sprite batch to use for rendering.</param>
+    /// <param name="renderContext">The render context for scale calculation. Required.</param>
+    private void RenderPopupsWithViewport(Entity sceneEntity, CameraComponent camera, GameTime gameTime, SpriteBatch spriteBatch, IRenderContext renderContext)
+    {
+        // Query for popup entities
+        var popupCount = 0;
+        World.Query(
+            in _popupQuery,
+            (Entity entity, ref MapPopupComponent popup, ref WindowAnimationComponent anim) =>
+            {
+                // Only render popups that belong to this scene
+                if (popup.SceneEntity.Id == sceneEntity.Id)
+                {
+                    // Don't render if animation is completed (like old implementation)
+                    // This prevents rendering leftover pixels when animation finishes
+                    if (anim.State == WindowAnimationState.Completed)
+                        return;
+
+                    popupCount++;
+                    _logger.Debug(
+                        "Rendering popup entity {EntityId} for '{MapSectionName}', State={State}",
+                        entity.Id,
+                        popup.MapSectionName,
+                        anim.State
+                    );
+                    RenderPopupWithViewport(entity, ref popup, ref anim, camera, spriteBatch, renderContext);
+                }
+            }
+        );
+
+        if (popupCount == 0)
+            _logger.Debug(
+                "No popup entities found to render for scene {SceneEntityId}",
+                sceneEntity.Id
+            );
+    }
+
+    /// <summary>
+    ///     Renders popups for the specified scene entity (old behavior with camera scale).
     /// </summary>
     /// <param name="sceneEntity">The popup scene entity.</param>
     /// <param name="camera">The camera component to use for positioning.</param>
@@ -554,7 +571,173 @@ public class MapPopupSceneSystem
     }
 
     /// <summary>
+    ///     Renders a single popup in screen space using viewport dimensions directly (no camera zoom).
+    ///     Used when render context is provided.
+    /// </summary>
+    private void RenderPopupWithViewport(
+        Entity entity,
+        ref MapPopupComponent popup,
+        ref WindowAnimationComponent anim,
+        CameraComponent camera,
+        SpriteBatch spriteBatch,
+        IRenderContext renderContext
+    )
+    {
+        // Load textures (cached, so fast on subsequent calls)
+        var backgroundTexture = LoadBackgroundTexture(popup.BackgroundId);
+        var outlineTexture = LoadOutlineTexture(popup.OutlineId);
+
+        if (backgroundTexture == null || outlineTexture == null)
+        {
+            _logger.Warning(
+                "Failed to load textures for popup (background: {BackgroundId}, outline: {OutlineId})",
+                popup.BackgroundId,
+                popup.OutlineId
+            );
+            return;
+        }
+
+        // Get definitions for dimensions
+        var backgroundDef = _modManager.GetDefinition<PopupBackgroundDefinition>(
+            popup.BackgroundId
+        );
+        var outlineDef = _modManager.GetDefinition<PopupOutlineDefinition>(popup.OutlineId);
+
+        if (backgroundDef == null || outlineDef == null)
+        {
+            _logger.Warning(
+                "Failed to get definitions for popup (background: {BackgroundId}, outline: {OutlineId})",
+                popup.BackgroundId,
+                popup.OutlineId
+            );
+            return;
+        }
+
+        // Calculate scale from viewport dimensions directly (not from camera zoom)
+        // Use renderContext helper method for consistency (DRY principle)
+        var referenceWidth = _constants.Get<int>("ReferenceWidth");
+        var currentScale = renderContext.GetViewportScale(referenceWidth);
+
+        // Calculate scaled dimensions
+        var tileSize = outlineDef.IsTileSheet ? outlineDef.TileWidth : 8;
+        var borderThickness = tileSize * currentScale;
+        var bgWidth = _constants.Get<int>("PopupBackgroundWidth") * currentScale;
+        var bgHeight = _constants.Get<int>("PopupBackgroundHeight") * currentScale;
+
+        // Calculate popup position in SCREEN SPACE (top-left corner)
+        var scaledPadding = _constants.Get<int>("PopupScreenPadding") * currentScale;
+        var popupX = scaledPadding; // Top-left corner
+        var scaledPositionOffsetY = (int)MathF.Round(anim.PositionOffset.Y * currentScale);
+        var popupY = scaledPositionOffsetY; // Base Y position (0) + scaled PositionOffset
+
+        // Calculate total popup height (border on top + background + border on bottom)
+        var totalPopupHeight = borderThickness * 2 + bgHeight;
+
+        // Skip rendering if popup is completely off-screen
+        var viewportHeight = camera.VirtualViewport != Rectangle.Empty 
+            ? camera.VirtualViewport.Height 
+            : camera.Viewport.Height;
+        if (popupY + totalPopupHeight < 0 || popupY > viewportHeight)
+            return;
+
+        // Background position (inside the border frame)
+        var bgX = popupX + borderThickness;
+        var bgY = popupY + borderThickness;
+
+        // Draw background texture (fixed size, scaled)
+        spriteBatch.Draw(
+            backgroundTexture,
+            new Rectangle((int)bgX, (int)bgY, (int)bgWidth, (int)bgHeight),
+            new Rectangle(0, 0, backgroundDef.Width, backgroundDef.Height),
+            Color.White
+        );
+
+        // Draw outline border AROUND the background (not at same position)
+        // Note: DrawTileSheetBorder and DrawLegacyNineSliceBorder use _spriteBatch internally
+        // For render context path, we need to use the provided spriteBatch
+        // Since these are complex methods, we'll call the existing methods but they'll use _spriteBatch
+        // This is acceptable since we're in a render context where _spriteBatch should match
+        // TODO: Refactor DrawTileSheetBorder and DrawLegacyNineSliceBorder to accept SpriteBatch parameter
+        if (outlineDef.IsTileSheet && outlineDef.TileUsage != null)
+            DrawTileSheetBorder(
+                outlineTexture,
+                outlineDef,
+                (int)bgX,
+                (int)bgY,
+                (int)bgWidth,
+                (int)bgHeight,
+                (int)currentScale
+            );
+        else if (outlineDef.CornerWidth.HasValue && outlineDef.CornerHeight.HasValue)
+            DrawLegacyNineSliceBorder(
+                outlineTexture,
+                outlineDef,
+                (int)bgX,
+                (int)bgY,
+                (int)bgWidth,
+                (int)bgHeight,
+                (int)currentScale
+            );
+
+        // Use scaled font
+        var scaledFontSize = _constants.Get<int>("PopupBaseFontSize") * currentScale;
+        FontSystem fontSystem;
+        try
+        {
+            fontSystem = _resourceManager.LoadFont("base:font:game/pokemon");
+        }
+        catch (Exception ex)
+        {
+            _logger.Warning(ex, "Font 'base:font:game/pokemon' not found, cannot render text");
+            return;
+        }
+
+        var font = fontSystem.GetFont(scaledFontSize);
+        if (font == null)
+        {
+            _logger.Warning("Failed to get scaled font, cannot render text");
+            return;
+        }
+
+        // Truncate text to fit within background width
+        var displayText = TruncateTextToFit(
+            font,
+            popup.MapSectionName,
+            (int)(bgWidth - _constants.Get<int>("PopupTextPadding") * 2 * currentScale)
+        );
+
+        // Calculate text position (centered horizontally, Y offset from top)
+        var textSize = font.MeasureString(displayText);
+        var textOffsetY = _constants.Get<int>("PopupTextOffsetY") * currentScale;
+        var shadowOffset = _constants.Get<int>("PopupShadowOffsetX") * currentScale;
+        var textX = bgX + (bgWidth - textSize.X) / 2f; // Center horizontally
+        float textY = bgY + textOffsetY;
+
+        // Round to integer positions for crisp pixel-perfect rendering
+        var intTextX = (int)Math.Round(textX);
+        var intTextY = (int)Math.Round(textY);
+
+        // Draw text shadow first (pokeemerald uses DARK_GRAY shadow)
+        var shadowOffsetY = _constants.Get<int>("PopupShadowOffsetY") * currentScale;
+        font.DrawText(
+            spriteBatch,
+            displayText,
+            new Vector2(intTextX + shadowOffset, intTextY + shadowOffsetY),
+            new Color(72, 72, 80, 255) // Dark gray shadow, fully opaque
+        );
+
+        // Draw main text on top (pokeemerald uses WHITE text)
+        font.DrawText(
+            spriteBatch,
+            displayText,
+            new Vector2(intTextX, intTextY),
+            new Color(255, 255, 255, 255) // White text, fully opaque
+        );
+    }
+
+    /// <summary>
     ///     Renders a single popup in screen space (GBA-accurate pokeemerald style).
+    ///     Old behavior with camera scale calculation.
     /// </summary>
     private void RenderPopup(
         Entity entity,
@@ -686,7 +869,7 @@ public class MapPopupSceneSystem
         var displayText = TruncateTextToFit(
             font,
             popup.MapSectionName,
-            bgWidth - _constants.Get<int>("PopupTextPadding") * 2 * currentScale
+            (int)(bgWidth - _constants.Get<int>("PopupTextPadding") * 2 * currentScale)
         );
 
         // Calculate text position (centered horizontally, Y offset from top)
@@ -1089,25 +1272,6 @@ public class MapPopupSceneSystem
         }
     }
 
-    /// <summary>
-    ///     Gets the active game camera (CameraComponent.IsActive == true).
-    /// </summary>
-    /// <returns>The active camera component, or null if none found.</returns>
-    private CameraComponent? GetActiveGameCamera()
-    {
-        CameraComponent? activeCamera = null;
-
-        World.Query(
-            in _cameraQuery,
-            (Entity entity, ref CameraComponent camera) =>
-            {
-                if (camera.IsActive)
-                    activeCamera = camera;
-            }
-        );
-
-        return activeCamera;
-    }
 
     /// <summary>
     ///     Disposes the system and unsubscribes from events.

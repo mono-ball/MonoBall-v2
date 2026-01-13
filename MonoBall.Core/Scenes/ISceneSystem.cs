@@ -1,5 +1,6 @@
 using Arch.Core;
 using Microsoft.Xna.Framework;
+using MonoBall.Core.Scenes.Systems;
 
 namespace MonoBall.Core.Scenes;
 
@@ -20,10 +21,13 @@ public interface ISceneSystem
     /// <summary>
     ///     Renders a specific scene entity.
     ///     Called by SceneSystem when rendering scenes.
+    ///     The render context contains a prepared SpriteBatch (already begun) and camera information.
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render.</param>
     /// <param name="gameTime">The game time.</param>
-    void RenderScene(Entity sceneEntity, GameTime gameTime);
+    /// <param name="renderContext">The render context with prepared SpriteBatch and camera. Required - coordinator always provides this.</param>
+    /// <exception cref="ArgumentNullException">Thrown when renderContext is null.</exception>
+    void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext);
 
     /// <summary>
     ///     Performs internal processing that needs to run every frame.

@@ -1117,7 +1117,6 @@ public class SystemManager : IDisposable
             SceneId = "game:main",
             Priority = ScenePriorities.GameScene,
             CameraMode = SceneCameraMode.GameCamera,
-            CameraEntityId = null,
             BlocksUpdate = false,
             BlocksDraw = false,
             BlocksInput = false,
@@ -1131,7 +1130,7 @@ public class SystemManager : IDisposable
         var sceneManager =
             _sceneSystems?.SceneManager
             ?? throw new InvalidOperationException("SceneManager is not available");
-        var gameSceneEntity = sceneManager.CreateScene(sceneComponent, gameSceneComponent);
+        var gameSceneEntity = sceneManager.CreateScene(sceneComponent, cameraEntity: null, gameSceneComponent);
         _logger.Information("Game scene created: {EntityId}", gameSceneEntity.Id);
     }
 

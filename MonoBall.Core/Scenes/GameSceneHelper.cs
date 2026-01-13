@@ -16,14 +16,16 @@ public static class GameSceneHelper
     /// <param name="sceneId">The scene ID.</param>
     /// <param name="priority">The scene priority.</param>
     /// <param name="backgroundColor">The background color for the scene.</param>
-    /// <param name="cameraEntityId">Optional camera entity ID (ignored for GameCamera mode).</param>
     /// <returns>The created scene entity.</returns>
+    /// <remarks>
+    ///     Note: This helper creates the entity directly via World.Create() and does not register it with SceneSystem.
+    ///     For proper scene management, use ISceneManager.CreateScene() instead.
+    /// </remarks>
     public static Entity CreateGameScene(
         World world,
         string sceneId,
         int priority,
-        Color backgroundColor,
-        int? cameraEntityId = null
+        Color backgroundColor
     )
     {
         var sceneComponent = new SceneComponent
@@ -31,7 +33,6 @@ public static class GameSceneHelper
             SceneId = sceneId,
             Priority = priority,
             CameraMode = SceneCameraMode.GameCamera,
-            CameraEntityId = cameraEntityId,
             BlocksUpdate = false,
             BlocksDraw = false,
             BlocksInput = false,

@@ -5,9 +5,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Rendering;
+using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Systems;
 using Serilog;
 
 namespace MonoBall.Core.Scenes.Systems;
@@ -18,15 +21,13 @@ namespace MonoBall.Core.Scenes.Systems;
 /// </summary>
 public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISceneSystem
 {
-    private readonly QueryDescription _cameraQuery =
-        new QueryDescription().WithAll<CameraComponent>();
-
     // Cached query descriptions to avoid allocations in hot paths
     private readonly QueryDescription _gameScenesQuery = new QueryDescription().WithAll<
         SceneComponent,
         GameSceneComponent
     >();
 
+    private readonly ICameraService _cameraService;
     private readonly ElevationRendererSystem _elevationRendererSystem;
     private readonly GraphicsDevice _graphicsDevice;
     private readonly ILogger _logger;
@@ -42,6 +43,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
     /// <param name="graphicsDevice">The graphics device.</param>
     /// <param name="spriteBatch">The sprite batch for rendering.</param>
     /// <param name="elevationRendererSystem">The elevation-based renderer system.</param>
+    /// <param name="cameraService">The camera service for camera queries.</param>
     /// <param name="shaderManagerSystem">The shader manager system (optional).</param>
     /// <param name="shaderRendererSystem">The shader renderer system (optional).</param>
     /// <param name="renderTargetManager">The render target manager (optional).</param>
@@ -51,6 +53,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         GraphicsDevice graphicsDevice,
         SpriteBatch spriteBatch,
         ElevationRendererSystem elevationRendererSystem,
+        ICameraService cameraService,
         IShaderManager? shaderManagerSystem = null,
         IShaderRenderer? shaderRendererSystem = null,
         IRenderTargetManager? renderTargetManager = null,
@@ -63,6 +66,7 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         _elevationRendererSystem =
             elevationRendererSystem
             ?? throw new ArgumentNullException(nameof(elevationRendererSystem));
+        _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         _shaderManagerSystem = shaderManagerSystem;
         _shaderRendererSystem = shaderRendererSystem;
         _renderTargetManager = renderTargetManager;
@@ -97,12 +101,21 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
     }
 
     /// <summary>
-    ///     Renders a single game scene. Called by SceneRendererSystem (coordinator) for a single scene.
+    ///     Renders a single game scene. Called by SceneSystem (coordinator) for a single scene.
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render.</param>
     /// <param name="gameTime">The game time.</param>
-    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    /// <param name="renderContext">The render context with prepared SpriteBatch and camera. Required.</param>
+    /// <exception cref="ArgumentNullException">Thrown when renderContext is null.</exception>
+    public void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext)
     {
+        if (renderContext == null)
+            throw new ArgumentNullException(nameof(renderContext));
+
+        // Validate entity is alive before accessing components
+        if (!World.IsAlive(sceneEntity))
+            throw new ArgumentException($"Scene entity {sceneEntity.Id} is not alive.", nameof(sceneEntity));
+
         // Verify this is actually a game scene
         if (!World.Has<GameSceneComponent>(sceneEntity))
             return;
@@ -111,74 +124,10 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         if (!scene.IsActive)
             return;
 
-        // Determine camera based on CameraMode
-        CameraComponent? camera = null;
-
-        switch (scene.CameraMode)
-        {
-            case SceneCameraMode.GameCamera:
-                camera = GetActiveGameCamera();
-                break;
-
-            case SceneCameraMode.SceneCamera:
-                if (scene.CameraEntityId.HasValue)
-                {
-                    // Query for camera entity by ID
-                    var cameraEntityId = scene.CameraEntityId.Value;
-                    var foundCamera = false;
-                    World.Query(
-                        in _cameraQuery,
-                        (Entity entity, ref CameraComponent cam) =>
-                        {
-                            if (entity.Id == cameraEntityId)
-                            {
-                                camera = cam;
-                                foundCamera = true;
-                            }
-                        }
-                    );
-
-                    if (!foundCamera)
-                    {
-                        _logger.Warning(
-                            "GameScene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found or doesn't have CameraComponent",
-                            scene.SceneId,
-                            cameraEntityId
-                        );
-                        return;
-                    }
-                }
-                else
-                {
-                    _logger.Warning(
-                        "GameScene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
-                        scene.SceneId
-                    );
-                    return;
-                }
-
-                break;
-
-            case SceneCameraMode.ScreenCamera:
-                // GameScene does not support screen-space rendering
-                _logger.Warning(
-                    "GameScene '{SceneId}' does not support screen-space rendering. Use GameCamera or SceneCamera mode.",
-                    scene.SceneId
-                );
-                return;
-        }
-
-        if (!camera.HasValue)
-        {
-            _logger.Warning(
-                "GameScene '{SceneId}' requires camera but none was found. Scene will not render.",
-                scene.SceneId
-            );
-            return;
-        }
-
-        // Render the game scene
-        RenderGameScene(sceneEntity, ref scene, gameTime, camera.Value);
+        // Render content (SpriteBatch already begun, viewport already set)
+        // ElevationRendererSystem receives renderContext, doesn't manage its own batch
+        _elevationRendererSystem.Render(gameTime, sceneEntity, renderContext);
+        // No state management needed - coordinator handles it
     }
 
     /// <summary>
@@ -201,115 +150,5 @@ public class GameSceneSystem : BaseSystem<World, float>, IPrioritizedSystem, ISc
         );
     }
 
-    /// <summary>
-    ///     Renders the game scene using the specified camera.
-    /// </summary>
-    /// <param name="sceneEntity">The scene entity.</param>
-    /// <param name="scene">The scene component.</param>
-    /// <param name="gameTime">The game time.</param>
-    /// <param name="camera">The camera component.</param>
-    private void RenderGameScene(
-        Entity sceneEntity,
-        ref SceneComponent scene,
-        GameTime gameTime,
-        CameraComponent camera
-    )
-    {
-        // Check for combined layer shader stack (post-processing) for this specific scene
-        var shaderStack = _shaderManagerSystem?.GetCombinedLayerShaderStack(sceneEntity);
-        var hasPostProcessing = shaderStack != null && shaderStack.Count > 0;
 
-        RenderTarget2D? renderTarget = null;
-        Viewport? originalViewport = null;
-
-        // Determine render target: use post-processing render target if shaders are active
-        if (hasPostProcessing && _renderTargetManager != null)
-        {
-            // Render to post-processing render target
-            renderTarget = _renderTargetManager.GetOrCreateRenderTarget();
-            if (renderTarget != null)
-            {
-                originalViewport = _graphicsDevice.Viewport;
-                _graphicsDevice.SetRenderTarget(renderTarget);
-                _graphicsDevice.Clear(Color.Transparent);
-            }
-        }
-
-        // Save original viewport
-        var savedViewport = _graphicsDevice.Viewport;
-
-        try
-        {
-            // Render all entities sorted by elevation then Y position
-            // ElevationRendererSystem handles tiles, sprites, and borders in correct order
-            _elevationRendererSystem.Render(gameTime, sceneEntity);
-
-            // If we rendered to a render target, now apply post-processing shader stack
-            if (renderTarget != null && hasPostProcessing && shaderStack != null)
-            {
-                // Restore original render target and viewport
-                _graphicsDevice.SetRenderTarget(null);
-                if (originalViewport.HasValue)
-                    _graphicsDevice.Viewport = originalViewport.Value;
-
-                // Update dynamic parameters for all shaders in stack
-                _shaderManagerSystem?.ForceUpdateCombinedLayerParameters();
-
-                // Apply shader stack using ShaderRendererSystem
-                if (_shaderRendererSystem != null)
-                    _shaderRendererSystem.ApplyShaderStack(
-                        renderTarget,
-                        null, // Render to back buffer
-                        shaderStack,
-                        _spriteBatch,
-                        _graphicsDevice,
-                        _renderTargetManager
-                    );
-                else
-                    _logger.Warning(
-                        "ShaderRendererSystem not available. Cannot apply shader stack."
-                    );
-            }
-            else if (hasPostProcessing && renderTarget == null)
-            {
-                _logger.Warning(
-                    "Combined shader stack is active but render target is null. RenderTargetManager may not be initialized."
-                );
-            }
-        }
-        finally
-        {
-            // Always restore viewport and render target, even if rendering fails
-            if (renderTarget != null)
-            {
-                _graphicsDevice.SetRenderTarget(null);
-                if (originalViewport.HasValue)
-                    _graphicsDevice.Viewport = originalViewport.Value;
-            }
-            else
-            {
-                _graphicsDevice.Viewport = savedViewport;
-            }
-        }
-    }
-
-    /// <summary>
-    ///     Gets the active game camera (CameraComponent.IsActive == true).
-    /// </summary>
-    /// <returns>The active camera component, or null if none found.</returns>
-    private CameraComponent? GetActiveGameCamera()
-    {
-        CameraComponent? activeCamera = null;
-
-        World.Query(
-            in _cameraQuery,
-            (Entity entity, ref CameraComponent camera) =>
-            {
-                if (camera.IsActive)
-                    activeCamera = camera;
-            }
-        );
-
-        return activeCamera;
-    }
 }

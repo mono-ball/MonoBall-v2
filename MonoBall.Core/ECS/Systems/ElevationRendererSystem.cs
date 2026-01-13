@@ -10,6 +10,7 @@ using MonoBall.Core.ECS.Rendering;
 using MonoBall.Core.ECS.Services;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
+using MonoBall.Core.Scenes.Systems;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
@@ -78,7 +79,6 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
 
     private readonly IPerformanceStatsSystem? _performanceStatsSystem;
     private readonly SpriteBatch _spriteBatch;
-    private Viewport _savedViewport;
 
     /// <summary>
     ///     Render target index for elevation layer shader stacking.
@@ -143,18 +143,25 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
     ///     Renders all visible entities sorted by elevation, then Y position.
     /// </summary>
     /// <param name="gameTime">The game time.</param>
-    /// <param name="sceneEntity">Optional scene entity to filter shaders. If null, uses global shaders only.</param>
-    public void Render(GameTime gameTime, Entity? sceneEntity = null)
+    /// <param name="sceneEntity">The scene entity to render.</param>
+    /// <param name="renderContext">The render context with prepared SpriteBatch and camera. Required.</param>
+    /// <exception cref="ArgumentNullException">Thrown when renderContext is null.</exception>
+    public void Render(GameTime gameTime, Entity sceneEntity, IRenderContext renderContext)
     {
-        // Get active camera
-        var activeCamera = _cameraService.GetActiveCamera();
-        if (!activeCamera.HasValue)
-            return;
+        if (renderContext == null)
+            throw new ArgumentNullException(nameof(renderContext));
 
-        var camera = activeCamera.Value;
+        // Use camera from renderContext (required for rendering)
+        if (!renderContext.Camera.HasValue)
+        {
+            _logger.Warning("ElevationRendererSystem requires camera but renderContext.Camera is null. Scene will not render.");
+            return;
+        }
+
+        var cameraValue = renderContext.Camera.Value;
 
         // Get visible bounds for culling
-        var visiblePixelBounds = CalculateVisiblePixelBounds(camera);
+        var visiblePixelBounds = CalculateVisiblePixelBounds(cameraValue);
 
         // Clear and collect all renderables
         _renderableItems.Clear();
@@ -167,48 +174,47 @@ public sealed class ElevationRendererSystem : BaseSystem<World, float>
         // Sort by elevation, then Y position
         _renderableItems.Sort(ElevationComparer);
 
-        // Save original viewport
-        _savedViewport = _graphicsDevice.Viewport;
+        // Viewport and transform are already set by coordinator
+        // But we still need to manage SpriteBatch for shader changes
+        // Use SpriteBatch from renderContext (already begun)
+        // Note: We still need to manage Begin/End for shader changes
+        // This means we'll End the coordinator's batch and Begin new ones
+        // The coordinator will check IsBatchEnded and skip ending
+        var transform = cameraValue.GetTransformMatrix();
 
-        try
+        // Check for shader stacking
+        var shaderStack = _shaderManagerSystem?.GetTileLayerShaderStack(sceneEntity);
+        var needsShaderStacking = ShaderStackingHelper.NeedsShaderStacking(shaderStack);
+
+        if (needsShaderStacking)
         {
-            // Set viewport to camera.VirtualViewport if not empty
-            SetupRenderViewport(camera);
-
-            // Get camera transform matrix
-            var transform = camera.GetTransformMatrix();
-
-            // Check for shader stacking
-            var shaderStack = _shaderManagerSystem?.GetTileLayerShaderStack(sceneEntity);
-            var needsShaderStacking = ShaderStackingHelper.NeedsShaderStacking(shaderStack);
-
-            if (needsShaderStacking)
-            {
-                needsShaderStacking = ShaderStackingHelper.ValidateShaderStackingDependencies(
-                    _shaderRendererSystem,
-                    _renderTargetManager,
-                    _logger,
-                    "ElevationRendererSystem"
-                );
-            }
-
-            if (
-                needsShaderStacking
-                && _renderTargetManager != null
-                && _shaderRendererSystem != null
-            )
-            {
-                RenderWithShaderStacking(gameTime, transform, shaderStack!);
-            }
-            else
-            {
-                RenderDirect(gameTime, transform, shaderStack);
-            }
+            needsShaderStacking = ShaderStackingHelper.ValidateShaderStackingDependencies(
+                _shaderRendererSystem,
+                _renderTargetManager,
+                _logger,
+                "ElevationRendererSystem"
+            );
         }
-        finally
+
+        if (
+            needsShaderStacking
+            && _renderTargetManager != null
+            && _shaderRendererSystem != null
+        )
         {
-            // Always restore original viewport
-            _graphicsDevice.Viewport = _savedViewport;
+            // End the coordinator's batch before shader stacking
+            renderContext.SpriteBatch.End();
+            renderContext.MarkBatchEnded(); // Notify coordinator that we ended the batch
+            RenderWithShaderStacking(gameTime, transform, shaderStack!);
+            // Note: RenderWithShaderStacking will End its own batch
+        }
+        else
+        {
+            // End the coordinator's batch and manage our own for shader changes
+            renderContext.SpriteBatch.End();
+            renderContext.MarkBatchEnded(); // Notify coordinator that we ended the batch
+            RenderDirect(gameTime, transform, shaderStack);
+            // Note: RenderDirect will End its own batch
         }
     }
 

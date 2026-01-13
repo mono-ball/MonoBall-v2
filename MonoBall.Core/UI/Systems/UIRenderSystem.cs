@@ -14,6 +14,7 @@ using MonoBall.Core.Mods;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.UI.Components;
 using MonoBall.Core.UI.Relationships;
 using MonoBall.Core.UI.Windows.Backgrounds;
@@ -51,7 +52,6 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
     private readonly QueryDescription _uiWindowQuery;
     private readonly QueryDescription _uiSpriteQuery;
     private readonly QueryDescription _uiTextQuery;
-    private readonly QueryDescription _cameraQuery;
 
     // Reusable collection for collecting UI elements to render (avoids allocations in hot path)
     private readonly List<(Entity entity, UIElementComponent ui, int zOrder)> _renderList = new();
@@ -99,7 +99,6 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
         _uiTextQuery = new QueryDescription()
             .WithAll<UITextComponent, UIElementComponent, PositionComponent, RenderableComponent>();
 
-        _cameraQuery = new QueryDescription().WithAll<CameraComponent>();
     }
 
     /// <summary>
@@ -123,9 +122,14 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render UI for.</param>
     /// <param name="gameTime">The game time.</param>
+    /// <param name="renderContext">The render context with prepared SpriteBatch and camera. Required.</param>
+    /// <exception cref="ArgumentNullException">Thrown when renderContext is null.</exception>
     /// <exception cref="InvalidOperationException">Thrown if scene entity is not alive or missing SceneComponent.</exception>
-    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    public void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext)
     {
+        if (renderContext == null)
+            throw new ArgumentNullException(nameof(renderContext));
+
         if (!World.IsAlive(sceneEntity))
             throw new InvalidOperationException($"Scene entity {sceneEntity.Id} is not alive.");
 
@@ -136,111 +140,31 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
 
         ref var scene = ref World.Get<SceneComponent>(sceneEntity);
 
-        // Get camera based on CameraMode using helper utility
-        var camera = SceneCameraHelper.GetCameraForScene(World, ref scene, _cameraService, _cameraQuery);
+        // UX scenes render in screen space (Matrix.Identity), not with camera transform
+        // End the coordinator's batch and begin a new one with Matrix.Identity
+        renderContext.SpriteBatch.End();
+        renderContext.MarkBatchEnded(); // Notify coordinator that we ended the batch
 
-        if (!camera.HasValue)
-        {
-            _logger.Warning(
-                "Scene '{SceneId}' requires camera but none was found. UI will not render.",
-                scene.SceneId
-            );
-            return;
-        }
+        // Begin new batch for screen space rendering
+        renderContext.MarkNewBatchStarted(); // Notify coordinator that we're starting a new batch
+        renderContext.SpriteBatch.Begin(
+            SpriteSortMode.Deferred,
+            BlendState.AlphaBlend,
+            SamplerState.PointClamp,
+            DepthStencilState.None,
+            RasterizerState.CullCounterClockwise,
+            null,
+            Matrix.Identity // Screen space - no camera transform for UI overlays
+        );
 
-        // Save original viewport
-        var savedViewport = _graphicsDevice.Viewport;
+        // Calculate viewport scale factor using IRenderContext method
+        var gbaReferenceWidth = _constants.Get<int>("ReferenceWidth");
+        var currentScale = renderContext.GetViewportScale(gbaReferenceWidth);
 
-        try
-        {
-            // Set viewport to camera's virtual viewport (if available) or regular viewport
-            if (camera.Value.VirtualViewport != Rectangle.Empty)
-                _graphicsDevice.Viewport = new Viewport(camera.Value.VirtualViewport);
-
-            // Calculate viewport scale factor (for dimension scaling)
-            var gbaReferenceWidth = _constants.Get<int>("ReferenceWidth");
-            var currentScale = CameraTransformUtility.GetViewportScale(
-                camera.Value,
-                gbaReferenceWidth
-            );
-
-            // Render in screen space (UI overlays like message boxes are screen space, not world space)
-            _spriteBatch.Begin(
-                SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
-                SamplerState.PointClamp,
-                DepthStencilState.None,
-                RasterizerState.CullCounterClockwise,
-                null,
-                Matrix.Identity // Screen space - no camera transform for UI overlays
-            );
-
-            // Clear reusable collection (avoids allocations in hot path)
-            _renderList.Clear();
-
-            // Collect UI elements via relationships
-            // Arch.Relationships API: World.GetRelationships<T>(entity) returns Dictionary<Entity, T>
-            try
-            {
-                // Get all UI elements owned by this scene
-                var relationships = World.GetRelationships<OwnsUIElement>(sceneEntity);
-                foreach (var kvp in relationships)
-                {
-                    var uiElement = kvp.Key;
-                    
-                    if (!World.IsAlive(uiElement))
-                        continue;
-
-                    if (!World.Has<UIElementComponent>(uiElement))
-                        continue; // Not a valid UI element
-
-                    var ui = World.Get<UIElementComponent>(uiElement);
-                    var render = World.Get<RenderableComponent>(uiElement);
-
-                    if (!render.IsVisible)
-                        continue;
-
-                    _renderList.Add((uiElement, ui, ui.ZOrder));
-                }
-            }
-            catch (Exception ex)
-            {
-                // Arch.Relationships API might differ - log and continue
-                _logger.Warning(
-                    ex,
-                    "Failed to query UI elements via relationships for scene {SceneId}. "
-                        + "UI entities may not be created yet (Phase 3). Error: {Error}",
-                    scene.SceneId,
-                    ex.Message
-                );
-                // Continue - this is expected during Phase 1/2 when UI entities don't exist yet
-            }
-
-            if (_renderList.Count == 0)
-            {
-                _logger.Debug("Scene {SceneId} has no UI elements to render", scene.SceneId);
-                _spriteBatch.End();
-                return; // Not an error - scene might not have UI yet
-            }
-
-            // Sort by z-order (lower values render first)
-            _renderList.Sort((a, b) => a.zOrder.CompareTo(b.zOrder));
-
-            // Render in z-order
-            foreach (var (entity, ui, _) in _renderList)
-            {
-                // Get fresh component reference for rendering (avoid ref to iteration variable)
-                var uiComponent = World.Get<UIElementComponent>(entity);
-                RenderUIElement(entity, ref uiComponent, currentScale);
-            }
-
-            _spriteBatch.End();
-        }
-        finally
-        {
-            // Always restore viewport, even if rendering fails
-            _graphicsDevice.Viewport = savedViewport;
-        }
+        // Render UI elements (use renderContext.SpriteBatch with Matrix.Identity)
+        RenderUIElements(sceneEntity, ref scene, renderContext.SpriteBatch, currentScale);
+        // Don't End() here - leave batch open for text rendering or coordinator cleanup
+        // Note: Coordinator will check IsBatchEnded and skip ending
     }
 
     /// <summary>
@@ -306,6 +230,75 @@ public class UIRenderSystem : BaseSystem<World, float>, ISceneSystem, IDisposabl
             default:
                 _logger.Debug("Unhandled UI element type: {ElementType}", ui.ElementType);
                 break;
+        }
+    }
+
+    /// <summary>
+    ///     Renders UI elements for a scene (shared logic for both coordinator and fallback paths).
+    /// </summary>
+    private void RenderUIElements(
+        Entity sceneEntity,
+        ref SceneComponent scene,
+        SpriteBatch spriteBatch,
+        float currentScale
+    )
+    {
+        // Clear reusable collection (avoids allocations in hot path)
+        _renderList.Clear();
+
+        // Collect UI elements via relationships
+        // Arch.Relationships API: World.GetRelationships<T>(entity) returns Dictionary<Entity, T>
+        try
+        {
+            // Get all UI elements owned by this scene
+            var relationships = World.GetRelationships<OwnsUIElement>(sceneEntity);
+            foreach (var kvp in relationships)
+            {
+                var uiElement = kvp.Key;
+                
+                if (!World.IsAlive(uiElement))
+                    continue;
+
+                if (!World.Has<UIElementComponent>(uiElement))
+                    continue; // Not a valid UI element
+
+                var ui = World.Get<UIElementComponent>(uiElement);
+                var render = World.Get<RenderableComponent>(uiElement);
+
+                if (!render.IsVisible)
+                    continue;
+
+                _renderList.Add((uiElement, ui, ui.ZOrder));
+            }
+        }
+        catch (Exception ex)
+        {
+            // Arch.Relationships API might differ - log and continue
+            _logger.Warning(
+                ex,
+                "Failed to query UI elements via relationships for scene {SceneId}. "
+                    + "UI entities may not be created yet (Phase 3). Error: {Error}",
+                scene.SceneId,
+                ex.Message
+            );
+            // Continue - this is expected during Phase 1/2 when UI entities don't exist yet
+        }
+
+        if (_renderList.Count == 0)
+        {
+            _logger.Debug("Scene {SceneId} has no UI elements to render", scene.SceneId);
+            return; // Not an error - scene might not have UI yet
+        }
+
+        // Sort by z-order (lower values render first)
+        _renderList.Sort((a, b) => a.zOrder.CompareTo(b.zOrder));
+
+        // Render in z-order
+        foreach (var (entity, ui, _) in _renderList)
+        {
+            // Get fresh component reference for rendering (avoid ref to iteration variable)
+            var uiComponent = World.Get<UIElementComponent>(entity);
+            RenderUIElement(entity, ref uiComponent, (int)currentScale);
         }
     }
 

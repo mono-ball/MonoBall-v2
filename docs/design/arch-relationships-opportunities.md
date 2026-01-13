@@ -1,6 +1,6 @@
 # Arch Relationships Utilization Opportunities
 
-**Date:** 2025-01-27  
+**Date:** 2025-01-27
 **Status:** Analysis
 
 ---
@@ -44,10 +44,10 @@ foreach (var kvp in relationships)
 {
     var childEntity = kvp.Key;        // Entity
     var relationship = kvp.Value;     // OwnsTileChunk instance
-    
+
     if (!World.IsAlive(childEntity))
         continue;
-    
+
     // Process child entity
 }
 ```
@@ -467,7 +467,7 @@ try
 }
 catch (Exception ex)
 {
-    _logger.Error(ex, "Failed to add relationship from map {MapId} to chunk {ChunkId}", 
+    _logger.Error(ex, "Failed to add relationship from map {MapId} to chunk {ChunkId}",
         mapEntity.Id, chunkEntity.Id);
     World.Destroy(chunkEntity); // Cleanup on failure
     throw;
@@ -480,10 +480,10 @@ var relationships = World.GetRelationships<OwnsTileChunk>(mapEntity);
 foreach (var kvp in relationships)
 {
     var chunkEntity = kvp.Key;
-    
+
     if (!World.IsAlive(chunkEntity))
         continue;
-    
+
     // Destroy child entities before parent
     World.Destroy(chunkEntity);
 }

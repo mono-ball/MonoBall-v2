@@ -130,10 +130,14 @@ public class LoadingSceneSystem
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render.</param>
     /// <param name="gameTime">The game time.</param>
-    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    public void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext)
     {
         if (_disposed)
             return;
+
+        // Validate entity is alive before accessing components
+        if (!World.IsAlive(sceneEntity))
+            throw new ArgumentException($"Scene entity {sceneEntity.Id} is not alive.", nameof(sceneEntity));
 
         // Verify this is actually a loading scene
         if (!World.Has<LoadingSceneComponent>(sceneEntity))

@@ -864,6 +864,16 @@ public class ShaderManager : IShaderManager
     /// <returns>True if the entity is owned by the scene, false otherwise.</returns>
     private bool IsEntityOwnedByScene(Entity entity, Entity sceneEntity)
     {
+        // Validate entities are alive before querying relationships
+        if (!_world.IsAlive(entity) || !_world.IsAlive(sceneEntity))
+            return false;
+
+        // Additional validation: ensure scene entity has SceneComponent before querying relationships
+        // This prevents AccessViolationException when querying relationships on newly created entities
+        // that haven't been fully initialized in the relationship system yet
+        if (!_world.Has<SceneComponent>(sceneEntity))
+            return false;
+
         try
         {
             var sceneRelationships = _world.GetRelationships<OwnsSceneEntity>(sceneEntity);
@@ -880,9 +890,16 @@ public class ShaderManager : IShaderManager
                     return true;
             }
         }
-        catch
+        catch (InvalidOperationException)
         {
             // Relationship query failed - treat as not owned
+            // InvalidOperationException is thrown by Arch.Extended when relationship queries fail
+            return false;
+        }
+        catch (ArgumentException)
+        {
+            // Invalid entity or relationship type - treat as not owned
+            return false;
         }
 
         return false;
@@ -897,6 +914,10 @@ public class ShaderManager : IShaderManager
     /// <returns>True if the entity is owned by any other scene, false otherwise.</returns>
     private bool IsEntityOwnedByAnyOtherScene(Entity entity, Entity excludeSceneEntity)
     {
+        // Validate input entity is alive
+        if (!_world.IsAlive(entity))
+            return false;
+
         bool foundOwnership = false;
 
         try
@@ -914,14 +935,25 @@ public class ShaderManager : IShaderManager
                     if (!_world.IsAlive(otherSceneEntity))
                         return;
 
+                    // Additional validation: ensure scene entity has SceneComponent (sanity check)
+                    if (!_world.Has<SceneComponent>(otherSceneEntity))
+                        return;
+
                     if (IsEntityOwnedByScene(entity, otherSceneEntity))
                         foundOwnership = true; // Found ownership in another scene
                 }
             );
         }
-        catch
+        catch (InvalidOperationException)
         {
             // Scene query failed - treat as not owned
+            // InvalidOperationException is thrown by Arch.Extended when queries fail
+            return false;
+        }
+        catch (ArgumentException)
+        {
+            // Invalid entity or component type - treat as not owned
+            return false;
         }
 
         return foundOwnership;

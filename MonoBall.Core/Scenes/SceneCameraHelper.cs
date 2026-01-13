@@ -13,69 +13,50 @@ public static class SceneCameraHelper
 {
     /// <summary>
     ///     Gets the camera component for a scene entity based on its CameraMode.
+    ///     Uses CameraService for centralized camera queries.
     /// </summary>
     /// <param name="world">The ECS world.</param>
     /// <param name="sceneEntity">The scene entity.</param>
-    /// <param name="cameraService">The camera service for GameCamera mode.</param>
-    /// <param name="cameraQuery">The cached camera query description (must be created in constructor).</param>
+    /// <param name="cameraService">The camera service for camera queries.</param>
     /// <returns>The camera component, or null if not found or scene doesn't have SceneComponent.</returns>
     public static CameraComponent? GetCameraForScene(
         World world,
         Entity sceneEntity,
-        ICameraService cameraService,
-        QueryDescription cameraQuery
+        ICameraService cameraService
     )
     {
-        if (!world.Has<SceneComponent>(sceneEntity))
-            return null;
-
-        ref var scene = ref world.Get<SceneComponent>(sceneEntity);
-
-        return GetCameraForScene(world, ref scene, cameraService, cameraQuery);
+        // Delegate to CameraService (no need for cameraQuery parameter anymore)
+        return cameraService.GetCameraForScene(sceneEntity);
     }
 
     /// <summary>
     ///     Gets the camera component for a scene based on its CameraMode.
+    ///     For GameCamera mode, uses GetActiveCamera(). For SceneCamera mode, requires scene entity.
     /// </summary>
     /// <param name="world">The ECS world.</param>
     /// <param name="scene">The scene component.</param>
-    /// <param name="cameraService">The camera service for GameCamera mode.</param>
-    /// <param name="cameraQuery">The cached camera query description (must be created in constructor).</param>
+    /// <param name="cameraService">The camera service for camera queries.</param>
     /// <returns>The camera component, or null if not found.</returns>
+    /// <remarks>
+    ///     For SceneCamera mode, this method cannot resolve the camera without the scene entity.
+    ///     Use the entity-based overload instead.
+    /// </remarks>
     public static CameraComponent? GetCameraForScene(
         World world,
         ref SceneComponent scene,
-        ICameraService cameraService,
-        QueryDescription cameraQuery
+        ICameraService cameraService
     )
     {
-        switch (scene.CameraMode)
-        {
-            case SceneCameraMode.GameCamera:
-                return cameraService.GetActiveCamera();
+        // For GameCamera mode, use GetActiveCamera()
+        if (scene.CameraMode == SceneCameraMode.GameCamera)
+            return cameraService.GetActiveCamera();
 
-            case SceneCameraMode.SceneCamera:
-                if (!scene.CameraEntityId.HasValue)
-                    return null;
+        // For SceneCamera mode, need scene entity to query relationship
+        // Caller should use the entity-based overload
+        if (scene.CameraMode == SceneCameraMode.SceneCamera)
+            return null; // Cannot resolve without entity
 
-                var cameraEntityId = scene.CameraEntityId.Value;
-                CameraComponent? camera = null;
-                world.Query(
-                    in cameraQuery,
-                    (Entity entity, ref CameraComponent cam) =>
-                    {
-                        if (entity.Id == cameraEntityId)
-                            camera = cam;
-                    }
-                );
-                return camera;
-
-            case SceneCameraMode.ScreenCamera:
-                // ScreenCamera doesn't use a camera component
-                return null;
-
-            default:
-                return null;
-        }
+        // ScreenCamera doesn't use a camera
+        return null;
     }
 }

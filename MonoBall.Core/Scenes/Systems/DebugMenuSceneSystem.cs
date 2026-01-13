@@ -84,7 +84,7 @@ public sealed class DebugMenuSceneSystem
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render.</param>
     /// <param name="gameTime">The game time.</param>
-    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    public void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext)
     {
         if (!_activeSceneEntity.HasValue || !World.IsAlive(_activeSceneEntity.Value))
             return;
@@ -173,6 +173,7 @@ public sealed class DebugMenuSceneSystem
 
         _activeSceneEntity = _sceneManager.CreateScene(
             sceneComponent,
+            cameraEntity: null,
             new DebugMenuSceneComponent()
         );
 

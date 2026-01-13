@@ -21,6 +21,7 @@ using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
 using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
+using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.TextEffects;
 using MonoBall.Core.UI.Components;
 using MonoBall.Core.UI.Relationships;
@@ -42,7 +43,6 @@ public class MessageBoxSceneSystem
         IDisposable,
         ISceneSystem
 {
-    private readonly QueryDescription _cameraQuery;
     private readonly ICameraService _cameraService;
     private readonly IConstantsService _constants;
     private readonly string _defaultFontId;
@@ -184,8 +184,6 @@ public class MessageBoxSceneSystem
             MessageBoxSceneComponent,
             MessageBoxComponent
         >();
-        // Camera query only needed for SceneCamera mode (querying by entity ID)
-        _cameraQuery = new QueryDescription().WithAll<CameraComponent>();
 
         // Subscribe to events (must unsubscribe in Dispose)
         _subscriptions.Add(EventBus.Subscribe<MessageBoxShowEvent>(OnMessageBoxShow));
@@ -227,9 +225,18 @@ public class MessageBoxSceneSystem
     /// </summary>
     /// <param name="sceneEntity">The scene entity to render.</param>
     /// <param name="gameTime">The game time.</param>
+    /// <param name="renderContext">The render context with prepared SpriteBatch and camera. Required.</param>
+    /// <exception cref="ArgumentNullException">Thrown when renderContext is null.</exception>
     /// <exception cref="InvalidOperationException">Thrown if scene entity does not have MessageBoxComponent.</exception>
-    public void RenderScene(Entity sceneEntity, GameTime gameTime)
+    public void RenderScene(Entity sceneEntity, GameTime gameTime, IRenderContext renderContext)
     {
+        if (renderContext == null)
+            throw new ArgumentNullException(nameof(renderContext));
+
+        // Validate entity is alive before accessing components
+        if (!World.IsAlive(sceneEntity))
+            throw new ArgumentException($"Scene entity {sceneEntity.Id} is not alive.", nameof(sceneEntity));
+
         if (!World.Has<MessageBoxComponent>(sceneEntity))
             throw new InvalidOperationException(
                 $"Scene entity {sceneEntity.Id} does not have MessageBoxComponent. "
@@ -242,12 +249,12 @@ public class MessageBoxSceneSystem
 
         // Phase 3: Delegate UI rendering to UIRenderSystem
         // Render UI entities (window, border, background, down arrow)
-        _uiRenderSystem.RenderScene(sceneEntity, gameTime);
+        _uiRenderSystem.RenderScene(sceneEntity, gameTime, renderContext);
 
         // TODO: Phase 3 - Text rendering still uses legacy MessageBoxContentRenderer
         // This will be refactored to use UITextComponent in a future phase
         // For now, render text using existing renderer (extracted from RenderMessageBox)
-        RenderMessageBoxText(sceneEntity, ref msgBox, gameTime);
+        RenderMessageBoxTextWithContext(sceneEntity, ref msgBox, gameTime, renderContext);
     }
 
     /// <summary>
@@ -478,7 +485,7 @@ public class MessageBoxSceneSystem
         Entity sceneEntity;
         try
         {
-            sceneEntity = _sceneManager.CreateScene(sceneComponent, messageBoxSceneComponent);
+            sceneEntity = _sceneManager.CreateScene(sceneComponent, cameraEntity: null, messageBoxSceneComponent);
         }
         catch (Exception ex)
         {
@@ -772,7 +779,7 @@ public class MessageBoxSceneSystem
             return;
 
         ref var scene = ref World.Get<SceneComponent>(sceneEntity);
-        var camera = SceneCameraHelper.GetCameraForScene(World, ref scene, _cameraService, _cameraQuery);
+        var camera = SceneCameraHelper.GetCameraForScene(World, sceneEntity, _cameraService);
 
         if (!camera.HasValue)
             return; // Can't calculate position without camera
@@ -1940,6 +1947,38 @@ public class MessageBoxSceneSystem
     /// <param name="sceneEntity">The scene entity.</param>
     /// <param name="msgBox">The message box component.</param>
     /// <param name="gameTime">The game time.</param>
+    /// <summary>
+    ///     Renders message box text using render context (coordinator manages state).
+    /// </summary>
+    private void RenderMessageBoxTextWithContext(
+        Entity sceneEntity,
+        ref MessageBoxComponent msgBox,
+        GameTime gameTime,
+        IRenderContext renderContext
+    )
+    {
+        if (!renderContext.Camera.HasValue)
+            return;
+
+        var camera = renderContext.Camera.Value;
+
+        // UIRenderSystem already ended the coordinator's batch and began a new one with Matrix.Identity
+        // We can use the existing batch without ending/beginning again
+
+        // Calculate scale from viewport dimensions directly (not from camera zoom)
+        // Use renderContext helper method for consistency (DRY principle)
+        var currentScale = renderContext.GetViewportScale(_gbaReferenceWidth);
+
+        // Render text using renderContext.SpriteBatch (already begun with Matrix.Identity by UIRenderSystem)
+        RenderMessageBoxTextContent(sceneEntity, ref msgBox, gameTime, camera, currentScale, renderContext.SpriteBatch);
+
+        // Don't End() here - UIRenderSystem or coordinator will handle it
+        // Note: Coordinator will try to End() but we catch that exception
+    }
+
+    /// <summary>
+    ///     Renders message box text (old behavior with state management).
+    /// </summary>
     private void RenderMessageBoxText(
         Entity sceneEntity,
         ref MessageBoxComponent msgBox,
@@ -1953,7 +1992,7 @@ public class MessageBoxSceneSystem
         ref var scene = ref World.Get<SceneComponent>(sceneEntity);
 
         // Get camera based on CameraMode using helper utility
-        var camera = SceneCameraHelper.GetCameraForScene(World, ref scene, _cameraService, _cameraQuery);
+        var camera = SceneCameraHelper.GetCameraForScene(World, sceneEntity, _cameraService);
 
         if (!camera.HasValue)
             return;
@@ -1984,46 +2023,8 @@ public class MessageBoxSceneSystem
                 Matrix.Identity // Screen space - no camera transform
             );
 
-            // Get tilesheet definition for position calculation
-            var tilesheetDef = ValidateAndGetTilesheet();
-
-            // Calculate message box interior position and dimensions
-            var viewportWidth = _graphicsDevice.Viewport.Width;
-            var viewportHeight = _graphicsDevice.Viewport.Height;
-            var gbaReferenceHeight = _gbaReferenceHeight;
-
-            var gbaInteriorX = _messageBoxInteriorTileX * tilesheetDef.TileWidth;
-            var gbaInteriorY = _messageBoxInteriorTileY * tilesheetDef.TileHeight;
-
-            var scaleX = (float)viewportWidth / _gbaReferenceWidth;
-            var scaleY = (float)viewportHeight / gbaReferenceHeight;
-            var msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
-            var msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
-            var msgBoxInteriorWidth = _messageBoxInteriorWidth * currentScale;
-            var msgBoxInteriorHeight = _messageBoxInteriorHeight * currentScale;
-
-            // Calculate scaled font size
-            var scaledFontSize = _constants.Get<int>("DefaultFontSize") * currentScale;
-
-            // Render text content using legacy renderer
-            var contentRenderer = new MessageBoxContentRenderer(
-                _resourceManager,
-                scaledFontSize,
-                currentScale,
-                _constants,
-                _logger,
-                _textEffectCalculator,
-                _modManager
-            );
-
-            contentRenderer.RenderContent(
-                _spriteBatch,
-                ref msgBox,
-                msgBoxInteriorX,
-                msgBoxInteriorY,
-                msgBoxInteriorWidth,
-                msgBoxInteriorHeight
-            );
+            // Render text content (shared logic)
+            RenderMessageBoxTextContent(sceneEntity, ref msgBox, gameTime, camera.Value, currentScale, _spriteBatch);
 
             _spriteBatch.End();
         }
@@ -2032,6 +2033,61 @@ public class MessageBoxSceneSystem
             // Always restore viewport, even if rendering fails
             _graphicsDevice.Viewport = savedViewport;
         }
+    }
+
+    /// <summary>
+    ///     Shared method for rendering message box text content.
+    ///     Used by both RenderMessageBoxText and RenderMessageBoxTextWithContext.
+    /// </summary>
+    private void RenderMessageBoxTextContent(
+        Entity sceneEntity,
+        ref MessageBoxComponent msgBox,
+        GameTime gameTime,
+        CameraComponent camera,
+        float currentScale,
+        SpriteBatch spriteBatch
+    )
+    {
+        // Get tilesheet definition for position calculation
+        var tilesheetDef = ValidateAndGetTilesheet();
+
+        // Calculate message box interior position and dimensions
+        var viewportWidth = _graphicsDevice.Viewport.Width;
+        var viewportHeight = _graphicsDevice.Viewport.Height;
+        var gbaReferenceHeight = _gbaReferenceHeight;
+
+        var gbaInteriorX = _messageBoxInteriorTileX * tilesheetDef.TileWidth;
+        var gbaInteriorY = _messageBoxInteriorTileY * tilesheetDef.TileHeight;
+
+        var scaleX = (float)viewportWidth / _gbaReferenceWidth;
+        var scaleY = (float)viewportHeight / gbaReferenceHeight;
+        var msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
+        var msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
+        var msgBoxInteriorWidth = _messageBoxInteriorWidth * currentScale;
+        var msgBoxInteriorHeight = _messageBoxInteriorHeight * currentScale;
+
+        // Calculate scaled font size
+        var scaledFontSize = (int)(_constants.Get<int>("DefaultFontSize") * currentScale);
+
+        // Render text content using legacy renderer
+        var contentRenderer = new MessageBoxContentRenderer(
+            _resourceManager,
+            scaledFontSize,
+            (int)currentScale,
+            _constants,
+            _logger,
+            _textEffectCalculator,
+            _modManager
+        );
+
+        contentRenderer.RenderContent(
+            spriteBatch,
+            ref msgBox,
+            msgBoxInteriorX,
+            msgBoxInteriorY,
+            (int)msgBoxInteriorWidth,
+            (int)msgBoxInteriorHeight
+        );
     }
 
     // Note: RenderDownArrow() method removed in Phase 2

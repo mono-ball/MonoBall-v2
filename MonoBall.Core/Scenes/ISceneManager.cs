@@ -15,7 +15,11 @@ public interface ISceneManager
     /// <param name="sceneComponent">The scene component data.</param>
     /// <param name="additionalComponents">Additional components to add to the scene entity.</param>
     /// <returns>The created scene entity.</returns>
-    Entity CreateScene(SceneComponent sceneComponent, params object[] additionalComponents);
+    Entity CreateScene(
+        SceneComponent sceneComponent,
+        Entity? cameraEntity = null,
+        params object[] additionalComponents
+    );
 
     /// <summary>
     ///     Destroys a scene entity and removes it from the scene stack.

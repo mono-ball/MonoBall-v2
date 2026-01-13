@@ -7,6 +7,7 @@ using MonoBall.Core.Logging;
 using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.TextEffects;
 using MonoBall.Core.UI.Systems;
+using Serilog;
 
 namespace MonoBall.Core.Scenes;
 
@@ -54,6 +55,7 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
             context.GraphicsDevice,
             context.SpriteBatch,
             context.RenderingSystems?.ElevationRendererSystem!,
+            context.CameraService,
             context.ShaderSystems?.ShaderManager,
             context.ShaderSystems?.ShaderRenderer,
             context.ShaderSystems?.RenderTargetManager,
@@ -69,12 +71,27 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
             LoggerFactory.CreateLogger<DebugBarSceneSystem>()
         );
 
+        // Create SceneRenderingCoordinator for unified rendering state management
+        // Coordinator is required - no fallback code (fail fast if dependencies missing)
+        var renderingCoordinator = new SceneRenderingCoordinator(
+            context.World,
+            context.GraphicsDevice,
+            context.SpriteBatch,
+            context.CameraService,
+            LoggerFactory.CreateLogger<SceneRenderingCoordinator>(),
+            context.ShaderSystems?.ShaderManager,
+            context.ShaderSystems?.ShaderRenderer,
+            context.ShaderSystems?.RenderTargetManager
+        );
+
         // Create SceneSystem coordinator with initial scene systems
         // MapPopupSceneSystem and MessageBoxSceneSystem will be set after (they need SceneSystem)
         var sceneSystem = new SceneSystem(
             context.World,
             LoggerFactory.CreateLogger<SceneSystem>(),
             context.GraphicsDevice,
+            context.CameraService,
+            renderingCoordinator,
             context.ShaderSystems?.ShaderManager,
             gameSceneSystem,
             loadingSceneSystem,
@@ -90,7 +107,8 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
             context.ModManager,
             LoggerFactory.CreateLogger<MapPopupSceneSystem>(),
             context.ConstantsService,
-            context.ResourceManager
+            context.ResourceManager,
+            context.CameraService
         );
 
         // Register MapPopupSceneSystem with SceneSystem

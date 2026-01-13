@@ -25,12 +25,11 @@ public struct SceneComponent
     /// <summary>
     ///     Which camera to use for rendering.
     /// </summary>
+    /// <remarks>
+    ///     For SceneCamera mode, the camera entity is linked via ECS relationship (UsesCamera).
+    ///     The relationship is created when the scene is created with a camera entity parameter.
+    /// </remarks>
     public SceneCameraMode CameraMode { get; set; }
-
-    /// <summary>
-    ///     Optional camera entity ID (required if CameraMode == SceneCamera, ignored otherwise).
-    /// </summary>
-    public int? CameraEntityId { get; set; }
 
     /// <summary>
     ///     Whether this scene blocks lower scenes from updating.
@@ -58,7 +57,8 @@ public struct SceneComponent
     public bool IsPaused { get; set; }
 
     /// <summary>
-    ///     Background color for the scene. If null, uses default based on scene type.
+    ///     Background color for the scene. Required - must be set when creating a scene.
+    ///     All scenes must specify a background color for proper rendering.
     /// </summary>
     public Color? BackgroundColor { get; set; }
 }

@@ -16,7 +16,7 @@ public enum SceneCameraMode
     ScreenCamera,
 
     /// <summary>
-    ///     Uses a scene-specific camera (CameraEntityId must be set in SceneComponent).
+    ///     Uses a scene-specific camera (camera entity linked via ECS relationship).
     /// </summary>
     SceneCamera,
 }

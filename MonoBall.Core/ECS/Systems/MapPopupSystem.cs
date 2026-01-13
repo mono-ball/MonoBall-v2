@@ -446,7 +446,7 @@ public class MapPopupSystem : BaseSystem<World, float>, IPrioritizedSystem, IDis
         Entity popupSceneEntity;
         try
         {
-            popupSceneEntity = _sceneManager.CreateScene(sceneComponent, popupSceneComponent);
+            popupSceneEntity = _sceneManager.CreateScene(sceneComponent, cameraEntity: null, popupSceneComponent);
         }
         catch (Exception ex)
         {

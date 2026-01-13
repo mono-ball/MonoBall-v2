@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoBall.Core.ECS;
 using MonoBall.Core.ECS.Components;
+using MonoBall.Core.ECS.Services;
 using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Events;
@@ -30,6 +31,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
 
     // Rendering dependencies
     private readonly GraphicsDevice? _graphicsDevice;
+    private readonly ICameraService _cameraService;
+    private readonly ISceneRenderingCoordinator _renderingCoordinator;
     private readonly ISceneSystem? _loadingSceneSystem;
 
     private readonly ILogger _logger;
@@ -57,6 +60,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     /// <param name="world">The ECS world. Required.</param>
     /// <param name="logger">The logger for logging operations. Required.</param>
     /// <param name="graphicsDevice">The graphics device for rendering. Required.</param>
+    /// <param name="cameraService">The camera service for camera queries. Required.</param>
+    /// <param name="renderingCoordinator">The rendering coordinator for managing rendering state. Required - no fallback code.</param>
     /// <param name="shaderManagerSystem">The shader manager system. Optional - only needed if shader rendering is used.</param>
     /// <param name="gameSceneSystem">The game scene system. Typically provided by SystemManager.</param>
     /// <param name="loadingSceneSystem">The loading scene system. Typically provided by SystemManager.</param>
@@ -74,6 +79,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
         World world,
         ILogger logger,
         GraphicsDevice graphicsDevice,
+        ICameraService cameraService,
+        ISceneRenderingCoordinator renderingCoordinator,
         IShaderManager? shaderManagerSystem = null,
         ISceneSystem? gameSceneSystem = null,
         ISceneSystem? loadingSceneSystem = null,
@@ -85,6 +92,8 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _graphicsDevice = graphicsDevice ?? throw new ArgumentNullException(nameof(graphicsDevice));
+        _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
+        _renderingCoordinator = renderingCoordinator ?? throw new ArgumentNullException(nameof(renderingCoordinator));
         _shaderManagerSystem = shaderManagerSystem;
         _gameSceneSystem = gameSceneSystem;
         _loadingSceneSystem = loadingSceneSystem;
@@ -137,9 +146,14 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
     ///     Creates a scene entity and adds it to the scene stack.
     /// </summary>
     /// <param name="sceneComponent">The scene component data.</param>
+    /// <param name="cameraEntity">Optional camera entity (required if CameraMode == SceneCamera).</param>
     /// <param name="additionalComponents">Additional components to add to the scene entity.</param>
     /// <returns>The created scene entity.</returns>
-    public Entity CreateScene(SceneComponent sceneComponent, params object[] additionalComponents)
+    public Entity CreateScene(
+        SceneComponent sceneComponent,
+        Entity? cameraEntity = null,
+        params object[] additionalComponents
+    )
     {
         if (string.IsNullOrEmpty(sceneComponent.SceneId))
             throw new ArgumentException(
@@ -169,33 +183,27 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
                 nameof(sceneComponent)
             );
 
-        // Validate CameraEntityId if SceneCamera mode is specified
+        // Validate and create relationship if SceneCamera mode is specified
         if (sceneComponent.CameraMode == SceneCameraMode.SceneCamera)
         {
-            if (!sceneComponent.CameraEntityId.HasValue)
+            // CameraEntity parameter is now required (not stored in component)
+            if (!cameraEntity.HasValue)
                 throw new ArgumentException(
-                    "CameraEntityId must be set when CameraMode is SceneCamera.",
-                    nameof(sceneComponent)
+                    "CameraEntity is required when CameraMode is SceneCamera.",
+                    nameof(cameraEntity)
                 );
 
-            // Verify the camera entity exists and has CameraComponent
-            // Query for the camera entity by ID
-            var cameraEntityId = sceneComponent.CameraEntityId.Value;
-            var cameraFound = false;
-
-            World.Query(
-                in _cameraQueryDescription,
-                (Entity entity, ref CameraComponent _) =>
-                {
-                    if (entity.Id == cameraEntityId)
-                        cameraFound = true;
-                }
-            );
-
-            if (!cameraFound)
+            // Verify camera entity exists and has CameraComponent
+            if (!World.IsAlive(cameraEntity.Value))
                 throw new ArgumentException(
-                    $"Camera entity {cameraEntityId} does not exist or does not have CameraComponent.",
-                    nameof(sceneComponent)
+                    $"Camera entity {cameraEntity.Value.Id} is not alive.",
+                    nameof(cameraEntity)
+                );
+
+            if (!World.Has<CameraComponent>(cameraEntity.Value))
+                throw new ArgumentException(
+                    $"Camera entity {cameraEntity.Value.Id} does not have CameraComponent.",
+                    nameof(cameraEntity)
                 );
         }
 
@@ -207,6 +215,36 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
         // Ensure component is stored correctly (defensive check)
         ref var storedSceneComponent = ref World.Get<SceneComponent>(sceneEntity);
         storedSceneComponent = sceneComponent;
+
+        // Create camera relationship if SceneCamera mode is specified
+        if (sceneComponent.CameraMode == SceneCameraMode.SceneCamera && cameraEntity.HasValue)
+        {
+            // Validate entities before relationship operation
+            if (!World.IsAlive(sceneEntity))
+                throw new InvalidOperationException($"Scene entity {sceneEntity.Id} is not alive.");
+
+            if (!World.IsAlive(cameraEntity.Value))
+                throw new InvalidOperationException($"Camera entity {cameraEntity.Value.Id} is not alive.");
+
+            // Create relationship (automatically cleaned up when scene or camera is destroyed)
+            try
+            {
+                World.AddRelationship(sceneEntity, cameraEntity.Value, new UsesCamera());
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Relationship addition failed - log and cleanup
+                // InvalidOperationException is thrown by Arch.Extended when relationship operations fail
+                _logger.Error(ex, "Failed to create camera relationship for scene {SceneId}", sceneEntity.Id);
+                throw;
+            }
+            catch (ArgumentException ex)
+            {
+                // Invalid entity or relationship type
+                _logger.Error(ex, "Invalid arguments for camera relationship: {Message}", ex.Message);
+                throw;
+            }
+        }
 
         // Add additional components if provided
         // Note: We handle scene type components specifically
@@ -712,20 +750,24 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
             if (!World.IsAlive(blockingScene))
                 continue;
 
+            // Additional validation: ensure scene entity has SceneComponent (sanity check)
+            if (!World.Has<SceneComponent>(blockingScene))
+                continue;
+
             try
             {
                 var relationships = World.GetRelationships<OwnsSceneEntity>(blockingScene);
-                if (relationships != null)
-                {
-                    foreach (var kvp in relationships)
-                    {
-                        var ownedEntity = kvp.Key;
-                        if (!World.IsAlive(ownedEntity))
-                            continue;
+                if (relationships == null)
+                    continue;
 
-                        if (ownedEntity.Id == entity.Id)
-                            return true;
-                    }
+                foreach (var kvp in relationships)
+                {
+                    var ownedEntity = kvp.Key;
+                    if (!World.IsAlive(ownedEntity))
+                        continue;
+
+                    if (ownedEntity.Id == entity.Id)
+                        return true;
                 }
             }
             catch (InvalidOperationException)
@@ -775,12 +817,51 @@ public class SceneSystem : BaseSystem<World, float>, IPrioritizedSystem, IDispos
                 if (!sceneComponent.IsActive)
                     return true; // Continue iterating
 
-                // Update shader state for this specific scene (critical timing fix)
-                // This ensures per-scene shaders are loaded before rendering
-                _shaderManagerSystem?.UpdateShaderState(sceneEntity);
+                // Get camera for scene (required for coordinator)
+                var camera = _cameraService.GetCameraForScene(sceneEntity);
 
-                // Find appropriate scene system and render
-                FindSceneSystem(sceneEntity)?.RenderScene(sceneEntity, gameTime);
+                // Prepare rendering state (coordinator is required, no fallback)
+                IRenderContext renderContext;
+                try
+                {
+                    renderContext = _renderingCoordinator.PrepareScene(sceneEntity, camera);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error(ex, "Failed to prepare rendering state for scene {SceneId}", sceneComponent.SceneId);
+                    return true; // Skip this scene if preparation fails, continue iterating
+                }
+
+                try
+                {
+                    // Update shader state before rendering
+                    // Note: Only update if scene entity is fully initialized (has SceneComponent)
+                    // This prevents AccessViolationException when querying relationships on newly created entities
+                    if (World.Has<SceneComponent>(sceneEntity))
+                    {
+                        _shaderManagerSystem?.UpdateShaderState(sceneEntity);
+                    }
+
+                    // Render scene content (systems render into shared SpriteBatch via coordinator)
+                    FindSceneSystem(sceneEntity)?.RenderScene(sceneEntity, gameTime, renderContext);
+
+                    // Finish rendering (applies post-processing, restores state)
+                    _renderingCoordinator.FinishScene(renderContext);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error(ex, "Error rendering scene {SceneId}", sceneComponent.SceneId);
+                    // Ensure state is restored even on error
+                    try
+                    {
+                        _renderingCoordinator.FinishScene(renderContext);
+                    }
+                    catch (Exception finishEx)
+                    {
+                        _logger.Error(finishEx, "Failed to finish rendering state for scene {SceneId}", sceneComponent.SceneId);
+                    }
+                    throw;
+                }
 
                 // Check BlocksDraw - if scene blocks draw, stop iterating
                 // Note: We iterate in reverse (lowest to highest priority), so if a scene blocks draw,
