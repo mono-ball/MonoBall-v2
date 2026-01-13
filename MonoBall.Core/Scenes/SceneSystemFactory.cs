@@ -6,6 +6,7 @@ using MonoBall.Core.ECS.Systems;
 using MonoBall.Core.Logging;
 using MonoBall.Core.Scenes.Systems;
 using MonoBall.Core.TextEffects;
+using MonoBall.Core.UI.Systems;
 
 namespace MonoBall.Core.Scenes;
 
@@ -34,7 +35,8 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
                 mapPopupSceneSystem: null,
                 messageBoxSceneSystem: null,
                 debugMenuSceneSystem: null,
-                debugOverlayService: null
+                debugOverlayService: null,
+                uiRenderSystem: null
             );
         }
 
@@ -97,7 +99,19 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
         // Create TextEffectCalculator for animated text effects
         var textEffectCalculator = new TextEffectCalculator();
 
-        // Create MessageBoxSceneSystem (needs ISceneManager, which SceneSystem implements)
+        // Create UIRenderSystem (needed by MessageBoxSceneSystem for rendering UI entities)
+        var uiRenderSystem = new UIRenderSystem(
+            context.World,
+            context.GraphicsDevice,
+            context.SpriteBatch,
+            context.ResourceManager,
+            context.CameraService,
+            context.ConstantsService,
+            context.ModManager,
+            LoggerFactory.CreateLogger<UIRenderSystem>()
+        );
+
+        // Create MessageBoxSceneSystem (needs ISceneManager and UIRenderSystem)
         var messageBoxSceneSystem = new MessageBoxSceneSystem(
             context.World,
             sceneSystem,
@@ -110,7 +124,8 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
             LoggerFactory.CreateLogger<MessageBoxSceneSystem>(),
             context.ConstantsService,
             textEffectCalculator,
-            context.ResourceManager
+            context.ResourceManager,
+            uiRenderSystem
         );
 
         // Register MessageBoxSceneSystem with SceneSystem
@@ -146,6 +161,7 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
         updateSystems.Add(debugMenuSceneSystem);
 
         // Return the bundle with all created systems
+        // Note: uiRenderSystem was created earlier and passed to MessageBoxSceneSystem
         return new SceneSystems(
             sceneSystem: sceneSystem,
             gameSceneSystem: gameSceneSystem,
@@ -154,7 +170,8 @@ public sealed class SceneSystemFactory : ISceneSystemFactory
             mapPopupSceneSystem: mapPopupSceneSystem,
             messageBoxSceneSystem: messageBoxSceneSystem,
             debugMenuSceneSystem: debugMenuSceneSystem,
-            debugOverlayService: debugOverlayService
+            debugOverlayService: debugOverlayService,
+            uiRenderSystem: uiRenderSystem
         );
     }
 }

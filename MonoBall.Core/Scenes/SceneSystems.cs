@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using MonoBall.Core.Diagnostics.Services;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.Scenes.Systems;
+using MonoBall.Core.UI.Systems;
 
 namespace MonoBall.Core.Scenes;
 
@@ -27,7 +28,8 @@ public sealed class SceneSystems : ISceneSystems
         ISceneSystem? mapPopupSceneSystem,
         ISceneSystem? messageBoxSceneSystem,
         ISceneSystem? debugMenuSceneSystem,
-        IDebugOverlayService? debugOverlayService
+        IDebugOverlayService? debugOverlayService,
+        UIRenderSystem? uiRenderSystem = null
     )
     {
         _sceneSystem = sceneSystem;
@@ -38,6 +40,7 @@ public sealed class SceneSystems : ISceneSystems
         MessageBoxSceneSystem = messageBoxSceneSystem;
         DebugMenuSceneSystem = debugMenuSceneSystem;
         DebugOverlayService = debugOverlayService;
+        UIRenderSystem = uiRenderSystem;
     }
 
     /// <inheritdoc />
@@ -68,6 +71,11 @@ public sealed class SceneSystems : ISceneSystems
 
     /// <inheritdoc />
     public IDebugOverlayService? DebugOverlayService { get; }
+
+    /// <summary>
+    ///     Gets the UI render system for rendering UI entities.
+    /// </summary>
+    public UIRenderSystem? UIRenderSystem { get; }
 
     /// <inheritdoc />
     public bool IsAvailable => _sceneSystem != null;
@@ -121,6 +129,9 @@ public sealed class SceneSystems : ISceneSystems
 
         // Dispose debug overlay service
         DebugOverlayService?.Dispose();
+
+        // Dispose UI render system
+        UIRenderSystem?.Dispose();
 
         // Note: Individual scene systems are owned by SceneSystem and disposed by it
         // We don't dispose them here to avoid double-disposal

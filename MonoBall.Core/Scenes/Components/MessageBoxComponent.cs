@@ -229,10 +229,7 @@ public struct MessageBoxComponent
     // ============================================
     // Down Arrow Animation State
     // ============================================
-
-    /// <summary>
-    ///     Elapsed time for down arrow animation (seconds).
-    ///     Used to cycle through the 6-frame animation from pokeemerald-expansion.
-    /// </summary>
-    public float DownArrowAnimationTime { get; set; }
+    // Note: DownArrowAnimationTime removed in Phase 2
+    // Down arrow is now an entity with SpriteComponent + SpriteAnimationComponent
+    // Animation is handled by SpriteAnimationSystem
 }

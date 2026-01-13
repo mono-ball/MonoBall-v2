@@ -7,12 +7,13 @@ using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Systems.Animation;
 using MonoBall.Core.Maps;
 using MonoBall.Core.Resources;
+using MonoBall.Core.UI.Components;
 using Serilog;
 
 namespace MonoBall.Core.ECS.Systems;
 
 /// <summary>
-///     System responsible for updating animation timers and advancing frames for sprite animations (NPCs and Players).
+///     System responsible for updating animation timers and advancing frames for all animated sprites (NPCs, Players, UI sprites, etc.).
 /// </summary>
 public class SpriteAnimationSystem
     : BaseSystem<World, float>,
@@ -25,8 +26,7 @@ public class SpriteAnimationSystem
     private readonly List<Entity> _keysToRemove = new();
 
     private readonly ILogger _logger;
-    private readonly QueryDescription _npcQuery;
-    private readonly QueryDescription _playerQuery;
+    private readonly QueryDescription _animatedSpriteQuery;
 
     // Track previous animation names to detect changes
     private readonly Dictionary<Entity, string> _previousAnimationNames = new();
@@ -49,19 +49,10 @@ public class SpriteAnimationSystem
             resourceManager ?? throw new ArgumentNullException(nameof(resourceManager));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-        // Separate queries for NPCs and Players (avoid World.Has<> checks in hot path)
-        // NPC query includes ActiveMapEntity tag to only process NPCs in active maps
-        // Both queries require SpriteComponent (sprite data) and SpriteAnimationComponent (animation state)
-        _npcQuery = new QueryDescription().WithAll<
-            NpcComponent,
-            SpriteComponent,
-            SpriteAnimationComponent,
-            ActiveMapEntity
-        >();
-
-        _playerQuery = new QueryDescription().WithAll<
-            PlayerComponent,
-            SpriteSheetComponent,
+        // Generic query for all animated sprites (NPCs, Players, UI sprites, etc.)
+        // Only requires SpriteComponent (sprite data) and SpriteAnimationComponent (animation state)
+        // This follows ECS principles - system doesn't need to know about specific entity types
+        _animatedSpriteQuery = new QueryDescription().WithAll<
             SpriteComponent,
             SpriteAnimationComponent
         >();
@@ -89,7 +80,7 @@ public class SpriteAnimationSystem
     public int Priority => SystemPriority.SpriteAnimation;
 
     /// <summary>
-    ///     Updates animation timers and advances frames for all sprites (NPCs and Players).
+    ///     Updates animation timers and advances frames for all animated sprites (NPCs, Players, UI sprites, etc.).
     /// </summary>
     /// <param name="deltaTime">The elapsed time since last update in seconds.</param>
     public override void Update(in float deltaTime)
@@ -100,54 +91,37 @@ public class SpriteAnimationSystem
         _entitiesThisFrame.Clear();
         _keysToRemove.Clear();
 
-        // Update NPC animations
+        // Update all animated sprites (NPCs, Players, UI sprites, etc.)
         World.Query(
-            in _npcQuery,
+            in _animatedSpriteQuery,
             (
                 Entity entity,
-                ref NpcComponent npc,
-                ref SpriteComponent sprite,
-                ref SpriteAnimationComponent anim
-            ) =>
-            {
-                _entitiesThisFrame.Add(entity);
-                UpdateEntityAnimation(entity, sprite.SpriteId, ref sprite, ref anim, dt);
-            }
-        );
-
-        // Update Player animations
-        World.Query(
-            in _playerQuery,
-            (
-                Entity entity,
-                ref PlayerComponent player,
-                ref SpriteSheetComponent spriteSheet,
                 ref SpriteComponent sprite,
                 ref SpriteAnimationComponent anim
             ) =>
             {
                 _entitiesThisFrame.Add(entity);
 
-                // Sync SpriteComponent.SpriteId with SpriteSheetComponent.CurrentSpriteSheetId for players
+                // For players, sync SpriteComponent.SpriteId with SpriteSheetComponent.CurrentSpriteSheetId
                 // This ensures they stay in sync if SpriteSheetSystem updates SpriteSheetComponent
-                if (sprite.SpriteId != spriteSheet.CurrentSpriteSheetId)
+                string spriteId = sprite.SpriteId;
+                if (World.Has<SpriteSheetComponent>(entity))
                 {
-                    _logger.Warning(
-                        "SpriteAnimationSystem.Update: SpriteComponent.SpriteId ({SpriteId}) != SpriteSheetComponent.CurrentSpriteSheetId ({SheetId}) for entity {EntityId}. Syncing.",
-                        sprite.SpriteId,
-                        spriteSheet.CurrentSpriteSheetId,
-                        entity.Id
-                    );
-                    sprite.SpriteId = spriteSheet.CurrentSpriteSheetId;
+                    ref var spriteSheet = ref World.Get<SpriteSheetComponent>(entity);
+                    if (sprite.SpriteId != spriteSheet.CurrentSpriteSheetId)
+                    {
+                        _logger.Warning(
+                            "SpriteAnimationSystem.Update: SpriteComponent.SpriteId ({SpriteId}) != SpriteSheetComponent.CurrentSpriteSheetId ({SheetId}) for entity {EntityId}. Syncing.",
+                            sprite.SpriteId,
+                            spriteSheet.CurrentSpriteSheetId,
+                            entity.Id
+                        );
+                        sprite.SpriteId = spriteSheet.CurrentSpriteSheetId;
+                    }
+                    spriteId = spriteSheet.CurrentSpriteSheetId;
                 }
 
-                UpdateEntityAnimation(
-                    entity,
-                    spriteSheet.CurrentSpriteSheetId,
-                    ref sprite,
-                    ref anim,
-                    dt
-                );
+                UpdateEntityAnimation(entity, spriteId, ref sprite, ref anim, dt);
             }
         );
 

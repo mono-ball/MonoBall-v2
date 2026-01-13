@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Arch.Core;
+using Arch.Relationships;
 using Arch.System;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
@@ -18,8 +19,12 @@ using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
+using MonoBall.Core.Scenes;
 using MonoBall.Core.Scenes.Components;
 using MonoBall.Core.TextEffects;
+using MonoBall.Core.UI.Components;
+using MonoBall.Core.UI.Relationships;
+using MonoBall.Core.UI.Systems;
 using MonoBall.Core.UI.Windows.Backgrounds;
 using MonoBall.Core.UI.Windows.Borders;
 using MonoBall.Core.UI.Windows.Content;
@@ -72,6 +77,7 @@ public class MessageBoxSceneSystem
     private readonly float _scrollSpeedSlowPixelsPerSecond;
     private readonly SpriteBatch _spriteBatch;
     private readonly ITextEffectCalculator _textEffectCalculator;
+    private readonly UIRenderSystem _uiRenderSystem;
     private readonly int _textPaddingX;
     private readonly float _textSpeedFastSeconds;
     private readonly float _textSpeedInstantSeconds;
@@ -82,14 +88,15 @@ public class MessageBoxSceneSystem
     // Track active message box scene entity (enforce single message box)
     private Entity? _activeMessageBoxSceneEntity;
 
+    // Track UI entities (for updating in Update method)
+    private Entity? _windowEntity;
+    private Entity? _downArrowEntity;
+
     private readonly List<IDisposable> _subscriptions = new();
     private bool _disposed;
 
     // Texture cache for message box tilesheet
     private Texture2D? _messageBoxTexture;
-
-    // Texture cache for down arrow sprite (from pokeemerald-expansion)
-    private Texture2D? _downArrowTexture;
 
     /// <summary>
     ///     Initializes a new instance of the MessageBoxSceneSystem.
@@ -106,6 +113,7 @@ public class MessageBoxSceneSystem
     /// <param name="constants">The constants service for accessing game constants. Required.</param>
     /// <param name="textEffectCalculator">The text effect calculator for animated effects. Required.</param>
     /// <param name="resourceManager">The resource manager for loading textures and fonts. Required.</param>
+    /// <param name="uiRenderSystem">The UI render system for rendering UI entities. Required.</param>
     public MessageBoxSceneSystem(
         World world,
         ISceneManager sceneManager,
@@ -118,7 +126,8 @@ public class MessageBoxSceneSystem
         ILogger logger,
         IConstantsService constants,
         ITextEffectCalculator textEffectCalculator,
-        IResourceManager resourceManager
+        IResourceManager resourceManager,
+        UIRenderSystem uiRenderSystem
     )
         : base(world)
     {
@@ -137,6 +146,7 @@ public class MessageBoxSceneSystem
         _constants = constants ?? throw new ArgumentNullException(nameof(constants));
         _textEffectCalculator =
             textEffectCalculator ?? throw new ArgumentNullException(nameof(textEffectCalculator));
+        _uiRenderSystem = uiRenderSystem ?? throw new ArgumentNullException(nameof(uiRenderSystem));
 
         // Cache constants used in Update/Render loops (performance optimization)
         _scenePriorityOffset = _constants.Get<int>("ScenePriorityOffset");
@@ -230,7 +240,14 @@ public class MessageBoxSceneSystem
         if (!msgBox.IsVisible || msgBox.State == MessageBoxRenderState.Hidden)
             return;
 
-        RenderMessageBox(sceneEntity, ref msgBox, gameTime);
+        // Phase 3: Delegate UI rendering to UIRenderSystem
+        // Render UI entities (window, border, background, down arrow)
+        _uiRenderSystem.RenderScene(sceneEntity, gameTime);
+
+        // TODO: Phase 3 - Text rendering still uses legacy MessageBoxContentRenderer
+        // This will be refactored to use UITextComponent in a future phase
+        // For now, render text using existing renderer (extracted from RenderMessageBox)
+        RenderMessageBoxText(sceneEntity, ref msgBox, gameTime);
     }
 
     /// <summary>
@@ -315,6 +332,9 @@ public class MessageBoxSceneSystem
                 // Handle input FIRST for speed-up (before state processing)
                 // This prevents race conditions where text finishes and closes in same frame
                 HandleInput(sceneEntity, ref msgBox);
+
+                // Update down arrow position and visibility (Phase 2: down arrow is now an entity)
+                UpdateDownArrowPosition(sceneEntity, ref msgBox);
 
                 // Handle different states
                 switch (msgBox.State)
@@ -522,18 +542,334 @@ public class MessageBoxSceneSystem
                 CurrentEffectId = string.Empty,
                 HasManualColor = false,
                 HasManualShadow = false,
-                LastPerCharacterSoundTime = 0f,
+                LastPerCharacterSoundTime = 0f
+                // Note: DownArrowAnimationTime removed - animation handled by SpriteAnimationSystem via SpriteAnimationComponent
             }
         );
 
         // Track active scene entity
         _activeMessageBoxSceneEntity = sceneEntity;
 
+        // Create UI entities (Phase 3: window, border, background, text)
+        // Note: Text entity creation is deferred - message box text rendering is complex
+        // and will be refactored in a future phase
+        CreateMessageBoxUIEntities(sceneEntity, fontId, initialTextColor, initialShadowColor);
+
         _logger.Debug(
             "Created message box scene {SceneId} with text: {Text}",
             sceneEntity.Id,
             evt.Text
         );
+    }
+
+    /// <summary>
+    ///     Creates UI entities for the message box (window, border, background, down arrow).
+    ///     Phase 3: Message box UI is now composed of ECS entities.
+    /// </summary>
+    /// <param name="sceneEntity">The scene entity to link UI entities to.</param>
+    /// <param name="fontId">The font ID for text rendering.</param>
+    /// <param name="initialTextColor">The initial text color.</param>
+    /// <param name="initialShadowColor">The initial shadow color.</param>
+    private void CreateMessageBoxUIEntities(
+        Entity sceneEntity,
+        string fontId,
+        Color initialTextColor,
+        Color initialShadowColor
+    )
+    {
+        // Get camera for position calculation
+        var camera = _cameraService.GetActiveCamera();
+        if (!camera.HasValue)
+        {
+            _logger.Warning(
+                "Cannot create message box UI entities: no active camera available"
+            );
+            return;
+        }
+
+        // Calculate viewport scale and message box position (matching RenderMessageBox logic)
+        var currentScale = CameraTransformUtility.GetViewportScale(
+            camera.Value,
+            _gbaReferenceWidth
+        );
+
+        var tilesheet = ValidateAndGetTilesheet();
+        var tileSize = tilesheet.TileWidth * currentScale;
+
+        var viewportWidth = _graphicsDevice.Viewport.Width;
+        var viewportHeight = _graphicsDevice.Viewport.Height;
+        var gbaReferenceHeight = _gbaReferenceHeight;
+
+        var gbaInteriorX = _messageBoxInteriorTileX * tilesheet.TileWidth;
+        var gbaInteriorY = _messageBoxInteriorTileY * tilesheet.TileHeight;
+
+        // Calculate window position in screen space (scaled by viewport)
+        // UI overlays like message boxes are in screen space, not world space
+        var scaleX = (float)viewportWidth / _gbaReferenceWidth;
+        var scaleY = (float)viewportHeight / gbaReferenceHeight;
+        var msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
+        var msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
+
+        // Create window entity
+        _windowEntity = World.Create(
+            new WindowComponent
+            {
+                BorderId = _messageBoxTilesheetId,
+                BackgroundId = null, // Message box uses tile sheet background
+                InteriorWidth = _messageBoxInteriorWidth, // Store at 1x scale (GBA reference)
+                InteriorHeight = _messageBoxInteriorHeight // Store at 1x scale (GBA reference)
+            },
+            new UIElementComponent
+            {
+                ElementType = UIElementType.Window,
+                ZOrder = 0,
+                IsInteractive = false
+            },
+            new PositionComponent
+            {
+                Position = new Vector2(msgBoxInteriorX, msgBoxInteriorY) // Screen space (scaled by viewport)
+            },
+            new RenderableComponent
+            {
+                IsVisible = true,
+                Opacity = 1.0f
+            }
+        );
+
+        // Link window to scene
+        World.AddRelationship(sceneEntity, _windowEntity.Value, new OwnsUIElement());
+
+        // Create border entity (child of window)
+        var borderEntity = World.Create(
+            new UIElementComponent
+            {
+                ElementType = UIElementType.Border,
+                ZOrder = 1 // Renders before background
+            },
+            new RenderableComponent
+            {
+                IsVisible = true,
+                Opacity = 1.0f
+            }
+        );
+
+        World.AddRelationship(_windowEntity.Value, borderEntity, new ContainsUIElement());
+
+        // Create background entity (child of window)
+        var backgroundEntity = World.Create(
+            new UIElementComponent
+            {
+                ElementType = UIElementType.Background,
+                ZOrder = 2
+            },
+            new RenderableComponent
+            {
+                IsVisible = true,
+                Opacity = 1.0f
+            }
+        );
+
+        World.AddRelationship(_windowEntity.Value, backgroundEntity, new ContainsUIElement());
+
+        // Create down arrow sprite entity (child of window, Phase 2)
+        CreateDownArrowEntity(_windowEntity.Value);
+
+        _logger.Debug(
+            "Created message box UI entities: window {WindowId}, border {BorderId}, background {BackgroundId}, downArrow {DownArrowId}",
+            _windowEntity.Value.Id,
+            borderEntity.Id,
+            backgroundEntity.Id,
+            _downArrowEntity?.Id ?? -1
+        );
+    }
+
+    /// <summary>
+    ///     Creates the down arrow sprite entity with SpriteComponent and SpriteAnimationComponent.
+    ///     Phase 2: Down arrow is now a proper ECS entity, animated by SpriteAnimationSystem.
+    /// </summary>
+    /// <param name="parentEntity">The parent entity (window or scene) to link the down arrow to.</param>
+    private void CreateDownArrowEntity(Entity parentEntity)
+    {
+        // Get sprite configuration from constants
+        var spriteId = _constants.GetString("DownArrowSpriteId");
+        var animationName = _constants.GetString("DownArrowAnimation");
+
+        // Create down arrow sprite entity with ECS components
+        _downArrowEntity = World.Create(
+            new SpriteComponent
+            {
+                SpriteId = spriteId,
+                FrameIndex = 0 // Initial frame, updated by SpriteAnimationSystem
+            },
+            new SpriteAnimationComponent
+            {
+                CurrentAnimationName = animationName,
+                CurrentAnimationFrameIndex = 0,
+                ElapsedTime = 0f,
+                IsPlaying = true,
+                IsComplete = false,
+                PlayOnce = false
+            },
+            new PositionComponent
+            {
+                Position = Vector2.Zero // Initial position, updated in Update() based on text cursor
+            },
+            new RenderableComponent
+            {
+                IsVisible = false, // Initially hidden, shown when IsWaitingForInput is true
+                Opacity = 1.0f
+            },
+            new UIElementComponent
+            {
+                ElementType = UIElementType.Sprite,
+                ZOrder = 20, // Renders on top of text
+                IsInteractive = false
+            }
+        );
+
+        // Link down arrow to parent entity (window in Phase 3, scene in Phase 2)
+        World.AddRelationship(parentEntity, _downArrowEntity.Value, new ContainsUIElement());
+
+        _logger.Debug(
+            "Created down arrow sprite entity {EntityId} for parent {ParentId}",
+            _downArrowEntity.Value.Id,
+            parentEntity.Id
+        );
+    }
+
+    /// <summary>
+    ///     Updates the down arrow entity's position and visibility based on message box state.
+    ///     Phase 2: Down arrow is now an entity, so we update its PositionComponent and RenderableComponent.
+    /// </summary>
+    /// <param name="sceneEntity">The scene entity.</param>
+    /// <param name="msgBox">The message box component.</param>
+    private void UpdateDownArrowPosition(Entity sceneEntity, ref MessageBoxComponent msgBox)
+    {
+        // Validate scene entity is still alive (may be destroyed during scene cleanup)
+        if (!World.IsAlive(sceneEntity))
+            return;
+
+        if (!_downArrowEntity.HasValue || !World.IsAlive(_downArrowEntity.Value))
+            return;
+
+        // Update visibility based on IsWaitingForInput
+        if (World.Has<RenderableComponent>(_downArrowEntity.Value))
+        {
+            ref var render = ref World.Get<RenderableComponent>(_downArrowEntity.Value);
+            render.IsVisible = msgBox.IsWaitingForInput;
+        }
+
+        // Only update position if visible (optimization)
+        if (!msgBox.IsWaitingForInput)
+            return;
+
+        // Validate scene component exists before accessing
+        if (!World.Has<SceneComponent>(sceneEntity))
+            return;
+
+        // Get camera for scale calculation using helper utility
+        if (!World.Has<SceneComponent>(sceneEntity))
+            return;
+
+        ref var scene = ref World.Get<SceneComponent>(sceneEntity);
+        var camera = SceneCameraHelper.GetCameraForScene(World, ref scene, _cameraService, _cameraQuery);
+
+        if (!camera.HasValue)
+            return; // Can't calculate position without camera
+
+        // Calculate viewport scale
+        var gbaReferenceWidth = _constants.Get<int>("ReferenceWidth");
+        var currentScale = CameraTransformUtility.GetViewportScale(
+            camera.Value,
+            gbaReferenceWidth
+        );
+
+        // Calculate message box interior position in screen space (scaled by viewport)
+        var tilesheet = ValidateAndGetTilesheet();
+        var viewportWidth = _graphicsDevice.Viewport.Width;
+        var viewportHeight = _graphicsDevice.Viewport.Height;
+        var gbaReferenceHeight = _gbaReferenceHeight;
+
+        var gbaInteriorX = _messageBoxInteriorTileX * tilesheet.TileWidth;
+        var gbaInteriorY = _messageBoxInteriorTileY * tilesheet.TileHeight;
+
+        var scaleX = (float)viewportWidth / _gbaReferenceWidth;
+        var scaleY = (float)viewportHeight / gbaReferenceHeight;
+        var msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
+        var msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
+
+        // Calculate text cursor position in screen space (scaled by viewport)
+        var textPaddingX = _textPaddingX * currentScale;
+        var textPaddingY = _constants.Get<int>("TextPaddingTop") * currentScale;
+        var textStartX = msgBoxInteriorX + textPaddingX;
+        var textStartY = msgBoxInteriorY + textPaddingY;
+
+        // Font size and line spacing scaled to viewport
+        var scaledFontSize = _defaultFontSize * currentScale;
+        var lineSpacing = msgBox.LineSpacing * currentScale + scaledFontSize;
+        var scrollOffsetPixels = (int)(msgBox.ScrollOffset * currentScale);
+
+        // Find which line the cursor is on and calculate position in screen space
+        int arrowX = textStartX;
+        int arrowY = textStartY - scrollOffsetPixels;
+
+        if (msgBox.WrappedLines != null && msgBox.WrappedLines.Count > 0)
+        {
+            var lineIndex = 0;
+            WrappedLine? currentLine = null;
+            var linesFromPageStart = 0;
+
+            foreach (var line in msgBox.WrappedLines)
+            {
+                if (lineIndex < msgBox.PageStartLine)
+                {
+                    lineIndex++;
+                    continue;
+                }
+
+                if (msgBox.CurrentCharIndex <= line.EndIndex)
+                {
+                    currentLine = line;
+                    break;
+                }
+
+                linesFromPageStart++;
+                lineIndex++;
+            }
+
+            if (currentLine.HasValue)
+            {
+                var line = currentLine.Value;
+                arrowY = textStartY - scrollOffsetPixels + (linesFromPageStart * (int)lineSpacing);
+
+                var charsOnLine = msgBox.CurrentCharIndex - line.StartIndex;
+                charsOnLine = Math.Min(charsOnLine, line.Text.Length);
+
+                if (charsOnLine > 0 && !string.IsNullOrEmpty(line.Text))
+                {
+                    try
+                    {
+                        // Measure text at scaled font size (screen space)
+                        var fontSystem = _resourceManager.LoadFont(msgBox.FontId);
+                        var font = fontSystem.GetFont(scaledFontSize);
+                        var textToMeasure = line.Text.Substring(0, charsOnLine);
+                        var textBounds = font.MeasureString(textToMeasure);
+                        arrowX = textStartX + (int)textBounds.X;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warning(ex, "Failed to measure text for arrow positioning");
+                    }
+                }
+            }
+        }
+
+        // Update down arrow entity position (in screen space, already scaled by viewport)
+        if (World.Has<PositionComponent>(_downArrowEntity.Value))
+        {
+            ref var pos = ref World.Get<PositionComponent>(_downArrowEntity.Value);
+            pos.Position = new Vector2(arrowX, arrowY);
+        }
     }
 
     /// <summary>
@@ -1546,250 +1882,9 @@ public class MessageBoxSceneSystem
         return wrappedLines;
     }
 
-    /// <summary>
-    ///     Renders the message box frame and text.
-    /// </summary>
-    /// <param name="sceneEntity">The scene entity.</param>
-    /// <param name="msgBox">The message box component.</param>
-    /// <param name="gameTime">The game time.</param>
-    private void RenderMessageBox(
-        Entity sceneEntity,
-        ref MessageBoxComponent msgBox,
-        GameTime gameTime
-    )
-    {
-        // Get scene component for camera mode
-        if (!World.Has<SceneComponent>(sceneEntity))
-            return;
-
-        ref var scene = ref World.Get<SceneComponent>(sceneEntity);
-
-        // Get camera based on CameraMode
-        CameraComponent? camera = null;
-        switch (scene.CameraMode)
-        {
-            case SceneCameraMode.GameCamera:
-                camera = _cameraService.GetActiveCamera();
-                break;
-
-            case SceneCameraMode.SceneCamera:
-                if (scene.CameraEntityId.HasValue)
-                {
-                    var cameraEntityId = scene.CameraEntityId.Value;
-                    var foundCamera = false;
-                    World.Query(
-                        in _cameraQuery,
-                        (Entity entity, ref CameraComponent cam) =>
-                        {
-                            if (entity.Id == cameraEntityId)
-                            {
-                                camera = cam;
-                                foundCamera = true;
-                            }
-                        }
-                    );
-                    if (!foundCamera)
-                    {
-                        _logger.Warning(
-                            "MessageBoxScene '{SceneId}' specified SceneCamera mode but camera entity {CameraEntityId} is not found",
-                            scene.SceneId,
-                            cameraEntityId
-                        );
-                        return;
-                    }
-                }
-                else
-                {
-                    _logger.Warning(
-                        "MessageBoxScene '{SceneId}' specified SceneCamera mode but CameraEntityId is null",
-                        scene.SceneId
-                    );
-                    return;
-                }
-
-                break;
-
-            case SceneCameraMode.ScreenCamera:
-                // ScreenCamera not supported for message box (needs viewport for scaling)
-                _logger.Warning(
-                    "MessageBoxScene '{SceneId}' requires a camera for viewport. Use GameCamera or SceneCamera mode.",
-                    scene.SceneId
-                );
-                return;
-        }
-
-        if (!camera.HasValue)
-        {
-            _logger.Warning(
-                "MessageBoxScene '{SceneId}' requires camera but none was found. Scene will not render.",
-                scene.SceneId
-            );
-            return;
-        }
-
-        // Save original viewport
-        var savedViewport = _graphicsDevice.Viewport;
-
-        try
-        {
-            // Set viewport to camera's virtual viewport (if available) or regular viewport
-            if (camera.Value.VirtualViewport != Rectangle.Empty)
-                _graphicsDevice.Viewport = new Viewport(camera.Value.VirtualViewport);
-
-            // Calculate viewport scale factor
-            var currentScale = CameraTransformUtility.GetViewportScale(
-                camera.Value,
-                _gbaReferenceWidth
-            );
-
-            // Render in screen space (no camera transform)
-            _spriteBatch.Begin(
-                SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
-                SamplerState.PointClamp,
-                DepthStencilState.None,
-                RasterizerState.CullCounterClockwise,
-                null,
-                Matrix.Identity // Screen space - no camera transform
-            );
-
-            // Load tilesheet texture (cached)
-            var tilesheetTexture = LoadMessageBoxTexture();
-            if (tilesheetTexture == null)
-            {
-                _logger.Warning(
-                    "Failed to load message box tilesheet texture. Message box will not render."
-                );
-                return;
-            }
-
-            // Get tilesheet definition for tile dimensions
-            // Use PopupOutlineDefinition as it has Tiles array with X, Y, Width, Height
-            PopupOutlineDefinition tilesheetDef;
-            try
-            {
-                tilesheetDef = ValidateAndGetTilesheet();
-            }
-            catch (InvalidOperationException ex)
-            {
-                _logger.Warning(
-                    ex,
-                    "Message box tilesheet definition not found: {TilesheetId}",
-                    _messageBoxTilesheetId
-                );
-                return;
-            }
-
-            // Calculate message box dimensions and position (matching pokeemerald-expansion exactly)
-            // Window template: tilemapLeft=2, tilemapTop=15, width=27, height=4
-            // GBA screen: 240x160 pixels, tiles are 8x8
-            var tileSize = tilesheetDef.TileWidth * currentScale;
-            var msgBoxInteriorWidth = _messageBoxInteriorWidth * currentScale;
-            var msgBoxInteriorHeight = _messageBoxInteriorHeight * currentScale;
-
-            // Position based on GBA tile coordinates, scaled to viewport
-            // tilemapLeft=2 means 2 tiles = 16 pixels from left (GBA reference)
-            // tilemapTop=15 means 15 tiles = 120 pixels from top (GBA reference)
-            // Scale these positions to match the current viewport
-            var viewportWidth = _graphicsDevice.Viewport.Width;
-            var viewportHeight = _graphicsDevice.Viewport.Height;
-            var gbaReferenceWidth = _gbaReferenceWidth;
-            var gbaReferenceHeight = _gbaReferenceHeight;
-
-            // Calculate position in GBA reference space, then scale
-            var gbaInteriorX = _messageBoxInteriorTileX * tilesheetDef.TileWidth;
-            var gbaInteriorY = _messageBoxInteriorTileY * tilesheetDef.TileHeight;
-
-            // Scale to viewport (maintain aspect ratio)
-            var scaleX = (float)viewportWidth / gbaReferenceWidth;
-            var scaleY = (float)viewportHeight / gbaReferenceHeight;
-            var msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
-            var msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
-
-            // Calculate scaled font size
-            var scaledFontSize = _constants.Get<int>("DefaultFontSize") * currentScale;
-
-            // Create renderers
-            var borderRenderer = new MessageBoxDialogueFrameBorderRenderer(
-                tilesheetTexture,
-                tilesheetDef,
-                tileSize,
-                _constants,
-                _logger
-            );
-
-            var backgroundRenderer = new TileSheetBackgroundRenderer(
-                tilesheetTexture,
-                tilesheetDef,
-                tileSize,
-                0, // Background tile index
-                _constants
-            );
-
-            var contentRenderer = new MessageBoxContentRenderer(
-                _resourceManager,
-                scaledFontSize,
-                currentScale,
-                _constants,
-                _logger,
-                _textEffectCalculator,
-                _modManager
-            );
-
-            // Render background
-            if (backgroundRenderer != null)
-                backgroundRenderer.RenderBackground(
-                    _spriteBatch,
-                    msgBoxInteriorX,
-                    msgBoxInteriorY,
-                    msgBoxInteriorWidth,
-                    msgBoxInteriorHeight
-                );
-
-            // Render border around interior
-            if (borderRenderer != null)
-                borderRenderer.RenderBorder(
-                    _spriteBatch,
-                    msgBoxInteriorX,
-                    msgBoxInteriorY,
-                    msgBoxInteriorWidth,
-                    msgBoxInteriorHeight
-                );
-
-            // Render content (message box content renderer uses specialized interface)
-            contentRenderer.RenderContent(
-                _spriteBatch,
-                ref msgBox,
-                msgBoxInteriorX,
-                msgBoxInteriorY,
-                msgBoxInteriorWidth,
-                msgBoxInteriorHeight
-            );
-
-            // Render down arrow indicator if waiting for input
-            // Uses pokeemerald-expansion DownArrow sprite with proper animation
-            // Positioned at text cursor location (like pokeemerald-expansion)
-            if (msgBox.IsWaitingForInput)
-                RenderDownArrow(
-                    tilesheetDef,
-                    msgBoxInteriorX,
-                    msgBoxInteriorY,
-                    msgBoxInteriorWidth,
-                    msgBoxInteriorHeight,
-                    tileSize,
-                    gameTime,
-                    ref msgBox,
-                    currentScale
-                );
-
-            _spriteBatch.End();
-        }
-        finally
-        {
-            // Always restore viewport, even if rendering fails
-            _graphicsDevice.Viewport = savedViewport;
-        }
-    }
+    // Note: RenderMessageBox() method removed in Phase 3
+    // Window, border, background are now entities rendered by UIRenderSystem
+    // Text rendering extracted to RenderMessageBoxText() (will be refactored to UITextComponent in future)
 
     /// <summary>
     ///     Loads the message box tilesheet texture, caching it for future use.
@@ -1838,191 +1933,114 @@ public class MessageBoxSceneSystem
     }
 
     /// <summary>
-    ///     Renders the down arrow indicator when waiting for input.
-    ///     Uses the sprite and animation specified in messagebox constants.
-    ///     Positioned at text cursor location (like pokeemerald-expansion's TextPrinterDrawDownArrow).
+    ///     Renders message box text content using legacy MessageBoxContentRenderer.
+    ///     Phase 3: Text rendering is extracted from RenderMessageBox().
+    ///     TODO: Future phase will refactor to use UITextComponent.
     /// </summary>
-    /// <remarks>
-    ///     Note: Animation time is updated here (in Render) rather than in Update() because
-    ///     this is a visual animation that should match the render frame rate, not the update rate.
-    ///     This ensures the animation speed matches the visual presentation, especially when
-    ///     update and render frequencies differ (e.g., frame skipping, vsync).
-    /// </remarks>
-    /// <param name="tilesheetDef">The tilesheet definition (for positioning calculations).</param>
-    /// <param name="msgBoxX">The X position of the message box interior.</param>
-    /// <param name="msgBoxY">The Y position of the message box interior.</param>
-    /// <param name="msgBoxWidth">The width of the message box interior.</param>
-    /// <param name="msgBoxHeight">The height of the message box interior.</param>
-    /// <param name="tileSize">The scaled tile size.</param>
-    /// <param name="gameTime">The game time for animation timing.</param>
-    /// <param name="msgBox">The message box component (modified to update animation time).</param>
-    /// <param name="currentScale">The viewport scale factor.</param>
-    private void RenderDownArrow(
-        PopupOutlineDefinition tilesheetDef,
-        int msgBoxX,
-        int msgBoxY,
-        int msgBoxWidth,
-        int msgBoxHeight,
-        int tileSize,
-        GameTime gameTime,
+    /// <param name="sceneEntity">The scene entity.</param>
+    /// <param name="msgBox">The message box component.</param>
+    /// <param name="gameTime">The game time.</param>
+    private void RenderMessageBoxText(
+        Entity sceneEntity,
         ref MessageBoxComponent msgBox,
-        int currentScale
+        GameTime gameTime
     )
     {
-        // Get sprite configuration from constants
-        var spriteId = _constants.GetString("DownArrowSpriteId");
-        var animationName = _constants.GetString("DownArrowAnimation");
+        // Get scene component for camera mode
+        if (!World.Has<SceneComponent>(sceneEntity))
+            return;
 
-        // Load and cache DownArrow texture from sprite definition
-        if (_downArrowTexture == null)
-        {
-            try
-            {
-                _downArrowTexture = _resourceManager.LoadTexture(spriteId);
-            }
-            catch (Exception ex)
-            {
-                _logger.Warning(ex, "Failed to load DownArrow sprite: {SpriteId}", spriteId);
-                return;
-            }
-        }
+        ref var scene = ref World.Get<SceneComponent>(sceneEntity);
 
-        // Get animation frames from sprite definition (uses ResourceManager's precomputed cache)
-        IReadOnlyList<SpriteAnimationFrame> frames;
+        // Get camera based on CameraMode using helper utility
+        var camera = SceneCameraHelper.GetCameraForScene(World, ref scene, _cameraService, _cameraQuery);
+
+        if (!camera.HasValue)
+            return;
+
+        // Save original viewport
+        var savedViewport = _graphicsDevice.Viewport;
+
         try
         {
-            frames = _resourceManager.GetAnimationFrames(spriteId, animationName);
+            // Set viewport to camera's virtual viewport (if available)
+            if (camera.Value.VirtualViewport != Rectangle.Empty)
+                _graphicsDevice.Viewport = new Viewport(camera.Value.VirtualViewport);
+
+            // Calculate viewport scale factor
+            var currentScale = CameraTransformUtility.GetViewportScale(
+                camera.Value,
+                _gbaReferenceWidth
+            );
+
+            // Render in screen space (no camera transform)
+            _spriteBatch.Begin(
+                SpriteSortMode.Deferred,
+                BlendState.AlphaBlend,
+                SamplerState.PointClamp,
+                DepthStencilState.None,
+                RasterizerState.CullCounterClockwise,
+                null,
+                Matrix.Identity // Screen space - no camera transform
+            );
+
+            // Get tilesheet definition for position calculation
+            var tilesheetDef = ValidateAndGetTilesheet();
+
+            // Calculate message box interior position and dimensions
+            var viewportWidth = _graphicsDevice.Viewport.Width;
+            var viewportHeight = _graphicsDevice.Viewport.Height;
+            var gbaReferenceHeight = _gbaReferenceHeight;
+
+            var gbaInteriorX = _messageBoxInteriorTileX * tilesheetDef.TileWidth;
+            var gbaInteriorY = _messageBoxInteriorTileY * tilesheetDef.TileHeight;
+
+            var scaleX = (float)viewportWidth / _gbaReferenceWidth;
+            var scaleY = (float)viewportHeight / gbaReferenceHeight;
+            var msgBoxInteriorX = (int)(gbaInteriorX * scaleX);
+            var msgBoxInteriorY = (int)(gbaInteriorY * scaleY);
+            var msgBoxInteriorWidth = _messageBoxInteriorWidth * currentScale;
+            var msgBoxInteriorHeight = _messageBoxInteriorHeight * currentScale;
+
+            // Calculate scaled font size
+            var scaledFontSize = _constants.Get<int>("DefaultFontSize") * currentScale;
+
+            // Render text content using legacy renderer
+            var contentRenderer = new MessageBoxContentRenderer(
+                _resourceManager,
+                scaledFontSize,
+                currentScale,
+                _constants,
+                _logger,
+                _textEffectCalculator,
+                _modManager
+            );
+
+            contentRenderer.RenderContent(
+                _spriteBatch,
+                ref msgBox,
+                msgBoxInteriorX,
+                msgBoxInteriorY,
+                msgBoxInteriorWidth,
+                msgBoxInteriorHeight
+            );
+
+            _spriteBatch.End();
         }
-        catch (Exception ex)
+        finally
         {
-            _logger.Warning(ex, "Failed to get DownArrow animation frames: {SpriteId}/{Animation}",
-                spriteId, animationName);
-            return;
+            // Always restore viewport, even if rendering fails
+            _graphicsDevice.Viewport = savedViewport;
         }
-
-        if (frames.Count == 0)
-            return;
-
-        // Update animation time (tied to render frequency for correct timing)
-        // Note: This is a rendering-specific animation, so updating here ensures
-        // it matches the visual frame rate rather than update rate
-        msgBox.DownArrowAnimationTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        // Calculate total duration for wrapping
-        var totalDuration = 0f;
-        foreach (var frame in frames)
-            totalDuration += frame.DurationSeconds;
-
-        // Loop the animation (wrap around when exceeding total duration)
-        if (totalDuration > 0)
-        {
-            msgBox.DownArrowAnimationTime = msgBox.DownArrowAnimationTime % totalDuration;
-        }
-
-        // Find current frame based on elapsed time (using cumulative durations)
-        var elapsed = msgBox.DownArrowAnimationTime;
-        var currentFrameIndex = 0;
-        var cumulativeTime = 0f;
-        
-        for (var i = 0; i < frames.Count; i++)
-        {
-            cumulativeTime += frames[i].DurationSeconds;
-            if (elapsed < cumulativeTime)
-            {
-                currentFrameIndex = i;
-                break;
-            }
-        }
-        
-        // Fallback to last frame if elapsed time exceeds total duration
-        if (currentFrameIndex >= frames.Count)
-            currentFrameIndex = frames.Count - 1;
-
-        // Get source rectangle for current animation frame
-        var srcRect = frames[currentFrameIndex].SourceRectangle;
-
-        // Calculate text cursor position (like pokeemerald-expansion's TextPrinterDrawDownArrow)
-        // The arrow appears at the position where the next character would print
-        var textPaddingX = _textPaddingX * currentScale;
-        var textPaddingY = _constants.Get<int>("TextPaddingTop") * currentScale;
-        var textStartX = msgBoxX + textPaddingX;
-        var textStartY = msgBoxY + textPaddingY;
-
-        // Calculate scaled font and line spacing (matching MessageBoxContentRenderer)
-        var scaledFontSize = _defaultFontSize * currentScale;
-        var lineSpacing = msgBox.LineSpacing * currentScale + scaledFontSize;
-
-        // Calculate scroll offset in scaled pixels
-        var scrollOffsetPixels = (int)(msgBox.ScrollOffset * currentScale);
-
-        // Find which line the cursor is on and calculate position
-        int arrowX = textStartX;
-        int arrowY = textStartY - scrollOffsetPixels;
-
-        if (msgBox.WrappedLines != null && msgBox.WrappedLines.Count > 0)
-        {
-            // Find the current line containing the cursor
-            var lineIndex = 0;
-            WrappedLine? currentLine = null;
-            var linesFromPageStart = 0;
-
-            foreach (var line in msgBox.WrappedLines)
-            {
-                // Skip lines before PageStartLine
-                if (lineIndex < msgBox.PageStartLine)
-                {
-                    lineIndex++;
-                    continue;
-                }
-
-                // Check if this line contains or is just before the cursor
-                if (msgBox.CurrentCharIndex <= line.EndIndex)
-                {
-                    currentLine = line;
-                    break;
-                }
-
-                linesFromPageStart++;
-                lineIndex++;
-            }
-
-            if (currentLine.HasValue)
-            {
-                var line = currentLine.Value;
-                
-                // Calculate Y position based on line number from page start
-                arrowY = textStartY - scrollOffsetPixels + (linesFromPageStart * lineSpacing);
-
-                // Calculate X position by measuring text width on current line
-                var charsOnLine = msgBox.CurrentCharIndex - line.StartIndex;
-                charsOnLine = Math.Min(charsOnLine, line.Text.Length);
-
-                if (charsOnLine > 0 && !string.IsNullOrEmpty(line.Text))
-                {
-                    try
-                    {
-                        var fontSystem = _resourceManager.LoadFont(msgBox.FontId);
-                        var font = fontSystem.GetFont(scaledFontSize);
-                        var textToMeasure = line.Text.Substring(0, charsOnLine);
-                        var textBounds = font.MeasureString(textToMeasure);
-                        arrowX = textStartX + (int)textBounds.X;
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Warning(ex, "Failed to measure text for arrow positioning");
-                        // Fall back to start position
-                    }
-                }
-            }
-        }
-
-        // Arrow sprite is 8x16 pixels (scaled) - use actual frame dimensions
-        var arrowWidth = srcRect.Width * currentScale;
-        var arrowHeight = srcRect.Height * currentScale;
-
-        var destRect = new Rectangle(arrowX, arrowY, arrowWidth, arrowHeight);
-        _spriteBatch.Draw(_downArrowTexture, destRect, srcRect, Color.White);
     }
+
+    // Note: RenderDownArrow() method removed in Phase 2
+    // Down arrow is now an entity rendered by UIRenderSystem
+    // Position and visibility are updated in UpdateDownArrowPosition()
+    //
+    // Note: RenderMessageBox() method removed in Phase 3
+    // Window, border, background are now entities rendered by UIRenderSystem
+    // Text rendering extracted to RenderMessageBoxText() (will be refactored to UITextComponent in future)
 
     /// <summary>
     ///     Protected dispose method following standard dispose pattern.
@@ -2040,11 +2058,12 @@ public class MessageBoxSceneSystem
             _messageBoxTexture?.Dispose();
             _messageBoxTexture = null;
 
-            _downArrowTexture?.Dispose();
-            _downArrowTexture = null;
+            // Note: _downArrowTexture removed - down arrow is now an entity, texture managed by ResourceManager
 
-            // Clear tracked scene entity
+            // Clear tracked entities
             _activeMessageBoxSceneEntity = null;
+            _windowEntity = null;
+            _downArrowEntity = null;
         }
 
         _disposed = true;
