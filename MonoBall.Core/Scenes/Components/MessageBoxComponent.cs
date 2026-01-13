@@ -225,4 +225,14 @@ public struct MessageBoxComponent
     ///     Used to prevent sound spam for fast text.
     /// </summary>
     public float LastPerCharacterSoundTime { get; set; }
+
+    // ============================================
+    // Down Arrow Animation State
+    // ============================================
+
+    /// <summary>
+    ///     Elapsed time for down arrow animation (seconds).
+    ///     Used to cycle through the 6-frame animation from pokeemerald-expansion.
+    /// </summary>
+    public float DownArrowAnimationTime { get; set; }
 }

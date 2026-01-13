@@ -14,6 +14,7 @@ using MonoBall.Core.ECS.Events;
 using MonoBall.Core.ECS.Events.Audio;
 using MonoBall.Core.ECS.Input;
 using MonoBall.Core.ECS.Services;
+using MonoBall.Core.Maps;
 using MonoBall.Core.Mods;
 using MonoBall.Core.Rendering;
 using MonoBall.Core.Resources;
@@ -86,6 +87,9 @@ public class MessageBoxSceneSystem
 
     // Texture cache for message box tilesheet
     private Texture2D? _messageBoxTexture;
+
+    // Texture cache for down arrow sprite (from pokeemerald-expansion)
+    private Texture2D? _downArrowTexture;
 
     /// <summary>
     ///     Initializes a new instance of the MessageBoxSceneSystem.
@@ -1763,16 +1767,19 @@ public class MessageBoxSceneSystem
             );
 
             // Render down arrow indicator if waiting for input
+            // Uses pokeemerald-expansion DownArrow sprite with proper animation
+            // Positioned at text cursor location (like pokeemerald-expansion)
             if (msgBox.IsWaitingForInput)
                 RenderDownArrow(
-                    tilesheetTexture,
                     tilesheetDef,
                     msgBoxInteriorX,
                     msgBoxInteriorY,
                     msgBoxInteriorWidth,
                     msgBoxInteriorHeight,
                     tileSize,
-                    gameTime
+                    gameTime,
+                    ref msgBox,
+                    currentScale
                 );
 
             _spriteBatch.End();
@@ -1832,69 +1839,189 @@ public class MessageBoxSceneSystem
 
     /// <summary>
     ///     Renders the down arrow indicator when waiting for input.
+    ///     Uses the sprite and animation specified in messagebox constants.
+    ///     Positioned at text cursor location (like pokeemerald-expansion's TextPrinterDrawDownArrow).
     /// </summary>
-    /// <param name="texture">The tilesheet texture.</param>
-    /// <param name="tilesheetDef">The tilesheet definition.</param>
-    /// <param name="msgBoxX">The X position of the message box.</param>
-    /// <param name="msgBoxY">The Y position of the message box.</param>
-    /// <param name="msgBoxWidth">The width of the message box.</param>
-    /// <param name="msgBoxHeight">The height of the message box.</param>
+    /// <remarks>
+    ///     Note: Animation time is updated here (in Render) rather than in Update() because
+    ///     this is a visual animation that should match the render frame rate, not the update rate.
+    ///     This ensures the animation speed matches the visual presentation, especially when
+    ///     update and render frequencies differ (e.g., frame skipping, vsync).
+    /// </remarks>
+    /// <param name="tilesheetDef">The tilesheet definition (for positioning calculations).</param>
+    /// <param name="msgBoxX">The X position of the message box interior.</param>
+    /// <param name="msgBoxY">The Y position of the message box interior.</param>
+    /// <param name="msgBoxWidth">The width of the message box interior.</param>
+    /// <param name="msgBoxHeight">The height of the message box interior.</param>
     /// <param name="tileSize">The scaled tile size.</param>
-    /// <param name="gameTime">The game time for animation.</param>
+    /// <param name="gameTime">The game time for animation timing.</param>
+    /// <param name="msgBox">The message box component (modified to update animation time).</param>
+    /// <param name="currentScale">The viewport scale factor.</param>
     private void RenderDownArrow(
-        Texture2D texture,
         PopupOutlineDefinition tilesheetDef,
         int msgBoxX,
         int msgBoxY,
         int msgBoxWidth,
         int msgBoxHeight,
         int tileSize,
-        GameTime gameTime
+        GameTime gameTime,
+        ref MessageBoxComponent msgBox,
+        int currentScale
     )
     {
-        // Use tile 9 for down arrow (or first available tile after frame tiles)
-        var arrowTileIndex = 9; // Default to tile 9
+        // Get sprite configuration from constants
+        var spriteId = _constants.GetString("DownArrowSpriteId");
+        var animationName = _constants.GetString("DownArrowAnimation");
 
-        // Get source rectangle for arrow tile
-        Rectangle GetArrowTileSourceRect(int tileIndex)
+        // Load and cache DownArrow texture from sprite definition
+        if (_downArrowTexture == null)
         {
-            if (tilesheetDef.Tiles != null)
-                foreach (var tile in tilesheetDef.Tiles)
-                    if (tile != null && tile.Index == tileIndex)
-                        return new Rectangle(tile.X, tile.Y, tile.Width, tile.Height);
-
-            // Calculate from grid position if not in Tiles array
-            var tileWidth = tilesheetDef.TileWidth;
-            var tileHeight = tilesheetDef.TileHeight;
-            var columns =
-                tilesheetDef.TileCount > 0
-                    ? (int)Math.Sqrt(tilesheetDef.TileCount)
-                    : _constants.Get<int>("DefaultTilesheetColumns");
-            var row = tileIndex / columns;
-            var col = tileIndex % columns;
-            var tileX = col * tileWidth;
-            var tileY = row * tileHeight;
-            return new Rectangle(tileX, tileY, tileWidth, tileHeight);
+            try
+            {
+                _downArrowTexture = _resourceManager.LoadTexture(spriteId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Warning(ex, "Failed to load DownArrow sprite: {SpriteId}", spriteId);
+                return;
+            }
         }
 
-        var arrowSrcRect = GetArrowTileSourceRect(arrowTileIndex);
+        // Get animation frames from sprite definition (uses ResourceManager's precomputed cache)
+        IReadOnlyList<SpriteAnimationFrame> frames;
+        try
+        {
+            frames = _resourceManager.GetAnimationFrames(spriteId, animationName);
+        }
+        catch (Exception ex)
+        {
+            _logger.Warning(ex, "Failed to get DownArrow animation frames: {SpriteId}/{Animation}",
+                spriteId, animationName);
+            return;
+        }
 
-        // Animate arrow: blink every 0.5 seconds (time-based for frame-rate independence)
-        // Convert frames to seconds: ArrowBlinkFrames (30) / 60 FPS = 0.5 seconds
-        var arrowBlinkFrames = _constants.Get<int>("ArrowBlinkFrames");
-        var blinkIntervalSeconds = arrowBlinkFrames / 60.0; // GBA frame rate is 60 FPS
-        var isVisible = (int)(gameTime.TotalGameTime.TotalSeconds / blinkIntervalSeconds) % 2 == 0;
-        if (!isVisible)
-            return; // Don't render during "off" phase
+        if (frames.Count == 0)
+            return;
 
-        // Position at bottom-right of message box frame (inside frame, padded from edges)
-        var arrowPadding =
-            _constants.Get<int>("TextPaddingTop") * (tileSize / tilesheetDef.TileWidth); // Scale padding
-        var arrowX = msgBoxX + msgBoxWidth - tileSize - arrowPadding;
-        var arrowY = msgBoxY + msgBoxHeight - tileSize - arrowPadding;
+        // Update animation time (tied to render frequency for correct timing)
+        // Note: This is a rendering-specific animation, so updating here ensures
+        // it matches the visual frame rate rather than update rate
+        msgBox.DownArrowAnimationTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        var destRect = new Rectangle(arrowX, arrowY, tileSize, tileSize);
-        _spriteBatch.Draw(texture, destRect, arrowSrcRect, Color.White);
+        // Calculate total duration for wrapping
+        var totalDuration = 0f;
+        foreach (var frame in frames)
+            totalDuration += frame.DurationSeconds;
+
+        // Loop the animation (wrap around when exceeding total duration)
+        if (totalDuration > 0)
+        {
+            msgBox.DownArrowAnimationTime = msgBox.DownArrowAnimationTime % totalDuration;
+        }
+
+        // Find current frame based on elapsed time (using cumulative durations)
+        var elapsed = msgBox.DownArrowAnimationTime;
+        var currentFrameIndex = 0;
+        var cumulativeTime = 0f;
+        
+        for (var i = 0; i < frames.Count; i++)
+        {
+            cumulativeTime += frames[i].DurationSeconds;
+            if (elapsed < cumulativeTime)
+            {
+                currentFrameIndex = i;
+                break;
+            }
+        }
+        
+        // Fallback to last frame if elapsed time exceeds total duration
+        if (currentFrameIndex >= frames.Count)
+            currentFrameIndex = frames.Count - 1;
+
+        // Get source rectangle for current animation frame
+        var srcRect = frames[currentFrameIndex].SourceRectangle;
+
+        // Calculate text cursor position (like pokeemerald-expansion's TextPrinterDrawDownArrow)
+        // The arrow appears at the position where the next character would print
+        var textPaddingX = _textPaddingX * currentScale;
+        var textPaddingY = _constants.Get<int>("TextPaddingTop") * currentScale;
+        var textStartX = msgBoxX + textPaddingX;
+        var textStartY = msgBoxY + textPaddingY;
+
+        // Calculate scaled font and line spacing (matching MessageBoxContentRenderer)
+        var scaledFontSize = _defaultFontSize * currentScale;
+        var lineSpacing = msgBox.LineSpacing * currentScale + scaledFontSize;
+
+        // Calculate scroll offset in scaled pixels
+        var scrollOffsetPixels = (int)(msgBox.ScrollOffset * currentScale);
+
+        // Find which line the cursor is on and calculate position
+        int arrowX = textStartX;
+        int arrowY = textStartY - scrollOffsetPixels;
+
+        if (msgBox.WrappedLines != null && msgBox.WrappedLines.Count > 0)
+        {
+            // Find the current line containing the cursor
+            var lineIndex = 0;
+            WrappedLine? currentLine = null;
+            var linesFromPageStart = 0;
+
+            foreach (var line in msgBox.WrappedLines)
+            {
+                // Skip lines before PageStartLine
+                if (lineIndex < msgBox.PageStartLine)
+                {
+                    lineIndex++;
+                    continue;
+                }
+
+                // Check if this line contains or is just before the cursor
+                if (msgBox.CurrentCharIndex <= line.EndIndex)
+                {
+                    currentLine = line;
+                    break;
+                }
+
+                linesFromPageStart++;
+                lineIndex++;
+            }
+
+            if (currentLine.HasValue)
+            {
+                var line = currentLine.Value;
+                
+                // Calculate Y position based on line number from page start
+                arrowY = textStartY - scrollOffsetPixels + (linesFromPageStart * lineSpacing);
+
+                // Calculate X position by measuring text width on current line
+                var charsOnLine = msgBox.CurrentCharIndex - line.StartIndex;
+                charsOnLine = Math.Min(charsOnLine, line.Text.Length);
+
+                if (charsOnLine > 0 && !string.IsNullOrEmpty(line.Text))
+                {
+                    try
+                    {
+                        var fontSystem = _resourceManager.LoadFont(msgBox.FontId);
+                        var font = fontSystem.GetFont(scaledFontSize);
+                        var textToMeasure = line.Text.Substring(0, charsOnLine);
+                        var textBounds = font.MeasureString(textToMeasure);
+                        arrowX = textStartX + (int)textBounds.X;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warning(ex, "Failed to measure text for arrow positioning");
+                        // Fall back to start position
+                    }
+                }
+            }
+        }
+
+        // Arrow sprite is 8x16 pixels (scaled) - use actual frame dimensions
+        var arrowWidth = srcRect.Width * currentScale;
+        var arrowHeight = srcRect.Height * currentScale;
+
+        var destRect = new Rectangle(arrowX, arrowY, arrowWidth, arrowHeight);
+        _spriteBatch.Draw(_downArrowTexture, destRect, srcRect, Color.White);
     }
 
     /// <summary>
@@ -1909,9 +2036,12 @@ public class MessageBoxSceneSystem
             foreach (var subscription in _subscriptions)
                 subscription.Dispose();
 
-            // Dispose cached texture to prevent memory leak
+            // Dispose cached textures to prevent memory leak
             _messageBoxTexture?.Dispose();
             _messageBoxTexture = null;
+
+            _downArrowTexture?.Dispose();
+            _downArrowTexture = null;
 
             // Clear tracked scene entity
             _activeMessageBoxSceneEntity = null;

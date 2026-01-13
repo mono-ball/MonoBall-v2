@@ -12,8 +12,9 @@ namespace Porycon3.Services;
 /// </summary>
 public class FontExtractor : ExtractorBase
 {
-    // Animation timing for arrows: ~100ms per frame
-    private const double ArrowFrameDuration = 0.1;
+    // Animation timing for arrows: 8 GBA ticks @ 60fps = 0.1333 seconds per frame
+    // See pokeemerald-expansion/src/text.c line 1139: *counter = 8 * GetPlayerTextSpeedModifier();
+    private const double ArrowFrameDuration = 0.1333;
 
     public override string Name => "Fonts";
     public override string Description => "Extracts font graphics and character maps";
@@ -88,7 +89,9 @@ public class FontExtractor : ExtractorBase
         }
 
         // Animated elements
-        var animatedElements = new[] { ("down_arrow", "Down Arrow", 8, 8), ("down_arrow_alt", "Down Arrow Alt", 8, 8) };
+        // Down arrows are 8x16 (2 tiles tall) with Y-offset bounce animation
+        // See pokeemerald-expansion/src/text.c: sDownArrowYCoords[] = { 0, 1, 2, 1 }
+        var animatedElements = new[] { ("down_arrow", "Down Arrow", 8, 16), ("down_arrow_alt", "Down Arrow Alt", 8, 16) };
         foreach (var (fileName, _, _, _) in animatedElements)
         {
             if (File.Exists(Path.Combine(fontsPath, $"{fileName}.png")))
@@ -313,26 +316,42 @@ public class FontExtractor : ExtractorBase
         var pngPath = Path.Combine(fontsPath, $"{fileName}.png");
         if (!File.Exists(pngPath)) return false;
 
-        using var image = Image.Load<Rgba32>(pngPath);
-        var frameCount = image.Height / frameHeight;
-
         var pascalName = ToPascalCase(fileName);
         var outputPngPath = GetGraphicsPath("UI", "Interface", $"{pascalName}.png");
         ConvertToTransparentPngByCornerColor(pngPath, outputPngPath);
 
+        // For down arrows, pokeemerald uses Y-offset bounce animation:
+        // sDownArrowYCoords[] = { 0, 1, 2, 1 } - shifts source Y by 0, 1, 2, 1 pixels
+        // This creates a subtle 2-pixel vertical bounce effect
+        // We define 3 frames with overlapping source rectangles (Y-offsets 0, 1, 2)
+        // and animate with sequence [0, 1, 2, 1] to create the bounce
+        var frameCount = 3; // Only need 3 unique frames (Y-offsets 0, 1, 2)
+
         var frames = new List<object>();
         for (var i = 0; i < frameCount; i++)
         {
-            frames.Add(new { index = i, x = 0, y = i * frameHeight, width = frameWidth, height = frameHeight });
+            // Each frame is 8x16 but starts at Y-offset 0, 1, 2 pixels (overlapping regions)
+            frames.Add(new { index = i, x = 0, y = i, width = frameWidth, height = frameHeight });
         }
 
-        var frameIndices = Enumerable.Range(0, frameCount).ToList();
-        var frameDurations = Enumerable.Repeat(ArrowFrameDuration, frameCount).ToList();
+        // Bounce animation: 0 -> 1 -> 2 -> 1 -> (repeat)
+        // Matches pokeemerald sDownArrowYCoords[] = { 0, 1, 2, 1 }
+        var frameIndices = new List<int> { 0, 1, 2, 1 };
+        var frameSequence = Enumerable.Repeat(ArrowFrameDuration, 4).ToList();
 
         var animations = new List<object>
         {
-            new { name = "idle", loop = true, frameIndices, frameDurations, flipHorizontal = false }
+            new {
+                name = "idle",
+                animationType = "idle",
+                loop = true,
+                frameIndices,
+                frameSequence,
+                flipHorizontal = false
+            }
         };
+
+        var capabilities = new { directional = false, movementAnimated = false };
 
         var definition = new
         {
@@ -343,6 +362,9 @@ public class FontExtractor : ExtractorBase
             frameWidth,
             frameHeight,
             frameCount,
+            animationProfileId = $"{IdTransformer.Namespace}:profile:animation/ui",
+            defaultAnimation = "idle",
+            capabilities,
             frames,
             animations
         };

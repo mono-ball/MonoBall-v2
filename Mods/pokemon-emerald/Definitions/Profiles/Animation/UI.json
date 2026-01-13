@@ -1,0 +1,21 @@
+{
+  "id": "pokeemerald:profile:animation/ui",
+  "definitionType": "AnimationProfile",
+  "name": "UI Animation Profile",
+  "description": "Animation durations for UI elements matching GBA timing (8 ticks = 0.1333s at 60fps)",
+  "animations": {
+    "idle": {
+      "duration": 0.1333,
+      "description": "Default UI idle animation (8 GBA ticks @ 60fps = 0.1333s per frame)"
+    },
+    "blink": {
+      "duration": 0.5,
+      "description": "Blinking animation (30 GBA ticks @ 60fps)"
+    },
+    "pulse": {
+      "duration": 0.1333,
+      "description": "Pulsing animation (8 GBA ticks @ 60fps per frame)"
+    }
+  },
+  "defaultAnimation": "idle"
+}
